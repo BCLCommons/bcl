@@ -1,0 +1,15 @@
+bcl::score::ProteinModelScoreSum
+  ProteinModelScoreSum(
+    offset=0,
+    terms(
+      (
+        weight=1,
+        rgyr(
+          raw=0,
+          normalize=0,
+          histogram file name soluble=radius_of_gyration_chains.histogram,
+          histogram file name membrane=radius_of_gyration_model_membrane.histogram
+        )
+      )
+    )
+  )

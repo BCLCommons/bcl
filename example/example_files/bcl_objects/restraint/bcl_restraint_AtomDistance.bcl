@@ -1,0 +1,23 @@
+bcl::restraint::AtomDistance
+  bcl::restraint::DataPairwise
+    bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+      12345678
+      bcl::restraint::LocatorCoordinatesHydrogen
+        A
+        30
+        "HD13"
+        bcl::biol::AtomTypes::Enum
+          "HD13"
+    bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+      12345678
+      bcl::restraint::LocatorCoordinatesHydrogen
+        A
+        43
+        "HD21"
+        bcl::biol::AtomTypes::Enum
+          "HD21"
+
+  bcl::util::ShPtr<bcl::restraint::Distance>
+    12345678
+    bcl::restraint::Distance
+      3      3.75      1.8

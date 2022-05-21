@@ -1,0 +1,31 @@
+HEADER  BCL MODEL                                                               
+SEQRES   1 A   76  MET GLN ILE PHE VAL LYS THR LEU THR GLY LYS THR ILE          
+SEQRES   2 A   76  THR LEU GLU VAL GLU PRO SER ASP THR ILE GLU ASN VAL          
+SEQRES   3 A   76  LYS ALA LYS ILE GLN ASP LYS GLU GLY ILE PRO PRO ASP          
+SEQRES   4 A   76  GLN GLN ARG LEU ILE PHE ALA GLY LYS GLN LEU GLU ASP          
+SEQRES   5 A   76  GLY ARG THR LEU SER ASP TYR ASN ILE GLN LYS GLU SER          
+SEQRES   6 A   76  THR LEU HIS LEU VAL LEU ARG LEU ARG GLY GLY                  
+HELIX    1   1 LEU A   56  TYR A   59  1                                   4    
+ATOM      1  N   LEU A  56      34.840  25.623  14.936  1.00  5.61           N  
+ATOM      2  CA  LEU A  56      35.656  26.516  15.765  1.00  8.39           C  
+ATOM      3  C   LEU A  56      37.026  26.748  15.152  1.00  7.37           C  
+ATOM      4  O   LEU A  56      37.602  27.820  15.250  1.00 10.62           O  
+ATOM      5  CB  LEU A  56      35.860  25.863  17.152  1.00  8.18           C  
+ATOM      6  N   SER A  57      37.490  25.658  14.502  1.00  6.95           N  
+ATOM      7  CA  SER A  57      38.798  25.700  13.839  1.00  8.36           C  
+ATOM      8  C   SER A  57      38.783  26.620  12.632  1.00 11.59           C  
+ATOM      9  O   SER A  57      39.734  27.333  12.353  1.00 18.59           O  
+ATOM     10  CB  SER A  57      39.156  24.278  13.348  1.00  7.72           C  
+ATOM     11  N   ASP A  58      37.618  26.555  11.949  1.00  7.08           N  
+ATOM     12  CA  ASP A  58      37.418  27.383  10.755  1.00 10.67           C  
+ATOM     13  C   ASP A  58      37.438  28.863  11.093  1.00 11.96           C  
+ATOM     14  O   ASP A  58      38.030  29.675  10.400  1.00 10.57           O  
+ATOM     15  CB  ASP A  58      36.037  27.053  10.143  1.00  9.52           C  
+ATOM     16  N   TYR A  59      36.753  29.142  12.224  1.00  7.50           N  
+ATOM     17  CA  TYR A  59      36.669  30.523  12.712  1.00 12.45           C  
+ATOM     18  C   TYR A  59      38.035  31.061  13.100  1.00  7.02           C  
+ATOM     19  O   TYR A  59      38.372  32.207  12.845  1.00 23.13           O  
+ATOM     20  CB  TYR A  59      35.771  30.556  13.970  1.00  5.61           C  
+TER      21      TYR A  59                                                      
+MASTER        0    0    0    1    0    0    0    0   20    1    0    6          
+END                                                                             

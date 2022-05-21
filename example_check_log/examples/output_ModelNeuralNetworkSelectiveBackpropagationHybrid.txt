@@ -1,0 +1,80 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ModelNeuralNetworkSelectiveBackpropagationHybrid 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ModelNeuralNetworkSelectiveBackpropagationHybrid
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ModelNeuralNetworkSelectiveBackpropagationHybrid ====================
+=std=bcl::model=> For result # 0 #Above cutoff: 15 #Below: 57
+=std=bcl::model=> For result # 0 #Above cutoff: 15 #Below: 57
+=std=bcl=> successful example check:  backprop_selector.GetAlias() == Hybrid
+=std=bcl=> Imbalance (due to better prediction of below-cutoff values) test succeeded:
+               backprop_count_below == 1
+               (+/- 2)
+=std=bcl=> Imbalance (due to better prediction of below-cutoff values) test succeeded:
+               backprop_count_below == 1
+               (+/- 2)
+=std=bcl=> Check of absolute # backpropagated test succeeded:  backprop_count == 16  (+/- 4)
+=std=bcl=> Balancing when results were correct test succeeded:
+               backprop_count_below == backprop_count_above == 0
+               (+/- 4)
+=std=bcl=> little should be backpropagated given correct results test succeeded:  backprop_count_below == 0  (+/- 2)
+=std=bcl=> Rebalancing when average is far off should favor features on the side of the cutoff furthest from the average test succeeded:
+              backprop_count == backprop_count_below == 1  (+/- 4)
+=std=bcl::app=> BCL Example | END  : ModelNeuralNetworkSelectiveBackpropagationHybrid ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>                          success      error error_string 
+ModelNeuralNetworkSelectiveBackpropagationHybrid_total          7          0              
+total                                                           7          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

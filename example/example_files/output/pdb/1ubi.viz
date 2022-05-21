@@ -1,0 +1,24 @@
+Graph G {
+overlap=scale
+splines=true
+{node [shape=circle,style="setlinewidth(5)"]
+ "HELIX A   23 ILE <==>   34 GLU" [label="A  23- 34",color="0.302 1.000 1.000",pos="13.2, 37.3"]
+}
+
+{node [shape=box,height=0.4,width=0.8,style="setlinewidth(5)"]
+ "STRAND A    1 MET <==>    7 THR" [label="A   1-  7",color="0.633 1.000 0.833",pos="9.6, 27.5"]
+ "STRAND A   10 GLY <==>   17 VAL" [label="A  10- 17",color="0.463 1.000 0.562",pos="8.8, 30.6"]
+ "STRAND A   40 GLN <==>   45 PHE" [label="A  40- 45",color="0.205 1.000 1.000",pos="21.2, 29.9"]
+ "STRAND A   48 LYS <==>   50 LEU" [label="A  48- 50",color="0.160 1.000 1.000",pos="22.8, 24.7"]
+ "STRAND A   64 GLU <==>   72 ARG" [label="A  64- 72",color="0.028 1.000 1.000",pos="16.8, 27.6"]
+}
+
+"HELIX A   23 ILE <==>   34 GLU" -- "STRAND A    1 MET <==>    7 THR" [len=1.16774, weight=-11.6774, style=dashed, penwidth=4.0625, color="0.667 0.384 1.000"];
+"HELIX A   23 ILE <==>   34 GLU" -- "STRAND A   10 GLY <==>   17 VAL" [len=0.974022, weight=-9.74022, style=dashed, penwidth=2.875, color="0.667 1.000 1.000"];
+"HELIX A   23 ILE <==>   34 GLU" -- "STRAND A   40 GLN <==>   45 PHE" [len=1.0029, weight=-10.029, style=dashed, penwidth=2.75, color="0.667 1.000 1.000"];
+"HELIX A   23 ILE <==>   34 GLU" -- "STRAND A   64 GLU <==>   72 ARG" [len=1.24495, weight=-12.4495, style=dashed, penwidth=5.9375, color="0.667 0.108 1.000"];
+"STRAND A    1 MET <==>    7 THR" -- "STRAND A   10 GLY <==>   17 VAL" [len=0.442376, weight=-4.42376, style=bold, penwidth=2.1875, color="0.667 1.000 1.000"];
+"STRAND A    1 MET <==>    7 THR" -- "STRAND A   64 GLU <==>   72 ARG" [len=0.44393, weight=-4.4393, style=bold, penwidth=9, color="0.667 1.000 1.000"];
+"STRAND A   40 GLN <==>   45 PHE" -- "STRAND A   48 LYS <==>   50 LEU" [len=0.452536, weight=-4.52536, style=bold, penwidth=1.8125, color="0.667 1.000 1.000"];
+"STRAND A   40 GLN <==>   45 PHE" -- "STRAND A   64 GLU <==>   72 ARG" [len=0.457049, weight=-4.57049, style=bold, penwidth=4.1875, color="0.667 1.000 1.000"];
+}

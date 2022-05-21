@@ -1,0 +1,444 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec SspredOCTOPUS 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> SspredOCTOPUS
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: SspredOCTOPUS ====================
+=std=bcl=> successful example check:
+               def_construct.GetThreeStatePrediction() == def_prediction ==
+              bcl::linal::Vector3D
+                0	0	1
+               (+/- 0.001%)
+=std=bcl=> successful example check:  def_construct.GetFileExtension() == extension == .octo_topo
+=std=bcl=> successful example check:
+               pred_construct.GetThreeStatePrediction() == helix == bcl::linal::Vector3D
+                1	0	0
+               (+/- 0.001%)
+=std=bcl=> successful example check:
+               pred_construct.GetNineStatePrediction().GetRow( 0) == helix ==
+              bcl::linal::VectorReference<double>
+                3
+                1	0	0	
+               (+/- 0.001%)
+=std=bcl=> successful example check:
+              seq.GetAA( 62)->GetSSPrediction( sspred::GetMethods().e_OCTOPUS)->GetThreeStatePrediction() == def_prediction
+              == bcl::linal::Vector3D
+                0	0	1
+               (+/- 0.001%)
+=std=bcl=> successful example check:
+              seq.GetAA( 63)->GetSSPrediction( sspred::GetMethods().e_OCTOPUS)->GetThreeStatePrediction() == correct_pred ==
+              bcl::linal::Vector3D
+                1	0	0
+               (+/- 0.001%)
+=std=bcl=> successful example check:
+              seq.GetAA( 83)->GetSSPrediction( sspred::GetMethods().e_OCTOPUS)->GetThreeStatePrediction() == correct_pred ==
+              bcl::linal::Vector3D
+                1	0	0
+               (+/- 0.001%)
+=std=bcl=> successful example check:
+              seq.GetAA( 84)->GetSSPrediction( sspred::GetMethods().e_OCTOPUS)->GetThreeStatePrediction() == def_prediction
+              == bcl::linal::Vector3D
+                0	0	1
+               (+/- 0.001%)
+=std=bcl=>     1 M MET U: COIL
+=std=bcl=>     2 G GLY U: COIL
+=std=bcl=>     3 V VAL U: COIL
+=std=bcl=>     4 P PRO U: COIL
+=std=bcl=>     5 I ILE U: COIL
+=std=bcl=>     6 G GLY U: COIL
+=std=bcl=>     7 E GLU U: COIL
+=std=bcl=>     8 I ILE U: COIL
+=std=bcl=>     9 I ILE U: COIL
+=std=bcl=>    10 P PRO U: COIL
+=std=bcl=>    11 R ARG U: COIL
+=std=bcl=>    12 K LYS U: COIL
+=std=bcl=>    13 E GLU U: COIL
+=std=bcl=>    14 I ILE U: COIL
+=std=bcl=>    15 E GLU U: COIL
+=std=bcl=>    16 L LEU U: COIL
+=std=bcl=>    17 E GLU U: COIL
+=std=bcl=>    18 N ASN U: COIL
+=std=bcl=>    19 L LEU U: COIL
+=std=bcl=>    20 Y TYR U: COIL
+=std=bcl=>    21 G GLY U: COIL
+=std=bcl=>    22 K LYS U: COIL
+=std=bcl=>    23 K LYS U: COIL
+=std=bcl=>    24 I ILE U: COIL
+=std=bcl=>    25 A ALA U: COIL
+=std=bcl=>    26 I ILE U: COIL
+=std=bcl=>    27 D ASP U: COIL
+=std=bcl=>    28 A ALA U: COIL
+=std=bcl=>    29 L LEU U: COIL
+=std=bcl=>    30 N ASN U: COIL
+=std=bcl=>    31 A ALA U: COIL
+=std=bcl=>    32 I ILE U: COIL
+=std=bcl=>    33 Y TYR U: COIL
+=std=bcl=>    34 Q GLN U: COIL
+=std=bcl=>    35 F PHE U: COIL
+=std=bcl=>    36 L LEU U: COIL
+=std=bcl=>    37 S SER U: COIL
+=std=bcl=>    38 T THR U: COIL
+=std=bcl=>    39 I ILE U: COIL
+=std=bcl=>    40 R ARG U: COIL
+=std=bcl=>    41 Q GLN U: COIL
+=std=bcl=>    42 K LYS U: COIL
+=std=bcl=>    43 D ASP U: COIL
+=std=bcl=>    44 G GLY U: COIL
+=std=bcl=>    45 T THR U: COIL
+=std=bcl=>    46 P PRO U: COIL
+=std=bcl=>    47 L LEU U: COIL
+=std=bcl=>    48 M MET U: COIL
+=std=bcl=>    49 D ASP U: COIL
+=std=bcl=>    50 S SER U: COIL
+=std=bcl=>    51 K LYS U: COIL
+=std=bcl=>    52 G GLY U: COIL
+=std=bcl=>    53 R ARG U: COIL
+=std=bcl=>    54 I ILE U: COIL
+=std=bcl=>    55 T THR U: COIL
+=std=bcl=>    56 S SER U: COIL
+=std=bcl=>    57 H HIS U: COIL
+=std=bcl=>    58 L LEU U: COIL
+=std=bcl=>    59 S SER U: COIL
+=std=bcl=>    60 G GLY U: COIL
+=std=bcl=>    61 L LEU U: COIL
+=std=bcl=>    62 F PHE U: COIL
+=std=bcl=>    63 Y TYR U: COIL
+=std=bcl=>    64 R ARG U: HELIX
+=std=bcl=>    65 T THR U: HELIX
+=std=bcl=>    66 I ILE U: HELIX
+=std=bcl=>    67 N ASN U: HELIX
+=std=bcl=>    68 L LEU U: HELIX
+=std=bcl=>    69 M MET U: HELIX
+=std=bcl=>    70 E GLU U: HELIX
+=std=bcl=>    71 A ALA U: HELIX
+=std=bcl=>    72 G GLY U: HELIX
+=std=bcl=>    73 I ILE U: HELIX
+=std=bcl=>    74 K LYS U: HELIX
+=std=bcl=>    75 P PRO U: HELIX
+=std=bcl=>    76 V VAL U: HELIX
+=std=bcl=>    77 Y TYR U: HELIX
+=std=bcl=>    78 V VAL U: HELIX
+=std=bcl=>    79 F PHE U: HELIX
+=std=bcl=>    80 D ASP U: HELIX
+=std=bcl=>    81 G GLY U: HELIX
+=std=bcl=>    82 E GLU U: HELIX
+=std=bcl=>    83 P PRO U: HELIX
+=std=bcl=>    84 P PRO U: HELIX
+=std=bcl=>    85 E GLU U: COIL
+=std=bcl=>    86 F PHE U: COIL
+=std=bcl=>    87 K LYS U: COIL
+=std=bcl=>    88 K LYS U: COIL
+=std=bcl=>    89 K LYS U: COIL
+=std=bcl=>    90 E GLU U: COIL
+=std=bcl=>    91 L LEU U: COIL
+=std=bcl=>    92 E GLU U: COIL
+=std=bcl=>    93 K LYS U: COIL
+=std=bcl=>    94 R ARG U: COIL
+=std=bcl=>    95 R ARG U: COIL
+=std=bcl=>    96 E GLU U: COIL
+=std=bcl=>    97 A ALA U: COIL
+=std=bcl=>    98 R ARG U: COIL
+=std=bcl=>    99 E GLU U: COIL
+=std=bcl=>   100 E GLU U: COIL
+=std=bcl=>   101 A ALA U: COIL
+=std=bcl=>   102 E GLU U: COIL
+=std=bcl=>   103 E GLU U: COIL
+=std=bcl=>   104 K LYS U: COIL
+=std=bcl=>   105 W TRP U: COIL
+=std=bcl=>   106 R ARG U: COIL
+=std=bcl=>   107 E GLU U: COIL
+=std=bcl=>   108 A ALA U: COIL
+=std=bcl=>   109 L LEU U: COIL
+=std=bcl=>   110 E GLU U: COIL
+=std=bcl=>   111 K LYS U: COIL
+=std=bcl=>   112 G GLY U: COIL
+=std=bcl=>   113 E GLU U: COIL
+=std=bcl=>   114 I ILE U: COIL
+=std=bcl=>   115 E GLU U: COIL
+=std=bcl=>   116 E GLU U: COIL
+=std=bcl=>   117 A ALA U: COIL
+=std=bcl=>   118 R ARG U: COIL
+=std=bcl=>   119 K LYS U: COIL
+=std=bcl=>   120 Y TYR U: COIL
+=std=bcl=>   121 A ALA U: COIL
+=std=bcl=>   122 Q GLN U: COIL
+=std=bcl=>   123 R ARG U: COIL
+=std=bcl=>   124 A ALA U: COIL
+=std=bcl=>   125 T THR U: COIL
+=std=bcl=>   126 R ARG U: COIL
+=std=bcl=>   127 V VAL U: COIL
+=std=bcl=>   128 N ASN U: COIL
+=std=bcl=>   129 E GLU U: COIL
+=std=bcl=>   130 M MET U: COIL
+=std=bcl=>   131 L LEU U: COIL
+=std=bcl=>   132 I ILE U: COIL
+=std=bcl=>   133 E GLU U: COIL
+=std=bcl=>   134 D ASP U: COIL
+=std=bcl=>   135 A ALA U: COIL
+=std=bcl=>   136 K LYS U: COIL
+=std=bcl=>   137 K LYS U: COIL
+=std=bcl=>   138 L LEU U: COIL
+=std=bcl=>   139 L LEU U: COIL
+=std=bcl=>   140 E GLU U: COIL
+=std=bcl=>   141 L LEU U: COIL
+=std=bcl=>   142 M MET U: COIL
+=std=bcl=>   143 G GLY U: COIL
+=std=bcl=>   144 I ILE U: COIL
+=std=bcl=>   145 P PRO U: COIL
+=std=bcl=>   146 I ILE U: COIL
+=std=bcl=>   147 V VAL U: COIL
+=std=bcl=>   148 Q GLN U: COIL
+=std=bcl=>   149 A ALA U: COIL
+=std=bcl=>   150 P PRO U: COIL
+=std=bcl=>   151 S SER U: COIL
+=std=bcl=>   152 E GLU U: COIL
+=std=bcl=>   153 G GLY U: COIL
+=std=bcl=>   154 E GLU U: COIL
+=std=bcl=>   155 A ALA U: COIL
+=std=bcl=>   156 Q GLN U: COIL
+=std=bcl=>   157 A ALA U: COIL
+=std=bcl=>   158 A ALA U: COIL
+=std=bcl=>   159 Y TYR U: COIL
+=std=bcl=>   160 M MET U: COIL
+=std=bcl=>   161 A ALA U: COIL
+=std=bcl=>   162 A ALA U: COIL
+=std=bcl=>   163 K LYS U: COIL
+=std=bcl=>   164 G GLY U: COIL
+=std=bcl=>   165 S SER U: COIL
+=std=bcl=>   166 V VAL U: COIL
+=std=bcl=>   167 Y TYR U: COIL
+=std=bcl=>   168 A ALA U: COIL
+=std=bcl=>   169 S SER U: COIL
+=std=bcl=>   170 A ALA U: COIL
+=std=bcl=>   171 S SER U: COIL
+=std=bcl=>   172 Q GLN U: COIL
+=std=bcl=>   173 D ASP U: COIL
+=std=bcl=>   174 Y TYR U: COIL
+=std=bcl=>   175 D ASP U: COIL
+=std=bcl=>   176 S SER U: COIL
+=std=bcl=>   177 L LEU U: COIL
+=std=bcl=>   178 L LEU U: COIL
+=std=bcl=>   179 F PHE U: COIL
+=std=bcl=>   180 G GLY U: COIL
+=std=bcl=>   181 A ALA U: COIL
+=std=bcl=>   182 P PRO U: COIL
+=std=bcl=>   183 R ARG U: COIL
+=std=bcl=>   184 L LEU U: COIL
+=std=bcl=>   185 V VAL U: COIL
+=std=bcl=>   186 R ARG U: COIL
+=std=bcl=>   187 N ASN U: COIL
+=std=bcl=>   188 L LEU U: COIL
+=std=bcl=>   189 T THR U: COIL
+=std=bcl=>   190 I ILE U: COIL
+=std=bcl=>   191 T THR U: COIL
+=std=bcl=>   192 G GLY U: COIL
+=std=bcl=>   193 K LYS U: COIL
+=std=bcl=>   194 R ARG U: COIL
+=std=bcl=>   195 K LYS U: COIL
+=std=bcl=>   196 L LEU U: COIL
+=std=bcl=>   197 P PRO U: COIL
+=std=bcl=>   198 G GLY U: COIL
+=std=bcl=>   199 K LYS U: COIL
+=std=bcl=>   200 N ASN U: COIL
+=std=bcl=>   201 V VAL U: COIL
+=std=bcl=>   202 Y TYR U: COIL
+=std=bcl=>   203 V VAL U: COIL
+=std=bcl=>   204 E GLU U: COIL
+=std=bcl=>   205 I ILE U: COIL
+=std=bcl=>   206 K LYS U: COIL
+=std=bcl=>   207 P PRO U: COIL
+=std=bcl=>   208 E GLU U: COIL
+=std=bcl=>   209 L LEU U: COIL
+=std=bcl=>   210 I ILE U: COIL
+=std=bcl=>   211 I ILE U: COIL
+=std=bcl=>   212 L LEU U: COIL
+=std=bcl=>   213 E GLU U: COIL
+=std=bcl=>   214 E GLU U: COIL
+=std=bcl=>   215 V VAL U: COIL
+=std=bcl=>   216 L LEU U: COIL
+=std=bcl=>   217 K LYS U: COIL
+=std=bcl=>   218 E GLU U: COIL
+=std=bcl=>   219 L LEU U: COIL
+=std=bcl=>   220 K LYS U: COIL
+=std=bcl=>   221 L LEU U: COIL
+=std=bcl=>   222 T THR U: COIL
+=std=bcl=>   223 R ARG U: COIL
+=std=bcl=>   224 E GLU U: COIL
+=std=bcl=>   225 K LYS U: COIL
+=std=bcl=>   226 L LEU U: COIL
+=std=bcl=>   227 I ILE U: COIL
+=std=bcl=>   228 E GLU U: COIL
+=std=bcl=>   229 L LEU U: COIL
+=std=bcl=>   230 A ALA U: COIL
+=std=bcl=>   231 I ILE U: COIL
+=std=bcl=>   232 L LEU U: COIL
+=std=bcl=>   233 V VAL U: COIL
+=std=bcl=>   234 G GLY U: COIL
+=std=bcl=>   235 T THR U: COIL
+=std=bcl=>   236 D ASP U: COIL
+=std=bcl=>   237 Y TYR U: COIL
+=std=bcl=>   238 N ASN U: COIL
+=std=bcl=>   239 P PRO U: COIL
+=std=bcl=>   240 G GLY U: COIL
+=std=bcl=>   241 G GLY U: COIL
+=std=bcl=>   242 I ILE U: COIL
+=std=bcl=>   243 K LYS U: COIL
+=std=bcl=>   244 G GLY U: COIL
+=std=bcl=>   245 I ILE U: COIL
+=std=bcl=>   246 G GLY U: COIL
+=std=bcl=>   247 L LEU U: COIL
+=std=bcl=>   248 K LYS U: COIL
+=std=bcl=>   249 K LYS U: COIL
+=std=bcl=>   250 A ALA U: COIL
+=std=bcl=>   251 L LEU U: COIL
+=std=bcl=>   252 E GLU U: COIL
+=std=bcl=>   253 I ILE U: COIL
+=std=bcl=>   254 V VAL U: COIL
+=std=bcl=>   255 R ARG U: COIL
+=std=bcl=>   256 H HIS U: COIL
+=std=bcl=>   257 S SER U: COIL
+=std=bcl=>   258 K LYS U: COIL
+=std=bcl=>   259 D ASP U: COIL
+=std=bcl=>   260 P PRO U: COIL
+=std=bcl=>   261 L LEU U: COIL
+=std=bcl=>   262 A ALA U: COIL
+=std=bcl=>   263 K LYS U: COIL
+=std=bcl=>   264 F PHE U: COIL
+=std=bcl=>   265 Q GLN U: COIL
+=std=bcl=>   266 K LYS U: COIL
+=std=bcl=>   267 Q GLN U: COIL
+=std=bcl=>   268 S SER U: COIL
+=std=bcl=>   269 D ASP U: COIL
+=std=bcl=>   270 V VAL U: COIL
+=std=bcl=>   271 D ASP U: COIL
+=std=bcl=>   272 L LEU U: COIL
+=std=bcl=>   273 Y TYR U: COIL
+=std=bcl=>   274 A ALA U: COIL
+=std=bcl=>   275 I ILE U: COIL
+=std=bcl=>   276 K LYS U: COIL
+=std=bcl=>   277 E GLU U: COIL
+=std=bcl=>   278 F PHE U: COIL
+=std=bcl=>   279 F PHE U: COIL
+=std=bcl=>   280 L LEU U: COIL
+=std=bcl=>   281 N ASN U: COIL
+=std=bcl=>   282 P PRO U: COIL
+=std=bcl=>   283 P PRO U: COIL
+=std=bcl=>   284 V VAL U: COIL
+=std=bcl=>   285 T THR U: COIL
+=std=bcl=>   286 D ASP U: COIL
+=std=bcl=>   287 N ASN U: COIL
+=std=bcl=>   288 Y TYR U: COIL
+=std=bcl=>   289 N ASN U: COIL
+=std=bcl=>   290 L LEU U: COIL
+=std=bcl=>   291 V VAL U: COIL
+=std=bcl=>   292 W TRP U: COIL
+=std=bcl=>   293 R ARG U: COIL
+=std=bcl=>   294 D ASP U: COIL
+=std=bcl=>   295 P PRO U: COIL
+=std=bcl=>   296 D ASP U: COIL
+=std=bcl=>   297 E GLU U: COIL
+=std=bcl=>   298 E GLU U: COIL
+=std=bcl=>   299 G GLY U: COIL
+=std=bcl=>   300 I ILE U: COIL
+=std=bcl=>   301 L LEU U: COIL
+=std=bcl=>   302 K LYS U: COIL
+=std=bcl=>   303 F PHE U: COIL
+=std=bcl=>   304 L LEU U: COIL
+=std=bcl=>   305 C CYS U: COIL
+=std=bcl=>   306 D ASP U: COIL
+=std=bcl=>   307 E GLU U: COIL
+=std=bcl=>   308 H HIS U: COIL
+=std=bcl=>   309 D ASP U: COIL
+=std=bcl=>   310 F PHE U: COIL
+=std=bcl=>   311 S SER U: COIL
+=std=bcl=>   312 E GLU U: COIL
+=std=bcl=>   313 E GLU U: COIL
+=std=bcl=>   314 R ARG U: COIL
+=std=bcl=>   315 V VAL U: COIL
+=std=bcl=>   316 K LYS U: COIL
+=std=bcl=>   317 N ASN U: COIL
+=std=bcl=>   318 G GLY U: COIL
+=std=bcl=>   319 L LEU U: COIL
+=std=bcl=>   320 E GLU U: COIL
+=std=bcl=>   321 R ARG U: COIL
+=std=bcl=>   322 L LEU U: COIL
+=std=bcl=>   323 K LYS U: COIL
+=std=bcl=>   324 K LYS U: COIL
+=std=bcl=>   325 A ALA U: COIL
+=std=bcl=>   326 I ILE U: COIL
+=std=bcl=>   327 K LYS U: COIL
+=std=bcl=>   328 S SER U: COIL
+=std=bcl=>   329 G GLY U: COIL
+=std=bcl=>   330 K LYS U: COIL
+=std=bcl=>   331 Q GLN U: COIL
+=std=bcl=>   332 S SER U: COIL
+=std=bcl=>   333 T THR U: COIL
+=std=bcl=>   334 L LEU U: COIL
+=std=bcl=>   335 E GLU U: COIL
+=std=bcl=>   336 S SER U: COIL
+=std=bcl=>   337 W TRP U: COIL
+=std=bcl=>   338 F PHE U: COIL
+=std=bcl=>   339 K LYS U: COIL
+=std=bcl=>   340 R ARG U: COIL
+=std=bcl=> successful example check:
+               def_construct.GetThreeStatePrediction() == helix == bcl::linal::Vector3D
+                1	0	0
+               (+/- 0.001%)
+=std=bcl::app=> BCL Example | END  : SspredOCTOPUS ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+SspredOCTOPUS_total                       9          0              
+total                                     9          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

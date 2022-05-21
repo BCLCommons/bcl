@@ -1,0 +1,9 @@
+bcl::assemble::SSEPoolInsertCoilIntoSSE
+  bcl::sspred::Methods::Enum
+    "JUFO"
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::util::SiPtr<const-bcl::assemble::SSE>,bcl::assemble::DomainInterface>>
+    12345678
+    bcl::assemble::LocatorSSE
+      LocatorSSE(chain id=A,start id=23,end id=34,use pdb id=0)
+  2
+  "pool_insert_coil_into_sse"

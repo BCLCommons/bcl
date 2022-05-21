@@ -1,0 +1,5 @@
+bcl::assemble::LocatorDomainRandom
+  bcl::math::Range<size_t>
+    [ 2 , 2 ]
+  bcl::biol::SSTypes::Enum
+    "HELIX"

@@ -1,0 +1,7 @@
+bcl::assemble::CollectorSSEPaired
+  CollectorSSEPaired(
+    packing picker=BestInteractionWeight,
+    contact types(HELIX_SHEET,SHEET_HELIX),
+    max distance=25,
+    orthogonal=0
+  )

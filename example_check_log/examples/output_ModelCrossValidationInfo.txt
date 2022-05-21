@@ -1,0 +1,162 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ModelCrossValidationInfo 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ModelCrossValidationInfo
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ModelCrossValidationInfo ====================
+=std=bcl=> successful example check:  util::IsDefined( def_cross_validation_info.GetResult()) == 0
+=std=bcl=> successful example check:  cross_validation_info.GetResult() == result == 0.235
+=std=bcl=> successful example check:
+               cross_validation_info.GetMonitoringDatasetRetriever() == monitoring_label ==
+              bcl::util::ObjectDataLabel
+                File(filename=example/example_files/input/model/example_data_set.bcl,number chunks=4,chunks=[0]+[2])
+=std=bcl=> successful example check:
+               cross_validation_info.GetIndependentDatasetRetriever() == independent_label ==
+              bcl::util::ObjectDataLabel
+                File(filename=example/example_files/input/model/example_data_set.bcl,number chunks=4,chunks=[1])
+=std=bcl=> successful example check:
+               cross_validation_info.GetTrainingDatasetRetriever() == training_label ==
+              bcl::util::ObjectDataLabel
+                File(filename=example/example_files/input/model/example_data_set.bcl,number chunks=4,chunks=[3])
+=std=bcl=> successful example check:
+               cross_validation_info.GetImprovementType() == improvement_type ==
+              SmallerEqualIsBetter
+=std=bcl=> successful example check:
+               cross_validation_info.GetObjective() == objective_label ==
+              bcl::util::ObjectDataLabel
+                RMSD
+=std=bcl=> successful example check:
+               cross_validation_info.GetIterate() == iterate_label ==
+              bcl::util::ObjectDataLabel
+                LinearRegression(objective function=RMSD)
+=std=bcl=> successful example check:
+               cross_validation_info.GetIndependentPredictionsFilename() ==
+              independent_predictions ==
+              /hd1/brownbp1/workspace/bcl/example/example_files/input/model/prediction_merge_1.txt
+=std=bcl=> Cross validation info label: bcl::util::ObjectDataLabel
+  CVMetadata(
+    independent=File(
+      filename=example/example_files/input/model/example_data_set.bcl,
+      number chunks=4,
+      chunks=[1]
+    ),
+    monitoring=File(
+      filename=example/example_files/input/model/example_data_set.bcl,
+      number chunks=4,
+      chunks=[0]+[2]
+    ),
+    training=File(
+      filename=example/example_files/input/model/example_data_set.bcl,
+      number chunks=4,
+      chunks=[3]
+    ),
+    result=0.235,
+    improvement type=SmallerEqualIsBetter,
+    objective=RMSD,
+    iterate=LinearRegression(objective function=RMSD),
+    independent predictions=/hd1/brownbp1/workspace/bcl/example/example_files/input/model/prediction_merge_1.txt,
+    number outputs=1,
+    ids=Combine,
+    id sizes="",
+    prediction output format=CSV
+  )
+=std=bcl=> GetLabel/TryRead test succeeded:  def_cross_validation_info.GetResult() == result == 0.235  (+/- 0.001)
+=std=bcl=> GetLabel/TryRead test succeeded:
+               def_cross_validation_info.GetMonitoringDatasetRetriever() ==
+              monitoring_label ==
+              bcl::util::ObjectDataLabel
+                monitoring=File(
+                  filename=example/example_files/input/model/example_data_set.bcl,
+                  number chunks=4,
+                  chunks=[0]+[2]
+                )
+=std=bcl=> GetLabel/TryRead test succeeded:
+               def_cross_validation_info.GetIndependentDatasetRetriever() ==
+              independent_label ==
+              bcl::util::ObjectDataLabel
+                independent=File(
+                  filename=example/example_files/input/model/example_data_set.bcl,
+                  number chunks=4,
+                  chunks=[1]
+                )
+=std=bcl=> GetLabel/TryRead test succeeded:
+               def_cross_validation_info.GetTrainingDatasetRetriever() == training_label ==
+              bcl::util::ObjectDataLabel
+                training=File(
+                  filename=example/example_files/input/model/example_data_set.bcl,
+                  number chunks=4,
+                  chunks=[3]
+                )
+=std=bcl=> GetLabel/TryRead test succeeded:
+               def_cross_validation_info.GetImprovementType() == improvement_type ==
+              SmallerEqualIsBetter
+=std=bcl=> GetLabel/TryRead test succeeded:
+               def_cross_validation_info.GetObjective() == objective_label ==
+              bcl::util::ObjectDataLabel
+                objective=RMSD
+=std=bcl=> GetLabel/TryRead test succeeded:
+               def_cross_validation_info.GetIterate() == iterate_label ==
+              bcl::util::ObjectDataLabel
+                iterate=LinearRegression(objective function=RMSD)
+=std=bcl=> GetLabel/TryRead test succeeded:
+               def_cross_validation_info.GetIndependentPredictionsFilename() ==
+              independent_predictions ==
+              /hd1/brownbp1/workspace/bcl/example/example_files/input/model/prediction_merge_1.txt
+=std=bcl::app=> BCL Example | END  : ModelCrossValidationInfo ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+ModelCrossValidationInfo_total           17          0              
+total                                    17          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

@@ -1,0 +1,105 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec FoldDefaultMutates 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> FoldDefaultMutates
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: FoldDefaultMutates ====================
+=std=bcl=> Initial mutate enums: 0
+=std=bcl=> successful example check:  fold::GetMutates().GetEnumCount() != 0 == 1
+=std=bcl=> Final mutate enums: 108
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl::fold=> average helix/strand/sse counts from pool: 1 / 4 / 5
+=std=bcl=> successful example check:  mutate_tree.GetMutateProbabilities().IsEmpty() == 0
+=std=bcl=> Added probabilities for 8 mutate types
+DEBUG: flww.String() YIELDED: Stores mutates with associated probabilities for MCM approximation
+  Default label : MutateTree(mutate type
+  probabilities(add=0.075,remove=0.025,swap=0.1,sse=0.1,helix=0.04,strand=0.16,ssepair=0.2,sheet=0.24),mutate
+  probabilities(add(add_sse_next_to_sse=0.75,add_sse_short_loop=0.25,add_strand_next_to_sheet=0.8),remove(remove_random=0.5,remove_unpaired_strand=0.5),swap(swap_sses=0.8,swap_sse_with_pool=0.2),sse(sse_move_next=3,sse_move_short_loop=3,sse_furthest_move_next=3,sse_bend_ramachandran=1,sse_bend_random_small=1,sse_bend_random_large=1,sse_translate_small=3,sse_translate_x_small=1,sse_translate_y_small=1,sse_translate_z_small=1,sse_translate_large=3,sse_translate_x_large=1,sse_translate_y_large=1,sse_translate_z_large=1,sse_rotate_small=3,sse_rotate_x_small=1,sse_rotate_y_small=1,sse_rotate_z_small=1,sse_rotate_large=3,sse_rotate_x_large=1,sse_rotate_y_large=1,sse_rotate_z_large=1,sse_transform_small=6,sse_transform_large=6),helix(helix_move_next=2,helix_move_short_loop=2,helix_furthest_move_next=2,helix_translate_xy_small=1,helix_translate_xy_large=2,helix_translate_z_small=1,helix_translate_z_large=2,helix_rotate_xy_small=1,helix_rotate_xy_large=2,helix_rotate_z_small=1,helix_rotate_z_large=2,helix_transform_xy_small=1,helix_transform_xy_large=2,helix_transform_z_small=1,helix_transform_z_large=2,helix_flip_xy=2,helix_flip_z=2),strand(strand_move_next=2,strand_furthest_move_next=2,strand_move_sheet=2,strand_furthest_move_sheet=2,strand_translate_z_small=1,strand_translate_z_large=2,strand_flip_x=2,strand_flip_y=2,strand_flip_z=2),ssepair(ssepair_translate_no_hinge_small=1,ssepair_translate_no_hinge_large=2,ssepair_translate_small=1,ssepair_translate_large=2,ssepair_rotate_small=1,ssepair_rotate_large=2,ssepair_transform_small=1,ssepair_transform_large=2),sheet(sheet_rotate_small=1,sheet_rotate_large=2,sheet_translate_small=1,sheet_translate_large=2,sheet_transform_small=1,sheet_transform_large=2,sheet_pair_strands=2,sheet_switch_strand=4,sheet_flip_ext=2,sheet_flip_int=2,sheet_flip_int_sub=2,sheet_flip_int_sub_diff=2,sheet_divide=2,sheet_divide_sandwich=2,sheet_twist_small=2,sheet_twist_large=2,sheet_shuffle=8,sheet_cycle=4,sheet_cycle_intact=4,sheet_cycle_subset=4,sheet_cycle_subset_intact=4,sheet_register_fix=1,sheet_register_shift=2,sheet_register_shift_flip=2)))
+  Parameters:
+  <mutate type probabilities> assignment of probabilities to the different mutate types, Map with at least 1 
+    Key info (LHS of = sign): Allowed values: {add, remove, swap, sse, helix, strand, ssepair, helixpair, helixdomain, sheet, domain, model,
+  ensemble}
+    Mapped value info (RHS of = sign): Any decimal (floating-point) value
+  <mutate probabilities> assignment of probabilities to the different mutates, Map with at least 1 
+    Key info (LHS of = sign): Allowed values: {add, remove, swap, sse, helix, strand, ssepair, helixpair, helixdomain, sheet, domain, model,
+  ensemble}
+    Mapped value info (RHS of = sign): Map with at least 1 
+      Key info (LHS of = sign): Choose from the following: { add_sse_next_to_sse, add_sse_short_loop, add_strand_next_to_sheet, remove_random,
+  remove_unpaired_strand, swap_sses, swap_sse_with_pool, swap_sse_with_pool_overlap, sse_resize_cterm, sse_resize_nterm, sse_move_next,
+  sse_move_short_loop, sse_furthest_move_next, sse_bend_ramachandran, sse_bend_random_small, sse_bend_random_large, sse_translate_small,
+  sse_translate_x_small, sse_translate_y_small, sse_translate_z_small, sse_translate_large, sse_translate_x_large, sse_translate_y_large,
+  sse_translate_z_large, sse_rotate_small, sse_rotate_x_small, sse_rotate_y_small, sse_rotate_z_small, sse_rotate_large, sse_rotate_x_large,
+  sse_rotate_y_large, sse_rotate_z_large, sse_transform_small, sse_transform_large, sse_flip_x, sse_flip_y, sse_flip_z, helix_move_next,
+  helix_move_short_loop, helix_furthest_move_next, helix_translate_xy_small, helix_translate_xy_large, helix_translate_z_small,
+  helix_translate_z_large, helix_rotate_xy_small, helix_rotate_xy_large, helix_rotate_z_small, helix_rotate_z_large, helix_transform_xy_small,
+  helix_transform_xy_large, helix_transform_z_small, helix_transform_z_large, helix_flip_xy, helix_flip_z, strand_move_next,
+  strand_furthest_move_next, strand_move_sheet, strand_furthest_move_sheet, strand_translate_z_small, strand_translate_z_large, strand_flip_x,
+  strand_flip_y, strand_flip_z, ssepair_translate_no_hinge_small, ssepair_translate_no_hinge_large, ssepair_translate_small,
+  ssepair_translate_large, ssepair_rotate_small, ssepair_rotate_large, ssepair_transform_small, ssepair_transform_large,
+  helixpair_rotate_z_small_no_hinge, helixpair_rotate_z_small_hinge, helixpair_rotate_z_large_no_hinge, helixpair_rotate_z_large_hinge,
+  helixdomain_shuffle, helixdomain_translate_small, helixdomain_translate_large, helixdomain_rotate_small, helixdomain_rotate_large,
+  helixdomain_transform_small, helixdomain_transform_large, helixdomain_flip_ext, helixdomain_flip_int, sheet_rotate_small, sheet_rotate_large,
+  sheet_translate_small, sheet_translate_large, sheet_transform_small, sheet_transform_large, sheet_pair_strands, sheet_switch_strand,
+  sheet_flip_ext, sheet_flip_int, sheet_flip_int_sub, sheet_flip_int_sub_diff, sheet_divide, sheet_divide_sandwich, sheet_twist_small,
+  sheet_twist_large, sheet_shuffle, sheet_cycle, sheet_cycle_intact, sheet_cycle_subset, sheet_cycle_subset_intact, sheet_register_fix,
+  sheet_register_shift, sheet_register_shift_flip}      Mapped value info (RHS of = sign): Any decimal (floating-point) value
+
+=std=bcl::app=> BCL Example | END  : FoldDefaultMutates ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+FoldDefaultMutates_total                  2          0              
+total                                     2          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 65 MB

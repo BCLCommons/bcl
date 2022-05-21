@@ -1,0 +1,142 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec LinalVector3D 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> LinalVector3D
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: LinalVector3D ====================
+=std=bcl=> this is an random vector of three elements vector1
+=std=bcl=> bcl::linal::Vector3D
+  0.786821	0.25048	0.710671
+=std=bcl=> this is vector of three elements vector2
+=std=bcl=> bcl::linal::Vector3D
+  4	-3	7
+=std=bcl=> this is the scalar product of the vectors, using two different functions
+=std=bcl=> linal::ScalarProduct( vector1, vector2): 7.37054
+=std=bcl=> vector1 * vector2: 7.37054
+=std=bcl=> compute projection angle between vector2 and vector1 and output as formatted degree
+=std=bcl=>  38.144ø
+=std=bcl=> compute dihedral angle and output as formatted degree
+=std=bcl=>   0.000ø
+=std=bcl=> Vector 3D
+=std=bcl=> bcl::linal::Vector3D
+  0.786821	0.25048	0.710671
+=std=bcl=> rotate 180 degree around X-axis
+=std=bcl=> bcl::linal::Vector3D
+  0.786821	-0.25048	-0.710671
+=std=bcl=> transformation matrix gets a translation vector v4
+=std=bcl=> bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    1	0	0	0	
+    0	1	0	0	
+    0	0	1	0	
+    0	0	0	1	
+
+=std=bcl=> bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    1	0	0	0	
+    0	1	0	0	
+    0	0	1	0	
+    -4	3	-7	1	
+
+=std=bcl=> transformation matrix gets a translation vector rotation matrix around Z and 180 degree
+=std=bcl=> bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -1	2.07267e-13	0	0	
+    -2.07267e-13	-1	0	0	
+    0	0	1	0	
+    4	-3	-7	1	
+
+=std=bcl=> v3 is transformed
+=std=bcl=> bcl::linal::Vector3D
+  0.786821	-0.25048	-0.710671
+=std=bcl=> bcl::linal::Vector3D
+  3.21318	-2.74952	-7.71067
+=std=bcl=> successful example check:
+               vector_def.GetClassIdentifier() == GetStaticClassName< linal::Vector3D>() ==
+              bcl::linal::Vector3D
+=std=bcl=> successful example check:
+               sp_vector->GetClassIdentifier() == GetStaticClassName< linal::Vector3D>() ==
+              bcl::linal::Vector3D
+=std=bcl=> successful example check:  vector_const_a.X() == x == 1
+=std=bcl=> successful example check:  vector_const_a.Y() == y == 2
+=std=bcl=> successful example check:  vector_const_a.Z() == z == 3
+=std=bcl=> successful example check:  vector_a.X() == x + diff == 2.5
+=std=bcl=> successful example check:  vector_a.Y() == y + diff == 3.5
+=std=bcl=> successful example check:  vector_a.Z() == z + diff == 4.5
+=std=bcl=> successful example check:  total == expected_total == 9
+=std=bcl=> successful example check:  sp_vector->operator ()( 0) == values[ 0] + diff == 3.5
+=std=bcl=> successful example check:  sp_vector->operator ()( 1) == values[ 1] + diff == 4.5
+=std=bcl=> successful example check:  sp_vector->operator ()( 2) == values[ 2] + diff == 5.5
+=std=bcl=> successful example check:  vector_c( 0) == linal_vector( 0) == 2
+=std=bcl=> successful example check:  vector_c( 1) == linal_vector( 1) == 3
+=std=bcl=> successful example check:  vector_c( 2) == linal_vector( 2) == 4
+=std=bcl=> successful example check:  vector_const_b( 0) == values[ 0] == 2
+=std=bcl=> successful example check:  vector_const_b( 1) == values[ 1] == 3
+=std=bcl=> successful example check:  vector_const_b( 2) == values[ 2] == 4
+=std=bcl=> successful example check:  vector_b( 0) == values[ 0] + diff == 3.5
+=std=bcl=> successful example check:  vector_b( 1) == values[ 1] + diff == 4.5
+=std=bcl=> successful example check:  vector_b( 2) == values[ 2] + diff == 5.5
+=std=bcl=> successful example check:
+               vector_read == vector_a == bcl::linal::Vector3D
+                2.5	3.5	4.5
+=std=bcl::app=> BCL Example | END  : LinalVector3D ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+LinalVector3D_total                     124          0              
+total                                   124          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

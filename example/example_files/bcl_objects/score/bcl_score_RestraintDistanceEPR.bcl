@@ -1,0 +1,33 @@
+bcl::score::RestraintDistanceEPR
+  "epr_scheme"
+  bcl::math::BicubicSpline
+-1358201408
+32767
+4.63862e-316
+4.6386e-316
+3.97542e-316
+4.6386e-316
+bcl::math::Matrix<double>
+  0	  0
+
+bcl::math::Matrix<double>
+  0	  0
+
+bcl::math::Matrix<double>
+  0	  0
+
+bcl::math::Matrix<double>
+  0	  0
+
+72
+212
+0
+0
+0
+0
+
+  bcl::util::ShPtr<bcl::restraint::Handler>
+    12345678
+    bcl::restraint::HandlerAtomDistanceAssigned
+      bcl::util::ShPtrVector<bcl::restraint::AtomDistance>
+        0

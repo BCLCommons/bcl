@@ -1,0 +1,138 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec AssembleLocatorSubDomainRandom 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AssembleLocatorSubDomainRandom
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AssembleLocatorSubDomainRandom ====================
+=std=bcl=> testing default constructor
+=std=bcl=> successful example check:
+               locator_default.GetSizeRange() == math::Range< size_t>( 0, 0) ==
+              bcl::math::Range<size_t>
+                [ 0 , 0 ]
+=std=bcl=> successful example check:  locator_default.GetLocateConsecutive() == 0
+=std=bcl=> successful example check:  locator_default.GetUseTopologyOrder() == 0
+=std=bcl=> testing constructor a
+=std=bcl=> successful example check:
+               locator_a.GetSizeRange() == range == bcl::math::Range<size_t>
+                [ 3 , 3 ]
+=std=bcl=> successful example check:  locator_a.GetLocateConsecutive() == 0
+=std=bcl=> successful example check:  locator_a.GetUseTopologyOrder() == 0
+=std=bcl=> testing constructor b
+=std=bcl=> successful example check:
+               locator_b.GetSizeRange() == range == bcl::math::Range<size_t>
+                [ 3 , 3 ]
+=std=bcl=> successful example check:  locator_b.GetLocateConsecutive() == 1
+=std=bcl=> successful example check:  locator_b.GetUseTopologyOrder() == 0
+=std=bcl=> testing constructor c
+=std=bcl=> testing GetSizeRange()
+=std=bcl=> successful example check:
+               locator_c.GetSizeRange() == range == bcl::math::Range<size_t>
+                [ 3 , 3 ]
+=std=bcl=> testing GetLocateConsecutive()
+=std=bcl=> successful example check:  locator_c.GetLocateConsecutive() == 1
+=std=bcl=> testing GetUseTopologyOrder()
+=std=bcl=> successful example check:  locator_c.GetUseTopologyOrder() == 1
+=std=bcl=> testing Locate() with locator_a
+=std=bcl=> successful example check:  sp_sheet_a.IsDefined() == 1
+=std=bcl=> successful example check:  sp_sheet_a->GetNumberSSEs() == 3
+=std=bcl=> successful example check:  sp_sheet_a->GetTopology().IsDefined() == 1
+=std=bcl=> successful example check:
+               sp_sheet_a->GetTopology()->GetElements()( 0) == expected_strands[ 0]
+              output of result suppressed (result was 15964 bytes), set message verbosity to Detail to override
+=std=bcl=> successful example check:
+               sp_sheet_a->GetTopology()->GetElements()( 1) == expected_strands[ 1]
+              output of result suppressed (result was 21540 bytes), set message verbosity to Detail to override
+=std=bcl=> successful example check:
+               sp_sheet_a->GetTopology()->GetElements()( 2) == expected_strands[ 2]
+              output of result suppressed (result was 10449 bytes), set message verbosity to Detail to override
+=std=bcl=> testing Locate() with locator_b
+=std=bcl=> successful example check:  sp_sheet_b.IsDefined() == 1
+=std=bcl=> successful example check:  sp_sheet_b->GetNumberSSEs() == 3
+=std=bcl=> successful example check:  sp_sheet_b->GetTopology().IsDefined() == 1
+=std=bcl=> successful example check:
+               sp_sheet_b->GetTopology()->GetElements()( 0) == expected_strands[ 0]
+              output of result suppressed (result was 15964 bytes), set message verbosity to Detail to override
+=std=bcl=> successful example check:
+               sp_sheet_b->GetTopology()->GetElements()( 1) == expected_strands[ 1]
+              output of result suppressed (result was 19629 bytes), set message verbosity to Detail to override
+=std=bcl=> successful example check:
+               sp_sheet_b->GetTopology()->GetElements()( 2) == expected_strands[ 2]
+              output of result suppressed (result was 21540 bytes), set message verbosity to Detail to override
+=std=bcl=> testing Locate() with locator_c
+=std=bcl=> successful example check:  sp_sheet_c.IsDefined() == 1
+=std=bcl=> successful example check:  sp_sheet_c->GetNumberSSEs() == 3
+=std=bcl=> successful example check:  sp_sheet_c->GetTopology().IsDefined() == 1
+=std=bcl=> successful example check:
+               sp_sheet_c->GetTopology()->GetElements()( 0) == expected_strands[ 0]
+              output of result suppressed (result was 21540 bytes), set message verbosity to Detail to override
+=std=bcl=> successful example check:
+               sp_sheet_c->GetTopology()->GetElements()( 1) == expected_strands[ 1]
+              output of result suppressed (result was 19629 bytes), set message verbosity to Detail to override
+=std=bcl=> successful example check:
+               sp_sheet_c->GetTopology()->GetElements()( 2) == expected_strands[ 2]
+              output of result suppressed (result was 15964 bytes), set message verbosity to Detail to override
+=std=bcl=> testing Read/Write
+=std=bcl=> successful example check:
+               locator_read.GetSizeRange() == locator_b.GetSizeRange() ==
+              bcl::math::Range<size_t>
+                [ 3 , 3 ]
+=std=bcl=> successful example check:  locator_read.GetLocateConsecutive() == locator_b.GetLocateConsecutive() == 1
+=std=bcl=> successful example check:  locator_read.GetUseTopologyOrder() == locator_b.GetUseTopologyOrder() == 0
+=std=bcl::app=> BCL Example | END  : AssembleLocatorSubDomainRandom ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>        success      error error_string 
+AssembleLocatorSubDomainRandom_total         33          0              
+total                                        33          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 133 MB, peak physical RAM used: 65 MB

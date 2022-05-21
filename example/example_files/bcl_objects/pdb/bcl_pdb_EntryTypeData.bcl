@@ -1,0 +1,4 @@
+bcl::pdb::EntryTypeData
+  bcl::pdb::LineTypes::Enum
+    "LINK"
+  0	5	nan	0	DT_FLOAT

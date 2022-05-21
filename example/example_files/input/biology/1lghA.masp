@@ -1,0 +1,87 @@
+# Membrane-Association & Secondary-structure Predictor
+# Author: Jeff Mendenhall
+# Date: April 30, 2014
+#
+# MASP Predicted TM-Alpha protein
+# MASP predicted TM-helices: 1
+# MASP predicted TM-helix residues: 21
+# MASP Average predicted residues per TM-helix: 21.000
+# OCTOPUS predicted TM-helices: 1
+# OCTOPUS predicted TM-helix residues: 21
+# OCTOPUS Average predicted residues per TM-helix: 21.000
+#
+# MembraneSSTopology Key 
+# H - Membrane Helix
+# E - Membrane Strand (specifically, porous, integral TM-beta barrel strand)
+# C - Membrane Coil (not currently predicted)
+# h - Soluble helix
+# e - Soluble strand
+# c - Soluble coil
+# AASeqID	1-LetterCode	MembraneSSTopology	MembraneHelix	MembraneStrand	MembraneCoil	SolubleHelix	SolubleStrand	SolubleCoil
+1	S	c	0.001	0.000	0.000	0.205	0.142	0.651
+2	N	c	0.000	0.000	0.000	0.164	0.130	0.706
+3	P	c	0.006	0.000	0.000	0.197	0.150	0.647
+4	K	c	0.008	0.000	0.000	0.218	0.180	0.594
+5	D	c	0.015	0.000	0.000	0.220	0.214	0.551
+6	D	c	0.027	0.000	0.000	0.215	0.225	0.533
+7	Y	c	0.053	0.000	0.000	0.153	0.375	0.419
+8	K	e	0.065	0.000	0.000	0.122	0.454	0.359
+9	I	e	0.098	0.000	0.000	0.041	0.633	0.227
+10	W	e	0.143	0.000	0.000	0.039	0.628	0.190
+11	L	e	0.376	0.000	0.000	0.054	0.448	0.122
+12	V	e	0.399	0.000	0.000	0.036	0.450	0.115
+13	I	H	0.506	0.000	0.000	0.000	0.000	0.000
+14	N	c	0.146	0.000	0.000	0.077	0.314	0.463
+15	P	c	0.385	0.000	0.000	0.140	0.147	0.328
+16	S	H	0.527	0.000	0.000	0.000	0.000	0.000
+17	T	H	0.627	0.000	0.000	0.000	0.000	0.000
+18	W	H	0.804	0.000	0.000	0.000	0.000	0.000
+19	L	H	0.858	0.000	0.000	0.000	0.000	0.000
+20	P	H	0.897	0.000	0.000	0.000	0.000	0.000
+21	V	H	0.915	0.000	0.000	0.000	0.000	0.000
+22	I	H	0.957	0.000	0.000	0.000	0.000	0.000
+23	W	H	0.954	0.000	0.000	0.000	0.000	0.000
+24	I	H	0.963	0.000	0.000	0.000	0.000	0.000
+25	V	H	0.970	0.000	0.000	0.000	0.000	0.000
+26	A	H	0.937	0.000	0.000	0.000	0.000	0.000
+27	T	H	0.946	0.000	0.000	0.000	0.000	0.000
+28	V	H	0.932	0.000	0.000	0.000	0.000	0.000
+29	V	H	0.929	0.000	0.000	0.000	0.000	0.000
+30	A	H	0.876	0.000	0.000	0.000	0.000	0.000
+31	I	H	0.866	0.000	0.000	0.000	0.000	0.000
+32	A	H	0.836	0.000	0.000	0.000	0.000	0.000
+33	V	H	0.840	0.000	0.000	0.000	0.000	0.000
+34	H	H	0.799	0.000	0.000	0.000	0.000	0.000
+35	A	H	0.773	0.000	0.000	0.000	0.000	0.000
+36	A	H	0.792	0.000	0.000	0.000	0.000	0.000
+37	V	H	0.761	0.000	0.000	0.000	0.000	0.000
+38	L	H	0.723	0.000	0.000	0.000	0.000	0.000
+39	A	H	0.652	0.000	0.000	0.000	0.000	0.000
+40	A	H	0.592	0.000	0.000	0.000	0.000	0.000
+41	P	c	0.393	0.000	0.000	0.182	0.093	0.332
+42	G	c	0.368	0.000	0.000	0.164	0.109	0.360
+43	F	H	0.539	0.000	0.000	0.000	0.000	0.000
+44	N	c	0.147	0.000	0.000	0.283	0.215	0.354
+45	W	h	0.396	0.000	0.000	0.254	0.188	0.163
+46	I	H	0.514	0.000	0.000	0.000	0.000	0.000
+47	A	h	0.122	0.000	0.000	0.449	0.243	0.186
+48	L	h	0.118	0.000	0.000	0.489	0.154	0.238
+49	G	h	0.058	0.000	0.000	0.491	0.119	0.331
+50	A	h	0.058	0.000	0.000	0.548	0.063	0.331
+51	A	h	0.039	0.000	0.000	0.592	0.050	0.318
+52	K	h	0.017	0.000	0.000	0.624	0.033	0.326
+53	S	h	0.009	0.000	0.000	0.649	0.021	0.321
+54	A	h	0.026	0.000	0.000	0.704	0.000	0.270
+55	A	h	0.018	0.000	0.000	0.644	0.003	0.335
+56	K	c	0.010	0.000	0.000	0.405	0.001	0.584
+
+
+# MASP predicted membrane topology
+------------M--MMMMMMMMMMMMMMMMMMMMMMMMM--M--M----------
+
+# OCTOPUS predicted membrane topology
+-------------------MMMMMMMMMMMMMMMMMMMMM----------------
+
+# MASP predicted secondary structure
+ccccccceeeeehcchhhhhhhhhhhhhhhhhhhhhhhhhcchchhhhhhhhhhhc
+

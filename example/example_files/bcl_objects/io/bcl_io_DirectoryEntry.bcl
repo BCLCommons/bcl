@@ -1,0 +1,6 @@
+bcl::io::DirectoryEntry
+  "testfile.txt"
+  bcl::util::ShPtr<bcl::io::Directory>
+    12345678
+    bcl::io::Directory
+      "example/example_files/output/io"

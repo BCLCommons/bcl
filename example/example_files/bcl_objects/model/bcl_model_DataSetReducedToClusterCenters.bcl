@@ -1,0 +1,8 @@
+Downsample(
+  dataset=bcl::model::RetrieveDataSetBase,
+  rmsd=0.201,
+  acceptable cluster size range="[1,50]",
+  max steps=10,
+  autoscale=0,
+  select=First
+)

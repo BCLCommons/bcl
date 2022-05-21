@@ -1,0 +1,11 @@
+bcl::command::ParameterCheckOr
+  bcl::util::ShPtrVector<bcl::command::ParameterCheckInterface>
+    2
+    bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+      12345678
+      bcl::command::ParameterCheckExtension
+        "sdf"
+    bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+      12345678
+      bcl::command::ParameterCheckExtension
+        "sdf.bz2"

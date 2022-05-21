@@ -1,0 +1,5914 @@
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+1
+1631
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0710479	-0.788876	-0.610433	0	
+    -0.144749	-0.613655	0.776192	0	
+    -0.986915	0.0332127	-0.157787	0	
+    -6.86227	1.59178	4.93917	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+1
+341
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.66501	-0.522819	0.533312	0	
+    -0.52786	-0.176124	-0.830869	0	
+    0.528323	-0.834051	-0.15885	0	
+    10.1999	0.769276	-1.86425	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+2
+40
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.852943	0.487253	0.187276	0	
+    -0.150176	0.114548	-0.982001	0	
+    -0.499935	-0.865715	-0.0245294	0	
+    -4.2622	-5.26185	7.28699	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+2
+25
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.794763	0.485605	0.364059	0	
+    -0.364616	0.861561	-0.353224	0	
+    -0.485187	0.147987	0.861796	0	
+    -8.18952	3.89725	2.55451	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+2
+56
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.041859	0.689273	0.723291	0	
+    0.464462	-0.654373	0.596716	0	
+    0.884603	0.310962	-0.347533	0	
+    4.52943	6.68813	3.84528	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+2
+896
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.955563	-0.251863	0.15318	0	
+    -0.111463	-0.789756	-0.60321	0	
+    0.272901	0.559332	-0.782734	0	
+    -7.48693	7.12107	-1.01985	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+2
+115
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.579041	0.2016	-0.789981	0	
+    -0.547793	-0.81385	0.193831	0	
+    -0.603849	0.544983	0.581687	0	
+    -1.07186	5.82442	12.1509	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+3
+117
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.702477	0.0334658	-0.710919	0	
+    -0.710259	-0.0966199	0.697277	0	
+    -0.0453542	0.994758	0.0916429	0	
+    3.31812	5.16407	13.8259	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+3
+66
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0678159	0.845349	0.529893	0	
+    -0.0180796	0.529988	-0.847813	0	
+    -0.997534	-0.0670752	-0.0206584	0	
+    -12.2166	-1.34398	1.14634	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+3
+14
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.427458	0.43333	0.793413	0	
+    -0.458294	-0.860374	0.222992	0	
+    0.779261	-0.268296	0.566366	0	
+    2.46425	-5.95099	6.00636	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+3
+565
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.812527	0.572135	-0.111629	0	
+    0.553922	-0.817464	-0.15787	0	
+    -0.181576	0.0664402	-0.98113	0	
+    -10.09	2.18141	-1.23069	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+3
+46
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.5181	-0.834193	0.188924	0	
+    -0.714705	0.300894	-0.631395	0	
+    0.46986	-0.462151	-0.752096	0	
+    7.71178	-5.79322	3.08819	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+3
+84
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.268095	-0.870194	0.413383	0	
+    -0.936343	0.336326	0.100731	0	
+    -0.226686	-0.360063	-0.904969	0	
+    -9.44043	2.50386	1.12892	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+3
+132
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.972338	0.202863	0.115784	0	
+    0.11786	0.854069	-0.506629	0	
+    -0.201663	-0.478969	-0.854353	0	
+    13.3964	-1.35722	-6.29065	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+3
+16
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0337491	0.916002	-0.399753	0	
+    -0.131573	0.392427	0.910325	0	
+    0.990732	0.0833187	0.107276	0	
+    11.0842	0.0393248	7.64569	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+22
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.477515	0.878461	-0.0168734	0	
+    -0.871634	0.471211	-0.134961	0	
+    -0.110608	0.0791538	0.990707	0	
+    -2.50819	0.034272	12.358	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.96355	0.0766102	0.256326	0	
+    -0.175281	-0.543052	0.821201	0	
+    0.202111	-0.836197	-0.509829	0	
+    11.8558	-7.52835	-6.09959	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+52
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.438507	0.207951	-0.874339	0	
+    0.731925	-0.647186	0.213157	0	
+    -0.521534	-0.733422	-0.436	0	
+    -7.57666	-8.08446	13.5721	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+38
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.196671	-0.891294	0.408553	0	
+    0.295348	-0.451191	-0.842138	0	
+    0.934928	-0.0449583	0.351979	0	
+    13.6645	13.064	-3.95092	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0205475	0.964037	-0.264975	0	
+    0.932963	0.0767788	0.351688	0	
+    0.359384	-0.254439	-0.897832	0	
+    17.784	-0.734803	-6.9979	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+22
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.565801	-0.40784	0.716614	0	
+    0.819035	-0.37827	0.431386	0	
+    0.0951374	0.83101	0.548061	0	
+    6.80789	13.3736	3.6619	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+14
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.268027	0.0550834	-0.961835	0	
+    0.937794	0.243616	-0.247375	0	
+    0.220692	-0.968306	-0.116952	0	
+    -1.95323	1.6822	12.3982	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+249
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.844021	0.509735	0.166727	0	
+    0.478241	-0.856038	0.196173	0	
+    0.242721	-0.0858384	-0.966291	0	
+    -11.0731	-1.23799	0.0443295	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+236
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.452631	-0.890513	0.0459504	0	
+    -0.825908	-0.438106	-0.354879	0	
+    0.336156	0.122678	-0.933783	0	
+    -0.54156	13.2964	-3.71171	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+13
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.438171	0.871403	0.220603	0	
+    0.471592	0.431779	-0.768874	0	
+    -0.76525	-0.232863	-0.600138	0	
+    -8.62467	-6.46334	-1.06324	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+61
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.1642	-0.599778	0.783138	0	
+    -0.968283	-0.0535692	-0.244046	0	
+    0.188325	-0.798372	-0.571958	0	
+    9.53343	-6.12069	0.100306	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+164
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.844836	0.53483	-0.0144938	0	
+    0.530586	0.840999	0.10583	0	
+    0.0687894	0.0817191	-0.994279	0	
+    10.5234	-3.97793	3.54345	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+4
+6
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.795603	0.605481	-0.0202334	0	
+    -0.595746	-0.788002	-0.15537	0	
+    -0.110017	-0.111559	0.987649	0	
+    -1.65501	-1.27157	7.26889	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+15
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0406309	0.998204	0.0440176	0	
+    -0.96999	-0.0499768	0.237953	0	
+    0.239726	-0.0330281	0.970279	0	
+    -0.953584	0.931992	11.7916	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+10
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.703958	-0.508458	0.495895	0	
+    0.206601	-0.81461	-0.541965	0	
+    0.679529	-0.279068	0.678499	0	
+    6.47346	12.5688	6.13126	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+33
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.401355	0.820962	-0.406123	0	
+    0.890238	0.245387	-0.383746	0	
+    -0.215383	-0.515564	-0.82934	0	
+    -9.90861	5.62197	-5.4731	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+12
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.968322	-0.114132	0.222098	0	
+    -0.0771298	-0.982647	-0.168687	0	
+    0.237496	0.146214	-0.960321	0	
+    12.9845	-0.389193	-1.44092	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+164
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.264708	-0.898623	0.349866	0	
+    -0.887115	-0.369172	-0.277021	0	
+    0.378098	-0.237041	-0.894904	0	
+    3.97953	10.8542	-1.61795	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+13
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.351929	0.88576	-0.302615	0	
+    0.371395	0.428898	0.823476	0	
+    0.859193	0.177416	-0.479909	0	
+    5.1	8.00555	4.9606	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+177
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.560848	0.812612	0.158464	0	
+    0.708304	0.570047	-0.416357	0	
+    -0.428669	-0.121273	-0.895285	0	
+    5.15049	-9.9489	1.30027	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+74
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.601621	0.761536	-0.241069	0	
+    0.792689	-0.606397	0.0626622	0	
+    -0.0984639	-0.228791	-0.968483	0	
+    -4.55314	-8.49777	8.75816	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+39
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.837468	0.244653	0.488662	0	
+    -0.379097	-0.383972	0.841933	0	
+    0.393614	-0.890343	-0.228817	0	
+    -11.019	-6.23185	-2.92655	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.688887	-0.45315	0.565765	0	
+    0.402646	-0.4098	-0.818499	0	
+    0.602753	0.791657	-0.0998456	0	
+    15.9513	-0.233994	-11.6299	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.496896	-0.800881	-0.334189	0	
+    0.677291	0.117134	0.72633	0	
+    -0.54256	-0.587254	0.600635	0	
+    3.70254	-13.5548	5.95143	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+53
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.492195	-0.870292	-0.0183582	0	
+    -0.825653	0.473423	-0.306867	0	
+    0.275755	-0.135881	-0.951577	0	
+    13.1018	6.98976	-9.37067	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+49
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.257185	0.248597	0.933839	0	
+    0.962244	0.0232387	-0.271194	0	
+    -0.0891191	0.968328	-0.233234	0	
+    -11.5404	6.13978	-11.4509	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.685672	-0.71637	-0.129101	0	
+    0.720224	-0.641969	-0.262968	0	
+    0.105504	-0.273292	0.956127	0	
+    11.3606	13.7923	-2.88241	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+24
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.170829	-0.684151	-0.709052	0	
+    -0.0463061	-0.724409	0.687813	0	
+    -0.984212	-0.0846658	-0.155431	0	
+    -10.2099	5.31382	11.6839	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+14
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.994485	-0.0897062	-0.0543284	0	
+    -0.0605827	0.914242	-0.400612	0	
+    0.0856062	-0.395111	-0.914636	0	
+    -4.85804	13.9976	-7.16276	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+15
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.229612	-0.898234	-0.374769	0	
+    -0.581219	0.182312	-0.793061	0	
+    0.780681	0.39992	-0.48021	0	
+    13.85	15.7369	11.9324	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+5
+15
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.723992	0.447212	-0.525204	0	
+    -0.532438	-0.846365	0.0132819	0	
+    -0.438575	0.289255	0.850872	0	
+    -2.17124	-5.04848	16.9131	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+6
+33
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.112997	-0.536183	-0.836504	0	
+    -0.727584	-0.528688	0.437163	0	
+    -0.676649	0.658025	-0.330378	0	
+    -3.86907	21.0766	13.2889	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+6
+69
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.715006	0.613218	0.335752	0	
+    0.0483628	-0.522485	0.851276	0	
+    0.697443	-0.59243	-0.403237	0	
+    -14.219	-6.45876	-2.22877	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+6
+16
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.625848	-0.777493	-0.0617828	0	
+    0.64597	-0.472323	-0.599694	0	
+    0.437077	-0.415228	0.797841	0	
+    1.7928	-6.41812	12.1038	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+6
+37
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.642567	-0.0639415	0.763556	0	
+    -0.735033	-0.332893	0.590685	0	
+    0.216414	-0.940794	-0.260906	0	
+    0.217336	-6.33077	5.78997	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+6
+335
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.132321	-0.867011	0.480401	0	
+    -0.711462	-0.420536	-0.563002	0	
+    0.690154	-0.26729	-0.672491	0	
+    -2.31903	10.7893	-5.25917	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+6
+106
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.455692	-0.81609	0.355445	0	
+    0.665091	0.046763	-0.745297	0	
+    0.591607	0.576029	0.564084	0	
+    -6.44057	16.3613	-6.47472	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+6
+23
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.00749878	-0.0438336	0.999011	0	
+    0.768568	0.639381	0.0222854	0	
+    -0.639726	0.76764	0.0384837	0	
+    1.06653	14.6428	-9.58091	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+7
+236
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.180823	0.890796	0.416876	0	
+    0.979801	-0.126357	-0.154991	0	
+    -0.0853901	0.436482	-0.895652	0	
+    -8.19126	-8.29244	-0.480614	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+7
+103
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.588544	-0.745837	0.312	0	
+    -0.730085	0.324547	-0.601369	0	
+    0.347265	-0.581718	-0.735533	0	
+    5.45788	13.2262	1.8764	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+7
+21
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0424604	0.750489	0.659518	0	
+    -0.977529	-0.105217	0.182665	0	
+    0.206481	-0.652455	0.729156	0	
+    -10.6315	-4.78755	-7.78933	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+7
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.62439	0.608602	0.489632	0	
+    -0.776107	-0.554218	-0.30083	0	
+    0.0882784	-0.567843	0.818389	0	
+    2.79472	-3.97291	8.4486	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+7
+7
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.91723	-0.232091	0.323762	0	
+    0.398262	0.552069	-0.732535	0	
+    -0.00872484	0.800845	0.598807	0	
+    12.103	4.78321	19.9815	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+7
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.335785	0.941924	-0.00517716	0	
+    0.869676	0.312132	0.382411	0	
+    0.361818	0.123905	-0.923978	0	
+    20.9041	-4.94889	-12.178	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+7
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.475346	0.74459	-0.468649	0	
+    -0.553409	0.66715	0.498649	0	
+    0.683947	0.0223235	0.72919	0	
+    1.81326	-4.27819	25.7193	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+7
+58
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.688068	0.128138	0.714243	0	
+    0.660605	-0.517909	-0.543481	0	
+    0.300272	0.845785	-0.441005	0	
+    -14.2795	9.51197	-13.9108	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+7
+35
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.204755	-0.964259	-0.168167	0	
+    0.13931	-0.141348	0.980108	0	
+    -0.968849	-0.224109	0.10539	0	
+    -8.77374	12.9711	11.1656	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+7
+37
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.805096	-0.591777	-0.0402503	0	
+    -0.560524	0.781261	-0.274671	0	
+    0.193991	-0.198575	-0.960695	0	
+    20.4209	2.67583	2.23896	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+7
+64
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.277542	-0.610415	0.741865	0	
+    -0.654445	-0.685448	-0.319159	0	
+    0.703329	-0.39693	-0.589724	0	
+    8.39161	9.53529	-12.6621	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+8
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.280748	-0.630353	-0.723765	0	
+    -0.925796	-0.0210393	0.377439	0	
+    -0.253147	0.776024	-0.577671	0	
+    -14.306	25.0965	13.1754	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+8
+57
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.802065	-0.563054	-0.199155	0	
+    -0.159858	0.523688	-0.836778	0	
+    0.575446	-0.639312	-0.510041	0	
+    19.2137	10.004	-4.7234	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+8
+19
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.608956	0.358067	-0.707785	0	
+    -0.782213	-0.419112	0.460965	0	
+    -0.131585	0.834346	0.535305	0	
+    -10.1044	16.659	-5.28607	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+8
+24
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.520284	-0.757953	-0.393462	0	
+    -0.354914	-0.610969	0.70764	0	
+    -0.77675	-0.228528	-0.586885	0	
+    -13.6156	17.9048	2.55103	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+8
+25
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.190726	-0.48568	-0.853076	0	
+    -0.975315	0.19227	0.108591	0	
+    0.11128	0.852729	-0.510362	0	
+    -2.86198	18.5046	14.8975	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+8
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.00312787	-0.999968	0.00732715	0	
+    -0.461649	-0.00794382	-0.887027	0	
+    0.887057	-0.000607992	-0.461659	0	
+    17.631	-8.2276	-14.8436	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+8
+15
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.413784	-0.258803	0.872814	0	
+    -0.173361	-0.918796	-0.354625	0	
+    0.893716	-0.298049	0.335318	0	
+    4.6804	-3.40245	6.90911	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+8
+153
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.82773	0.51512	0.222517	0	
+    0.467125	0.852285	-0.235383	0	
+    -0.310899	-0.0908898	-0.946087	0	
+    5.7623	-9.24441	-2.87346	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+8
+60
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.19841	0.0567478	0.978474	0	
+    -0.964214	-0.167819	0.205253	0	
+    0.175855	-0.984183	0.0214201	0	
+    -8.57612	-1.77559	-13.4791	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+8
+90
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.678012	-0.600597	0.423773	0	
+    -0.455025	-0.109836	-0.883678	0	
+    0.57728	-0.791972	-0.198818	0	
+    6.89134	9.93732	-6.24905	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+8
+55
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.551693	0.765019	-0.332234	0	
+    0.640537	-0.64375	-0.418685	0	
+    -0.534179	0.018177	-0.845176	0	
+    -7.70587	-12.3621	6.87634	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+8
+6
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.939664	-0.0791938	-0.33281	0	
+    0.0202012	0.983984	-0.177107	0	
+    0.341505	0.159698	0.926213	0	
+    0.871411	1.6249	15.5489	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+10
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.79746	0.451665	0.400072	0	
+    0.445386	0.00666831	-0.895314	0	
+    -0.407049	0.892162	-0.195847	0	
+    -18.0708	11.584	-19.2995	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.637838	-0.72149	-0.269475	0	
+    0.435938	-0.626656	0.645957	0	
+    -0.634918	0.29454	0.71423	0	
+    29.1287	2.05654	-6.73405	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+10
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.335948	-0.936839	0.097319	0	
+    0.10347	0.0659916	0.992441	0	
+    -0.93618	0.343479	0.074765	0	
+    -9.46303	11.9503	23.5905	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+32
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.997003	-0.0605216	0.0481825	0	
+    -0.0706348	-0.96619	0.247968	0	
+    0.0315452	-0.250627	-0.967569	0	
+    -18.1855	0.354043	6.52332	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+53
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.135742	-0.598667	0.789412	0	
+    -0.338301	-0.720888	-0.604873	0	
+    0.931196	-0.349166	-0.104675	0	
+    4.51212	12.1477	-12.6254	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.503338	0.862458	0.0530756	0	
+    -0.854608	-0.487799	-0.178041	0	
+    -0.127663	-0.134974	0.982591	0	
+    7.73961	14.4611	1.66274	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+27
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.214791	-0.853861	0.474116	0	
+    -0.955845	0.283472	0.0774861	0	
+    -0.20056	-0.436538	-0.877045	0	
+    6.06428	9.74204	-20.1497	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+30
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.755481	0.642348	0.128985	0	
+    -0.533214	-0.488423	-0.690742	0	
+    -0.380697	-0.590619	0.711504	0	
+    23.3397	-1.2789	-1.17834	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+27
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.197292	0.977325	-0.0768839	0	
+    0.0374944	-0.0858915	-0.995599	0	
+    -0.979627	0.193541	-0.0535899	0	
+    -7.28155	-18.328	-5.76433	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.945018	-0.163447	-0.283241	0	
+    0.117627	0.978059	-0.171943	0	
+    0.30513	0.129173	0.94351	0	
+    -7.47098	17.0364	12.9162	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+24
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.701641	-0.704976	-0.103471	0	
+    -0.712487	-0.695755	-0.0910346	0	
+    -0.00781352	0.137596	-0.990458	0	
+    9.44157	-0.222652	-3.62185	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+114
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.956035	-0.20982	0.204874	0	
+    -0.0817887	-0.86168	-0.500818	0	
+    0.281617	0.462043	-0.840956	0	
+    -8.66813	7.01368	-1.6388	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+30
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.920856	-0.0452787	-0.387265	0	
+    0.0577642	0.966431	-0.250348	0	
+    0.3856	-0.252905	-0.887328	0	
+    13.0543	5.97586	-5.60784	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.121637	-0.708262	0.695392	0	
+    0.991872	-0.0603642	0.112014	0	
+    -0.0373594	0.703364	0.709847	0	
+    8.34671	0.334691	-3.22882	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+9
+9
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.39522	0.218106	0.892318	0	
+    0.0741587	0.960657	-0.267655	0	
+    -0.915589	0.171955	0.363496	0	
+    0.0361743	-3.66132	14.5415	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+13
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0450537	-0.872539	0.486463	0	
+    -0.520511	-0.436136	-0.734065	0	
+    0.852666	-0.220138	-0.473816	0	
+    -0.141049	26.6357	-16.9689	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0989315	0.485165	-0.868808	0	
+    -0.950177	-0.213299	-0.227309	0	
+    -0.295597	0.848009	0.43989	0	
+    -27.0379	10.3231	20.3406	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.574935	0.707153	-0.411563	0	
+    0.271615	-0.309531	-0.911271	0	
+    -0.7718	-0.635709	-0.0141136	0	
+    -5.34004	-14.5018	23.3868	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+22
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.621508	0.772247	-0.131768	0	
+    0.647789	-0.412003	0.640799	0	
+    0.440566	-0.48362	-0.756315	0	
+    -8.06427	-10.1482	16.457	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+14
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.614372	0.719214	0.324466	0	
+    0.664317	-0.693389	0.279096	0	
+    0.425709	0.0440799	-0.903786	0	
+    4.10584	-20.6875	-9.74633	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.214696	-0.360708	0.907632	0	
+    0.862456	0.366088	0.3495	0	
+    -0.45834	0.857828	0.232498	0	
+    9.91634	17.0088	15.5755	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+49
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0675207	-0.41449	0.907546	0	
+    0.0979666	-0.902472	-0.419462	0	
+    0.992896	0.117232	-0.0203291	0	
+    0.633954	16.8564	-16.2427	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+14
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.159944	-0.59579	0.787053	0	
+    0.432689	0.758954	0.486589	0	
+    -0.887242	0.262722	0.379182	0	
+    14.6634	5.60562	-16.3614	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+56
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.451065	-0.839817	0.302075	0	
+    0.882827	0.469522	-0.0129082	0	
+    -0.130991	0.272503	0.953197	0	
+    -19.3385	0.508762	-4.09164	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+21
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.655181	0.755469	0.00227543	0	
+    -0.26804	0.22964	0.935639	0	
+    0.706324	-0.613623	0.352953	0	
+    -7.56052	-4.78253	-12.5865	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+13
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.979243	-0.0700383	-0.190202	0	
+    -0.164442	-0.823132	-0.543519	0	
+    -0.118496	0.563514	-0.817564	0	
+    -12.5136	1.28544	-12.5932	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+73
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.512806	0.411521	0.753446	0	
+    0.659463	-0.750735	-0.0387978	0	
+    0.549672	0.516765	-0.656365	0	
+    -8.11168	6.37016	-6.19493	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+7
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.19431	0.169283	0.966223	0	
+    -0.963688	-0.216864	-0.155805	0	
+    0.183163	-0.961412	0.205274	0	
+    1.59971	-5.34159	6.35367	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+78
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.612395	-0.53413	0.582818	0	
+    -0.669003	0.742932	-0.022086	0	
+    -0.421198	-0.403431	-0.812302	0	
+    4.12824	12.7382	3.43951	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+10
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.672893	-0.0566631	0.737566	0	
+    0.0456487	0.998342	0.0350515	0	
+    -0.73833	0.0100829	0.674365	0	
+    -0.549777	7.2013	-0.719087	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+11
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.374988	-0.867895	-0.325794	0	
+    -0.219892	0.424682	-0.878232	0	
+    0.900573	-0.257687	-0.350094	0	
+    11.5977	34.6084	11.3389	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+11
+28
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.861856	0.277985	-0.424178	0	
+    0.434616	0.835886	-0.335266	0	
+    0.261366	-0.473306	-0.841231	0	
+    10.3407	2.12546	16.7069	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+11
+95
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.621182	-0.470905	0.626403	0	
+    0.140956	0.853426	0.501791	0	
+    -0.770885	-0.223408	0.596511	0	
+    -7.70948	10.3868	-17.7478	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+11
+35
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.546888	-0.778966	0.306798	0	
+    0.060934	-0.328449	-0.942554	0	
+    0.834985	0.534167	-0.13216	0	
+    -11.0589	24.7451	-1.36472	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+11
+165
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.394754	-0.653294	0.646047	0	
+    -0.627849	-0.705174	-0.329451	0	
+    0.670804	-0.275567	-0.68854	0	
+    -5.34018	11.7763	-0.650462	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+11
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0114675	-0.422359	0.906356	0	
+    -0.85394	0.467452	0.228636	0	
+    -0.520244	-0.776596	-0.355309	0	
+    -3.5539	-6.41281	2.35556	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+12
+15
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.71648	-0.530169	0.453407	0	
+    0.207519	-0.782499	-0.587052	0	
+    0.666027	-0.326521	0.670666	0	
+    27.7801	13.5322	3.62698	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+12
+14
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.98528	0.16329	0.0505855	0	
+    -0.0108266	-0.235713	0.971761	0	
+    0.170603	-0.958006	-0.230476	0	
+    -27.2062	4.77752	1.04051	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+12
+135
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.292108	-0.740665	0.605053	0	
+    0.901346	-0.00167859	0.433097	0	
+    -0.319764	0.671873	0.668084	0	
+    2.49659	16.1185	-15.0841	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+12
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.676281	-0.715211	0.176399	0	
+    0.0881758	-0.316337	-0.94454	0	
+    0.731346	-0.623221	0.276997	0	
+    5.74374	-6.13632	14.6115	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+12
+133
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0719482	-0.997325	0.0128547	0	
+    -0.963741	-0.0728339	-0.256708	0	
+    0.256958	0.00608063	-0.966403	0	
+    4.09917	11.6621	-1.67627	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+12
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.483473	-0.86713	-0.119742	0	
+    -0.047533	-0.162595	0.985547	0	
+    -0.874067	-0.470794	-0.119828	0	
+    -7.81294	2.8751	2.18307	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+13
+11
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.160965	0.597463	0.785575	0	
+    -0.923889	-0.371189	0.0929998	0	
+    0.347159	-0.710815	0.611738	0	
+    31.8324	-1.00643	-15.258	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+13
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.896168	-0.243839	-0.370711	0	
+    -0.369594	-0.872515	-0.319562	0	
+    -0.245529	0.423393	-0.87204	0	
+    -23.1345	15.1852	24.7135	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+13
+83
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.640013	0.430789	0.636243	0	
+    -0.745908	0.547069	0.379917	0	
+    -0.184404	-0.71773	0.67146	0	
+    -7.19669	10.8678	-18.5382	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+13
+19
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.27544	-0.673882	0.685577	0	
+    0.90853	0.0505924	0.414744	0	
+    -0.314174	0.737105	0.598308	0	
+    21.4719	-6.41072	-15.4456	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+13
+49
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.442198	-0.593564	0.672414	0	
+    -0.471259	0.791631	0.388889	0	
+    -0.763136	-0.144915	-0.629781	0	
+    7.84643	13.6269	-4.59077	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+13
+90
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.850201	0.517759	0.0953131	0	
+    0.525928	-0.827187	-0.197894	0	
+    -0.02362	0.218377	-0.975579	0	
+    -5.70859	-9.91929	-2.25638	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+14
+5
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.805847	0.571848	-0.153623	0	
+    0.43868	0.40232	-0.803554	0	
+    -0.397706	-0.714932	-0.575066	0	
+    17.2407	11.4315	25.0094	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+14
+13
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.750098	-0.378061	0.542607	0	
+    0.320085	-0.51043	-0.798127	0	
+    0.578704	0.772354	-0.26186	0	
+    -19.0415	9.96309	-25.0118	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+14
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0126119	0.693236	0.720602	0	
+    0.278832	-0.69451	0.663256	0	
+    0.960257	0.192561	-0.202055	0	
+    39.1662	13.4765	4.98745	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+14
+54
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.52214	-0.0726137	0.849763	0	
+    0.154251	-0.987977	0.0103553	0	
+    0.838794	0.136485	0.527064	0	
+    6.97315	15.0254	-21.0097	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+14
+50
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.330184	0.880077	0.341235	0	
+    -0.940383	0.337954	0.0383154	0	
+    -0.0816016	-0.333543	0.939197	0	
+    -8.26018	-3.30329	-17.222	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+14
+60
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.217229	0.545052	-0.809771	0	
+    0.917991	0.396081	0.0203391	0	
+    0.331821	-0.738945	-0.586394	0	
+    10.8486	5.33795	-7.93584	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+14
+43
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.964839	0.10334	-0.241671	0	
+    0.00438486	0.925666	0.378316	0	
+    0.262801	0.363955	-0.893573	0	
+    10.1327	5.52791	3.32041	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+15
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.201838	-0.923158	-0.327172	0	
+    -0.978392	0.205329	0.0242247	0	
+    0.0448143	0.324992	-0.944654	0	
+    -6.13453	44.3605	17.6809	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+15
+102
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.18063	0.672001	0.718183	0	
+    0.974795	0.219529	0.0397572	0	
+    -0.130945	0.707264	-0.694718	0	
+    -6.08845	-10.7926	-4.4448	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+15
+7
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.41327	-0.841903	0.346995	0	
+    0.910471	-0.375396	0.173556	0	
+    -0.015857	0.387655	0.921668	0	
+    -10.3324	4.98758	9.88373	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+15
+55
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.651147	-0.474432	-0.592387	0	
+    0.698773	0.679371	0.223989	0	
+    0.296182	-0.559794	0.773891	0	
+    -15.0882	11.3051	-11.3343	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+15
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.48625	-0.838502	-0.245917	0	
+    0.872816	-0.479552	-0.090685	0	
+    -0.0418896	-0.258735	0.96504	0	
+    12.492	-16.8428	9.06755	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+15
+23
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.370978	-0.873529	-0.315154	0	
+    0.717017	0.0537726	0.694979	0	
+    -0.590137	-0.483792	0.646284	0	
+    14.2066	20.7439	-20.104	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+15
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.172502	0.985009	0.000228432	0	
+    -0.966894	0.169285	0.190942	0	
+    0.188041	-0.0331587	0.981601	0	
+    15.0308	21.6504	16.4079	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+15
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0509639	0.477286	-0.877269	0	
+    0.85764	-0.470998	-0.206427	0	
+    -0.511717	-0.741861	-0.433345	0	
+    24.7128	-28.4462	6.91072	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+16
+60
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.532482	-0.787262	-0.310939	0	
+    0.835622	0.430374	0.341342	0	
+    -0.134905	-0.441585	0.887019	0	
+    -14.2668	15.2668	-8.11796	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+16
+110
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.54532	-0.709516	0.446336	0	
+    -0.837865	0.44573	-0.315128	0	
+    0.0246423	-0.545814	-0.837545	0	
+    13.2137	2.58795	-2.0313	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+16
+25
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0870015	-0.79056	-0.606174	0	
+    -0.225684	0.57702	-0.78493	0	
+    0.970308	0.205093	-0.128215	0	
+    -2.62783	30.6739	12.5031	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+16
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0195076	-0.978741	-0.204169	0	
+    0.316466	0.187663	-0.929856	0	
+    0.948404	-0.0827513	0.306077	0	
+    -36.7744	10.238	14.5705	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+17
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.459264	0.132431	0.878372	0	
+    0.570075	0.802275	0.17711	0	
+    -0.681242	0.582078	-0.443953	0	
+    -26.8685	10.8698	-37.854	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+17
+6
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.029891	-0.999543	-0.00445289	0	
+    -0.534648	0.0122242	0.844985	0	
+    -0.844546	0.0276387	-0.53477	0	
+    -2.63374	34.0824	-16.575	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+17
+59
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.743797	0.625124	-0.236611	0	
+    -0.306997	-0.00505788	0.951697	0	
+    0.593732	0.780508	0.195673	0	
+    11.6143	-6.10428	-21.3069	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+17
+21
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.727564	-0.348852	-0.590723	0	
+    -0.59775	0.100206	-0.795396	0	
+    0.336669	0.931805	-0.135621	0	
+    -20.6876	-16.9644	-8.05792	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+17
+62
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.352618	0.729094	0.586585	0	
+    0.921506	-0.379574	-0.0821623	0	
+    0.162748	0.569513	-0.80571	0	
+    -0.206393	-14.2161	-2.92072	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+18
+11
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.869442	-0.447682	-0.208934	0	
+    -0.447855	-0.535678	-0.715874	0	
+    0.208561	0.715982	-0.666237	0	
+    -30.7914	18.3523	0.38036	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+18
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0708305	-0.863416	0.499495	0	
+    0.682627	-0.32317	-0.655425	0	
+    0.727327	0.387392	0.566501	0	
+    18.1986	35.0681	8.95882	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+18
+67
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.095799	0.913365	-0.395712	0	
+    -0.768302	0.320605	0.554008	0	
+    0.632878	0.250953	0.732453	0	
+    10.5905	-18.2351	-11.9549	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+18
+56
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.307134	0.943151	-0.127026	0	
+    0.525192	0.27929	0.803847	0	
+    0.793626	0.180176	-0.581115	0	
+    -10.8787	6.21966	-6.16039	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+19
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.956548	0.217132	-0.194601	0	
+    -0.269036	0.399974	-0.876151	0	
+    -0.112406	0.890435	0.441011	0	
+    -12.603	-18.2643	-30.8452	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+19
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.804141	-0.479036	-0.35197	0	
+    -0.592829	0.689823	0.415569	0	
+    0.0437247	0.542834	-0.838701	0	
+    10.086	46.5014	4.93097	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+19
+19
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.702741	-0.68987	0.173879	0	
+    0.248314	0.466871	0.848747	0	
+    -0.666705	-0.553272	0.499395	0	
+    -6.14017	21.8663	-21.1615	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+19
+44
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.905478	-0.299305	0.300878	0	
+    0.18982	-0.919712	-0.343652	0	
+    0.379578	-0.254058	0.889593	0	
+    4.16153	8.95375	-20.6718	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+19
+63
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.675667	0.310769	0.668504	0	
+    0.232355	-0.95036	0.206951	0	
+    0.699632	0.0155002	-0.714335	0	
+    -9.02505	7.05265	-7.49498	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+20
+10
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.345537	0.353627	0.869226	0	
+    -0.936579	0.0722066	0.342936	0	
+    0.0585083	-0.932595	0.35615	0	
+    -6.498	29.0941	-25.6602	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+20
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.141947	-0.978431	0.150079	0	
+    0.739379	-0.00399414	0.673278	0	
+    -0.658157	0.206535	0.723997	0	
+    4.04026	46.604	-6.34649	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+20
+61
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.886626	-0.442159	-0.135609	0	
+    0.447528	-0.89421	-0.0103745	0	
+    -0.116676	-0.0698867	0.990709	0	
+    -9.23042	8.4462	-14.9206	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+20
+6
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0153235	-0.643076	0.76565	0	
+    0.0455845	-0.764494	-0.643017	0	
+    0.998843	0.0447553	0.0176001	0	
+    17.0003	1.8002	-22.5698	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_HELIX"
+20
+39
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0947193	-0.970046	0.223698	0	
+    -0.719962	-0.221939	-0.65757	0	
+    0.68752	-0.0987692	-0.719416	0	
+    -1.35748	12.2094	-2.45964	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+1
+101
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0468132	-0.589517	-0.806398	0	
+    0.934195	0.259993	-0.2443	0	
+    0.353678	-0.764771	0.538551	0	
+    1.55437	-5.13436	9.29607	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+1
+700
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.69827	0.353759	0.622313	0	
+    0.594411	-0.770951	-0.228711	0	
+    0.398865	0.529611	-0.748611	0	
+    6.96335	8.30943	-2.81177	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+2
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.952084	0.288677	-0.101001	0	
+    0.120633	-0.657937	-0.743349	0	
+    -0.28104	0.695546	-0.661234	0	
+    11.7531	17.4809	-23.7422	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+2
+1714
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.212059	0.845828	0.489496	0	
+    0.909255	0.354347	-0.218391	0	
+    -0.358171	0.398765	-0.844215	0	
+    -7.12771	7.93867	-3.55457	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+2
+92
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.606457	0.157587	0.779344	0	
+    -0.644719	-0.671108	-0.365996	0	
+    0.465347	-0.724419	0.508597	0	
+    5.26334	-6.73786	10.87	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+3
+54
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.183973	0.741521	-0.645213	0	
+    -0.735815	-0.539121	-0.409787	0	
+    -0.651714	0.399367	0.644807	0	
+    -9.81171	8.70486	8.72119	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+3
+1322
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0707334	0.905425	0.418573	0	
+    0.996891	-0.0787765	0.00193905	0	
+    0.0347294	0.417134	-0.908181	0	
+    -6.25511	9.37921	-5.02055	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+3
+487
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0267215	-0.86113	0.507683	0	
+    -0.998485	-0.00144231	-0.0550012	0	
+    0.048096	-0.508383	-0.859787	0	
+    4.2601	-10.0673	-0.496274	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+3
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.926889	-0.00621775	-0.375283	0	
+    -0.360309	0.294826	0.885017	0	
+    0.10514	0.955531	-0.275511	0	
+    6.34957	5.2396	0.848789	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+4
+46
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.421624	-0.0134005	0.906672	0	
+    0.0941393	-0.995134	0.0290706	0	
+    0.90187	0.0976098	0.420834	0	
+    13.2157	5.54272	11.0116	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+4
+56
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.962062	0.141371	-0.233346	0	
+    -0.202891	-0.201097	-0.95833	0	
+    -0.182405	0.969316	-0.164784	0	
+    -7.35749	15.7219	-0.404189	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+4
+613
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.923097	0.235753	0.303833	0	
+    0.171322	0.959426	-0.223942	0	
+    -0.3443	-0.154666	-0.926032	0	
+    -11.2912	-0.944148	-5.4491	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+4
+610
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.842187	-0.221397	0.491634	0	
+    -0.135591	-0.969471	-0.204307	0	
+    0.521859	0.105403	-0.846495	0	
+    11.2237	6.1464	-1.95851	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+4
+5
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.912661	0.408703	0.00310969	0	
+    -0.180408	-0.396012	-0.900348	0	
+    -0.366743	-0.822275	0.435159	0	
+    10.3253	-4.86534	1.77247	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+4
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.144307	-0.509842	-0.848077	0	
+    0.709047	0.651101	-0.270775	0	
+    0.690237	-0.562253	0.455461	0	
+    -4.80346	-4.29419	5.13807	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+5
+16
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.804527	0.56402	0.18606	0	
+    -0.223175	0.577415	-0.785357	0	
+    -0.550391	0.590317	0.59042	0	
+    -11.6933	12.6758	14.4475	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+5
+31
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.715832	-0.213321	0.66489	0	
+    0.691133	0.0806299	-0.718216	0	
+    0.0996008	0.973649	0.205151	0	
+    5.35274	15.8386	9.34894	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+5
+31
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.649015	0.243508	-0.720752	0	
+    0.621212	-0.377276	-0.686846	0	
+    -0.439175	-0.893514	0.0935887	0	
+    -4.98952	-10.8892	13.9407	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+5
+39
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.677781	-0.733282	0.0539429	0	
+    -0.73505	-0.677528	0.0256506	0	
+    0.0177394	-0.0570364	-0.998215	0	
+    14.3546	-1.74367	-11.6662	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+5
+253
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.813467	-0.472844	0.338662	0	
+    -0.499907	0.866038	0.00839629	0	
+    -0.297263	-0.162469	-0.940871	0	
+    -6.35949	-8.23922	-2.54792	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+5
+257
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.402393	0.803837	-0.438094	0	
+    0.857063	0.498975	0.128323	0	
+    0.321748	-0.323838	-0.889723	0	
+    11.6628	-2.72167	-2.29335	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+5
+285
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.42204	0.89422	0.14917	0	
+    0.906576	0.416231	0.0697872	0	
+    0.000315691	0.164688	-0.986346	0	
+    -7.55873	10.0231	-6.74929	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+5
+10
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.823935	0.17078	-0.540339	0	
+    -0.273692	-0.715003	-0.643322	0	
+    -0.49621	0.677941	-0.542375	0	
+    -1.0132	6.14691	7.75082	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+5
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0652287	0.99761	0.0228299	0	
+    -0.326987	-0.00024625	0.945029	0	
+    0.942775	-0.0691087	0.326189	0	
+    -0.161927	10.063	0.594739	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+6
+611
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.53126	0.837579	0.12737	0	
+    0.756033	-0.536544	0.374878	0	
+    0.38233	-0.102863	-0.918283	0	
+    1.19145	12.3956	-6.1957	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+6
+18
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.911631	0.262803	-0.31601	0	
+    -0.284385	-0.958426	0.0233465	0	
+    -0.296737	0.111153	0.948468	0	
+    0.638012	4.0298	18.0745	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+6
+54
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.236751	0.340977	0.909771	0	
+    -0.122281	-0.918489	0.376066	0	
+    0.963844	-0.200282	-0.175758	0	
+    18.7481	4.15999	2.97562	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+6
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.822703	-0.245206	-0.512868	0	
+    0.376838	0.910719	0.169072	0	
+    0.425621	-0.332365	0.841654	0	
+    7.55676	-6.5361	24.6454	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+7
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.528911	0.517115	-0.672937	0	
+    -0.670786	0.740473	0.0417919	0	
+    0.519904	0.429293	0.738517	0	
+    18.2643	11.3799	23.5463	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+7
+406
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.1975	0.960102	-0.197985	0	
+    0.950694	0.23685	0.200206	0	
+    0.239112	-0.148683	-0.959542	0	
+    -7.41704	8.26267	-8.26907	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+7
+21
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.493271	0.865654	-0.0855993	0	
+    0.694802	0.332874	-0.63753	0	
+    -0.523387	-0.373951	-0.765655	0	
+    -6.99877	-12.8245	5.76057	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+7
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.946601	-0.322318	-0.00771212	0	
+    0.191888	0.582448	-0.789894	0	
+    0.259089	0.746234	0.613194	0	
+    -10.5264	2.28311	3.88454	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+7
+85
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.196335	0.95319	-0.229962	0	
+    0.688117	0.301016	0.660215	0	
+    0.698532	-0.0286167	-0.715006	0	
+    21.7386	-1.31917	-2.03169	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+8
+19
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.555406	-0.685362	-0.470959	0	
+    -0.026135	-0.58045	0.813877	0	
+    -0.831168	-0.439724	-0.340297	0	
+    -22.1478	-0.129239	3.12451	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+8
+15
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.30979	-0.495691	0.81137	0	
+    -0.64803	-0.514376	-0.561671	0	
+    0.695764	-0.699792	-0.161874	0	
+    19.0134	-17.5381	11.0024	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+8
+15
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.215745	-0.501322	0.837932	0	
+    -0.264838	-0.795932	-0.544382	0	
+    0.939849	-0.339364	0.0389494	0	
+    -4.71253	5.14217	7.57071	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+8
+227
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.453749	-0.861495	0.227902	0	
+    -0.824467	0.502899	0.259513	0	
+    -0.338181	-0.0701446	-0.938463	0	
+    0.724971	-10.7351	-6.01361	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+8
+116
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.93416	0.0165006	0.35647	0	
+    -0.0742827	-0.968058	0.239475	0	
+    0.349035	-0.250187	-0.903095	0	
+    7.26669	13.0194	-12.5524	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+9
+26
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.557005	-0.754575	-0.346934	0	
+    -0.794342	-0.362108	-0.487747	0	
+    0.242413	0.547262	-0.801087	0	
+    -1.63008	18.4667	-20.6136	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+9
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.374727	-0.211431	-0.902705	0	
+    -0.537664	-0.842765	-0.0258002	0	
+    -0.755313	0.49502	-0.429485	0	
+    -29.0348	8.38543	-2.47853	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+9
+11
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.235867	-0.580487	-0.779361	0	
+    -0.21265	0.813382	-0.54147	0	
+    0.948234	0.0380158	-0.31529	0	
+    15.6528	5.74109	15.6079	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+9
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.842051	0.519092	-0.146605	0	
+    -0.277697	-0.184184	0.942847	0	
+    0.462422	0.834638	0.299242	0	
+    10.6312	0.478501	15.6883	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+9
+53
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0822544	0.993889	0.0736149	0	
+    0.924098	-0.103722	0.367811	0	
+    0.373198	0.0377744	-0.926982	0	
+    -3.12676	9.31428	-16.7842	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+9
+11
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0733048	-0.37284	-0.924996	0	
+    -0.91338	0.397516	-0.0878438	0	
+    0.400451	0.838433	-0.369686	0	
+    6.17826	3.16122	9.93058	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+9
+170
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.824551	-0.488803	0.284935	0	
+    -0.446806	0.871507	0.202086	0	
+    -0.347103	0.0393202	-0.937002	0	
+    -8.59216	-9.77346	0.457275	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+9
+38
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.70485	0.695576	-0.139141	0	
+    -0.694234	-0.636134	0.336708	0	
+    0.145694	0.333924	0.931271	0	
+    -6.3936	8.48165	-6.83123	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+10
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.80975	-0.250438	0.530647	0	
+    0.502231	0.763459	-0.406075	0	
+    -0.30343	0.595325	0.743988	0	
+    -13.5802	21.9402	31.0612	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+10
+9
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.619662	-0.630092	-0.467976	0	
+    0.656664	0.74279	-0.130599	0	
+    0.429896	-0.226376	0.874038	0	
+    3.6166	10.9795	20.8341	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+10
+15
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.925461	-0.304792	-0.224998	0	
+    -0.373635	0.832478	0.409118	0	
+    0.0626091	0.46269	-0.884307	0	
+    -7.12882	14.7447	-20.2842	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+10
+34
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.351093	0.836384	0.420944	0	
+    0.828653	-0.486865	0.276218	0	
+    0.435967	0.251838	-0.864008	0	
+    15.3305	14.6294	-7.88006	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+10
+11
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.612775	0.269293	-0.742959	0	
+    -0.163424	0.876644	0.452536	0	
+    0.773175	0.39872	-0.493177	0	
+    22.4358	19.5683	5.51711	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+10
+124
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.964847	-0.0120703	0.262537	0	
+    0.108355	0.891823	0.439215	0	
+    -0.239438	0.452222	-0.859166	0	
+    -11.5438	-3.83001	-2.4162	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+10
+23
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.130588	0.991171	-0.0229814	0	
+    -0.979834	0.132561	0.149509	0	
+    0.151235	0.0029935	0.988493	0	
+    0.498769	11.511	-5.45595	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+10
+12
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.910983	-0.00188731	-0.41244	0	
+    0.293112	0.700553	-0.650623	0	
+    0.290163	-0.713598	-0.637638	0	
+    -8.53297	-7.68116	11.0935	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+11
+119
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.723443	-0.681457	-0.110666	0	
+    -0.682224	0.681076	0.265905	0	
+    -0.105831	0.267867	-0.957626	0	
+    -0.166637	-11.0622	-7.26284	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+11
+26
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.91001	0.321591	0.261655	0	
+    0.0213997	0.666713	-0.745008	0	
+    -0.414036	-0.672364	-0.613597	0	
+    5.08407	-18.484	-6.52498	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+11
+37
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.244523	-0.60007	-0.761659	0	
+    -0.967152	0.207212	0.147244	0	
+    0.0694682	0.772645	-0.631026	0	
+    -4.44395	17.9096	-17.5472	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+11
+12
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.831718	0.317533	-0.455432	0	
+    0.548406	0.341949	-0.763099	0	
+    -0.0865748	-0.884446	-0.458542	0	
+    17.4063	-13.0297	14.8502	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+11
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0616787	0.993137	0.0993632	0	
+    -0.18422	0.10917	-0.976803	0	
+    -0.980948	0.0419426	0.189689	0	
+    -26.6867	0.132352	19.2034	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+12
+108
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.922021	0.365762	0.12686	0	
+    0.22845	-0.778596	0.584464	0	
+    0.312548	-0.509908	-0.801442	0	
+    11.1239	5.91163	-3.66004	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+12
+23
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.509916	-0.0992201	0.854482	0	
+    -0.680066	0.654785	-0.329801	0	
+    -0.526779	-0.749275	-0.401362	0	
+    13.836	-7.85665	12.0435	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+12
+29
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.94542	0.323849	0.036097	0	
+    0.278358	-0.860237	0.427211	0	
+    0.169404	-0.393846	-0.903432	0	
+    2.51984	14.8028	-19.3233	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+12
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.267965	0.611314	-0.74464	0	
+    0.474589	0.756382	0.450169	0	
+    0.838427	-0.232769	-0.492806	0	
+    23.654	-19.1566	-8.20984	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+13
+7
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.155936	-0.838567	0.522005	0	
+    -0.97965	-0.0636824	0.190344	0	
+    -0.126373	-0.541064	-0.831432	0	
+    7.68345	4.12052	-36.204	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+13
+30
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.171624	0.976631	0.129369	0	
+    0.782449	-0.214919	0.58445	0	
+    0.598597	0.000920122	-0.801051	0	
+    9.03807	10.5435	-16.9684	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+13
+23
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.56688	0.109166	-0.816534	0	
+    0.470672	-0.856393	0.212269	0	
+    -0.676102	-0.504652	-0.536854	0	
+    -6.76218	-11.3427	19.299	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+13
+99
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.904195	0.408024	0.126277	0	
+    0.315146	-0.836884	0.447557	0	
+    0.288294	-0.364885	-0.885294	0	
+    10.0272	8.25435	-8.43723	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+14
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.596045	-0.0835483	-0.798592	0	
+    0.722724	0.377526	-0.578916	0	
+    0.349857	-0.922222	-0.16464	0	
+    22.5348	2.55885	33.3091	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+14
+36
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.736322	-0.669223	0.0998398	0	
+    -0.62267	0.727927	0.287062	0	
+    -0.264785	0.149203	-0.952695	0	
+    7.02567	-9.99863	-16.7917	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+14
+73
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.067258	0.927917	-0.36667	0	
+    0.374746	0.364088	0.852646	0	
+    0.924684	-0.0800607	-0.372221	0	
+    1.25666	8.27275	-9.51046	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+14
+17
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.211658	0.875004	-0.435396	0	
+    0.888412	-0.357924	-0.287429	0	
+    -0.407339	-0.325975	-0.853121	0	
+    5.65366	-1.78012	-28.1363	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+14
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.18833	-0.854648	0.483848	0	
+    -0.791741	-0.159381	-0.589697	0	
+    0.5811	-0.494141	-0.646644	0	
+    -20.2019	22.7769	-11.6675	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+15
+96
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.810266	0.336414	-0.479891	0	
+    0.341605	0.936458	0.0796971	0	
+    0.476209	-0.0993573	-0.8737	0	
+    -4.19397	12.5451	-5.74623	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+15
+28
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.19456	-0.800867	0.566355	0	
+    -0.922014	0.346345	0.173018	0	
+    -0.334719	-0.488524	-0.805796	0	
+    10.7522	-16.627	-13.0822	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+15
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.543714	-0.079459	-0.835502	0	
+    0.68764	0.612923	0.3892	0	
+    0.481172	-0.786138	0.387892	0	
+    23.1665	-13.3942	-14.4136	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+16
+37
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.763084	0.630872	-0.140363	0	
+    0.621896	0.775862	0.106229	0	
+    0.17592	-0.0062294	-0.984385	0	
+    -2.75183	12.0167	-16.6639	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+16
+57
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.167426	-0.596966	0.784602	0	
+    0.268247	0.793395	0.546414	0	
+    -0.94869	0.118983	0.29297	0	
+    -2.40424	-10.3365	-7.36905	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+16
+12
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.120774	0.776097	0.618941	0	
+    0.981129	-0.188167	0.0444983	0	
+    0.151	0.601886	-0.784177	0	
+    -11.9061	28.1268	-7.78083	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_SHEET"
+16
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.229462	0.480562	0.846408	0	
+    -0.5569	-0.648378	0.519104	0	
+    0.798254	-0.590479	0.118846	0	
+    23.0812	18.2525	29.39	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+17
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.61265	-0.679852	0.403063	0	
+    -0.067146	-0.463363	-0.883621	0	
+    0.787497	-0.568415	0.238229	0	
+    29.9919	36.1835	8.89876	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+17
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.434056	0.897928	-0.072937	0	
+    0.768617	0.411344	0.489922	0	
+    0.469917	0.156593	-0.86871	0	
+    22.0309	4.23491	-30.7374	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+17
+13
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0501276	0.115467	-0.992046	0	
+    -0.285119	0.950304	0.125015	0	
+    0.95718	0.289118	-0.0147142	0	
+    8.20453	28.6093	-8.09459	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+17
+63
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.976096	0.175119	-0.128721	0	
+    0.143504	-0.0744995	0.986841	0	
+    0.163225	-0.981725	-0.0978501	0	
+    10.8666	-7.48455	-11.1874	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+18
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.348523	-0.0807373	0.933816	0	
+    0.778564	0.579669	-0.240461	0	
+    -0.52189	0.810842	0.264887	0	
+    -33.2611	1.31204	12.9075	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+18
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.389152	0.772202	-0.502258	0	
+    -0.883964	-0.15964	0.439458	0	
+    0.25917	0.614995	0.744724	0	
+    28.7989	-31.6001	1.03909	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+18
+31
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0140651	0.860655	0.508994	0	
+    -0.189172	-0.497561	0.84655	0	
+    0.981843	-0.108195	0.155813	0	
+    -21.6378	-4.04572	-8.34507	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+18
+60
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.834855	0.341676	-0.431593	0	
+    0.277568	0.93837	0.205956	0	
+    0.475364	0.052147	-0.878242	0	
+    -6.34609	11.5828	-4.09274	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+19
+25
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.196244	-0.921415	-0.335384	0	
+    -0.927611	0.285321	-0.241102	0	
+    0.317847	0.263791	-0.910707	0	
+    -4.25515	13.113	-6.90538	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+19
+17
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.556411	0.828193	-0.0671097	0	
+    -0.104007	0.0107119	0.994519	0	
+    0.824372	0.560341	0.0801774	0	
+    18.2943	3.50835	-11.8042	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+19
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.214946	-0.831828	-0.511723	0	
+    -0.964529	0.0985927	0.244874	0	
+    -0.153241	0.546206	-0.823514	0	
+    -32.5372	6.44503	-10.906	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+19
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.365721	-0.427278	0.82685	0	
+    -0.897891	0.0719141	0.434305	0	
+    -0.245032	-0.901256	-0.357349	0	
+    27.7635	-7.02503	9.07819	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+20
+26
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.422946	-0.330945	0.843559	0	
+    -0.834842	-0.5043	0.220728	0	
+    0.352359	-0.797594	-0.489578	0	
+    9.89319	14.0774	-7.81657	1	
+
+
+bcl::contact::Types::Enum
+  "HELIX_STRAND"
+20
+23
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.21047	0.857782	-0.468948	0	
+    0.585876	0.494681	0.641903	0	
+    0.782593	-0.139644	-0.606669	0	
+    12.9892	4.75438	1.84519	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+20
+6
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.337602	0.902632	0.266984	0	
+    0.93488	-0.354576	0.0166062	0	
+    0.109656	0.243992	-0.963558	0	
+    23.4517	20.2647	-17.9641	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_HELIX_STRAND"
+20
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.399989	0.911412	0.0966277	0	
+    -0.133928	0.0461745	-0.989914	0	
+    -0.906682	-0.408895	0.103594	0	
+    33.6155	-33.5328	15.1525	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+1
+31
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.221763	0.429706	0.875314	0	
+    0.576379	0.666291	-0.473121	0	
+    -0.786517	0.609432	-0.0999148	0	
+    -4.94769	3.55563	3.91161	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+1
+981
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.566805	-0.40728	-0.71614	0	
+    -0.26322	0.913222	-0.311032	0	
+    0.780671	0.0122066	-0.624824	0	
+    6.22839	2.99963	5.48773	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+2
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.175772	-0.303965	0.936328	0	
+    -0.748832	0.57613	0.327606	0	
+    -0.639026	-0.758736	-0.126351	0	
+    -6.70262	1.0198	-6.23067	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+2
+976
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.648985	0.551456	-0.524132	0	
+    0.533247	-0.821088	-0.203624	0	
+    -0.542648	-0.147342	-0.826936	0	
+    -7.45531	-3.03492	6.1716	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+2
+71
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.152485	0.829015	0.538036	0	
+    0.545507	0.52456	-0.653649	0	
+    -0.824118	0.193829	-0.532221	0	
+    -7.16761	-0.521784	4.23237	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+3
+107
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.392614	-0.0607217	-0.917697	0	
+    0.527544	0.832215	0.170632	0	
+    0.75336	-0.551119	0.358772	0	
+    2.53586	-3.94935	16.5639	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+3
+866
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.732503	-0.652355	-0.194606	0	
+    -0.556596	0.738503	-0.380545	0	
+    0.391968	-0.170434	-0.904055	0	
+    8.643	6.08627	2.35264	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+3
+54
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0937868	0.766935	0.634834	0	
+    0.907296	0.328369	-0.262657	0	
+    -0.409902	0.551349	-0.726633	0	
+    -6.91159	5.2176	2.64332	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+4
+122
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.539891	-0.2749	-0.795579	0	
+    -0.725967	-0.326292	0.605397	0	
+    -0.426015	0.904413	-0.0234049	0	
+    -4.30922	7.97536	13.3049	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+4
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.664476	0.328902	-0.671041	0	
+    -0.0494146	0.915313	0.399698	0	
+    0.745674	-0.232431	0.624456	0	
+    10.0869	-6.8676	4.9742	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+4
+927
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.997274	-0.0612614	-0.0411093	0	
+    -0.0453136	0.948346	-0.313984	0	
+    0.0582196	-0.311266	-0.948538	0	
+    11.0175	-3.58791	2.08979	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+4
+22
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.805147	-0.171818	0.567641	0	
+    0.0351189	0.941623	0.33483	0	
+    -0.592034	0.289523	-0.752112	0	
+    -8.88871	-4.90658	4.36073	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+4
+7
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.68007	-0.461952	0.569302	0	
+    0.488893	-0.292914	-0.821697	0	
+    0.546342	0.837139	0.0266428	0	
+    3.37194	8.2545	-4.36649	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+5
+99
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0402149	0.120784	-0.991864	0	
+    -0.0654621	-0.990216	-0.123237	0	
+    -0.997044	0.0698859	-0.0319143	0	
+    -3.52832	1.90401	17.2608	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+5
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.127536	-0.425605	0.895876	0	
+    -0.0383116	0.904692	0.42434	0	
+    -0.991093	0.0197959	-0.131686	0	
+    -1.80301	5.58119	-1.32294	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+5
+51
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.863637	0.32588	0.384622	0	
+    0.266238	-0.942731	0.200936	0	
+    0.428077	-0.0711357	-0.900938	0	
+    8.06163	5.93794	1.63752	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+5
+751
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.997335	0.0626028	0.0374866	0	
+    0.0691222	-0.97515	-0.210487	0	
+    0.0233782	0.212516	-0.976878	0	
+    -10.8358	3.0928	3.11886	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+5
+16
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.269736	-0.390548	0.880178	0	
+    0.128762	-0.920479	-0.36897	0	
+    0.954286	0.0138091	0.298574	0	
+    6.68255	6.39411	-8.50872	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+6
+532
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.962403	-0.211035	0.171008	0	
+    -0.245104	0.946054	-0.21191	0	
+    -0.117062	-0.245857	-0.962212	0	
+    11.7033	2.55345	1.27371	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+6
+14
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.412513	-0.161553	0.896512	0	
+    -0.597485	-0.694907	-0.400143	0	
+    0.687638	-0.700717	0.190132	0	
+    8.39076	1.68686	-8.682	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+6
+11
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0385287	-0.170022	0.984687	0	
+    0.799179	-0.586305	-0.132505	0	
+    0.599856	0.792047	0.113289	0	
+    2.91681	9.84963	4.60858	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+6
+130
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.572707	0.499887	-0.649708	0	
+    0.639628	-0.223214	-0.735563	0	
+    -0.512722	-0.836833	-0.191905	0	
+    5.69903	-7.84086	13.3385	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+6
+21
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.283368	0.926995	-0.24573	0	
+    -0.86356	-0.135206	0.48578	0	
+    0.417092	0.349858	0.838828	0	
+    7.12859	-5.81002	19.494	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+7
+484
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.954993	0.286905	0.0753308	0	
+    0.290496	-0.955962	-0.041823	0	
+    0.0600143	0.0618238	-0.996281	0	
+    -12.1009	0.123941	2.64073	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+7
+18
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.584624	-0.137462	0.799575	0	
+    0.00953234	-0.986638	-0.162651	0	
+    0.811249	-0.0874673	0.578122	0	
+    7.42531	3.65913	-8.97951	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+7
+10
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.764861	-0.0206833	0.643863	0	
+    0.0527559	0.994115	0.0946035	0	
+    -0.642031	0.106326	-0.759269	0	
+    -11.4948	8.98142	0.318319	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+7
+38
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.202374	0.819817	-0.535672	0	
+    0.0632884	0.556796	0.828235	0	
+    0.977261	0.133712	-0.164566	0	
+    15.0469	-4.37904	11.0624	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+7
+57
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.553184	-0.195501	-0.809793	0	
+    -0.346002	0.938182	0.00986345	0	
+    0.757806	0.285646	-0.586632	0	
+    14.8119	1.33322	16.711	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+8
+267
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.842255	-0.532299	0.0852412	0	
+    -0.531803	0.846324	0.0303207	0	
+    -0.0882813	-0.0197938	-0.995899	0	
+    11.51	0.0191628	-1.7933	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+8
+163
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.866247	0.446129	0.22491	0	
+    0.499363	-0.787451	-0.361329	0	
+    0.0159057	0.425312	-0.904907	0	
+    -11.6618	-3.28563	6.90452	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+8
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.652747	-0.549257	-0.521765	0	
+    0.65229	-0.0572165	-0.755807	0	
+    0.385278	-0.833693	0.395622	0	
+    -8.02664	-4.34595	6.25459	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+8
+18
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.661333	-0.361673	0.65714	0	
+    -0.591326	-0.28762	-0.753398	0	
+    0.461491	-0.88683	-0.0236536	0	
+    8.72388	3.05973	-14.9414	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+8
+9
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.202295	-0.301824	-0.931654	0	
+    0.433524	0.825434	-0.361546	0	
+    0.878142	-0.477033	-0.0361328	0	
+    3.85439	10.1845	22.213	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+8
+56
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.73685	0.457109	-0.4981	0	
+    -0.54171	-0.840013	0.0304787	0	
+    -0.404478	0.292284	0.866584	0	
+    7.80881	3.15891	18.5977	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+9
+264
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.446713	-0.893507	-0.0457508	0	
+    -0.892866	0.441973	0.0863108	0	
+    -0.0568984	0.079406	-0.995217	0	
+    10.5585	4.95713	1.46713	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+9
+31
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.784929	0.482812	0.388305	0	
+    -0.545799	-0.835427	-0.0645339	0	
+    0.293244	-0.262591	0.919268	0	
+    9.22897	0.676052	-6.54148	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+9
+73
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.60005	0.794809	-0.0906542	0	
+    0.777561	0.606121	0.167384	0	
+    0.187986	0.0299502	-0.981715	0	
+    10.1476	-9.67992	9.67388	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+9
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.220348	-0.883541	0.413281	0	
+    0.522446	0.4647	0.714915	0	
+    -0.82371	0.0583868	0.563998	0	
+    -8.45574	-4.31495	11.2753	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+9
+9
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.283635	-0.779264	-0.558836	0	
+    -0.451558	0.622651	-0.639064	0	
+    0.845959	0.0710865	-0.528488	0	
+    21.9586	-12.4072	14.0022	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+9
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.788084	0.0639614	0.612236	0	
+    -0.290577	-0.838147	0.461599	0	
+    0.542669	-0.541681	-0.641944	0	
+    -3.64063	-16.1929	25.3927	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+9
+52
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.249381	-0.20506	-0.946446	0	
+    0.398557	0.912449	-0.0926765	0	
+    0.882588	-0.354101	0.309276	0	
+    6.96349	4.58473	18.2969	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+9
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.239096	-0.555117	0.796667	0	
+    0.25078	-0.827931	-0.501637	0	
+    0.938052	0.0798479	0.337167	0	
+    21.8785	-6.0762	-3.83804	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+10
+12
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.799218	0.557412	-0.224819	0	
+    -0.600593	0.755097	-0.262899	0	
+    0.0232171	0.345139	0.938264	0	
+    -10.5339	-4.49188	-5.45063	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+10
+5
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.721594	-0.334542	0.606122	0	
+    0.172038	0.934685	0.311074	0	
+    -0.6706	-0.120194	0.732018	0	
+    -7.30409	-3.44032	-3.4142	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+10
+165
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.742401	0.669567	0.0228466	0	
+    0.652035	-0.714288	-0.254249	0	
+    -0.153917	0.203652	-0.966869	0	
+    -10.577	-3.78466	2.31346	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+10
+7
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.837567	-0.53316	0.119253	0	
+    0.534605	0.754834	-0.380031	0	
+    0.112601	0.382055	0.917255	0	
+    3.67614	-3.39408	11.4677	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+10
+95
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.570046	-0.816519	-0.0913524	0	
+    -0.811959	0.576849	-0.0892624	0	
+    0.125581	0.0232897	-0.991809	0	
+    7.93494	3.14986	11.5536	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+10
+38
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.45854	0.375681	-0.805359	0	
+    -0.0787178	0.885516	0.45789	0	
+    0.885181	0.273357	-0.376472	0	
+    15.9157	0.733537	18.2475	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+10
+12
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.801941	-0.151903	-0.577768	0	
+    -0.29846	-0.939659	-0.167212	0	
+    -0.517506	0.306536	-0.798889	0	
+    -3.7295	-3.93051	19.9216	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+10
+24
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.631766	-0.305587	-0.712383	0	
+    0.728611	0.0795718	-0.68029	0	
+    0.264573	-0.948833	0.172384	0	
+    12.527	-15.3057	6.22272	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+11
+200
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.99069	0.0485442	-0.127191	0	
+    0.0761887	-0.971956	0.222478	0	
+    -0.112825	-0.230097	-0.966605	0	
+    -10.871	2.0711	2.32924	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+11
+67
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.576537	0.748362	0.327959	0	
+    0.813806	-0.561791	-0.1487	0	
+    0.0729622	0.352626	-0.932915	0	
+    -13.4386	-4.201	9.21835	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+11
+23
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.942868	-0.212661	0.256465	0	
+    -0.0388325	0.69439	0.718551	0	
+    -0.330895	-0.687458	0.64646	0	
+    -19.9522	-3.50782	-1.81119	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+11
+18
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0340574	0.866507	-0.498001	0	
+    0.998596	-0.0497439	-0.0182588	0	
+    -0.0405938	-0.496681	-0.866984	0	
+    11.0089	-12.3353	19.1455	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+12
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.13736	0.0636135	-0.988477	0	
+    -0.980296	-0.134288	-0.144865	0	
+    -0.141955	0.988899	0.0439138	0	
+    -13.9414	14.3794	24.2481	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+12
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.957345	-0.275977	0.0856051	0	
+    -0.0299763	0.389526	0.920527	0	
+    -0.28739	0.878696	-0.381183	0	
+    29.6465	24.715	18.9403	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+12
+75
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.929892	-0.27414	-0.245254	0	
+    -0.21619	0.946756	-0.238567	0	
+    0.297596	-0.168821	-0.939647	0	
+    7.84009	6.55495	16.4971	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+12
+20
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.683255	0.151457	-0.714299	0	
+    -0.730147	-0.151128	0.666368	0	
+    -0.00702518	0.976842	0.213846	0	
+    22.6361	8.91227	12.3189	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+12
+160
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.995465	-0.0423324	0.0851918	0	
+    -0.0367243	-0.997119	-0.066362	0	
+    0.0877551	0.0629329	-0.994152	0	
+    -9.5045	6.94234	0.527232	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+13
+65
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.979851	-0.188106	0.0671418	0	
+    -0.193047	0.805715	-0.559962	0	
+    0.0512345	-0.56164	-0.825794	0	
+    9.70436	2.02867	13.977	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+13
+149
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.850581	0.520874	0.0721352	0	
+    0.521842	-0.85302	0.00620119	0	
+    0.0647629	0.0323681	-0.997376	0	
+    -10.6252	1.51374	2.11019	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+13
+6
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.72879	0.37322	0.574083	0	
+    -0.684671	-0.385613	-0.618489	0	
+    -0.00945787	-0.843806	0.536564	0	
+    15.2552	-12.4847	20.2696	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+13
+25
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.68325	0.70947	0.17269	0	
+    0.686599	0.704726	-0.178722	0	
+    -0.248497	-0.00354287	-0.968627	0	
+    10.5561	-1.6837	20.7044	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+13
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.358689	-0.476925	-0.802424	0	
+    -0.848326	0.192114	-0.493392	0	
+    0.389467	0.857692	-0.335678	0	
+    -2.32048	37.6159	2.96248	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+14
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.520475	0.77625	-0.355725	0	
+    -0.824411	0.348334	-0.446105	0	
+    -0.222377	0.52545	0.821249	0	
+    -14.4352	-2.46547	33.4081	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+14
+14
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.872774	-0.487325	-0.0279174	0	
+    -0.425856	-0.788143	0.444385	0	
+    -0.238564	-0.375958	-0.895401	0	
+    -11.4648	0.541995	-25.5475	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+14
+19
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.297038	-0.638064	-0.710382	0	
+    -0.858103	0.504702	-0.0945184	0	
+    0.418841	0.581505	-0.697442	0	
+    -9.3933	8.20092	22.6045	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+14
+10
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.56891	-0.416778	-0.708969	0	
+    0.620525	0.783291	0.0374683	0	
+    0.539713	-0.461249	0.704244	0	
+    2.08272	-5.91287	19.564	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+14
+154
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.964572	-0.0278393	0.26235	0	
+    -0.0515096	0.995151	-0.0837834	0	
+    -0.258746	-0.0943283	-0.961328	0	
+    12.8506	2.47197	0.110886	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+15
+121
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.525468	-0.780311	0.339113	0	
+    -0.850428	-0.469721	0.236924	0	
+    -0.0255863	-0.412887	-0.910422	0	
+    10.6148	5.82234	3.36286	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+15
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.702468	0.524526	0.481052	0	
+    0.497364	-0.121683	0.858966	0	
+    0.509086	0.842654	-0.175401	0	
+    3.10491	6.62062	-4.99666	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+15
+12
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.00860974	0.941807	-0.336043	0	
+    -0.74253	0.231106	0.628679	0	
+    0.669756	0.244109	0.70131	0	
+    10.0108	4.04366	15.6166	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+15
+21
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.388346	-0.196106	-0.900405	0	
+    -0.897055	-0.304073	-0.320674	0	
+    -0.210903	0.932246	-0.294003	0	
+    5.23576	-10.9628	16.2904	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+15
+6
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.168666	0.800899	-0.574553	0	
+    -0.525369	0.420156	0.739903	0	
+    0.83399	0.426648	0.349901	0	
+    -8.60464	-13.8823	28.2043	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+15
+8
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.35713	0.650578	0.670229	0	
+    0.901066	-0.428972	-0.0637362	0	
+    0.246044	0.626683	-0.739413	0	
+    -26.633	-10.18	-6.77555	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+15
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.793596	-0.604202	-0.0717249	0	
+    -0.547479	0.760531	-0.349085	0	
+    0.265467	-0.237764	-0.934343	0	
+    36.4939	3.46372	23.9483	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+16
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.686542	-0.696055	0.210159	0	
+    -0.149433	-0.417949	-0.896096	0	
+    0.711568	0.583804	-0.390952	0	
+    1.18953	31.0683	-35.6719	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+16
+121
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.857669	0.493758	-0.143553	0	
+    0.501942	-0.864531	0.02529	0	
+    -0.111618	-0.0937449	-0.98932	0	
+    -10.3579	8.23569	4.78172	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+16
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.433697	0.856586	-0.279586	0	
+    0.626063	0.509619	0.5902	0	
+    0.648038	0.0809295	-0.757296	0	
+    3.9111	3.38944	-5.48634	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+16
+7
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.571908	-0.493242	0.655464	0	
+    -0.810566	-0.216955	0.543978	0	
+    -0.126106	-0.842403	-0.523885	0	
+    -15.0767	19.8676	-24.1265	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+16
+18
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.325634	0.905774	-0.271173	0	
+    -0.00577908	-0.288707	-0.9574	0	
+    -0.945478	-0.310196	0.0992469	0	
+    18.7704	-14.6797	8.59169	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+17
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.969925	-0.00975235	0.243205	0	
+    -0.241503	0.163117	-0.956592	0	
+    -0.0303424	-0.986558	-0.160566	0	
+    -31.4114	16.3872	4.00447	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+17
+15
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.352144	-0.550284	-0.757088	0	
+    -0.860174	-0.128555	0.493532	0	
+    -0.368909	0.825022	-0.42807	0	
+    10.3485	8.70456	24.5849	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+17
+20
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.898806	0.123302	-0.420647	0	
+    -0.43305	0.398492	-0.8085	0	
+    0.0679346	0.908846	0.411563	0	
+    3.09497	10.0909	17.799	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+17
+70
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.022579	-0.991212	0.13034	0	
+    -0.999041	-0.0272642	-0.0342671	0	
+    0.0375198	-0.129441	-0.990877	0	
+    10.1729	8.59607	-0.905649	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+18
+65
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.288341	-0.953958	-0.0826062	0	
+    -0.714633	0.271816	-0.644528	0	
+    0.637305	-0.126812	-0.760106	0	
+    -2.93776	8.08106	15.6305	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+18
+60
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.215653	-0.97647	-0.000404489	0	
+    -0.973724	0.215079	-0.0748575	0	
+    0.0731821	-0.015749	-0.997194	0	
+    11.1412	1.00374	2.17733	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+18
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.261027	0.962563	-0.0730573	0	
+    -0.803048	-0.258521	-0.536917	0	
+    -0.535703	-0.081481	0.840466	0	
+    35.897	-10.9632	7.97254	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+18
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.744523	-0.216964	-0.631359	0	
+    0.338932	0.691931	-0.637461	0	
+    0.575162	-0.688591	-0.441622	0	
+    -10.3982	-31.5345	34.7727	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+18
+11
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.166614	0.0909428	-0.981819	0	
+    0.903839	-0.412069	0.115213	0	
+    -0.394099	-0.906603	-0.150854	0	
+    -3.02575	15.4233	23.2709	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_HELIX"
+18
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.638713	0.757399	0.135616	0	
+    -0.155972	0.0451482	-0.986729	0	
+    -0.753471	-0.651389	0.0892969	0	
+    -21.9105	-6.01039	-23.0826	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+19
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.48095	-0.876195	0.0311506	0	
+    -0.271381	-0.18256	-0.945	0	
+    0.833691	0.446043	-0.325585	0	
+    -40.4951	19.8935	10.1683	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+19
+22
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.996432	0.0398318	-0.0744017	0	
+    -0.0843314	0.436197	-0.895891	0	
+    -0.00323127	0.898969	0.438	0	
+    -4.6694	-16.9463	15.5599	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+19
+4
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.275033	-0.0400569	-0.9606	0	
+    -0.745144	-0.640254	-0.186645	0	
+    -0.607552	0.767118	-0.205939	0	
+    -11.9886	-19.1992	24.614	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+19
+93
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.976119	0.111788	-0.186267	0	
+    0.17315	-0.918175	0.356336	0	
+    -0.131192	-0.380079	-0.915603	0	
+    -11.9125	4.63186	3.81052	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+20
+9
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.250447	-0.441905	-0.861392	0	
+    0.0211788	0.887034	-0.461218	0	
+    0.967899	-0.133755	-0.212796	0	
+    -6.38195	-7.18101	24.2935	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_HELIX"
+20
+35
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.397053	-0.828555	-0.394774	0	
+    -0.287271	0.520714	-0.803949	0	
+    0.871679	-0.205803	-0.444771	0	
+    4.44623	14.0698	9.48306	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_HELIX"
+20
+43
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0638648	-0.992515	0.104091	0	
+    -0.989779	0.04967	-0.133679	0	
+    0.127509	-0.111565	-0.985543	0	
+    11.2144	2.10166	0.800853	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+1
+217
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.474214	0.753214	-0.455838	0	
+    -0.786674	0.130038	-0.603517	0	
+    -0.395302	0.644793	0.654201	0	
+    -1.92431	5.72323	9.79222	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+1
+13
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.963342	-0.268027	-0.0115621	0	
+    -0.268255	-0.962902	-0.0292947	0	
+    -0.00328087	0.0313228	-0.999504	0	
+    1.85869	4.59964	-4.23811	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+2
+2643
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.874905	-0.148483	0.46097	0	
+    -0.107843	-0.987673	-0.113457	0	
+    0.472135	0.0495521	-0.880133	0	
+    0.845055	4.73841	-3.40014	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+2
+385
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0833772	0.0285872	-0.996108	0	
+    -0.758246	0.646787	0.0820302	0	
+    0.646614	0.762134	-0.0322506	0	
+    6.40868	6.87847	7.11522	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+3
+110
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.453205	-0.725967	-0.517279	0	
+    0.819888	-0.111737	-0.561514	0	
+    0.349841	-0.678592	0.645851	0	
+    5.23155	-7.53309	14.5828	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+3
+744
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.895922	-0.286416	0.339544	0	
+    -0.304298	-0.952576	-0.00060947	0	
+    0.323616	-0.102776	-0.940591	0	
+    1.78929	4.51121	-3.68731	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_SHEET"
+3
+380
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.747927	-0.0215654	-0.663431	0	
+    -3.78185e-05	0.999474	-0.032446	0	
+    0.66378	-0.0242422	-0.747534	0	
+    10.9437	0.130973	1.60979	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+4
+94
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.266462	-0.688478	-0.674535	0	
+    0.70077	0.342108	-0.626006	0	
+    0.661755	-0.6395	0.391305	0	
+    8.82615	-9.06166	13.5231	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+4
+458
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.498269	-0.716369	0.488408	0	
+    -0.555903	-0.696252	-0.454096	0	
+    0.665356	-0.0452454	-0.745154	0	
+    11.3474	-1.37665	1.92667	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+4
+1447
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.878857	-0.351665	0.322403	0	
+    -0.36307	-0.931394	-0.0262143	0	
+    0.309502	-0.0940157	-0.946239	0	
+    1.76369	4.5375	-3.82991	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+5
+99
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.307564	0.818226	0.485706	0	
+    -0.40581	0.574494	-0.710826	0	
+    -0.860652	0.0215199	0.508738	0	
+    -10.914	-0.80309	15.3423	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_SHEET"
+5
+419
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.904219	-0.360516	-0.228946	0	
+    -0.181906	0.810149	-0.557288	0	
+    0.386392	-0.462262	-0.798132	0	
+    12.0848	-0.920213	-0.865893	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+5
+14
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.776348	-0.564145	-0.281112	0	
+    0.393251	0.0849864	0.915496	0	
+    -0.492581	-0.82129	0.28783	0	
+    -10.1008	-0.391986	5.45402	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+5
+1476
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.76305	-0.394625	-0.511885	0	
+    -0.412111	-0.907157	0.0850303	0	
+    -0.497915	0.146071	-0.854835	0	
+    -2.19916	-4.10498	-3.71936	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+6
+86
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.513605	0.702875	-0.492115	0	
+    0.363201	-0.341529	-0.866858	0	
+    -0.777364	-0.62396	-0.0798731	0	
+    -11.228	-11.4353	12.7055	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+6
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0855293	0.730873	0.677134	0	
+    -0.800848	-0.454744	0.389679	0	
+    0.592729	-0.508952	0.624212	0	
+    8.65567	-0.245138	-0.104965	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+6
+636
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.748033	-0.401887	-0.52814	0	
+    -0.407571	-0.906237	0.112337	0	
+    -0.523767	0.131223	-0.841693	0	
+    -2.16838	-4.01067	-3.72745	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+6
+412
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.364769	-0.904383	0.221436	0	
+    -0.878105	-0.413227	-0.241197	0	
+    0.309637	-0.106462	-0.944876	0	
+    9.53162	7.78117	-0.29032	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+7
+23
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.401561	-0.622844	-0.671426	0	
+    0.915573	-0.290456	-0.278137	0	
+    -0.0217852	-0.72643	0.686895	0	
+    1.86874	-7.33929	24.3645	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+7
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.518924	0.0137778	0.85471	0	
+    -0.291963	-0.936885	0.192364	0	
+    0.803415	-0.349366	-0.482148	0	
+    17.952	10.3313	-13.4028	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+7
+35
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.180119	-0.71181	-0.678885	0	
+    -0.139458	0.70168	-0.698711	0	
+    0.973708	-0.0311755	-0.225652	0	
+    7.37946	-10.4823	11.711	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+7
+377
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.924764	-0.0882588	0.370167	0	
+    -0.108916	-0.993426	0.0352329	0	
+    0.364624	-0.0728983	-0.928296	0	
+    1.02108	4.70477	-4.05549	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+7
+16
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.459411	0.0491662	-0.886862	0	
+    0.398059	0.88119	0.255053	0	
+    0.794036	-0.470197	0.385256	0	
+    -2.93081	-8.92397	-1.37227	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+7
+370
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.86731	0.149874	0.47467	0	
+    0.288236	0.92867	0.233436	0	
+    -0.405825	0.339278	-0.848644	0	
+    -10.4591	-7.65001	-2.17601	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+8
+53
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.567701	-0.792427	-0.223106	0	
+    -0.0320957	0.2495	-0.967843	0	
+    0.822608	0.556607	0.116209	0	
+    11.0587	11.0256	15.8567	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+8
+11
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.818657	-0.574283	-0.000263705	0	
+    0.245298	0.350095	-0.904026	0	
+    0.519258	0.740023	0.427478	0	
+    16.9254	16.0226	17.8573	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+8
+346
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.653835	0.141783	0.743234	0	
+    0.213857	0.976864	0.00178272	0	
+    -0.725785	0.160111	-0.669029	0	
+    -5.43948	-11.1117	1.92343	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+8
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.836768	0.427205	-0.342513	0	
+    -0.473101	-0.879	0.059447	0	
+    -0.275673	0.211787	0.93763	0	
+    -5.28479	-3.73499	9.40584	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+8
+23
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.528791	-0.807955	-0.259978	0	
+    -0.738581	-0.287115	-0.60997	0	
+    0.418185	0.514561	-0.748564	0	
+    10.3874	-1.49366	8.919	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+8
+31
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.415985	0.200366	-0.887024	0	
+    0.89854	0.0595347	0.434834	0	
+    0.139933	-0.977911	-0.155271	0	
+    -9.29997	-2.93867	-2.94475	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+8
+316
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.917342	-0.160469	0.364326	0	
+    -0.172656	-0.984982	0.000895402	0	
+    0.35871	-0.0637249	-0.931271	0	
+    1.1422	4.69771	-3.95599	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+9
+20
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.199044	-0.475418	0.856948	0	
+    0.212975	-0.874531	-0.435704	0	
+    0.956568	0.0957846	0.275322	0	
+    20.8127	7.42597	13.9449	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+9
+229
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.896013	-0.319968	0.307867	0	
+    -0.325146	-0.944984	-0.0358248	0	
+    0.302393	-0.0680017	-0.950755	0	
+    1.13066	4.60984	-3.97171	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_SHEET"
+9
+204
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.969408	-0.204029	0.136454	0	
+    -0.24336	-0.871388	0.425981	0	
+    0.0319929	-0.446157	-0.894382	0	
+    10.7017	3.06157	-2.50754	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+9
+52
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.424934	0.0644568	-0.902926	0	
+    -0.202146	-0.979031	0.0252439	0	
+    -0.882365	0.19325	0.429054	0	
+    1.35414	9.58655	-2.38155	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+9
+73
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.324787	0.806577	0.493911	0	
+    0.914591	0.134823	0.381244	0	
+    0.240912	0.575549	-0.781476	0	
+    -12.3238	5.87533	6.96534	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+9
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.191574	0.778275	0.597985	0	
+    0.762916	0.501384	-0.408136	0	
+    -0.617463	0.378024	-0.689811	0	
+    2.60221	-3.42062	19.2537	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+9
+58
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.666595	0.72971	-0.15223	0	
+    0.395627	0.519419	0.757419	0	
+    0.631768	0.444664	-0.634935	0	
+    17.3218	3.4145	-5.908	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+10
+6
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.422093	0.728199	0.539967	0	
+    0.365605	0.408306	-0.836434	0	
+    -0.829561	0.550467	-0.0938896	0	
+    -23.508	17.3917	7.96761	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_SHEET"
+10
+174
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.61274	0.705169	0.356773	0	
+    0.789515	-0.52631	-0.315695	0	
+    -0.0348452	0.475117	-0.879232	0	
+    -10.991	-2.83994	-4.35894	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+10
+51
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.997885	-0.00527943	-0.0647909	0	
+    0.0132671	0.95918	-0.282483	0	
+    0.0636373	-0.282745	-0.957082	0	
+    10.2211	3.54233	8.05768	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+10
+37
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.677773	0.216027	-0.70282	0	
+    -0.336631	-0.94097	0.0354046	0	
+    -0.653684	0.260586	0.710486	0	
+    3.69253	8.63807	-2.95799	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+10
+215
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.909625	-0.220339	0.352184	0	
+    -0.247052	-0.968468	0.0321824	0	
+    0.333988	-0.116281	-0.935377	0	
+    1.17503	4.53806	-3.92645	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+10
+53
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.326544	-0.736535	0.592356	0	
+    -0.844735	0.508566	0.16668	0	
+    -0.424019	-0.445955	-0.788247	0	
+    3.3121	-18.0311	-5.02181	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+10
+20
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.700544	0.453486	-0.55099	0	
+    0.699049	0.280917	-0.657584	0	
+    -0.143422	-0.845834	-0.513804	0	
+    7.14482	-16.0405	13.3861	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+11
+9
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.0295865	0.18834	-0.981658	0	
+    0.612544	-0.772656	-0.166703	0	
+    -0.789882	-0.606241	-0.0925068	0	
+    -7.83728	-20.9539	8.97529	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+11
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.691128	0.596931	0.407452	0	
+    0.0164684	0.550611	-0.834599	0	
+    -0.722546	0.583524	0.370712	0	
+    -19.7722	18.1937	19.0664	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+11
+193
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.839665	0.294287	0.456463	0	
+    0.518343	0.685126	0.511785	0	
+    -0.162123	0.666332	-0.727816	0	
+    -11.4472	-5.59884	0.78783	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+11
+27
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.974921	-0.169223	0.144547	0	
+    -0.0607497	0.827178	0.558647	0	
+    -0.214102	0.535855	-0.816712	0	
+    -12.2192	-11.1537	7.32382	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+11
+235
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.896592	-0.281552	-0.341834	0	
+    -0.269433	-0.959391	0.0835122	0	
+    -0.351465	0.0172249	-0.936043	0	
+    -1.59974	-4.55658	-3.85441	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+12
+155
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.870249	-0.0148005	0.49239	0	
+    0.260168	0.834966	0.484918	0	
+    -0.418305	0.550103	-0.722778	0	
+    -12.076	-5.87446	-3.0468	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+12
+38
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.105809	0.918314	0.381449	0	
+    0.575905	-0.256126	0.776358	0	
+    0.81064	0.301824	-0.501763	0	
+    -12.9599	11.1329	7.57571	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+12
+173
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.737326	-0.507725	-0.445608	0	
+    -0.490372	-0.855965	0.16389	0	
+    -0.464637	0.0976747	-0.880098	0	
+    -2.09402	-4.21532	-3.65761	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+12
+11
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.680615	0.0552345	0.730557	0	
+    0.722566	-0.215416	-0.656883	0	
+    0.121091	0.974959	-0.186525	0	
+    -3.58991	25.68	2.66884	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+12
+5
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.885957	-0.423605	-0.188784	0	
+    0.392145	0.90158	-0.182692	0	
+    0.247593	0.0878272	0.964874	0	
+    5.33851	3.57418	29.0732	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+12
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.902471	-0.34229	-0.261503	0	
+    0.147468	-0.324889	0.934185	0	
+    -0.404721	-0.881638	-0.242726	0	
+    -28.8672	-21.4344	7.99273	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+13
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.219139	0.643837	-0.733111	0	
+    0.515067	0.56181	0.647359	0	
+    0.828664	-0.519464	-0.208505	0	
+    -8.82186	-20.7035	-23.713	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+13
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.355221	0.875251	0.328259	0	
+    -0.226591	0.421311	-0.878154	0	
+    -0.906904	0.237558	0.347983	0	
+    -14.6603	15.1685	33.5747	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+13
+158
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.747437	-0.488374	-0.450365	0	
+    -0.508859	-0.856694	0.0844826	0	
+    -0.427084	0.166028	-0.888839	0	
+    -1.71221	-4.29344	-3.78865	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+13
+74
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.798866	-0.240593	-0.551298	0	
+    0.196493	-0.970622	0.138858	0	
+    -0.568511	0.00260191	0.822672	0	
+    0.383872	9.33143	-3.39931	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+13
+106
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.12709	0.78575	0.605346	0	
+    0.860439	0.390947	-0.326811	0	
+    -0.49345	0.479328	-0.725776	0	
+    -10.6647	-8.90814	-5.10043	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_SHEET"
+13
+43
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.553534	0.319427	-0.769135	0	
+    0.765954	0.557846	-0.319567	0	
+    0.326981	-0.766013	-0.553452	0	
+    17.6352	-5.99187	9.71194	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+13
+5
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.474199	0.75023	0.460749	0	
+    0.87185	-0.47298	-0.127154	0	
+    0.122531	0.462	-0.878375	0	
+    19.3491	1.36527	14.677	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+14
+6
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.126827	0.779563	-0.613349	0	
+    0.264444	0.622535	0.736559	0	
+    0.956025	-0.0687808	-0.285105	0	
+    10.3034	5.06209	23.8131	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+14
+30
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.934647	0.00746944	0.355497	0	
+    -0.267635	0.643463	-0.717166	0	
+    -0.234107	-0.765441	-0.599411	0	
+    20.1938	-11.3577	-0.0555767	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+14
+162
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0686943	0.355943	0.931979	0	
+    -0.0419589	0.934391	-0.353771	0	
+    -0.996755	-0.0148019	0.0791219	0	
+    -0.926261	-13.5159	-1.82272	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+14
+118
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.830546	-0.368213	-0.417867	0	
+    -0.40452	-0.914527	0.00184177	0	
+    -0.382828	0.167506	-0.908507	0	
+    -1.89786	-4.20081	-3.87529	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+15
+70
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.789502	-0.143249	-0.596796	0	
+    0.123441	-0.989572	0.0742288	0	
+    -0.601206	-0.015066	0.798952	0	
+    0.481791	9.52365	-3.39757	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+15
+83
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.77981	-0.297496	-0.55081	0	
+    -0.333565	-0.942018	0.0365454	0	
+    -0.529746	0.155232	-0.83383	0	
+    -1.84275	-4.09701	-3.82147	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+15
+128
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.957288	0.0575794	0.283346	0	
+    0.255971	0.624491	0.737896	0	
+    -0.13446	0.778906	-0.612557	0	
+    -12.5021	-5.94807	-1.58172	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+15
+20
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.724921	-0.678347	-0.119726	0	
+    -0.619505	0.566049	0.543876	0	
+    -0.301167	0.468438	-0.83058	0	
+    -8.19362	15.0742	-6.88012	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+15
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.15305	-0.0569396	-0.986577	0	
+    0.650873	0.745407	-0.143992	0	
+    0.743599	-0.664175	-0.0770243	0	
+    -18.1909	-26.7544	-2.01364	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+15
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.248192	0.927404	0.279865	0	
+    0.818217	0.355353	-0.451934	0	
+    -0.518576	0.116825	-0.847012	0	
+    -33.6325	-2.29153	20.8801	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+15
+22
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.940913	-0.259395	0.217707	0	
+    -0.289051	-0.95011	0.117214	0	
+    0.176441	-0.173217	-0.968951	0	
+    3.88166	22.7138	-5.15403	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+16
+131
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.716898	0.553962	-0.423301	0	
+    0.122075	0.498042	0.858518	0	
+    0.686407	-0.667144	0.28942	0	
+    -4.42832	-3.48196	-4.86642	1	
+
+
+bcl::contact::Types::Enum
+  "SHEET_SHEET"
+16
+109
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.977938	-0.205625	0.036833	0	
+    -0.0455391	-0.0377678	0.998248	0	
+    -0.203874	-0.977902	-0.0462979	0	
+    13.345	-1.14922	-6.56979	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+16
+17
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.387026	0.922068	-0.000682313	0	
+    0.670921	-0.282117	-0.685766	0	
+    -0.632516	0.264951	-0.727821	0	
+    -17.9914	-16.5799	7.28224	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+16
+7
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.743934	0.165367	0.647469	0	
+    -0.463096	0.570943	-0.677913	0	
+    -0.481774	-0.804162	-0.348164	0	
+    -2.72673	-19.1028	28.1164	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+17
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.681506	-0.642043	-0.351185	0	
+    0.119686	0.571208	-0.812032	0	
+    0.721959	0.511373	0.466125	0	
+    17.8062	4.66574	47.9684	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+17
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.738648	0.670077	-0.0734561	0	
+    0.656084	0.739655	0.149885	0	
+    0.154766	0.062519	-0.985971	0	
+    -37.977	-8.03603	8.74981	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+17
+57
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.594714	0.692818	-0.407822	0	
+    -0.662448	0.134895	-0.736863	0	
+    -0.455498	0.708383	0.539179	0	
+    11.4702	7.72272	-11.2636	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+17
+147
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.353103	0.691629	-0.630054	0	
+    0.0359072	-0.682955	-0.729577	0	
+    -0.934896	0.234993	-0.265987	0	
+    2.46473	-5.1976	-7.50805	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+17
+12
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.200136	-0.49175	-0.847424	0	
+    0.878919	-0.472313	0.0665045	0	
+    -0.432953	-0.731508	0.526734	0	
+    -15.5616	18.7027	-13.2965	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+18
+5
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.281689	0.836873	0.469355	0	
+    0.955574	-0.200439	-0.216109	0	
+    -0.0867773	0.509379	-0.856156	0	
+    -38.4943	6.2745	12.0664	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+18
+25
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.373482	-0.824947	-0.424234	0	
+    -0.895079	0.20038	0.398348	0	
+    -0.243608	0.528498	-0.813231	0	
+    22.0068	-8.09884	-6.55945	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+18
+5
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.979967	0.14221	-0.139429	0	
+    0.0247894	0.781746	0.623104	0	
+    0.19761	0.607164	-0.769611	0	
+    5.72553	33.8818	-3.28546	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+18
+125
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.427241	-0.538296	-0.726432	0	
+    0.569151	0.464162	-0.678689	0	
+    0.702518	-0.703413	0.108062	0	
+    -7.26582	-5.19185	-3.12417	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+18
+51
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.451311	0.760309	0.467172	0	
+    0.441545	-0.264679	0.857312	0	
+    0.775472	0.593191	-0.216258	0	
+    -10.1376	10.2686	-5.26484	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+19
+1
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.30446	0.948885	0.0832078	0	
+    0.946016	0.291027	0.142684	0	
+    0.111175	0.122157	-0.986265	0	
+    -39.4556	-3.91505	8.3508	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+19
+96
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.603968	-0.554473	-0.572522	0	
+    0.568765	0.803065	-0.177744	0	
+    0.558326	-0.218279	0.800391	0	
+    -3.20887	-3.57464	-5.539	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+19
+45
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.857077	0.50101	-0.120031	0	
+    0.47916	0.860799	0.171551	0	
+    0.189272	0.0895179	-0.977836	0	
+    -12.3143	-2.10597	-7.35858	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+19
+15
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.335934	-0.832264	-0.441006	0	
+    0.609963	0.164541	-0.77516	0	
+    0.7177	-0.529398	0.452375	0	
+    -8.04505	-25.8703	4.89087	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+19
+11
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.620923	0.0884619	-0.778864	0	
+    -0.780268	-0.164908	0.603312	0	
+    -0.0750702	0.982334	0.171419	0	
+    -4.34602	7.95738	20.6248	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+20
+63
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.241011	0.920176	-0.308525	0	
+    -0.564376	-0.391501	-0.726778	0	
+    -0.789552	-0.00103735	0.613683	0	
+    -0.838588	13.0072	-5.92947	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+20
+69
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.997624	-0.0225024	0.0651246	0	
+    -0.0123744	0.988313	0.15194	0	
+    -0.0677831	0.150774	-0.986241	0	
+    -0.0302036	-4.57775	-0.877847	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+20
+12
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.229354	0.871587	-0.43328	0	
+    -0.16709	-0.403282	-0.899691	0	
+    -0.958894	0.278746	0.0531387	0	
+    -21.9122	-13.3848	13.5427	1	
+
+
+bcl::contact::Types::Enum
+  "UNDEFINED_STRAND_STRAND"
+20
+21
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.45713	0.244218	0.855213	0	
+    -0.812181	-0.27727	0.513307	0	
+    0.362483	-0.929235	0.0715999	0	
+    -17.6744	-7.46669	-10.8713	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+20
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.574222	0.0621221	-0.816339	0	
+    -0.698287	0.483369	0.527967	0	
+    0.427391	0.87321	-0.234183	0	
+    4.15445	9.44187	-37.5054	1	
+
+
+bcl::contact::Types::Enum
+  "STRAND_STRAND"
+20
+3
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.574222	0.0621221	-0.816339	0	
+    -0.698287	0.483369	0.527967	0	
+    0.427391	0.87321	-0.234183	0	
+    4.15445	9.44187	-37.5054	1	
+
+
+bcl::contact::Types::Enum
+  "Undefined"
+20
+2
+bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4       4
+    0.556494    -0.479336       0.678639        0
+-0.494258       0.465567        0.734137        0
+-0.66785        -0.743965       0.0221693       0
+-2.97156        -22.3933        0.0109414       1
+

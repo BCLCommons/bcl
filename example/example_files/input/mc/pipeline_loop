@@ -1,0 +1,110 @@
+Pipeline(
+  MCMOptimizer(
+    score function=ProteinModelScoreSum(
+      offset=0,
+      terms(
+        (
+          weight=500,
+          ProteinModelSSEPairs(
+            score function=AASequencePair(
+              scoring function=AAPairClash(
+                sigmoid width=1,
+                histogram file name=aa_distances_0.05.histograms
+              ),
+              normalize=0
+            ),
+            normalize=0
+          )
+        ),
+        (
+          weight=500,
+          ProteinModelSSEPairs(
+            score function=SSEPairsFragments(
+              packer=SSEClash_NoCache,
+              score function=SSEPairClash(min interface length=0,sigmoid width=1),
+              normalize=0
+            ),
+            normalize=0
+          )
+        ),
+        (
+          weight=10,
+          ProteinModelSSEPairs(
+            score function=Loop(histogram filename=loop.histograms,max loop length=25),
+            normalize=0
+          )
+        ),
+        (
+          weight=50000,
+          ProteinModelSSEPairs(
+            score function=LoopClosure(
+              number excluded residues=1,
+              sigmoid width=20,
+              fraction allowed distance=1,
+              exclude coil=1
+            ),
+            normalize=0
+          )
+        ),
+        (weight=1000,ProteinModelCompleteness(ignore term loops=0))
+      )
+    ),
+    mutates=MutateDecisionNode(
+      (probability=0.5,MutateLoopAdd(loop library=histogram/loop_library)),
+      (probability=0.1,MutateLoopRemove),
+      (probability=0.2,MutateLoopReplace(loop library=histogram/loop_library)),
+      (probability=0.3,MutateLoopAddResize(loop library=histogram/loop_library))
+    ),
+    termination criterion=Any(Iterations(200),ConsecutiveUnimprovedSteps(50)),
+    metropolis=Metropolis(
+      keep history=0,
+      minimum change=0.0001,
+      temperature control=DefaultTemperatureControl(temperature=100)
+    )
+  ),
+  CCDOptimizer(
+    score function=ProteinModelScoreSum(
+      offset=0,
+      terms(
+        (weight=5,ProteinModelLoopDomainClosure),
+        (
+          weight=500,
+          ProteinModelSSEPairs(
+            score function=SSEPairsFragments(
+              packer=SSEClash_NoCache,
+              score function=SSEPairClash(min interface length=0,sigmoid width=1),
+              normalize=0
+            ),
+            normalize=0
+          )
+        ),
+        (
+          weight=100,
+          ProteinModelSSE(
+            score function=PhiPsi(histogram filename=phi_psi_angles_by_sstype.histogram2D,ss types(COIL)),
+            normalize=0
+          )
+        )
+      )
+    ),
+    mutates=MutateDecisionNode(
+      (probability=0.5,MutateProteinModelLoopDomainCCD(random fraction range="[1,1]")),
+      (
+        probability=0.5,
+        MutateProteinModelLoopDomain(
+          collector=CollectorLoopDomain(only unclosed=1,threshold=0.08),
+          mutate=MutateLoopDomainDihedral(
+            collector=bcl::fold::CollectorLoopDomainRandom,
+            generator=bcl::fold::PhiPsiGeneratorRamachandran
+          )
+        )
+      )
+    ),
+    termination criterion=Any(Iterations(5000),ConsecutiveUnimprovedSteps(800)),
+    metropolis=Metropolis(
+      keep history=1,
+      minimum change=0.0001,
+      temperature control=DefaultTemperatureControl(temperature=nan)
+    )
+  )
+)

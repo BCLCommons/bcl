@@ -1,0 +1,127 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec QualityRMSD 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> QualityRMSD
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: QualityRMSD ====================
+=std=bcl=> rmsd of two sets of 5 coordinates each before superimposing: 
+=std=bcl=> 14.8248
+=std=bcl=> this is the calculated transformationmatrix:
+ bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.14901	-0.696046	-0.702365	0	
+    0.887142	-0.219642	0.405878	0	
+    -0.436778	-0.683577	0.584762	0	
+    46.2306	40.8179	23.7643	1	
+
+=std=bcl=> rmsd of two sets of 5 coordinates each after superimposing: virtual=0.495305 direct=0.495305
+=std=bcl=> superimpose coordinates onto them self: bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    1	-1.11022e-16	-1.38778e-16	0	
+    -1.249e-16	1	-2.77556e-16	0	
+    0	1.11022e-16	1	0	
+    -1.42109e-14	3.10862e-15	1.77636e-15	1	
+
+=std=bcl=> successful example check:  self_impose.GetRotation().EffectiveRotationAngle() == 0.0 == 0  (+/- 1e-05)
+=std=bcl=> successful example check:  self_impose.GetTranslation().Norm() == 0.0 == 1.46549e-14  (+/- 1e-05)
+=std=bcl=> building model_a from pdb_a chains and sse information
+=std=bcl=> building model_b from pdb_a chains and sse information
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM     40  CB  GLY A  10       8.895  16.143  12.116         nan              
+=std=bcl=> successful example check:  rmsd.GetSuperimposeCoordinates() == 1
+=std=bcl=> successful example check:  rmsd.GetIgnoreZCoordinates() == 0
+=std=bcl=> successful example check:  rmsd_no_superimpose.GetSuperimposeCoordinates() == 0
+=std=bcl=> successful example check:  rmsd_no_superimpose.GetIgnoreZCoordinates() == 0
+=std=bcl=> test GetStatisClassName
+=std=bcl=> successful example check:
+               GetStaticClassName< quality::RMSD>() == correct_static_class_name ==
+              bcl::quality::RMSD
+=std=bcl=> test GetClassIdentifier
+=std=bcl=> successful example check:
+               GetStaticClassName< quality::RMSD>() == rmsd.GetClassIdentifier() ==
+              bcl::quality::RMSD
+=std=bcl=> test CalculateMeasure() with superimposition
+=std=bcl=> rmsd: 10.2721
+=std=bcl=> test CalculateMeasure() without superimposition
+=std=bcl=> rmsd_no_superimpose: 39.4201
+=std=bcl=> test CalculateMeasure() with superimposition without z coordinates
+=std=bcl=> rmsd_xy: 18.4646
+=std=bcl=> successful example check:  correct_rmsd == calculated_rmsd == 10.2721  (+/- 0.001%)
+=std=bcl=> successful example check:
+               correct_rmsd_wo_superimpose == calculated_rmsd_wo_superimpose == 39.4201
+               (+/- 0.001%)
+=std=bcl=> successful example check:
+               correct_rmsd_xy_superimpose == calculated_rmsd_xy_superimpose == 18.4646
+               (+/- 0.001%)
+=std=bcl=> testing CalculateSuperimposition
+=std=bcl=> the superimposition matrix
+bcl::linal::Matrix<double>
+  4	  4
+  0.937071	0.233191	-0.259845	0	
+  0.200901	0.24855	0.947556	0	
+  0.285546	-0.94013	0.186061	0	
+  -33.6756	5.3619	-24.1805	1	
+=std=bcl=> comparison failed for transformation matrix calculated test succeeded:
+              math::EqualWithinTolerance ( linal::Vector< double>( 16, superimposition_matrix.Begin()), expected_superimposition_vector, 0.001, 0.001 )
+              == 1
+=std=bcl=> successful example check:  rmsd_read.GetSuperimposeCoordinates() == rmsd.GetSuperimposeCoordinates() == 1
+=std=bcl=> successful example check:  rmsd_read.GetIgnoreZCoordinates() == rmsd.GetIgnoreZCoordinates() == 0
+=std=bcl::app=> BCL Example | END  : QualityRMSD ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+QualityRMSD_total                        16          0              
+total                                    16          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 65 MB

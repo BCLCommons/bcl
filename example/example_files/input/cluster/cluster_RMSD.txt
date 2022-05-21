@@ -1,0 +1,6 @@
+bcl::storage::Table<double> cluster_0000_final.pdb cluster_0001_final.pdb cluster_0002_final.pdb cluster_0003_final.pdb cluster_0004_final.pdb
+cluster_0000_final.pdb               0     10.559    10.9644    11.4723    6.94025
+cluster_0001_final.pdb          10.559          0    9.18942    5.63123    10.9228
+cluster_0002_final.pdb         10.9644    9.18942          0    7.27068    11.7262
+cluster_0003_final.pdb         11.4723    5.63123    7.27068          0    11.0117
+cluster_0004_final.pdb         6.94025    10.9228    11.7262    11.0117          0

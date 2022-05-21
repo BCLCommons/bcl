@@ -1,0 +1,189 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ScoreProteinModelSSEChirality 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ScoreProteinModelSSEChirality
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ScoreProteinModelSSEChirality ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    1   1 ASP A  148  ILE A  150  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 TYR A  151  THR A  156  5                                   6    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    4   4 ASN A  255  ILE A  259  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 ILE A  305  ILE A  308  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 LYS A  314  THR A  318  5                                   5    
+=std=bcl=> test constructor from nr_excluded and width and scheme
+=std=bcl=> test clone
+=std=bcl=> successful example check:
+               sp_loop->GetScheme() == loop_dist_along_sse_unnorm.GetScheme() ==
+              all_sse_chirality_aa
+=std=bcl=> successful example check:  loop_dist_along_sse_unnorm( native_model) == -72.1025  (+/- 0.01)
+=std=bcl=> successful example check:  loop_dist_along_sse_unnorm( bad_loops_model) == -74.1434  (+/- 0.01)
+Triplet combined_energy non-adjacent: STRAND A   17 LEU <==>   25 ALA STRAND A   31 LYS <==>   34 GLU STRAND A   58 LEU <==>   64 LEU ANTIPARALLEL PARALLEL ANTIPARALLEL 1 4 0 7 -0.320067
+Triplet combined_energy non-adjacent: STRAND A   36 THR <==>   38 ASP STRAND A   43 THR <==>   45 ASN STRAND A   98 TYR <==>  106 ARG ANTIPARALLEL PARALLEL ANTIPARALLEL 1 3 3 0 -0.320067
+Triplet combined_energy non-adjacent: STRAND A   43 THR <==>   45 ASN STRAND A   85 GLU <==>   93 ILE STRAND A   98 TYR <==>  106 ARG ANTIPARALLEL ANTIPARALLEL PARALLEL 0 0 9 3 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  120 THR <==>  125 SER HELIX A  167 VAL <==>  172 ARG STRAND A  426 ASP <==>  435 ARG PARALLEL PARALLEL PARALLEL 1 3 0 4 1.03502
+Triplet combined_energy non-adjacent: STRAND A  120 THR <==>  125 SER HELIX A  167 VAL <==>  172 ARG STRAND A  439 GLY <==>  446 PRO PARALLEL ANTIPARALLEL ANTIPARALLEL 1 3 0 6 0.281679
+Triplet combined_energy non-adjacent: STRAND A  120 THR <==>  125 SER STRAND A  350 GLU <==>  357 THR STRAND A  426 ASP <==>  435 ARG PARALLEL PARALLEL PARALLEL 0 0 4 4 0.586926
+Triplet combined_energy non-adjacent: STRAND A  120 THR <==>  125 SER STRAND A  412 ALA <==>  420 LYS STRAND A  426 ASP <==>  435 ARG ANTIPARALLEL ANTIPARALLEL PARALLEL 1 0 9 4 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  120 THR <==>  125 SER STRAND A  412 ALA <==>  420 LYS STRAND A  439 GLY <==>  446 PRO ANTIPARALLEL PARALLEL ANTIPARALLEL 1 0 5 6 -0.320067
+Triplet combined_energy non-adjacent: STRAND A  120 THR <==>  125 SER STRAND A  426 ASP <==>  435 ARG STRAND A  439 GLY <==>  446 PRO PARALLEL ANTIPARALLEL ANTIPARALLEL 1 4 8 6 -0.309039
+Triplet combined_energy adjacent: STRAND A  138 THR <==>  143 TYR STRAND A  147 HIS <==>  152 SER STRAND A  163 HIS <==>  166 LYS ANTIPARALLEL ANTIPARALLEL PARALLEL 1 6 3 0 -0.324918
+Triplet combined_energy non-adjacent: STRAND A  138 THR <==>  143 TYR STRAND A  147 HIS <==>  152 SER STRAND A  190 TYR <==>  198 ILE ANTIPARALLEL ANTIPARALLEL PARALLEL 0 6 6 5 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  138 THR <==>  143 TYR STRAND A  147 HIS <==>  152 SER STRAND A  412 ALA <==>  420 LYS ANTIPARALLEL ANTIPARALLEL PARALLEL 1 6 0 4 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  138 THR <==>  143 TYR STRAND A  190 TYR <==>  198 ILE STRAND A  201 HIS <==>  207 LEU PARALLEL ANTIPARALLEL ANTIPARALLEL 1 5 7 0 -0.309039
+Triplet combined_energy non-adjacent: STRAND A  138 THR <==>  143 TYR STRAND A  190 TYR <==>  198 ILE STRAND A  250 SER <==>  253 ILE PARALLEL PARALLEL PARALLEL 0 5 3 0 0.586926
+Triplet combined_energy non-adjacent: STRAND A  138 THR <==>  143 TYR STRAND A  190 TYR <==>  198 ILE STRAND A  412 ALA <==>  420 LYS PARALLEL PARALLEL PARALLEL 0 5 0 4 0.586926
+Triplet combined_energy non-adjacent: STRAND A  138 THR <==>  143 TYR STRAND A  339 ALA <==>  347 PHE STRAND A  412 ALA <==>  420 LYS PARALLEL PARALLEL PARALLEL 0 0 5 4 0.586926
+Triplet combined_energy non-adjacent: STRAND A  138 THR <==>  143 TYR STRAND A  350 GLU <==>  357 THR STRAND A  412 ALA <==>  420 LYS ANTIPARALLEL ANTIPARALLEL PARALLEL 0 0 3 4 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  138 THR <==>  143 TYR STRAND A  412 ALA <==>  420 LYS STRAND A  426 ASP <==>  435 ARG PARALLEL ANTIPARALLEL ANTIPARALLEL 0 4 9 0 -0.476061
+Triplet combined_energy non-adjacent: STRAND A  138 THR <==>  143 TYR STRAND A  412 ALA <==>  420 LYS STRAND A  439 GLY <==>  446 PRO PARALLEL PARALLEL PARALLEL 0 4 5 0 0.586926
+Triplet combined_energy non-adjacent: STRAND A  147 HIS <==>  152 SER STRAND A  163 HIS <==>  166 LYS STRAND A  190 TYR <==>  198 ILE ANTIPARALLEL PARALLEL ANTIPARALLEL 1 3 0 6 -0.320067
+Triplet combined_energy non-adjacent: STRAND A  147 HIS <==>  152 SER STRAND A  190 TYR <==>  198 ILE STRAND A  201 HIS <==>  207 LEU ANTIPARALLEL ANTIPARALLEL PARALLEL 0 6 7 0 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  147 HIS <==>  152 SER STRAND A  190 TYR <==>  198 ILE STRAND A  250 SER <==>  253 ILE ANTIPARALLEL PARALLEL ANTIPARALLEL 1 6 3 0 -0.320067
+Triplet combined_energy adjacent: STRAND A  190 TYR <==>  198 ILE STRAND A  201 HIS <==>  207 LEU STRAND A  215 PHE <==>  220 TRP ANTIPARALLEL ANTIPARALLEL PARALLEL 0 7 6 0 -0.233524
+Triplet combined_energy non-adjacent: STRAND A  190 TYR <==>  198 ILE STRAND A  201 HIS <==>  207 LEU STRAND A  250 SER <==>  253 ILE ANTIPARALLEL ANTIPARALLEL PARALLEL 0 7 0 3 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  190 TYR <==>  198 ILE STRAND A  250 SER <==>  253 ILE STRAND A  259 GLY <==>  264 GLY PARALLEL ANTIPARALLEL ANTIPARALLEL 1 3 4 0 -0.309039
+Triplet combined_energy non-adjacent: STRAND A  190 TYR <==>  198 ILE STRAND A  250 SER <==>  253 ILE STRAND A  300 THR <==>  304 ARG PARALLEL PARALLEL PARALLEL 0 3 3 0 0.586926
+Triplet combined_energy adjacent: STRAND A  201 HIS <==>  207 LEU STRAND A  215 PHE <==>  220 TRP STRAND A  228 GLU <==>  233 ILE ANTIPARALLEL ANTIPARALLEL PARALLEL 1 6 6 0 -0.324918
+Triplet combined_energy adjacent: STRAND A  250 SER <==>  253 ILE STRAND A  259 GLY <==>  264 GLY STRAND A  270 GLU <==>  277 SER ANTIPARALLEL ANTIPARALLEL PARALLEL 1 4 6 0 -0.324918
+Triplet combined_energy non-adjacent: STRAND A  250 SER <==>  253 ILE STRAND A  259 GLY <==>  264 GLY STRAND A  300 THR <==>  304 ARG ANTIPARALLEL ANTIPARALLEL PARALLEL 0 4 0 3 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  250 SER <==>  253 ILE STRAND A  300 THR <==>  304 ARG STRAND A  311 TYR <==>  315 GLY PARALLEL ANTIPARALLEL ANTIPARALLEL 1 3 5 0 -0.309039
+Triplet combined_energy non-adjacent: STRAND A  250 SER <==>  253 ILE STRAND A  300 THR <==>  304 ARG STRAND A  339 ALA <==>  347 PHE PARALLEL PARALLEL PARALLEL 0 3 4 0 0.586926
+Triplet combined_energy non-adjacent: STRAND A  259 GLY <==>  264 GLY STRAND A  270 GLU <==>  277 SER STRAND A  288 LYS <==>  291 PRO ANTIPARALLEL ANTIPARALLEL PARALLEL 1 6 4 0 -0.678684
+Triplet combined_energy adjacent: STRAND A  300 THR <==>  304 ARG STRAND A  311 TYR <==>  315 GLY STRAND A  318 VAL <==>  323 VAL ANTIPARALLEL ANTIPARALLEL PARALLEL 1 5 5 0 -0.324918
+Triplet combined_energy non-adjacent: STRAND A  300 THR <==>  304 ARG STRAND A  311 TYR <==>  315 GLY STRAND A  339 ALA <==>  347 PHE ANTIPARALLEL ANTIPARALLEL PARALLEL 0 5 3 4 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  300 THR <==>  304 ARG STRAND A  339 ALA <==>  347 PHE STRAND A  350 GLU <==>  357 THR PARALLEL ANTIPARALLEL ANTIPARALLEL 1 4 6 0 -0.309039
+Triplet combined_energy non-adjacent: STRAND A  300 THR <==>  304 ARG STRAND A  339 ALA <==>  347 PHE STRAND A  412 ALA <==>  420 LYS PARALLEL PARALLEL PARALLEL 0 4 5 0 0.586926
+Triplet combined_energy adjacent: STRAND A  311 TYR <==>  315 GLY STRAND A  318 VAL <==>  323 VAL STRAND A  329 GLU <==>  332 LYS ANTIPARALLEL ANTIPARALLEL PARALLEL 0 5 4 0 -0.233524
+Triplet combined_energy non-adjacent: STRAND A  311 TYR <==>  315 GLY STRAND A  318 VAL <==>  323 VAL STRAND A  339 ALA <==>  347 PHE ANTIPARALLEL PARALLEL ANTIPARALLEL 1 5 0 3 -0.320067
+Triplet combined_energy non-adjacent: STRAND A  311 TYR <==>  315 GLY STRAND A  339 ALA <==>  347 PHE STRAND A  350 GLU <==>  357 THR ANTIPARALLEL ANTIPARALLEL PARALLEL 0 3 6 0 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  311 TYR <==>  315 GLY STRAND A  339 ALA <==>  347 PHE STRAND A  412 ALA <==>  420 LYS ANTIPARALLEL PARALLEL ANTIPARALLEL 1 3 5 0 -0.320067
+Triplet combined_energy adjacent: STRAND A  339 ALA <==>  347 PHE STRAND A  350 GLU <==>  357 THR STRAND A  369 ALA <==>  374 ASP ANTIPARALLEL ANTIPARALLEL PARALLEL 0 6 6 0 -0.233524
+Triplet combined_energy non-adjacent: STRAND A  339 ALA <==>  347 PHE STRAND A  350 GLU <==>  357 THR STRAND A  412 ALA <==>  420 LYS ANTIPARALLEL ANTIPARALLEL PARALLEL 0 6 3 5 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  339 ALA <==>  347 PHE STRAND A  350 GLU <==>  357 THR STRAND A  426 ASP <==>  435 ARG ANTIPARALLEL PARALLEL ANTIPARALLEL 0 6 4 0 -0.298952
+Triplet combined_energy non-adjacent: STRAND A  339 ALA <==>  347 PHE STRAND A  412 ALA <==>  420 LYS STRAND A  426 ASP <==>  435 ARG PARALLEL ANTIPARALLEL ANTIPARALLEL 1 5 9 0 -0.309039
+Triplet combined_energy non-adjacent: STRAND A  339 ALA <==>  347 PHE STRAND A  412 ALA <==>  420 LYS STRAND A  439 GLY <==>  446 PRO PARALLEL PARALLEL PARALLEL 1 5 5 0 -0.312771
+Triplet combined_energy non-adjacent: STRAND A  350 GLU <==>  357 THR STRAND A  369 ALA <==>  374 ASP STRAND A  398 TYR <==>  401 LYS ANTIPARALLEL ANTIPARALLEL PARALLEL 1 6 4 0 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  350 GLU <==>  357 THR STRAND A  369 ALA <==>  374 ASP STRAND A  412 ALA <==>  420 LYS ANTIPARALLEL PARALLEL ANTIPARALLEL 1 6 0 3 -0.320067
+Triplet combined_energy non-adjacent: STRAND A  350 GLU <==>  357 THR STRAND A  369 ALA <==>  374 ASP STRAND A  426 ASP <==>  435 ARG ANTIPARALLEL ANTIPARALLEL PARALLEL 1 6 0 4 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  350 GLU <==>  357 THR STRAND A  412 ALA <==>  420 LYS STRAND A  426 ASP <==>  435 ARG ANTIPARALLEL ANTIPARALLEL PARALLEL 0 3 9 4 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  350 GLU <==>  357 THR STRAND A  412 ALA <==>  420 LYS STRAND A  439 GLY <==>  446 PRO ANTIPARALLEL PARALLEL ANTIPARALLEL 0 3 5 0 -0.298952
+Triplet combined_energy non-adjacent: STRAND A  350 GLU <==>  357 THR STRAND A  426 ASP <==>  435 ARG STRAND A  439 GLY <==>  446 PRO PARALLEL ANTIPARALLEL ANTIPARALLEL 0 4 8 0 -0.476061
+Triplet combined_energy adjacent: STRAND A  412 ALA <==>  420 LYS STRAND A  426 ASP <==>  435 ARG STRAND A  439 GLY <==>  446 PRO ANTIPARALLEL ANTIPARALLEL PARALLEL 0 9 8 5 -0.233524
+Triplet combined_energy non-adjacent: STRAND A   37 GLU <==>   43 ILE STRAND A  222 HIS <==>  228 LEU STRAND A  269 ASN <==>  275 ASP PARALLEL ANTIPARALLEL ANTIPARALLEL 0 0 7 7 -0.476061
+Triplet combined_energy non-adjacent: STRAND A   50 GLY <==>   58 ILE STRAND A   62 LYS <==>   66 ASN STRAND A  341 VAL <==>  344 VAL ANTIPARALLEL PARALLEL ANTIPARALLEL 1 5 0 4 -0.320067
+Triplet combined_energy non-adjacent: STRAND A   50 GLY <==>   58 ILE STRAND A  141 THR <==>  146 SER STRAND A  341 VAL <==>  344 VAL PARALLEL ANTIPARALLEL ANTIPARALLEL 1 0 4 4 -0.309039
+Triplet combined_energy non-adjacent: STRAND A   80 SER <==>   84 GLU STRAND A  122 TYR <==>  126 VAL STRAND A  128 LYS <==>  130 VAL PARALLEL ANTIPARALLEL ANTIPARALLEL 0 0 3 3 -0.476061
+Triplet combined_energy non-adjacent: STRAND A   80 SER <==>   84 GLU STRAND A  128 LYS <==>  130 VAL STRAND A  281 PHE <==>  284 PHE ANTIPARALLEL ANTIPARALLEL PARALLEL 0 3 0 4 -0.692506
+Triplet combined_energy non-adjacent: STRAND A   80 SER <==>   84 GLU STRAND A  236 PHE <==>  242 GLU STRAND A  281 PHE <==>  284 PHE ANTIPARALLEL ANTIPARALLEL PARALLEL 1 0 4 4 -0.678684
+Triplet combined_energy non-adjacent: STRAND A   98 TYR <==>  100 MET STRAND A  106 GLU <==>  114 ILE STRAND A  222 HIS <==>  228 LEU ANTIPARALLEL ANTIPARALLEL PARALLEL 1 3 7 0 -0.678684
+Triplet combined_energy non-adjacent: STRAND A   98 TYR <==>  100 MET STRAND A  106 GLU <==>  114 ILE STRAND A  236 PHE <==>  242 GLU ANTIPARALLEL PARALLEL ANTIPARALLEL 0 3 3 0 -0.298952
+Triplet combined_energy non-adjacent: STRAND A   98 TYR <==>  100 MET STRAND A  106 GLU <==>  114 ILE STRAND A  290 THR <==>  295 VAL ANTIPARALLEL ANTIPARALLEL PARALLEL 0 3 6 0 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  106 GLU <==>  114 ILE STRAND A  222 HIS <==>  228 LEU STRAND A  236 PHE <==>  242 GLU ANTIPARALLEL ANTIPARALLEL PARALLEL 0 7 0 3 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  106 GLU <==>  114 ILE STRAND A  222 HIS <==>  228 LEU STRAND A  269 ASN <==>  275 ASP ANTIPARALLEL ANTIPARALLEL PARALLEL 1 7 7 0 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  106 GLU <==>  114 ILE STRAND A  222 HIS <==>  228 LEU STRAND A  290 THR <==>  295 VAL ANTIPARALLEL PARALLEL ANTIPARALLEL 0 7 0 6 -0.298952
+Triplet combined_energy non-adjacent: STRAND A  106 GLU <==>  114 ILE STRAND A  236 PHE <==>  242 GLU STRAND A  249 GLU <==>  254 ILE PARALLEL ANTIPARALLEL ANTIPARALLEL 0 3 6 0 -0.476061
+Triplet combined_energy non-adjacent: STRAND A  106 GLU <==>  114 ILE STRAND A  236 PHE <==>  242 GLU STRAND A  281 PHE <==>  284 PHE PARALLEL ANTIPARALLEL ANTIPARALLEL 1 3 4 0 -0.309039
+Triplet combined_energy non-adjacent: STRAND A  106 GLU <==>  114 ILE STRAND A  236 PHE <==>  242 GLU STRAND A  290 THR <==>  295 VAL PARALLEL ANTIPARALLEL ANTIPARALLEL 0 3 0 6 -0.476061
+Triplet combined_energy non-adjacent: STRAND A  106 GLU <==>  114 ILE STRAND A  290 THR <==>  295 VAL STRAND A  316 ASP <==>  326 VAL ANTIPARALLEL ANTIPARALLEL PARALLEL 0 6 6 0 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  106 GLU <==>  114 ILE STRAND A  290 THR <==>  295 VAL STRAND A  389 ILE <==>  395 ASP ANTIPARALLEL PARALLEL ANTIPARALLEL 0 6 3 0 -0.298952
+Triplet combined_energy non-adjacent: STRAND A  141 THR <==>  146 SER STRAND A  290 THR <==>  295 VAL STRAND A  389 ILE <==>  395 ASP ANTIPARALLEL PARALLEL ANTIPARALLEL 0 0 3 6 -0.298952
+Triplet combined_energy non-adjacent: STRAND A  141 THR <==>  146 SER STRAND A  332 TYR <==>  335 SER STRAND A  389 ILE <==>  395 ASP ANTIPARALLEL PARALLEL ANTIPARALLEL 0 0 3 6 -0.298952
+Triplet combined_energy non-adjacent: STRAND A  141 THR <==>  146 SER STRAND A  341 VAL <==>  344 VAL STRAND A  389 ILE <==>  395 ASP ANTIPARALLEL PARALLEL ANTIPARALLEL 1 4 0 6 -0.320067
+Triplet combined_energy non-adjacent: STRAND A  141 THR <==>  146 SER STRAND A  389 ILE <==>  395 ASP HELIX A  402 ILE <==>  409 PHE ANTIPARALLEL PARALLEL ANTIPARALLEL 0 6 3 0 0.0930268
+Triplet combined_energy non-adjacent: STRAND A  141 THR <==>  146 SER STRAND A  389 ILE <==>  395 ASP STRAND A  418 ILE <==>  423 LEU ANTIPARALLEL ANTIPARALLEL PARALLEL 1 6 6 0 -0.678684
+Triplet combined_energy adjacent: STRAND A  157 ASN <==>  163 SER STRAND A  167 GLU <==>  176 THR STRAND A  184 HIS <==>  188 VAL ANTIPARALLEL PARALLEL ANTIPARALLEL 0 7 0 5 -0.805987
+Triplet combined_energy non-adjacent: STRAND A  157 ASN <==>  163 SER STRAND A  167 GLU <==>  176 THR STRAND A  305 ILE <==>  310 VAL ANTIPARALLEL ANTIPARALLEL PARALLEL 1 7 6 0 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  157 ASN <==>  163 SER STRAND A  167 GLU <==>  176 THR STRAND A  371 GLU <==>  380 GLY ANTIPARALLEL PARALLEL ANTIPARALLEL 1 7 4 0 -0.320067
+Triplet combined_energy non-adjacent: STRAND A  157 ASN <==>  163 SER STRAND A  184 HIS <==>  188 VAL STRAND A  249 GLU <==>  254 ILE ANTIPARALLEL ANTIPARALLEL PARALLEL 0 5 4 0 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  167 GLU <==>  176 THR STRAND A  305 ILE <==>  310 VAL STRAND A  371 GLU <==>  380 GLY ANTIPARALLEL ANTIPARALLEL PARALLEL 0 6 0 4 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  167 GLU <==>  176 THR STRAND A  332 TYR <==>  335 SER STRAND A  371 GLU <==>  380 GLY ANTIPARALLEL ANTIPARALLEL PARALLEL 1 0 4 4 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  167 GLU <==>  176 THR STRAND A  364 LYS <==>  368 PHE STRAND A  371 GLU <==>  380 GLY ANTIPARALLEL ANTIPARALLEL PARALLEL 1 0 5 4 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  167 GLU <==>  176 THR STRAND A  371 GLU <==>  380 GLY STRAND A  453 PHE <==>  456 ARG PARALLEL ANTIPARALLEL ANTIPARALLEL 1 4 4 0 -0.309039
+Triplet combined_energy non-adjacent: STRAND A  184 HIS <==>  188 VAL STRAND A  236 PHE <==>  242 GLU STRAND A  249 GLU <==>  254 ILE PARALLEL ANTIPARALLEL ANTIPARALLEL 0 0 6 4 -0.476061
+Triplet combined_energy non-adjacent: STRAND A  196 ILE <==>  206 VAL HELIX A  351 LYS <==>  356 ILE STRAND A  418 ILE <==>  423 LEU ANTIPARALLEL PARALLEL ANTIPARALLEL 1 3 3 6 -0.491227
+Triplet combined_energy non-adjacent: STRAND A  196 ILE <==>  206 VAL HELIX A  351 LYS <==>  356 ILE STRAND A  461 PHE <==>  469 LYS ANTIPARALLEL PARALLEL ANTIPARALLEL 0 3 0 9 0.0998472
+Triplet combined_energy non-adjacent: STRAND A  196 ILE <==>  206 VAL STRAND A  389 ILE <==>  395 ASP STRAND A  418 ILE <==>  423 LEU PARALLEL ANTIPARALLEL ANTIPARALLEL 0 0 6 6 -0.476061
+Triplet combined_energy non-adjacent: STRAND A  196 ILE <==>  206 VAL STRAND A  418 ILE <==>  423 LEU STRAND A  461 PHE <==>  469 LYS ANTIPARALLEL PARALLEL ANTIPARALLEL 0 6 0 9 -0.298952
+Triplet combined_energy non-adjacent: STRAND A  196 ILE <==>  206 VAL STRAND A  433 ALA <==>  442 ASP STRAND A  461 PHE <==>  469 LYS PARALLEL ANTIPARALLEL ANTIPARALLEL 1 0 9 9 -0.309039
+Triplet combined_energy non-adjacent: STRAND A  236 PHE <==>  242 GLU STRAND A  249 GLU <==>  254 ILE STRAND A  281 PHE <==>  284 PHE ANTIPARALLEL PARALLEL ANTIPARALLEL 0 6 0 4 -0.298952
+Triplet combined_energy non-adjacent: STRAND A  290 THR <==>  295 VAL STRAND A  316 ASP <==>  326 VAL STRAND A  332 TYR <==>  335 SER ANTIPARALLEL ANTIPARALLEL PARALLEL 1 6 4 0 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  290 THR <==>  295 VAL STRAND A  316 ASP <==>  326 VAL STRAND A  364 LYS <==>  368 PHE ANTIPARALLEL ANTIPARALLEL PARALLEL 0 6 5 0 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  290 THR <==>  295 VAL STRAND A  316 ASP <==>  326 VAL STRAND A  389 ILE <==>  395 ASP ANTIPARALLEL ANTIPARALLEL PARALLEL 1 6 0 3 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  290 THR <==>  295 VAL STRAND A  332 TYR <==>  335 SER STRAND A  389 ILE <==>  395 ASP PARALLEL PARALLEL PARALLEL 1 0 3 3 -0.312771
+Triplet combined_energy non-adjacent: STRAND A  290 THR <==>  295 VAL STRAND A  389 ILE <==>  395 ASP HELIX A  402 ILE <==>  409 PHE PARALLEL PARALLEL PARALLEL 1 3 3 0 0.86464
+Triplet combined_energy non-adjacent: STRAND A  290 THR <==>  295 VAL STRAND A  389 ILE <==>  395 ASP STRAND A  418 ILE <==>  423 LEU PARALLEL ANTIPARALLEL ANTIPARALLEL 0 3 6 0 -0.476061
+Triplet combined_energy non-adjacent: STRAND A  316 ASP <==>  326 VAL STRAND A  332 TYR <==>  335 SER STRAND A  364 LYS <==>  368 PHE ANTIPARALLEL PARALLEL ANTIPARALLEL 1 4 0 5 -0.320067
+Triplet combined_energy non-adjacent: STRAND A  316 ASP <==>  326 VAL STRAND A  332 TYR <==>  335 SER STRAND A  371 GLU <==>  380 GLY ANTIPARALLEL ANTIPARALLEL PARALLEL 1 4 4 0 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  316 ASP <==>  326 VAL STRAND A  332 TYR <==>  335 SER STRAND A  389 ILE <==>  395 ASP ANTIPARALLEL PARALLEL ANTIPARALLEL 0 4 3 0 -0.298952
+Triplet combined_energy non-adjacent: STRAND A  316 ASP <==>  326 VAL STRAND A  364 LYS <==>  368 PHE STRAND A  371 GLU <==>  380 GLY ANTIPARALLEL ANTIPARALLEL PARALLEL 0 5 5 0 -0.692506
+Triplet combined_energy non-adjacent: STRAND A  332 TYR <==>  335 SER STRAND A  364 LYS <==>  368 PHE STRAND A  371 GLU <==>  380 GLY PARALLEL ANTIPARALLEL ANTIPARALLEL 1 0 5 4 -0.309039
+Triplet combined_energy non-adjacent: STRAND A  332 TYR <==>  335 SER STRAND A  371 GLU <==>  380 GLY STRAND A  389 ILE <==>  395 ASP ANTIPARALLEL ANTIPARALLEL PARALLEL 1 4 0 3 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  332 TYR <==>  335 SER STRAND A  371 GLU <==>  380 GLY STRAND A  453 PHE <==>  456 ARG ANTIPARALLEL ANTIPARALLEL PARALLEL 1 4 4 0 -0.678684
+Triplet combined_energy non-adjacent: STRAND A  332 TYR <==>  335 SER STRAND A  389 ILE <==>  395 ASP HELIX A  402 ILE <==>  409 PHE PARALLEL PARALLEL PARALLEL 0 3 3 0 1.05662
+Triplet combined_energy non-adjacent: STRAND A  332 TYR <==>  335 SER STRAND A  389 ILE <==>  395 ASP STRAND A  418 ILE <==>  423 LEU PARALLEL ANTIPARALLEL ANTIPARALLEL 0 3 6 0 -0.476061
+Triplet combined_energy non-adjacent: HELIX A  351 LYS <==>  356 ILE STRAND A  389 ILE <==>  395 ASP STRAND A  418 ILE <==>  423 LEU ANTIPARALLEL ANTIPARALLEL PARALLEL 0 0 6 3 -0.890883
+Triplet combined_energy non-adjacent: STRAND A  364 LYS <==>  368 PHE STRAND A  371 GLU <==>  380 GLY STRAND A  453 PHE <==>  456 ARG ANTIPARALLEL ANTIPARALLEL PARALLEL 1 5 4 0 -0.678684
+Triplet combined_energy adjacent: STRAND A  389 ILE <==>  395 ASP HELIX A  402 ILE <==>  409 PHE STRAND A  418 ILE <==>  423 LEU PARALLEL ANTIPARALLEL ANTIPARALLEL 0 3 0 6 1.22318
+=std=bcl::util=> Time to score 1000 times has run for 1.20175 seconds
+=std=bcl::app=> BCL Example | END  : ScoreProteinModelSSEChirality ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>       success      error error_string 
+ScoreProteinModelSSEChirality_total          3          0              
+total                                        3          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:01, peak virtual memory used: 136 MB, peak physical RAM used: 69 MB

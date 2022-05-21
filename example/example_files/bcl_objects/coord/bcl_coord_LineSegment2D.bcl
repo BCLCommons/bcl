@@ -1,0 +1,5 @@
+bcl::coord::LineSegment2D
+  bcl::linal::Vector2D
+    0	0
+  bcl::linal::Vector2D
+    5	5

@@ -1,0 +1,423 @@
+./build/linux64_release/bin/bcl-example-apps-static.exe Examples -exec AppScoreProtein 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AppScoreProtein
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AppScoreProtein ====================
+=std=bcl=> successful example check:  app_enum_score_protein.IsDefined() == 1
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+ScoreProtein -native example/example_files/input/biology/1ubi.pdb -pdb example/example_files/input/biology/1ubi.pdb -quality RMSD GDT_TS -score_density_agreement example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc 6.6 GaussianSphere CCCScaled -score_table_write example/example_files/output/score/scores.table -sequence_data example/example_files/input/biology/ 1ubi -sspred JUFO PSIPRED 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  score_protein_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: ScoreProtein -native example/example_files/input/biology/1ubi.pdb -pdb example/example_files/input/biology/1ubi.pdb -quality RMSD GDT_TS -score_density_agreement example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc 6.6 GaussianSphere CCCScaled -score_table_write example/example_files/output/score/scores.table -sequence_data example/example_files/input/biology/ 1ubi -sspred JUFO PSIPRED 
+
+=std=bcl::fold=> open density map: example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc
+=std=bcl::fold=> density map has been read: example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl::app=> scoring all pdbs: 1
+=slt=bcl::app=> scoring pdb: example/example_files/input/biology/1ubi.pdb
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl::assemble=> Calculating RMSD100=0 from RMSD=0 and amino_acid_count=76
+=std=bcl::app=> scores of pdb to be ranked:
+        76         76         45         12         33          6          1          5    28.4867   0.374825   0.374825        100        100        100          1          1          1          0          0          0          1          0          0        100        100        100        100        100        100        100        100        100        100        100        100        100        100        100   -274.848          0    16.6577          0          0   -14.5959          0   -3.43325   -7.42652          0          0   -176.744          0   -53.1952          0    -51.813          0   -22.0191   -105.156   -21.8695   -64.2777          0   -23.5225   -42.9954   -26.9913    2.81702   0.911148   -4.05371          0     -75.78        -76   -66.6601          0          0          0   -171.624          0 3.17868e-07          0    -151.93   -15.9253    17.0246    -3.8918   -7.07418   -1424.42 
+=std=bcl::app=> calculated ranks for pdb: example/example_files/input/biology/1ubi.pdb
+bcl::storage::Table<size_t>                         nr_aa    nr_aa_def    nr_aa_sse  nr_aa_helix nr_aa_strand       nr_sse     nr_helix    nr_strand           co      rco_seq      rco_aas          cr6         cr12         cr24      cr6_mcc     cr12_mcc     cr24_mcc   topology_f topology_tpr topology_ppv completeness         RMSD      RMSD100       GDT_TS  GDT_TS_norm GDT_TS_sse_norm       GDT_1A  GDT_1A_norm GDT_1A_sse_norm       GDT_2A  GDT_2A_norm GDT_2A_sse_norm       GDT_4A  GDT_4A_norm GDT_4A_sse_norm       GDT_8A  GDT_8A_norm GDT_8A_sse_norm     aasmooth      aaclash       aadist aa_clash_hires aa_pair_interaction      aaneigh  aaneigh_ent         loop   loop_angle loop_closure loop_closure_gradient      phi_psi sse_linear_loop_proximity   ss_PSIPRED ss_PSIPRED_ent      ss_JUFO  ss_JUFO_ent         rgyr     co_score   ssepack_fr    strand_fr sse_completeness all_sse_chirality_aa all_sse_chirality_contact_aa sse_contact_type sse_contact_adjacency sse_orientation sse_interaction_angle_overlap     ssealign ss_PSIPRED_env  ss_JUFO_env    CCCScaled sse_inter_atom_clash sse_intra_atom_clash bcl::score::LoopClosure  phipsi_coil sse_pair_gap sse_connectivity bcl::score::ProteinModelLoopDomainClosure phipsi_sspred_close aaneighvector      sasaols      ssepack       strand          sum 
+example/example_files/input/biology/1ubi.pdb            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0               0            0            0               0            0            0               0            0            0               0            0            0               0            0            0            0              0                   0            0            0            0            0            0                     0            0                         0            0              0            0            0            0            0            0            0                0                    0                            0                0                     0               0                             0            0              0            0            0                    0                    0                       0            0            0                0                                         0                   0             0            0            0            0            0 
+=std=bcl::app=> statistics table
+bcl::storage::Table<double>        nr_aa    nr_aa_def    nr_aa_sse  nr_aa_helix nr_aa_strand       nr_sse     nr_helix    nr_strand           co      rco_seq      rco_aas          cr6         cr12         cr24      cr6_mcc     cr12_mcc     cr24_mcc   topology_f topology_tpr topology_ppv completeness         RMSD      RMSD100       GDT_TS  GDT_TS_norm GDT_TS_sse_norm       GDT_1A  GDT_1A_norm GDT_1A_sse_norm       GDT_2A  GDT_2A_norm GDT_2A_sse_norm       GDT_4A  GDT_4A_norm GDT_4A_sse_norm       GDT_8A  GDT_8A_norm GDT_8A_sse_norm     aasmooth      aaclash       aadist aa_clash_hires aa_pair_interaction      aaneigh  aaneigh_ent         loop   loop_angle loop_closure loop_closure_gradient      phi_psi sse_linear_loop_proximity   ss_PSIPRED ss_PSIPRED_ent      ss_JUFO  ss_JUFO_ent         rgyr     co_score   ssepack_fr    strand_fr sse_completeness all_sse_chirality_aa all_sse_chirality_contact_aa sse_contact_type sse_contact_adjacency sse_orientation sse_interaction_angle_overlap     ssealign ss_PSIPRED_env  ss_JUFO_env    CCCScaled sse_inter_atom_clash sse_intra_atom_clash bcl::score::LoopClosure  phipsi_coil sse_pair_gap sse_connectivity bcl::score::ProteinModelLoopDomainClosure phipsi_sspred_close aaneighvector      sasaols      ssepack       strand          sum 
+min                                   76           76           45           12           33            6            1            5      28.4867     0.374825     0.374825          100          100          100            1            1            1            0            0            0            1            0            0          100          100             100          100          100             100          100          100             100          100          100             100          100          100             100     -274.848            0      16.6577              0                   0     -14.5959            0     -3.43325     -7.42652            0                     0     -176.744                         0     -53.1952              0      -51.813            0     -22.0191     -105.156     -21.8695     -64.2777                0             -23.5225                     -42.9954         -26.9913               2.81702        0.911148                      -4.05371            0         -75.78          -76     -66.6601                    0                    0                       0     -171.624            0      3.17868e-07                                         0             -151.93      -15.9253      17.0246      -3.8918     -7.07418     -1424.42 
+max                                   76           76           45           12           33            6            1            5      28.4867     0.374825     0.374825          100          100          100            1            1            1            0            0            0            1            0            0          100          100             100          100          100             100          100          100             100          100          100             100          100          100             100     -274.848            0      16.6577              0                   0     -14.5959            0     -3.43325     -7.42652            0                     0     -176.744                         0     -53.1952              0      -51.813            0     -22.0191     -105.156     -21.8695     -64.2777                0             -23.5225                     -42.9954         -26.9913               2.81702        0.911148                      -4.05371            0         -75.78          -76     -66.6601                    0                    0                       0     -171.624            0      3.17868e-07                                         0             -151.93      -15.9253      17.0246      -3.8918     -7.07418     -1424.42 
+mean                                  76           76           45           12           33            6            1            5      28.4867     0.374825     0.374825          100          100          100            1            1            1            0            0            0            1            0            0          100          100             100          100          100             100          100          100             100          100          100             100          100          100             100     -274.848            0      16.6577              0                   0     -14.5959            0     -3.43325     -7.42652            0                     0     -176.744                         0     -53.1952              0      -51.813            0     -22.0191     -105.156     -21.8695     -64.2777                0             -23.5225                     -42.9954         -26.9913               2.81702        0.911148                      -4.05371            0         -75.78          -76     -66.6601                    0                    0                       0     -171.624            0      3.17868e-07                                         0             -151.93      -15.9253      17.0246      -3.8918     -7.07418     -1424.42 
+sd                                     0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0            0               0            0            0               0            0            0               0            0            0               0            0            0               0            0            0            0              0                   0            0            0            0            0            0                     0            0                         0            0              0            0            0            0            0            0            0                0                    0                            0                0                     0               0                             0            0              0            0            0                    0                    0                       0            0            0                0                                         0                   0             0            0            0            0            0 
+=std=bcl::app=> transposed statistics table
+bcl::storage::Table<double>                        min          max         mean           sd 
+nr_aa                                               76           76           76            0 
+nr_aa_def                                           76           76           76            0 
+nr_aa_sse                                           45           45           45            0 
+nr_aa_helix                                         12           12           12            0 
+nr_aa_strand                                        33           33           33            0 
+nr_sse                                               6            6            6            0 
+nr_helix                                             1            1            1            0 
+nr_strand                                            5            5            5            0 
+co                                             28.4867      28.4867      28.4867            0 
+rco_seq                                       0.374825     0.374825     0.374825            0 
+rco_aas                                       0.374825     0.374825     0.374825            0 
+cr6                                                100          100          100            0 
+cr12                                               100          100          100            0 
+cr24                                               100          100          100            0 
+cr6_mcc                                              1            1            1            0 
+cr12_mcc                                             1            1            1            0 
+cr24_mcc                                             1            1            1            0 
+topology_f                                           0            0            0            0 
+topology_tpr                                         0            0            0            0 
+topology_ppv                                         0            0            0            0 
+completeness                                         1            1            1            0 
+RMSD                                                 0            0            0            0 
+RMSD100                                              0            0            0            0 
+GDT_TS                                             100          100          100            0 
+GDT_TS_norm                                        100          100          100            0 
+GDT_TS_sse_norm                                    100          100          100            0 
+GDT_1A                                             100          100          100            0 
+GDT_1A_norm                                        100          100          100            0 
+GDT_1A_sse_norm                                    100          100          100            0 
+GDT_2A                                             100          100          100            0 
+GDT_2A_norm                                        100          100          100            0 
+GDT_2A_sse_norm                                    100          100          100            0 
+GDT_4A                                             100          100          100            0 
+GDT_4A_norm                                        100          100          100            0 
+GDT_4A_sse_norm                                    100          100          100            0 
+GDT_8A                                             100          100          100            0 
+GDT_8A_norm                                        100          100          100            0 
+GDT_8A_sse_norm                                    100          100          100            0 
+aasmooth                                      -274.848     -274.848     -274.848            0 
+aaclash                                              0            0            0            0 
+aadist                                         16.6577      16.6577      16.6577            0 
+aa_clash_hires                                       0            0            0            0 
+aa_pair_interaction                                  0            0            0            0 
+aaneigh                                       -14.5959     -14.5959     -14.5959            0 
+aaneigh_ent                                          0            0            0            0 
+loop                                          -3.43325     -3.43325     -3.43325            0 
+loop_angle                                    -7.42652     -7.42652     -7.42652            0 
+loop_closure                                         0            0            0            0 
+loop_closure_gradient                                0            0            0            0 
+phi_psi                                       -176.744     -176.744     -176.744            0 
+sse_linear_loop_proximity                            0            0            0            0 
+ss_PSIPRED                                    -53.1952     -53.1952     -53.1952            0 
+ss_PSIPRED_ent                                       0            0            0            0 
+ss_JUFO                                        -51.813      -51.813      -51.813            0 
+ss_JUFO_ent                                          0            0            0            0 
+rgyr                                          -22.0191     -22.0191     -22.0191            0 
+co_score                                      -105.156     -105.156     -105.156            0 
+ssepack_fr                                    -21.8695     -21.8695     -21.8695            0 
+strand_fr                                     -64.2777     -64.2777     -64.2777            0 
+sse_completeness                                     0            0            0            0 
+all_sse_chirality_aa                          -23.5225     -23.5225     -23.5225            0 
+all_sse_chirality_contact_aa                  -42.9954     -42.9954     -42.9954            0 
+sse_contact_type                              -26.9913     -26.9913     -26.9913            0 
+sse_contact_adjacency                          2.81702      2.81702      2.81702            0 
+sse_orientation                               0.911148     0.911148     0.911148            0 
+sse_interaction_angle_overlap                 -4.05371     -4.05371     -4.05371            0 
+ssealign                                             0            0            0            0 
+ss_PSIPRED_env                                  -75.78       -75.78       -75.78            0 
+ss_JUFO_env                                        -76          -76          -76            0 
+CCCScaled                                     -66.6601     -66.6601     -66.6601            0 
+sse_inter_atom_clash                                 0            0            0            0 
+sse_intra_atom_clash                                 0            0            0            0 
+bcl::score::LoopClosure                              0            0            0            0 
+phipsi_coil                                   -171.624     -171.624     -171.624            0 
+sse_pair_gap                                         0            0            0            0 
+sse_connectivity                           3.17868e-07  3.17868e-07  3.17868e-07            0 
+bcl::score::ProteinModelLoopDomainClosure            0            0            0            0 
+phipsi_sspred_close                            -151.93      -151.93      -151.93            0 
+aaneighvector                                 -15.9253     -15.9253     -15.9253            0 
+sasaols                                        17.0246      17.0246      17.0246            0 
+ssepack                                        -3.8918      -3.8918      -3.8918            0 
+strand                                        -7.07418     -7.07418     -7.07418            0 
+sum                                           -1424.42     -1424.42     -1424.42            0 
+=std=bcl=> Run completed of ScoreProtein -native example/example_files/input/biology/1ubi.pdb -pdb example/example_files/input/biology/1ubi.pdb -quality RMSD GDT_TS -score_density_agreement example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc 6.6 GaussianSphere CCCScaled -score_table_write example/example_files/output/score/scores.table -sequence_data example/example_files/input/biology/ 1ubi -sspred JUFO PSIPRED 
+, return status was: 0
+Command line took 6.83917 sec to run
+=std=bcl=> successful example check:  score_protein_helper.RunCommand() == 0
+=std=bcl=> successful example check:  result.GetSize() == 1
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+ScoreProtein -native example/example_files/input/biology/1ubi.pdb -pdblist example/example_files/input/cluster/cluster_20pdbs.ls -quality RMSD GDT_TS -score_density_agreement example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc 6.6 GaussianSphere CCCScaled -score_table_write example/example_files/output/score/scores20.table -sequence_data example/example_files/input/biology/ 1ubi -sspred JUFO PSIPRED 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  score_protein_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: ScoreProtein -native example/example_files/input/biology/1ubi.pdb -pdblist example/example_files/input/cluster/cluster_20pdbs.ls -quality RMSD GDT_TS -score_density_agreement example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc 6.6 GaussianSphere CCCScaled -score_table_write example/example_files/output/score/scores20.table -sequence_data example/example_files/input/biology/ 1ubi -sspred JUFO PSIPRED 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl::app=> scoring all pdbs: 20
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0001_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0001_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0001_final.psipred_ss2, example/example_files/input/cluster//cluster_0001_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0001_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0001_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0001_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0001_final.jufo, example/example_files/input/cluster//cluster_0001_finalA.jufo, example/example_files/input/cluster//cluster_0001_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0001_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=18.3783 from RMSD=10.4067 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0002_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0002_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0002_final.psipred_ss2, example/example_files/input/cluster//cluster_0002_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0002_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0002_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0002_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0002_final.jufo, example/example_files/input/cluster//cluster_0002_finalA.jufo, example/example_files/input/cluster//cluster_0002_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0002_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=10.4688 from RMSD=5.92796 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0003_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0003_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0003_final.psipred_ss2, example/example_files/input/cluster//cluster_0003_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0003_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0003_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0003_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0003_final.jufo, example/example_files/input/cluster//cluster_0003_finalA.jufo, example/example_files/input/cluster//cluster_0003_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0003_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=15.7255 from RMSD=8.90457 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0004_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0004_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0004_final.psipred_ss2, example/example_files/input/cluster//cluster_0004_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0004_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0004_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0004_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0004_final.jufo, example/example_files/input/cluster//cluster_0004_finalA.jufo, example/example_files/input/cluster//cluster_0004_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0004_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=20.3047 from RMSD=11.4975 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0005_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0005_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0005_final.psipred_ss2, example/example_files/input/cluster//cluster_0005_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0005_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0005_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0005_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0005_final.jufo, example/example_files/input/cluster//cluster_0005_finalA.jufo, example/example_files/input/cluster//cluster_0005_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0005_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=16.2701 from RMSD=9.21293 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0006_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0006_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0006_final.psipred_ss2, example/example_files/input/cluster//cluster_0006_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0006_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0006_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0006_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0006_final.jufo, example/example_files/input/cluster//cluster_0006_finalA.jufo, example/example_files/input/cluster//cluster_0006_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0006_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=19.1191 from RMSD=10.8262 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0007_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0007_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0007_final.psipred_ss2, example/example_files/input/cluster//cluster_0007_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0007_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0007_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0007_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0007_final.jufo, example/example_files/input/cluster//cluster_0007_finalA.jufo, example/example_files/input/cluster//cluster_0007_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0007_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=19.4608 from RMSD=11.0197 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0008_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0008_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0008_final.psipred_ss2, example/example_files/input/cluster//cluster_0008_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0008_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0008_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0008_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0008_final.jufo, example/example_files/input/cluster//cluster_0008_finalA.jufo, example/example_files/input/cluster//cluster_0008_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0008_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=13.2542 from RMSD=7.50517 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0009_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0009_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0009_final.psipred_ss2, example/example_files/input/cluster//cluster_0009_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0009_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0009_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0009_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0009_final.jufo, example/example_files/input/cluster//cluster_0009_finalA.jufo, example/example_files/input/cluster//cluster_0009_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0009_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=17.4178 from RMSD=9.8628 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0010_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0010_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0010_final.psipred_ss2, example/example_files/input/cluster//cluster_0010_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0010_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0010_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0010_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0010_final.jufo, example/example_files/input/cluster//cluster_0010_finalA.jufo, example/example_files/input/cluster//cluster_0010_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0010_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=19.5007 from RMSD=11.0423 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0011_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0011_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0011_final.psipred_ss2, example/example_files/input/cluster//cluster_0011_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0011_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0011_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0011_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0011_final.jufo, example/example_files/input/cluster//cluster_0011_finalA.jufo, example/example_files/input/cluster//cluster_0011_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0011_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=20.7279 from RMSD=11.7371 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0012_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0012_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0012_final.psipred_ss2, example/example_files/input/cluster//cluster_0012_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0012_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0012_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0012_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0012_final.jufo, example/example_files/input/cluster//cluster_0012_finalA.jufo, example/example_files/input/cluster//cluster_0012_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0012_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=15.353 from RMSD=8.69365 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0013_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0013_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0013_final.psipred_ss2, example/example_files/input/cluster//cluster_0013_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0013_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0013_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0013_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0013_final.jufo, example/example_files/input/cluster//cluster_0013_finalA.jufo, example/example_files/input/cluster//cluster_0013_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0013_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=12.5867 from RMSD=7.12723 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0014_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0014_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0014_final.psipred_ss2, example/example_files/input/cluster//cluster_0014_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0014_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0014_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0014_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0014_final.jufo, example/example_files/input/cluster//cluster_0014_finalA.jufo, example/example_files/input/cluster//cluster_0014_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0014_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=10.6508 from RMSD=6.03102 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0015_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0015_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0015_final.psipred_ss2, example/example_files/input/cluster//cluster_0015_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0015_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0015_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0015_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0015_final.jufo, example/example_files/input/cluster//cluster_0015_finalA.jufo, example/example_files/input/cluster//cluster_0015_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0015_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=19.1733 from RMSD=10.8569 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0016_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0016_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0016_final.psipred_ss2, example/example_files/input/cluster//cluster_0016_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0016_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0016_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0016_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0016_final.jufo, example/example_files/input/cluster//cluster_0016_finalA.jufo, example/example_files/input/cluster//cluster_0016_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0016_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=12.4848 from RMSD=7.06951 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0017_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0017_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0017_final.psipred_ss2, example/example_files/input/cluster//cluster_0017_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0017_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0017_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0017_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0017_final.jufo, example/example_files/input/cluster//cluster_0017_finalA.jufo, example/example_files/input/cluster//cluster_0017_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0017_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=17.4206 from RMSD=9.86439 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0018_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0018_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0018_final.psipred_ss2, example/example_files/input/cluster//cluster_0018_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0018_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0018_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0018_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0018_final.jufo, example/example_files/input/cluster//cluster_0018_finalA.jufo, example/example_files/input/cluster//cluster_0018_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0018_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=18.9197 from RMSD=10.7133 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0019_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0019_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0019_final.psipred_ss2, example/example_files/input/cluster//cluster_0019_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0019_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0019_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0019_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0019_final.jufo, example/example_files/input/cluster//cluster_0019_finalA.jufo, example/example_files/input/cluster//cluster_0019_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0019_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=17.4549 from RMSD=9.88381 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/cluster/cluster_0020_final.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for cluster_0020_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0020_final.psipred_ss2, example/example_files/input/cluster//cluster_0020_finalA.psipred_ss2, example/example_files/input/cluster//cluster_0020_final_.psipred_ss2
+=crt=bcl::sspred=> cannot read method PSIPRED for cluster_0020_final in path example/example_files/input/cluster/
+=crt=bcl::sspred=> cannot read method with JUFO for cluster_0020_final in path example/example_files/input/cluster/ Checked: example/example_files/input/cluster//cluster_0020_final.jufo, example/example_files/input/cluster//cluster_0020_finalA.jufo, example/example_files/input/cluster//cluster_0020_final_.jufo
+=crt=bcl::sspred=> cannot read method JUFO for cluster_0020_final in path example/example_files/input/cluster/
+=std=bcl::assemble=> Calculating RMSD100=10.5477 from RMSD=5.97264 and amino_acid_count=42
+=slt=bcl::app=> scoring pdb: example/example_files/input/biology/1ubi.pdb
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl::assemble=> Calculating RMSD100=0 from RMSD=0 and amino_acid_count=76
+=std=bcl::app=> scores of pdb to be ranked:
+        76         76         45         12         33          6          1          5    28.4867   0.374825   0.374825        100        100        100          1          1          1          0          0          0          1          0          0        100        100        100        100        100        100        100        100        100        100        100        100        100        100        100   -274.848          0    16.6577          0          0   -14.5959          0   -3.43325   -7.42652          0          0   -176.744          0   -53.1952          0    -51.813          0   -22.0191   -105.156   -21.8695   -64.2777          0   -23.5225   -42.9954   -26.9913    2.81702   0.911148   -4.05371          0     -75.78        -76   -66.6601          0          0          0   -171.624          0 3.17868e-07          0    -151.93   -15.9253    17.0246    -3.8918   -7.07418   -1424.42 
+=std=bcl::app=> calculated ranks for pdb: example/example_files/input/biology/1ubi.pdb
+bcl::storage::Table<size_t>                         nr_aa    nr_aa_def    nr_aa_sse  nr_aa_helix nr_aa_strand       nr_sse     nr_helix    nr_strand           co      rco_seq      rco_aas          cr6         cr12         cr24      cr6_mcc     cr12_mcc     cr24_mcc   topology_f topology_tpr topology_ppv completeness         RMSD      RMSD100       GDT_TS  GDT_TS_norm GDT_TS_sse_norm       GDT_1A  GDT_1A_norm GDT_1A_sse_norm       GDT_2A  GDT_2A_norm GDT_2A_sse_norm       GDT_4A  GDT_4A_norm GDT_4A_sse_norm       GDT_8A  GDT_8A_norm GDT_8A_sse_norm     aasmooth      aaclash       aadist aa_clash_hires aa_pair_interaction      aaneigh  aaneigh_ent         loop   loop_angle loop_closure loop_closure_gradient      phi_psi sse_linear_loop_proximity   ss_PSIPRED ss_PSIPRED_ent      ss_JUFO  ss_JUFO_ent         rgyr     co_score   ssepack_fr    strand_fr sse_completeness all_sse_chirality_aa all_sse_chirality_contact_aa sse_contact_type sse_contact_adjacency sse_orientation sse_interaction_angle_overlap     ssealign ss_PSIPRED_env  ss_JUFO_env    CCCScaled sse_inter_atom_clash sse_intra_atom_clash bcl::score::LoopClosure  phipsi_coil sse_pair_gap sse_connectivity bcl::score::ProteinModelLoopDomainClosure phipsi_sspred_close aaneighvector      sasaols      ssepack       strand          sum 
+example/example_files/input/biology/1ubi.pdb           20           20           20           20           20           20           20           20            0            0            0           20           20           20           20           20           20           20           20           20           20            0            0           20           20              20           20           20              20           20           20              20           20           20              20           20           20              20            0            0            0              0                   0            0            0            0            0            0                     0            0                         0            0              0            0            0            0            0            0            0                0                    0                            0                0                     9               3                             2            2              2            2            0                    0                    0                       0            0            0               20                                        20                   0             0            4            3            0            0 
+=std=bcl::app=> statistics table
+bcl::storage::Table<double>        nr_aa    nr_aa_def    nr_aa_sse  nr_aa_helix nr_aa_strand       nr_sse     nr_helix    nr_strand           co      rco_seq      rco_aas          cr6         cr12         cr24      cr6_mcc     cr12_mcc     cr24_mcc   topology_f topology_tpr topology_ppv completeness         RMSD      RMSD100       GDT_TS  GDT_TS_norm GDT_TS_sse_norm       GDT_1A  GDT_1A_norm GDT_1A_sse_norm       GDT_2A  GDT_2A_norm GDT_2A_sse_norm       GDT_4A  GDT_4A_norm GDT_4A_sse_norm       GDT_8A  GDT_8A_norm GDT_8A_sse_norm     aasmooth      aaclash       aadist aa_clash_hires aa_pair_interaction      aaneigh  aaneigh_ent         loop   loop_angle loop_closure loop_closure_gradient      phi_psi sse_linear_loop_proximity   ss_PSIPRED ss_PSIPRED_ent      ss_JUFO  ss_JUFO_ent         rgyr     co_score   ssepack_fr    strand_fr sse_completeness all_sse_chirality_aa all_sse_chirality_contact_aa sse_contact_type sse_contact_adjacency sse_orientation sse_interaction_angle_overlap     ssealign ss_PSIPRED_env  ss_JUFO_env    CCCScaled sse_inter_atom_clash sse_intra_atom_clash bcl::score::LoopClosure  phipsi_coil sse_pair_gap sse_connectivity bcl::score::ProteinModelLoopDomainClosure phipsi_sspred_close aaneighvector      sasaols      ssepack       strand          sum 
+min                                   76           42           42           12           30            5            1            4      28.4867     0.374825     0.374825      8.20896      2.75229         1.25     0.103218    0.0243902  -0.00820933            0            0            0     0.552632            0            0      36.9048      20.3947         20.3947      28.5714      15.7895         15.7895      28.5714      15.7895         15.7895      33.3333      18.4211         18.4211       52.381      28.9474         28.9474     -274.848            0      16.6577              0                   0     -14.5959            0     -3.43325     -7.42652            0                     0     -176.744                         0     -53.1952              0      -51.813            0     -22.0191     -105.156     -21.8695     -64.2777                0             -23.5225                     -42.9954         -26.9913              -2.40341        -19.8691                      -4.23728            0         -75.78          -76     -66.6601                    0                    0                       0     -171.624            0                0                                         0             -151.93      -15.9253      15.9884     -4.58612     -7.07418     -1424.42 
+max                                   76           76           45           12           33            6            1            5      32.9577     0.433655     0.433655          100          100          100            1            1            1            0            0            0            1      11.7371      20.7279          100          100             100          100          100             100          100          100             100          100          100             100          100          100             100     -46.7873      5.67184      115.205        5.68883                   0      4.98361            0    -0.142958      -5.8745            0                     0     -10.6786                   1.59749     -52.6234              0     -51.6978            0     -16.6416     -89.9877      11.7338      7.27218                0              29.8681                      7.25751          24.9703               14.9666         73.2639                       -1.6814            0         -75.78          -76     -25.4818              7.74401                    0                  2.9218      -9.6278            0      3.17868e-07                                         0            -102.456       5.30068       19.933     0.374298    -0.221112     -416.902 
+mean                                  76       43.619      42.1429           12      30.1429      5.04762            1      4.04762      30.7247     0.404273     0.404273      22.6013      19.7903      20.8333     0.285806     0.256366      0.26137            0            0            0     0.573935       8.7693      15.4866      50.9637      30.2945         30.2945      32.3129      19.9875         19.9875      41.3832           25              25      58.0499      34.2105         34.2105      72.1088      41.9799         41.9799      -74.757      3.41457      70.2852        4.04129                   0      1.41909            0     -1.74371     -6.52868            0                     0     -18.6323                  0.195358     -52.6506              0     -51.7032            0     -19.9111     -98.7713     -12.3006      -2.5469                0             -4.88087                     -7.70987          3.17929               5.60975         29.2046                      -3.21568            0         -75.78          -76     -44.4209              3.35668                    0                 1.18216     -17.3878            0      1.51366e-08                                         0            -104.857       1.44283      18.0241     -3.06722     -3.17717     -538.687 
+sd                                     0       7.2406     0.638877            0     0.638877     0.212959            0     0.212959      1.04702    0.0137766    0.0137766      18.3538      19.3927      20.1864      0.18156     0.200023     0.217364            0            0            0    0.0952711      2.69802      4.76472      14.2544      16.3792         16.3792       15.158      17.8972         17.8972      17.3954       17.922          17.922      18.5373      17.1606         17.1606      13.2697      14.4988         14.4988      45.8368      1.50314      24.9666        1.26415                   0      3.89044            0     0.750696     0.451058            0                     0      35.3548                  0.430619     0.121762              0    0.0245525            0      1.61153      3.65559      7.19045      14.2047                0               14.016                      12.7111          15.4221                4.9943         25.6025                      0.674636            0              0            0      9.81339              2.17688                    0                0.685072      34.4882            0      6.76928e-08                                         0             10.5259       4.28768       1.0061      1.05088      1.56662      204.677 
+=std=bcl::app=> transposed statistics table
+bcl::storage::Table<double>                        min          max         mean           sd 
+nr_aa                                               76           76           76            0 
+nr_aa_def                                           42           76       43.619       7.2406 
+nr_aa_sse                                           42           45      42.1429     0.638877 
+nr_aa_helix                                         12           12           12            0 
+nr_aa_strand                                        30           33      30.1429     0.638877 
+nr_sse                                               5            6      5.04762     0.212959 
+nr_helix                                             1            1            1            0 
+nr_strand                                            4            5      4.04762     0.212959 
+co                                             28.4867      32.9577      30.7247      1.04702 
+rco_seq                                       0.374825     0.433655     0.404273    0.0137766 
+rco_aas                                       0.374825     0.433655     0.404273    0.0137766 
+cr6                                            8.20896          100      22.6013      18.3538 
+cr12                                           2.75229          100      19.7903      19.3927 
+cr24                                              1.25          100      20.8333      20.1864 
+cr6_mcc                                       0.103218            1     0.285806      0.18156 
+cr12_mcc                                     0.0243902            1     0.256366     0.200023 
+cr24_mcc                                   -0.00820933            1      0.26137     0.217364 
+topology_f                                           0            0            0            0 
+topology_tpr                                         0            0            0            0 
+topology_ppv                                         0            0            0            0 
+completeness                                  0.552632            1     0.573935    0.0952711 
+RMSD                                                 0      11.7371       8.7693      2.69802 
+RMSD100                                              0      20.7279      15.4866      4.76472 
+GDT_TS                                         36.9048          100      50.9637      14.2544 
+GDT_TS_norm                                    20.3947          100      30.2945      16.3792 
+GDT_TS_sse_norm                                20.3947          100      30.2945      16.3792 
+GDT_1A                                         28.5714          100      32.3129       15.158 
+GDT_1A_norm                                    15.7895          100      19.9875      17.8972 
+GDT_1A_sse_norm                                15.7895          100      19.9875      17.8972 
+GDT_2A                                         28.5714          100      41.3832      17.3954 
+GDT_2A_norm                                    15.7895          100           25       17.922 
+GDT_2A_sse_norm                                15.7895          100           25       17.922 
+GDT_4A                                         33.3333          100      58.0499      18.5373 
+GDT_4A_norm                                    18.4211          100      34.2105      17.1606 
+GDT_4A_sse_norm                                18.4211          100      34.2105      17.1606 
+GDT_8A                                          52.381          100      72.1088      13.2697 
+GDT_8A_norm                                    28.9474          100      41.9799      14.4988 
+GDT_8A_sse_norm                                28.9474          100      41.9799      14.4988 
+aasmooth                                      -274.848     -46.7873      -74.757      45.8368 
+aaclash                                              0      5.67184      3.41457      1.50314 
+aadist                                         16.6577      115.205      70.2852      24.9666 
+aa_clash_hires                                       0      5.68883      4.04129      1.26415 
+aa_pair_interaction                                  0            0            0            0 
+aaneigh                                       -14.5959      4.98361      1.41909      3.89044 
+aaneigh_ent                                          0            0            0            0 
+loop                                          -3.43325    -0.142958     -1.74371     0.750696 
+loop_angle                                    -7.42652      -5.8745     -6.52868     0.451058 
+loop_closure                                         0            0            0            0 
+loop_closure_gradient                                0            0            0            0 
+phi_psi                                       -176.744     -10.6786     -18.6323      35.3548 
+sse_linear_loop_proximity                            0      1.59749     0.195358     0.430619 
+ss_PSIPRED                                    -53.1952     -52.6234     -52.6506     0.121762 
+ss_PSIPRED_ent                                       0            0            0            0 
+ss_JUFO                                        -51.813     -51.6978     -51.7032    0.0245525 
+ss_JUFO_ent                                          0            0            0            0 
+rgyr                                          -22.0191     -16.6416     -19.9111      1.61153 
+co_score                                      -105.156     -89.9877     -98.7713      3.65559 
+ssepack_fr                                    -21.8695      11.7338     -12.3006      7.19045 
+strand_fr                                     -64.2777      7.27218      -2.5469      14.2047 
+sse_completeness                                     0            0            0            0 
+all_sse_chirality_aa                          -23.5225      29.8681     -4.88087       14.016 
+all_sse_chirality_contact_aa                  -42.9954      7.25751     -7.70987      12.7111 
+sse_contact_type                              -26.9913      24.9703      3.17929      15.4221 
+sse_contact_adjacency                         -2.40341      14.9666      5.60975       4.9943 
+sse_orientation                               -19.8691      73.2639      29.2046      25.6025 
+sse_interaction_angle_overlap                 -4.23728      -1.6814     -3.21568     0.674636 
+ssealign                                             0            0            0            0 
+ss_PSIPRED_env                                  -75.78       -75.78       -75.78            0 
+ss_JUFO_env                                        -76          -76          -76            0 
+CCCScaled                                     -66.6601     -25.4818     -44.4209      9.81339 
+sse_inter_atom_clash                                 0      7.74401      3.35668      2.17688 
+sse_intra_atom_clash                                 0            0            0            0 
+bcl::score::LoopClosure                              0       2.9218      1.18216     0.685072 
+phipsi_coil                                   -171.624      -9.6278     -17.3878      34.4882 
+sse_pair_gap                                         0            0            0            0 
+sse_connectivity                                     0  3.17868e-07  1.51366e-08  6.76928e-08 
+bcl::score::ProteinModelLoopDomainClosure            0            0            0            0 
+phipsi_sspred_close                            -151.93     -102.456     -104.857      10.5259 
+aaneighvector                                 -15.9253      5.30068      1.44283      4.28768 
+sasaols                                        15.9884       19.933      18.0241       1.0061 
+ssepack                                       -4.58612     0.374298     -3.06722      1.05088 
+strand                                        -7.07418    -0.221112     -3.17717      1.56662 
+sum                                           -1424.42     -416.902     -538.687      204.677 
+=std=bcl=> Run completed of ScoreProtein -native example/example_files/input/biology/1ubi.pdb -pdblist example/example_files/input/cluster/cluster_20pdbs.ls -quality RMSD GDT_TS -score_density_agreement example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc 6.6 GaussianSphere CCCScaled -score_table_write example/example_files/output/score/scores20.table -sequence_data example/example_files/input/biology/ 1ubi -sspred JUFO PSIPRED 
+, return status was: 0
+Command line took 0.407328 sec to run
+=std=bcl=> successful example check:  score_protein_helper.RunCommand() == 0
+=std=bcl=> successful example check:  result.GetSize() == 20
+=std=bcl::app=> BCL Example | END  : AppScoreProtein ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AppScoreProtein_total                     7          0              
+total                                     7          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:07, peak virtual memory used: 132 MB, peak physical RAM used: 74 MB

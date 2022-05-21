@@ -1,0 +1,9 @@
+bcl::score::PhiPsiWithSSPred
+  "phipsi_sspred"
+  "phi_psi_angles_by_sstype.histogram2D"
+  bcl::storage::Set<bcl::sspred::Methods::Enum,std::less<bcl::sspred::Methods::Enum>>
+    2
+    bcl::sspred::Methods::Enum
+      "PSIPRED"
+    bcl::sspred::Methods::Enum
+      "JUFO"

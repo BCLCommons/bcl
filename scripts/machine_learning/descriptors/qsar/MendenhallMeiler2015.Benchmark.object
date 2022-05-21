@@ -1,0 +1,158 @@
+# "Benchmark" descriptor set used in 
+# Mendenhall, Meiler "Advances in Machine Learning Applied to Quantitative Structural Activity Relationship Modeling" 
+# Unpublished 2015
+# 3853 numbers total, 3607 non-redundant
+# This descriptor set performed in between the Minimal (best) and MACCS (worst) of the descriptor sets in the benchmark
+Combine(
+
+  # Max # of bonds between any two atoms in the molecule
+  Define(BondGirth=DescriptorSum(2DAMax(steps=48,property=Atom_Identity,substitution_value=nan))),
+  
+  # Van-Der Waals weighted descriptors
+  Define(Atom_VDWSigmaCharge=Multiply(Atom_SigmaCharge,Atom_VDWSurfaceArea)),
+  Define(Atom_VDWVcharge=Multiply(Atom_Vcharge,Atom_VDWSurfaceArea)),
+  Define(Atom_VDWPiCharge=Multiply(Atom_PiCharge,Atom_VDWSurfaceArea)),
+  Define(Atom_VDWTotalCharge=Multiply(Atom_TotalCharge,Atom_VDWSurfaceArea)),
+  Define(Atom_VDWPolarizability=Multiply(Atom_EffectivePolarizability,Atom_VDWSurfaceArea)),
+  
+  # Polarizability-related descriptors made signed by subtraction of the point that best separates the values for H
+  # vs heavy atoms
+  Define(Atom_SignedPolarizability=Subtract(lhs=Atom_EffectivePolarizability,rhs=2.93017)),
+  Define(Atom_SignedVDW=Subtract(lhs=Atom_VDWSurfaceArea,rhs=9.80666)),
+  Define(Atom_SignedVDWPolarizability=Multiply(Atom_SignedVDW,Atom_EffectivePolarizability)),
+  
+  # 1 For H, -1 for heavy atoms
+  Define(IsHTernary=Add(Constant(-1),Multiply(IsH,Constant(2)))),
+  
+  # 1 for H-Bond donors (O or N that have bond to an H), -1 for H-Bond Acceptors (any O or N) that are not donors, 
+  # 0 for all other atoms
+  Define(Atom_TernaryHBond=Subtract(lhs=Atom_HbondAcceptors,rhs=Multiply(Constant(2),Atom_HbondDonors))),
+  
+  # Charge types made ternary (-1,0,1) by heuristic assignment of difference charges as significant or not. 
+  # The constants were chosen such that most N & O would get +1 and -1, respectively, while most C would get 0 
+  # for sigma and V charge. For pi charge, the goal was to make significantly aromatic atoms achieve +/-1, while others 
+  # should be 0. The goal is to reduce noise in the descriptors, e.g. if the absolute values of the descriptors are not 
+  # particularly important.
+  Define(Atom_TernarySigmaCharge=Subtract(lhs=Greater(lhs=Atom_SigmaCharge,rhs=Constant(0.15)),rhs=Less(lhs=Atom_SigmaCharge,rhs=Constant(-0.15)))),
+  Define(Atom_TernaryPiCharge=Subtract(lhs=Greater(lhs=Atom_PiCharge,rhs=Constant(0.1)),rhs=Less(lhs=Atom_PiCharge,rhs=Constant(-0.1)))),
+  Define(Atom_TernaryVcharge=Subtract(lhs=Greater(lhs=Atom_Vcharge,rhs=Constant(0.25)),rhs=Less(lhs=Atom_Vcharge,rhs=Constant(-0.25)))),
+  
+  # Scalar descriptors (1 number each)
+  Weight,
+  HbondDonor,
+  HbondAcceptor,
+  LogP,
+  TotalCharge,
+  NRotBond,
+  NAromaticRings,
+  NRings,
+  TopologicalPolarSurfaceArea,
+  Girth,
+  BondGirth,
+  
+  # Unsigned 2DAs, out to 11 bonds distant (12 numbers each)
+  # It was a typo that Atom_VDWPolarizability was omitted from 2das, but shouldn't have any singificant impact since it is 
+  # included in the 3DAs
+  Define(AtomUnsignedDescriptors2da=Combine(Atom_EffectivePolarizability,Atom_VDWSurfaceArea)),
+  ForEach(
+    template=2DA(property=AtomProperty,steps=11,normalized=False),
+    variable=AtomProperty,
+    descriptors(Atom_Identity,AtomUnsignedDescriptors2da)
+  ),
+  2DAMax(steps=11,property=Atom_EffectivePolarizability,substitution_value=3.24435),
+  2DAMin(steps=11,property=Atom_EffectivePolarizability,substitution_value=3.24435),
+  2DAMax(steps=11,property=Atom_VDWSurfaceArea,substitution_value=9.80666),
+  2DAMin(steps=11,property=Atom_VDWSurfaceArea,substitution_value=9.80666),
+  
+  # Atom Variable Unsigned Descriptors that vary (e.g. not Atom_Identity)
+  Define(AtomUnsignedDescriptors3da=Combine(Atom_EffectivePolarizability,Atom_VDWSurfaceArea,Atom_VDWPolarizability)),
+  
+  # Unsigned 3DAs
+  # 3DASmooth_12A_42B 3DA with 48, 0.25A bins, 48 steps (12A max), gaussian smoothing
+  ForEach(
+    template=3daSmooth(property=AtomProperty,step size=0.25,temperature=100,steps=48,gaussian=True,interpolate=False),
+    variable=AtomProperty,
+    descriptors(Atom_Identity,AtomUnsignedDescriptors3da)
+  ),
+  ForEach(
+    template=3daSoftMax(property=AtomProperty,step size=0.25,temperature=100,steps=48,gaussian=True),
+    variable=AtomProperty,
+    descriptors(AtomUnsignedDescriptors3da)
+  ),
+  ForEach(
+    template=3daSoftMin(property=AtomProperty,step size=0.25,temperature=100,steps=48,gaussian=True),
+    variable=AtomProperty,
+    descriptors(AtomUnsignedDescriptors3da)
+  ),
+  
+  # Most important, real valued (not just integral) descriptors
+  Define( 
+    AtomSignedDescriptors2daMinimal=
+    Combine(
+      Atom_SignedPolarizability,
+      Atom_SignedVDW,
+      Atom_SignedVDWPolarizability,
+      Atom_SigmaCharge,
+      Atom_VDWSigmaCharge,
+      Atom_Vcharge,
+      Atom_VDWVcharge
+    )
+  ),
+
+  # Sign-aware 2DA Max's, out to 11 bonds (36 numbers each)
+  # Generally we've found that MaxSign usually doesn't do as well as Sign, on its own, particularly when there are few 
+  # counts in each bin.  Hence use of a minimal set of atom descriptors
+  ForEach(
+    template=2DAMaxSign(property=AtomProperty,steps=11),
+    variable=AtomProperty,
+    descriptors(AtomSignedDescriptors2daMinimal)
+  ),
+  
+  # Additional atom descriptors used for 2daSign
+  Define( AtomSignedDescriptorsXtra=
+    Combine(
+      Atom_PiCharge,
+      Atom_VDWPiCharge,
+      Atom_TotalCharge,
+      Atom_VDWTotalCharge,
+      Atom_TernarySigmaCharge,
+      Atom_TernaryPiCharge,
+      Atom_TernaryVcharge
+    )
+  ),
+  
+  # Sign-aware 2DA's, out to 11 bonds (36 numbers each)
+  ForEach(
+    template=2DASign(property=AtomProperty,steps=11),
+    variable=AtomProperty,
+    descriptors(AtomSignedDescriptors2daMinimal,AtomSignedDescriptorsXtra)
+  ),
+  
+  # atomic descriptors used in the 3DAs for this descriptor set
+  Define( 
+    AtomSignedDescriptors3da=
+    Combine(
+      Atom_VDWSigmaCharge,
+      Atom_VDWPiCharge,
+      Atom_VDWTotalCharge,
+      Atom_VDWVcharge,
+      Atom_SigmaCharge,
+      Atom_PiCharge,
+      Atom_TotalCharge,
+      Atom_Vcharge,
+      Atom_TernaryHBond
+    )
+  ),
+  
+  # Sign-aware 3DA's, out to 12A (144 numbers each)
+  ForEach(
+    template=3daSmoothSign(property=AtomProperty,step size=0.25,temperature=100,steps=48,gaussian=True,interpolate=False),
+    variable=AtomProperty,
+    descriptors(AtomSignedDescriptors3da)
+  ),
+  ForEach(
+    template=3daSoftMaxSign(property=AtomProperty,step size=0.25,temperature=100,steps=48,gaussian=True),
+    variable=AtomProperty,
+    descriptors(AtomSignedDescriptors3da)
+  )
+)

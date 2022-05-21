@@ -1,0 +1,2248 @@
+bcl::biol::AATypes
+  54
+  "ALANINE"
+  bcl::biol::AATypeData
+    "ALA"	    A	    1	    "ALA"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      10
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB1"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      3
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB1"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "2HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "3HB "
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "ARGININE"
+  bcl::biol::AATypeData
+    "ARG"	    R	    1	    "ARG"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      24
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "CD"
+      bcl::biol::AtomTypes::Enum
+        "CZ"
+      bcl::biol::AtomTypes::Enum
+        "NE"
+      bcl::biol::AtomTypes::Enum
+        "NH1"
+      bcl::biol::AtomTypes::Enum
+        "NH2"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HG2"
+      bcl::biol::AtomTypes::Enum
+        "HG3"
+      bcl::biol::AtomTypes::Enum
+        "HD2"
+      bcl::biol::AtomTypes::Enum
+        "HD3"
+      bcl::biol::AtomTypes::Enum
+        "HE"
+      bcl::biol::AtomTypes::Enum
+        "HH11"
+      bcl::biol::AtomTypes::Enum
+        "HH12"
+      bcl::biol::AtomTypes::Enum
+        "HH21"
+      bcl::biol::AtomTypes::Enum
+        "HH22"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      10
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG2"
+        "1HG "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG3"
+        "2HG "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD2"
+        "1HD "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD3"
+        "2HD "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HH11"
+        "1HH1"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HH12"
+        "2HH1"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HH21"
+        "1HH2"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HH22"
+        "2HH2"
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "ASPARAGINE"
+  bcl::biol::AATypeData
+    "ASN"	    N	    1	    "ASN"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      14
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "ND2"
+      bcl::biol::AtomTypes::Enum
+        "OD1"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HD21"
+      bcl::biol::AtomTypes::Enum
+        "HD22"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      4
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD21"
+        "1HD2"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD22"
+        "2HD2"
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "ASPARTIC_ACID"
+  bcl::biol::AATypeData
+    "ASP"	    D	    1	    "ASP"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      13
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "OD1"
+      bcl::biol::AtomTypes::Enum
+        "OD2"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HD2"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      2
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "CYSTEINE"
+  bcl::biol::AATypeData
+    "CYS"	    C	    1	    "CYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      11
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "SG"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HG"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      2
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "GLUTAMINE"
+  bcl::biol::AATypeData
+    "GLN"	    Q	    1	    "GLN"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      17
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "CD"
+      bcl::biol::AtomTypes::Enum
+        "NE2"
+      bcl::biol::AtomTypes::Enum
+        "OE1"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HG2"
+      bcl::biol::AtomTypes::Enum
+        "HG3"
+      bcl::biol::AtomTypes::Enum
+        "HE21"
+      bcl::biol::AtomTypes::Enum
+        "HE22"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      6
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG2"
+        "1HG "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG3"
+        "2HG "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HE21"
+        "1HE2"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HE22"
+        "2HE2"
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "GLUTAMIC_ACID"
+  bcl::biol::AATypeData
+    "GLU"	    E	    1	    "GLU"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      16
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "CD"
+      bcl::biol::AtomTypes::Enum
+        "OE1"
+      bcl::biol::AtomTypes::Enum
+        "OE2"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HG2"
+      bcl::biol::AtomTypes::Enum
+        "HG3"
+      bcl::biol::AtomTypes::Enum
+        "HE2"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      4
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG2"
+        "1HG "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG3"
+        "2HG "
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "GLYCINE"
+  bcl::biol::AATypeData
+    "GLY"	    G	    1	    "GLY"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      7
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA2"
+      bcl::biol::AtomTypes::Enum
+        "HA3"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      2
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HA2"
+        "1HA "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HA3"
+        "2HA "
+
+    bcl::biol::AtomTypes::Enum
+      "HA2"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "HISTIDINE"
+  bcl::biol::AATypeData
+    "HIS"	    H	    1	    "HIS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      18
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "CD2"
+      bcl::biol::AtomTypes::Enum
+        "CE1"
+      bcl::biol::AtomTypes::Enum
+        "ND1"
+      bcl::biol::AtomTypes::Enum
+        "NE2"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HD1"
+      bcl::biol::AtomTypes::Enum
+        "HD2"
+      bcl::biol::AtomTypes::Enum
+        "HE1"
+      bcl::biol::AtomTypes::Enum
+        "HE2"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      2
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "ISOLEUCINE"
+  bcl::biol::AATypeData
+    "ILE"	    I	    1	    "ILE"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      19
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG1"
+      bcl::biol::AtomTypes::Enum
+        "CG2"
+      bcl::biol::AtomTypes::Enum
+        "CD1"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB"
+      bcl::biol::AtomTypes::Enum
+        "HG12"
+      bcl::biol::AtomTypes::Enum
+        "HG13"
+      bcl::biol::AtomTypes::Enum
+        "HG21"
+      bcl::biol::AtomTypes::Enum
+        "HG22"
+      bcl::biol::AtomTypes::Enum
+        "HG23"
+      bcl::biol::AtomTypes::Enum
+        "HD11"
+      bcl::biol::AtomTypes::Enum
+        "HD12"
+      bcl::biol::AtomTypes::Enum
+        "HD13"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      8
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG12"
+        "1HG1"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG13"
+        "2HG1"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG21"
+        "1HG2"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG22"
+        "2HG2"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG23"
+        "3HG2"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD11"
+        "1HD1"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD12"
+        "2HD1"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD13"
+        "3HD1"
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "LEUCINE"
+  bcl::biol::AATypeData
+    "LEU"	    L	    1	    "LEU"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      19
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "CD1"
+      bcl::biol::AtomTypes::Enum
+        "CD2"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HG"
+      bcl::biol::AtomTypes::Enum
+        "HD11"
+      bcl::biol::AtomTypes::Enum
+        "HD12"
+      bcl::biol::AtomTypes::Enum
+        "HD13"
+      bcl::biol::AtomTypes::Enum
+        "HD21"
+      bcl::biol::AtomTypes::Enum
+        "HD22"
+      bcl::biol::AtomTypes::Enum
+        "HD23"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      8
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD11"
+        "1HD1"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD12"
+        "2HD1"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD13"
+        "3HD1"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD21"
+        "1HD2"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD22"
+        "2HD2"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD23"
+        "3HD2"
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "LYSINE"
+  bcl::biol::AATypeData
+    "LYS"	    K	    1	    "LYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      22
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "CD"
+      bcl::biol::AtomTypes::Enum
+        "CE"
+      bcl::biol::AtomTypes::Enum
+        "NZ"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HG2"
+      bcl::biol::AtomTypes::Enum
+        "HG3"
+      bcl::biol::AtomTypes::Enum
+        "HD2"
+      bcl::biol::AtomTypes::Enum
+        "HD3"
+      bcl::biol::AtomTypes::Enum
+        "HE2"
+      bcl::biol::AtomTypes::Enum
+        "HE3"
+      bcl::biol::AtomTypes::Enum
+        "HZ1"
+      bcl::biol::AtomTypes::Enum
+        "HZ2"
+      bcl::biol::AtomTypes::Enum
+        "HZ3"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      11
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG2"
+        "1HG "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG3"
+        "2HG "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD2"
+        "1HD "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD3"
+        "2HD "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HE2"
+        "1HE "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HE3"
+        "2HE "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HZ1"
+        "1HZ "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HZ2"
+        "2HZ "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HZ3"
+        "3HZ "
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "METHIONINE"
+  bcl::biol::AATypeData
+    "MET"	    M	    1	    "MET"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      17
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "CE"
+      bcl::biol::AtomTypes::Enum
+        "SD"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HG2"
+      bcl::biol::AtomTypes::Enum
+        "HG3"
+      bcl::biol::AtomTypes::Enum
+        "HE1"
+      bcl::biol::AtomTypes::Enum
+        "HE2"
+      bcl::biol::AtomTypes::Enum
+        "HE3"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      7
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG2"
+        "1HG "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG3"
+        "2HG "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HE1"
+        "1HE "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HE2"
+        "2HE "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HE3"
+        "3HE "
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      3
+      std::pair<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>>
+        e_One
+        bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>
+          bcl::biol::AtomTypes::Enum
+            "N"
+          bcl::biol::AtomTypes::Enum
+            "CA"
+          bcl::biol::AtomTypes::Enum
+            "CB"
+          bcl::biol::AtomTypes::Enum
+            "CG"
+      std::pair<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>>
+        e_Two
+        bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>
+          bcl::biol::AtomTypes::Enum
+            "CA"
+          bcl::biol::AtomTypes::Enum
+            "CB"
+          bcl::biol::AtomTypes::Enum
+            "CG"
+          bcl::biol::AtomTypes::Enum
+            "SD"
+      std::pair<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>>
+        e_Three
+        bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>
+          bcl::biol::AtomTypes::Enum
+            "CB"
+          bcl::biol::AtomTypes::Enum
+            "CG"
+          bcl::biol::AtomTypes::Enum
+            "SD"
+          bcl::biol::AtomTypes::Enum
+            "CE"
+
+  "PHENYLALANINE"
+  bcl::biol::AATypeData
+    "PHE"	    F	    1	    "PHE"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      20
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "CD1"
+      bcl::biol::AtomTypes::Enum
+        "CD2"
+      bcl::biol::AtomTypes::Enum
+        "CE1"
+      bcl::biol::AtomTypes::Enum
+        "CE2"
+      bcl::biol::AtomTypes::Enum
+        "CZ"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HD1"
+      bcl::biol::AtomTypes::Enum
+        "HD2"
+      bcl::biol::AtomTypes::Enum
+        "HE1"
+      bcl::biol::AtomTypes::Enum
+        "HE2"
+      bcl::biol::AtomTypes::Enum
+        "HZ"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      2
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "PROLINE"
+  bcl::biol::AATypeData
+    "PRO"	    P	    1	    "PRO"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      14
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "CD"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HG2"
+      bcl::biol::AtomTypes::Enum
+        "HG3"
+      bcl::biol::AtomTypes::Enum
+        "HD2"
+      bcl::biol::AtomTypes::Enum
+        "HD3"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      6
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG2"
+        "1HG "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG3"
+        "2HG "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD2"
+        "1HD "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HD3"
+        "2HD "
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "SERINE"
+  bcl::biol::AATypeData
+    "SER"	    S	    1	    "SER"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      11
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "OG"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HG"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      2
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "THREONINE"
+  bcl::biol::AATypeData
+    "THR"	    T	    1	    "THR"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      14
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG2"
+      bcl::biol::AtomTypes::Enum
+        "OG1"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB"
+      bcl::biol::AtomTypes::Enum
+        "HG1"
+      bcl::biol::AtomTypes::Enum
+        "HG21"
+      bcl::biol::AtomTypes::Enum
+        "HG22"
+      bcl::biol::AtomTypes::Enum
+        "HG23"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      3
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG21"
+        "1HG2"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG22"
+        "2HG2"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG23"
+        "3HG2"
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "TRYPTOPHAN"
+  bcl::biol::AATypeData
+    "TRP"	    W	    1	    "TRP"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      24
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "CD1"
+      bcl::biol::AtomTypes::Enum
+        "CD2"
+      bcl::biol::AtomTypes::Enum
+        "CE2"
+      bcl::biol::AtomTypes::Enum
+        "CE3"
+      bcl::biol::AtomTypes::Enum
+        "CZ2"
+      bcl::biol::AtomTypes::Enum
+        "CZ3"
+      bcl::biol::AtomTypes::Enum
+        "CH2"
+      bcl::biol::AtomTypes::Enum
+        "NE1"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HD1"
+      bcl::biol::AtomTypes::Enum
+        "HE1"
+      bcl::biol::AtomTypes::Enum
+        "HE3"
+      bcl::biol::AtomTypes::Enum
+        "HZ2"
+      bcl::biol::AtomTypes::Enum
+        "HZ3"
+      bcl::biol::AtomTypes::Enum
+        "HH2"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      2
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "TYROSINE"
+  bcl::biol::AATypeData
+    "TYR"	    Y	    1	    "TYR"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      21
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "CD1"
+      bcl::biol::AtomTypes::Enum
+        "CD2"
+      bcl::biol::AtomTypes::Enum
+        "CE1"
+      bcl::biol::AtomTypes::Enum
+        "CE2"
+      bcl::biol::AtomTypes::Enum
+        "CZ"
+      bcl::biol::AtomTypes::Enum
+        "OH"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HD1"
+      bcl::biol::AtomTypes::Enum
+        "HD2"
+      bcl::biol::AtomTypes::Enum
+        "HE1"
+      bcl::biol::AtomTypes::Enum
+        "HE2"
+      bcl::biol::AtomTypes::Enum
+        "HH"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      2
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB2"
+        "1HB "
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HB3"
+        "2HB "
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "VALINE"
+  bcl::biol::AATypeData
+    "VAL"	    V	    1	    "VAL"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      16
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG1"
+      bcl::biol::AtomTypes::Enum
+        "CG2"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB"
+      bcl::biol::AtomTypes::Enum
+        "HG11"
+      bcl::biol::AtomTypes::Enum
+        "HG12"
+      bcl::biol::AtomTypes::Enum
+        "HG13"
+      bcl::biol::AtomTypes::Enum
+        "HG21"
+      bcl::biol::AtomTypes::Enum
+        "HG22"
+      bcl::biol::AtomTypes::Enum
+        "HG23"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      6
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG11"
+        "1HG1"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG12"
+        "2HG1"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG13"
+        "3HG1"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG21"
+        "1HG2"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG22"
+        "2HG2"
+      std::pair<bcl::biol::AtomTypes::Enum,std::string>
+        bcl::biol::AtomTypes::Enum
+          "HG23"
+        "3HG2"
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "ASPARAGINE_or_ASPARTIC_ACID"
+  bcl::biol::AATypeData
+    "ASX"	    B	    0	    "ASP"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "GLUTAMINE_or_GLUTAMIC_ACID"
+  bcl::biol::AATypeData
+    "GLX"	    Z	    0	    "GLU"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "ARBITRARY_AMINO_ACID"
+  bcl::biol::AATypeData
+    "XXX"	    X	    0	    "XXX"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "UNKNOWN_AMINO_ACID"
+  bcl::biol::AATypeData
+    "UNK"	    U	    0	    "UNK"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "SEQUENCE_GAP"
+  bcl::biol::AATypeData
+    "GAP"	    -	    0	    "GAP"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "Undefined"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "D-ALANINE"
+  bcl::biol::AATypeData
+    "DAL"	    U	    0	    "ALA"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "2-AMINO-3-OXO-4-SULFO-BUTYRIC ACID"
+  bcl::biol::AATypeData
+    "ALS"	    U	    0	    "ALA"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "DEOXY-CHLOROMETHYL-ARGININE"
+  bcl::biol::AATypeData
+    "ACL"	    U	    0	    "ARG"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "S,S-(2-HYDROXYETHYL)THIOCYSTEINE"
+  bcl::biol::AATypeData
+    "CME"	    U	    0	    "CYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "SELENOCYSTEINE"
+  bcl::biol::AATypeData
+    "CSE"	    U	    0	    "CYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "3-SULFINOALANINE"
+  bcl::biol::AATypeData
+    "CSD"	    U	    0	    "CYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "S-HYDROXYCYSTEINE"
+  bcl::biol::AATypeData
+    "CSO"	    U	    0	    "CYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "CYSTEINE-S-DIOXIDE"
+  bcl::biol::AATypeData
+    "CSW"	    U	    0	    "CYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "2-AMINO-4-(AMINO-3-OXO-PROPYLSULFANYLCARBONYL)-BUTYRIC ACID"
+  bcl::biol::AATypeData
+    "CYG"	    U	    0	    "CYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "CYSTEINESULFONIC_ACID"
+  bcl::biol::AATypeData
+    "OCS"	    U	    0	    "CYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "N-ACETYL-L-CYSTEINE"
+  bcl::biol::AATypeData
+    "SC2"	    U	    0	    "CYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "GAMMA-CARBOXY-GLUTAMIC_ACID"
+  bcl::biol::AATypeData
+    "CGU"	    U	    0	    "GLU"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "PYROGLUTAMIC_ACID"
+  bcl::biol::AATypeData
+    "PCA"	    U	    0	    "GLU"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "LYSINE_NZ-CARBOXYLIC ACID"
+  bcl::biol::AATypeData
+    "KCX"	    U	    0	    "LYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "2-LYSINE(3-HYDROXY-2-METHYL-5-PHOSPHONOOXYMETHYL-PYRIDIN-4-YLMETHANE)"
+  bcl::biol::AATypeData
+    "LLP"	    U	    0	    "LYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "N-TRIMETHYLLYSINE"
+  bcl::biol::AATypeData
+    "M3L"	    U	    0	    "LYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "N-DIMETHYL-LYSINE"
+  bcl::biol::AATypeData
+    "MLY"	    U	    0	    "LYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "N~6~-[(2Z,4E,6E,8E)-3,7-DIMETHYL-9-(2,6,6-TRIMETHYLCYCLOHEX-1-EN-1-YL)NONA-2,4,6,8-TETRAENYL]LYSINE"
+  bcl::biol::AATypeData
+    "LYR"	    U	    0	    "LYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "N-CARBOXYMETHIONINE"
+  bcl::biol::AATypeData
+    "CXM"	    U	    0	    "MET"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "N-FORMYLMETHIONINE"
+  bcl::biol::AATypeData
+    "FME"	    U	    0	    "MET"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "SELENO_METHIONINE"
+  bcl::biol::AATypeData
+    "MSE"	    U	    0	    "MET"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      17
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CG"
+      bcl::biol::AtomTypes::Enum
+        "CE"
+      bcl::biol::AtomTypes::Enum
+        "SE"
+      bcl::biol::AtomTypes::Enum
+        "H"
+      bcl::biol::AtomTypes::Enum
+        "HA"
+      bcl::biol::AtomTypes::Enum
+        "HB2"
+      bcl::biol::AtomTypes::Enum
+        "HB3"
+      bcl::biol::AtomTypes::Enum
+        "HG2"
+      bcl::biol::AtomTypes::Enum
+        "HG3"
+      bcl::biol::AtomTypes::Enum
+        "HE1"
+      bcl::biol::AtomTypes::Enum
+        "HE2"
+      bcl::biol::AtomTypes::Enum
+        "HE3"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "D-PHENYLALANINE"
+  bcl::biol::AATypeData
+    "DPN"	    U	    0	    "PHE"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "1-HEXADECANOSULFONYL-O-L-SERINE"
+  bcl::biol::AATypeData
+    "S1H"	    U	    0	    "SER"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "N-ACETYL-SERINE"
+  bcl::biol::AATypeData
+    "SAC"	    U	    0	    "SER"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "PHOSPHOSERINE"
+  bcl::biol::AATypeData
+    "SEP"	    U	    0	    "SER"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "PHOSPHOTHREONINE"
+  bcl::biol::AATypeData
+    "TPO"	    U	    0	    "THR"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "O-SULFO-L-TYROSINE"
+  bcl::biol::AATypeData
+    "TYS"	    U	    0	    "TYR"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+
+  "methanesulfonothioate"
+  bcl::biol::AATypeData
+    "R1A"	    U	    0	    "CYS"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      18
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+      bcl::biol::AtomTypes::Enum
+        "CE"
+      bcl::biol::AtomTypes::Enum
+        "SD"
+      bcl::biol::AtomTypes::Enum
+        "SG"
+      bcl::biol::AtomTypes::Enum
+        "C2"
+      bcl::biol::AtomTypes::Enum
+        "C3"
+      bcl::biol::AtomTypes::Enum
+        "C4"
+      bcl::biol::AtomTypes::Enum
+        "C5"
+      bcl::biol::AtomTypes::Enum
+        "C6"
+      bcl::biol::AtomTypes::Enum
+        "C7"
+      bcl::biol::AtomTypes::Enum
+        "C8"
+      bcl::biol::AtomTypes::Enum
+        "C9"
+      bcl::biol::AtomTypes::Enum
+        "N1"
+      bcl::biol::AtomTypes::Enum
+        "O1"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      5
+      std::pair<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>>
+        e_One
+        bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>
+          bcl::biol::AtomTypes::Enum
+            "N"
+          bcl::biol::AtomTypes::Enum
+            "CA"
+          bcl::biol::AtomTypes::Enum
+            "CB"
+          bcl::biol::AtomTypes::Enum
+            "SG"
+      std::pair<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>>
+        e_Two
+        bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>
+          bcl::biol::AtomTypes::Enum
+            "CA"
+          bcl::biol::AtomTypes::Enum
+            "CB"
+          bcl::biol::AtomTypes::Enum
+            "SG"
+          bcl::biol::AtomTypes::Enum
+            "SD"
+      std::pair<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>>
+        e_Three
+        bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>
+          bcl::biol::AtomTypes::Enum
+            "CB"
+          bcl::biol::AtomTypes::Enum
+            "SG"
+          bcl::biol::AtomTypes::Enum
+            "SD"
+          bcl::biol::AtomTypes::Enum
+            "CE"
+      std::pair<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>>
+        e_Four
+        bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>
+          bcl::biol::AtomTypes::Enum
+            "SG"
+          bcl::biol::AtomTypes::Enum
+            "SD"
+          bcl::biol::AtomTypes::Enum
+            "CE"
+          bcl::biol::AtomTypes::Enum
+            "C3"
+      std::pair<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>>
+        e_Five
+        bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>
+          bcl::biol::AtomTypes::Enum
+            "SD"
+          bcl::biol::AtomTypes::Enum
+            "CE"
+          bcl::biol::AtomTypes::Enum
+            "C3"
+          bcl::biol::AtomTypes::Enum
+            "C4"
+
+  "BETA-L-ASPARTIC_ACID"
+  bcl::biol::AATypeData
+    "IAS"	    U	    0	    "ASP"
+    bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+      5
+      bcl::biol::AtomTypes::Enum
+        "N"
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      bcl::biol::AtomTypes::Enum
+        "C"
+      bcl::biol::AtomTypes::Enum
+        "O"
+      bcl::biol::AtomTypes::Enum
+        "CB"
+
+    bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+      0
+
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+      0
+

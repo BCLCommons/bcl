@@ -1,0 +1,31 @@
+###############
+#
+# Notes on the SDF libraries containing more than one medchem functional group
+#
+##############
+
+--------------------------------------
+LIBRARY_NAME:
+  bcl_buildfrag_0.sdf.gz
+CONTAINS:
+  acetamide.sdf.gz
+  butyl.sdf.gz
+  cyclopropyl.sdf.gz
+  dimethylamine.sdf.gz
+  dimethylsulfide.sdf.gz
+  ethoxy.sdf.gz
+  ethyl.sdf.gz
+  ethylsulfonyl.sdf.gz
+  isopropyl.sdf.gz
+  methoxy.sdf.gz
+  methylsulfonamide.sdf.gz
+  methylsulfonyl.sdf.gz
+  nitrile.sdf.gz
+  propyl.sdf.gz
+  sulfonamide.sdf.gz
+  tertbutyl.sdf.gz
+  thioethyl.sdf.gz
+  thiomethyl.sdf.gz
+  trifluoromethoxy.sdf.gz
+  trifluoromethyl.sdf.gz
+--------------------------------------

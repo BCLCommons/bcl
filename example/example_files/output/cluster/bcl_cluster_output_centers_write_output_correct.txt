@@ -1,0 +1,14 @@
+NODE nan : Member : 8 : Size : 4 : Leaf : 0 : Linkage : 3.5
+NODE nan : Member : 6 : Size : 3 : Leaf : 0 : Linkage : 3.1
+NODE nan : Member : 5 : Size : 2 : Leaf : 0 : Linkage : 3
+NODE nan : Member : 5 : Size : 1 : Leaf : 1 : Linkage : nan
+NODE nan : Member : 8 : Size : 1 : Leaf : 1 : Linkage : nan
+NODE nan : Member : 6 : Size : 1 : Leaf : 1 : Linkage : nan
+NODE nan : Member : 9 : Size : 1 : Leaf : 1 : Linkage : nan
+NODE nan : Member : 8 : Size : 4 : Leaf : 0 : Linkage : 3.5
+NODE nan : Member : 6 : Size : 3 : Leaf : 0 : Linkage : 3.1
+NODE nan : Member : 5 : Size : 2 : Leaf : 0 : Linkage : 3
+NODE nan : Member : 5 : Size : 1 : Leaf : 1 : Linkage : nan
+NODE nan : Member : 8 : Size : 1 : Leaf : 1 : Linkage : nan
+NODE nan : Member : 6 : Size : 1 : Leaf : 1 : Linkage : nan
+NODE nan : Member : 9 : Size : 1 : Leaf : 1 : Linkage : nan

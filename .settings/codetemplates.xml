@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><templates><template autoinsert="false" context="org.eclipse.cdt.core.cxxSource.contenttype_context" deleted="false" description="Source file for bcl c++ classes" enabled="true" name="bcl c++ source">// initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "util/bcl_util_static_initialization_fiasco_finder.h"
+BCL_StaticInitializationFiascoFinder
+
+// include header of this class
+#include "${namespace_name}/${file_base}.h"
+
+// includes from bcl - sorted alphabetically
+
+// external includes - sorted alphabetically
+
+namespace bcl
+{
+  namespace ${namespace_name}
+  {
+
+  } // namespace ${namespace_name}
+} // namespace bcl
+</template><template autoinsert="false" context="org.eclipse.cdt.core.cxxHeader.contenttype_context" deleted="false" description="Header file for bcl c++ classes" enabled="true" name="bcl c++ header">#ifndef ${include_guard_symbol}
+#define ${include_guard_symbol}
+
+// include the namespace header
+#include "${file_base}.fwd.hh"
+
+// include other forward headers - sorted alphabetically
+
+// includes from bcl - sorted alphabetically
+
+// external includes - sorted alphabetically
+
+namespace bcl
+{
+  
+} // namespace bcl
+
+#endif /* ${include_guard_symbol} */
+</template></templates>

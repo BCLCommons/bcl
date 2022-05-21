@@ -1,0 +1,10 @@
+PCA(
+  dataset=File(
+    filename=example/example_files/input/model/example_data_set.bcl,
+    number chunks=3,
+    chunks="[0,2]"
+  ),
+  fraction=0.75,
+  components=5,
+  filename=example/example_files/input/model/pca.bcl
+)

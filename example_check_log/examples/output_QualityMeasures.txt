@@ -1,0 +1,131 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec QualityMeasures 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> QualityMeasures
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: QualityMeasures ====================
+=std=bcl=> Constructing Quality objects from all known Quality measures
+=std=bcl=> successful example check:
+               rmsd == quality::GetMeasures().e_RMSD == bcl::quality::Measures::Enum
+                "RMSD"
+=std=bcl=> successful example check:
+               rmsd_no_superimpose == quality::GetMeasures().e_RMSD_NoSuperimposition ==
+              bcl::quality::Measures::Enum
+                "RMSD_NoSuperimposition"
+=std=bcl=> successful example check:
+               rmsd_xy_superimpose == quality::GetMeasures().e_RMSD_XYSuperimposition ==
+              bcl::quality::Measures::Enum
+                "RMSD_XYSuperimposition"
+=std=bcl=> successful example check:
+               dme == quality::GetMeasures().e_DME == bcl::quality::Measures::Enum
+                "DME"
+=std=bcl=> successful example check:
+               dmf_ts == quality::GetMeasures().e_DMF_TS ==
+              bcl::quality::Measures::Enum
+                "DMF_TS"
+=std=bcl=> successful example check:
+               dmf_ha == quality::GetMeasures().e_DMF_HA ==
+              bcl::quality::Measures::Enum
+                "DMF_HA"
+=std=bcl=> successful example check:
+               lcs == quality::GetMeasures().e_LCS == bcl::quality::Measures::Enum
+                "LCS"
+=std=bcl=> successful example check:
+               gdt_ha == quality::GetMeasures().e_GDT_HA ==
+              bcl::quality::Measures::Enum
+                "GDT_HA"
+=std=bcl=> successful example check:
+               gdt_ts == quality::GetMeasures().e_GDT_TS ==
+              bcl::quality::Measures::Enum
+                "GDT_TS"
+=std=bcl=> successful example check:
+               gdt_1a == quality::GetMeasures().e_GDT_1A ==
+              bcl::quality::Measures::Enum
+                "GDT_1A"
+=std=bcl=> successful example check:
+               gdt_2a == quality::GetMeasures().e_GDT_2A ==
+              bcl::quality::Measures::Enum
+                "GDT_2A"
+=std=bcl=> successful example check:
+               gdt_4a == quality::GetMeasures().e_GDT_4A ==
+              bcl::quality::Measures::Enum
+                "GDT_4A"
+=std=bcl=> successful example check:
+               gdt_8a == quality::GetMeasures().e_GDT_8A ==
+              bcl::quality::Measures::Enum
+                "GDT_8A"
+=std=bcl=> successful example check:
+               maxsub == quality::GetMeasures().e_MaxSub ==
+              bcl::quality::Measures::Enum
+                "MaxSub"
+=std=bcl=> successful example check:
+               zero == quality::GetMeasures().e_Zero == bcl::quality::Measures::Enum
+                "Zero"
+=std=bcl=> Constructing an undefined measure
+=std=bcl=> successful example check:  measure_undefined.IsDefined() == 0
+=std=bcl=> Calling copy constructor
+=std=bcl=> successful example check:
+               measure_dme_copy == dme == bcl::quality::Measures::Enum
+                "DME"
+=std=bcl=> successful example check:  quality::GetMeasures().GetClassIdentifier() == bcl::quality::Measures
+=std=bcl=> The total number of measures is 23
+=std=bcl=> successful example check:  quality::Measures::GetDistanceCutoffsHA().GetSize() == 4
+=std=bcl=> successful example check:  quality::Measures::GetDistanceCutoffsTS().GetSize() == 4
+=std=bcl::app=> BCL Example | END  : QualityMeasures ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+QualityMeasures_total                    20          0              
+total                                    20          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

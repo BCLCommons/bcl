@@ -1,0 +1,9 @@
+bcl::storage::Vector<bcl::storage::VectorND<2,bcl::linal::Vector<double>>>
+  1
+   bcl::storage::VectorND<2,bcl::linal::Vector<double>>
+     bcl::linal::Vector<double>
+       2
+       3.0       3.0
+     bcl::linal::Vector<double>
+       1
+       0.0

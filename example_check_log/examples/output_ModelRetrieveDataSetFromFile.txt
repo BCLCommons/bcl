@@ -1,0 +1,131 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ModelRetrieveDataSetFromFile 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ModelRetrieveDataSetFromFile
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ModelRetrieveDataSetFromFile ====================
+=std=bcl=> data set loading directly from file test succeeded:  example_data_set.GetSize() == 3
+=std=bcl=> successful example check:  model::RetrieveDataSetFromFile().GetAlias() == File
+=std=bcl=> SelectFeatures test succeeded:
+               example_data_set_retriever_b.GetFeatureCode().ToString() ==
+              feature_label.ToString() == Features(0,1)
+=std=bcl=> SelectResults test succeeded:
+               example_data_set_retriever_b.GetResultCode().ToString() ==
+              results_label.ToString() == Results(5)
+=std=bcl=> successful example check:  example_data_set_retriever.GenerateDataSet().IsDefined() == 1
+=std=bcl=> successful example check:
+               example_data_set_retriever.GenerateDataSet()->GetFeaturesReference() ==
+              features_converted ==
+              bcl::linal::MatrixReference<float>
+                3	  5
+                1.1	2.2	3.3	4.4	5.5	
+                8.8	9.9	10.1	11.11	12.12	
+                15.15	16.16	17.17	18.18	19.19	
+=std=bcl=> successful example check:
+               example_data_set_retriever.GenerateDataSet()->GetResultsReference() ==
+              results_converted == bcl::linal::MatrixReference<float>
+                3	  2
+                6.6	7.7	
+                13.13	14.14	
+                20.2	21.21	
+=std=bcl=> successful example check:  example_data_set_0_2_retriever.GenerateDataSet().IsDefined() == 1
+=std=bcl=> successful example check:
+               example_data_set_0_2_retriever.GenerateDataSet()->GetFeaturesReference() ==
+              features_converted_0_2 ==
+              bcl::linal::MatrixReference<float>
+                2	  5
+                1.1	2.2	3.3	4.4	5.5	
+                15.15	16.16	17.17	18.18	19.19	
+=std=bcl=> successful example check:
+               example_data_set_0_2_retriever.GenerateDataSet()->GetResultsReference() ==
+              results_converted_0_2 == bcl::linal::MatrixReference<float>
+                2	  2
+                6.6	7.7	
+                20.2	21.21	
+=std=bcl=> successful example check:  example_data_set_0_1_retriever.GenerateDataSet().IsDefined() == 1
+=std=bcl=> successful example check:
+               example_data_set_0_1_retriever.GenerateDataSet()->GetFeaturesReference() ==
+              features_converted_0_1 ==
+              bcl::linal::MatrixReference<float>
+                2	  5
+                1.1	2.2	3.3	4.4	5.5	
+                8.8	9.9	10.1	11.11	12.12	
+=std=bcl=> successful example check:
+               example_data_set_0_1_retriever.GenerateDataSet()->GetResultsReference() ==
+              results_converted_0_1 == bcl::linal::MatrixReference<float>
+                2	  2
+                6.6	7.7	
+                13.13	14.14	
+=std=bcl=> successful example check:  impl_example_data_set_retriever_0_2.IsDefined() == 1
+=std=bcl=> successful example check:  impl_example_data_set_retriever_0_2->GenerateDataSet().IsDefined() == 1
+=std=bcl=> successful example check:
+               impl_example_data_set_retriever_0_2->GenerateDataSet()->GetFeaturesReference() ==
+              features_converted_0_2 ==
+              bcl::linal::MatrixReference<float>
+                2	  5
+                1.1	2.2	3.3	4.4	5.5	
+                15.15	16.16	17.17	18.18	19.19	
+=std=bcl=> successful example check:
+               impl_example_data_set_retriever_0_2->GenerateDataSet()->GetResultsReference() ==
+              results_converted_0_2 == bcl::linal::MatrixReference<float>
+                2	  2
+                6.6	7.7	
+                20.2	21.21	
+=std=bcl::app=> BCL Example | END  : ModelRetrieveDataSetFromFile ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>      success      error error_string 
+ModelRetrieveDataSetFromFile_total         17          0              
+total                                      17          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

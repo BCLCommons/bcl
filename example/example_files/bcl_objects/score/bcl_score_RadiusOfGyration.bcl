@@ -1,0 +1,7 @@
+bcl::score::RadiusOfGyration
+  rgyr_model(
+    raw=0,
+    normalize=0,
+    histogram file name soluble=radius_of_gyration_model.histogram,
+    histogram file name membrane=radius_of_gyration_model.histogram
+  )

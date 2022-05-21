@@ -1,0 +1,4 @@
+bcl::random::Histogram1DDistribution
+  bcl::linal::Vector<double>
+    3
+    4	2	1	

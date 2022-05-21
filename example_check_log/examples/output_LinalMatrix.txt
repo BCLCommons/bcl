@@ -1,0 +1,141 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec LinalMatrix 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> LinalMatrix
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: LinalMatrix ====================
+=std=bcl=> this is an empty matrix
+=std=bcl=> bcl::linal::Matrix<double>
+  0	  0
+
+=std=bcl=> this is a matrix of 2x2 elements 0.0
+=std=bcl=> bcl::linal::Matrix<double>
+  2	  2
+  0	0	
+  0	0	
+=std=bcl=> this is a 2x2 matrix initialized from an array
+=std=bcl=> bcl::linal::Matrix<double>
+  2	  2
+  4	-3	
+  7	2	
+=std=bcl=> this is matrix3 copied from matrix2:
+bcl::linal::Matrix<double>
+  2	  2
+  4	-3	
+  7	2	
+=std=bcl=> this is matrix4 cloned from matrix2:
+bcl::util::ShPtr<bcl::linal::MatrixInterface<double>>
+  12345678
+  bcl::linal::Matrix<double>
+    2	    2
+    4	-3	
+    7	2	
+=std=bcl=> this is matrix5 constructed from matrix2 with paddings:
+bcl::linal::Matrix<double>
+  3	  4
+  0	0	0	0	
+  0	0	0	0	
+  0	0	0	0	
+=std=bcl=> successful example check:
+               ptr_matrix->GetClassIdentifier() == GetStaticClassName( matrix_array) ==
+              bcl::linal::Matrix<double>
+=std=bcl=> Constructor from array test succeeded:  matrix_array.GetNumberOfElements() == 4
+=std=bcl=> successful example check:  matrix_array.GetNumberRows() == 2
+=std=bcl=> successful example check:  matrix_array.GetNumberCols() == 2
+=std=bcl=> bcl::linal::Matrix<double>
+  2	  2
+  4	-3	
+  7	2	
+=std=bcl=> successful example check:  *matrix_array.Begin() == 4.0 == 4
+=std=bcl=> starting with empty matrix and append: bcl::linal::Matrix<double>
+  0	  0
+
+=std=bcl=> successful example check:  linal::Matrix< double>().GetNumberRows() == 0
+=std=bcl=> appended matrices: 
+bcl::linal::Matrix<double>
+  8	  2
+  4	-3	
+  7	2	
+  4	-3	
+  7	2	
+  4	-3	
+  7	2	
+  4	-3	
+  7	2	
+=std=bcl=> test: starting with empty matrix and append: bcl::linal::Matrix<double>
+  6	  2
+  4	-3	
+  7	2	
+  4	-3	
+  7	2	
+  4	-3	
+  7	2	
+=std=bcl=> bcl::linal::Matrix<double>
+  3	  4
+  1	2	3	4	
+  0	0	0	0	
+  0	0	0	0	
+=std=bcl=> bcl::linal::Matrix<double>
+  3	  4
+  1	2	3	4	
+  0	0	0	0	
+  0	0	0	0	
+=std=bcl=> writing and reading from file
+=std=bcl::app=> BCL Example | END  : LinalMatrix ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+LinalMatrix_total                       115          0              
+total                                   115          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

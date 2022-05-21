@@ -1,0 +1,2 @@
+bcl::model::InterfaceRetrieveFromFile
+  File(directory=example/example_files/output/model/dir_retrieve_model,prefix="",pick best=0)

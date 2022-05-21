@@ -1,0 +1,6 @@
+bcl::storage::Table<double>      e_One      e_Two    e_Three     e_Four     e_Five 
+total_counts                         1          1          1          1          1 
+correct_counts                       1          1          1          0          0 
+percent                            100        100        100          0          0 
+
+example/example_files/input/biology/AnalyzeChiAnglePairDistribution_0000.pdb

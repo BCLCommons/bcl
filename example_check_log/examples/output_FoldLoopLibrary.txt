@@ -1,0 +1,91 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec FoldLoopLibrary 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> FoldLoopLibrary
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: FoldLoopLibrary ====================
+=std=bcl::fold=> Reading loop template library.
+=std=bcl=> successful example check:
+               sp_library->GetClassIdentifier() == ( GetStaticClassName< fold::LoopLibrary>()) ==
+              bcl::fold::LoopLibrary
+=std=bcl=> successful example check:
+               loop_1_temp.GetRotation() == loop_1.GetRotation() ==
+              bcl::linal::Vector3D
+                2.59971	5.67708	0.139809
+=std=bcl=> successful example check:
+               loop_1_temp.GetTranslation() == loop_1.GetTranslation() ==
+              bcl::linal::Vector3D
+                -3.73811	-0.917664	4.00985
+=std=bcl=> successful example check:  loop_1_temp.GetSequenceDistance() == loop_1.GetSequenceDistance() == 1
+=std=bcl=> successful example check:
+               loop_2_temp.GetRotation() == loop_2.GetRotation() ==
+              bcl::linal::Vector3D
+                2.49984	6.05954	1.40821
+=std=bcl=> successful example check:
+               loop_2_temp.GetTranslation() == loop_2.GetTranslation() ==
+              bcl::linal::Vector3D
+                6.09018	5.68188	10.555
+=std=bcl=> successful example check:  loop_2_temp.GetSequenceDistance() == loop_2.GetSequenceDistance() == 4
+=std=bcl::fold=> Reading loop template library.
+=std=bcl::fold=> Generating additional loop templates.
+=std=bcl::fold=> Generating additional loop templates.
+=std=bcl=> successful example check:  new_number == old_number + 1 == 2
+=std=bcl::fold=> Estimating how many additional loop templates are needed.
+=std=bcl::app=> BCL Example | END  : FoldLoopLibrary ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+FoldLoopLibrary_total                     9          0              
+total                                     9          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 133 MB, peak physical RAM used: 65 MB

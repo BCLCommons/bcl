@@ -1,0 +1,278 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec FindPickBodyRandom 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> FindPickBodyRandom
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: FindPickBodyRandom ====================
+=std=bcl=> building models from pdb chains and sse information
+=std=bcl=> successful example check:  body_pick.Pick( bodies).IsDefined() == 1
+=std=bcl=> the body that was randomly selected is : 
+bcl::assemble::SSE
+  bcl::util::ShPtrVector<bcl::biol::AABase>
+    4
+    bcl::util::ShPtr<bcl::biol::AABase>
+      12345678
+      bcl::biol::AABackBone
+        bcl::util::ShPtr<bcl::biol::AAData>
+          12345678
+          bcl::biol::AAData
+            bcl::biol::AATypes::Enum
+              "LEUCINE"
+            56
+            56
+            ' '
+            A
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            26.394	20.207	13.744
+          bcl::biol::AtomTypes::Enum
+            "N"
+          180
+          5.61
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            25.462	21.079	13.021
+          bcl::biol::AtomTypes::Enum
+            "CA"
+          181
+          8.39
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            24.126	20.397	12.788
+          bcl::biol::AtomTypes::Enum
+            "C"
+          182
+          7.37
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            23.067	20.96	13.016
+          bcl::biol::AtomTypes::Enum
+            "O"
+          183
+          10.62
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            26.067	21.423	11.64
+          bcl::biol::AtomTypes::Enum
+            "CB"
+          184
+          8.18
+    bcl::util::ShPtr<bcl::biol::AABase>
+      12345678
+      bcl::biol::AABackBone
+        bcl::util::ShPtr<bcl::biol::AAData>
+          12345678
+          bcl::biol::AAData
+            bcl::biol::AATypes::Enum
+              "SERINE"
+            57
+            57
+            ' '
+            A
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            24.266	19.133	12.33
+          bcl::biol::AtomTypes::Enum
+            "N"
+          185
+          6.95
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            23.08	18.315	12.055
+          bcl::biol::AtomTypes::Enum
+            "CA"
+          186
+          8.36
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            22.197	18.183	13.283
+          bcl::biol::AtomTypes::Enum
+            "C"
+          187
+          11.59
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            20.989	18.349	13.228
+          bcl::biol::AtomTypes::Enum
+            "O"
+          188
+          18.59
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            23.535	16.897	11.642
+          bcl::biol::AtomTypes::Enum
+            "CB"
+          189
+          7.72
+    bcl::util::ShPtr<bcl::biol::AABase>
+      12345678
+      bcl::biol::AABackBone
+        bcl::util::ShPtr<bcl::biol::AAData>
+          12345678
+          bcl::biol::AAData
+            bcl::biol::AATypes::Enum
+              "ASPARTIC_ACID"
+            58
+            58
+            ' '
+            A
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            22.904	17.886	14.396
+          bcl::biol::AtomTypes::Enum
+            "N"
+          190
+          7.08
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            22.218	17.728	15.682
+          bcl::biol::AtomTypes::Enum
+            "CA"
+          191
+          10.67
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            21.428	18.971	16.049
+          bcl::biol::AtomTypes::Enum
+            "C"
+          192
+          11.96
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            20.275	18.908	16.447
+          bcl::biol::AtomTypes::Enum
+            "O"
+          193
+          10.57
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            23.273	17.492	16.787
+          bcl::biol::AtomTypes::Enum
+            "CB"
+          194
+          9.52
+    bcl::util::ShPtr<bcl::biol::AABase>
+      12345678
+      bcl::biol::AABackBone
+        bcl::util::ShPtr<bcl::biol::AAData>
+          12345678
+          bcl::biol::AAData
+            bcl::biol::AATypes::Enum
+              "TYROSINE"
+            59
+            59
+            ' '
+            A
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            22.139	20.106	15.868
+          bcl::biol::AtomTypes::Enum
+            "N"
+          195
+          7.5
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            21.534	21.408	16.164
+          bcl::biol::AtomTypes::Enum
+            "CA"
+          196
+          12.45
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            20.258	21.624	15.369
+          bcl::biol::AtomTypes::Enum
+            "C"
+          197
+          7.02
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            19.235	22.037	15.893
+          bcl::biol::AtomTypes::Enum
+            "O"
+          198
+          23.13
+        bcl::biol::Atom
+          bcl::linal::Vector3D
+            22.531	22.524	15.774
+          bcl::biol::AtomTypes::Enum
+            "CB"
+          199
+          5.61
+
+  A
+  "BCL :A|PDBID|CHAIN|SEQUENCE"
+  bcl::biol::SSTypes::Enum
+    "HELIX"
+  bcl::math::TransformationMatrix3D
+    bcl::linal::Matrix<double>
+      4	      4
+      0.133162	0.947051	-0.292167	0	
+      -0.267377	-0.249534	-0.930721	0	
+      -0.954346	0.202056	0.219992	0	
+      22.9246	19.4125	14.1968	1	
+
+  4.24
+  4.24
+  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+    0
+
+=std=bcl=> random picking should pick all seven bodies at least once within 1000 attempts test succeeded:
+              picked_bodies.GetSize() == 7
+=std=bcl::app=> BCL Example | END  : FindPickBodyRandom ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+FindPickBodyRandom_total                  2          0              
+total                                     2          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

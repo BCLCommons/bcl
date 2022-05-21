@@ -1,0 +1,4 @@
+bcl::fold::MutateProteinModelCompress
+  bcl::math::Range<double>
+    [ 0.95 , 1.02 ]
+  "bcl::fold::MutateProteinModelCompress"

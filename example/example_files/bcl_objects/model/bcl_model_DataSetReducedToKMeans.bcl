@@ -1,0 +1,1 @@
+KMeans(dataset=bcl::model::RetrieveDataSetBase,clusters=15,max steps=20,autoscale=0)

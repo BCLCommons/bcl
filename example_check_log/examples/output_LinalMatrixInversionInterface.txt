@@ -1,0 +1,113 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec LinalMatrixInversionInterface 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> LinalMatrixInversionInterface
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: LinalMatrixInversionInterface ====================
+=std=bcl=> successful example check:  ma.IsTriDiagonal() == 1
+=std=bcl=>  this is a random 8x8 tridiagonal matrix ma
+       bcl::linal::Matrix<double>
+  8	  8
+  7.868	2.505	0.000	0.000	0.000	0.000	0.000	0.000	
+  9.467	7.107	0.193	0.000	0.000	0.000	0.000	0.000	
+  0.000	2.513	4.049	0.227	0.000	0.000	0.000	0.000	
+  0.000	0.000	3.447	5.206	2.742	0.000	0.000	0.000	
+  0.000	0.000	0.000	1.400	5.610	5.439	0.000	0.000	
+  0.000	0.000	0.000	0.000	8.571	5.219	4.998	0.000	
+  0.000	0.000	0.000	0.000	0.000	7.443	4.194	2.492	
+  0.000	0.000	0.000	0.000	0.000	0.000	3.201	2.393	
+=std=bcl=> mai is the inverse of matrix ma
+=std=bcl=> successful example check:
+              linal::MatrixInversionInterface< double>::TryInvertTridiagonalMatrix( inv_storage, ma) == 1
+=std=bcl=> successful example check:
+               ( ma * inv_storage).AsVector().SquareNorm() == double( ma.GetNumberRows()) == 8
+               (+/- 1e-05)
+=std=bcl=>        bcl::linal::Matrix<double>
+  8	  8
+  0.224	-0.080	0.004	-0.000	0.000	0.000	-0.000	0.000	
+  -0.303	0.252	-0.013	0.001	-0.000	-0.000	0.000	-0.000	
+  0.196	-0.163	0.266	-0.013	0.005	0.001	-0.004	0.005	
+  -0.146	0.121	-0.197	0.225	-0.090	-0.013	0.075	-0.078	
+  0.030	-0.025	0.040	-0.046	0.165	0.024	-0.137	0.143	
+  0.007	-0.006	0.009	-0.010	0.037	-0.021	0.122	-0.127	
+  -0.058	0.048	-0.079	0.090	-0.321	0.182	0.107	-0.112	
+  0.078	-0.065	0.105	-0.120	0.430	-0.243	-0.144	0.568	
+=std=bcl=> as we can easily prove: ma * mai = unity matrix
+=std=bcl=>        bcl::linal::Matrix<double>
+  8	  8
+  1.000	0.000	0.000	0.000	0.000	-0.000	0.000	0.000	
+  -0.000	1.000	0.000	0.000	0.000	-0.000	0.000	-0.000	
+  -0.000	0.000	1.000	-0.000	0.000	-0.000	0.000	-0.000	
+  0.000	0.000	-0.000	1.000	0.000	0.000	0.000	-0.000	
+  0.000	-0.000	0.000	-0.000	1.000	0.000	-0.000	0.000	
+  -0.000	0.000	0.000	0.000	-0.000	1.000	-0.000	0.000	
+  0.000	-0.000	0.000	-0.000	0.000	0.000	1.000	0.000	
+  -0.000	-0.000	0.000	0.000	0.000	0.000	0.000	1.000	
+=std=bcl=> successful example check:
+               linal::Matrix< double>( ma).Inverse() == inv_storage
+              output of result suppressed (result was 729 bytes), set message verbosity to Detail to override  (+/- 1e-05)
+=std=bcl=> successful example check:
+               ma.Inverse() * random_vector ==
+              linal::MatrixInversionInterface< double>::SolveTridiagonalMatrix( ma, random_vector) ==
+              bcl::linal::Vector<double>
+                8
+                1.9134	-2.37544	2.16058	-1.42221	0.707861	0.95232	-0.271918	0.701024	
+               (+/- 1e-05)
+=std=bcl::app=> BCL Example | END  : LinalMatrixInversionInterface ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>       success      error error_string 
+LinalMatrixInversionInterface_total          5          0              
+total                                        5          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

@@ -1,0 +1,11 @@
+bcl::fold::MutateSSEType
+  bcl::storage::Set<bcl::biol::SSTypes::Enum,std::less<bcl::biol::SSTypes::Enum>>
+    3
+    bcl::biol::SSTypes::Enum
+      "HELIX"
+    bcl::biol::SSTypes::Enum
+      "STRAND"
+    bcl::biol::SSTypes::Enum
+      "COIL"
+
+  "sse_type"

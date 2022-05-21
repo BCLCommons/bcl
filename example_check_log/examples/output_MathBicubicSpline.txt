@@ -1,0 +1,207 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec MathBicubicSpline 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> MathBicubicSpline
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: MathBicubicSpline ====================
+=crt=bcl::math=> Final i orig: 5
+=crt=bcl::math=> Final i orig: 5
+=crt=bcl::math=> Final i orig: 5
+=crt=bcl::math=> Final i orig: 5
+=crt=bcl::math=> Final i orig: 5
+=crt=bcl::math=> Final i orig: 5
+=crt=bcl::math=> Final i orig: 5
+=crt=bcl::math=> Final i orig: 5
+=crt=bcl::math=> Final i orig: 5
+=crt=bcl::math=> Final i orig: 5
+=std=bcl=> Example for a spline with natural behavior in x-direction (F_xx(x_0, y)=F_xx(x_dim-1, y)=0) and periodic behavior in y-direction (F(x, y + n * dimy * deltay)=F(x, y) :
+=std=bcl=>  x        F(x, -170)       F_x(x, -170)
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  49.99000  1.17064279   -17.06426632
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  49.99100  1.15357852   -17.06427001
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  49.99200  1.13651425   -17.06427330
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  49.99300  1.11944998   -17.06427621
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  49.99400  1.10238570   -17.06427873
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  49.99500  1.08532142   -17.06428087
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  49.99600  1.06825714   -17.06428261
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  49.99700  1.05119286   -17.06428397
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  49.99800  1.03412857   -17.06428494
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  49.99900  1.01706429   -17.06428552
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  50.00000  1.00000000   -17.06428571
+=crt=bcl::math=> Final i orig: 4
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  50.00100  0.98293571   -17.06428571
+=crt=bcl::math=> Final i orig: 4
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  50.00200  0.96587143   -17.06428571
+=crt=bcl::math=> Final i orig: 4
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  50.00300  0.94880714   -17.06428571
+=crt=bcl::math=> Final i orig: 4
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  50.00400  0.93174286   -17.06428571
+=crt=bcl::math=> Final i orig: 4
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  50.00500  0.91467857   -17.06428571
+=crt=bcl::math=> Final i orig: 4
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  50.00600  0.89761429   -17.06428571
+=crt=bcl::math=> Final i orig: 4
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  50.00700  0.88055000   -17.06428571
+=crt=bcl::math=> Final i orig: 4
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  50.00800  0.86348571   -17.06428571
+=crt=bcl::math=> Final i orig: 4
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  50.00900  0.84642143   -17.06428571
+=crt=bcl::math=> Final i orig: 4
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  50.01000  0.82935714   -17.06428571
+=std=bcl=>  y           F(10, y)      F(10, y+360)  F_y(10, y)
+=std=bcl=>  -190.00000  2.00000000    2.00000000    1.86067722
+=std=bcl=>  -189.50000  3.01091443    3.01091443    2.17591809
+=std=bcl=>  -189.00000  4.16885570    4.16885570    2.44878460
+=std=bcl=>  -188.50000  5.45263664    5.45263664    2.67927675
+=std=bcl=>  -188.00000  6.84107005    6.84107005    2.86739452
+=std=bcl=>  -187.50000  8.31296876    8.31296876    3.01313793
+=std=bcl=>  -187.00000  9.84714558    9.84714558    3.11650697
+=std=bcl=>  -186.50000 11.42241334   11.42241334    3.17750164
+=std=bcl=>  -186.00000 13.01758483   13.01758483    3.19612195
+=std=bcl=>  -185.50000 14.61147289   14.61147289    3.17236788
+=std=bcl=>  -185.00000 16.18289032   16.18289032    3.10623945
+=std=bcl=>  -184.50000 17.71064995   17.71064995    2.99773666
+=std=bcl=>  -184.00000 19.17356458   19.17356458    2.84685949
+=std=bcl=>  -183.50000 20.55044705   20.55044705    2.65360796
+=std=bcl=>  -183.00000 21.82011015   21.82011015    2.41798207
+=std=bcl=>  -182.50000 22.96136672   22.96136672    2.13998180
+=std=bcl=>  -182.00000 23.95302956   23.95302956    1.81960717
+=std=bcl=>  -181.50000 24.77391149   24.77391149    1.45685817
+=std=bcl=>  -181.00000 25.40282533   25.40282533    1.05173480
+=std=bcl=>  -180.50000 25.81858389   25.81858389    0.60423706
+=std=bcl=>  -180.00000 26.00000000   26.00000000    0.11436496
+=std=bcl=>  -179.50000 25.93278794   25.93278794   -0.37647261
+=std=bcl=>  -179.00000 25.63026796   25.63026796   -0.82686677
+=std=bcl=>  -178.50000 25.11266174   25.11266174   -1.23681751
+=std=bcl=>  -178.00000 24.40019101   24.40019101   -1.60632483
+=std=bcl=>  -177.50000 23.51307748   23.51307748   -1.93538874
+=std=bcl=>  -177.00000 22.47154285   22.47154285   -2.22400922
+=std=bcl=>  -176.50000 21.29580883   21.29580883   -2.47218629
+=std=bcl=>  -176.00000 20.00609713   20.00609713   -2.67991993
+=std=bcl=>  -175.50000 18.62262946   18.62262946   -2.84721016
+=std=bcl=>  -175.00000 17.16562753   17.16562753   -2.97405697
+=std=bcl=>  -174.50000 15.65531306   15.65531306   -3.06046037
+=std=bcl=>  -174.00000 14.11190774   14.11190774   -3.10642034
+=std=bcl=>  -173.50000 12.55563329   12.55563329   -3.11193690
+=std=bcl=>  -173.00000 11.00671141   11.00671141   -3.07701003
+=std=bcl=>  -172.50000  9.48536382    9.48536382   -3.00163975
+=std=bcl=>  -172.00000  8.01181223    8.01181223   -2.88582605
+=std=bcl=>  -171.50000  6.60627834    6.60627834   -2.72956893
+=std=bcl=>  -171.00000  5.28898387    5.28898387   -2.53286840
+=std=bcl=>  -170.50000  4.08015052    4.08015052   -2.29572444
+=std=bcl=>  -170.00000  3.00000000    3.00000000   -2.01813707
+=std=bcl=>  -169.50000  2.06393380    2.06393380   -1.72902764
+=std=bcl=>  -169.00000  1.26807248    1.26807248   -1.45731751
+=std=bcl=>  -168.50000  0.60371640    0.60371640   -1.20300670
+=std=bcl=>  -168.00000  0.06216590    0.06216590   -0.96609519
+=std=bcl=> Example for a spline with F_x=2/-2 and F_y=3/0 at start end  :
+=std=bcl=>  x        F(x, -170)       F_x(x, -170)
+=std=bcl=>  3.00000 -0.75290778    2.00000000
+=std=bcl=>  3.10000 -0.55290778    2.00000000
+=std=bcl=>  3.20000 -0.35290778    2.00000000
+=std=bcl=>  3.30000 -0.15290778    2.00000000
+=std=bcl=>  3.40000  0.04709222    2.00000000
+=crt=bcl::math=> Final i orig: 1
+=std=bcl=>  3.50000  0.24709222    8.37023679
+=crt=bcl::math=> Final i orig: 1
+=std=bcl=>  3.60000  1.07312803    8.15073859
+=crt=bcl::math=> Final i orig: 1
+=std=bcl=>  3.70000  1.87729175    7.93279474
+=crt=bcl::math=> Final i orig: 1
+=std=bcl=>  3.80000  2.65973879    7.71640527
+=crt=bcl::math=> Final i orig: 1
+=std=bcl=>  3.90000  3.42062461    7.50157016
+=std=bcl=>  x        F(x, -170)       F_x(x, -170)
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  43.00000 37.51812062   -7.35698541
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  43.10000 36.77239150   -7.55775376
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  43.20000 36.00653850   -7.75946307
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  43.30000 35.22046752   -7.96211335
+=crt=bcl::math=> Final i orig: 4
+=std=bcl=>  43.40000 34.41408447   -8.16570459
+=std=bcl=>  43.50000 33.58729524   -2.00000000
+=std=bcl=>  43.60000 33.38729524   -2.00000000
+=std=bcl=>  43.70000 33.18729524   -2.00000000
+=std=bcl=>  43.80000 32.98729524   -2.00000000
+=std=bcl=>  43.90000 32.78729524   -2.00000000
+=std=bcl::app=> BCL Example | END  : MathBicubicSpline ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+MathBicubicSpline_total                   7          0              
+total                                     7          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

@@ -1,0 +1,70 @@
+## Overview ##
+
+This document describes the general layout and organization of the BCL code.  Everything in this document is referenced with regards to the top-level BCL directory, where the "bcl_defines.h" file is.  When needed, this top-level directory will be cited as BCL_SRC/.  This document is far from complete, but has the ultimate goal of providing a concise introduction to the layout of the code base to make beginning development a little bit easier.  Please feel free to contribute to this document if you feel it is missing any pertinent or useful information.
+
+## Build system ##
+
+The BCL uses the CMake build system.  What CMake does is it reads in a series of configuration files (named CMakeLists.txt) which tell the cmake program which files are part of the project.  CMake then determines what order these files need to be built in based on these options and compiles things in that order, then links everything together at the very end.  It is also responsible for finding and linking external libraries.  If you are unfamiliar with what these things mean, then googling around a bit for "C++ build systems" or looking at the CMake documentation will give you more and better information than can be said here.
+
+## Code organization ##
+
+From a developer perspective The BCL is organized with a hierarchy designed to separate different conceptual components of the code, and then further subdivided to separate functionalities within those components.  At the highest level the most important directory structures are:
+
+- include : this directory contains all of the C++ header files that are used to outline what classes, methods, and functions are available in the BCL.  Classes/methods/functions described in header files can be used by other classes/methods/functions, or applications that the BCL provides (see below).  Normal header files have names like file.h.  This directory structure will also contain hpp files (e.g. file.hpp) which implement any templated classes that are written.
+- source : this directory contains the .cpp file which actually lay out the functionality of methods and functions.  This is the "meat" of the code.
+- example : this directory contains "unit tests" which are used to check the sanity of the code.  If someone changes something in a class, the only way to know if it will break any other functionality in the code is if all of those classes are tested for correct behavior.  That is what these routines are designed to do.
+- apps : this directory contains applications for the BCL.  These are the routines that are displayed when "bcl.exe -help" is run, and actually represent programs the user can send input to.  If you need information on e.g. molecule:Compare, then this is the place to look.
+
+Within the include/ and source/ directories there are also subdirectories that are used to separate general functionalities, which also incidentally are named according to the namespace that they provide.  Each file within these directories provides the class declaration/definition for a single class (usually), which makes it easy to determine where to look for information when problems arise.  A brief description of the namespaces is given below in alphabetical order.  The most important of these for every beginning developer will be the storage/ util/ and io/ directories since classes these three namespaces are used ubiquitously in almost everything else.
+
+- */align : 
+- */app : classes used for building applications.  These are usually only referenced in files contained in the BCL_SRC/apps/ directory, and aren't used very much elsewhere
+- */assemble :
+- */biol :
+- */bzip2 : classes for working with the bzip2 compression library
+- */chemistry : classes to work with small molecule information, modification of those molecules, etc.
+- */cluster : clustering routines (e.g. hierarchical agglomerative clustering)
+- */command : classes involved with parsing command line options and ensuring user input is appropriate
+- */contact :
+- */coord : classes for representing and working with coordinate frames, e.g. things that have a position, transformation matrices, etc.
+- */crypt : cryptographic routines such as sha1 which are used for e.g. hashing input
+- */db : routines for working with MySQL (or potentially other) databases
+- */density : classes used in working with densities (e.g. CryoEM densities etc)
+- */descriptor : classes used for calculating descriptors.  These are used to convert non-numerical structures (small molecules, protein structures) as sequences of numbers that can be used in different models
+- */find : classes used to search for features of different data structures
+- */fold :
+- */function : a largely interface- and template-based namespace that is used for treating objects like mathematical functions
+- */graph : graph classes (i.e. graph as in graph theory).  Contains methods for isomorphism searching, connectivity information, etc.
+- */gzip : methods for working with the gzip compression library
+- */io : methods for working with user input/output.  This includes serialization routines (i.e. converting program data to/from data the BCL can output and then re-read later)
+- */iterate : generic methods for working with iterators
+- */linal : linear algebra methods.  Vectors, matrices, matrix factorizations, singular value decomposition, etc.
+- */math : other general math routines (averagers, statistical methods, etc)
+- */mc : Monte-Carlo namespace.  This is similar to the opti/ namespace described below but explicitly for Monte-Carlo based optimizations
+- */model : mathematical modeling classes.  These include neural networks, support vector machines, etc., and all needed support classes to make them function
+- */nmr :
+- */opencl : methods for working with OpenCL/GPU computing platforms
+- */opti : optimization namespace.  General methods for performing optimization tasks, in particular base classes that can be used to provide functionality to more advanced methods
+- */pdb : methods for working with and parsing pdb data (pdb file format for protein structures)
+- */pthread : a more or less empty namespace.  I am honestly not sure why this is here...
+- */quality : classes used to evaluate figures of merit for models etc.
+- */random : classes for working with random numbers.  In particular it supplies a consistent "reproducibly random" framework so that results can be duplicated between runs if a particular random seed is used
+- */restraint :
+- */sched : Scheduling classes for working with multiple threads.  This implements threading in a platform-specific way that provides a generic interface that can be used in other BCL routines
+- */score :
+- */scorestat :
+- */sdf : classes for parsing/working with SDF files (SD file format, google "ctabs file" for more information).  This also contains some methods used often in the chemistry namespace for representing atoms/bonds
+- */signal : classes for handling signals, e.g. interrupts from the computer, segmentation faults, etc. (see https://xkcd.com/371/)
+- */sspred : secondary structure prediction classes
+- */storage : generic storage capacities.  BCL-specific versions of many stl containers (vectors, maps, pairs, etc).  Probably the most widely used namespace in the BCL
+- */syslog : another almost empty namespace
+- */type : a rather obscure namespace for determining types of classes in the BCL.
+- */util : generic utility classes for working with data.  This includes smart pointer types (shared, owning, simple pointers), the base ObjectInterface class that most classes have to derive from, and enumeration of class instances
+
+## Other Documentation ##
+
+The BCL has formatting guidelines that require developers to comment every class and method they write with Doxygen-compatible syntax.  This is used to automatically generate documentation for the many different classes that are avialable in the BCL.  Doxygen configuration files are found in the BCL_SRC/documentation/ directory and can be used to generate this on your own if you wish.  This directory also contains the "Formatting.pdf" file which outlines the code formatting guidelines used in the BCL.
+
+## Scripts directory ##
+
+Another important directory is the BCL_SRC/scripts/ directory which holds scripts used for things ranging from automating tasks that use the BCL, building the BCL, cleaning up and checking code/formatting, and several other things.  There are also support files for these scripts included in these directories as well.  Of note are the descriptors used to train QSAR models on small molecules and secondary structure prediction for proteins.  

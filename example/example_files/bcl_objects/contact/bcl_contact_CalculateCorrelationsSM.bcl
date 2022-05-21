@@ -1,0 +1,18 @@
+bcl::contact::CalculateCorrelationsSM
+  bcl::storage::Map<bcl::storage::Pair<size_t,size_t>,double,std::less<bcl::storage::Pair<size_t,size_t>>>
+    3
+    std::pair<bcl::storage::Pair<size_t,size_t>,double>
+      bcl::storage::Pair<size_t,size_t>
+        0
+        1
+      0.229657
+    std::pair<bcl::storage::Pair<size_t,size_t>,double>
+      bcl::storage::Pair<size_t,size_t>
+        0
+        2
+      0.35544
+    std::pair<bcl::storage::Pair<size_t,size_t>,double>
+      bcl::storage::Pair<size_t,size_t>
+        1
+        2
+      0.414903

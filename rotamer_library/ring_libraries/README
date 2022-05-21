@@ -1,0 +1,22 @@
+#################
+#
+# Quick guide to SDF database generation
+#
+# Author: Benjamin P. Brown (benjamin.p.brown17@gmail.com)
+# Data: 02-05-2021
+#
+################
+
+# Global variables
+BCL=/path/to/bcl.exe
+
+# The original drug ring database assembled by Jeff is "drug_ring_database.sdf.gz". 
+# Several derivatives were made via BCL molecule:Filter
+
+# Generation of "drug_ring_database.simple.sdf.gz" and "drug_ring_database.complex.sdf.gz"
+$BCL molecule:Filter -compare_property_values NStereo less_equal 1 NHeavyAtoms less_equal 10 "MoleculeSum(IsP)" less 1 "MoleculeSum(IsB)" less 1 "Greater(lhs=AtomicNumbers,rhs=Constant(16.5))" equal 0 "Divide(lhs=MoleculeSum(BondTypeCount(property=BondOrderInRingOrAromatic,value=2)),rhs=2)" equal 0 -output_matched drug_ring_database.simple.sdf.gz -output_unmatched drug_ring_database.complex.sdf.gz -input_filenames drug_ring_database.sdf.gz -logger File drug_ring_database.simple.log.gz
+
+# The aromatic and non-aromatic ring database splits are derived from the "simple" ring database
+$BCL molecule:Filter -input_filenames drug_ring_database.simple.sdf.gz -compare_property_values NAromaticRings greater_equal 1 -output_matched drug_ring_database.simple.aro.sdf.gz -output_unmatched drug_ring_database.simple.non_aro.sdf.gz
+
+

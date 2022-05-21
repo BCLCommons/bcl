@@ -1,0 +1,149 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec UtilObjectDataLabelTokenizer 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> UtilObjectDataLabelTokenizer
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: UtilObjectDataLabelTokenizer ====================
+=std=bcl=> successful example check:
+               util::ObjectDataLabelTokenizer( "").GetNextTokenType() ==
+              util::ObjectDataLabelTokenizer::e_End == 6
+=std=bcl=> successful example check:
+               util::ObjectDataLabelTokenizer( "  ").GetLastTokenType() ==
+              util::ObjectDataLabelTokenizer::e_Start == 0
+=std=bcl=> successful example check:
+               util::ObjectDataLabelTokenizer( "  ").GetNextTokenType() ==
+              util::ObjectDataLabelTokenizer::e_End == 6
+=std=bcl=> successful example check:  util::ObjectDataLabelTokenizer( "  ").Pop() == std::string() ==
+=std=bcl=> successful example check:  util::ObjectDataLabelTokenizer( "  ").GetScopeDepth() == 0
+=std=bcl=> successful example check:  util::ObjectDataLabelTokenizer( " 0.1").Pop() == 0.1
+=std=bcl=> successful example check:
+               util::ObjectDataLabelTokenizer( " 0.1").GetNextTokenType() ==
+              util::ObjectDataLabelTokenizer::e_Scalar == 1
+=std=bcl=> successful example check:  util::ObjectDataLabelTokenizer( " 0.1").Pop() == 0.1
+=std=bcl=> last type is updated test succeeded:
+               value.GetLastTokenType() == util::ObjectDataLabelTokenizer::e_Scalar ==
+              1
+=std=bcl=> next type is updated test succeeded:  value.GetNextTokenType() == util::ObjectDataLabelTokenizer::e_End == 6
+=std=bcl=> successful example check:  call_square.Pop() == square
+=std=bcl=> successful example check:  call_square.Pop() == (
+=std=bcl=> next type inside scope test succeeded:
+               call_square.GetNextTokenType() ==
+              util::ObjectDataLabelTokenizer::e_Scalar == 1
+=std=bcl=> scope depth inside scope test succeeded:  call_square.GetScopeDepth() == 1
+=std=bcl=> last type inside scope test succeeded:
+               call_square.GetLastTokenType() ==
+              util::ObjectDataLabelTokenizer::e_ScopeOpen == 2
+=std=bcl=> successful example check:  call_square.Pop() == 0.1
+=std=bcl=> successful example check:  call_square.Pop() == )
+=std=bcl=> scope depth after scope test succeeded:  call_square.GetScopeDepth() == 0
+=std=bcl=> Calling pop after all arguments have been popped test succeeded:  call_square.Pop() ==
+=std=bcl=> successful example check:  nested_equal.Pop() == nest
+=std=bcl=> successful example check:  nested_equal.Pop() == (
+=std=bcl=> successful example check:  nested_equal.Pop() == nest
+=std=bcl=> successful example check:  nested_equal.Pop() == (
+=std=bcl=> successful example check:  nested_equal.GetScopeDepth() == 2
+=std=bcl=> successful example check:  nested_equal.Pop() == equal
+=std=bcl=> successful example check:  nested_equal.Pop() == (
+=std=bcl=> successful example check:  nested_equal.GetScopeDepth() == 3
+=std=bcl=> successful example check:  nested_equal.Pop() == apples
+=std=bcl=> successful example check:  nested_equal.Pop() == ,
+=std=bcl=> successful example check:
+               nested_equal.GetLastTokenType() == util::ObjectDataLabelTokenizer::e_ArgDelimiter
+              == 5
+=std=bcl=> successful example check:  nested_equal.Pop() == oranges
+=std=bcl=> successful example check:  nested_equal.Pop() == )
+=std=bcl=> successful example check:  nested_equal.Pop() == ,
+=std=bcl=> successful example check:  nested_equal.Pop() == tag
+=std=bcl=> successful example check:  nested_equal.Pop() == =
+=std=bcl=> successful example check:  nested_equal.GetScopeDepth() == 2
+=std=bcl=> successful example check:
+               nested_equal.GetLastTokenType() == util::ObjectDataLabelTokenizer::e_TagDelimiter
+              == 4
+=std=bcl=> successful example check:  nested_equal.GetScopeDepth() == 0
+=std=bcl=> Pop on string beginning with "C=O"=... test succeeded:  name_with_delimiter.Pop() == C=O
+=std=bcl=> Pop on string beginning with "C=O"=... test succeeded:  name_with_delimiter.Pop() == =
+=std=bcl=> Pop on string continuing with "BondType=Aromatic" test succeeded:
+               name_with_delimiter.Pop() ==
+              BondType=Aromatic
+=std=bcl=> Pop after quoted scalar test succeeded:  name_with_delimiter.Pop() == (
+=std=bcl=> successful example check:  util::ObjectDataLabelTokenizer::Validate( "", util::GetLogger()) == 1
+=std=bcl=> successful example check:  util::ObjectDataLabelTokenizer::Validate( "a=", util::GetLogger()) == 1
+=std=bcl=> successful example check:  util::ObjectDataLabelTokenizer::Validate( "a=(x)", util::GetLogger()) == 1
+=std=bcl=> successful example check:
+              util::ObjectDataLabelTokenizer::Validate( "\"a\"  = x ( x + y = x)", util::GetLogger()) == 1
+Multiple parameter assignment is forbidden but was found in given string:
+"a"  = "a" = error
+=std=bcl=> successful example check:
+              util::ObjectDataLabelTokenizer::Validate( "\"a\"  = \"a\" = error", util::GetLogger()) == 0
+1 unclosed parenthesis in given string:
+(
+=std=bcl=> successful example check:  util::ObjectDataLabelTokenizer::Validate( "(", util::GetLogger()) == 0
+Excessive end-scope parenthesis in given string:
+)
+=std=bcl=> successful example check:  util::ObjectDataLabelTokenizer::Validate( ")", util::GetLogger()) == 0
+Missing comma near x in given string:
+()x
+=std=bcl=> successful example check:  util::ObjectDataLabelTokenizer::Validate( "()x", util::GetLogger()) == 0
+Arguments are not allowed without an associated object, that is, ',' cannot appear outside
+parenthetical scope for object data labels, but did in given string:
+a,b
+=std=bcl=> successful example check:  util::ObjectDataLabelTokenizer::Validate( "a,b", util::GetLogger()) == 0
+=std=bcl=> successful example check:  util::ObjectDataLabelTokenizer::Validate( "(a(),b)", util::GetLogger()) == 1
+=std=bcl::app=> BCL Example | END  : UtilObjectDataLabelTokenizer ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>      success      error error_string 
+UtilObjectDataLabelTokenizer_total         52          0              
+total                                      52          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

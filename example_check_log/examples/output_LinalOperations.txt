@@ -1,0 +1,158 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec LinalOperations 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> LinalOperations
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: LinalOperations ====================
+=std=bcl=> CPU dot product: 15892.5
+=std=bcl=> dot product results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> CPU norm: 339.052
+=std=bcl=> norm results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> CPU sgemv: bcl::linal::Vector<float>
+  37
+  10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	
+=std=bcl=> sgemv results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> sgemm results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> sum results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> min results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> max results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> CPU DistanceMatrix check for one matrix: bcl::linal::Matrix<float>
+  8	  8
+  0	2.82843	5.65685	0	2.82843	5.65685	0	2.82843	
+  nan	0	2.82843	2.82843	0	2.82843	2.82843	0	
+  nan	nan	0	5.65685	2.82843	0	5.65685	2.82843	
+  nan	nan	nan	0	2.82843	5.65685	0	2.82843	
+  nan	nan	nan	nan	0	2.82843	2.82843	0	
+  nan	nan	nan	nan	nan	0	5.65685	2.82843	
+  nan	nan	nan	nan	nan	nan	0	2.82843	
+  nan	nan	nan	nan	nan	nan	nan	0	
+=std=bcl=> CPU DistanceMatrix timing test for one matrix of [30][3]: 
+=std=bcl=> CPU DistanceMatrix check for two matrixes: bcl::linal::Matrix<float>
+  8	  8
+  2.82843	5.65685	0	2.82843	5.65685	0	2.82843	5.65685	
+  0	2.82843	2.82843	0	2.82843	2.82843	0	2.82843	
+  2.82843	0	5.65685	2.82843	0	5.65685	2.82843	0	
+  2.82843	5.65685	0	2.82843	5.65685	0	2.82843	5.65685	
+  0	2.82843	2.82843	0	2.82843	2.82843	0	2.82843	
+  2.82843	0	5.65685	2.82843	0	5.65685	2.82843	0	
+  2.82843	5.65685	0	2.82843	5.65685	0	2.82843	5.65685	
+  0	2.82843	2.82843	0	2.82843	2.82843	0	2.82843	
+=std=bcl=> CPU Sum result test for one vector of 325: 5297.51
+=std=bcl=> CPU Min result test for one vector of 325: 0.1
+=std=bcl=> CPU Max result test for one vector of 325: 32.5001
+=std=bcl=> timings:
+bcl::storage::Table<std::string>        CPU 
+dot product                      00:00:00.000 
+vector norm                      00:00:00.000 
+ sgemv [37,325] x [325]          00:00:00.000 
+ sgemm [37,325] x [325,99]       00:00:00.001 
+ sum [325]                       00:00:00.000 
+ min [325]                       00:00:00.000 
+ max [325]                       00:00:00.000 
+=std=bcl=> Using operations for float: bcl::linal::OperationsCPU<float>
+=std=bcl=> Using operations for double: bcl::linal::OperationsCPU<double>
+=std=bcl=> CPU dot product: 15892.5
+=std=bcl=> dot product results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> CPU norm: 339.051
+=std=bcl=> norm results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> CPU sgemv: bcl::linal::Vector<double>
+  37
+  10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	10595	
+=std=bcl=> sgemv results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> sgemm results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> sum results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> min results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> max results equal within tolerance test succeeded:  EqualWithinTolerance< t_DataType>( results) == 1
+=std=bcl=> CPU DistanceMatrix check for one matrix: bcl::linal::Matrix<double>
+  8	  8
+  0	2.82843	5.65685	0	2.82843	5.65685	0	2.82843	
+  nan	0	2.82843	2.82843	0	2.82843	2.82843	0	
+  nan	nan	0	5.65685	2.82843	0	5.65685	2.82843	
+  nan	nan	nan	0	2.82843	5.65685	0	2.82843	
+  nan	nan	nan	nan	0	2.82843	2.82843	0	
+  nan	nan	nan	nan	nan	0	5.65685	2.82843	
+  nan	nan	nan	nan	nan	nan	0	2.82843	
+  nan	nan	nan	nan	nan	nan	nan	0	
+=std=bcl=> CPU DistanceMatrix timing test for one matrix of [30][3]: 
+=std=bcl=> CPU DistanceMatrix check for two matrixes: bcl::linal::Matrix<double>
+  8	  8
+  2.82843	5.65685	0	2.82843	5.65685	0	2.82843	5.65685	
+  0	2.82843	2.82843	0	2.82843	2.82843	0	2.82843	
+  2.82843	0	5.65685	2.82843	0	5.65685	2.82843	0	
+  2.82843	5.65685	0	2.82843	5.65685	0	2.82843	5.65685	
+  0	2.82843	2.82843	0	2.82843	2.82843	0	2.82843	
+  2.82843	0	5.65685	2.82843	0	5.65685	2.82843	0	
+  2.82843	5.65685	0	2.82843	5.65685	0	2.82843	5.65685	
+  0	2.82843	2.82843	0	2.82843	2.82843	0	2.82843	
+=std=bcl=> CPU Sum result test for one vector of 325: 5297.5
+=std=bcl=> CPU Min result test for one vector of 325: 0.1
+=std=bcl=> CPU Max result test for one vector of 325: 32.5
+=std=bcl=> timings:
+bcl::storage::Table<std::string>        CPU 
+dot product                      00:00:00.000 
+vector norm                      00:00:00.000 
+ sgemv [37,325] x [325]          00:00:00.000 
+ sgemm [37,325] x [325,99]       00:00:00.001 
+ sum [325]                       00:00:00.000 
+ min [325]                       00:00:00.000 
+ max [325]                       00:00:00.000 
+=std=bcl=> Using operations for float: bcl::linal::OperationsCPU<float>
+=std=bcl=> Using operations for double: bcl::linal::OperationsCPU<double>
+=std=bcl::app=> BCL Example | END  : LinalOperations ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+LinalOperations_total                    14          0              
+total                                    14          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 133 MB, peak physical RAM used: 65 MB

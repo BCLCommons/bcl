@@ -1,0 +1,137 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec DescriptorIterator 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> DescriptorIterator
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: DescriptorIterator ====================
+=std=bcl=> TYPE.GetPosition( positions, STRING.size()) == itr.GetPosition()) test succeeded:
+              iterator_get_position_equals_type_get_position == 1
+=std=bcl=> successful example check:  n_itr == itr.GetSize() == 1
+=std=bcl=> successful example check:  itr.GetPosition() == itr.GetSize() == 1
+=std=bcl=> successful example check:  WriteIterations( scalar, string_to_test) == ; 
+=std=bcl=> TYPE.GetPosition( positions, STRING.size()) == itr.GetPosition()) test succeeded:
+              iterator_get_position_equals_type_get_position == 1
+=std=bcl=> successful example check:  n_itr == itr.GetSize() == 4
+=std=bcl=> successful example check:  itr.GetPosition() == itr.GetSize() == 4
+=std=bcl=> successful example check:  WriteIterations( elementwise, string_to_test) == A; B; C; D; 
+=std=bcl=> TYPE.GetPosition( positions, STRING.size()) == itr.GetPosition()) test succeeded:
+              iterator_get_position_equals_type_get_position == 1
+=std=bcl=> successful example check:  n_itr == itr.GetSize() == 16
+=std=bcl=> successful example check:  itr.GetPosition() == itr.GetSize() == 16
+=std=bcl=> successful example check:
+               WriteIterations( pairs_all, string_to_test) ==
+              AA; AB; AC; AD; BA; BB; BC; BD; CA; CB; CC; CD; DA; DB; DC; DD; 
+=std=bcl=> TYPE.GetPosition( positions, STRING.size()) == itr.GetPosition()) test succeeded:
+              iterator_get_position_equals_type_get_position == 1
+=std=bcl=> successful example check:  n_itr == itr.GetSize() == 64
+=std=bcl=> successful example check:  itr.GetPosition() == itr.GetSize() == 64
+=std=bcl=> successful example check:
+               WriteIterations( triplets_all, string_to_test) ==
+              "AAA; AAB; AAC; AAD; ABA; ABB; ABC; ABD; ACA; ACB; ACC; ACD; ADA; ADB; ADC; ADD; " "BAA; BAB; BAC; BAD; BBA; BBB; BBC; BBD; BCA; BCB; BCC; BCD; BDA; BDB; BDC; BDD; " "CAA; CAB; CAC; CAD; CBA; CBB; CBC; CBD; CCA; CCB; CCC; CCD; CDA; CDB; CDC; CDD; " "DAA; DAB; DAC; DAD; DBA; DBB; DBC; DBD; DCA; DCB; DCC; DCD; DDA; DDB; DDC; DDD; "
+              ==
+              AAA; AAB; AAC; AAD; ABA; ABB; ABC; ABD; ACA; ACB; ACC; ACD; ADA; ADB; ADC; ADD; BAA; BAB; BAC; BAD; BBA; BBB; BBC; BBD; BCA; BCB; BCC; BCD; BDA; BDB; BDC; BDD; CAA; CAB; CAC; CAD; CBA; CBB; CBC; CBD; CCA; CCB; CCC; CCD; CDA; CDB; CDC; CDD; DAA; DAB; DAC; DAD; DBA; DBB; DBC; DBD; DCA; DCB; DCC; DCD; DDA; DDB; DDC; DDD; 
+=std=bcl=> TYPE.GetPosition( positions, STRING.size()) == itr.GetPosition()) test succeeded:
+              iterator_get_position_equals_type_get_position == 1
+=std=bcl=> successful example check:  n_itr == itr.GetSize() == 24
+=std=bcl=> successful example check:  itr.GetPosition() == itr.GetSize() == 24
+=std=bcl=> successful example check:
+               WriteIterations( triplets_no_repeat, string_to_test) ==
+              "ABC; ABD; ACB; ACD; ADB; ADC; " "BAC; BAD; BCA; BCD; BDA; BDC; " "CAB; CAD; CBA; CBD; CDA; CDB; " "DAB; DAC; DBA; DBC; DCA; DCB; "
+              ==
+              ABC; ABD; ACB; ACD; ADB; ADC; BAC; BAD; BCA; BCD; BDA; BDC; CAB; CAD; CBA; CBD; CDA; CDB; DAB; DAC; DBA; DBC; DCA; DCB; 
+=std=bcl=> TYPE.GetPosition( positions, STRING.size()) == itr.GetPosition()) test succeeded:
+              iterator_get_position_equals_type_get_position == 1
+=std=bcl=> successful example check:  n_itr == itr.GetSize() == 10
+=std=bcl=> successful example check:  itr.GetPosition() == itr.GetSize() == 10
+=std=bcl=> successful example check:
+               WriteIterations( pair_all_combos, string_to_test) ==
+              AA; AB; AC; AD; BB; BC; BD; CC; CD; DD; 
+=std=bcl=> TYPE.GetPosition( positions, STRING.size()) == itr.GetPosition()) test succeeded:
+              iterator_get_position_equals_type_get_position == 1
+=std=bcl=> successful example check:  n_itr == itr.GetSize() == 20
+=std=bcl=> successful example check:  itr.GetPosition() == itr.GetSize() == 20
+=std=bcl=> successful example check:
+               WriteIterations( triplet_all_combos, string_to_test) ==
+              "AAA; AAB; AAC; AAD; ABB; ABC; ABD; ACC; ACD; ADD; " "BBB; BBC; BBD; BCC; BCD; BDD; CCC; CCD; CDD; DDD; " ==
+              AAA; AAB; AAC; AAD; ABB; ABC; ABD; ACC; ACD; ADD; BBB; BBC; BBD; BCC; BCD; BDD; CCC; CCD; CDD; DDD; 
+=std=bcl=> TYPE.GetPosition( positions, STRING.size()) == itr.GetPosition()) test succeeded:
+              iterator_get_position_equals_type_get_position == 1
+=std=bcl=> successful example check:  n_itr == itr.GetSize() == 35
+=std=bcl=> successful example check:  itr.GetPosition() == itr.GetSize() == 35
+=std=bcl=> successful example check:
+               WriteIterations( quartet_all_combos, string_to_test) ==
+              "AAAA; AAAB; AAAC; AAAD; AABB; AABC; AABD; AACC; AACD; AADD; " "ABBB; ABBC; ABBD; ABCC; ABCD; ABDD; ACCC; ACCD; ACDD; ADDD; " "BBBB; BBBC; BBBD; BBCC; BBCD; BBDD; BCCC; BCCD; BCDD; BDDD; " "CCCC; CCCD; CCDD; CDDD; DDDD; "
+              ==
+              AAAA; AAAB; AAAC; AAAD; AABB; AABC; AABD; AACC; AACD; AADD; ABBB; ABBC; ABBD; ABCC; ABCD; ABDD; ACCC; ACCD; ACDD; ADDD; BBBB; BBBC; BBBD; BBCC; BBCD; BBDD; BCCC; BCCD; BCDD; BDDD; CCCC; CCCD; CCDD; CDDD; DDDD; 
+=std=bcl=> TYPE.GetPosition( positions, STRING.size()) == itr.GetPosition()) test succeeded:
+              iterator_get_position_equals_type_get_position == 1
+=std=bcl=> successful example check:  n_itr == itr.GetSize() == 1
+=std=bcl=> successful example check:  itr.GetPosition() == itr.GetSize() == 1
+=std=bcl=> successful example check:  WriteIterations( quartet_unique_combos, string_to_test) == ABCD; 
+=std=bcl=> TYPE.GetPosition( positions, STRING.size()) == itr.GetPosition()) test succeeded:
+              iterator_get_position_equals_type_get_position == 1
+=std=bcl=> successful example check:  n_itr == itr.GetSize() == 24
+=std=bcl=> successful example check:  itr.GetPosition() == itr.GetSize() == 24
+=std=bcl=> successful example check:
+               WriteIterations( quartet_unique_perms, string_to_test) ==
+              "ABCD; ABDC; ACBD; ACDB; ADBC; ADCB; " "BACD; BADC; BCAD; BCDA; BDAC; BDCA; " "CABD; CADB; CBAD; CBDA; CDAB; CDBA; " "DABC; DACB; DBAC; DBCA; DCAB; DCBA; "
+              ==
+              ABCD; ABDC; ACBD; ACDB; ADBC; ADCB; BACD; BADC; BCAD; BCDA; BDAC; BDCA; CABD; CADB; CBAD; CBDA; CDAB; CDBA; DABC; DACB; DBAC; DBCA; DCAB; DCBA; 
+=std=bcl::app=> BCL Example | END  : DescriptorIterator ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+DescriptorIterator_total                 40          0              
+total                                    40          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

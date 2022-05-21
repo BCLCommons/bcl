@@ -1,0 +1,2 @@
+bcl::descriptor::Molecule3DACode
+  3DA(property=Atom_SigmaCharge,step size=1,steps=12,normalized=0)

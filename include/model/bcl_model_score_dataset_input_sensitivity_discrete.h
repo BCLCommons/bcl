@@ -1,0 +1,212 @@
+// (c) Copyright BCL @ Vanderbilt University 2014
+// (c) BCL Homepage: http://www.meilerlab.org/bclcommons
+// (c) BCL Code Repository: https://github.com/BCLCommons/bcl
+// (c)
+// (c) The BioChemical Library (BCL) was originally developed by contributing members of the Meiler Lab @ Vanderbilt University.
+// (c)
+// (c) The BCL is now made available as an open-source software package distributed under the permissive MIT license,
+// (c) developed and maintained by the Meiler Lab at Vanderbilt University and contributing members of the BCL Commons.
+// (c)
+// (c) External code contributions to the BCL are welcome. Please visit the BCL Commons GitHub page for information on how you can contribute.
+// (c)
+// (c) This file is part of the BCL software suite and is made available under the MIT license.
+// (c)
+
+#ifndef BCL_MODEL_SCORE_DATASET_INPUT_SENSITIVITY_DISCRETE_H
+#define BCL_MODEL_SCORE_DATASET_INPUT_SENSITIVITY_DISCRETE_H
+
+// include the namespace header
+#include "bcl_model.h"
+
+// include other forward headers - sorted alphabetically
+
+// includes from bcl - sorted alphabetically
+#include "bcl_model_retrieve_interface.h"
+#include "bcl_model_score_dataset_interface.h"
+#include "bcl_model_score_derivative_ensemble.h"
+#include "linal/bcl_linal_vector.h"
+#include "sched/bcl_sched_mutex.h"
+#include "storage/bcl_storage_list.h"
+#include "storage/bcl_storage_map.h"
+#include "util/bcl_util_implementation.h"
+#include "util/bcl_util_sh_ptr_vector.h"
+
+// external includes - sorted alphabetically
+
+namespace bcl
+{
+  namespace model
+  {
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //!
+    //! @class ScoreDatasetInputSensitivityDiscrete
+    //! @brief calculates the sensitivity of an objective function to a model to given inputs, which have discrete distribution
+    //!
+    //! @author vuot2, mendenjl
+    //! @see @link example_model_score_dataset_input_sensitivity_discrete.cpp @endlink
+    //! @date Feb 06, 2018
+    //!
+    //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+    class BCL_API ScoreDatasetInputSensitivityDiscrete :
+      public ScoreDatasetInterface
+    {
+
+    public:
+
+      enum Derivative
+      {
+        e_decrement, //!< Element atom type (atomic number, bond orders)
+        e_increment,     //!< Atom type (BCL Atom Type, bond orders, is in ring?, is Aromatic?)
+        e_center,
+        e_direction,
+        s_NumberDerivative
+      };
+
+      //! @brief derivative type as string
+      //! @param DERIVATIVE the name of the derivative type
+      //! @return the string for the derivative type
+      static const std::string &GetDerivativeTypeName( const Derivative &DERIVATIVE);
+
+      //! @brief Initialization enum I/O helper
+      typedef util::WrapperEnum< Derivative, &GetDerivativeTypeName, s_NumberDerivative> DerivativeEnum;
+
+      //! @brief Get the name, description and function of the given atom type
+      //! @param ATOM_TYPE the atom type used to build the fingerprints
+      //! @return the short name or abbreviation of the class
+      static const storage::Pair< std::string, std::string> &GetDerivativeTypeInfo( const Derivative &DERIVATIVE);
+
+    private:
+
+    //////////
+    // data //
+    //////////
+
+      //! Types of derivative computed
+      DerivativeEnum m_Derivative;
+
+      //! Model storage; to retrieve models and descriptors
+      util::Implementation< RetrieveInterface> m_ModelStorage;
+
+      //! Optional key of the desired model
+      std::string m_Key;
+
+      //! pointer to vector of models used by this property
+      util::SiPtr< const RetrieveInterface::t_Container> m_Models;
+
+      //! Final objective function, optional but useful for some scores
+      mutable util::Implementation< ObjectiveFunctionInterface> m_Objective;
+
+      //! scorer for the derivatives calculated by this function
+      ScoreDerivativeEnsemble m_Scorer;
+
+      //! Maximum # of features to compute input sensitivity for, 0 to use them all
+      //! If the final objective function was classification-based, selects features with the highest
+      //! # models correct * # models incorrect / ( # models correct ^ 2 + # models incorrect ^ 2)
+      //! For regression targets, selects features with the highest Result RMSD standard deviation
+      size_t m_MaxFeatures;
+
+      //! Map from initializer string/type to the shptrvector of model interfaces; saves loading potentially
+      //! gigantic models repetitively
+      static storage::Map< std::string, RetrieveInterface::t_Container> s_Models;
+
+      //! Data used by thread
+      mutable util::SiPtr< const descriptor::Dataset>    m_DatasetPtr;    //!< Dataset pointer
+      //mutable util::SiPtr< const linal::Vector< float> > m_DescriptorStd; //!< Standard deviation of the descriptor
+      mutable storage::Vector< math::RunningAverage< linal::Vector< float> > > m_AveDescriptorScores; //!< Scores for each column
+      //mutable linal::Vector< float>                      m_ResultStd;     //!< Results std
+      mutable size_t                                     m_FeatureNumber;
+      mutable sched::Mutex                               m_FeatureNumberMutex; //!< Mutex for changing feature-number
+
+      mutable storage::List< std::pair< float, size_t> > m_FeaturesToCompute;  //!< Features and scores to use to compute IS
+      mutable size_t                                     m_FeaturesToComputeSize; //!< Size of m_FeaturesToCompute, cached
+      mutable bool                                       m_ChoseFeatures;      //!< True once features for IS were chosen
+      mutable storage::Vector< linal::Matrix< float> >   m_Predictions;        //!< Actual predictions of the models (
+      mutable storage::Vector< linal::Matrix< char> >    m_PredictionClassifications; //!< Actual predictions of the models (
+
+    public:
+
+    //////////
+    // data //
+    //////////
+
+      //! single instance of that class
+      static const util::SiPtr< const util::ObjectInterface> s_Instance;
+
+    //////////////////////////////////
+    // construction and destruction //
+    //////////////////////////////////
+
+      //! @brief Clone function
+      //! @return pointer to new ScoreDatasetInputSensitivityDiscrete
+      ScoreDatasetInputSensitivityDiscrete *Clone() const;
+
+    /////////////////
+    // data access //
+    /////////////////
+
+      //! @brief returns class name of the object behind a pointer or the current object
+      //! @return the class name
+      const std::string &GetClassIdentifier() const;
+
+      //! @brief get a short name for this class
+      //! @return a short name for this class
+      const std::string &GetAlias() const;
+
+    ////////////////
+    // operations //
+    ////////////////
+
+      //! @brief score a given dataset
+      //! @param DATASET dataset of interest
+      //! @return scores of the dataset
+      linal::Vector< float> Score( const descriptor::Dataset &DATASET) const;
+
+    ///////////////
+    // operators //
+    ///////////////
+
+    //////////////////////
+    // input and output //
+    //////////////////////
+
+    protected:
+
+      //! @brief Set the members of this property from the given LABEL
+      //! @param LABEL the label to parse
+      //! @param ERR_STREAM stream to write errors out to
+      bool ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERR_STREAM);
+
+      //! @brief return parameters for member data that are set up from the labels
+      //! @return parameters for member data that are set up from the labels
+      io::Serializer GetSerializer() const;
+
+      //! @brief determine the utility of computing input sensitivity for a particular feature
+      //! Ideally, use features on which the models could definitely do better
+      //! @param MODEL_PREDICTIONS matrix result size X n models containing the model predictions
+      //! @return score for the feature
+      float ScorePredictions( const linal::Matrix< float> &MODEL_PREDICTIONS) const;
+
+      //! @brief Get the next feature for a thread to make predictions for
+      //! @param LAST_FEATURE last feature that this thread computed
+      //! @return the next feature for a thread to make predictions for
+      size_t GetNextFeatureForPrediction( const size_t &LAST_FEATURE) const;
+
+      //! @brief Get the next feature for a thread to compute sensitivity for
+      //! @return the next feature for a thread to use input sensitivity with
+      size_t GetNextFeatureForInputSensitivity() const;
+
+      //! @brief choose the features on which to compute input sensitivity
+      void ChooseInputSensitivityFeatures() const;
+
+      //! @brief run a thread to compute the kernel for all features with ID = THREAD_ID % n_threads
+      //! @param THREAD_ID id of the thread to run (0-indexed)
+      void RunThread( const size_t &THREAD_ID) const;
+
+    }; // class ScoreDatasetInputSensitivityDiscrete
+
+  } // namespace model
+} // namespace bcl
+
+#endif // BCL_MODEL_SCORE_DATASET_INPUT_SENSITIVITY_DISCRETE_H
+

@@ -1,0 +1,160 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec MathStatistics 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> MathStatistics
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: MathStatistics ====================
+=std=bcl=> Univariate Statistics
+=std=bcl=>  This is a random 4x5 matrix ma:
+bcl::linal::Matrix<double>
+  4	  5
+  7.86821	2.5048	7.10671	9.46668	0.192711	
+  4.04902	2.51318	0.227124	5.20643	3.4467	
+  2.74196	5.61032	1.40039	5.43856	5.21916	
+  8.57077	4.99774	4.1937	7.44281	2.49168	
+=std=bcl=>  This is the minimal value of matrix ma: 0.192711
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( math::Statistics::MinimumValue( ma.Begin(), ma.End()), double( 0.192711), double( 0.0001) )
+              == 1
+=std=bcl=>  This is also the minimal value of matrix ma: 0.192711
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( *math::Statistics::PointerToMinimumValue( ma.Begin(), ma.End()), double( 0.192711), double( 0.0001) )
+              == 1
+=std=bcl=>  This is the maximal value of matrix ma: 9.46668
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( math::Statistics::MaximumValue( ma.Begin(), ma.End()), double( 9.46668), double( 0.0001) )
+              == 1
+=std=bcl=>  This is also the maximal value of matrix ma: 9.46668
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( *math::Statistics::PointerToMaximumValue( ma.Begin(), ma.End()), double( 9.46668), double( 0.0001) )
+              == 1
+=std=bcl=>  This is the sum of the elements of matrix ma: 90.6887
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( math::Statistics::Sum( ma.Begin(), ma.End(), 0), double( 90.6887), double( 0.0001) )
+              == 1
+=std=bcl=>  This is the sum of the elements of matrix ma: 90.6887
+=std=bcl=> successful example check:
+               math::EqualWithinAbsoluteTolerance ( ma.Sum(), double( 90.6887), double( 0.0001) )
+              == 1
+=std=bcl=>  This is the square norm of the elements of matrix ma: 545.491
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( math::Statistics::SquareNorm( ma.Begin(), ma.End()), double( 545.491), double( 0.001) )
+              == 1
+=std=bcl=> successful example check:
+               math::Statistics::SquareNorm( vector.Begin(), vector.End()) == 8.0 == 8
+               (+/- 0.0001)
+=std=bcl=> successful example check:  ma.AsVector().SquareNorm() == 545.491  (+/- 0.001)
+=std=bcl=> successful example check:  math::Statistics::StandardDeviation( ma.Begin(), ma.End()) == 2.59104  (+/- 0.0001)
+=std=bcl=> Normalize test succeeded:  math::Statistics::Norm( ma.Begin(), ma.End()) == 1  (+/- 0.001%)
+=std=bcl=> This is a random vector: bcl::linal::Vector<double>
+  10
+  4.78553	6.4013	18.21	3.29666	4.91066	3.96639	14.3179	19.3565	15.3886	1.61415	
+=std=bcl=> sum: 92.2477
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( math::Statistics::Sum( v1.Begin(), v1.End()), double( 92.2477), double( 0.0001) )
+              == 1
+=std=bcl=> mean: 9.22477
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( math::Statistics::Mean( v1.Begin(), v1.End()), double( 9.22477), double( 0.0001) )
+              == 1
+=std=bcl=> variance: 41.4324
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( math::Statistics::Variance( v1.Begin(), v1.End()), double( 41.4324), double( 0.0001) )
+              == 1
+=std=bcl=> standard deviation: 6.4368
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( math::Statistics::StandardDeviation( v1.Begin(), v1.End()), double( 6.4368), double( 0.0001) )
+              == 1
+=std=bcl=> 
+
+Bivariate Statistics
+
+=std=bcl=> data set x: bcl::linal::Vector<double>
+  10
+  9.1985	5.14524	15.5409	11.6777	19.006	8.762	6.44578	10.6481	5.12718	0.910797	
+=std=bcl=> data set y: bcl::linal::Vector<double>
+  10
+  9.2184	5.93019	13.9058	13.3061	17.1297	7.37015	8.37186	11.1297	4.32224	0.356096	
+=std=bcl=> r (Pearson): 0.968378
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( math::Statistics::CorrelationCoefficient( v2.Begin(), v2.End(), v3.Begin(), v3.End()), double( 0.968378), double( 0.0001) )
+              == 1
+=std=bcl=> r (Spearman): 0.987879
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( math::Statistics::CorrelationSpearman( v2.Begin(), v2.End(), v3.Begin(), v3.End()), double( 0.987879), double( 0.0001) )
+              == 1
+=std=bcl=> r_squared: 0.937755
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( math::Statistics::RSquared( v2.Begin(), v2.End(), v3.Begin(), v3.End()), double( 0.937755), double( 0.0001) )
+              == 1
+=std=bcl=> covariance: 23.0125
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance ( math::Statistics::Covariance( v2.Begin(), v2.End(), v3.Begin(), v3.End()), double( 23.0125), double( 0.0001) )
+              == 1
+=std=bcl=> successful example check:  result == expected_result == 9.32738  (+/- 1e-05%)
+=std=bcl=> successful example check:  res_aa.first == 0  (+/- 1e-06%)
+=std=bcl=> successful example check:  res_aa.second == 0.86014  (+/- 1e-06%)
+=std=bcl=> successful example check:  res_ab.first == 1  (+/- 1e-06%)
+=std=bcl=> successful example check:  res_ab.second == 0.744903  (+/- 1e-06%)
+=std=bcl=> successful example check:  res_bc.first == 0.7  (+/- 1e-06%)
+=std=bcl=> successful example check:  res_bc.second == 0.60821  (+/- 1e-06%)
+=std=bcl=> successful example check:  res_cd.first == 0.9  (+/- 1e-06%)
+=std=bcl=> successful example check:  res_cd.second == 0.60821  (+/- 1e-06%)
+=std=bcl::app=> BCL Example | END  : MathStatistics ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+MathStatistics_total                     28          0              
+total                                    28          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

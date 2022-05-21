@@ -1,0 +1,227 @@
+BLASTP 2.2.12 [Aug-07-2005]
+
+
+Reference: Altschul, Stephen F., Thomas L. Madden, Alejandro A. Schaffer, 
+Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), 
+"Gapped BLAST and PSI-BLAST: a new generation of protein database search
+programs",  Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics:
+Schaffer, Alejandro A., L. Aravaind, Thomas L. Madden,
+Sergei Shavirin, John L. Spouge, Yuri I. Wolf,  
+Eugene V. Koonin, and Stephen F. Altschul (2001), 
+"Improving the accuracy of PSI-BLAST protein database searches with 
+composition-based statistics and other refinements",  Nucleic Acids Res. 29:2994-3005.
+
+Query= 1HN0:A|PDBID|CHAIN|SEQUENCE
+         (1021 letters)
+
+Database: filtnr 
+           802,091 sequences; 254,886,205 total letters
+
+Searching..................................................done
+
+
+Results from round 1
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+prf||2109195A chondroitin ABC lyase [Proteus vulgaris]               1928   0.0  
+ref|NP_404448.1| (NC_003143) putative exported protein [Yersinia...  1077   0.0  
+gb|AAA99039.1| (L42367) lyase 2 [Bacteroides thetaiotaomicron]        293   4e-78
+dbj|BAB21059.1| (AB037178) xanthan lyase [Bacillus sp. GL1]            75   3e-12
+sp|Q59288|CHAC_PEDHE CHONDROITINASE AC PRECURSOR (CHONDROITIN AC...    72   3e-11
+pdb|1CB8|A Chain A, Chondroitinase Ac Lyase From Flavobacterium ...    72   4e-11
+gb|AAG24953.1|AF242413_1 (AF242413) XalA [Paenibacillus alginoly...    60   1e-07
+gb|AAG42262.1|AF318176_1 (AF318176) putative xanthan lyase XalB ...    54   7e-06
+dbj|BAA78618.1| (AB028210) hyaluronidase [Streptomyces griseus]        51   5e-05
+ref|NP_372726.1| (NC_002758) hyaluronate lyase precursor [Staphy...    51   6e-05
+sp|Q59801|HYSA_STAAU HYALURONATE LYASE PRECURSOR (HYALURONIDASE)...    47   7e-04
+sp|Q53591|HYSA_STRAG HYALURONATE LYASE PRECURSOR (HYALURONIDASE)...    37   1.1  
+emb|CAA75865.1| (Y15903) hyaluronate lyase [Streptococcus agalac...    37   1.5  
+gb|AAG02447.1|AF290095_3 (AF290095) phosphomevalonate kinase [En...    36   2.0  
+ref|NP_281223.1| (NC_002163) chromosomal replication initiator p...    34   6.3  
+ref|NP_199198.1| (NC_003076) putative protein [Arabidopsis thali...    34   8.5  
+
+Searching..................................................done
+
+
+Results from round 2
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+Sequences used in model and found again:
+
+prf||2109195A chondroitin ABC lyase [Proteus vulgaris]               1845   0.0  
+ref|NP_404448.1| (NC_003143) putative exported protein [Yersinia...  1656   0.0  
+gb|AAA99039.1| (L42367) lyase 2 [Bacteroides thetaiotaomicron]        714   0.0  
+sp|Q59801|HYSA_STAAU HYALURONATE LYASE PRECURSOR (HYALURONIDASE)...   655   0.0  
+ref|NP_372726.1| (NC_002758) hyaluronate lyase precursor [Staphy...   651   0.0  
+gb|AAG42262.1|AF318176_1 (AF318176) putative xanthan lyase XalB ...   571   e-161
+dbj|BAB21059.1| (AB037178) xanthan lyase [Bacillus sp. GL1]           554   e-156
+gb|AAG24953.1|AF242413_1 (AF242413) XalA [Paenibacillus alginoly...   496   e-139
+dbj|BAA78618.1| (AB028210) hyaluronidase [Streptomyces griseus]       357   3e-97
+sp|Q59288|CHAC_PEDHE CHONDROITINASE AC PRECURSOR (CHONDROITIN AC...   306   8e-82
+pdb|1CB8|A Chain A, Chondroitinase Ac Lyase From Flavobacterium ...   304   3e-81
+
+Sequences not found previously or not previously below threshold:
+
+gb|AAK67165.1|AF385683_1 (AF385683) hyaluronate lyase precursor ...   264   2e-69
+gb|AAK67167.1|AF385684_1 (AF385684) hyaluronate lyase precursor ...   264   4e-69
+emb|CAA75865.1| (Y15903) hyaluronate lyase [Streptococcus agalac...   259   9e-68
+pir||T29064 hyaluronate lyase homolog - Streptomyces coelicolor ...   258   2e-67
+ref|NP_344851.1| (NC_003028) hyaluronidase [Streptococcus pneumo...   256   1e-66
+sp|Q54873|HYSA_STRPN HYALURONATE LYASE PRECURSOR (HYALURONIDASE)...   256   1e-66
+ref|NP_357880.1| (NC_003098) Hyaluronate lyase precursor (hyalur...   253   5e-66
+gb|AAA53686.1| (L20670) alternative truncated translation produc...   253   6e-66
+sp|Q53591|HYSA_STRAG HYALURONATE LYASE PRECURSOR (HYALURONIDASE)...   252   1e-65
+pdb|1EGU|A Chain A, Crystal Structure Of Streptococcus Pneumonia...   251   3e-65
+ref|NP_269203.1| (NC_002737) extracellular hyaluronate lyase [St...   213   8e-54
+gb|AAF29533.1| (AF218838) extracellular hyaluronate lyase [Strep...   212   1e-53
+sp|Q59634|HYSA_PROAC HYALURONATE LYASE PRECURSOR (HYALURONIDASE)...   140   5e-32
+ref|NP_455135.1| (NC_003198) outer membrane usher protein FimD p...    43   0.023
+ref|NP_459541.1| (NC_003197) outer membrane usher protein [Salmo...    41   0.057
+ref|NP_356139.1| (NC_003063) AGR_L_702p [Agrobacterium tumefacie...    41   0.062
+sp|P37924|FIMD_SALTY OUTER MEMBRANE USHER PROTEIN FIMD PRECURSOR...    41   0.066
+emb|CAC21238.1| (AJ291606) gamma tubulin ring protein [Xenopus l...    39   0.23 
+pir||S38037 hypothetical protein YKL200c - yeast (Saccharomyces ...    38   0.42 
+pir||S68986 transferrin - flesh fly (Sarcophaga peregrina) >gi|9...    37   0.88 
+ref|NP_078112.1| (NC_002162) arginyl tRNA synthetase [Ureaplasma...    36   1.3  
+gb|AAF73814.1|AF154042_1 (AF154042) surface protein PspC [Strept...    36   2.1  
+gb|AAC08960.1| (AF043426) RNA polymerase II second largest subun...    36   2.1  
+gb|AAF73776.1|AF154009_1 (AF154009) surface protein PspC [Strept...    36   2.7  
+gb|AAF73800.1|AF154031_1 (AF154031) surface protein PspC [Strept...    35   3.3  
+gb|AAF00521.1|AF185959_1 (AF185959) polyprotein [Clover yellow v...    35   3.9  
+pir||S36603 chitin deacetylase - Mucor rouxii (fragment)               35   4.2  
+sp|O33479|ICEV_PSESX ICE NUCLEATION PROTEIN >gi|2467260|emb|CAA0...    35   4.4  
+sp|P50325|CHDE_MUCRO CHITIN DEACETYLASE PRECURSOR >gi|543511|pir...    35   4.4  
+gb|AAF73801.1|AF154032_1 (AF154032) surface protein PspC [Strept...    35   4.7  
+gb|AAC62252.1| (U89711) PspA [Streptococcus pneumoniae]                35   4.9  
+gb|AAF73773.1|AF154006_1 (AF154006) surface protein PspC [Strept...    34   6.6  
+ref|NP_464368.1| (NC_003210) putative peptidoglycan bound protei...    34   7.2  
+gb|AAF73781.1|AF154014_1 (AF154014) surface protein PspC [Strept...    34   7.5  
+gb|AAF73788.1|AF154020_1 (AF154020) surface protein PspC [Strept...    34   7.7  
+
+Searching..................................................done
+
+
+Results from round 3
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+Sequences used in model and found again:
+
+prf||2109195A chondroitin ABC lyase [Proteus vulgaris]               1715   0.0  
+ref|NP_404448.1| (NC_003143) putative exported protein [Yersinia...  1514   0.0  
+gb|AAK67167.1|AF385684_1 (AF385684) hyaluronate lyase precursor ...   613   e-174
+gb|AAK67165.1|AF385683_1 (AF385683) hyaluronate lyase precursor ...   611   e-174
+ref|NP_344851.1| (NC_003028) hyaluronidase [Streptococcus pneumo...   610   e-173
+ref|NP_372726.1| (NC_002758) hyaluronate lyase precursor [Staphy...   608   e-173
+sp|Q54873|HYSA_STRPN HYALURONATE LYASE PRECURSOR (HYALURONIDASE)...   608   e-173
+sp|Q59801|HYSA_STAAU HYALURONATE LYASE PRECURSOR (HYALURONIDASE)...   607   e-172
+ref|NP_357880.1| (NC_003098) Hyaluronate lyase precursor (hyalur...   607   e-172
+gb|AAA99039.1| (L42367) lyase 2 [Bacteroides thetaiotaomicron]        604   e-171
+gb|AAA53686.1| (L20670) alternative truncated translation produc...   604   e-171
+pdb|1EGU|A Chain A, Crystal Structure Of Streptococcus Pneumonia...   603   e-171
+dbj|BAB21059.1| (AB037178) xanthan lyase [Bacillus sp. GL1]           582   e-165
+gb|AAG42262.1|AF318176_1 (AF318176) putative xanthan lyase XalB ...   576   e-163
+gb|AAG24953.1|AF242413_1 (AF242413) XalA [Paenibacillus alginoly...   576   e-163
+emb|CAA75865.1| (Y15903) hyaluronate lyase [Streptococcus agalac...   546   e-154
+sp|Q53591|HYSA_STRAG HYALURONATE LYASE PRECURSOR (HYALURONIDASE)...   535   e-151
+gb|AAF29533.1| (AF218838) extracellular hyaluronate lyase [Strep...   534   e-150
+ref|NP_269203.1| (NC_002737) extracellular hyaluronate lyase [St...   534   e-150
+dbj|BAA78618.1| (AB028210) hyaluronidase [Streptomyces griseus]       533   e-150
+pir||T29064 hyaluronate lyase homolog - Streptomyces coelicolor ...   481   e-134
+sp|Q59288|CHAC_PEDHE CHONDROITINASE AC PRECURSOR (CHONDROITIN AC...   445   e-123
+pdb|1CB8|A Chain A, Chondroitinase Ac Lyase From Flavobacterium ...   442   e-123
+sp|Q59634|HYSA_PROAC HYALURONATE LYASE PRECURSOR (HYALURONIDASE)...   421   e-116
+
+Sequences not found previously or not previously below threshold:
+
+emb|CAC21238.1| (AJ291606) gamma tubulin ring protein [Xenopus l...    38   0.36 
+ref|NP_115783.1| (NM_032407) protocadherin gamma subfamily C, 5,...    38   0.62 
+ref|NP_059434.1| (NC_001437) JEV polyprotein [Japanese encephali...    38   0.63 
+sp|P27395|POLG_JAEV1 GENOME POLYPROTEIN [CONTAINS: CAPSID PROTEI...    38   0.63 
+sp|P19110|POLG_JAEV5 GENOME POLYPROTEIN [CONTAINS: CAPSID PROTEI...    38   0.63 
+dbj|BAA14219.1| (D90195) polyprotein [Japanese encephalitis virus]     38   0.63 
+prf||1303269A genome,JEV RNA [Japanese encephalitis virus]             38   0.63 
+gb|AAA46249.1| (M55506) nonglycosylated envelope protein [Japane...    38   0.63 
+gb|AAA21436.1| (U14163) polyprotein [Japanese encephalitis virus]      38   0.63 
+gb|AAA46247.1| (M15337) Japanese encephalitis virus polyprotein        38   0.63 
+gb|AAA64561.1| (U15763) C, prM, M, E, NS1, NS2A, NS2B, NS3, NS4A...    38   0.63 
+gb|AAB18951.1| (U47032) polyprotein [Japanese encephalitis virus]      38   0.63 
+gb|AAB66484.1| (AF014160) polyprotein [Japanese encephalitis virus]    38   0.63 
+gb|AAB66485.1| (AF014161) polyprotein [Japanese encephalitis virus]    38   0.63 
+gb|AAC27708.1| (AF075723) GP78 polyprotein [Japanese encephaliti...    38   0.63 
+gb|AAC29474.1| (AF080251) polyprotein [Japanese encephalitis virus]    38   0.63 
+gb|AAC72833.1| (AF095156) polyprotein [Japanese encephalitis vir...    38   0.63 
+gb|AAD16275.1| (AF098735) polyprotein [Japanese encephalitis virus]    38   0.63 
+gb|AAD16277.1| (AF098737) polyprotein [Japanese encephalitis virus]    38   0.63 
+gb|AAD20233.1| (AF069076) polyprotein [Japanese encephalitis virus]    38   0.63 
+gb|AAF34186.1| (AF221499) polyprotein [Japanese encephalitis virus]    38   0.63 
+gb|AAF34187.1| (AF221500) polyprotein [Japanese encephalitis virus]    38   0.63 
+gb|AAK11279.1| (AF315119) polyprotein [Japanese encephalitis virus]    38   0.63 
+gb|AAL08020.1|AF416457_1 (AF416457) polyprotein [Japanese enceph...    38   0.63 
+pir||S68986 transferrin - flesh fly (Sarcophaga peregrina) >gi|9...    37   0.81 
+gb|AAA46250.1| (M73710) polyprotein [Japanese encephalitis virus]      36   1.4  
+ref|NP_312911.1| (NC_002695) membrane protein [Escherichia coli ...    36   1.6  
+gb|AAD16276.1| (AF098736) polyprotein [Japanese encephalitis virus]    36   1.7  
+ref|NP_457941.1| (NC_003198) putative membrane protein [Salmonel...    36   1.8  
+ref|NP_078112.1| (NC_002162) arginyl tRNA synthetase [Ureaplasma...    36   1.9  
+gb|AAD28716.1|AF112861_1 (AF112861) membrane protein YijP [Esche...    36   2.2  
+gb|AAF73776.1|AF154009_1 (AF154009) surface protein PspC [Strept...    36   2.3  
+ref|NP_281117.1| (NC_002607) Vng2539h [Halobacterium sp. NRC-1] ...    36   2.8  
+gb|AAK15789.1| (AY027863) structural protein [Japanese encephali...    35   3.0  
+ref|NP_296136.1| (NC_001263) DNA-binding response regulator [Dei...    35   3.3  
+ref|NP_290592.1| (NC_002655) orf, hypothetical protein [Escheric...    35   3.4  
+sp|P23903|E13B_BACCI GLUCAN ENDO-1,3-BETA-GLUCOSIDASE A1 PRECURS...    35   4.3  
+gb|AAG30168.1|AF289092_1 (AF289092) secreted autotransporter tox...    35   4.3  
+ref|NP_195829.1| (NC_003076) putative protein [Arabidopsis thali...    35   4.7  
+gb|AAF00521.1|AF185959_1 (AF185959) polyprotein [Clover yellow v...    34   5.5  
+ref|NP_418390.1| (NC_000913) orf, hypothetical protein [Escheric...    34   6.0  
+ref|NP_224644.1| (NC_000922) Polymorphic Outer Membrane Protein ...    34   8.8  
+
+
+CONVERGED!
+  Database: filtnr
+    Posted date:  Nov 29, 2001  2:57 PM
+  Number of letters in database: 254,886,205
+  Number of sequences in database:  802,091
+  
+Lambda     K      H
+   0.306    0.152    0.433 
+
+Lambda     K      H
+   0.267   0.0471    0.140 
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Number of Hits to DB: 1,559,590,439
+Number of Sequences: 802091
+Number of extensions: 70965093
+Number of successful extensions: 156816
+Number of sequences better than 10.0: 102
+Number of HSP's better than 10.0 without gapping: 57
+Number of HSP's successfully gapped in prelim test: 148
+Number of HSP's that attempted gapping in prelim test: 155878
+Number of HSP's gapped (non-prelim): 471
+length of query: 1021
+length of database: 254,886,205
+effective HSP length: 129
+effective length of query: 892
+effective length of database: 151,416,466
+effective search space: 135063487672
+effective search space used: 135063487672
+T: 11
+A: 40
+X1: 16 ( 7.1 bits)
+X2: 38 (14.6 bits)
+X3: 64 (24.7 bits)
+S1: 41 (20.8 bits)
+S2: 76 (33.7 bits)

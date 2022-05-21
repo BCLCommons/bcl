@@ -1,0 +1,14 @@
+bcl::fold::MutateProteinModelGrowSSE
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::util::SiPtr<const-bcl::assemble::SSE>,bcl::assemble::DomainInterface>>
+    12345678
+    bcl::assemble::LocatorSSE
+      LocatorSSE(chain id=A,start id=18,end id=22,use pdb id=0)
+  bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<bcl::fold::MutationResidue,bcl::storage::VectorND<2,double>>>
+    12345678
+    bcl::fold::PhiPsiGeneratorRamachandran
+      Ramachandran(histogram filename=phi_psi_angles_by_sstype.histogram2D)
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::util::SiPtr<const-bcl::biol::AABase>,bcl::assemble::ProteinModel>>
+    12345678
+    bcl::assemble::LocatorAA
+      LocatorAA(locator_chain=A,seq_id=17,aa type=Undefined,use_pdb_id=0)
+  c_terminal

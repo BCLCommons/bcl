@@ -1,0 +1,120 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec SdfMdlProperty 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> SdfMdlProperty
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: SdfMdlProperty ====================
+=std=bcl=> successful example check:  mdl_charge.GetProperty() == sdf::MdlProperty::e_Charge == CHG
+=std=bcl=> successful example check:  mdl_charge.GetString() == expected_charge_string == M  CHG  2   3  -1   5   1
+=std=bcl=> successful example check:
+               mdl_atom_types.GetString() == expected_atom_types ==
+              M  BCL ATM C_TeTeTeTe C_TrTrTrPi N_Di2DiPi2Pi C_TeTeTeTe C_TrTrPi
+=std=bcl=> successful example check:
+               mdl_double_bond_isometries.GetString() == expected_bond_isometries ==
+              M  BCL DBI E Z X -
+=std=bcl=> successful example check:  mdl_chirality.GetString() == expected_chiralities == M  BCL CHI   1   S   4   R
+=std=bcl=> successful example check:  mdl_charge_unk.GetString() ==
+=std=bcl=> successful example check:
+               mdl_atom_types_unk.GetString() ==
+              M  BCL ATM Carbon_0 Carbon_0 Nitrogen_0 Carbon_0 Carbon_0
+=std=bcl=> successful example check:  mdl_double_bond_isometries_unk.GetString() == M  BCL DBI X X X X
+=std=bcl=> successful example check:  mdl_chirality_unk.GetString() ==
+=std=bcl=> mdl_charge.ApplyProperty( mdl_atoms, mdl_bonds) test succeeded:
+              sdf::MdlProperty( sdf::MdlProperty::e_Charge, mdl_atoms, mdl_bonds).GetString() == expected_charge_string ==
+              M  CHG  2   3  -1   5   1
+=std=bcl=> mdl_atom_types.ApplyProperty( mdl_atoms, mdl_bonds) test succeeded:
+              sdf::MdlProperty( sdf::MdlProperty::e_BclAtomType, mdl_atoms, mdl_bonds).GetString() == expected_atom_types ==
+              M  BCL ATM C_TeTeTeTe C_TrTrTrPi N_Di2DiPi2Pi C_TeTeTeTe C_TrTrPi
+=std=bcl=> mdl_chirality.ApplyProperty( mdl_atoms, mdl_bonds) test succeeded:
+              sdf::MdlProperty( sdf::MdlProperty::e_BclChirality, mdl_atoms, mdl_bonds).GetString() == expected_chiralities
+              == M  BCL CHI   1   S   4   R
+=std=bcl=> mdl_double_bond_isometries.ApplyProperty( mdl_atoms, mdl_bonds) test succeeded:
+              sdf::MdlProperty( sdf::MdlProperty::e_BclDoubleBondIsometry, mdl_atoms, mdl_bonds).GetString() ==
+              expected_bond_isometries == M  BCL DBI E Z X -
+=std=bcl=> successful example check:
+               sdf::MdlProperty( expected_atom_types).GetString() == expected_atom_types ==
+              M  BCL ATM C_TeTeTeTe C_TrTrTrPi N_Di2DiPi2Pi C_TeTeTeTe C_TrTrPi
+=std=bcl=> successful example check:
+               sdf::MdlProperty( expected_chiralities).GetString() == expected_chiralities ==
+              M  BCL CHI   1   S   4   R
+=std=bcl=> successful example check:
+               sdf::MdlProperty( expected_bond_isometries).GetString() == expected_bond_isometries
+              == M  BCL DBI E Z X -
+=std=bcl=> successful example check:
+               sdf::MdlProperty( expected_charge_string).GetString() == expected_charge_string ==
+              M  CHG  2   3  -1   5   1
+=std=bcl=> successful example check:
+               sdf::MdlProperty( expected_atom_types).GetProperty() ==
+              sdf::MdlProperty::e_BclAtomType == BCL ATM
+=std=bcl=> successful example check:
+               sdf::MdlProperty( expected_chiralities).GetProperty() ==
+              sdf::MdlProperty::e_BclChirality == BCL CHI
+=std=bcl=> successful example check:
+               sdf::MdlProperty( expected_bond_isometries).GetProperty() ==
+              sdf::MdlProperty::e_BclDoubleBondIsometry == BCL DBI
+=std=bcl=> successful example check:
+               sdf::MdlProperty( expected_charge_string).GetProperty() ==
+              sdf::MdlProperty::e_Charge == CHG
+=std=bcl=> successful example check:
+               sdf::MdlProperty( "M  END").GetProperty() == sdf::MdlProperty::e_BlockTerminator ==
+              END
+=std=bcl=> successful example check:  TestBCLObjectIOForSymmetry( mdl_charge, sdf::MdlProperty()) == 1
+=std=bcl=> successful example check:  TestBCLObjectOutputDiffers( mdl_charge, sdf::MdlProperty()) == 1
+=std=bcl::app=> BCL Example | END  : SdfMdlProperty ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+SdfMdlProperty_total                     24          0              
+total                                    24          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

@@ -1,0 +1,25 @@
+##############################################################################
+SPOCTOPUS result file
+Generated from http://octopus.cbr.su.se/ at 2011-08-31 02:39:23
+Total request time: 10.24 seconds.
+##############################################################################
+
+
+Sequence name: query_sequence
+Sequence length: 340 aa.
+Sequence:
+MGVPIGEIIPRKEIELENLYGKKIAIDALNAIYQFLSTIRQKDGTPLMDSKGRITSHLSG
+LFYRTINLMEAGIKPVYVFDGEPPEFKKKELEKRREAREEAEEKWREALEKGEIEEARKY
+AQRATRVNEMLIEDAKKLLELMGIPIVQAPSEGEAQAAYMAAKGSVYASASQDYDSLLFG
+APRLVRNLTITGKRKLPGKNVYVEIKPELIILEEVLKELKLTREKLIELAILVGTDYNPG
+GIKGIGLKKALEIVRHSKDPLAKFQKQSDVDLYAIKEFFLNPPVTDNYNLVWRDPDEEGI
+LKFLCDEHDFSEERVKNGLERLKKAIKSGKQSTLESWFKR
+
+SPOCTOPUS predicted topology:
+oooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo
+oooMMMMMMMMMMMMMMMMMMMMMiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+

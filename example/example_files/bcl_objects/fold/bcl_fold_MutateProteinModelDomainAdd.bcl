@@ -1,0 +1,11 @@
+bcl::fold::MutateProteinModelDomainAdd
+  bcl::util::ShPtr<bcl::find::CollectorInterface<bcl::util::ShPtrVector<bcl::assemble::Domain>,bcl::assemble::DomainInterface>>
+    12345678
+    bcl::assemble::CollectorAllPossibleDomains
+      CollectorAllPossibleDomains(
+        domain size="[3,3]",
+        force domain connectivity=1,
+        packing criterion=bcl::assemble::SSEGeometryPackingCriteriaCombine
+      )
+  0
+  "bcl::fold::MutateProteinModelDomainAdd"

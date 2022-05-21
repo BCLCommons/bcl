@@ -1,0 +1,26 @@
+			deheader project news
+
+0.7 @ 2013-01-22
+    Accept .cc as an extension as well as .cpp.
+
+0.6 @ 2011-02-10
+    Add the return-status macros from sys/wait.h to the portability list.
+
+0.5 @ 2010-12-22
+    Source is now checked against all SuS portability requirements.
+    There is an option to exclude files by pattern.
+
+0.4 @ 2010-12-20
+    Script now removes generated objects.
+    Duplicate inclusions are now detected.
+    Absence of some headers required for portability is now detected.
+
+0.3 @ 2010-12-09
+    Add a dependencies table to head off common cross-platform problems.
+
+0.2 @ 2010-12-02
+    Make the last line of output a statistical summary.
+    Document some limitations.
+
+0.1 @ 2010-12-01
+    Initial release.

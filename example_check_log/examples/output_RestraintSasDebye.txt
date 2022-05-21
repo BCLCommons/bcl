@@ -1,0 +1,101 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec RestraintSasDebye 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> RestraintSasDebye
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: RestraintSasDebye ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> () operator test succeeded:
+               data_sets.GetCalculatedData().GetScatteringData().GetSize() ==
+              sp_exp_data->GetScatteringData().GetSize() == 31
+Q_Value Experimental_Intensity Experimental_Error Computed_Intensity
+0 2.107e+07 837.7 574459
+0.01 2.097e+07 1420 572101
+0.02 2.068e+07 1141 565083
+0.03 2.021e+07 632 553568
+0.04 1.957e+07 444.7 537823
+0.05 1.877e+07 722.2 518203
+0.06 1.783e+07 969.5 495145
+0.07 1.678e+07 1054 469148
+0.08 1.565e+07 1162 440757
+0.09 1.445e+07 1280 410542
+0.1 1.321e+07 1419 379082
+0.11 1.195e+07 1562 346947
+0.12 1.071e+07 1674 314682
+0.13 9.493e+06 1757 282790
+0.14 8.325e+06 1814 251726
+0.15 7.219e+06 1849 221884
+0.16 6.188e+06 1830 193594
+0.17 5.24e+06 1728 167120
+0.18 4.38e+06 1521 142657
+0.19 3.613e+06 1115 120340
+0.2 2.937e+06 513.8 100242
+0.21 2.351e+06 479.1 82382.4
+0.22 1.851e+06 1428 66736.6
+0.23 1.431e+06 3780 53239.3
+0.24 1.086e+06 6596 41793.5
+0.25 808900 7895 32277.6
+0.26 590900 4981 24551.4
+0.27 424900 2481 18461.5
+0.28 303200 2403 13846.8
+0.29 218300 4169 10541.8
+0.3 163600 1983 8380.43
+=std=bcl::app=> BCL Example | END  : RestraintSasDebye ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+RestraintSasDebye_total                   1          0              
+total                                     1          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 134 MB, peak physical RAM used: 66 MB

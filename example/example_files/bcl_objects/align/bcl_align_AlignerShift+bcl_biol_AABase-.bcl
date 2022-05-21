@@ -1,0 +1,15 @@
+bcl::align::AlignerShift<bcl::biol::AABase>
+  3
+  3
+  7
+  bcl::util::ShPtr<bcl::function::UnaryInterface<const-bcl::align::AlignmentInterface<bcl::biol::AABase>,double>>
+    12345678
+    bcl::score::AlignmentQuality
+      bcl::util::ShPtr<bcl::quality::MeasureInterface>
+        12345678
+        bcl::quality::LCS
+          3	          3
+      bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+        1
+        bcl::biol::AtomTypes::Enum
+          "CA"

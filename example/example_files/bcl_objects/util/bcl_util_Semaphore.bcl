@@ -1,0 +1,3 @@
+bcl::util::Semaphore
+  "bcl_example_semaphore"
+  Attached

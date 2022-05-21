@@ -1,0 +1,12 @@
+bcl::assemble::SSEPool
+HELIX    1   1 TYR A    4  MET A   21
+HELIX    2   2 VAL A   34  ALA A   52
+HELIX    3   3 ILE A   58  GLY A   80
+HELIX    4   4 ALA A   87  LEU A  104
+HELIX    5   5 TYR B    4  MET B   21
+HELIX    6   6 VAL B   34  ALA B   52
+HELIX    7   7 ILE B   58  GLY B   80
+HELIX    8   8 ALA B   87  LEU B  104                                                                                           
+SHEET    9 BET 5 GLY B  10  VAL B  17  0
+SHEET   10 BET 5 MET B   1  THR B   7 -1
+END                                                                                                                             

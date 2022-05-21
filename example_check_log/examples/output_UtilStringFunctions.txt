@@ -1,0 +1,178 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec UtilStringFunctions 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> UtilStringFunctions
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: UtilStringFunctions ====================
+=std=bcl=> first string:  aa bb cc dd ee 
+=std=bcl=> split first by spaces: bcl::storage::Vector<std::string>
+  5
+  "aa"
+  "bb"
+  "cc"
+  "dd"
+  "ee"
+
+=std=bcl=> trim first: aa bb cc dd ee
+=std=bcl=> remove spaces from first: aabbccddee
+=std=bcl=> trim third: 
+=std=bcl=> second string: zaazbbzcczddzeez
+=std=bcl=> split second by "z": bcl::storage::Vector<std::string>
+  5
+  "aa"
+  "bb"
+  "cc"
+  "dd"
+  "ee"
+
+=std=bcl=> string a: 1234.5
+=std=bcl=> is numerical? true
+=std=bcl=> string d: 7000.067
+=std=bcl=> is numerical? true
+=std=bcl=> a + d = 8234.57
+=std=bcl=> string b: ab12cd34ef 
+=std=bcl=> is numerical? false
+=std=bcl=> successful example check:  util::TrimString( " h e l l o ") == h e l l o
+=std=bcl=> successful example check:  util::RemoveSpacesFromString( " h e l l o ") == hello
+=std=bcl=> successful example check:  util::ConvertStringToNumericalValue< double>( " 5.5") == double( 5.5) == 5.5
+=std=bcl=> successful example check:  util::StartsWith( "Apple", "App") == 1
+=std=bcl=> successful example check:  util::StartsWith( "Apple", "Apple") == 1
+=std=bcl=> successful example check:  util::StartsWith( "Apple", "AppleMac") == 0
+=std=bcl=> successful example check:  util::StartsWith( "Apple", "ple") == 0
+=std=bcl=> successful example check:  util::EndsWith( "Apple", "Apple") == 1
+=std=bcl=> successful example check:  util::EndsWith( "Apple", "App") == 0
+=std=bcl=> successful example check:  util::EndsWith( "Apple", "ple") == 1
+=std=bcl=> successful example check:  util::EndsWith( "Apple", "") == 1
+=std=bcl=> successful example check:  util::StartsWith( "Apple", "") == 1
+=std=bcl=> successful example check:  util::ToLower( "ApPlEs And ORANGEs") == apples and oranges
+=std=bcl=> successful example check:  util::ToUpper( "appLeS And ORANGEs") == APPLES AND ORANGES
+=std=bcl=> is 1 a numerical value? : 1, it converts to 1
+=std=bcl=> is 2e3 a numerical value? : 1, it converts to 2000
+=std=bcl=> is 4e-5 a numerical value? : 1, it converts to 4e-05
+=std=bcl=> is  -6.04362354  a numerical value? : 1, it converts to -6.04362
+=std=bcl=> is 7.e8   a numerical value? : 1, it converts to 7e+08
+=std=bcl=> is   +9.0e+10 a numerical value? : 1, it converts to 9e+10
+=std=bcl=> is   +9.0e+10 a numerical value? : 1, it converts to 9e+10
+=std=bcl=> is +5e-07 a numerical value? : 1, it converts to 5e-07
+=std=bcl=> is  +5.5 a numerical value? : 1, it converts to 5.5
+=std=bcl=> is  -5.5 a numerical value? : 1, it converts to -5.5
+=std=bcl=> is 5. a numerical value? : 1, it converts to 5
+=std=bcl=> is 	5.5	 a numerical value? : 1, it converts to 5.5
+=std=bcl=> was 1e seen as a numerical value? : 0
+=std=bcl=> was 2e3+ seen as a numerical value? : 0
+=std=bcl=> was 4.+e-5 seen as a numerical value? : 0
+=std=bcl=> was  6.04362354.5  seen as a numerical value? : 0
+=std=bcl=> was 7.e8.5   seen as a numerical value? : 0
+=std=bcl=> was   ++9.0e+10 seen as a numerical value? : 0
+=std=bcl=> was   -+9.0e+10 seen as a numerical value? : 0
+=std=bcl=> was +5.a seen as a numerical value? : 0
+=std=bcl=> was a5 seen as a numerical value? : 0
+=std=bcl=> was 5. 5 seen as a numerical value? : 0
+=std=bcl=> was  +5..5 seen as a numerical value? : 0
+=std=bcl=> was  +-5.5 seen as a numerical value? : 0
+=std=bcl=> was  -+5.5 seen as a numerical value? : 0
+=std=bcl=> was  --5.5 seen as a numerical value? : 0
+=std=bcl=> was  ++5.5 seen as a numerical value? : 0
+=std=bcl=> was  +5.5+ seen as a numerical value? : 0
+=std=bcl=> util::LengthOfUnsignedIntegerType starting at index 0 in  1  test succeeded:
+              util::LengthOfUnsignedIntegerType( size_t_length_test[ test_number].first) ==
+              size_t_length_test[ test_number].second == 3
+=std=bcl=> util::LengthOfUnsignedIntegerType starting at index 0 in 1 test succeeded:
+              util::LengthOfUnsignedIntegerType( size_t_length_test[ test_number].first) ==
+              size_t_length_test[ test_number].second == 1
+=std=bcl=> util::LengthOfUnsignedIntegerType starting at index 0 in  100 A B C D  test succeeded:
+              util::LengthOfUnsignedIntegerType( size_t_length_test[ test_number].first) ==
+              size_t_length_test[ test_number].second == 5
+=std=bcl=> util::LengthOfUnsignedIntegerType starting at index 0 in  -100 A B C D  test succeeded:
+              util::LengthOfUnsignedIntegerType( size_t_length_test[ test_number].first) ==
+              size_t_length_test[ test_number].second == 0
+=std=bcl=> util::LengthOfUnsignedIntegerType starting at index 0 in  A B C D 100  test succeeded:
+              util::LengthOfUnsignedIntegerType( size_t_length_test[ test_number].first) ==
+              size_t_length_test[ test_number].second == 0
+=std=bcl=> iss.str( "  ") test succeeded:  util::StringListFromIStream( iss).GetSize() == 0
+=std=bcl=> iss.str( "'  '") test succeeded:  util::StringListFromIStream( iss).GetSize() == 1
+=std=bcl=> iss.str( "'  \'' abra "ca da be'\"
+              ra"") test succeeded:
+               util::StringListFromIStream( iss) ==
+              storage::Vector< std::string>::Create( "  '", "abra", "ca da be\r\'\"\nra") ==
+              bcl::storage::Vector<std::string>
+                3
+                "  '"
+                "abra"
+                "ca da be'\"
+              ra"
+=std=bcl=> successful example check:
+               util::Join( " ", storage::Vector< std::string>::Create( "Hello", "World")) ==
+              Hello World
+=std=bcl=> successful example check:
+               util::Join( " ", storage::Vector< std::string>::Create( "Hello World")) ==
+              Hello World
+=std=bcl=> successful example check:
+               util::Join( ", ", storage::Vector< std::string>::Create( "Red", "White", "Blue"))
+              == Red, White, Blue
+=std=bcl=> first string:  PQRSTALPHAGAM7 MAKKD
+=std=bcl=> second string: XYZLAPHAGAM7 MAZ
+=std=bcl=> maximum match of second within first: PHAGAM7 MA
+=std=bcl=> test 1: PHAGAM7 MA
+=std=bcl=> test 2: PHAGAM7 MA
+=std=bcl=> maximum match of first within second: PHAGAM7 MA
+=std=bcl=> test 1: PHAGAM7 MA
+=std=bcl=> test 2: PHAGAM7 MA
+=std=bcl::app=> BCL Example | END  : UtilStringFunctions ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+UtilStringFunctions_total                58          0              
+total                                    58          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

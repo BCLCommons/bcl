@@ -1,0 +1,109 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec AssemblePickSSEFurthestEuclidean 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AssemblePickSSEFurthestEuclidean
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AssemblePickSSEFurthestEuclidean ====================
+=std=bcl=> building models from pdb chains and sse information
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> Current SSE is 50.796 away from the center of the protein
+=std=bcl=> Current SSE is 36.2711 away from the center of the protein
+=std=bcl=> Current SSE is 44.3574 away from the center of the protein
+=std=bcl=> Current SSE is 36.9843 away from the center of the protein
+=std=bcl=> Current SSE is 24.2309 away from the center of the protein
+=std=bcl=> Current SSE is 30.4815 away from the center of the protein
+=std=bcl=> Current SSE is 42.7822 away from the center of the protein
+=std=bcl=> Current SSE is 45.6113 away from the center of the protein
+=std=bcl=> Current SSE is 41.0522 away from the center of the protein
+=std=bcl=> Current SSE is 27.2754 away from the center of the protein
+=std=bcl=> Current SSE is 21.2279 away from the center of the protein
+=std=bcl=> Current SSE is 13.9125 away from the center of the protein
+=std=bcl=> Current SSE is 25.8004 away from the center of the protein
+=std=bcl=> Current SSE is 26.986 away from the center of the protein
+=std=bcl=> Current SSE is 38.227 away from the center of the protein
+=std=bcl=> Current SSE is 29.2742 away from the center of the protein
+=std=bcl=> Current SSE is 20.0368 away from the center of the protein
+=std=bcl=> Current SSE is 16.0073 away from the center of the protein
+=std=bcl=> Current SSE is 36.2641 away from the center of the protein
+=std=bcl=> Current SSE is 37.6814 away from the center of the protein
+=std=bcl=> Current SSE is 44.1076 away from the center of the protein
+=std=bcl=> Current SSE is 50.026 away from the center of the protein
+=std=bcl=> Current SSE is 47.9832 away from the center of the protein
+=std=bcl=> Current SSE is 33.1094 away from the center of the protein
+=std=bcl=> Current SSE is 20.439 away from the center of the protein
+=std=bcl=> Current SSE is 26.8551 away from the center of the protein
+=std=bcl=> Current SSE is 41.9123 away from the center of the protein
+=std=bcl=> Current SSE is 37.0697 away from the center of the protein
+=std=bcl=> test default constructor
+=std=bcl=> test copy constructor
+=std=bcl=> test Pick function
+=std=bcl=> Furthest SSE is 50.796 away from the center of the protein
+=std=bcl::app=> BCL Example | END  : AssemblePickSSEFurthestEuclidean ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>          success      error error_string 
+AssemblePickSSEFurthestEuclidean_total          1          0              
+total                                           1          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 136 MB, peak physical RAM used: 68 MB

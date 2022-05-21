@@ -1,0 +1,113 @@
+bcl::model::CrossValidationInfo
+  CVMetadata(
+    independent=Subset(
+      filename=/dors/meilerlab/home/mendenjl/retrain_jufo/mahssmi/tm_beta/bb_proteins_14Oct02.bin,
+      number chunks=5,
+      chunks="[0,0]"
+    ),
+    monitoring=Subset(
+      filename=/dors/meilerlab/home/mendenjl/retrain_jufo/mahssmi/tm_beta/bb_proteins_14Oct02.bin,
+      number chunks=5,
+      chunks="[0,4]"
+    ),
+    training=Subset(
+      filename=/dors/meilerlab/home/mendenjl/retrain_jufo/mahssmi/tm_beta/bb_proteins_14Oct02.bin,
+      number chunks=5,
+      chunks="[0,4]"
+    ),
+    result=0.999513,
+    improvement type=LargerEqualIsBetter,
+    objective=SegmentOverlap(
+      output sequence info=1,
+      output subclass overlaps=1,
+      element weight=1,
+      sequence id=ProteinId,
+      element id=AASeqID
+    ),
+    iterate=NeuralNetwork(
+      transfer function=Sigmoid,
+      weight update=Simple(eta=0.05,alpha=0),
+      bias update=Simple(eta=0.05,alpha=0),
+      iteration weight update=bcl::model::NeuralNetworkPerturbationInterface,
+      steps per update=1,
+      hidden architecture(256),
+      rmsd report frequency=1,
+      initial network=bcl::model::PretrainNeuralNetworkInterface,
+      shuffle=1,
+      data selector=Accuracy(
+        begin=0,
+        end=3,
+        pure classification=1,
+        balance error=0,
+        tolerance above=0.95,
+        tolerance below=0.1,
+        ignore false predictions below=0,
+        ignore false predictions above=1,
+        flat error function=0
+      ),
+      connection density=1,
+      balance=1,
+      balance max repeats=2,
+      balance target ratio=1,
+      dropout(0.2,0.5),
+      dropout partitions(0),
+      scaling=AveStd,
+      input noise=0,
+      input dropout type=Noise,
+      align cutoff=0,
+      objective function=SegmentOverlap(
+        output sequence info=0,
+        output subclass overlaps=1,
+        element weight=1,
+        sequence id=ProteinId,
+        element id=AASeqID
+      )
+    ),
+    independent predictions=/dors/meilerlab/home/mendenjl/retrain_jufo/mahssmi/tm_beta/JackKnifePC1F500/results/MAHSSMI_BB_JackKnifeALL/independent0_monitoring0_number0.gz,
+    number outputs=3,
+    ids=Combine(
+      ProteinId,
+      AASeqID,
+      AAOneLetterCode,
+      NElements,
+      Define(PDBID=Partial(ProteinId,indices(0,1,2,3))),
+      Define(
+        OPMFamilyID=Mapped(
+          key=PDBID,
+          file=/dors/meilerlab/apps/PISCES/all_lists/opm_all_protein_pdbid_to_family.formatted.tbl,
+          delimiter=",",
+          default=-1
+        )
+      ),
+      Define(
+        OPMClassID=Mapped(
+          key=OPMFamilyID,
+          file=/dors/meilerlab/apps/PISCES/all_lists/opm_family_to_opm_class.txt,
+          delimiter=",",
+          default=-1
+        )
+      ),
+      Define(
+        OPMTypeID=Mapped(
+          key=OPMFamilyID,
+          file=/dors/meilerlab/apps/PISCES/all_lists/opm_family_to_tm_peripheral_peptide.txt,
+          delimiter=",",
+          default=0
+        )
+      ),
+      Define(
+        OPMMembraneID=Mapped(
+          key=PDBID,
+          file=/dors/meilerlab/apps/PISCES/all_lists/opm_all_protein_pdbid_to_membrane.formatted.tbl,
+          delimiter=",",
+          default=-1
+        )
+      ),
+      OPMFamilyID,
+      OPMClassID,
+      OPMTypeID,
+      OPMMembraneID
+    ),
+    id sizes(5,5,1,5,0,0,0,0,0,3,2,1,2),
+    prediction output format=CSV
+  )

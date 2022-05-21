@@ -1,0 +1,6 @@
+-quality RMSD 4
+-assignment_score steric hydrophobicity
+-write_alignment standard
+-min_number_aligned_residues 3
+-helix_classes 1 5
+-merge_overlapping_sses

@@ -1,0 +1,894 @@
+bcl::storage::Map<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>,std::less<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>>>
+  99
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_DiDiPiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	-1.93557	-1.55648	2	-0.991847	2	2	-0.37372	2	-0.0496526	2	2	-0.698989	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_DiDiPiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	-1.55528	2	2	-0.469645	2	-0.0162197	2	-0.720294	-0.155271	0.702386	-0.185936	0.96535	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_DiDiPiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	-1.11004	2	2	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_DiDiPiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	2	2	2	-1.59487	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      -0.424009	-0.00893081	0.100459	-0.14392	-0.328164	-0.365869	-0.360718	-0.0716294	-0.32925	0.0997846	0.120506	0.0588628	0.0868993	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      -0.199352	0.0575026	-0.0562511	0.00599876	0.230703	0.156582	0.0903536	-0.0824047	-0.00829512	0.0392838	0.00396956	-0.107395	-0.0058621	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	2	2	2	-1.59487	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2.04041	2	1.54979	0.930351	0.239293	0.0205816	0.268561	0.0568586	0.546689	0.0754431	0.150508	0.0664536	0.061084	-0.891738	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      -0.0920118	-0.47933	-0.367859	0.0537887	-0.367743	-0.117286	0.116774	0.42364	0.253004	0.24114	-0.0134212	0.0122979	0.0174307	-0.58309	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	-1.7058	2	2	2	2	0.302093	0.549193	2	2	2	-0.250069	-1.16237	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	1.39777	0.951726	1.11128	1.96894	0.792936	-0.601309	-0.289834	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      -1.48953	-0.0695248	0.119908	-0.194151	-0.870957	0.0221744	0.0832437	0.230682	0.14131	-0.151117	-0.114441	0.424353	-0.050328	0.203806	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      -0.012871	0.531666	-0.349343	0.0297453	-0.0566736	-0.1223	0.0123404	-0.0676111	-0.0196399	-0.137293	0.138443	0.0292103	-0.0685969	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      0.242178	0.0135246	0.0880272	0.172316	0.0667989	0.043801	-0.0176297	-0.0186113	-0.127497	-0.0468657	-0.0390547	0.0492208	-0.0396285	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	-0.945532	2	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	1.3164	1.68815	0.814477	0.530232	0.76007	0.658235	0.294848	0.305559	0.231502	0.20677	0.070784	-0.00242246	-0.967091	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      0.142083	0.0624655	0.316437	0.0595363	-0.10466	0.161545	-0.00790952	-0.103417	-0.0188364	-0.134382	0.0820876	0.292378	0.0775724	-0.680577	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	0.785714	1.6263	0.774787	0.423519	-0.105118	0.210533	0.0625356	-1.09093	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	2	-0.388668	-0.335995	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      -2.33152	-1.02485	-1.56938	-0.679469	-0.344675	0.290628	2	0.661655	0.215607	0.152022	0.13421	1.03765	-0.208962	-0.332805	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Di2DiPiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      -2.49497	-2.10459	2	2	2	-0.789114	-0.565526	2	2	-0.0114295	2	-0.329777	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Di2DiPiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	-2.35083	-1.28593	2	-1.67065	2	-0.811764	2	0.275921	0.435479	0.599989	0.810279	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Di2DiPiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	-1.54115	2	2	2	2	-0.598959	2	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Di2DiPiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	-0.396226	-0.185936	-0.133262	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Tr2TrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      1.16673	-0.314686	-0.469025	-0.910917	-0.0652973	-0.0451803	0.262965	0.0866166	0.271841	-0.000383264	0.0535843	0.174927	-0.0574179	-0.44547	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Tr2TrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2.72928	2.42652	0.718828	0.503209	-0.18915	0.00432013	0.276699	0.411714	0.216981	-0.0236205	0.0349967	-0.0542857	0.00550549	-0.425297	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Tr2TrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	-1.48621	0.782667	-0.224539	2.59516	2.13185	2	1.80973	0.00913874	0.27048	0.129607	0.00719201	0.201516	-0.907494	-2.25191	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Tr2TrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      2	-0.159223	-0.480616	2	2	-0.789659	-0.378018	0.140984	2	0.0776381	0.87467	-0.159364	0.233178	-0.679122	-1.43575	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Tr2TrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	2	2	2	2	-3.78658	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Tr2TrTrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	-0.0766421	-1.4466	0.0825249	-0.387034	1.55216	2	-0.526085	-0.274564	2.33362	2.3863	-0.135443	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	-0.157577	-0.0735055	-0.0998821	-0.324703	-0.546851	0.534188	-0.0466126	-0.193417	-0.279992	-0.0201724	0.464555	0.222989	-0.471058	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2.95514	1.24745	0.570485	0.639576	0.774103	0.217533	0.0983427	0.4114	0.00487025	-0.0183038	0.197349	0.0730916	-0.904592	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	2	2	2	-0.79015	-3.67501	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2.37591	0.813988	-0.348719	0.0323347	0.00499764	-0.44521	-0.0629769	0.426027	1.10285	-0.359492	-2.84845	-3.90822	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      0.196444	-0.665933	-0.294179	-1.0137	0.97932	0.803692	0.334133	0.481572	-0.252158	1.17591	0.765057	0.803497	0.304102	-0.940332	-3.11006	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	2	2	2	2	-3.78658	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	2	2	-0.00350646	-1.42663	-2.0089	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	0.913151	1.24795	1.47778	2	0.462515	0.997297	0.869173	-0.352612	0.232372	-0.312791	0.384346	-0.421068	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	-0.0974169	-0.411476	0.616466	0.846304	-0.0287204	-0.168964	1.46443	0.525376	0.17906	2	0.105552	-1.25873	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	-0.444977	-0.76637	0.999013	1.33381	-0.0457929	-0.697673	0.142912	0.572334	1.24272	-0.0591104	0.231223	0.060753	-0.782555	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	0.0529592	0.387754	2	2	0.295471	0.542571	0.00898145	-0.0496526	-0.175834	0.213312	-0.188163	-2.66755	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      -1.06229	-0.671903	-0.300149	-0.614208	0.413734	-0.965867	0.867159	0.321451	1.2617	1.42126	0.487153	0.00429609	1.84873	-0.855331	-3.04704	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	-0.214162	2	2	-0.479836	-0.698989	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	2	2	-0.682568	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	-1.31756	2	2	2	2	2	-0.335995	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	0.435129	-0.364437	1.14901	0.367249	-0.189321	-0.329565	1.08069	-0.328372	-0.0538618	0.133439	0.359385	-0.60556	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      -0.202176	0.0340592	-0.783771	-0.360231	-0.545311	-0.342142	-0.0918857	0.488417	0.199998	0.266466	-0.216709	0.440595	0.0817615	-0.660194	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	0.0878955	2	2	2	2	1.03009	-0.145914	0.194441	-1.00554	-2.90957	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      -1.56577	-1.58085	2	-0.242216	2	0.833242	0.209532	-0.469708	0.247396	0.917779	0.571463	0.519389	-0.195192	-0.608501	-2.4519	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	0.416563	0.390187	-1.00962	-0.249154	-0.767503	0.227233	-0.419485	0.346209	0.69304	0.497865	0.167547	-0.361761	-1.92486	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	2	0.584287	-0.0561867	-1.37395	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	-1.11004	2	2	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      -2.90044	2	2	-2.16468	2	2	-0.277844	2	0.116694	2	2	2	0.703726	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2TrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	1.32227	2	2	1.24725	0.713661	1.16585	-0.164302	-0.362942	-0.464313	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2TrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      0.833174	0.124948	0.902167	1.28126	0.363287	1.15274	-0.00996558	-0.0856707	-0.480425	1.11949	0.262353	0.472644	-0.226099	-0.426204	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2TrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	1.34181	0.895767	0.362178	2	0.513834	0.566508	-0.815796	-3.49301	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2TrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	0.428667	2	0.993299	1.21689	-0.0219684	1.61143	0.384689	0.836881	2.14578	-0.574131	-0.100137	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2TrTrPi2"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	-0.409353	2	2	2	2	2	2	2	2	2	1.73953	-1.57067	-2.05763	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      -0.3452	-1.05343	-0.276207	0.102882	0.437676	1.36066	-0.20751	-0.214222	0.880175	-0.0588789	0.000270021	0.0282389	0.167924	-0.649066	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	1.00038	-0.419629	-0.194691	0.699719	0.0132661	-0.168611	-0.0211724	0.100764	0.0978034	0.424832	-0.142582	-0.00535118	-0.281663	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      -0.618266	2	0.143874	2	2	2	1.31118	0.765474	1.01257	0.07352	-0.0496526	0.294169	0.213312	-0.00584177	-3.29616	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      -0.5502	2	0.21194	-0.795265	0.925823	0.0570487	-0.566661	2	0.16435	0.547051	0.711561	0.921851	-0.124087	-0.949377	-2.35263	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	-0.763468	-0.598959	2	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	-1.75802	-1.38626	-1.00717	2	2	-1.31756	-0.0715139	2	2	2	0.0167967	2	-0.149683	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "F_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	-1.0215	2	0.0978445	0.327682	1.24442	2	0.252661	1.10537	1.26988	-0.391636	-0.0765977	-0.295751	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "F_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	-0.442471	-0.987007	-0.0970931	-0.860911	0.873004	1.09659	-0.701879	-0.300629	0.146611	-0.199705	0.32074	0.574085	0.249571	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "F_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	-0.999841	-1.7267	2	-0.607351	0.315633	2	2	-0.164853	0.400171	0.56468	0.369505	0.134497	-0.777803	-2.68183	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "F_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      2	-1.55067	2	2	0.22811	0.457948	-0.417076	0.135827	-0.715685	2	0.301529	0.224138	0.564493	-0.635489	-2.13405	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "F_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Te2Te2TeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	-1.17013	2	2	-0.598959	2	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "F_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      -2.78887	-2.39848	2	2	-1.31284	2	-0.859419	2	2	2	-0.140813	2	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "S_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	0.124949	2	2	0.743076	0.902634	1.06714	-0.10886	-0.0561867	-0.968487	-2.46705	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "S_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	0.563602	0.94269	1.27748	1.50732	-1.04168	-0.0675613	-0.439501	0.675569	0.840078	0.357222	0.00443021	0.00842046	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "S_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	0.68666	2	2	2	2	0.422179	-1.47095	-2.27637	-6.19834	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "S_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	0.42476	0.648348	2	2	2	1.36695	-0.368666	0.531306	-0.668677	-3.08353	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "S_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	2	-0.532509	0.213312	2	-2.8907	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Cl_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      -1.10178	-0.711398	2	-1.05917	0.374239	2	0.827665	0.281956	0.529056	-0.00453289	-0.245489	-0.32288	0.710623	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Cl_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      -1.12455	-0.0410215	-0.362415	0.0166739	-0.747144	-0.671457	-0.5814	0.259185	-0.0533306	-0.345758	0.607209	-0.138012	1.09332	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Cl_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	2	2	2	-1.59487	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Cl_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	-1.35923	-0.980139	-0.645344	2	-0.191919	-0.737627	0.20262	0.362178	-0.16646	0.736978	2	-0.815796	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Cl_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      -1.53815	2	2	-0.396921	2	0.167711	-0.301848	-0.15441	-0.312775	0.252248	-0.27639	-0.0660994	0.679722	0.460568	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Cl_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	-2.39848	2	-1.64764	2	-1.08301	2	-0.711981	2	2	-0.140813	2	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "S_TeTeTeTePiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	-0.40399	-0.032236	2	2	-0.187128	1.13507	-0.79693	-0.667614	-0.508055	0.467384	0.677675	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "S_TeTeTeTePiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      -1.05288	-1.5098	0.807868	-1.01027	-0.270009	-0.327853	-0.732874	-0.585435	-0.338336	-0.0356767	0.0547248	0.339123	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "S_TeTeTeTePiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi2"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	-1.11004	2	2	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "S_TeTeTeTePiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	0.000278966	2	0.564911	0.0953521	-0.450357	-1.11955	0.649448	0.813958	1.7174	1.07692	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "S_TeTeTeTePiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      2	-0.659403	-0.287649	0.0914397	-1.1832	0.656072	0.87966	1.0271	1.2742	-0.645685	0.211971	0.199118	0.251792	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "S_TeTeTeTePiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	-0.945532	2	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "S_TeTeTeTePiPi"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	-2.65389	-2.28214	2	2	2	2	-0.967394	2	2	2	2	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Br_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      -2.07398	2	-0.906373	-0.527285	-0.885637	0.0373474	-0.432212	-0.507917	-0.443138	-0.437731	0.574076	0.496685	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Br_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      -1.04637	-0.655985	-0.571913	1.19347	-0.0811737	-0.32134	0.372252	-0.0680962	-0.514144	-0.0291631	-0.477758	0.345637	2	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Br_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	0.169792	-0.293518	0.623217	0.0775086	1.01776	-0.432124	-0.0444713	0.453501	-0.186972	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Br_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      -1.31141	2	2	2	-0.528537	0.394448	-0.0751112	0.0723272	1.01257	-0.437306	-0.455118	0.853785	0.213312	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Br_S2P2P2P"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	-2.51005	-2.1383	2	2	2	2	2	2	-0.416895	2	2	0.010579	2	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      -1.93141	-2.02653	-1.28705	-1.27569	0.525446	-0.543999	-0.407423	-0.259984	-0.418349	-0.00747696	1.4098	0.173167	1.26729	0.760459	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "C_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	-0.402643	0.564233	0.899027	0.0302524	0.396941	0.806744	0.466057	-0.147574	-0.493891	0.279869	0.279899	-0.336136	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2TeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	-0.747794	2	2	2	0.567681	2	-0.56537	-0.42363	-0.0409287	-0.0995628	-0.0715939	0.674227	0.455074	-0.638023	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "O_Tr2Tr2TrPi"
+    bcl::linal::Vector<double>
+      20
+      -0.313072	-2.11991	2	0.13501	1.16295	1.39279	0.92323	1.07067	2	0.561036	0.948689	0.599363	-0.0411102	-1.20473	-0.506062	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TrTrTrPi"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	2	2	2	2	2	2	2	2	2	-1.59487	2	2	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "N_Te2Te2TeTe"
+      bcl::chemistry::AtomTypes::Enum
+        "N_TeTeTeTe"
+    bcl::linal::Vector<double>
+      20
+      2	2	2	2	-0.0873424	2	2	2	2	-0.466115	-0.70707	1.29498	0.654506	2	2	2	0	0	0	0	
+

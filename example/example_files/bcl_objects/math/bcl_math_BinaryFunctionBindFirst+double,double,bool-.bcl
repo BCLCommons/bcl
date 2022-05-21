@@ -1,0 +1,6 @@
+bcl::math::BinaryFunctionBindFirst<double,double,bool>
+  bcl::util::ShPtr<bcl::util::BinaryFunctionInterface<double,double,bool>>
+    12345678
+    bcl::ExampleMathBinaryFunctionBindFirst::Larger
+
+  -1

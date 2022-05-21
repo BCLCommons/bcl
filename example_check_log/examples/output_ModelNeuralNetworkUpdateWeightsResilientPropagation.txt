@@ -1,0 +1,150 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ModelNeuralNetworkUpdateWeightsResilientPropagation 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ModelNeuralNetworkUpdateWeightsResilientPropagation
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ModelNeuralNetworkUpdateWeightsResilientPropagation ====================
+=std=bcl=> constructor from label test succeeded:  weight_updater_impl.IsDefined() == 1
+=std=bcl=> constructor from label test succeeded:
+               weight_updater_impl.GetLabel() == weight_updater_default.GetLabel() ==
+              bcl::util::ObjectDataLabel
+                Resilient(max change=50,min change=0.001)
+=std=bcl=> updating weights with 0 changes and slopes has no effect test succeeded:
+               weights == initial_weights ==
+              bcl::linal::Vector<float>
+                2
+                0.4	0.96	
+=std=bcl=> updating weights with 0 changes and slopes leaves changes unchanged test succeeded:
+               slopes == zero_vector ==
+              bcl::linal::Vector<float>
+                2
+                0	0	
+=std=bcl=> change update with non-0 changes, 0 slopes test succeeded:
+               weight_updater_impl->GetChanges() ==
+              initial_changes == bcl::linal::Vector<float>
+                2
+                0.5	0.91	
+=std=bcl=> change update with non-0 changes, 0 slopes test succeeded:
+               weights ==
+              initial_weights + weight_updater_impl->GetChanges() == bcl::linal::Vector<float>
+                2
+                0.9	1.87	
+=std=bcl=> change update with non-0 changes, non-0 slopes test succeeded:
+               weight_updater_impl->GetChanges() ==
+              initial_changes * increase_factor == bcl::linal::Vector<float>
+                2
+                0.6	1.092	
+=std=bcl=> weight update with non-0 changes, non-0 slopes test succeeded:
+               weights ==
+              initial_weights + weight_updater_impl->GetChanges() == bcl::linal::Vector<float>
+                2
+                1	2.052	
+=std=bcl=> slopes should only be changed when the signs of the last two slopes differ test succeeded:
+               slopes ==
+              initial_slopes == bcl::linal::Vector<float>
+                2
+                6.1	5.692	
+=std=bcl=> change update with non-0 changes, slope of opposite sign test succeeded:
+               weight_updater_impl->GetChanges() ==
+              initial_changes * decrease_factor == bcl::linal::Vector<float>
+                2
+                0.25	0.455	
+=std=bcl=> weights should not change when previous slopes are of opposite sign test succeeded:
+               weights ==
+              initial_weights == bcl::linal::Vector<float>
+                2
+                0.4	0.96	
+=std=bcl=> slopes should be reset to 0 when the signs of the last two slopes differ test succeeded:
+               slopes ==
+              zero_vector == bcl::linal::Vector<float>
+                2
+                0	0	
+=std=bcl=> memory of slope of previous iteration test succeeded:
+               weight_updater_impl->GetChanges() == initial_changes ==
+              bcl::linal::Vector<float>
+                2
+                0.5	0.91	
+=std=bcl=> memory of slope of previous iteration test succeeded:
+               weights ==
+              initial_weights - weight_updater_impl->GetChanges() == bcl::linal::Vector<float>
+                2
+                -0.1	0.05	
+=std=bcl=> slopes should only be changed when the signs of the last two slopes differ test succeeded:
+               slopes ==
+              neg_initial_slopes == bcl::linal::Vector<float>
+                2
+                -6.1	-5.692	
+=std=bcl=> memory of slope of previous iteration test succeeded:
+               weight_updater_impl->GetChanges() ==
+              initial_changes * increase_factor == bcl::linal::Vector<float>
+                2
+                0.6	1.092	
+=std=bcl=> memory of slope of previous iteration test succeeded:
+               weights ==
+              initial_weights - weight_updater_impl->GetChanges() == bcl::linal::Vector<float>
+                2
+                -0.2	-0.132	
+               (+/- 0.001%)
+=std=bcl=> slopes should only be changed when the signs of the last two slopes differ test succeeded:
+               slopes ==
+              neg_initial_slopes == bcl::linal::Vector<float>
+                2
+                -6.1	-5.692	
+=std=bcl::app=> BCL Example | END  : ModelNeuralNetworkUpdateWeightsResilientPropagation ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>                             success      error error_string 
+ModelNeuralNetworkUpdateWeightsResilientPropagation_total         18          0              
+total                                                             18          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

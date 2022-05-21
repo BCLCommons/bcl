@@ -1,0 +1,93 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec IoDirectory 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> IoDirectory
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: IoDirectory ====================
+=std=bcl=> successful example check:
+               sp_dir->GetClassIdentifier() == GetStaticClassName( default_dir) ==
+              bcl::io::Directory
+=std=bcl=> successful example check:
+               dir_test.GetPath() == AddExampleOutputPathToFilename( default_dir, "test") ==
+              example/example_files/output/io/test
+=std=bcl=> successful example check:
+               dir_from_path.AppendFilename( "test.pdb") ==
+              AddExampleOutputPathToFilename( dir_from_path, "test.pdb") == example/example_files/output/io/test.pdb
+=std=bcl=> successful example check:  dir_test.DoesExist() == 0
+=std=bcl=> Make directory test succeeded:  make_success == 1
+=std=bcl=> Remove directory test succeeded:  remove_success == 1
+=std=bcl=> MkDir test succeeded:  mk_test.DoesExist() == 1
+=std=bcl=> make sub directory test succeeded:  make_subdir_success == 1
+=std=bcl=> make sub directory should not have created any sub-sub directories test succeeded:
+              sub_dir.ListEntries( io::Directory::e_Dir).GetSize() == 0
+=std=bcl=> successful example check:  sub_dir.ListEntries( io::Directory::e_File, "", ".txt").GetSize() == 1
+=std=bcl=> successful example check:  sub_dir.ListEntries( io::Directory::e_File, "test").GetSize() == 1
+=std=bcl=> new files are seen test succeeded:  sub_dir.ListEntries().GetSize() == original_files_sub_dir + 1 == 1
+=std=bcl=> successful example check:
+               sub_dir.ListEntries().FirstElement().GetDirectory().GetPath() == sub_dir.GetPath()
+              == example/example_files/output/io/test2/test3
+=std=bcl=> MkDir dir clear test succeeded:  clear_mk_test == 0
+=std=bcl=> MkDir dir remove test succeeded:  remove_mk_test == 0
+=std=bcl=> MkDir dir recursive remove test succeeded:  remove_recursive_mk_test == 1
+=std=bcl=> ListEntries number of directories test succeeded:  number_dirs == s_NumberExampleInputTypes == 15
+=std=bcl=> write and read test succeeded:
+               dir_read.GetPath() == dir_from_path.GetPath() ==
+              example/example_files/output/io
+=std=bcl::app=> BCL Example | END  : IoDirectory ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+IoDirectory_total                        18          0              
+total                                    18          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

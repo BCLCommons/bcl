@@ -1,0 +1,6 @@
+bcl::math::BinaryFunctionCached<bcl::ExampleMathBinaryFunctionCached::Student,bcl::ExampleMathBinaryFunctionCached::Student,double>
+  bcl::util::ShPtr<bcl::math::BinaryFunctionInterface<bcl::ExampleMathBinaryFunctionCached::Student,bcl::ExampleMathBinaryFunctionCached::Student,double>>
+    12345678
+    bcl::ExampleMathBinaryFunctionCached::GradeAverage
+
+  1

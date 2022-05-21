@@ -1,0 +1,14 @@
+bcl::model::KohonenNode
+  bcl::linal::Vector<float>
+    2
+    0	0	
+  bcl::math::RunningAverage<bcl::linal::Vector<float>>
+    bcl::linal::Vector<float>
+      3
+      0	0	0	
+    0
+  bcl::math::RunningAverage<bcl::linal::Vector<float>>
+    bcl::linal::Vector<float>
+      1
+      0	
+    0

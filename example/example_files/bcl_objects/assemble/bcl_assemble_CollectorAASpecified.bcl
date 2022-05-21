@@ -1,0 +1,6 @@
+bcl::assemble::CollectorAASpecified
+  bcl::storage::List<bcl::assemble::LocatorAA>
+    3
+    LocatorAA(locator_chain=A,seq_id=45,aa type=Undefined,use_pdb_id=0)
+    LocatorAA(locator_chain=B,seq_id=36,aa type=Undefined,use_pdb_id=0)
+    LocatorAA(locator_chain=A,seq_id=100,aa type=Undefined,use_pdb_id=0)

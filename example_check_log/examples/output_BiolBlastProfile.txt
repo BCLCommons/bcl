@@ -1,0 +1,156 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec BiolBlastProfile 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> BiolBlastProfile
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: BiolBlastProfile ====================
+=std=bcl=> Reading first profile vector from file
+=std=bcl=> Reading second profile vector from file
+=std=bcl=> Testing default constructor
+=std=bcl=> Testing constructor from a vector
+=std=bcl=> Testing copy constructor
+=std=bcl=> Testing clone function
+=std=bcl=> successful example check:
+               blast_profile_empty.GetClassIdentifier() ==
+              GetStaticClassName( blast_profile_empty) == bcl::biol::BlastProfile
+=std=bcl=> Testing GetProfile( AAType) function
+=std=bcl=> successful example check:
+               blast_profile_a.GetProfile( biol::GetAATypes().CYS) ==
+              profile_vector_a( biol::GetAATypes().CYS) == -2
+=std=bcl=> Testing GetProfile function
+=std=bcl=> Profile for blast_profile_a
+bcl::linal::Vector<double>
+  20
+  0	-2	0	-1	-2	-1	-1	-1	-2	-3	-3	-1	-2	-3	-2	6	0	-4	-3	-3	
+=std=bcl=> successful example check:
+               blast_profile_a.GetProfile() == profile_vector_a ==
+              bcl::linal::Vector<double>
+                20
+                0	-2	0	-1	-2	-1	-1	-1	-2	-3	-3	-1	-2	-3	-2	6	0	-4	-3	-3	
+=std=bcl=> Profile for blast_profile_b
+bcl::linal::Vector<double>
+  20
+  -1	-2	-1	-1	-2	0	1	-3	1	-2	-2	-2	-2	-1	-2	0	5	-1	4	-1	
+=std=bcl=> successful example check:
+               blast_profile_b.GetProfile() == profile_vector_b ==
+              bcl::linal::Vector<double>
+                20
+                -1	-2	-1	-1	-2	0	1	-3	1	-2	-2	-2	-2	-1	-2	0	5	-1	4	-1	
+=std=bcl=> Testing GetProbabilities function
+=std=bcl=> Probabilities for blast_profile_a
+bcl::linal::Vector<double>
+  20
+  0.0587836	0.03709	0.0587836	0.0466935	0.03709	0.0466935	0.0466935	0.0466935	0.03709	0.0294616	0.0294616	0.0466935	0.03709	0.0294616	0.03709	0.234022	0.0587836	0.0234022	0.0294616	0.0294616	
+=std=bcl=> Reading BLAST profile test succeeded:
+               blast_profile_a.GetProbabilities() == profile_probabilities_a ==
+              bcl::linal::Vector<double>
+                20
+                0.0587836	0.03709	0.0587836	0.0466935	0.03709	0.0466935	0.0466935	0.0466935	0.03709	0.0294616	0.0294616	0.0466935	0.03709	0.0294616	0.03709	0.234022	0.0587836	0.0234022	0.0294616	0.0294616	
+               (+/- 0.001%)
+=std=bcl=> Probabilities for blast_profile_b
+bcl::linal::Vector<double>
+  20
+  0.0399644	0.0317449	0.0399644	0.0399644	0.0317449	0.0503123	0.0633394	0.0252159	0.0633394	0.0317449	0.0317449	0.0317449	0.0317449	0.0399644	0.0317449	0.0503123	0.159101	0.0399644	0.126379	0.0399644	
+=std=bcl=> Reading BLAST profile test succeeded:
+               blast_profile_b.GetProbabilities() == profile_probabilities_b ==
+              bcl::linal::Vector<double>
+                20
+                0.0399644	0.0317449	0.0399644	0.0399644	0.0317449	0.0503123	0.0633394	0.0252159	0.0633394	0.0317449	0.0317449	0.0317449	0.0317449	0.0399644	0.0317449	0.0503123	0.159101	0.0399644	0.126379	0.0399644	
+               (+/- 0.001%)
+=std=bcl=> Testing SetProfile function
+=std=bcl=> SetProfile test succeeded:
+               blast_profile_b.GetProfile() == blast_profile_a.GetProfile() ==
+              bcl::linal::Vector<double>
+                20
+                0	-2	0	-1	-2	-1	-1	-1	-2	-3	-3	-1	-2	-3	-2	6	0	-4	-3	-3	
+=std=bcl=> SetProfile test succeeded:
+               blast_profile_b.GetProbabilities() == blast_profile_a.GetProbabilities() ==
+              bcl::linal::Vector<double>
+                20
+                0.0587836	0.03709	0.0587836	0.0466935	0.03709	0.0466935	0.0466935	0.0466935	0.03709	0.0294616	0.0294616	0.0466935	0.03709	0.0294616	0.03709	0.234022	0.0587836	0.0234022	0.0294616	0.0294616	
+=std=bcl=> compare blast_profile_a and blast_profile_a_copy
+=std=bcl=> Copy constructor test succeeded:
+               blast_profile_b.GetProfile() == blast_profile_a_copy.GetProfile() ==
+              bcl::linal::Vector<double>
+                20
+                0	-2	0	-1	-2	-1	-1	-1	-2	-3	-3	-1	-2	-3	-2	6	0	-4	-3	-3	
+=std=bcl=> Copy constructor test succeeded:
+               blast_profile_b.GetProbabilities() ==
+              blast_profile_a_copy.GetProbabilities() ==
+              bcl::linal::Vector<double>
+                20
+                0.0587836	0.03709	0.0587836	0.0466935	0.03709	0.0466935	0.0466935	0.0466935	0.03709	0.0294616	0.0294616	0.0466935	0.03709	0.0294616	0.03709	0.234022	0.0587836	0.0234022	0.0294616	0.0294616	
+=std=bcl=> successful example check:
+               blast_profile_a.CalculateConservation() == correct_conservation == 0.264231
+               (+/- 1e-06%)
+=std=bcl=> testing read and write functionalities
+=std=bcl=> compare written and read objects
+=std=bcl=> I/O symmetry test succeeded:
+               blast_profile_read.GetProfile() == blast_profile_a.GetProfile() ==
+              bcl::linal::Vector<double>
+                20
+                0	-2	0	-1	-2	-1	-1	-1	-2	-3	-3	-1	-2	-3	-2	6	0	-4	-3	-3	
+=std=bcl=> I/O symmetry test succeeded:
+               blast_profile_a.GetProbabilities() == blast_profile_read.GetProbabilities() ==
+              bcl::linal::Vector<double>
+                20
+                0.0587836	0.03709	0.0587836	0.0466935	0.03709	0.0466935	0.0466935	0.0466935	0.03709	0.0294616	0.0294616	0.0466935	0.03709	0.0294616	0.03709	0.234022	0.0587836	0.0234022	0.0294616	0.0294616	
+               (+/- 0.001%)
+=std=bcl::app=> BCL Example | END  : BiolBlastProfile ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+BiolBlastProfile_total                   13          0              
+total                                    13          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

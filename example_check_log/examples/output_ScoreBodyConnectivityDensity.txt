@@ -1,0 +1,105 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ScoreBodyConnectivityDensity 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ScoreBodyConnectivityDensity
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ScoreBodyConnectivityDensity ====================
+=std=bcl=> reading pdb: example/example_files/input/biology/1IE9.pdb
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 ASP A  149  PHE A  153  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 GLY A  250  LEU A  254  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    7   7 ASN A  290  ASP A  292  5                                   3    
+=std=bcl=> writing mrc: example/example_files/output/score/1IE9.mrc
+=std=bcl=> there are 7 bodies in bodies
+=std=bcl=> there are 7 bodies in two_bodies
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 ASP A  149  PHE A  153  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 GLY A  250  LEU A  254  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    7   7 ASN A  290  ASP A  292  5                                   3    
+=std=bcl::restraint=> number of SSEs to create bodies from: 9
+=std=bcl::restraint=> number of chains: 1
+=std=bcl::restraint=> number of sses: 9
+=std=bcl::restraint=> number of aas in protein model: 163
+=crt=bcl::restraint=> number of body restraints created : 9
+=crt=bcl::score=> mean: 2.48852 , stddev: 0.389869
+=crt=bcl::score=> mean: 0 , stddev: 0
+=std=bcl=> I/O test succeeded:
+               connectivity_score_object.GetBodyRestraint() == body_restraint
+              output of result suppressed (result was 365599 bytes), set message verbosity to Detail to override
+=std=bcl=> successful example check:  connectivity_score_object.GetScores().GetSize() == 144
+=std=bcl=> Default constructor should not create connectivities test succeeded:  def_constr.GetScores().IsEmpty() == 1
+=std=bcl=> 1 2 0 1 3.58874 5.49526
+=std=bcl=> 1 4 1 1 2.07288 11.0016
+=std=bcl=> 1 7 0 0 1.6793 11.4098
+=std=bcl=> 2 5 0 0 2.21393 11.991
+=std=bcl=> 3 4 0 0 2.42828 11.2606
+=std=bcl=> 3 6 1 1 2.99122 11.1355
+=std=bcl=> 4 5 0 1 1.89726 11.2733
+=std=bcl=> 5 6 1 0 2.88169 10.2926
+=std=bcl=> 6 7 0 1 1.95876 11.1999
+=std=bcl=> successful example check:  connectivities_1IE9.GetSize() == 144
+=std=bcl=> successful example check:  score_map.GetSize() == 144
+=std=bcl=> connectivity from list should be in score_map test succeeded:  all_connectivities_were_in_map == 1
+=std=bcl=> Test write and read
+=std=bcl::app=> BCL Example | END  : ScoreBodyConnectivityDensity ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>      success      error error_string 
+ScoreBodyConnectivityDensity_total          6          0              
+total                                       6          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:01, peak virtual memory used: 137 MB, peak physical RAM used: 69 MB

@@ -1,0 +1,146 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec MathCubicSpline 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> MathCubicSpline
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: MathCubicSpline ====================
+=std=bcl=> Example for a natural spline (f''(x_0)=f''(x_dim-1)=0):
+=std=bcl=> Lower bound: 
+=std=bcl=>  x       f(x)      f'(x)
+=std=bcl=>  -180.50 27.418119 -2.836237
+=std=bcl=>  -180.40 27.134495 -2.836237
+=std=bcl=>  -180.30 26.850871 -2.836237
+=std=bcl=>  -180.20 26.567247 -2.836237
+=std=bcl=>  -180.10 26.283624 -2.836237
+=std=bcl=>  -180.00 26.000000 -2.836237
+=std=bcl=>  -179.90 25.716382 -2.836076
+=std=bcl=>  -179.80 25.432795 -2.835594
+=std=bcl=>  -179.70 25.149274 -2.834789
+=std=bcl=>  -179.60 24.865848 -2.833663
+=std=bcl=>  -179.50 24.582552 -2.832215
+=std=bcl=> Between bounds: 
+=std=bcl=>  x       f(x)      f'(x)
+=std=bcl=>  -80.10  6.939413  0.610792
+=std=bcl=>  -77.10  8.319088  0.309148
+=std=bcl=>  -74.10  8.796311  0.009336
+=std=bcl=>  -71.10  8.377114 -0.288464
+=std=bcl=> Upper bound: 
+=std=bcl=>  x       f(x)      f'(x)
+=std=bcl=>  179.50  1.223935 -0.081691
+=std=bcl=>  179.60  1.215766 -0.081691
+=std=bcl=>  179.70  1.207596 -0.081691
+=std=bcl=>  179.80  1.199427 -0.081691
+=std=bcl=>  179.90  1.191258 -0.081691
+=std=bcl=>  180.00  1.183089 -0.081691
+=std=bcl=>  180.10  1.174920 -0.081691
+=std=bcl=>  180.20  1.166751 -0.081691
+=std=bcl=>  180.30  1.158582 -0.081691
+=std=bcl=>  180.40  1.150413 -0.081691
+=std=bcl=>  180.50  1.142244 -0.081691
+=std=bcl=> Example for a spline with set values for f'(x_0) and f'(x_dim-1):
+=std=bcl=> Lower bound: 
+=std=bcl=>  x       f(x)      f'(x)
+=std=bcl=>  -180.10 26.400000 -4.000000
+=std=bcl=>  -180.00 26.000000 -4.000000
+=std=bcl=>  -179.90 25.602013 -3.959781
+=std=bcl=>  -179.80 25.208038 -3.919751
+=std=bcl=>  -179.70 24.818056 -3.879911
+=std=bcl=>  -179.60 24.432049 -3.840260
+=std=bcl=>  -179.50 24.049998 -3.800798
+=std=bcl=> Between bounds: 
+=std=bcl=>  x       f(x)      f'(x)
+=std=bcl=>  -80.10  6.939414  0.610789
+=std=bcl=>  -77.10  8.319084  0.309148
+=std=bcl=>  -74.10  8.796308  0.009336
+=std=bcl=>  -71.10  8.377114 -0.288464
+=std=bcl=> Upper bound: 
+=std=bcl=>  179.80 168.600000
+=std=bcl=>  179.90 170.300000
+=std=bcl=>  180.00 172.000000
+=std=bcl=>  180.10 173.700000
+=std=bcl=> Example for use of FdF (trained spline): FdF( -400)=bcl::storage::Pair<double,double>
+  2.25
+  -0.0886841
+=std=bcl=> Example for  a periodic spline:
+=std=bcl=>  x      f( x)     f'( x)    f( x+360) f'( x+360) 
+=std=bcl=>  -180.10 14.448139  0.536993 14.448139  0.536993
+=std=bcl=>  -180.08 14.458805  0.529673 14.458805  0.529673
+=std=bcl=>  -180.06 14.469325  0.522326 14.469325  0.522326
+=std=bcl=>  -180.04 14.479698  0.514953 14.479698  0.514953
+=std=bcl=>  -180.02 14.489923  0.507553 14.489923  0.507553
+=std=bcl=>  -180.00 14.500000  0.500126 14.500000  0.500126
+=std=bcl=>  -179.98 14.509928  0.492695 14.509928  0.492695
+=std=bcl=>  -179.96 14.519708  0.485281 14.519708  0.485281
+=std=bcl=>  -179.94 14.529340  0.477886 14.529340  0.477886
+=std=bcl=>  -179.92 14.538823  0.470507 14.538823  0.470507
+=std=bcl=> Between bounds: 
+=std=bcl=>  x       f(x)      f'(x)
+=std=bcl=>  -80.10  5.984997  0.150490
+=std=bcl=>  -77.10  6.380959  0.108810
+=std=bcl=>  -74.10  6.609853  0.039118
+=std=bcl=>  -71.10  6.587658 -0.058582
+=std=bcl=> successful example check:
+               GetStaticClassName< math::CubicSpline>() == sp_natural_spline->GetClassIdentifier()
+              == bcl::math::CubicSpline
+=std=bcl=> successful example check:  natural_spline.GetDsecox().GetSize() == 36
+=std=bcl=> successful example check:  natural_spline.GetStart() == -180
+=std=bcl=> successful example check:  natural_spline.GetDelta() == 10
+=std=bcl=> successful example check:  natural_spline.GetValues().GetSize() == 36
+=std=bcl::app=> BCL Example | END  : MathCubicSpline ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+MathCubicSpline_total                     9          0              
+total                                     9          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

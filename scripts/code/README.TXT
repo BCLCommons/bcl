@@ -1,0 +1,1 @@
+This folder contains scripts that operate on the bcl code itself. 

@@ -1,0 +1,116 @@
+bcl::score::RestraintXlink
+  "xlink_test"
+  bcl::util::ShPtr<bcl::util::ShPtrVector<bcl::restraint::AtomDistance>>
+    12345678
+    bcl::util::ShPtrVector<bcl::restraint::AtomDistance>
+      4
+      bcl::util::ShPtr<bcl::restraint::AtomDistance>
+        12345678
+        bcl::restraint::AtomDistance
+          bcl::restraint::DataPairwise
+            bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+              12345678
+              bcl::restraint::LocatorCoordinatesFirstSideChainAtom
+                LocatorAA(locator_chain=A,seq_id=91,use_pdb_id=0)
+                bcl::biol::AtomTypes::Enum
+                  "Undefined"
+                bcl::biol::AATypes::Enum
+                  "Undefined"
+            bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+              12345678
+              bcl::restraint::LocatorCoordinatesFirstSideChainAtom
+                LocatorAA(locator_chain=A,seq_id=95,use_pdb_id=0)
+                bcl::biol::AtomTypes::Enum
+                  "Undefined"
+                bcl::biol::AATypes::Enum
+                  "Undefined"
+
+          bcl::util::ShPtr<bcl::restraint::Distance>
+            12345678
+            bcl::restraint::Distance
+              12.85              100              1
+
+      bcl::util::ShPtr<bcl::restraint::AtomDistance>
+        12345678
+        bcl::restraint::AtomDistance
+          bcl::restraint::DataPairwise
+            bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+              12345678
+              bcl::restraint::LocatorCoordinatesFirstSideChainAtom
+                LocatorAA(locator_chain=A,seq_id=91,use_pdb_id=0)
+                bcl::biol::AtomTypes::Enum
+                  "Undefined"
+                bcl::biol::AATypes::Enum
+                  "Undefined"
+            bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+              12345678
+              bcl::restraint::LocatorCoordinatesFirstSideChainAtom
+                LocatorAA(locator_chain=A,seq_id=96,use_pdb_id=0)
+                bcl::biol::AtomTypes::Enum
+                  "Undefined"
+                bcl::biol::AATypes::Enum
+                  "Undefined"
+
+          bcl::util::ShPtr<bcl::restraint::Distance>
+            12345678
+            bcl::restraint::Distance
+              12.85              100              1
+
+      bcl::util::ShPtr<bcl::restraint::AtomDistance>
+        12345678
+        bcl::restraint::AtomDistance
+          bcl::restraint::DataPairwise
+            bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+              12345678
+              bcl::restraint::LocatorCoordinatesFirstSideChainAtom
+                LocatorAA(locator_chain=A,seq_id=86,use_pdb_id=0)
+                bcl::biol::AtomTypes::Enum
+                  "Undefined"
+                bcl::biol::AATypes::Enum
+                  "Undefined"
+            bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+              12345678
+              bcl::restraint::LocatorCoordinatesFirstSideChainAtom
+                LocatorAA(locator_chain=A,seq_id=87,use_pdb_id=0)
+                bcl::biol::AtomTypes::Enum
+                  "Undefined"
+                bcl::biol::AATypes::Enum
+                  "Undefined"
+
+          bcl::util::ShPtr<bcl::restraint::Distance>
+            12345678
+            bcl::restraint::Distance
+              12.85              100              1
+
+      bcl::util::ShPtr<bcl::restraint::AtomDistance>
+        12345678
+        bcl::restraint::AtomDistance
+          bcl::restraint::DataPairwise
+            bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+              12345678
+              bcl::restraint::LocatorCoordinatesFirstSideChainAtom
+                LocatorAA(locator_chain=A,seq_id=96,use_pdb_id=0)
+                bcl::biol::AtomTypes::Enum
+                  "Undefined"
+                bcl::biol::AATypes::Enum
+                  "Undefined"
+            bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+              12345678
+              bcl::restraint::LocatorCoordinatesFirstSideChainAtom
+                LocatorAA(locator_chain=A,seq_id=99,use_pdb_id=0)
+                bcl::biol::AtomTypes::Enum
+                  "Undefined"
+                bcl::biol::AATypes::Enum
+                  "Undefined"
+
+          bcl::util::ShPtr<bcl::restraint::Distance>
+            12345678
+            bcl::restraint::Distance
+              12.85              100              1
+
+
+  bcl::score::RadiusOfGyration
+    0
+    "rgyr"
+    "radius_of_gyration_chains.histogram"
+    "radius_of_gyration_model_membrane.histogram"

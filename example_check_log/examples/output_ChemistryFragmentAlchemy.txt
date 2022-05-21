@@ -1,0 +1,90 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ChemistryFragmentAlchemy 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ChemistryFragmentAlchemy
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ChemistryFragmentAlchemy ====================
+=std=bcl=> successful example check:  fragment_alchemy_clone.IsDefined() == 1
+=std=bcl::chemistry=> FragmentAlchemy!
+=std=bcl::chemistry=> Drug-likeness metric: IsConstitutionDruglike
+=crt=bcl::descriptor=> atom_environment_file specified: h.atom_environment_hashmap.two_bonds.txt.gz with environment size: 2
+=std=bcl::chemistry=> Pass drug-likeness filter!
+=std=bcl::chemistry=> Getting atom indices for conformer sampling...
+=std=bcl::chemistry=> SampleByParts with the following atom indices: 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 24 25 26 27 
+=std=bcl::chemistry=> Generating single conformer
+=std=bcl::chemistry=> Number of fragments in rotamer library that map to this molecule: 3
+=std=bcl::chemistry=> Found 1 rotatable bonds, 3 flexible rings, 6 changeable bond angles; 
+=std=bcl::app=> BCL Example | END  : ChemistryFragmentAlchemy ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+ChemistryFragmentAlchemy_total            1          0              
+total                                     1          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:06, peak virtual memory used: 1326 MB, peak physical RAM used: 1205 MB
+=std=bcl::util=> vdw score time has run for 0.000363 seconds
+=std=bcl::util=> ConformationComparison has run for 1.4e-05 seconds
+=std=bcl::util=> Clash resolution (not counting clash scoring) has run for 7.6e-05 seconds
+=std=bcl::util=> flipping_invertable_nitrogen_centers has run for 3.5e-05 seconds
+=std=bcl::util=> bond_length_sampling has run for 8e-06 seconds
+=std=bcl::util=> bond_angle_setup has run for 0.000125 seconds
+=std=bcl::util=> bond_angles_sampling_for_ring_bonds has run for 9.9e-05 seconds
+=std=bcl::util=> Sampling Total has run for 0.002418 seconds
+=std=bcl::util=>   AtomClashScore ClashComputation has run for 0.000803 seconds
+=std=bcl::util=> do_rotate_bond has run for 4e-06 seconds
+=std=bcl::util=> create_transformation_matrix has run for 2e-05 seconds
+=std=bcl::util=> mutate_chain has run for 0.000328 seconds
+=std=bcl::util=> mutate_ring has run for 0.001931 seconds
+=std=bcl::util=> MapFragmentIsomorphisms has run for 1.66608 seconds
+=std=bcl::util=> FindFrags has run for 0.153422 seconds
+=std=bcl::util=> RotamerLibraryFile reading files has run for 4.76896 seconds

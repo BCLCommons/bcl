@@ -1,0 +1,19 @@
+bcl::model::DecisionTree
+  1 5 1
+  bcl::linal::Vector<float>
+    1
+    50	
+  bcl::util::ShPtr<bcl::model::DecisionTree>
+    12345678
+    bcl::model::DecisionTree
+      nan nan 1
+      bcl::linal::Vector<float>
+        1
+        0	
+  bcl::util::ShPtr<bcl::model::DecisionTree>
+    12345678
+    bcl::model::DecisionTree
+      nan nan 1
+      bcl::linal::Vector<float>
+        1
+        100	

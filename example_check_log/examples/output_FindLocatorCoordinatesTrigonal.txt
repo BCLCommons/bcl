@@ -1,0 +1,115 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec FindLocatorCoordinatesTrigonal 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> FindLocatorCoordinatesTrigonal
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: FindLocatorCoordinatesTrigonal ====================
+=std=bcl::pdb=> no SEQRES information given, try to retrieve sequence from ATOM section, which requires that every residue is given in there!
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2067  N   SPL A 131      32.221   8.357  -8.999  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2068  CA  SPL A 131      32.188   9.527  -9.875  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2069  C   SPL A 131      31.281  10.591  -9.286  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2070  O   SPL A 131      31.626  11.764  -9.310  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2071  CB  SPL A 131      31.791   9.091 -11.288  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2072  SG  SPL A 131      33.159   8.158 -12.043  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2073  S2  SPL A 131      34.435   9.485 -13.065  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2074  C3  SPL A 131      34.691  10.727 -11.759  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2075  C4  SPL A 131      35.951  10.421 -11.008  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2076  C15 SPL A 131      36.095   9.447 -10.093  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2077  C12 SPL A 131      37.509   9.384  -9.574  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2078  N2  SPL A 131      38.152  10.428 -10.328  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2079  C9  SPL A 131      37.282  11.125 -11.248  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2080  C10 SPL A 131      37.242  12.612 -10.887  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2081  C11 SPL A 131      37.783  10.921 -12.681  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2082  O2  SPL A 131      39.255  10.678 -10.211  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2083  C13 SPL A 131      38.141   8.028  -9.885  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2084  C14 SPL A 131      37.555   9.695  -8.079  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2085  H   SPL A 131      31.851   7.480  -9.336  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2086  HA  SPL A 131      33.164   9.992 -10.014  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2087 1HB  SPL A 131      30.909   8.450 -11.253  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2088 2HB  SPL A 131      31.582   9.965 -11.906  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2091  H26 SPL A 131      35.301   8.786  -9.764  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2092  H14 SPL A 131      36.888  12.761  -9.860  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2093  H15 SPL A 131      36.593  13.178 -11.563  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2094  H16 SPL A 131      38.244  13.052 -10.944  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2095  H17 SPL A 131      37.146  11.431 -13.412  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2096  H18 SPL A 131      37.816   9.857 -12.943  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2097  H19 SPL A 131      38.800  11.313 -12.797  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2098  H20 SPL A 131      38.134   7.826 -10.963  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2099  H21 SPL A 131      37.610   7.213  -9.382  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2100  H22 SPL A 131      39.188   8.002  -9.562  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2101  H23 SPL A 131      36.997   8.952  -7.497  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2102  H24 SPL A 131      37.127  10.681  -7.867  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   2103  H25 SPL A 131      38.587   9.708  -7.715  1.00  0.00              
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM   2067  N   SPL A 131      32.221   8.357  -8.999  1.00  0.00              
+=std=bcl=> successful example check:  clone_constr->Locate( protein_model).X() == x_coord == 45.7354
+=std=bcl=> successful example check:  clone_constr->Locate( protein_model).Y() == y_coord == 15.3408
+=std=bcl=> successful example check:  clone_constr->Locate( protein_model).Z() == z_coord == 17.6727
+=std=bcl=> successful example check:
+               param_constr.GetClassIdentifier() == GetStaticClassName( param_constr) ==
+              bcl::find::LocatorCoordinatesTrigonal<bcl::assemble::ProteinModel>
+=std=bcl=> test Locate function
+=std=bcl=> successful example check:  param_constr.Locate( protein_model).X() == x_coord == 45.7354
+=std=bcl=> successful example check:  param_constr.Locate( protein_model).Y() == y_coord == 15.3408
+=std=bcl=> successful example check:  param_constr.Locate( protein_model).Z() == z_coord == 17.6727
+=std=bcl=> successful example check:  read_object.Locate( protein_model).X() == x_coord == 45.7354
+=std=bcl=> successful example check:  read_object.Locate( protein_model).Y() == y_coord == 15.3408
+=std=bcl=> successful example check:  read_object.Locate( protein_model).Z() == z_coord == 17.6727
+=std=bcl::app=> BCL Example | END  : FindLocatorCoordinatesTrigonal ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>        success      error error_string 
+FindLocatorCoordinatesTrigonal_total         10          0              
+total                                        10          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 133 MB, peak physical RAM used: 65 MB

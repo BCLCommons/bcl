@@ -1,0 +1,14 @@
+TMHMM results>
+
+
+# e.coli Length: 122
+# e.coli Number of predicted TMHs:  2
+# e.coli Exp number of AAs in TMHs: 50.7432
+# e.coli Exp number, first 60 AAs:  15.13954
+# e.coli Total prob of N-in:        0.84704
+# e.coli POSSIBLE N-term signal sequence
+e.coli	TMHMM2.0	inside	     1    56
+e.coli	TMHMM2.0	TMhelix	    57    79
+e.coli	TMHMM2.0	outside	    80    98
+e.coli	TMHMM2.0	TMhelix	    99   121
+e.coli	TMHMM2.0	inside	   122   122

@@ -1,0 +1,2 @@
+bcl::descriptor::Molecule2DAMaxMin
+  2DAMax(steps=12,property=Atom_SigmaCharge,substitution_value=1.1)

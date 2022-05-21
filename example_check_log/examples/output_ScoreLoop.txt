@@ -1,0 +1,89 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ScoreLoop 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ScoreLoop
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ScoreLoop ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> successful example check:  GetStaticClassName< score::Loop>() == ptr->GetClassIdentifier() == bcl::score::Loop
+=std=bcl=> successful example check:  loop_score.GetScheme() == loop
+=std=bcl=> successful example check:
+               loop_score.GetEnergyFunctions().GetSize() ==
+              loop_score.GetDefaultMaxLoopLength() + 1 == 26
+=std=bcl=> successful example check:  loop_score.GetMaxLoopLength() == loop_score.GetDefaultMaxLoopLength() == 25
+=std=bcl=> successful example check:  loop_score( *model.GetSSEs()( 0), *model.GetSSEs()( 1)) == -2.42917  (+/- 1e-05)
+=std=bcl=> successful example check:  score_model( model) == -1226.87  (+/- 0.01)
+=std=bcl=> loop length: 2
+=std=bcl=> successful example check:  loop_score.Score( seq_euc_dist) == -2.68063  (+/- 0.0001%)
+=std=bcl=> successful example check:
+               loop_score( *model.GetSSEs()( 0), *model.GetSSEs()( 1)) ==
+              loop_score_read( *model.GetSSEs()( 0), *model.GetSSEs()( 1)) == -2.42917  (+/- 1e-06%)
+=std=bcl::app=> BCL Example | END  : ScoreLoop ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+ScoreLoop_total                           8          0              
+total                                     8          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 136 MB, peak physical RAM used: 68 MB

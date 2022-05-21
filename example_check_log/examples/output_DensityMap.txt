@@ -1,0 +1,115 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec DensityMap 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> DensityMap
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: DensityMap ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> open density map: example/example_files/output/density/1ubi_res_6.6voxelsize_2.200TrilinearInterpolationGaussian.mrc
+Dimensions in x, y, z:
+bcl::storage::VectorND<3,size_t>
+  10
+  10
+  10
+Index:
+bcl::linal::VectorND<int,3>
+  7	6	-1	
+Intervals:
+bcl::linal::VectorND<int,3>
+  16	15	9	
+Length x, y, z:
+bcl::linal::Vector3D
+  35.2	33	19.8
+Angle  a, b, c:
+bcl::linal::Vector3D
+  90	90	90
+Axis( fast - slow):
+bcl::linal::VectorND<int,3>
+  1	2	3	
+Minimum Intensity:
+0
+Maximum Intensity:
+8.22717
+Mean Intensity:
+2.62241
+SpaceGroup: 0
+Number sym data bytes: 0
+extra data: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+RMSD:
+2.36127
+Origin x, y, z:
+bcl::linal::Vector3D
+  0	0	0
+machine stamp:
+0
+labels
+bcl::storage::Vector<std::string>
+  0
+
+=std=bcl=> write subdensity map to file subdensity_555_101010.mrc
+=std=bcl=> Number of points in point cloud 150
+=std=bcl=> correlation: 1
+=std=bcl=>  density. min=0 max=8.22717 mean=0.310437 rmsd=1.12348
+=std=bcl=>  normalized density. min=0 max=7.32295 mean=0.276318 rmsd=1
+=std=bcl=>  added noise and normalized. min=-3.17899 max=6.20733 mean=0.159973 rmsd=1
+=std=bcl=> noise added to simulated density map. CCC=0.694861
+=std=bcl=> open density map: example/example_files/input/biology/3kgv-sf_pdb_small.mrc
+=std=bcl::app=> BCL Example | END  : DensityMap ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+DensityMap_total                          1          0              
+total                                     1          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:04, peak virtual memory used: 137 MB, peak physical RAM used: 69 MB

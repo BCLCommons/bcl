@@ -1,0 +1,13 @@
+bcl::util::ColorGradient
+  bcl::math::Range<double>
+    [ 1 , 9 ]
+  bcl::storage::Vector<bcl::util::Colors::Enum>
+    4
+    bcl::util::Colors::Enum
+      "Red"
+    bcl::util::Colors::Enum
+      "Yellow"
+    bcl::util::Colors::Enum
+      "White"
+    bcl::util::Colors::Enum
+      "Yellow"

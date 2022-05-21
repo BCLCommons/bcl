@@ -1,0 +1,36 @@
+bcl::restraint::HandlerDataSetPairwiseIdentifiers
+  3  bcl::restraint::DataSetPairwise
+    bcl::storage::Set<bcl::restraint::DataPairwise,std::less<bcl::restraint::DataPairwise>>
+      2
+      bcl::restraint::DataPairwise
+        bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+          12345678
+          bcl::restraint::LocatorCoordinatesFirstSideChainAtom
+            LocatorAA(locator_chain=A,seq_id=32,aa type=Undefined,use_pdb_id=0)
+            bcl::biol::AtomTypes::Enum
+              "Undefined"
+
+        bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+          12345678
+          bcl::restraint::LocatorCoordinatesFirstSideChainAtom
+            LocatorAA(locator_chain=A,seq_id=48,aa type=Undefined,use_pdb_id=0)
+            bcl::biol::AtomTypes::Enum
+              "Undefined"
+
+
+      bcl::restraint::DataPairwise
+        bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+          12345678
+          bcl::restraint::LocatorCoordinatesFirstSideChainAtom
+            LocatorAA(locator_chain=B,seq_id=2,aa type=Undefined,use_pdb_id=0)
+            bcl::biol::AtomTypes::Enum
+              "Undefined"
+
+        bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+          12345678
+          bcl::restraint::LocatorCoordinatesFirstSideChainAtom
+            LocatorAA(locator_chain=C,seq_id=16,aa type=Undefined,use_pdb_id=0)
+            bcl::biol::AtomTypes::Enum
+              "Undefined"
+
+

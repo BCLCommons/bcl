@@ -1,0 +1,91 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec AssembleProteinModel 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AssembleProteinModel
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AssembleProteinModel ====================
+=std=bcl=> read pdb file: example/example_files/input/biology/1C1D.pdb
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> building sequences from pdb chains
+=std=bcl=> building models from pdb chains and sse information
+=std=bcl=> successful example check:
+               protein_model.GetClassIdentifier() ==
+              ( GetStaticClassName< assemble::ProteinModel>()) == bcl::assemble::ProteinModel
+=std=bcl=> successful example check:
+               sse_first.GetIdentification() == protein_model.GetSSEs()( 0)->GetIdentification()
+              == HELIX A    1 SER <==>    7 ASN
+=std=bcl=> successful example check:
+               sse_second.GetIdentification() == protein_model.GetSSEs()( 50)->GetIdentification()
+              == COIL B    8 TRP <==>   11 GLU
+=std=bcl=> write ideal_model2.pdb
+=std=bcl=> write chopped_model.pdb
+=std=bcl=> write add_loops_model.pdb
+=std=bcl::app=> BCL Example | END  : AssembleProteinModel ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AssembleProteinModel_total                3          0              
+total                                     3          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 139 MB, peak physical RAM used: 71 MB

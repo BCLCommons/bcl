@@ -1,0 +1,4 @@
+bcl::function::UnaryCached<const-bcl::ExampleFunctionUnaryCached::Student,int>
+  bcl::util::ShPtr<bcl::function::UnaryInterface<const-bcl::ExampleFunctionUnaryCached::Student,int>>
+    12345678
+    bcl::ExampleFunctionUnaryCached::TimeToGraduation

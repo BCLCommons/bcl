@@ -1,0 +1,6 @@
+bcl::command::FlagStatic
+  "switch"
+  "to switch some functionality on or off"
+  0
+  bcl::util::ShPtrVector<bcl::command::ParameterInterface>
+    0

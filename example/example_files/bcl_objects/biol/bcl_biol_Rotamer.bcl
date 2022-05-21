@@ -1,0 +1,7 @@
+bcl::biol::Rotamer
+  bcl::storage::Set<bcl::biol::ChiAngle,bcl::biol::Rotamer::ChiAngleLessThan>
+    2
+    bcl::biol::ChiAngle
+      e_Two      90      degree
+    bcl::biol::ChiAngle
+      e_Four      45      degree

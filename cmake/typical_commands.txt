@@ -1,0 +1,20 @@
+# add the distcc compiler wrappers to the path, so that distcc and 'pump make' can be used
+tcsh: setenv PATH `pwd`/cmake/distcc_compiler_wrapper/:${PATH}
+bash: export PATH=`pwd`/cmake/distcc_compiler_wrapper/:${PATH}
+
+# first create a build directory
+mkdir build
+
+# note - build* is in svn:ignore property list of the source root; 'svn status' or 'svnversion' commands will ignore build and its subfolders 
+
+# build mingw release 32 bit from folder ./build/ with zlib and bzip2 compression
+cd build
+mkdir x86_64-w64-mingw32
+cd x86_64-w64-mingw32
+cmake -D CMAKE_TOOLCHAIN_FILE=../../cmake/toolchain/x86_64-w64-mingw32.cmake -D BCL_LICENSE=true -D CMAKE_BUILD_TYPE=Release -D BCL_EXTERNALS="zlib;bzip2" ../../
+
+# build linux release 64 bit from folder build
+cd build
+mkdir x86_64-unknown-linux-gnu
+cd x86_64-unknown-linux-gnu
+cmake -D CMAKE_TOOLCHAIN_FILE=../../cmake/toolchain/x86_64-unknown-linux-gnu.cmake -D BCL_LICENSE=true -D CMAKE_BUILD_TYPE=Release ../../

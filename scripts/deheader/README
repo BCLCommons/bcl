@@ -1,0 +1,13 @@
+			deheader
+
+deheader analyzes C and C++ files to determine which header enclusions can be
+removed while still allowing them to compile.  This may result in substantial
+improvements in compilation time, especially on large C++ projects; it also
+sometime exposes dependencies and cohesions of which developers were unaware.
+
+	 	 	     	 	      Eric S. Raymond
+					      December 2010
+
+Threaded, fixed bugs, made work for the bcl
+Jeffrey Mendenhall
+February 2013

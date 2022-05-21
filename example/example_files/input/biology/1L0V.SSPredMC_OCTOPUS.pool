@@ -1,0 +1,8 @@
+bcl::assemble::SSEPool
+HELIX    1   1 GLY C   11  LYS C   31  1                                  21    
+HELIX    2   2 PRO C   47  TRP C   67  1                                  21    
+HELIX    3   3 ILE C   90  TYR C  110  1                                  21    
+HELIX    1   1 ALA D   11  LEU D   31  1                                  21    
+HELIX    2   2 ALA D   50  GLY D   70  1                                  21    
+HELIX    3   3 LYS D   89  THR D  109  1                                  21    
+END

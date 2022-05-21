@@ -1,0 +1,21 @@
+bcl::restraint::RDCAssignment
+  bcl::storage::List<bcl::storage::Triplet<bcl::linal::Vector3D,bcl::linal::Vector3D,double>>
+    3
+    bcl::storage::Triplet<bcl::linal::Vector3D,bcl::linal::Vector3D,double>
+      bcl::linal::Vector3D
+        0	0	0
+      bcl::linal::Vector3D
+        0	0	0
+      1
+    bcl::storage::Triplet<bcl::linal::Vector3D,bcl::linal::Vector3D,double>
+      bcl::linal::Vector3D
+        0	0	0
+      bcl::linal::Vector3D
+        0	0	0
+      2
+    bcl::storage::Triplet<bcl::linal::Vector3D,bcl::linal::Vector3D,double>
+      bcl::linal::Vector3D
+        0	0	0
+      bcl::linal::Vector3D
+        0	0	0
+      3

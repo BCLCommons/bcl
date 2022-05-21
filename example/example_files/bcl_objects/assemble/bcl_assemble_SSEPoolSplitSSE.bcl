@@ -1,0 +1,11 @@
+bcl::assemble::SSEPoolSplitSSE
+  bcl::sspred::Methods::Enum
+    "JUFO"
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::util::SiPtr<const-bcl::assemble::SSE>,bcl::assemble::DomainInterface>>
+    12345678
+    bcl::assemble::LocatorSSERandom
+      LocatorSSERandom
+  bcl::util::ShPtr<bcl::math::MutateInterface<bcl::assemble::SSE>>
+    0
+
+  "pool_split_sse"

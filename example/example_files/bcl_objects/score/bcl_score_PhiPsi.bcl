@@ -1,0 +1,5 @@
+bcl::score::PhiPsi
+  "sse_bend"
+  "phi_psi_angles_by_sstype.histogram2D"
+  bcl::storage::Set<bcl::biol::SSTypes::Enum,std::less<bcl::biol::SSTypes::Enum>>
+    0

@@ -1,0 +1,107 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec SspredMethodHandler 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> SspredMethodHandler
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: SspredMethodHandler ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> successful example check:
+              sp_first_aa->GetSSPrediction( sspred::GetMethods().e_JUFO)->GetThreeStatePrediction() == correct_pred ==
+              bcl::linal::Vector3D
+                0.006	0.391	0.603
+=std=bcl=> successful example check:
+              sp_aa_sequence->GetLastAA()->GetSSPrediction( sspred::GetMethods().e_JUFO)->GetThreeStatePrediction() ==
+              linal::Vector3D( 0.053, 0.068, 0.879) == bcl::linal::Vector3D
+                0.053	0.068	0.879
+=std=bcl=> successful example check:  result_vector.GetSize() == 1
+=crt=bcl::sspred=> cannot read method with JUFO9D for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi.jufo9d, example/example_files/input/biology//1ubiA.jufo9d, example/example_files/input/biology//1ubi_.jufo9d
+=crt=bcl::sspred=> cannot read method with PROFphd for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi.rdbProf, example/example_files/input/biology//1ubiA.rdbProf, example/example_files/input/biology//1ubi_.rdbProf
+=crt=bcl::sspred=> cannot read method with TMHMM for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubixxx.TMHMM, example/example_files/input/biology//1ubiAxxx.TMHMM, example/example_files/input/biology//1ubi_xxx.TMHMM
+=crt=bcl::sspred=> cannot read method with TMMOD for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi.tmmod, example/example_files/input/biology//1ubiA.tmmod, example/example_files/input/biology//1ubi_.tmmod
+=crt=bcl::sspred=> cannot read method with B2TMPRED for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi.hmm, example/example_files/input/biology//1ubiA.hmm, example/example_files/input/biology//1ubi_.hmm
+=crt=bcl::sspred=> cannot read method with PROFTMB for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubixxx.PROFTMB, example/example_files/input/biology//1ubiAxxx.PROFTMB, example/example_files/input/biology//1ubi_xxx.PROFTMB
+=crt=bcl::sspred=> cannot read method with CONPRED for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi_conpred.txt, example/example_files/input/biology//1ubiA_conpred.txt, example/example_files/input/biology//1ubi__conpred.txt
+=crt=bcl::sspred=> cannot read method with OCTOPUS for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi.octo_topo, example/example_files/input/biology//1ubiA.octo_topo, example/example_files/input/biology//1ubi_.octo_topo
+=crt=bcl::sspred=> cannot read method with BOCTOPUS for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi.bocto_topo, example/example_files/input/biology//1ubiA.bocto_topo, example/example_files/input/biology//1ubi_.bocto_topo
+=crt=bcl::sspred=> cannot read method with TMBETANET for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi.tmbetanet, example/example_files/input/biology//1ubiA.tmbetanet, example/example_files/input/biology//1ubi_.tmbetanet
+=crt=bcl::sspred=> cannot read method with PARTIFOLD for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi.mfe, example/example_files/input/biology//1ubiA.mfe, example/example_files/input/biology//1ubi_.mfe
+=crt=bcl::sspred=> cannot read method with MASP for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi.masp, example/example_files/input/biology//1ubiA.masp, example/example_files/input/biology//1ubi_.masp
+=crt=bcl::sspred=> cannot read method with MAHSSMI for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi.mahssmi, example/example_files/input/biology//1ubiA.mahssmi, example/example_files/input/biology//1ubi_.mahssmi
+=crt=bcl::sspred=> cannot read method with CIPhiPsi for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi.ciphipsi, example/example_files/input/biology//1ubiA.ciphipsi, example/example_files/input/biology//1ubi_.ciphipsi
+=crt=bcl::sspred=> cannot read method with Kaksi for 1ubi in path example/example_files/input/biology/ Checked: example/example_files/input/biology//1ubi.kaksi, example/example_files/input/biology//1ubiA.kaksi, example/example_files/input/biology//1ubi_.kaksi
+=std=bcl=> successful example check:  temp_set.IsEmpty() == 0
+=std=bcl=> successful example check:
+               sp_aa_sequence->GetLastAA()->GetSSPredictions().GetKeys() == full_set
+              output of result suppressed (result was 460 bytes), set message verbosity to Detail to override
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> successful example check:
+              new_protein_model.GetSequences().FirstElement()->GetLastAA()->GetSSPredictions().GetSize() ==
+              temp_set.GetSize() == 9
+=std=bcl=> successful example check:
+              sp_aa_sequence->GetLastAA()->GetSSPrediction( sspred::GetMethods().e_JUFO)->GetThreeStatePrediction() ==
+              jufo_prediction.GetThreeStatePrediction() == bcl::linal::Vector3D
+                1	0	0
+=std=bcl=> successful example check:
+              sp_aa_sequence->GetAA( 5)->GetSSPrediction( sspred::GetMethods().e_JUFO)->GetThreeStatePrediction() ==
+              new_jufo_prediction.GetThreeStatePrediction() == bcl::linal::Vector3D
+                0	1	0
+=std=bcl::app=> BCL Example | END  : SspredMethodHandler ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+SspredMethodHandler_total                 8          0              
+total                                     8          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 133 MB, peak physical RAM used: 65 MB

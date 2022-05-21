@@ -1,0 +1,8 @@
+bcl::assemble::SSEPool
+SHEET    1       MET A   1  THR A   7                                           
+SHEET    2       GLY A  10  VAL A  17                                           
+HELIX    3   3 ASN A   25  GLU A   34  1                                  10    
+SHEET    4       GLN A  40  PHE A  45                                           
+SHEET    5       LYS A  48  LEU A  50                                           
+SHEET    6       GLU A  64  ARG A  72                                           
+END                                                                             

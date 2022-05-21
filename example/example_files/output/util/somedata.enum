@@ -1,0 +1,26 @@
+bcl::SomeDataTypes
+  8
+  "XXX"
+  bcl::SomeData
+    1.1
+  "ALA"
+  bcl::SomeData
+    2.2
+  "ARG"
+  bcl::SomeData
+    3.3
+  "ASN"
+  bcl::SomeData
+    4.4
+  "ASP"
+  bcl::SomeData
+    5.5
+  "CYS"
+  bcl::SomeData
+    6.6
+  "GLN"
+  bcl::SomeData
+    7.7
+  "GLU"
+  bcl::SomeData
+    8.8

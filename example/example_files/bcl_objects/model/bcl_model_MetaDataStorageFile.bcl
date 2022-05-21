@@ -1,0 +1,3 @@
+bcl::model::MetaDataStorageFile
+  bcl::util::ShPtr<bcl::io::Directory>
+    0

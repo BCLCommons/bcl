@@ -1,0 +1,28 @@
+bcl::math::PiecewiseFunction
+  bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+    3
+    bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+      bcl::math::Range<double>
+        ( 3 , 4 )
+      bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+        12345678
+        bcl::math::QuadraticFunction
+          -1
+          2
+          1
+    bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+      bcl::math::Range<double>
+        [ 4 , 6 )
+      bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+        12345678
+        bcl::math::LinearFunction
+          2	3
+    bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+      bcl::math::Range<double>
+        [ 6 , 10 )
+      bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+        12345678
+        bcl::math::QuadraticFunction
+          -1
+          3
+          1

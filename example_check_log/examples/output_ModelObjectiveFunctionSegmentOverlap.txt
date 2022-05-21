@@ -1,0 +1,129 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ModelObjectiveFunctionSegmentOverlap 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ModelObjectiveFunctionSegmentOverlap
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ModelObjectiveFunctionSegmentOverlap ====================
+=std=bcl::model=> # features: 750 feature size: 3 result size: 3 feature result size of data superset: 6
+=std=bcl::model=> result columns: 3 - 5
+=std=bcl=> Could not create dataset retriever test succeeded:  impl_dataset_retriever.IsDefined() == 1
+Segment overlap is a common method for benchmarking secondary structure prediction methods. The version implemented here is the updated
+  definition from Zemla et al. - PROTEINS: Structure, Function, and Genetics, 34, 1999, pp. 220-223
+  Default label : SegmentOverlap(output sequence info=0,output subclass overlaps=0,element weight=0,sequence id=ProteinId,element id=AASeqID)
+  Parameters:
+  <output sequence info> whether to output information for every sequence member, default: "False", Any non-negative integer
+  <output subclass overlaps> Whether to output SOV for every subclass; for secondary structure predictions, these are usually termed SOV-Helix,
+    SOV-Strand, SOV-Coil, default: "False", Any non-negative integer
+  <element weight> Whether to weight each sequence's contribution to the SOV by its number of elements (e.g. residues), default: "False", 
+    Any non-negative integer
+  <sequence id> label from the ids that indicates the sequence, default: "ProteinId", any object serialization tree
+  <element id> label from the ids that indicates the element's position within the sequence, default: "AASeqID", any object serialization tree
+  <equivalences> If, for a given sequence, a permutation of the labels is equally valid, it can be indicated here. For example, for membrane
+    proteins if we have the labels Inside/Outside/Membrane, for most purposes it would be fine to flip the labels for inside and outside, so long
+    as it is done consistently across the protein. Which sequences used a different permutation will be indicated in the output. For multiple
+    class groups, the indexing will not start over in each, so a permutation label like (0,1,2,3,4,5) would be the identity permutation
+    regardless of how many internal class groups there happen to be, optional, Container with at least 1 Container with at least 1 Any non-negative integer
+=std=bcl=> successful example check:
+              function_default.TryRead ( util::ObjectDataLabel ( "", function_default.GetAlias(), storage::Vector< util::ObjectDataLabel>::Create ( util::ObjectDataLabel( "output sequence info", "True"), util::ObjectDataLabel( "output subclass overlaps", "True"), util::ObjectDataLabel( "element weight", "True") ) ), util::GetLogger() )
+              == 1
+=std=bcl=> successful example check:
+               model::ObjectiveFunctionSegmentOverlap().GetImprovementType() ==
+              opti::e_LargerEqualIsBetter == 4
+=std=bcl::model=> 
+Q-overall: 1
+Sequence	SOV Overall Class 0	SOV Subclass 0	SOV Subclass 1	SOV Subclass 2	
+2hewF	1	1	1	1	
+2y71A	1	1	1	1	
+3g9rA	1	1	0	1	
+3g8yA	1	1	1	1	
+3c57A	1	1	0	1	
+Overall	1	1	0.876	1	
+=std=bcl=> successful example check:  function_default( dsspstride_values, dsspstride_values) == 1.0 == 1  (+/- 0.001%)
+=std=bcl::model=> 
+Q-overall: 0.818667
+Sequence	SOV Overall Class 0	SOV Subclass 0	SOV Subclass 1	SOV Subclass 2	
+2hewF	0.765132	1	1	0.548101	
+2y71A	0.881944	0.971014	0.975	0.689394	
+3g9rA	0.97619	1	0	0	
+3g8yA	0.764629	0.917653	0.747468	0.643913	
+3c57A	0.921569	1	0	0.733333	
+Overall	0.80882	0.951736	0.739747	0.605951	
+=std=bcl=> successful example check:  function_default( dsspstride_values, palsse_values) == 0.80882  (+/- 0.001%)
+=std=bcl::model=> 
+Q-overall: 1
+Sequence	SOV Overall Class 0	SOV Subclass 0	SOV Subclass 1	SOV Subclass 2	Permutation #
+2hewF	1	1	1	1	0	
+2y71A	1	1	1	1	0	
+3g9rA	1	1	0	0	0	
+3g8yA	1	1	1	1	0	
+3c57A	1	1	0	1	0	
+Overall	1	1	0.876	0.944	
+=std=bcl=> successful example check:  function_default( palsse_values, palsse_values) == 1.0 == 1  (+/- 0.001%)
+=std=bcl::model=> 
+Q-overall: 0.818667
+Sequence	SOV Overall Class 0	SOV Subclass 0	SOV Subclass 1	SOV Subclass 2	Permutation #
+2hewF	0.835832	0.777778	0.890244	0.729365	0	
+2y71A	0.923792	0.953247	0.969697	0.78869	0	
+3g9rA	1	1	0	0	0	
+3g8yA	0.820846	0.872087	0.792732	0.746572	0	
+3c57A	0.973856	1	0	0.833333	0	
+Overall	0.862783	0.886786	0.743637	0.715477	
+=std=bcl=> successful example check:  function_default( palsse_values, dsspstride_values) == 0.862783  (+/- 0.001%)
+=std=bcl::app=> BCL Example | END  : ModelObjectiveFunctionSegmentOverlap ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>              success      error error_string 
+ModelObjectiveFunctionSegmentOverlap_total          7          0              
+total                                               7          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

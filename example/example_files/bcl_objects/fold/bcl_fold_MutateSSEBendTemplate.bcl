@@ -1,0 +1,16 @@
+bcl::fold::MutateSSEBendTemplate
+  bcl::util::ShPtr<bcl::math::BinaryFunctionInterface<bcl::assemble::SSE,bcl::assemble::SSEGeometryPhiPsi,bool>>
+    12345678
+    bcl::assemble::SSEGeometryWithinSizeTolerance
+      bcl::storage::Map<bcl::biol::SSTypes::Enum,size_t,std::less<bcl::biol::SSTypes::Enum>>
+        2
+        std::pair<bcl::biol::SSTypes::Enum,size_t>
+          bcl::biol::SSTypes::Enum
+            "HELIX"
+          0
+        std::pair<bcl::biol::SSTypes::Enum,size_t>
+          bcl::biol::SSTypes::Enum
+            "STRAND"
+          0
+
+  "size_0"

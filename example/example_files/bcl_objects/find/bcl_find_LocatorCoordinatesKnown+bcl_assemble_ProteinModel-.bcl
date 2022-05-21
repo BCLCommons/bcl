@@ -1,0 +1,8 @@
+bcl::find::LocatorCoordinatesKnown<bcl::assemble::ProteinModel>
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::linal::Vector3D,bcl::assemble::ProteinModel>>
+    12345678
+    bcl::assemble::LocatorAtom
+      LocatorAtom(
+        locator_aa=LocatorAA(locator_chain=A,seq_id=14,aa type=Undefined,use_pdb_id=0),
+        atom_type=CB
+      )

@@ -1,0 +1,3 @@
+bcl::storage::Table<double> loop  body_agreement connectivity ss_PSIPRED ss_JUFO ss_PSIPRED_ent ss_JUFO_ent
+weights                        200            30           45         20      10             20          10
+

@@ -1,0 +1,3590 @@
+bcl::assemble::SSETransformer
+  bcl::util::ShPtr<bcl::biol::AASequence>
+    12345678
+    bcl::biol::AASequence
+      bcl::util::ShPtrVector<bcl::biol::AABase>
+        76
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "METHIONINE"
+                1
+                1
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.5544	-18.4975	2.683
+              bcl::biol::AtomTypes::Enum
+                "N"
+              1
+              14.7
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.2719	-17.2528	2.894
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              2
+              9.58
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.5997	-17.4691	3.583
+              bcl::biol::AtomTypes::Enum
+                "C"
+              3
+              6.78
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.7891	-18.4338	4.351
+              bcl::biol::AtomTypes::Enum
+                "O"
+              4
+              11.04
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.4214	-16.1949	3.647
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              5
+              15.53
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLUTAMINE"
+                2
+                2
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                34.4997	-16.5595	3.332
+              bcl::biol::AtomTypes::Enum
+                "N"
+              9
+              10.15
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.8196	-16.609	3.898
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              10
+              8.89
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.9158	-15.8113	5.204
+              bcl::biol::AtomTypes::Enum
+                "C"
+              11
+              30.66
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.4602	-14.6713	5.289
+              bcl::biol::AtomTypes::Enum
+                "O"
+              12
+              9.27
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.8553	-16.1043	2.869
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              13
+              16.48
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ISOLEUCINE"
+                3
+                3
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.5104	-16.4277	6.221
+              bcl::biol::AtomTypes::Enum
+                "N"
+              18
+              7.03
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.7625	-15.7475	7.481
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              19
+              3.72
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.1981	-15.9266	7.906
+              bcl::biol::AtomTypes::Enum
+                "C"
+              20
+              5.33
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.8941	-16.8161	7.418
+              bcl::biol::AtomTypes::Enum
+                "O"
+              21
+              7.59
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.7803	-16.116	8.615
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              22
+              11.37
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "PHENYLALANINE"
+                4
+                4
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.651	-15.055	8.77
+              bcl::biol::AtomTypes::Enum
+                "N"
+              26
+              3.74
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.004	-15.1159	9.262
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              27
+              1.62
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.0493	-15.4818	10.722
+              bcl::biol::AtomTypes::Enum
+                "C"
+              28
+              2.92
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.3109	-14.9342	11.527
+              bcl::biol::AtomTypes::Enum
+                "O"
+              29
+              6.43
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.7752	-13.7907	9.009
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              30
+              1.63
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "VALINE"
+                5
+                5
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.9474	-16.4045	11.063
+              bcl::biol::AtomTypes::Enum
+                "N"
+              37
+              0.42
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.1686	-16.7942	12.448
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              38
+              1.46
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.5733	-16.4187	12.88
+              bcl::biol::AtomTypes::Enum
+                "C"
+              39
+              7.46
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.5576	-17.0273	12.445
+              bcl::biol::AtomTypes::Enum
+                "O"
+              40
+              14.04
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.906	-18.2737	12.703
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              41
+              5.46
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LYSINE"
+                6
+                6
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.6539	-15.3821	13.703
+              bcl::biol::AtomTypes::Enum
+                "N"
+              44
+              8.09
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.9211	-14.8421	14.195
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              45
+              11.94
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.3567	-15.5291	15.501
+              bcl::biol::AtomTypes::Enum
+                "C"
+              46
+              7.96
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.6285	-15.5207	16.487
+              bcl::biol::AtomTypes::Enum
+                "O"
+              47
+              8.83
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.7887	-13.3247	14.394
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              48
+              4.45
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "THREONINE"
+                7
+                7
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.5509	-16.1399	15.48
+              bcl::biol::AtomTypes::Enum
+                "N"
+              53
+              6.82
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                46.0974	-16.8056	16.668
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              54
+              7.25
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                47.0237	-15.8833	17.432
+              bcl::biol::AtomTypes::Enum
+                "C"
+              55
+              8.47
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                47.4014	-14.8258	16.942
+              bcl::biol::AtomTypes::Enum
+                "O"
+              56
+              14.07
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                46.8212	-18.1109	16.327
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              57
+              12.32
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LEUCINE"
+                8
+                8
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                47.4214	-16.3145	18.624
+              bcl::biol::AtomTypes::Enum
+                "N"
+              60
+              10.4
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                48.2975	-15.5093	19.477
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              61
+              7.06
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                49.7458	-15.4394	18.995
+              bcl::biol::AtomTypes::Enum
+                "C"
+              62
+              36.23
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                50.5284	-14.6478	19.496
+              bcl::biol::AtomTypes::Enum
+                "O"
+              63
+              19.44
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                48.226	-15.93	20.952
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              64
+              11.04
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "THREONINE"
+                9
+                9
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                50.1006	-16.2757	18.03
+              bcl::biol::AtomTypes::Enum
+                "N"
+              68
+              22.42
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                51.4801	-16.3016	17.538
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              69
+              24.31
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                51.7146	-15.4505	16.298
+              bcl::biol::AtomTypes::Enum
+                "C"
+              70
+              18.72
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                52.8002	-15.449	15.739
+              bcl::biol::AtomTypes::Enum
+                "O"
+              71
+              36.37
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                51.9814	-17.7054	17.32
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              72
+              19.8
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLYCINE"
+                10
+                10
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                50.7058	-14.7437	15.87
+              bcl::biol::AtomTypes::Enum
+                "N"
+              75
+              28.46
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                50.846	-13.8937	14.71
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              76
+              34.29
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                50.5624	-14.6262	13.409
+              bcl::biol::AtomTypes::Enum
+                "C"
+              77
+              32.19
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                50.8947	-14.1471	12.328
+              bcl::biol::AtomTypes::Enum
+                "O"
+              78
+              38
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                51.8538	-13.4795	14.6821
+              bcl::biol::AtomTypes::Enum
+                "HA2"
+              nan
+              nan
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LYSINE"
+                11
+                11
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                49.9565	-15.7999	13.529
+              bcl::biol::AtomTypes::Enum
+                "N"
+              79
+              15.51
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                49.5484	-16.5728	12.385
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              80
+              8.92
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                48.0638	-16.4243	12.182
+              bcl::biol::AtomTypes::Enum
+                "C"
+              81
+              9.17
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                47.2927	-16.5298	13.127
+              bcl::biol::AtomTypes::Enum
+                "O"
+              82
+              11.8
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                49.9191	-18.0632	12.528
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              83
+              8.86
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "THREONINE"
+                12
+                12
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                47.665	-16.1417	10.957
+              bcl::biol::AtomTypes::Enum
+                "N"
+              88
+              7.72
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                46.2696	-16.0379	10.637
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              89
+              10.14
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.8585	-17.1514	9.722
+              bcl::biol::AtomTypes::Enum
+                "C"
+              90
+              25.56
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                46.4996	-17.3963	8.709
+              bcl::biol::AtomTypes::Enum
+                "O"
+              91
+              17.81
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.8897	-14.6682	10.03
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              92
+              11.7
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ISOLEUCINE"
+                13
+                13
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.815	-17.8521	10.089
+              bcl::biol::AtomTypes::Enum
+                "N"
+              95
+              5.46
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.3278	-18.9189	9.257
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              96
+              22.37
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.021	-18.557	8.58
+              bcl::biol::AtomTypes::Enum
+                "C"
+              97
+              5.75
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.1609	-17.9259	9.169
+              bcl::biol::AtomTypes::Enum
+                "O"
+              98
+              11.84
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.2761	-20.2805	9.974
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              99
+              20.18
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "THREONINE"
+                14
+                14
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.9243	-18.8871	7.306
+              bcl::biol::AtomTypes::Enum
+                "N"
+              103
+              6.46
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.7221	-18.6174	6.546
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              104
+              8.2
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.8248	-19.8426	6.498
+              bcl::biol::AtomTypes::Enum
+                "C"
+              105
+              16.42
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.3004	-20.973	6.356
+              bcl::biol::AtomTypes::Enum
+                "O"
+              106
+              18.03
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.0275	-18.0912	5.135
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              107
+              11.19
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LEUCINE"
+                15
+                15
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.53	-19.6114	6.653
+              bcl::biol::AtomTypes::Enum
+                "N"
+              110
+              6.49
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.5435	-20.6753	6.659
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              111
+              5.4
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.4243	-20.386	5.693
+              bcl::biol::AtomTypes::Enum
+                "C"
+              112
+              4.45
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.0285	-19.2487	5.515
+              bcl::biol::AtomTypes::Enum
+                "O"
+              113
+              14.37
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.91	-20.8454	8.073
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              114
+              9.18
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLUTAMIC_ACID"
+                16
+                16
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.8551	-21.4269	5.142
+              bcl::biol::AtomTypes::Enum
+                "N"
+              118
+              10.98
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.6827	-21.2747	4.332
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              119
+              11.36
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                34.4876	-21.8134	5.072
+              bcl::biol::AtomTypes::Enum
+                "C"
+              120
+              15.36
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                34.4462	-22.9866	5.43
+              bcl::biol::AtomTypes::Enum
+                "O"
+              121
+              12.57
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.8287	-21.8634	2.917
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              122
+              7.18
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "VALINE"
+                17
+                17
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.5628	-20.9152	5.411
+              bcl::biol::AtomTypes::Enum
+                "N"
+              127
+              11.41
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.409	-21.2796	6.217
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              128
+              14.21
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.1075	-20.6688	5.712
+              bcl::biol::AtomTypes::Enum
+                "C"
+              129
+              8.25
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.1021	-19.7558	4.885
+              bcl::biol::AtomTypes::Enum
+                "O"
+              130
+              16.44
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.6224	-20.8653	7.681
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              131
+              16.24
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLUTAMIC_ACID"
+                18
+                18
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                30.0029	-21.175	6.261
+              bcl::biol::AtomTypes::Enum
+                "N"
+              134
+              1.56
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                28.686	-20.6366	6.022
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              135
+              5.53
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                28.1199	-20.1108	7.335
+              bcl::biol::AtomTypes::Enum
+                "C"
+              136
+              7.3
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                28.3565	-20.6837	8.386
+              bcl::biol::AtomTypes::Enum
+                "O"
+              137
+              9.1
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.7302	-21.6653	5.39
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              138
+              23.25
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "PROLINE"
+                19
+                19
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.4107	-19.0058	7.279
+              bcl::biol::AtomTypes::Enum
+                "N"
+              143
+              10.17
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                26.8423	-18.4345	8.486
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              144
+              5.16
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.9569	-19.4309	9.25
+              bcl::biol::AtomTypes::Enum
+                "C"
+              145
+              8.28
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.6796	-19.2602	10.44
+              bcl::biol::AtomTypes::Enum
+                "O"
+              146
+              6.08
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                26.0304	-17.201	8.06
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              147
+              8.12
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "SERINE"
+                20
+                20
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.5384	-20.4827	8.558
+              bcl::biol::AtomTypes::Enum
+                "N"
+              150
+              5.76
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                24.6987	-21.5031	9.162
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              151
+              9.01
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.5007	-22.5316	9.92
+              bcl::biol::AtomTypes::Enum
+                "C"
+              152
+              6.66
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                24.9514	-23.4135	10.557
+              bcl::biol::AtomTypes::Enum
+                "O"
+              153
+              11.35
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                23.7842	-22.1641	8.151
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              154
+              8.09
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ASPARTIC_ACID"
+                21
+                21
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                26.7998	-22.4166	9.843
+              bcl::biol::AtomTypes::Enum
+                "N"
+              156
+              6.78
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.6707	-23.3333	10.536
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              157
+              11.48
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.6917	-23.0615	12.01
+              bcl::biol::AtomTypes::Enum
+                "C"
+              158
+              9.24
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.6467	-21.9164	12.443
+              bcl::biol::AtomTypes::Enum
+                "O"
+              159
+              11.66
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.1053	-23.3056	9.972
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              160
+              21.1
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "THREONINE"
+                22
+                22
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.7758	-24.113	12.777
+              bcl::biol::AtomTypes::Enum
+                "N"
+              164
+              4.15
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.8583	-23.9947	14.193
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              165
+              3.95
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.2921	-23.7055	14.627
+              bcl::biol::AtomTypes::Enum
+                "C"
+              166
+              9.11
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                30.2429	-23.9296	13.865
+              bcl::biol::AtomTypes::Enum
+                "O"
+              167
+              6.86
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.3253	-25.254	14.894
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              168
+              11.59
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ISOLEUCINE"
+                23
+                23
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.4404	-23.2041	15.852
+              bcl::biol::AtomTypes::Enum
+                "N"
+              171
+              7.45
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                30.7533	-22.9279	16.418
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              172
+              13.33
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.5597	-24.222	16.583
+              bcl::biol::AtomTypes::Enum
+                "C"
+              173
+              6.92
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.7579	-24.2628	16.359
+              bcl::biol::AtomTypes::Enum
+                "O"
+              174
+              9.23
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                30.6489	-22.1795	17.735
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              175
+              17.5
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLUTAMIC_ACID"
+                24
+                24
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                30.855	-25.2732	16.965
+              bcl::biol::AtomTypes::Enum
+                "N"
+              179
+              8.29
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.4195	-26.6092	17.115
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              180
+              8.45
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.0661	-27.0783	15.806
+              bcl::biol::AtomTypes::Enum
+                "C"
+              181
+              9.94
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.133	-27.6759	15.803
+              bcl::biol::AtomTypes::Enum
+                "O"
+              182
+              15.07
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                30.3083	-27.5969	17.56
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              183
+              38.06
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ASPARAGINE"
+                25
+                25
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.3886	-26.7664	14.682
+              bcl::biol::AtomTypes::Enum
+                "N"
+              188
+              16.08
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.856	-27.134	13.347
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              189
+              11.97
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.0726	-26.3349	12.924
+              bcl::biol::AtomTypes::Enum
+                "C"
+              190
+              10.18
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.9886	-26.8627	12.286
+              bcl::biol::AtomTypes::Enum
+                "O"
+              191
+              11.31
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                30.7318	-27.0461	12.292
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              192
+              24.35
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "VALINE"
+                26
+                26
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.0877	-25.0514	13.292
+              bcl::biol::AtomTypes::Enum
+                "N"
+              196
+              11.81
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                34.2289	-24.1949	12.998
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              197
+              7.13
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.4761	-24.7065	13.699
+              bcl::biol::AtomTypes::Enum
+                "C"
+              198
+              8.22
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.5633	-24.7486	13.13
+              bcl::biol::AtomTypes::Enum
+                "O"
+              199
+              5.3
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.9734	-22.7291	13.367
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              200
+              5.26
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LYSINE"
+                27
+                27
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.302	-25.0932	14.953
+              bcl::biol::AtomTypes::Enum
+                "N"
+              203
+              3.3
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.3904	-25.6113	15.743
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              204
+              4.77
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.9622	-26.8922	15.139
+              bcl::biol::AtomTypes::Enum
+                "C"
+              205
+              10.56
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.1629	-27.1572	15.225
+              bcl::biol::AtomTypes::Enum
+                "O"
+              206
+              7.99
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.9874	-25.8305	17.182
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              207
+              14.44
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ALANINE"
+                28
+                28
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.0777	-27.6875	14.53
+              bcl::biol::AtomTypes::Enum
+                "N"
+              212
+              3.76
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.4769	-28.9194	13.871
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              213
+              10.77
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.2925	-28.6271	12.638
+              bcl::biol::AtomTypes::Enum
+                "C"
+              214
+              25.34
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.2608	-29.3292	12.324
+              bcl::biol::AtomTypes::Enum
+                "O"
+              215
+              15.45
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.264	-29.7656	13.523
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              216
+              13.96
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LYSINE"
+                29
+                29
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.8993	-27.5625	11.939
+              bcl::biol::AtomTypes::Enum
+                "N"
+              217
+              7.48
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.6002	-27.1276	10.758
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              218
+              1.04
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.0054	-26.6921	11.101
+              bcl::biol::AtomTypes::Enum
+                "C"
+              219
+              11.9
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.9574	-26.9978	10.393
+              bcl::biol::AtomTypes::Enum
+                "O"
+              220
+              6.28
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.8658	-26.0098	10.041
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              221
+              9.58
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ISOLEUCINE"
+                30
+                30
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.1225	-25.9653	12.203
+              bcl::biol::AtomTypes::Enum
+                "N"
+              226
+              4.2
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.4091	-25.4947	12.667
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              227
+              1.52
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.3056	-26.6586	13.042
+              bcl::biol::AtomTypes::Enum
+                "C"
+              228
+              10.11
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.5013	-26.656	12.766
+              bcl::biol::AtomTypes::Enum
+                "O"
+              229
+              13.41
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.2766	-24.4916	13.838
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              230
+              2.42
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLUTAMINE"
+                31
+                31
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.7117	-27.6654	13.679
+              bcl::biol::AtomTypes::Enum
+                "N"
+              234
+              5.22
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.4544	-28.8446	14.064
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              235
+              5.3
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.9422	-29.5694	12.852
+              bcl::biol::AtomTypes::Enum
+                "C"
+              236
+              14.07
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.0934	-29.9829	12.767
+              bcl::biol::AtomTypes::Enum
+                "O"
+              237
+              11.26
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.6484	-29.7879	14.958
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              238
+              8.28
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ASPARTIC_ACID"
+                32
+                32
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.0705	-29.6823	11.898
+              bcl::biol::AtomTypes::Enum
+                "N"
+              243
+              11.32
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.3878	-30.3225	10.683
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              244
+              19.72
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.5614	-29.6531	9.975
+              bcl::biol::AtomTypes::Enum
+                "C"
+              245
+              22.12
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.4146	-30.3212	9.391
+              bcl::biol::AtomTypes::Enum
+                "O"
+              246
+              22.55
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.1704	-30.3943	9.759
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              247
+              13.07
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LYSINE"
+                33
+                33
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.6091	-28.3275	10.026
+              bcl::biol::AtomTypes::Enum
+                "N"
+              251
+              21.24
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.6293	-27.6228	9.297
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              252
+              7.78
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.915	-27.2597	10.048
+              bcl::biol::AtomTypes::Enum
+                "C"
+              253
+              12.86
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.9741	-27.1795	9.446
+              bcl::biol::AtomTypes::Enum
+                "O"
+              254
+              12.42
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.1031	-26.5341	8.348
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              255
+              13.04
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLUTAMIC_ACID"
+                34
+                34
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.8266	-27.075	11.36
+              bcl::biol::AtomTypes::Enum
+                "N"
+              260
+              10.67
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                46.0033	-26.6968	12.148
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              261
+              6.55
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                46.3657	-27.7084	13.214
+              bcl::biol::AtomTypes::Enum
+                "C"
+              262
+              7.47
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                47.4157	-27.6101	13.844
+              bcl::biol::AtomTypes::Enum
+                "O"
+              263
+              12.2
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.8679	-25.2866	12.746
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              264
+              10.47
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLYCINE"
+                35
+                35
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.467	-28.6544	13.442
+              bcl::biol::AtomTypes::Enum
+                "N"
+              269
+              4.51
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.6973	-29.7225	14.387
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              270
+              5.4
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.3764	-29.3788	15.836
+              bcl::biol::AtomTypes::Enum
+                "C"
+              271
+              18.77
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.6208	-30.1826	16.728
+              bcl::biol::AtomTypes::Enum
+                "O"
+              272
+              8.04
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                46.7321	-30.0569	14.313
+              bcl::biol::AtomTypes::Enum
+                "HA2"
+              nan
+              nan
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ISOLEUCINE"
+                36
+                36
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.8108	-28.1915	16.075
+              bcl::biol::AtomTypes::Enum
+                "N"
+              273
+              14.03
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.4597	-27.7872	17.447
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              274
+              2.47
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.1592	-28.4284	17.905
+              bcl::biol::AtomTypes::Enum
+                "C"
+              275
+              3.4
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.1103	-28.2162	17.304
+              bcl::biol::AtomTypes::Enum
+                "O"
+              276
+              10.44
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.3951	-26.2583	17.603
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              277
+              15.81
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "PROLINE"
+                37
+                37
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.2338	-29.2307	18.987
+              bcl::biol::AtomTypes::Enum
+                "N"
+              281
+              10.9
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.0525	-29.8763	19.523
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              282
+              11.38
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.0129	-28.8482	19.935
+              bcl::biol::AtomTypes::Enum
+                "C"
+              283
+              10.42
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.3439	-27.8217	20.526
+              bcl::biol::AtomTypes::Enum
+                "O"
+              284
+              8.82
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.5058	-30.6953	20.744
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              285
+              22.64
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "PROLINE"
+                38
+                38
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.7573	-29.1164	19.593
+              bcl::biol::AtomTypes::Enum
+                "N"
+              288
+              9.24
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.6781	-28.1863	19.865
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              289
+              13.65
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.535	-27.7881	21.342
+              bcl::biol::AtomTypes::Enum
+                "C"
+              290
+              14.6
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.1933	-26.6426	21.662
+              bcl::biol::AtomTypes::Enum
+                "O"
+              291
+              9.29
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.3953	-28.8239	19.322
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              292
+              10.65
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ASPARTIC_ACID"
+                39
+                39
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.8078	-28.7183	22.225
+              bcl::biol::AtomTypes::Enum
+                "N"
+              295
+              12.19
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.7007	-28.4629	23.651
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              296
+              12.87
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.7091	-27.3919	24.157
+              bcl::biol::AtomTypes::Enum
+                "C"
+              297
+              10.51
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.5286	-26.7944	25.225
+              bcl::biol::AtomTypes::Enum
+                "O"
+              298
+              9.75
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.7549	-29.7754	24.477
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              299
+              18.94
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLUTAMINE"
+                40
+                40
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.7466	-27.142	23.366
+              bcl::biol::AtomTypes::Enum
+                "N"
+              303
+              8.2
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.7381	-26.1291	23.714
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              304
+              11.06
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.382	-24.7643	23.106
+              bcl::biol::AtomTypes::Enum
+                "C"
+              305
+              11.82
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.9849	-23.743	23.436
+              bcl::biol::AtomTypes::Enum
+                "O"
+              306
+              10.27
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.1615	-26.5519	23.286
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              307
+              8.28
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLUTAMINE"
+                41
+                41
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.3848	-24.776	22.205
+              bcl::biol::AtomTypes::Enum
+                "N"
+              312
+              6.85
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.976	-23.5893	21.464
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              313
+              5.19
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.9755	-22.6747	22.184
+              bcl::biol::AtomTypes::Enum
+                "C"
+              314
+              9.83
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.9022	-23.0834	22.584
+              bcl::biol::AtomTypes::Enum
+                "O"
+              315
+              9.67
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.4367	-23.9422	20.081
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              316
+              8.15
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ARGININE"
+                42
+                42
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.3155	-21.4076	22.2
+              bcl::biol::AtomTypes::Enum
+                "N"
+              321
+              12.27
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.47	-20.3554	22.713
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              322
+              3.49
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.3692	-19.2652	21.646
+              bcl::biol::AtomTypes::Enum
+                "C"
+              323
+              0
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.374	-18.6233	21.302
+              bcl::biol::AtomTypes::Enum
+                "O"
+              324
+              7.18
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.0115	-19.8051	24.051
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              325
+              20.59
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LEUCINE"
+                43
+                43
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.2017	-19.1735	21.013
+              bcl::biol::AtomTypes::Enum
+                "N"
+              332
+              4.32
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.9949	-18.207	19.917
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              333
+              6.8
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.3504	-16.9255	20.395
+              bcl::biol::AtomTypes::Enum
+                "C"
+              334
+              15.96
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.3459	-16.947	21.109
+              bcl::biol::AtomTypes::Enum
+                "O"
+              335
+              10.88
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.2175	-18.814	18.728
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              336
+              1.28
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ISOLEUCINE"
+                44
+                44
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.9478	-15.7966	19.994
+              bcl::biol::AtomTypes::Enum
+                "N"
+              340
+              5.49
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.4771	-14.4839	20.403
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              341
+              3.46
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.1359	-13.6085	19.217
+              bcl::biol::AtomTypes::Enum
+                "C"
+              342
+              4.24
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.9394	-13.4409	18.301
+              bcl::biol::AtomTypes::Enum
+                "O"
+              343
+              11.01
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.5075	-13.7653	21.29
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              344
+              2.68
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "PHENYLALANINE"
+                45
+                45
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                34.9517	-13.0059	19.273
+              bcl::biol::AtomTypes::Enum
+                "N"
+              348
+              15.45
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                34.4866	-12.0729	18.249
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              349
+              3.28
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.6862	-10.9493	18.882
+              bcl::biol::AtomTypes::Enum
+                "C"
+              350
+              5.52
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.761	-11.1889	19.646
+              bcl::biol::AtomTypes::Enum
+                "O"
+              351
+              5.6
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.6601	-12.7716	17.152
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              352
+              0.11
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ALANINE"
+                46
+                46
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                34.0468	-9.73545	18.563
+              bcl::biol::AtomTypes::Enum
+                "N"
+              359
+              8.87
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.3491	-8.57842	19.098
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              360
+              5.58
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.2105	-8.63714	20.626
+              bcl::biol::AtomTypes::Enum
+                "C"
+              361
+              8.46
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.1481	-8.36406	21.181
+              bcl::biol::AtomTypes::Enum
+                "O"
+              362
+              16.97
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.9919	-8.40114	18.426
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              363
+              8.74
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLYCINE"
+                47
+                47
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                34.3002	-9.01382	21.285
+              bcl::biol::AtomTypes::Enum
+                "N"
+              364
+              10.55
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                34.3592	-9.07562	22.74
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              365
+              13.57
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.5473	-10.2174	23.35
+              bcl::biol::AtomTypes::Enum
+                "C"
+              366
+              18.92
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.381	-10.2882	24.561
+              bcl::biol::AtomTypes::Enum
+                "O"
+              367
+              20.87
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                34.0238	-8.12665	23.1584
+              bcl::biol::AtomTypes::Enum
+                "HA2"
+              nan
+              nan
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LYSINE"
+                48
+                48
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.0655	-11.11	22.512
+              bcl::biol::AtomTypes::Enum
+                "N"
+              368
+              8.19
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.2734	-12.2316	22.987
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              369
+              10.95
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.9735	-13.5645	22.803
+              bcl::biol::AtomTypes::Enum
+                "C"
+              370
+              12.55
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.5461	-13.8348	21.758
+              bcl::biol::AtomTypes::Enum
+                "O"
+              371
+              7.91
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                30.921	-12.2925	22.292
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              372
+              14.73
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLUTAMINE"
+                49
+                49
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.8407	-14.4341	23.799
+              bcl::biol::AtomTypes::Enum
+                "N"
+              377
+              10.43
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.3128	-15.777	23.661
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              378
+              0.05
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.2409	-16.5879	22.977
+              bcl::biol::AtomTypes::Enum
+                "C"
+              379
+              9.57
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.091	-16.6019	23.415
+              bcl::biol::AtomTypes::Enum
+                "O"
+              380
+              9.29
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.7229	-16.4144	25
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              381
+              10.88
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LEUCINE"
+                50
+                50
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.5896	-17.1822	21.852
+              bcl::biol::AtomTypes::Enum
+                "N"
+              386
+              6
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.6323	-17.938	21.052
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              387
+              4.65
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.2963	-19.3016	21.653
+              bcl::biol::AtomTypes::Enum
+                "C"
+              388
+              6.43
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.1696	-20.0315	22.075
+              bcl::biol::AtomTypes::Enum
+                "O"
+              389
+              10.17
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.0853	-18.0537	19.592
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              390
+              14.77
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLUTAMIC_ACID"
+                51
+                51
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.9765	-19.6116	21.687
+              bcl::biol::AtomTypes::Enum
+                "N"
+              394
+              3.98
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.4503	-20.8593	22.245
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              395
+              9.27
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.2278	-21.9189	21.16
+              bcl::biol::AtomTypes::Enum
+                "C"
+              396
+              5.25
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                28.6427	-21.639	20.111
+              bcl::biol::AtomTypes::Enum
+                "O"
+              397
+              9.05
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                28.156	-20.6037	23.03
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              398
+              37.37
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ASPARTIC_ACID"
+                52
+                52
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.6932	-23.1472	21.45
+              bcl::biol::AtomTypes::Enum
+                "N"
+              403
+              18.23
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.6556	-24.3034	20.511
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              404
+              22.44
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                28.342	-24.5094	19.769
+              bcl::biol::AtomTypes::Enum
+                "C"
+              405
+              16.63
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                28.3364	-24.8225	18.576
+              bcl::biol::AtomTypes::Enum
+                "O"
+              406
+              17.94
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                30.078	-25.613	21.198
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              407
+              20.02
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLYCINE"
+                53
+                53
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.2358	-24.4283	20.503
+              bcl::biol::AtomTypes::Enum
+                "N"
+              411
+              23.78
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.9114	-24.7145	19.955
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              412
+              3.93
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.3349	-23.6296	19.06
+              bcl::biol::AtomTypes::Enum
+                "C"
+              413
+              4.72
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                24.3734	-23.8642	18.337
+              bcl::biol::AtomTypes::Enum
+                "O"
+              414
+              15.8
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.2174	-24.921	20.7697
+              bcl::biol::AtomTypes::Enum
+                "HA2"
+              nan
+              nan
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ARGININE"
+                54
+                54
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.8854	-22.4371	19.134
+              bcl::biol::AtomTypes::Enum
+                "N"
+              415
+              15.61
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.3965	-21.35	18.304
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              416
+              3.74
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.9906	-21.4051	16.923
+              bcl::biol::AtomTypes::Enum
+                "C"
+              417
+              5.11
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                26.995	-22.0724	16.695
+              bcl::biol::AtomTypes::Enum
+                "O"
+              418
+              17.68
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.6482	-19.9823	18.926
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              419
+              5.36
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "THREONINE"
+                55
+                55
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.3748	-20.6715	16.005
+              bcl::biol::AtomTypes::Enum
+                "N"
+              426
+              14.52
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.8753	-20.552	14.643
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              427
+              20.44
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                26.5547	-19.2125	14.456
+              bcl::biol::AtomTypes::Enum
+                "C"
+              428
+              13.56
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                26.3929	-18.3135	15.27
+              bcl::biol::AtomTypes::Enum
+                "O"
+              429
+              10.48
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                24.7634	-20.725	13.595
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              430
+              12.69
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LEUCINE"
+                56
+                56
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.3026	-19.0778	13.368
+              bcl::biol::AtomTypes::Enum
+                "N"
+              433
+              5.61
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.9731	-17.8242	13.071
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              434
+              8.39
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                26.9719	-16.6975	12.864
+              bcl::biol::AtomTypes::Enum
+                "C"
+              435
+              7.37
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.2373	-15.5598	13.19
+              bcl::biol::AtomTypes::Enum
+                "O"
+              436
+              10.62
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                28.9273	-17.9327	11.846
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              437
+              8.18
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "SERINE"
+                57
+                57
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.7992	-17.0459	12.312
+              bcl::biol::AtomTypes::Enum
+                "N"
+              441
+              6.95
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                24.7599	-16.0577	12.051
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              442
+              8.36
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                24.188	-15.4591	13.334
+              bcl::biol::AtomTypes::Enum
+                "C"
+              443
+              11.59
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                23.7898	-14.292	13.367
+              bcl::biol::AtomTypes::Enum
+                "O"
+              444
+              18.59
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                23.6598	-16.5876	11.138
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              445
+              7.72
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ASPARTIC_ACID"
+                58
+                58
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                24.1673	-16.266	14.397
+              bcl::biol::AtomTypes::Enum
+                "N"
+              447
+              7.08
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                23.6758	-15.8116	15.704
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              448
+              10.67
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                24.4496	-14.6108	16.185
+              bcl::biol::AtomTypes::Enum
+                "C"
+              449
+              11.96
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                23.9336	-13.7637	16.908
+              bcl::biol::AtomTypes::Enum
+                "O"
+              450
+              10.57
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                23.76	-16.9251	16.769
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              451
+              9.52
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "TYROSINE"
+                59
+                59
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.722	-14.5853	15.816
+              bcl::biol::AtomTypes::Enum
+                "N"
+              455
+              7.5
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                26.6413	-13.5474	16.225
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              456
+              12.45
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                26.799	-12.4437	15.177
+              bcl::biol::AtomTypes::Enum
+                "C"
+              457
+              7.02
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.5626	-11.4995	15.365
+              bcl::biol::AtomTypes::Enum
+                "O"
+              458
+              23.13
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                28.0087	-14.1346	16.577
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              459
+              5.61
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ASPARAGINE"
+                60
+                60
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                26.1025	-12.5817	14.073
+              bcl::biol::AtomTypes::Enum
+                "N"
+              467
+              14
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                26.1784	-11.5823	13.019
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              468
+              15.92
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                27.5811	-11.4756	12.415
+              bcl::biol::AtomTypes::Enum
+                "C"
+              469
+              15.06
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                28.0361	-10.3972	12.044
+              bcl::biol::AtomTypes::Enum
+                "O"
+              470
+              15.64
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                25.6737	-10.2006	13.495
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              471
+              32.23
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ISOLEUCINE"
+                61
+                61
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                28.2466	-12.6179	12.32
+              bcl::biol::AtomTypes::Enum
+                "N"
+              475
+              9.68
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.5729	-12.7095	11.711
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              476
+              9.82
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.4476	-12.6703	10.183
+              bcl::biol::AtomTypes::Enum
+                "C"
+              477
+              12.17
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                28.8703	-13.5697	9.585
+              bcl::biol::AtomTypes::Enum
+                "O"
+              478
+              18.54
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                30.2835	-13.997	12.153
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              479
+              14.22
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLUTAMINE"
+                62
+                62
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.9435	-11.5818	9.563
+              bcl::biol::AtomTypes::Enum
+                "N"
+              483
+              10.47
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.8338	-11.4093	8.104
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              484
+              14.02
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.119	-11.7918	7.357
+              bcl::biol::AtomTypes::Enum
+                "C"
+              485
+              26.14
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.1577	-12.0148	7.96
+              bcl::biol::AtomTypes::Enum
+                "O"
+              486
+              14.13
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                29.3699	-9.99436	7.724
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              487
+              26.69
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LYSINE"
+                63
+                63
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.0314	-11.8655	6.031
+              bcl::biol::AtomTypes::Enum
+                "N"
+              492
+              13.64
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                32.1759	-12.2328	5.238
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              493
+              10.07
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.3954	-11.3582	5.533
+              bcl::biol::AtomTypes::Enum
+                "C"
+              494
+              14.13
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                33.2789	-10.1584	5.749
+              bcl::biol::AtomTypes::Enum
+                "O"
+              495
+              14.57
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                31.8721	-12.3105	3.74
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              496
+              9.94
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLUTAMIC_ACID"
+                64
+                64
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                34.5696	-12.0144	5.58
+              bcl::biol::AtomTypes::Enum
+                "N"
+              501
+              8.66
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.8623	-11.3589	5.817
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              502
+              6.22
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.0952	-10.8784	7.255
+              bcl::biol::AtomTypes::Enum
+                "C"
+              503
+              14.2
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.0035	-10.0849	7.528
+              bcl::biol::AtomTypes::Enum
+                "O"
+              504
+              10.99
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.2089	-10.3126	4.765
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              505
+              37.05
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "SERINE"
+                65
+                65
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.3097	-11.4186	8.165
+              bcl::biol::AtomTypes::Enum
+                "N"
+              510
+              8.24
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                35.4488	-11.1315	9.573
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              511
+              14.34
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                36.666	-11.8359	10.147
+              bcl::biol::AtomTypes::Enum
+                "C"
+              512
+              4.04
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.1244	-12.8551	9.614
+              bcl::biol::AtomTypes::Enum
+                "O"
+              513
+              8.12
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                34.2066	-11.5572	10.346
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              514
+              5.38
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "THREONINE"
+                66
+                66
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.1694	-11.3106	11.249
+              bcl::biol::AtomTypes::Enum
+                "N"
+              516
+              5.73
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.2855	-11.9142	11.929
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              517
+              6.64
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.9063	-12.3781	13.328
+              bcl::biol::AtomTypes::Enum
+                "C"
+              518
+              5.09
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.4111	-11.5885	14.154
+              bcl::biol::AtomTypes::Enum
+                "O"
+              519
+              5.22
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.531	-10.9807	11.974
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              520
+              4.55
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LEUCINE"
+                67
+                67
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                38.0998	-13.6822	13.579
+              bcl::biol::AtomTypes::Enum
+                "N"
+              523
+              9.04
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.8965	-14.2508	14.903
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              524
+              5.86
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.223	-14.3497	15.583
+              bcl::biol::AtomTypes::Enum
+                "C"
+              525
+              3.15
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.2385	-14.5077	14.926
+              bcl::biol::AtomTypes::Enum
+                "O"
+              526
+              5.11
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                37.2419	-15.6727	14.882
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              527
+              16.39
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "HISTIDINE"
+                68
+                68
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.2171	-14.2602	16.894
+              bcl::biol::AtomTypes::Enum
+                "N"
+              531
+              2.33
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.4319	-14.4038	17.667
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              532
+              1.97
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.4757	-15.7586	18.351
+              bcl::biol::AtomTypes::Enum
+                "C"
+              533
+              6.68
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                39.5137	-16.1763	18.995
+              bcl::biol::AtomTypes::Enum
+                "O"
+              534
+              6.33
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                40.6088	-13.2686	18.692
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              535
+              7.43
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LEUCINE"
+                69
+                69
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.5848	-16.4571	18.176
+              bcl::biol::AtomTypes::Enum
+                "N"
+              541
+              6.96
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.7586	-17.7654	18.782
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              542
+              9.39
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.7017	-17.7102	19.964
+              bcl::biol::AtomTypes::Enum
+                "C"
+              543
+              5.87
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.8833	-17.3663	19.824
+              bcl::biol::AtomTypes::Enum
+                "O"
+              544
+              9.41
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.2385	-18.8313	17.745
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              545
+              7.66
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "VALINE"
+                70
+                70
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.1696	-18.0303	21.136
+              bcl::biol::AtomTypes::Enum
+                "N"
+              549
+              7.25
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.9576	-18.1223	22.331
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              550
+              6.8
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.0016	-19.5717	22.801
+              bcl::biol::AtomTypes::Enum
+                "C"
+              551
+              5.75
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.9941	-20.2765	22.77
+              bcl::biol::AtomTypes::Enum
+                "O"
+              552
+              8.83
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                42.474	-17.1775	23.43
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              553
+              16.5
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LEUCINE"
+                71
+                71
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.1757	-20.0398	23.137
+              bcl::biol::AtomTypes::Enum
+                "N"
+              556
+              13.56
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.3275	-21.4194	23.55
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              557
+              11.58
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.2138	-21.6067	25.033
+              bcl::biol::AtomTypes::Enum
+                "C"
+              558
+              11.93
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.754	-20.8455	25.821
+              bcl::biol::AtomTypes::Enum
+                "O"
+              559
+              16.54
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.6128	-22.0679	23.002
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              560
+              30.57
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ARGININE"
+                72
+                72
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.5261	-22.6387	25.4
+              bcl::biol::AtomTypes::Enum
+                "N"
+              564
+              24.05
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.364	-22.9879	26.768
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              565
+              32.79
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.8616	-24.3834	26.998
+              bcl::biol::AtomTypes::Enum
+                "C"
+              566
+              32.1
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.1689	-25.3582	26.715
+              bcl::biol::AtomTypes::Enum
+                "O"
+              567
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                41.922	-22.8634	27.209
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              568
+              18.99
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "LEUCINE"
+                73
+                73
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.0894	-24.486	27.458
+              bcl::biol::AtomTypes::Enum
+                "N"
+              575
+              34.99
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.6915	-25.7793	27.701
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              576
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.2693	-26.3728	29.027
+              bcl::biol::AtomTypes::Enum
+                "C"
+              577
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.0356	-25.657	30.013
+              bcl::biol::AtomTypes::Enum
+                "O"
+              578
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                47.2217	-25.7542	27.565
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              579
+              40
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "ARGININE"
+                74
+                74
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                45.1796	-27.6889	29.045
+              bcl::biol::AtomTypes::Enum
+                "N"
+              583
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                44.7784	-28.4281	30.253
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              584
+              30.3
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                46.0308	-28.9591	30.944
+              bcl::biol::AtomTypes::Enum
+                "C"
+              585
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                46.5523	-30.0303	30.583
+              bcl::biol::AtomTypes::Enum
+                "O"
+              586
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                43.8081	-29.5614	29.923
+              bcl::biol::AtomTypes::Enum
+                "CB"
+              587
+              40
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLYCINE"
+                75
+                75
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                46.513	-28.1715	31.898
+              bcl::biol::AtomTypes::Enum
+                "N"
+              594
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                47.6922	-28.5033	32.686
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              595
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                48.8316	-27.5086	32.588
+              bcl::biol::AtomTypes::Enum
+                "C"
+              596
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                49.3391	-27.187	31.5
+              bcl::biol::AtomTypes::Enum
+                "O"
+              597
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                48.0495	-29.4945	32.4065
+              bcl::biol::AtomTypes::Enum
+                "HA2"
+              nan
+              nan
+        bcl::util::ShPtr<bcl::biol::AABase>
+          12345678
+          bcl::biol::AABackBone
+            bcl::util::ShPtr<bcl::biol::AAData>
+              12345678
+              bcl::biol::AAData
+                bcl::biol::AATypes::Enum
+                  "GLYCINE"
+                76
+                76
+                ' '
+                B
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                49.2424	-27.0544	33.757
+              bcl::biol::AtomTypes::Enum
+                "N"
+              598
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                50.3407	-26.0951	33.944
+              bcl::biol::AtomTypes::Enum
+                "CA"
+              599
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                50.4052	-25.7145	35.432
+              bcl::biol::AtomTypes::Enum
+                "C"
+              600
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                50.5728	-24.5055	35.687
+              bcl::biol::AtomTypes::Enum
+                "O"
+              601
+              40
+            bcl::biol::Atom
+              bcl::linal::Vector3D
+                50.1496	-25.2026	33.3481
+              bcl::biol::AtomTypes::Enum
+                "HA2"
+              nan
+              nan
+
+      B
+      "1UBI:A|PDBID|CHAIN|SEQUENCE"
+  bcl::util::ShPtr<bcl::math::TransformationMatrix3D>
+    12345678
+    bcl::math::TransformationMatrix3D
+      bcl::linal::Matrix<double>
+        4	        4
+        0.309017	-0.951057	0	0	
+        0.951057	0.309017	0	0	
+        0	0	1	0	
+        0	0	0	1	

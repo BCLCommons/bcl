@@ -1,0 +1,5 @@
+# pack group jufo and alignment in one archive - does not work with cmake 2.8.4
+/blue/meilerlab/apps/Linux2/x86_64/cmake/2.8.3/bin/cpack -G ZIP -D CPACK_INSTALL_CMAKE_PROJECTS="/home/woetzen/workspace/bcl/build/x86_64-w64-mingw32;bcl-project;ALL;/" -D CPACK_COMPONENTS_ALL="jufo;alignment" -D CPACK_COMPONENTS_ALL_GROUPS_IN_ONE_PACKAGE=ON
+
+# pack group jufo and alignemt in one NSIS installer - does work with cmake 2.8.4
+cpack -G NSIS -D CPACK_INSTALL_CMAKE_PROJECTS="/home/woetzen/workspace/bcl/build/x86_64-w64-mingw32;bcl-project;ALL;/" -D CPACK_COMPONENTS_ALL="jufo;alignment"

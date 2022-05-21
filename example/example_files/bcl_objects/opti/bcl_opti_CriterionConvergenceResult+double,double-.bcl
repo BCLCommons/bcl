@@ -1,0 +1,2 @@
+bcl::opti::CriterionConvergenceResult<double,double>
+  ConvergenceResult(repeats=3,tolerance=0.25,current repetitions=4,last result=1.1)

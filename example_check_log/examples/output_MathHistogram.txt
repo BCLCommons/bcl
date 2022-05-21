@@ -1,0 +1,116 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec MathHistogram 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> MathHistogram
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: MathHistogram ====================
+=std=bcl=> class name: bcl::math::Histogram
+=std=bcl=> binsize: 2.5
+=std=bcl=> boundaries: bcl::storage::VectorND<2,double>
+  0.7
+  25.7
+=std=bcl=> nr bins: 10
+=std=bcl=> boundary counts: bcl::storage::VectorND<2,double>
+  0
+  0
+=std=bcl=> sum counts: 0
+=std=bcl=> counts between 0 and 10: 0
+=std=bcl=> successful example check:  histogram1D_a.GetSumOfAllCounts() == double( 20) == 20
+=std=bcl=> successful example check:  histogram1D_a.GetCountsInBetween( 0.0, 10.0) == double( 9) == 9
+=std=bcl=> successful example check:  histogram1D_a.GetHistogram()( 2) == double( 6) == 6
+=std=bcl=> histogram1D_a.PushBack( 6.95) test succeeded:  histogram1D_a.GetHistogram()( 2) == double( 7) == 7
+=std=bcl=> histogram1D_a.PushBack( 6.95, 0.5) test succeeded:  histogram1D_a.GetHistogram()( 2) == double( 7.5) == 7.5
+=std=bcl=> successful example check:  histogram1D_a.IsEmpty() == 0
+=std=bcl=> histogram1D_a.Reset() test succeeded:  histogram1D_a.IsEmpty() == 1
+=std=bcl=> successful example check:  math::Histogram().GetIndexOfLastInformationContainingBin() == 0
+=std=bcl=> successful example check:  histogram1D_a.GetIndexOfLastInformationContainingBin() == 2
+=std=bcl=> histogram1D_a.RemoveBinsAfterIndex( 1) test succeeded:  histogram1D_a.GetBoundariesCounts()( 1) == 0.5
+=std=bcl=> histogram1D_a.RemoveBinsAfterIndex( 1) test succeeded:  histogram1D_a.GetNumberOfBins() == 2
+=crt=bcl::math=> combining histograms with different parameters:
+left boundary:  0.7 != 3.5
+right boundary: 5.7 != 7
+bin size:       2.5 != 0.7
+=std=bcl=> mean and sd from unbinned data: 10.0495 5.44579
+=std=bcl=> mean and sd calculated from histogram: 10.9778 4.65019
+=std=bcl=> successful example check:  true == short_histogram.ExtendBoundaries( 2, 0, 13, 3, 0, 28) == 1
+=std=bcl=> successful example check:  short_histogram.GetNumberOfBins() == 15
+=std=bcl=> successful example check:  short_histogram.GetBoundaries().First() == 13
+=std=bcl=> successful example check:  short_histogram.GetBoundaries().Second() == 28
+=std=bcl=> successful example check:  true == short_histogram.ExtendBoundaries( 0, 0, 15, 2, 0, 27) == 1
+=std=bcl=> successful example check:  short_histogram.GetNumberOfBins() == 12
+=std=bcl=> successful example check:  short_histogram.GetBoundaries().First() == 15
+=std=bcl=> successful example check:  short_histogram.GetBoundaries().Second() == 27
+=std=bcl=> successful example check:  true == short_histogram.ExtendBoundaries( 4, 0, 11, 0, 0, 25) == 1
+=std=bcl=> successful example check:  short_histogram.GetNumberOfBins() == 14
+=std=bcl=> successful example check:  short_histogram.GetBoundaries().First() == 11
+=std=bcl=> successful example check:  short_histogram.GetBoundaries().Second() == 25
+=std=bcl=> successful example check:  true == short_histogram.ExtendBoundaries( 4, 0, 12, 0, 0, 25) == 1
+=std=bcl=> successful example check:  short_histogram.GetNumberOfBins() == 13
+=std=bcl=> successful example check:  short_histogram.GetBoundaries().First() == 12
+=std=bcl=> successful example check:  short_histogram.GetBoundaries().Second() == 25
+=std=bcl=> successful example check:  true == short_histogram.ExtendBoundaries( 0, 0, 15, 2, 0, 26) == 1
+=std=bcl=> successful example check:  short_histogram.GetNumberOfBins() == 11
+=std=bcl=> successful example check:  short_histogram.GetBoundaries().First() == 15
+=std=bcl=> successful example check:  short_histogram.GetBoundaries().Second() == 26
+=std=bcl=> successful example check:  true == short_histogram.ExtendBoundaries( 2, 0, 13.3, 3, 0, 27.6) == 1
+=std=bcl=> successful example check:  short_histogram.GetNumberOfBins() == 13
+=std=bcl=> successful example check:  short_histogram.GetBoundaries().First() == 14
+=std=bcl=> successful example check:  short_histogram.GetBoundaries().Second() == 27
+=std=bcl::app=> BCL Example | END  : MathHistogram ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+MathHistogram_total                      53          0              
+total                                    53          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

@@ -1,0 +1,120 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec DescriptorAAInsideOutsideMembrane 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> DescriptorAAInsideOutsideMembrane
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: DescriptorAAInsideOutsideMembrane ====================
+=crt=bcl::sspred=> cannot read method with PDB for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.pdb, example/example_files/input/biology/1b43AA.pdb, example/example_files/input/biology/1b43A_.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.psipred_ss2, example/example_files/input/biology/1b43AA.psipred_ss2, example/example_files/input/biology/1b43A_.psipred_ss2
+=crt=bcl::sspred=> cannot read method with JUFO for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.jufo, example/example_files/input/biology/1b43AA.jufo, example/example_files/input/biology/1b43A_.jufo
+=crt=bcl::sspred=> cannot read method with JUFO9D for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.jufo9d, example/example_files/input/biology/1b43AA.jufo9d, example/example_files/input/biology/1b43A_.jufo9d
+=crt=bcl::sspred=> cannot read method with SAM for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.rdb6, example/example_files/input/biology/1b43AA.rdb6, example/example_files/input/biology/1b43A_.rdb6
+=crt=bcl::sspred=> cannot read method with PROFphd for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.rdbProf, example/example_files/input/biology/1b43AA.rdbProf, example/example_files/input/biology/1b43A_.rdbProf
+=crt=bcl::sspred=> cannot read method with TMHMM for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43Axxx.TMHMM, example/example_files/input/biology/1b43AAxxx.TMHMM, example/example_files/input/biology/1b43A_xxx.TMHMM
+=crt=bcl::sspred=> cannot read method with TMMOD for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.tmmod, example/example_files/input/biology/1b43AA.tmmod, example/example_files/input/biology/1b43A_.tmmod
+=crt=bcl::sspred=> cannot read method with B2TMPRED for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.hmm, example/example_files/input/biology/1b43AA.hmm, example/example_files/input/biology/1b43A_.hmm
+=crt=bcl::sspred=> cannot read method with PROFTMB for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43Axxx.PROFTMB, example/example_files/input/biology/1b43AAxxx.PROFTMB, example/example_files/input/biology/1b43A_xxx.PROFTMB
+=crt=bcl::sspred=> cannot read method with CONPRED for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A_conpred.txt, example/example_files/input/biology/1b43AA_conpred.txt, example/example_files/input/biology/1b43A__conpred.txt
+=crt=bcl::sspred=> cannot read method with TALOS for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43ASS.tab, example/example_files/input/biology/1b43AASS.tab, example/example_files/input/biology/1b43A_SS.tab
+=crt=bcl::sspred=> cannot read method with BOCTOPUS for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.bocto_topo, example/example_files/input/biology/1b43AA.bocto_topo, example/example_files/input/biology/1b43A_.bocto_topo
+=crt=bcl::sspred=> cannot read method with MASP for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.masp, example/example_files/input/biology/1b43AA.masp, example/example_files/input/biology/1b43A_.masp
+=crt=bcl::sspred=> cannot read method with Stride for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.stride, example/example_files/input/biology/1b43AA.stride, example/example_files/input/biology/1b43A_.stride
+=crt=bcl::sspred=> cannot read method with DSSP for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.dssp, example/example_files/input/biology/1b43AA.dssp, example/example_files/input/biology/1b43A_.dssp
+=crt=bcl::sspred=> cannot read method with DSSPStride for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.stridedssp, example/example_files/input/biology/1b43AA.stridedssp, example/example_files/input/biology/1b43A_.stridedssp
+=crt=bcl::sspred=> cannot read method with Palsse for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.palsse, example/example_files/input/biology/1b43AA.palsse, example/example_files/input/biology/1b43A_.palsse
+=crt=bcl::sspred=> cannot read method with MAHSSMI for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.mahssmi, example/example_files/input/biology/1b43AA.mahssmi, example/example_files/input/biology/1b43A_.mahssmi
+=crt=bcl::sspred=> cannot read method with CIPhiPsi for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.ciphipsi, example/example_files/input/biology/1b43AA.ciphipsi, example/example_files/input/biology/1b43A_.ciphipsi
+=crt=bcl::sspred=> cannot read method with Kaksi for example/example_files/input/biology/1b43A in path  Checked: example/example_files/input/biology/1b43A.kaksi, example/example_files/input/biology/1b43AA.kaksi, example/example_files/input/biology/1b43A_.kaksi
+=crt=bcl::sspred=> cannot read method with PDB for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.pdb, example/example_files/input/biology/1b43A.pdb, example/example_files/input/biology/1b43_.pdb
+=crt=bcl::sspred=> cannot read method with PSIPRED for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.psipred_ss2, example/example_files/input/biology/1b43A.psipred_ss2, example/example_files/input/biology/1b43_.psipred_ss2
+=crt=bcl::sspred=> cannot read method with JUFO for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.jufo, example/example_files/input/biology/1b43A.jufo, example/example_files/input/biology/1b43_.jufo
+=crt=bcl::sspred=> cannot read method with JUFO9D for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.jufo9d, example/example_files/input/biology/1b43A.jufo9d, example/example_files/input/biology/1b43_.jufo9d
+=crt=bcl::sspred=> cannot read method with SAM for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.rdb6, example/example_files/input/biology/1b43A.rdb6, example/example_files/input/biology/1b43_.rdb6
+=crt=bcl::sspred=> cannot read method with PROFphd for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.rdbProf, example/example_files/input/biology/1b43A.rdbProf, example/example_files/input/biology/1b43_.rdbProf
+=crt=bcl::sspred=> cannot read method with TMHMM for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43xxx.TMHMM, example/example_files/input/biology/1b43Axxx.TMHMM, example/example_files/input/biology/1b43_xxx.TMHMM
+=crt=bcl::sspred=> cannot read method with TMMOD for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.tmmod, example/example_files/input/biology/1b43A.tmmod, example/example_files/input/biology/1b43_.tmmod
+=crt=bcl::sspred=> cannot read method with B2TMPRED for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.hmm, example/example_files/input/biology/1b43A.hmm, example/example_files/input/biology/1b43_.hmm
+=crt=bcl::sspred=> cannot read method with PROFTMB for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43xxx.PROFTMB, example/example_files/input/biology/1b43Axxx.PROFTMB, example/example_files/input/biology/1b43_xxx.PROFTMB
+=crt=bcl::sspred=> cannot read method with CONPRED for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43_conpred.txt, example/example_files/input/biology/1b43A_conpred.txt, example/example_files/input/biology/1b43__conpred.txt
+=crt=bcl::sspred=> cannot read method with TALOS for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43SS.tab, example/example_files/input/biology/1b43ASS.tab, example/example_files/input/biology/1b43_SS.tab
+=crt=bcl::sspred=> cannot read method with BOCTOPUS for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.bocto_topo, example/example_files/input/biology/1b43A.bocto_topo, example/example_files/input/biology/1b43_.bocto_topo
+=crt=bcl::sspred=> cannot read method with MASP for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.masp, example/example_files/input/biology/1b43A.masp, example/example_files/input/biology/1b43_.masp
+=crt=bcl::sspred=> cannot read method with Stride for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.stride, example/example_files/input/biology/1b43A.stride, example/example_files/input/biology/1b43_.stride
+=crt=bcl::sspred=> cannot read method with DSSPStride for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.stridedssp, example/example_files/input/biology/1b43A.stridedssp, example/example_files/input/biology/1b43_.stridedssp
+=crt=bcl::sspred=> cannot read method with Palsse for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.palsse, example/example_files/input/biology/1b43A.palsse, example/example_files/input/biology/1b43_.palsse
+=crt=bcl::sspred=> cannot read method with MAHSSMI for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.mahssmi, example/example_files/input/biology/1b43A.mahssmi, example/example_files/input/biology/1b43_.mahssmi
+=crt=bcl::sspred=> cannot read method with CIPhiPsi for example/example_files/input/biology/1b43 in path  Checked: example/example_files/input/biology/1b43.ciphipsi, example/example_files/input/biology/1b43A.ciphipsi, example/example_files/input/biology/1b43_.ciphipsi
+=std=bcl=> successful example check:  octopus_iom_retriever.GetSizeOfFeatures() == 3
+=std=bcl=> successful example check:
+               octopus_iom_retriever( itr) == linal::MakeVector< float>( 0.0, 1.0, 0.0) ==
+              bcl::linal::VectorConstReference<float>
+                3
+                0	1	0	
+=std=bcl=> successful example check:
+               octopus_iom_retriever( itr) == linal::MakeVector< float>( 0.0, 0.0, 1.0) ==
+              bcl::linal::VectorConstReference<float>
+                3
+                0	0	1	
+=std=bcl=> successful example check:
+               octopus_iom_retriever( itr) == linal::MakeVector< float>( 1.0, 0.0, 0.0) ==
+              bcl::linal::VectorConstReference<float>
+                3
+                1	0	0	
+=std=bcl::app=> BCL Example | END  : DescriptorAAInsideOutsideMembrane ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>           success      error error_string 
+DescriptorAAInsideOutsideMembrane_total          4          0              
+total                                            4          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

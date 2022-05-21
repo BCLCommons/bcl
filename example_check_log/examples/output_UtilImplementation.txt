@@ -1,0 +1,97 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec UtilImplementation 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> UtilImplementation
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: UtilImplementation ====================
+=std=bcl=> successful example check:  default_obj_from_data_label.IsDefined() == 0
+=std=bcl=> successful example check:
+               default_obj_from_data_label.GetAlias() ==
+              GetStaticClassName< DoubleFuncInterface>() == bcl::DoubleFuncInterface
+=std=bcl=> successful example check:
+               default_obj_from_data_label.GetString() ==
+              GetStaticClassName< DoubleFuncInterface>() == bcl::DoubleFuncInterface
+=std=bcl=> successful example check:  square_double.IsDefined() == 1
+=std=bcl=> successful example check:  multiply_double_identity.IsDefined() == 1
+=std=bcl=> successful example check:  multiply_double_by_3.IsDefined() == 1
+=std=bcl=> successful example check:  scalar_product_5_9.IsDefined() == 1
+=std=bcl=> successful example check:  square_double.GetAlias() == Square
+=std=bcl=> successful example check:  multiply_double_identity.GetAlias() == Multiply
+=std=bcl=> successful example check:  multiply_double_by_3.GetAlias() == Multiply
+=std=bcl=> successful example check:  scalar_product_5_9.GetAlias() == VectorScalarProduct
+=std=bcl=> successful example check:  square_double.GetString() == Square
+=std=bcl=> successful example check:  multiply_double_identity.GetString() == Multiply(coefficient=1)
+=std=bcl=> successful example check:  multiply_double_by_3.GetString() == Multiply(coefficient=3)
+=std=bcl=> successful example check:  multiply_double_by_3->GetString() == 3
+=std=bcl=> successful example check:  scalar_product_5_9.GetString() == VectorScalarProduct(9,5)
+=std=bcl=> successful example check:  scalar_product_5_9->GetString() == (9,5)
+=std=bcl=> successful example check:  ( *square_double)( 5.0) == 25.0 == 25
+=std=bcl=> successful example check:  ( *multiply_double_identity)( 5.0) == 5.0 * 1.0 == 5
+=std=bcl=> successful example check:  multiply_double_by_3->operator()( 5.0) == 5.0 * 3.0 == 15
+=std=bcl=> successful example check:  scalar_product_5_9->operator()( 3.0) == 3.0 * ( 5.0 + 9.0) == 42
+This is the help for the double function interface:
+choose any implementation of bcl::DoubleFuncInterface:
+  * Multiply : Multiplies a double by a coefficient
+    Parameter: <coefficient> value to multiply other values by, default: "1.0", Any decimal (floating-point) value
+  * Square : Squares a double
+  * VectorScalarProduct : Multiplies a double by a vector of #'s, adding them up
+    (anonymous) parameter: values to multiply other values by, 
+      Container with at least 1 Any decimal (floating-point) value
+=std=bcl::app=> BCL Example | END  : UtilImplementation ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+UtilImplementation_total                 21          0              
+total                                    21          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

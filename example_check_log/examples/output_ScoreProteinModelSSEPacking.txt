@@ -1,0 +1,258 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ScoreProteinModelSSEPacking 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ScoreProteinModelSSEPacking
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ScoreProteinModelSSEPacking ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    1   1 ASP A  148  ILE A  150  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 TYR A  151  THR A  156  5                                   6    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    4   4 ASN A  255  ILE A  259  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 ILE A  305  ILE A  308  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 LYS A  314  THR A  318  5                                   5    
+=std=bcl=> test constructor from nr_excluded and width and scheme
+=std=bcl=> test clone
+=std=bcl=> successful example check:  sp_loop->GetScheme() == loop_dist_along_sse_unnorm.GetScheme() == sse_contact_type
+=std=bcl=> successful example check:  loop_dist_along_sse_unnorm( native_model) == -90.9131  (+/- 0.01)
+=std=bcl=> successful example check:  loop_dist_along_sse_unnorm( bad_loops_model) == -181.131  (+/- 0.01)
+STRAND A   17 LEU <==>   25 ALA STRAND A   31 LYS <==>   34 GLU STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A   17 LEU <==>   25 ALA STRAND A   58 LEU <==>   64 LEU STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A   31 LYS <==>   34 GLU STRAND A   36 THR <==>   38 ASP STRAND_STRAND0AdjacentPARALLEL
+STRAND A   36 THR <==>   38 ASP STRAND A   43 THR <==>   45 ASN STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A   43 THR <==>   45 ASN STRAND A   58 LEU <==>   64 LEU UNDEFINED_STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A   43 THR <==>   45 ASN STRAND A   98 TYR <==>  106 ARG STRAND_STRAND1Non-AdjacentPARALLEL
+STRAND A   58 LEU <==>   64 LEU STRAND A   69 ALA <==>   70 LEU UNDEFINED_STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A   69 ALA <==>   70 LEU STRAND A   74 VAL <==>   75 MSE UNDEFINED_STRAND_STRAND0AdjacentPARALLEL
+STRAND A   74 VAL <==>   75 MSE STRAND A   85 GLU <==>   93 ILE UNDEFINED_STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A   85 GLU <==>   93 ILE STRAND A   98 TYR <==>  106 ARG STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A   98 TYR <==>  106 ARG STRAND A  120 THR <==>  125 SER STRAND_STRAND0AdjacentPARALLEL
+STRAND A  120 THR <==>  125 SER STRAND A  138 THR <==>  143 TYR UNDEFINED_STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  120 THR <==>  125 SER HELIX A  167 VAL <==>  172 ARG SHEET_HELIX1Non-AdjacentPARALLEL
+STRAND A  120 THR <==>  125 SER STRAND A  426 ASP <==>  435 ARG STRAND_STRAND1Non-AdjacentPARALLEL
+STRAND A  120 THR <==>  125 SER STRAND A  439 GLY <==>  446 PRO STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  138 THR <==>  143 TYR STRAND A  147 HIS <==>  152 SER STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  138 THR <==>  143 TYR STRAND A  190 TYR <==>  198 ILE UNDEFINED_STRAND_STRAND1Non-AdjacentPARALLEL
+STRAND A  138 THR <==>  143 TYR STRAND A  412 ALA <==>  420 LYS UNDEFINED_STRAND_STRAND1Non-AdjacentPARALLEL
+STRAND A  147 HIS <==>  152 SER STRAND A  163 HIS <==>  166 LYS STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  147 HIS <==>  152 SER STRAND A  190 TYR <==>  198 ILE SHEET_SHEET1Non-AdjacentANTIPARALLEL
+STRAND A  163 HIS <==>  166 LYS HELIX A  167 VAL <==>  172 ARG UNDEFINED_STRAND_HELIX0AdjacentPARALLEL
+HELIX A  167 VAL <==>  172 ARG STRAND A  178 ILE <==>  179 MSE UNDEFINED_HELIX_STRAND0AdjacentANTIPARALLEL
+STRAND A  178 ILE <==>  179 MSE STRAND A  190 TYR <==>  198 ILE UNDEFINED_STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  190 TYR <==>  198 ILE STRAND A  201 HIS <==>  207 LEU STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  190 TYR <==>  198 ILE STRAND A  250 SER <==>  253 ILE SHEET_SHEET1Non-AdjacentPARALLEL
+STRAND A  201 HIS <==>  207 LEU STRAND A  215 PHE <==>  220 TRP STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  215 PHE <==>  220 TRP STRAND A  228 GLU <==>  233 ILE UNDEFINED_STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  228 GLU <==>  233 ILE STRAND A  250 SER <==>  253 ILE SHEET_SHEET0AdjacentANTIPARALLEL
+STRAND A  250 SER <==>  253 ILE STRAND A  259 GLY <==>  264 GLY STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  250 SER <==>  253 ILE STRAND A  300 THR <==>  304 ARG UNDEFINED_STRAND_STRAND1Non-AdjacentPARALLEL
+STRAND A  259 GLY <==>  264 GLY STRAND A  270 GLU <==>  277 SER STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  270 GLU <==>  277 SER STRAND A  281 THR <==>  282 VAL UNDEFINED_STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  270 GLU <==>  277 SER STRAND A  288 LYS <==>  291 PRO UNDEFINED_STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  281 THR <==>  282 VAL STRAND A  288 LYS <==>  291 PRO STRAND_STRAND0AdjacentPARALLEL
+STRAND A  288 LYS <==>  291 PRO STRAND A  300 THR <==>  304 ARG UNDEFINED_STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  300 THR <==>  304 ARG STRAND A  311 TYR <==>  315 GLY STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  300 THR <==>  304 ARG STRAND A  339 ALA <==>  347 PHE UNDEFINED_STRAND_STRAND1Non-AdjacentPARALLEL
+STRAND A  311 TYR <==>  315 GLY STRAND A  318 VAL <==>  323 VAL STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  311 TYR <==>  315 GLY STRAND A  339 ALA <==>  347 PHE UNDEFINED_STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  318 VAL <==>  323 VAL STRAND A  329 GLU <==>  332 LYS UNDEFINED_STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  329 GLU <==>  332 LYS STRAND A  339 ALA <==>  347 PHE UNDEFINED_STRAND_STRAND0AdjacentPARALLEL
+STRAND A  339 ALA <==>  347 PHE STRAND A  350 GLU <==>  357 THR STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  339 ALA <==>  347 PHE STRAND A  412 ALA <==>  420 LYS SHEET_SHEET1Non-AdjacentPARALLEL
+STRAND A  350 GLU <==>  357 THR STRAND A  369 ALA <==>  374 ASP STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  350 GLU <==>  357 THR STRAND A  412 ALA <==>  420 LYS STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  350 GLU <==>  357 THR STRAND A  426 ASP <==>  435 ARG SHEET_SHEET1Non-AdjacentPARALLEL
+STRAND A  369 ALA <==>  374 ASP HELIX A  380 THR <==>  391 GLY SHEET_HELIX0AdjacentANTIPARALLEL
+STRAND A  369 ALA <==>  374 ASP STRAND A  398 TYR <==>  401 LYS STRAND_STRAND1Non-AdjacentANTIPARALLEL
+HELIX A  380 THR <==>  391 GLY STRAND A  398 TYR <==>  401 LYS HELIX_STRAND0AdjacentPARALLEL
+STRAND A  398 TYR <==>  401 LYS STRAND A  412 ALA <==>  420 LYS STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  412 ALA <==>  420 LYS STRAND A  426 ASP <==>  435 ARG STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  412 ALA <==>  420 LYS STRAND A  439 GLY <==>  446 PRO STRAND_STRAND1Non-AdjacentPARALLEL
+STRAND A  426 ASP <==>  435 ARG STRAND A  439 GLY <==>  446 PRO STRAND_STRAND1AdjacentANTIPARALLEL
+HELIX_SHEET Count: 1 sum-entropy: -0.162933
+HELIX_SHEET AdjacentNotInContact Count: 0.5 sum-entropy: 0.111774
+HELIX_SHEET FarApartParallel Count: 1 sum-entropy: 0.284562
+HELIX_SHEET StrongInteraction Count: 1 sum-entropy: -0.149384
+SHEET_HELIX Count: 0.333333 sum-entropy: -0.0569303
+SHEET_HELIX AdjacentNotInContact Count: 0.5 sum-entropy: 0.111774
+SHEET_HELIX FarApartParallel Count: 0.333333 sum-entropy: 0.094854
+SHEET_HELIX StrongInteraction Count: 0.333333 sum-entropy: -0.0497947
+HELIX_STRAND AdjacentNotInContact Count: 0.5 sum-entropy: -0.277709
+STRAND_HELIX AdjacentNotInContact Count: 0.5 sum-entropy: -0.277709
+STRAND_STRAND Count: 20.1 sum-entropy: -21.8186
+STRAND_STRAND AdjacentInContact Count: 16 sum-entropy: -5.43763
+STRAND_STRAND AdjacentNotInContact Count: 4 sum-entropy: 2.07502
+STRAND_STRAND AdjacentAntiParallel Count: 13.5 sum-entropy: -8.16947
+STRAND_STRAND OneSSEApartParallel Count: 2 sum-entropy: -0.836358
+STRAND_STRAND OneSSEApartAntiParallel Count: 2 sum-entropy: 1.47722
+STRAND_STRAND FarApartParallel Count: 2.83333 sum-entropy: 0.447488
+STRAND_STRAND FarApartAntiParallel Count: 4.16667 sum-entropy: -0.571275
+STRAND_STRAND StrongInteraction Count: 20.1 sum-entropy: -2.39162
+SHEET_SHEET Count: 2.11667 sum-entropy: 1.34965
+SHEET_SHEET AdjacentNotInContact Count: 1 sum-entropy: -0.137845
+SHEET_SHEET FarApartParallel Count: 2.66667 sum-entropy: -0.888152
+SHEET_SHEET FarApartAntiParallel Count: 1.33333 sum-entropy: 0.643393
+SHEET_SHEET StrongInteraction Count: 2.11667 sum-entropy: -0.0547387
+UNDEFINED_HELIX_STRAND AdjacentNotInContact Count: 1 sum-entropy: -0.261072
+UNDEFINED_STRAND_HELIX AdjacentNotInContact Count: 1 sum-entropy: -0.261072
+UNDEFINED_STRAND_STRAND Count: 7.45 sum-entropy: 5.53657
+UNDEFINED_STRAND_STRAND AdjacentInContact Count: 2 sum-entropy: 0.889762
+UNDEFINED_STRAND_STRAND AdjacentNotInContact Count: 9 sum-entropy: -2.7614
+UNDEFINED_STRAND_STRAND AdjacentAntiParallel Count: 3.5 sum-entropy: -2.09014
+UNDEFINED_STRAND_STRAND OneSSEApartAntiParallel Count: 2 sum-entropy: 0.498926
+UNDEFINED_STRAND_STRAND TwoSSEApartAntiParallel Count: 2 sum-entropy: 0.0336108
+UNDEFINED_STRAND_STRAND FarApartParallel Count: 3.66667 sum-entropy: -0.26665
+UNDEFINED_STRAND_STRAND ModerateInteraction Count: 1.25 sum-entropy: 0.568139
+UNDEFINED_STRAND_STRAND StrongInteraction Count: 6.2 sum-entropy: -0.400212
+STRAND A   37 GLU <==>   43 ILE STRAND A   50 GLY <==>   58 ILE SHEET_SHEET0AdjacentANTIPARALLEL
+STRAND A   37 GLU <==>   43 ILE STRAND A  269 ASN <==>  275 ASP STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A   50 GLY <==>   58 ILE STRAND A   62 LYS <==>   66 ASN STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A   50 GLY <==>   58 ILE STRAND A  341 VAL <==>  344 VAL STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A   62 LYS <==>   66 ASN STRAND A   80 SER <==>   84 GLU SHEET_SHEET0AdjacentPARALLEL
+STRAND A   80 SER <==>   84 GLU STRAND A   98 TYR <==>  100 MET UNDEFINED_STRAND_STRAND0AdjacentPARALLEL
+STRAND A   80 SER <==>   84 GLU STRAND A  128 LYS <==>  130 VAL STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A   80 SER <==>   84 GLU STRAND A  281 PHE <==>  284 PHE STRAND_STRAND1Non-AdjacentPARALLEL
+STRAND A   98 TYR <==>  100 MET STRAND A  106 GLU <==>  114 ILE STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  106 GLU <==>  114 ILE STRAND A  122 TYR <==>  126 VAL STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  106 GLU <==>  114 ILE STRAND A  222 HIS <==>  228 LEU STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  106 GLU <==>  114 ILE STRAND A  236 PHE <==>  242 GLU SHEET_SHEET1Non-AdjacentPARALLEL
+STRAND A  106 GLU <==>  114 ILE STRAND A  290 THR <==>  295 VAL STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  122 TYR <==>  126 VAL STRAND A  128 LYS <==>  130 VAL STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  128 LYS <==>  130 VAL STRAND A  141 THR <==>  146 SER UNDEFINED_STRAND_STRAND0AdjacentPARALLEL
+STRAND A  141 THR <==>  146 SER STRAND A  157 ASN <==>  163 SER SHEET_SHEET0AdjacentANTIPARALLEL
+STRAND A  141 THR <==>  146 SER STRAND A  341 VAL <==>  344 VAL STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  141 THR <==>  146 SER STRAND A  389 ILE <==>  395 ASP STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  157 ASN <==>  163 SER STRAND A  167 GLU <==>  176 THR STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  157 ASN <==>  163 SER STRAND A  184 HIS <==>  188 VAL STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  167 GLU <==>  176 THR STRAND A  184 HIS <==>  188 VAL STRAND_STRAND0AdjacentPARALLEL
+STRAND A  167 GLU <==>  176 THR STRAND A  305 ILE <==>  310 VAL STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  167 GLU <==>  176 THR STRAND A  371 GLU <==>  380 GLY SHEET_SHEET1Non-AdjacentPARALLEL
+STRAND A  184 HIS <==>  188 VAL STRAND A  196 ILE <==>  206 VAL SHEET_SHEET0AdjacentANTIPARALLEL
+STRAND A  184 HIS <==>  188 VAL STRAND A  249 GLU <==>  254 ILE STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  196 ILE <==>  206 VAL STRAND A  210 THR <==>  212 ASP UNDEFINED_STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  196 ILE <==>  206 VAL HELIX A  351 LYS <==>  356 ILE SHEET_HELIX1Non-AdjacentANTIPARALLEL
+STRAND A  196 ILE <==>  206 VAL STRAND A  418 ILE <==>  423 LEU STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  196 ILE <==>  206 VAL STRAND A  461 PHE <==>  469 LYS STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  210 THR <==>  212 ASP STRAND A  222 HIS <==>  228 LEU UNDEFINED_STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  222 HIS <==>  228 LEU STRAND A  236 PHE <==>  242 GLU SHEET_SHEET0AdjacentANTIPARALLEL
+STRAND A  222 HIS <==>  228 LEU STRAND A  269 ASN <==>  275 ASP STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  236 PHE <==>  242 GLU STRAND A  249 GLU <==>  254 ILE STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  236 PHE <==>  242 GLU STRAND A  281 PHE <==>  284 PHE STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  249 GLU <==>  254 ILE STRAND A  269 ASN <==>  275 ASP UNDEFINED_STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  269 ASN <==>  275 ASP STRAND A  281 PHE <==>  284 PHE SHEET_SHEET0AdjacentANTIPARALLEL
+STRAND A  281 PHE <==>  284 PHE STRAND A  290 THR <==>  295 VAL STRAND_STRAND0AdjacentPARALLEL
+STRAND A  290 THR <==>  295 VAL STRAND A  305 ILE <==>  310 VAL UNDEFINED_STRAND_STRAND0AdjacentPARALLEL
+STRAND A  290 THR <==>  295 VAL STRAND A  316 ASP <==>  326 VAL STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  290 THR <==>  295 VAL STRAND A  389 ILE <==>  395 ASP SHEET_SHEET1Non-AdjacentPARALLEL
+STRAND A  305 ILE <==>  310 VAL STRAND A  316 ASP <==>  326 VAL UNDEFINED_STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  316 ASP <==>  326 VAL STRAND A  332 TYR <==>  335 SER STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  316 ASP <==>  326 VAL STRAND A  364 LYS <==>  368 PHE STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  332 TYR <==>  335 SER STRAND A  341 VAL <==>  344 VAL UNDEFINED_STRAND_STRAND0AdjacentPARALLEL
+STRAND A  332 TYR <==>  335 SER STRAND A  371 GLU <==>  380 GLY STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  332 TYR <==>  335 SER STRAND A  389 ILE <==>  395 ASP SHEET_SHEET1Non-AdjacentPARALLEL
+STRAND A  341 VAL <==>  344 VAL HELIX A  351 LYS <==>  356 ILE STRAND_HELIX0AdjacentANTIPARALLEL
+HELIX A  351 LYS <==>  356 ILE STRAND A  364 LYS <==>  368 PHE HELIX_SHEET0AdjacentANTIPARALLEL
+HELIX A  351 LYS <==>  356 ILE STRAND A  418 ILE <==>  423 LEU HELIX_SHEET1Non-AdjacentPARALLEL
+STRAND A  364 LYS <==>  368 PHE STRAND A  371 GLU <==>  380 GLY STRAND_STRAND1AdjacentANTIPARALLEL
+STRAND A  371 GLU <==>  380 GLY STRAND A  389 ILE <==>  395 ASP UNDEFINED_STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  371 GLU <==>  380 GLY STRAND A  453 PHE <==>  456 ARG STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  389 ILE <==>  395 ASP HELIX A  402 ILE <==>  409 PHE SHEET_HELIX1AdjacentPARALLEL
+STRAND A  389 ILE <==>  395 ASP STRAND A  418 ILE <==>  423 LEU STRAND_STRAND1Non-AdjacentANTIPARALLEL
+HELIX A  402 ILE <==>  409 PHE STRAND A  418 ILE <==>  423 LEU HELIX_SHEET0AdjacentANTIPARALLEL
+STRAND A  418 ILE <==>  423 LEU STRAND A  433 ALA <==>  442 ASP STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  433 ALA <==>  442 ASP STRAND A  450 LEU <==>  452 LEU SHEET_SHEET0AdjacentANTIPARALLEL
+STRAND A  433 ALA <==>  442 ASP STRAND A  461 PHE <==>  469 LYS STRAND_STRAND1Non-AdjacentANTIPARALLEL
+STRAND A  450 LEU <==>  452 LEU STRAND A  453 PHE <==>  456 ARG STRAND_STRAND0AdjacentANTIPARALLEL
+STRAND A  453 PHE <==>  456 ARG STRAND A  461 PHE <==>  469 LYS SHEET_SHEET0AdjacentANTIPARALLEL
+HELIX_SHEET Count: 2 sum-entropy: -0.325866
+HELIX_SHEET AdjacentInContact Count: 0.5 sum-entropy: -0.091296
+HELIX_SHEET AdjacentNotInContact Count: 1 sum-entropy: 0.223549
+HELIX_SHEET AdjacentParallel Count: 1 sum-entropy: 2.61727
+HELIX_SHEET FarApartParallel Count: 0.5 sum-entropy: 0.142281
+HELIX_SHEET FarApartAntiParallel Count: 0.5 sum-entropy: -0.111247
+HELIX_SHEET StrongInteraction Count: 2 sum-entropy: -0.298768
+SHEET_HELIX Count: 0.866667 sum-entropy: -0.148019
+SHEET_HELIX AdjacentInContact Count: 0.5 sum-entropy: -0.091296
+SHEET_HELIX AdjacentNotInContact Count: 1 sum-entropy: 0.223549
+SHEET_HELIX AdjacentParallel Count: 1 sum-entropy: 2.61727
+SHEET_HELIX FarApartParallel Count: 0.5 sum-entropy: 0.142281
+SHEET_HELIX FarApartAntiParallel Count: 0.333333 sum-entropy: -0.074165
+SHEET_HELIX StrongInteraction Count: 0.866667 sum-entropy: -0.129466
+HELIX_STRAND AdjacentNotInContact Count: 0.5 sum-entropy: -0.277709
+STRAND_HELIX AdjacentNotInContact Count: 0.5 sum-entropy: -0.277709
+STRAND_STRAND Count: 26.9 sum-entropy: -29.1999
+STRAND_STRAND AdjacentInContact Count: 7 sum-entropy: -2.37896
+STRAND_STRAND AdjacentNotInContact Count: 5 sum-entropy: 2.59378
+STRAND_STRAND AdjacentAntiParallel Count: 6 sum-entropy: -3.63088
+STRAND_STRAND OneSSEApartAntiParallel Count: 6 sum-entropy: 4.43167
+STRAND_STRAND TwoSSEApartAntiParallel Count: 6 sum-entropy: -0.978612
+STRAND_STRAND FarApartParallel Count: 1.5 sum-entropy: 0.236905
+STRAND_STRAND FarApartAntiParallel Count: 18.8333 sum-entropy: -2.58216
+STRAND_STRAND StrongInteraction Count: 26.9 sum-entropy: -3.20072
+SHEET_SHEET Count: 2.23333 sum-entropy: 1.42404
+SHEET_SHEET AdjacentNotInContact Count: 9 sum-entropy: -1.2406
+SHEET_SHEET FarApartParallel Count: 3.83333 sum-entropy: -1.27672
+SHEET_SHEET StrongInteraction Count: 2.23333 sum-entropy: -0.0577558
+UNDEFINED_STRAND_STRAND AdjacentNotInContact Count: 9 sum-entropy: -2.7614
+=std=bcl::util=> Time to score 1000 times has run for 0.000606 seconds
+=std=bcl::app=> BCL Example | END  : ScoreProteinModelSSEPacking ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>     success      error error_string 
+ScoreProteinModelSSEPacking_total          3          0              
+total                                      3          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 136 MB, peak physical RAM used: 69 MB

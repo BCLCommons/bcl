@@ -1,0 +1,4 @@
+MACRO( MACRO_ADD_EXECUTABLE)
+  ADD_EXECUTABLE( ${ARGV})
+  MESSAGE( STATUS "Add CMake target executable: ${ARGV0}")
+ENDMACRO()

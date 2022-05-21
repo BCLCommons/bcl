@@ -1,0 +1,159 @@
+bcl::assemble::SSEGeometry
+  bcl::biol::SSTypes::Enum
+    "HELIX"
+  18.0296
+  "HELIX A   23 ILE <==>   34 GLU"
+  bcl::math::TransformationMatrix3D
+    bcl::linal::Matrix<double>
+      4	      4
+      -0.706812	0.585261	0.397348	0	
+      0.487866	-0.00345152	0.872911	0	
+      0.512253	0.810837	-0.28309	0	
+      37.2691	27.4225	13.196	1	
+
+  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+    8
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+      12345678
+      bcl::assemble::SSEGeometry
+        bcl::biol::SSTypes::Enum
+          "HELIX"
+        7.51235
+        "HELIX A   23 ILE <==>   27 LYS"
+        bcl::math::TransformationMatrix3D
+          bcl::linal::Matrix<double>
+            4	            4
+            -0.692488	0.61271	0.38085	0	
+            0.480745	-0.00169905	0.876859	0	
+            0.537907	0.790306	-0.293381	0	
+            34.5633	23.2329	14.7581	1	
+
+        bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+          0
+
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+      12345678
+      bcl::assemble::SSEGeometry
+        bcl::biol::SSTypes::Enum
+          "HELIX"
+        7.51235
+        "HELIX A   24 GLU <==>   28 ALA"
+        bcl::math::TransformationMatrix3D
+          bcl::linal::Matrix<double>
+            4	            4
+            0.617391	-0.103474	0.779821	0	
+            0.580213	-0.609507	-0.540235	0	
+            0.531207	0.785999	-0.316267	0	
+            35.357	24.4384	14.2886	1	
+
+        bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+          0
+
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+      12345678
+      bcl::assemble::SSEGeometry
+        bcl::biol::SSTypes::Enum
+          "HELIX"
+        7.51235
+        "HELIX A   25 ASN <==>   29 LYS"
+        bcl::math::TransformationMatrix3D
+          bcl::linal::Matrix<double>
+            4	            4
+            0.460425	-0.56951	-0.680931	0	
+            -0.71867	0.211129	-0.662524	0	
+            0.521078	0.794407	-0.312081	0	
+            36.1498	25.669	13.7968	1	
+
+        bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+          0
+
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+      12345678
+      bcl::assemble::SSEGeometry
+        bcl::biol::SSTypes::Enum
+          "HELIX"
+        7.51235
+        "HELIX A   26 VAL <==>   30 ILE"
+        bcl::math::TransformationMatrix3D
+          bcl::linal::Matrix<double>
+            4	            4
+            -0.783683	0.334381	-0.523478	0	
+            -0.316895	0.509599	0.799929	0	
+            0.534245	0.792779	-0.293401	0	
+            36.9468	26.8728	13.3252	1	
+
+        bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+          0
+
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+      12345678
+      bcl::assemble::SSEGeometry
+        bcl::biol::SSTypes::Enum
+          "HELIX"
+        7.51235
+        "HELIX A   27 LYS <==>   31 GLN"
+        bcl::math::TransformationMatrix3D
+          bcl::linal::Matrix<double>
+            4	            4
+            -0.153958	0.446591	0.881393	0	
+            0.820859	-0.438716	0.365676	0	
+            0.549988	0.779798	-0.299045	0	
+            37.7394	28.0694	12.8806	1	
+
+        bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+          0
+
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+      12345678
+      bcl::assemble::SSEGeometry
+        bcl::biol::SSTypes::Enum
+          "HELIX"
+        7.51235
+        "HELIX A   28 ALA <==>   32 ASP"
+        bcl::math::TransformationMatrix3D
+          bcl::linal::Matrix<double>
+            4	            4
+            0.829633	-0.514899	0.215842	0	
+            0.00941667	-0.37364	-0.927526	0	
+            0.55823	0.771539	-0.305135	0	
+            38.566	29.2244	12.4259	1	
+
+        bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+          0
+
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+      12345678
+      bcl::assemble::SSEGeometry
+        bcl::biol::SSTypes::Enum
+          "HELIX"
+        7.51235
+        "HELIX A   29 LYS <==>   33 LYS"
+        bcl::math::TransformationMatrix3D
+          bcl::linal::Matrix<double>
+            4	            4
+            -0.135792	-0.278469	-0.950797	0	
+            -0.833887	0.550329	-0.0420855	0	
+            0.534971	0.787142	-0.306942	0	
+            39.3572	30.3971	11.9833	1	
+
+        bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+          0
+
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+      12345678
+      bcl::assemble::SSEGeometry
+        bcl::biol::SSTypes::Enum
+          "HELIX"
+        7.51235
+        "HELIX A   30 ILE <==>   34 GLU"
+        bcl::math::TransformationMatrix3D
+          bcl::linal::Matrix<double>
+            4	            4
+            -0.878641	0.47216	0.0710972	0	
+            0.157741	0.146492	0.976554	0	
+            0.450674	0.869256	-0.203193	0	
+            40.0169	31.6111	11.6644	1	
+
+        bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+          0
+

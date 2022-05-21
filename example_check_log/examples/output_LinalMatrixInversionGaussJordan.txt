@@ -1,0 +1,101 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec LinalMatrixInversionGaussJordan 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> LinalMatrixInversionGaussJordan
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: LinalMatrixInversionGaussJordan ====================
+=std=bcl=>  this is a random 8x8 matrix ma
+       bcl::linal::Matrix<double>
+  8	  8
+  7.868	2.505	7.107	9.467	0.193	4.049	2.513	0.227	
+  5.206	3.447	2.742	5.610	1.400	5.439	5.219	8.571	
+  4.998	4.194	7.443	2.492	2.393	3.201	9.105	1.648	
+  2.455	1.983	7.159	9.678	7.694	0.807	4.599	2.573	
+  7.770	5.839	9.503	4.381	3.223	5.324	2.564	0.455	
+  5.050	6.962	0.912	9.071	0.309	1.520	9.815	6.204	
+  2.988	3.613	4.810	2.978	2.852	9.242	6.289	7.550	
+  7.139	7.228	0.698	4.868	0.889	7.596	4.238	5.970	
+=std=bcl=> mai is the inverse of matrix ma
+=std=bcl=> successful example check:  linal::MatrixInversionGaussJordan< double>( ma).IsDefined() == 1
+=std=bcl=> successful example check:
+               ( mai.ComputeInverse() * ma).AsVector().SquareNorm() == double( ma.GetNumberRows())
+              == 8  (+/- 1e-05)
+=std=bcl=>        bcl::linal::Matrix<double>
+  8	  8
+  0.033	0.196	0.214	0.037	-0.137	-0.213	-0.265	0.210	
+  -0.122	-0.125	-0.182	-0.054	0.253	0.208	0.087	-0.087	
+  -0.024	0.046	-0.103	-0.072	0.205	0.104	0.092	-0.247	
+  0.085	-0.088	-0.099	0.028	-0.023	0.077	0.070	-0.029	
+  -0.066	0.010	0.125	0.165	-0.116	-0.170	-0.118	0.216	
+  0.088	-0.160	0.002	0.005	-0.101	-0.053	0.145	0.103	
+  0.036	-0.050	0.169	0.017	-0.157	-0.029	-0.006	0.066	
+  -0.086	0.221	-0.084	-0.037	0.109	0.041	-0.019	-0.136	
+=std=bcl=> as we can easily prove: ma * mai = unity matrix
+=std=bcl=>        bcl::linal::Matrix<double>
+  8	  8
+  1.000	-0.000	-0.000	-0.000	-0.000	0.000	-0.000	-0.000	
+  0.000	1.000	-0.000	-0.000	0.000	0.000	0.000	0.000	
+  -0.000	-0.000	1.000	-0.000	-0.000	-0.000	-0.000	0.000	
+  0.000	-0.000	-0.000	1.000	-0.000	-0.000	-0.000	-0.000	
+  0.000	-0.000	-0.000	-0.000	1.000	0.000	-0.000	-0.000	
+  0.000	0.000	-0.000	-0.000	0.000	1.000	-0.000	-0.000	
+  0.000	-0.000	0.000	-0.000	0.000	0.000	1.000	0.000	
+  0.000	0.000	-0.000	0.000	0.000	0.000	-0.000	1.000	
+=std=bcl::app=> BCL Example | END  : LinalMatrixInversionGaussJordan ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>         success      error error_string 
+LinalMatrixInversionGaussJordan_total          2          0              
+total                                          2          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

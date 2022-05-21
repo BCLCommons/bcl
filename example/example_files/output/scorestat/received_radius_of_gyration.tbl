@@ -1,0 +1,10 @@
+bcl::storage::Table<double>   subunits nr_coordinates      nr_aa   rgyr_sqr    density 
+1po0A.pdb                            1            661        751    593.839 0.00941393 
+1qfgA.pdb                            1            707          1    655.617 1.14539e-05 
+1u19A.pdb                            1            348          1    498.138 2.89701e-05 
+2bg9A.pdb                            1            370          1    1415.41 2.7601e-05 
+2bl2A.pdb                            1            156        138    370.455  0.0117438 
+2ic8A.pdb                            1            182          1    253.954 6.1353e-05 
+2jafA.pdb                            1            242        263    353.139  0.0109903 
+2ksyA.pdb                            1            247        223    567.449 0.00814768 
+2y01A.pdb                            1            286        300    433.258 0.00941225 

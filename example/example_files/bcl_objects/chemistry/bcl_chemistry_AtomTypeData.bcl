@@ -1,0 +1,46 @@
+bcl::chemistry::AtomTypeData
+  bcl::chemistry::ElementTypes::Enum
+    "Chlorine"
+  bcl::chemistry::HybridOrbitalTypes::Enum
+    "Unhybridized"
+  0
+  0
+  bcl::storage::Set<bcl::util::WrapperEnum<bcl::chemistry::AtomicOrbitalTypes,bcl::chemistry::GetAtomicOrbitalTypeString,9>,std::less<bcl::util::WrapperEnum<bcl::chemistry::AtomicOrbitalTypes,bcl::chemistry::GetAtomicOrbitalTypeString,9>>>
+    1
+    Pz
+
+  bcl::storage::Set<bcl::util::WrapperEnum<bcl::chemistry::AtomicOrbitalTypes,bcl::chemistry::GetAtomicOrbitalTypeString,9>,std::less<bcl::util::WrapperEnum<bcl::chemistry::AtomicOrbitalTypes,bcl::chemistry::GetAtomicOrbitalTypeString,9>>>
+    3
+    S
+    Px
+    Py
+
+  0
+  bcl::linal::Vector<double>
+    0
+    
+  bcl::linal::Vector<double>
+    0
+    
+  bcl::linal::Vector<double>
+    0
+    
+  18
+  15.03
+  3.73
+  9.38
+  2.94504
+  nan
+  nan
+  nan
+  nan
+  nan
+  nan
+  nan
+  nan
+  nan
+  nan
+  nan
+  nan
+  nan
+  nan

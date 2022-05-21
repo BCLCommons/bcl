@@ -1,0 +1,21 @@
+bcl::util::ShPtr<bcl::linal::VectorInterface<double>>
+  12345678
+  bcl::linal::Vector<double>
+    6
+    4	4	4	4	4	4	
+bcl::util::ShPtr<bcl::linal::MatrixInterface<double>>
+  12345678
+  bcl::linal::Matrix<double>
+    2	    3
+    4	4	4	
+    4	4	4	
+bcl::util::ShPtr<bcl::math::Tensor<double>>
+  12345678
+  bcl::math::Tensor<double>
+    2	    2	    3
+    4	    4	    4	
+    4	    4	    4	
+
+    4	    4	    4	
+    4	    4	    4	
+

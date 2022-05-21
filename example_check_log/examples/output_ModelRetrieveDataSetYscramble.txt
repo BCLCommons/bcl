@@ -1,0 +1,92 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ModelRetrieveDataSetYscramble 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ModelRetrieveDataSetYscramble
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ModelRetrieveDataSetYscramble ====================
+=std=bcl=> successful example check:  impl_randomize.IsDefined() == 1
+=std=bcl=> successful example check:  model::RetrieveDataSetYscramble().GetAlias() == YScramble
+=std=bcl=> successful example check:
+               impl_randomize->GetFeatureCode() == feature_label ==
+              bcl::util::ObjectDataLabel
+                Combine(0,1,2,3,4)
+=std=bcl=> GenerateDataSet test succeeded:  randomized_dataset->GetSize() == unrandomized_dataset->GetSize() == 3
+=std=bcl=> YScrambling should preserve feature order test succeeded:
+               features_rndm == features_norm ==
+              bcl::linal::Matrix<float>
+                3	  5
+                1.1	2.2	3.3	4.4	5.5	
+                8.8	9.9	10.1	11.11	12.12	
+                15.15	16.16	17.17	18.18	19.19	
+=std=bcl=> YScrambling should not preserve result order test succeeded:  results_rndm == results_norm == 0
+=std=bcl=> YScrambling preserves rows after sorting test succeeded:
+               results_rndm_vecs == results_norm_vecs ==
+              bcl::storage::Vector<bcl::linal::Vector<float>>
+                3
+                bcl::linal::Vector<float>
+                  2
+                  6.6	7.7	
+                bcl::linal::Vector<float>
+                  2
+                  13.13	14.14	
+                bcl::linal::Vector<float>
+                  2
+                  20.2	21.21	
+=std=bcl::app=> BCL Example | END  : ModelRetrieveDataSetYscramble ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>       success      error error_string 
+ModelRetrieveDataSetYscramble_total          7          0              
+total                                        7          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

@@ -1,0 +1,163 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec UtilStopwatch 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> UtilStopwatch
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: UtilStopwatch ====================
+=std=bcl=> this is the stopped timer: bcl::util::Stopwatch
+  "running bcl::ExampleUtilStopwatch"
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  Standard
+  1
+=std=bcl::util=> running bcl::ExampleUtilStopwatch has run for 6e-06 seconds
+=std=bcl=> this is the static class name of a Stopwatch: bcl::util::Stopwatch
+=std=bcl=> this is the class identifier of a Stopwatch: bcl::util::Stopwatch
+=std=bcl=> this is the process duration (lifetime of timer): bcl::util::Time
+  0	  0
+=std=bcl=> this is the description: running bcl::ExampleUtilStopwatch
+=std=bcl=>  create and delete 5 times 1'000'000 times a pointer to a double
+=std=bcl=> loop 1: bcl::util::Stopwatch
+  ""
+  bcl::util::Time
+    1604338423	    825754
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    nan	    0
+  Verbose
+  1
+=std=bcl=> loop 2: bcl::util::Stopwatch
+  ""
+  bcl::util::Time
+    1604338423	    825754
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    nan	    0
+  Verbose
+  1
+=std=bcl=> loop 3: bcl::util::Stopwatch
+  ""
+  bcl::util::Time
+    1604338423	    825754
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    nan	    0
+  Verbose
+  1
+=std=bcl=> loop 4: bcl::util::Stopwatch
+  ""
+  bcl::util::Time
+    1604338423	    825754
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    nan	    0
+  Verbose
+  1
+=std=bcl=> loop 5: bcl::util::Stopwatch
+  ""
+  bcl::util::Time
+    1604338423	    825754
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    nan	    0
+  Verbose
+  1
+=std=bcl::util=> running GetClassDescription has run for 0.010001 seconds
+=std=bcl::util=> running GetStaticClassname has run for 0.010001 seconds
+=std=bcl::util=> running GetClassDescription has run for 0.020002 seconds
+=std=bcl::util=> running GetStaticClassname has run for 0.020002 seconds
+=std=bcl::util=> running GetClassDescription has run for 0.030003 seconds
+=std=bcl::util=> running GetStaticClassname has run for 0.030003 seconds
+=std=bcl::util=> running GetClassDescription has run for 0.040004 seconds
+=std=bcl=> reset timer: bcl::util::Stopwatch
+  "running bcl::ExampleUtilStopwatch"
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  Standard
+  1
+=std=bcl::util=> running bcl::ExampleUtilStopwatch has run for 6e-06 seconds
+=std=bcl::app=> BCL Example | END  : UtilStopwatch ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+UtilStopwatch_total                       7          0              
+total                                     7          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

@@ -1,0 +1,138 @@
+# Descriptor file for Membrane-Alignment and Secondary-Structure Prediction, Beta-Barrel prediction model
+# Unpublished
+Combine(
+  # Definitions for common AA descriptor values, spearman correlated to the blast profile preference for the AA
+  Define( BlastSpear_FreeECoreFaceMem = AA_BlastLogPSpearman(property=AA_FreeEnergyCoreMembrane)),
+  Define( BlastSpear_FreeECoreFacePor = AA_BlastLogPSpearman(property=AA_FreeEnergyCorePore)),
+  
+  # Templates for alternating windows size 2-4. While a generic descriptor for an alternating window could easily be 
+  # implemented in the BCL, it has not been at this time because it's relatively specific to finding strands that alternate
+  # strongly in some descriptor pair value. It is possible to BandPassFilter to get the desired functionality if 
+  # A == -B, but tests of this with the descriptors used for A and B
+  # showed that it performed substantially worse
+  Template(
+    signature=MaxAlternatingDescriptorSize2LeftMean(A,B),
+    DescriptorMax(
+      Combine(
+        DescriptorMean(Combine(A,Offset(offset=-1,B))),
+        DescriptorMean(Combine(B,Offset(offset=-1,A)))
+      )
+    )
+  ),
+  Template(
+    signature=MaxAlternatingDescriptorSize2RightMean(A,B),
+    DescriptorMax(
+      Combine(
+        DescriptorMean(Combine(A,Offset(offset=1,B))),
+        DescriptorMean(Combine(B,Offset(offset=1,A)))
+      )
+    )
+  ),
+  Template(
+    signature=MaxAlternatingDescriptorSize2OverallMean(A,B),
+    Add(MaxAlternatingDescriptorSize2LeftMean(A,B),MaxAlternatingDescriptorSize2RightMean(A,B))
+  ),
+  Template(
+    signature=MaxAlternatingDescriptorSize3LeftMean(A,B),
+    DescriptorMax(
+      Combine(
+        DescriptorMean(Combine(A,Offset(offset=-1,B),Offset(offset=-2,A))),
+        DescriptorMean(Combine(B,Offset(offset=-1,A),Offset(offset=-2,B)))
+      )
+    )
+  ),
+  Template(
+    signature=MaxAlternatingDescriptorSize3RightMean(A,B),
+    DescriptorMax(
+      Combine(
+        DescriptorMean(Combine(A,Offset(offset=1,B),Offset(offset=2,A))),
+        DescriptorMean(Combine(B,Offset(offset=1,A),Offset(offset=2,B)))
+      )
+    )
+  ),
+  Template(
+    signature=MaxAlternatingDescriptorSize3OverallMean(A,B),
+    Add(MaxAlternatingDescriptorSize3LeftMean(A,B),MaxAlternatingDescriptorSize3RightMean(A,B))
+  ),
+  Template(
+    signature=MaxAlternatingDescriptorSize4LeftMean(A,B),
+    DescriptorMax(
+      Combine(
+        DescriptorMean(Combine(A,Offset(offset=-1,B),Offset(offset=-2,A),Offset(offset=-3,B))),
+        DescriptorMean(Combine(B,Offset(offset=-1,A),Offset(offset=-2,B),Offset(offset=-3,A)))
+      )
+    )
+  ),
+  Template(
+    signature=MaxAlternatingDescriptorSize4RightMean(A,B),
+    DescriptorMax(
+      Combine(
+        DescriptorMean(Combine(A,Offset(offset=1,B),Offset(offset=2,A),Offset(offset=3,B))),
+        DescriptorMean(Combine(B,Offset(offset=1,A),Offset(offset=2,B),Offset(offset=3,A)))
+      )
+    )
+  ),
+  Template(
+    signature=MaxAlternatingDescriptorSize4OverallMean(A,B),
+    Add(MaxAlternatingDescriptorSize4LeftMean(A,B),MaxAlternatingDescriptorSize4RightMean(A,B))
+  ),
+  
+  # Template for ternary (if-then-else) logic. This one probably should be made a proper descriptor at some point 
+  # because it would be a lot easier for end-users to use, rather than figure out how to write (or even understand)
+  # the template below
+  Template(
+    signature=IfThenElse(Condition,IfDescriptor,ElseDescriptor),
+    # Not(Not(X)) -> 1 if X is not 0, else 0
+    Add(Multiply(Not(Not(Condition)),IfDescriptor),Multiply(Not(Condition),ElseDescriptor))
+  ),
+
+  # Central beta barrel blast spearman score for 1 - 7 AAs around the amino acid
+  Define(BetaBarrelStrandSize1OverallSpearman=DescriptorMax(Combine(Abs(BlastSpear_FreeECoreFaceMem),Abs(BlastSpear_FreeECoreFacePor)))),
+  Define(BetaBarrelStrandSize1OverallAbsSpearman=Abs(Subtract(lhs=BlastSpear_FreeECoreFaceMem,rhs=BlastSpear_FreeECoreFacePor))),
+  Define(BetaBarrelStrandSize3OverallSpearmanMean=MaxAlternatingDescriptorSize2OverallMean(BlastSpear_FreeECoreFacePor,BlastSpear_FreeECoreFaceMem)),
+  Define(BetaBarrelStrandSize5OverallSpearmanMean=MaxAlternatingDescriptorSize3OverallMean(BlastSpear_FreeECoreFacePor,BlastSpear_FreeECoreFaceMem)),
+  Define(BetaBarrelStrandSize7OverallSpearmanMean=MaxAlternatingDescriptorSize4OverallMean(BlastSpear_FreeECoreFacePor,BlastSpear_FreeECoreFaceMem)),
+  
+  # Central beta barrel native-residue score for 1 - 7 AAs around the amino acid. Useful for when the blast profile 
+  # doesn't cover a particular region of the sequence in any significant extent
+  Define(BetaBarrelStrandNativeSize3OverallMean=MaxAlternatingDescriptorSize2OverallMean(AA_FreeEnergyCorePore,AA_FreeEnergyCoreMembrane)),
+  Define(BetaBarrelStrandNativeSize5OverallMean=MaxAlternatingDescriptorSize3OverallMean(AA_FreeEnergyCorePore,AA_FreeEnergyCoreMembrane)),
+  Define(BetaBarrelStrandNativeSize7OverallMean=MaxAlternatingDescriptorSize4OverallMean(AA_FreeEnergyCorePore,AA_FreeEnergyCoreMembrane)),
+
+  # Distance till end either end of the sequence, limited by 50
+  DescriptorMin(Combine(AASeqID,Subtract(lhs=NElements,rhs=AASeqID),Constant(50))),
+  
+  # Relative distance along the sequence
+  Divide(lhs=AASeqID,rhs=NElements),
+  
+  # Window of 33 AA total around each AA for all properties of interest
+  ForEach(
+    template=ReflectingWindow(AAProp,size=16,alignment=Center),
+    variable=AAProp,
+    descriptors(
+      # Blast Log P weighted descriptor to help identify extracellular vs intracellular regions
+      AA_BlastLogProbabilityWeighted(property=AA_FreeEnergyExtracellularBlastBB),
+      AA_BlastLogPSpearman(property=AA_FreeEnergyCoreMembrane),
+      AA_BlastLogPSpearman(property=AA_FreeEnergyCorePore),
+      AA_BlastLogPSpearman(property=AA_FreeEnergyExtracellularBlastBB),
+      # Helical free energy should be useful to identify regions in proteins that are more likely helix than strand
+      AA_BlastLogPSpearman(property=AA_FreeEnergyHelix),
+      AA_BlastLogPSpearman(property=AA_TransferFreeEnergyPuntaMaritan3D),
+      AABlastProfile,
+      AA_FreeEnergyCoreMembrane,
+      AA_FreeEnergyCorePore,
+      AA_FreeEnergyExtracellularTypeBB,
+      AA_FreeEnergyHelix,
+      AA_TransferFreeEnergyPuntaMaritan3D,
+      BetaBarrelStrandNativeSize3OverallMean,
+      BetaBarrelStrandNativeSize5OverallMean,
+      BetaBarrelStrandNativeSize7OverallMean,
+      BetaBarrelStrandSize1OverallAbsSpearman,
+      BetaBarrelStrandSize1OverallSpearman,
+      BetaBarrelStrandSize3OverallSpearmanMean,
+      BetaBarrelStrandSize5OverallSpearmanMean,
+      BetaBarrelStrandSize7OverallSpearmanMean,
+      Combine(AA_BlastAlignmentWeight,AA_BlastPositionInformation)
+    )
+  )
+)

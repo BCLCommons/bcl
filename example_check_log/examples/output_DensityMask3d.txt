@@ -1,0 +1,362 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec DensityMask3d 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> DensityMask3d
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: DensityMask3d ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> mean for mask res:    19 P PRO C statistics_exp: 1.21629 statistics_sim: 1.22497
+=std=bcl=> sd for mask res:    19 P PRO C statistics_exp: 2.50643 statistics_sim: 1.92678
+=std=bcl=> CrossCorrelationCoefficient:    19 P PRO C:  0.476786
+=std=bcl=> count of considered values for res:    19 P PRO C statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    20 S SER C statistics_exp: 2.23472 statistics_sim: 2.3397
+=std=bcl=> sd for mask res:    20 S SER C statistics_exp: 2.85603 statistics_sim: 2.39614
+=std=bcl=> CrossCorrelationCoefficient:    20 S SER C:  0.393271
+=std=bcl=> count of considered values for res:    20 S SER C statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    21 D ASP C statistics_exp: 1.87252 statistics_sim: 1.81562
+=std=bcl=> sd for mask res:    21 D ASP C statistics_exp: 2.80193 statistics_sim: 2.34535
+=std=bcl=> CrossCorrelationCoefficient:    21 D ASP C:  0.460063
+=std=bcl=> count of considered values for res:    21 D ASP C statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    22 T THR C statistics_exp: 2.62709 statistics_sim: 2.6332
+=std=bcl=> sd for mask res:    22 T THR C statistics_exp: 2.9007 statistics_sim: 2.48803
+=std=bcl=> CrossCorrelationCoefficient:    22 T THR C:  0.394596
+=std=bcl=> count of considered values for res:    22 T THR C statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    23 I ILE H statistics_exp: 2.83727 statistics_sim: 2.8899
+=std=bcl=> sd for mask res:    23 I ILE H statistics_exp: 2.88079 statistics_sim: 2.4242
+=std=bcl=> CrossCorrelationCoefficient:    23 I ILE H:  0.375139
+=std=bcl=> count of considered values for res:    23 I ILE H statistics_exp: 810 statistics_sim: 810
+=std=bcl=> mean for mask res:    24 E GLU H statistics_exp: 2.7246 statistics_sim: 2.76451
+=std=bcl=> sd for mask res:    24 E GLU H statistics_exp: 2.87993 statistics_sim: 2.44937
+=std=bcl=> CrossCorrelationCoefficient:    24 E GLU H:  0.377869
+=std=bcl=> count of considered values for res:    24 E GLU H statistics_exp: 900 statistics_sim: 900
+=std=bcl=> mean for mask res:    25 N ASN H statistics_exp: 2.86841 statistics_sim: 2.84993
+=std=bcl=> sd for mask res:    25 N ASN H statistics_exp: 2.97551 statistics_sim: 2.53446
+=std=bcl=> CrossCorrelationCoefficient:    25 N ASN H:  0.3354
+=std=bcl=> count of considered values for res:    25 N ASN H statistics_exp: 900 statistics_sim: 900
+=std=bcl=> mean for mask res:    26 V VAL H statistics_exp: 3.21652 statistics_sim: 3.19875
+=std=bcl=> sd for mask res:    26 V VAL H statistics_exp: 2.9609 statistics_sim: 2.49879
+=std=bcl=> CrossCorrelationCoefficient:    26 V VAL H:  0.348134
+=std=bcl=> count of considered values for res:    26 V VAL H statistics_exp: 792 statistics_sim: 792
+=std=bcl=> mean for mask res:    27 K LYS H statistics_exp: 3.58109 statistics_sim: 3.62655
+=std=bcl=> sd for mask res:    27 K LYS H statistics_exp: 2.87063 statistics_sim: 2.34609
+=std=bcl=> CrossCorrelationCoefficient:    27 K LYS H:  0.354426
+=std=bcl=> count of considered values for res:    27 K LYS H statistics_exp: 700 statistics_sim: 700
+=std=bcl=> mean for mask res:    28 A ALA H statistics_exp: 2.16215 statistics_sim: 2.16124
+=std=bcl=> sd for mask res:    28 A ALA H statistics_exp: 2.9648 statistics_sim: 2.50698
+=std=bcl=> CrossCorrelationCoefficient:    28 A ALA H:  0.335145
+=std=bcl=> count of considered values for res:    28 A ALA H statistics_exp: 936 statistics_sim: 936
+=std=bcl=> mean for mask res:    29 K LYS H statistics_exp: 3.14687 statistics_sim: 3.11296
+=std=bcl=> sd for mask res:    29 K LYS H statistics_exp: 2.90689 statistics_sim: 2.46805
+=std=bcl=> CrossCorrelationCoefficient:    29 K LYS H:  0.339972
+=std=bcl=> count of considered values for res:    29 K LYS H statistics_exp: 729 statistics_sim: 729
+=std=bcl=> mean for mask res:    30 I ILE H statistics_exp: 2.77081 statistics_sim: 2.71537
+=std=bcl=> sd for mask res:    30 I ILE H statistics_exp: 3.01291 statistics_sim: 2.54353
+=std=bcl=> CrossCorrelationCoefficient:    30 I ILE H:  0.299771
+=std=bcl=> count of considered values for res:    30 I ILE H statistics_exp: 1089 statistics_sim: 1089
+=std=bcl=> mean for mask res:    31 Q GLN H statistics_exp: 3.4423 statistics_sim: 3.45919
+=std=bcl=> sd for mask res:    31 Q GLN H statistics_exp: 2.90656 statistics_sim: 2.38158
+=std=bcl=> CrossCorrelationCoefficient:    31 Q GLN H:  0.380029
+=std=bcl=> count of considered values for res:    31 Q GLN H statistics_exp: 770 statistics_sim: 770
+=std=bcl=> mean for mask res:    32 D ASP H statistics_exp: 2.27948 statistics_sim: 2.18635
+=std=bcl=> sd for mask res:    32 D ASP H statistics_exp: 2.89165 statistics_sim: 2.41333
+=std=bcl=> CrossCorrelationCoefficient:    32 D ASP H:  0.348861
+=std=bcl=> count of considered values for res:    32 D ASP H statistics_exp: 990 statistics_sim: 990
+=std=bcl=> mean for mask res:    33 K LYS H statistics_exp: 2.58026 statistics_sim: 2.51208
+=std=bcl=> sd for mask res:    33 K LYS H statistics_exp: 2.91656 statistics_sim: 2.4088
+=std=bcl=> CrossCorrelationCoefficient:    33 K LYS H:  0.330391
+=std=bcl=> count of considered values for res:    33 K LYS H statistics_exp: 900 statistics_sim: 900
+=std=bcl=> mean for mask res:    34 E GLU H statistics_exp: 2.30197 statistics_sim: 2.1962
+=std=bcl=> sd for mask res:    34 E GLU H statistics_exp: 2.92833 statistics_sim: 2.35356
+=std=bcl=> CrossCorrelationCoefficient:    34 E GLU H:  0.386297
+=std=bcl=> count of considered values for res:    34 E GLU H statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    35 G GLY C statistics_exp: 2.55407 statistics_sim: 2.5032
+=std=bcl=> sd for mask res:    35 G GLY C statistics_exp: 2.93248 statistics_sim: 2.37214
+=std=bcl=> CrossCorrelationCoefficient:    35 G GLY C:  0.411025
+=std=bcl=> count of considered values for res:    35 G GLY C statistics_exp: 648 statistics_sim: 648
+=std=bcl=> mean for mask res:    36 I ILE C statistics_exp: 2.93521 statistics_sim: 2.92491
+=std=bcl=> sd for mask res:    36 I ILE C statistics_exp: 3.00871 statistics_sim: 2.3839
+=std=bcl=> CrossCorrelationCoefficient:    36 I ILE C:  0.426759
+=std=bcl=> count of considered values for res:    36 I ILE C statistics_exp: 576 statistics_sim: 576
+=std=bcl=> mean for mask res:    37 P PRO C statistics_exp: 2.99404 statistics_sim: 3.07844
+=std=bcl=> sd for mask res:    37 P PRO C statistics_exp: 3.02954 statistics_sim: 2.40145
+=std=bcl=> CrossCorrelationCoefficient:    37 P PRO C:  0.423892
+=std=bcl=> count of considered values for res:    37 P PRO C statistics_exp: 640 statistics_sim: 640
+=std=bcl=> mean for mask res:    38 P PRO C statistics_exp: 2.60013 statistics_sim: 2.66238
+=std=bcl=> sd for mask res:    38 P PRO C statistics_exp: 3.06064 statistics_sim: 2.42648
+=std=bcl=> CrossCorrelationCoefficient:    38 P PRO C:  0.431852
+=std=bcl=> count of considered values for res:    38 P PRO C statistics_exp: 648 statistics_sim: 648
+=std=bcl=> mean for mask res:    39 D ASP C statistics_exp: 2.68912 statistics_sim: 2.74083
+=std=bcl=> sd for mask res:    39 D ASP C statistics_exp: 2.99608 statistics_sim: 2.36399
+=std=bcl=> CrossCorrelationCoefficient:    39 D ASP C:  0.3824
+=std=bcl=> count of considered values for res:    39 D ASP C statistics_exp: 810 statistics_sim: 810
+=std=bcl=> mean for mask res:    40 Q GLN E statistics_exp: 2.73918 statistics_sim: 2.83249
+=std=bcl=> sd for mask res:    40 Q GLN E statistics_exp: 3.05224 statistics_sim: 2.39241
+=std=bcl=> CrossCorrelationCoefficient:    40 Q GLN E:  0.399503
+=std=bcl=> count of considered values for res:    40 Q GLN E statistics_exp: 810 statistics_sim: 810
+=std=bcl=> mean for mask res:    41 Q GLN E statistics_exp: 2.55107 statistics_sim: 2.60057
+=std=bcl=> sd for mask res:    41 Q GLN E statistics_exp: 3.06858 statistics_sim: 2.45037
+=std=bcl=> CrossCorrelationCoefficient:    41 Q GLN E:  0.317595
+=std=bcl=> count of considered values for res:    41 Q GLN E statistics_exp: 1170 statistics_sim: 1170
+=std=bcl=> mean for mask res:    42 R ARG E statistics_exp: 3.21042 statistics_sim: 3.24668
+=std=bcl=> sd for mask res:    42 R ARG E statistics_exp: 3.03687 statistics_sim: 2.38983
+=std=bcl=> CrossCorrelationCoefficient:    42 R ARG E:  0.390371
+=std=bcl=> count of considered values for res:    42 R ARG E statistics_exp: 880 statistics_sim: 880
+=std=bcl=> mean for mask res:    43 L LEU E statistics_exp: 3.23305 statistics_sim: 3.28065
+=std=bcl=> sd for mask res:    43 L LEU E statistics_exp: 2.93161 statistics_sim: 2.31292
+=std=bcl=> CrossCorrelationCoefficient:    43 L LEU E:  0.381954
+=std=bcl=> count of considered values for res:    43 L LEU E statistics_exp: 800 statistics_sim: 800
+=std=bcl=> mean for mask res:    44 I ILE E statistics_exp: 2.50497 statistics_sim: 2.49829
+=std=bcl=> sd for mask res:    44 I ILE E statistics_exp: 2.97334 statistics_sim: 2.41571
+=std=bcl=> CrossCorrelationCoefficient:    44 I ILE E:  0.337954
+=std=bcl=> count of considered values for res:    44 I ILE E statistics_exp: 891 statistics_sim: 891
+=std=bcl=> mean for mask res:    45 F PHE E statistics_exp: 2.28788 statistics_sim: 2.26181
+=std=bcl=> sd for mask res:    45 F PHE E statistics_exp: 2.94032 statistics_sim: 2.38357
+=std=bcl=> CrossCorrelationCoefficient:    45 F PHE E:  0.371087
+=std=bcl=> count of considered values for res:    45 F PHE E statistics_exp: 810 statistics_sim: 810
+=std=bcl=> mean for mask res:    46 A ALA C statistics_exp: 3.0958 statistics_sim: 3.15257
+=std=bcl=> sd for mask res:    46 A ALA C statistics_exp: 2.92633 statistics_sim: 2.41939
+=std=bcl=> CrossCorrelationCoefficient:    46 A ALA C:  0.337455
+=std=bcl=> count of considered values for res:    46 A ALA C statistics_exp: 560 statistics_sim: 560
+=std=bcl=> mean for mask res:    47 G GLY C statistics_exp: 2.00804 statistics_sim: 1.99995
+=std=bcl=> sd for mask res:    47 G GLY C statistics_exp: 2.85432 statistics_sim: 2.32882
+=std=bcl=> CrossCorrelationCoefficient:    47 G GLY C:  0.394334
+=std=bcl=> count of considered values for res:    47 G GLY C statistics_exp: 512 statistics_sim: 512
+=std=bcl=> mean for mask res:    48 K LYS E statistics_exp: 1.63204 statistics_sim: 1.64955
+=std=bcl=> sd for mask res:    48 K LYS E statistics_exp: 2.78876 statistics_sim: 2.27741
+=std=bcl=> CrossCorrelationCoefficient:    48 K LYS E:  0.353522
+=std=bcl=> count of considered values for res:    48 K LYS E statistics_exp: 792 statistics_sim: 792
+=std=bcl=> mean for mask res:    49 Q GLN E statistics_exp: 2.00338 statistics_sim: 2.07392
+=std=bcl=> sd for mask res:    49 Q GLN E statistics_exp: 2.89293 statistics_sim: 2.3971
+=std=bcl=> CrossCorrelationCoefficient:    49 Q GLN E:  0.369653
+=std=bcl=> count of considered values for res:    49 Q GLN E statistics_exp: 880 statistics_sim: 880
+=std=bcl=> mean for mask res:    50 L LEU E statistics_exp: 3.04678 statistics_sim: 3.12685
+=std=bcl=> sd for mask res:    50 L LEU E statistics_exp: 2.93638 statistics_sim: 2.40861
+=std=bcl=> CrossCorrelationCoefficient:    50 L LEU E:  0.264995
+=std=bcl=> count of considered values for res:    50 L LEU E statistics_exp: 880 statistics_sim: 880
+=std=bcl=> mean for mask res:    51 E GLU C statistics_exp: 2.13903 statistics_sim: 2.26281
+=std=bcl=> sd for mask res:    51 E GLU C statistics_exp: 2.92451 statistics_sim: 2.40366
+=std=bcl=> CrossCorrelationCoefficient:    51 E GLU C:  0.366217
+=std=bcl=> count of considered values for res:    51 E GLU C statistics_exp: 990 statistics_sim: 990
+=std=bcl=> mean for mask res:    52 D ASP C statistics_exp: 1.80156 statistics_sim: 1.97262
+=std=bcl=> sd for mask res:    52 D ASP C statistics_exp: 2.91444 statistics_sim: 2.3928
+=std=bcl=> CrossCorrelationCoefficient:    52 D ASP C:  0.450987
+=std=bcl=> count of considered values for res:    52 D ASP C statistics_exp: 648 statistics_sim: 648
+=std=bcl=> mean for mask res:    53 G GLY C statistics_exp: 1.75619 statistics_sim: 1.87671
+=std=bcl=> sd for mask res:    53 G GLY C statistics_exp: 2.87962 statistics_sim: 2.37452
+=std=bcl=> CrossCorrelationCoefficient:    53 G GLY C:  0.420921
+=std=bcl=> count of considered values for res:    53 G GLY C statistics_exp: 800 statistics_sim: 800
+=std=bcl=> mean for mask res:    54 R ARG C statistics_exp: 2.05643 statistics_sim: 2.11199
+=std=bcl=> sd for mask res:    54 R ARG C statistics_exp: 2.86121 statistics_sim: 2.43331
+=std=bcl=> CrossCorrelationCoefficient:    54 R ARG C:  0.441755
+=std=bcl=> count of considered values for res:    54 R ARG C statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    55 T THR C statistics_exp: 2.36193 statistics_sim: 2.41385
+=std=bcl=> sd for mask res:    55 T THR C statistics_exp: 2.942 statistics_sim: 2.48295
+=std=bcl=> CrossCorrelationCoefficient:    55 T THR C:  0.331526
+=std=bcl=> count of considered values for res:    55 T THR C statistics_exp: 968 statistics_sim: 968
+=std=bcl=> mean for mask res:    56 L LEU C statistics_exp: 2.87025 statistics_sim: 2.90452
+=std=bcl=> sd for mask res:    56 L LEU C statistics_exp: 2.83518 statistics_sim: 2.391
+=std=bcl=> CrossCorrelationCoefficient:    56 L LEU C:  0.395068
+=std=bcl=> count of considered values for res:    56 L LEU C statistics_exp: 648 statistics_sim: 648
+=std=bcl=> mean for mask res:    57 S SER C statistics_exp: 2.61188 statistics_sim: 2.67347
+=std=bcl=> sd for mask res:    57 S SER C statistics_exp: 2.88833 statistics_sim: 2.43647
+=std=bcl=> CrossCorrelationCoefficient:    57 S SER C:  0.407043
+=std=bcl=> count of considered values for res:    57 S SER C statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    58 D ASP C statistics_exp: 2.15103 statistics_sim: 2.26702
+=std=bcl=> sd for mask res:    58 D ASP C statistics_exp: 2.90777 statistics_sim: 2.41501
+=std=bcl=> CrossCorrelationCoefficient:    58 D ASP C:  0.397824
+=std=bcl=> count of considered values for res:    58 D ASP C statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    59 Y TYR C statistics_exp: 1.54219 statistics_sim: 1.55157
+=std=bcl=> sd for mask res:    59 Y TYR C statistics_exp: 2.71129 statistics_sim: 2.18894
+=std=bcl=> CrossCorrelationCoefficient:    59 Y TYR C:  0.47413
+=std=bcl=> count of considered values for res:    59 Y TYR C statistics_exp: 900 statistics_sim: 900
+=std=bcl=> mean for mask res:    60 N ASN C statistics_exp: 2.09618 statistics_sim: 2.10658
+=std=bcl=> sd for mask res:    60 N ASN C statistics_exp: 2.85258 statistics_sim: 2.35854
+=std=bcl=> CrossCorrelationCoefficient:    60 N ASN C:  0.456828
+=std=bcl=> count of considered values for res:    60 N ASN C statistics_exp: 800 statistics_sim: 800
+=std=bcl=> mean for mask res:    61 I ILE C statistics_exp: 1.95531 statistics_sim: 1.95458
+=std=bcl=> sd for mask res:    61 I ILE C statistics_exp: 2.8217 statistics_sim: 2.29179
+=std=bcl=> CrossCorrelationCoefficient:    61 I ILE C:  0.47822
+=std=bcl=> count of considered values for res:    61 I ILE C statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    62 Q GLN C statistics_exp: 1.58918 statistics_sim: 1.59
+=std=bcl=> sd for mask res:    62 Q GLN C statistics_exp: 2.74399 statistics_sim: 2.18743
+=std=bcl=> CrossCorrelationCoefficient:    62 Q GLN C:  0.348977
+=std=bcl=> count of considered values for res:    62 Q GLN C statistics_exp: 1080 statistics_sim: 1080
+=std=bcl=> mean for mask res:    63 K LYS C statistics_exp: 1.23936 statistics_sim: 1.24261
+=std=bcl=> sd for mask res:    63 K LYS C statistics_exp: 2.59978 statistics_sim: 2.00724
+=std=bcl=> CrossCorrelationCoefficient:    63 K LYS C:  0.433209
+=std=bcl=> count of considered values for res:    63 K LYS C statistics_exp: 900 statistics_sim: 900
+=std=bcl=> mean for mask res:    64 E GLU E statistics_exp: 1.66967 statistics_sim: 1.70215
+=std=bcl=> sd for mask res:    64 E GLU E statistics_exp: 2.75179 statistics_sim: 2.22771
+=std=bcl=> CrossCorrelationCoefficient:    64 E GLU E:  0.41376
+=std=bcl=> count of considered values for res:    64 E GLU E statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    65 S SER E statistics_exp: 1.895 statistics_sim: 1.86085
+=std=bcl=> sd for mask res:    65 S SER E statistics_exp: 2.73629 statistics_sim: 2.17463
+=std=bcl=> CrossCorrelationCoefficient:    65 S SER E:  0.352598
+=std=bcl=> count of considered values for res:    65 S SER E statistics_exp: 792 statistics_sim: 792
+=std=bcl=> mean for mask res:    66 T THR E statistics_exp: 3.35553 statistics_sim: 3.35097
+=std=bcl=> sd for mask res:    66 T THR E statistics_exp: 2.76081 statistics_sim: 2.19169
+=std=bcl=> CrossCorrelationCoefficient:    66 T THR E:  0.362647
+=std=bcl=> count of considered values for res:    66 T THR E statistics_exp: 648 statistics_sim: 648
+=std=bcl=> mean for mask res:    67 L LEU E statistics_exp: 3.68262 statistics_sim: 3.60536
+=std=bcl=> sd for mask res:    67 L LEU E statistics_exp: 2.73421 statistics_sim: 2.19399
+=std=bcl=> CrossCorrelationCoefficient:    67 L LEU E:  0.377363
+=std=bcl=> count of considered values for res:    67 L LEU E statistics_exp: 648 statistics_sim: 648
+=std=bcl=> mean for mask res:    68 H HIS E statistics_exp: 3.07643 statistics_sim: 3.04963
+=std=bcl=> sd for mask res:    68 H HIS E statistics_exp: 2.86436 statistics_sim: 2.29259
+=std=bcl=> CrossCorrelationCoefficient:    68 H HIS E:  0.317276
+=std=bcl=> count of considered values for res:    68 H HIS E statistics_exp: 891 statistics_sim: 891
+=std=bcl=> mean for mask res:    69 L LEU E statistics_exp: 2.36355 statistics_sim: 2.30282
+=std=bcl=> sd for mask res:    69 L LEU E statistics_exp: 2.94089 statistics_sim: 2.30244
+=std=bcl=> CrossCorrelationCoefficient:    69 L LEU E:  0.436292
+=std=bcl=> count of considered values for res:    69 L LEU E statistics_exp: 693 statistics_sim: 693
+=std=bcl=> mean for mask res:    70 V VAL E statistics_exp: 3.5534 statistics_sim: 3.54968
+=std=bcl=> sd for mask res:    70 V VAL E statistics_exp: 2.91443 statistics_sim: 2.18943
+=std=bcl=> CrossCorrelationCoefficient:    70 V VAL E:  0.381492
+=std=bcl=> count of considered values for res:    70 V VAL E statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    71 L LEU E statistics_exp: 2.31688 statistics_sim: 2.37872
+=std=bcl=> sd for mask res:    71 L LEU E statistics_exp: 2.98628 statistics_sim: 2.38373
+=std=bcl=> CrossCorrelationCoefficient:    71 L LEU E:  0.344874
+=std=bcl=> count of considered values for res:    71 L LEU E statistics_exp: 800 statistics_sim: 800
+=std=bcl=> mean for mask res:    72 R ARG E statistics_exp: 2.5246 statistics_sim: 2.56591
+=std=bcl=> sd for mask res:    72 R ARG E statistics_exp: 2.9342 statistics_sim: 2.28112
+=std=bcl=> CrossCorrelationCoefficient:    72 R ARG E:  0.364831
+=std=bcl=> count of considered values for res:    72 R ARG E statistics_exp: 810 statistics_sim: 810
+=std=bcl=> mean for mask res:    73 L LEU C statistics_exp: 1.50601 statistics_sim: 1.51132
+=std=bcl=> sd for mask res:    73 L LEU C statistics_exp: 2.73286 statistics_sim: 2.07632
+=std=bcl=> CrossCorrelationCoefficient:    73 L LEU C:  0.392292
+=std=bcl=> count of considered values for res:    73 L LEU C statistics_exp: 880 statistics_sim: 880
+=std=bcl=> mean for mask res:    74 R ARG C statistics_exp: 1.39711 statistics_sim: 1.44337
+=std=bcl=> sd for mask res:    74 R ARG C statistics_exp: 2.67147 statistics_sim: 1.9408
+=std=bcl=> CrossCorrelationCoefficient:    74 R ARG C:  0.342385
+=std=bcl=> count of considered values for res:    74 R ARG C statistics_exp: 729 statistics_sim: 729
+=std=bcl=> mean for mask res:    75 G GLY C statistics_exp: 0.952873 statistics_sim: 1.01804
+=std=bcl=> sd for mask res:    75 G GLY C statistics_exp: 2.44138 statistics_sim: 1.67137
+=std=bcl=> CrossCorrelationCoefficient:    75 G GLY C:  0.305663
+=std=bcl=> count of considered values for res:    75 G GLY C statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:     2 Q GLN E statistics_exp: 2.15827 statistics_sim: 2.16062
+=std=bcl=> sd for mask res:     2 Q GLN E statistics_exp: 2.81777 statistics_sim: 2.24395
+=std=bcl=> CrossCorrelationCoefficient:     2 Q GLN E:  0.422681
+=std=bcl=> count of considered values for res:     2 Q GLN E statistics_exp: 800 statistics_sim: 800
+=std=bcl=> mean for mask res:     3 I ILE E statistics_exp: 2.24215 statistics_sim: 2.14371
+=std=bcl=> sd for mask res:     3 I ILE E statistics_exp: 2.73793 statistics_sim: 2.22636
+=std=bcl=> CrossCorrelationCoefficient:     3 I ILE E:  0.453317
+=std=bcl=> count of considered values for res:     3 I ILE E statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:     4 F PHE E statistics_exp: 2.92135 statistics_sim: 2.86041
+=std=bcl=> sd for mask res:     4 F PHE E statistics_exp: 2.7923 statistics_sim: 2.30659
+=std=bcl=> CrossCorrelationCoefficient:     4 F PHE E:  0.348661
+=std=bcl=> count of considered values for res:     4 F PHE E statistics_exp: 810 statistics_sim: 810
+=std=bcl=> mean for mask res:     5 V VAL E statistics_exp: 2.29734 statistics_sim: 2.21118
+=std=bcl=> sd for mask res:     5 V VAL E statistics_exp: 2.8513 statistics_sim: 2.28567
+=std=bcl=> CrossCorrelationCoefficient:     5 V VAL E:  0.404467
+=std=bcl=> count of considered values for res:     5 V VAL E statistics_exp: 990 statistics_sim: 990
+=std=bcl=> mean for mask res:     6 K LYS E statistics_exp: 2.91625 statistics_sim: 2.79094
+=std=bcl=> sd for mask res:     6 K LYS E statistics_exp: 2.93682 statistics_sim: 2.35234
+=std=bcl=> CrossCorrelationCoefficient:     6 K LYS E:  0.331484
+=std=bcl=> count of considered values for res:     6 K LYS E statistics_exp: 810 statistics_sim: 810
+=std=bcl=> mean for mask res:     7 T THR E statistics_exp: 2.03551 statistics_sim: 1.9202
+=std=bcl=> sd for mask res:     7 T THR E statistics_exp: 2.91438 statistics_sim: 2.27133
+=std=bcl=> CrossCorrelationCoefficient:     7 T THR E:  0.396291
+=std=bcl=> count of considered values for res:     7 T THR E statistics_exp: 900 statistics_sim: 900
+=std=bcl=> mean for mask res:     8 L LEU C statistics_exp: 2.80805 statistics_sim: 2.75133
+=std=bcl=> sd for mask res:     8 L LEU C statistics_exp: 3.11604 statistics_sim: 2.42222
+=std=bcl=> CrossCorrelationCoefficient:     8 L LEU C:  0.349745
+=std=bcl=> count of considered values for res:     8 L LEU C statistics_exp: 648 statistics_sim: 648
+=std=bcl=> mean for mask res:     9 T THR C statistics_exp: 2.3352 statistics_sim: 2.26379
+=std=bcl=> sd for mask res:     9 T THR C statistics_exp: 2.94464 statistics_sim: 2.26822
+=std=bcl=> CrossCorrelationCoefficient:     9 T THR C:  0.315093
+=std=bcl=> count of considered values for res:     9 T THR C statistics_exp: 640 statistics_sim: 640
+=std=bcl=> mean for mask res:    10 G GLY E statistics_exp: 1.99564 statistics_sim: 1.93948
+=std=bcl=> sd for mask res:    10 G GLY E statistics_exp: 2.9162 statistics_sim: 2.20769
+=std=bcl=> CrossCorrelationCoefficient:    10 G GLY E:  0.325345
+=std=bcl=> count of considered values for res:    10 G GLY E statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    11 K LYS E statistics_exp: 2.4127 statistics_sim: 2.36839
+=std=bcl=> sd for mask res:    11 K LYS E statistics_exp: 3.07081 statistics_sim: 2.36655
+=std=bcl=> CrossCorrelationCoefficient:    11 K LYS E:  0.343839
+=std=bcl=> count of considered values for res:    11 K LYS E statistics_exp: 729 statistics_sim: 729
+=std=bcl=> mean for mask res:    12 T THR E statistics_exp: 3.03253 statistics_sim: 2.96492
+=std=bcl=> sd for mask res:    12 T THR E statistics_exp: 2.98666 statistics_sim: 2.32376
+=std=bcl=> CrossCorrelationCoefficient:    12 T THR E:  0.386759
+=std=bcl=> count of considered values for res:    12 T THR E statistics_exp: 648 statistics_sim: 648
+=std=bcl=> mean for mask res:    13 I ILE E statistics_exp: 2.44257 statistics_sim: 2.33198
+=std=bcl=> sd for mask res:    13 I ILE E statistics_exp: 2.93331 statistics_sim: 2.36011
+=std=bcl=> CrossCorrelationCoefficient:    13 I ILE E:  0.394778
+=std=bcl=> count of considered values for res:    13 I ILE E statistics_exp: 648 statistics_sim: 648
+=std=bcl=> mean for mask res:    14 T THR E statistics_exp: 2.28618 statistics_sim: 2.16978
+=std=bcl=> sd for mask res:    14 T THR E statistics_exp: 2.79588 statistics_sim: 2.26366
+=std=bcl=> CrossCorrelationCoefficient:    14 T THR E:  0.472336
+=std=bcl=> count of considered values for res:    14 T THR E statistics_exp: 567 statistics_sim: 567
+=std=bcl=> mean for mask res:    15 L LEU E statistics_exp: 1.11965 statistics_sim: 0.974151
+=std=bcl=> sd for mask res:    15 L LEU E statistics_exp: 2.34807 statistics_sim: 1.72897
+=std=bcl=> CrossCorrelationCoefficient:    15 L LEU E:  0.468307
+=std=bcl=> count of considered values for res:    15 L LEU E statistics_exp: 700 statistics_sim: 700
+=std=bcl=> mean for mask res:    16 E GLU E statistics_exp: 1.66459 statistics_sim: 1.58604
+=std=bcl=> sd for mask res:    16 E GLU E statistics_exp: 2.69419 statistics_sim: 2.13172
+=std=bcl=> CrossCorrelationCoefficient:    16 E GLU E:  0.467914
+=std=bcl=> count of considered values for res:    16 E GLU E statistics_exp: 720 statistics_sim: 720
+=std=bcl=> mean for mask res:    17 V VAL E statistics_exp: 1.42074 statistics_sim: 1.31643
+=std=bcl=> sd for mask res:    17 V VAL E statistics_exp: 2.57863 statistics_sim: 2.02034
+=std=bcl=> CrossCorrelationCoefficient:    17 V VAL E:  0.457225
+=std=bcl=> count of considered values for res:    17 V VAL E statistics_exp: 800 statistics_sim: 800
+=std=bcl=> mean for mask res:    18 E GLU C statistics_exp: 2.01272 statistics_sim: 2.00362
+=std=bcl=> sd for mask res:    18 E GLU C statistics_exp: 2.78403 statistics_sim: 2.2891
+=std=bcl=> CrossCorrelationCoefficient:    18 E GLU C:  0.443535
+=std=bcl=> count of considered values for res:    18 E GLU C statistics_exp: 720 statistics_sim: 720
+=std=bcl::app=> BCL Example | END  : DensityMask3d ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+DensityMask3d_total                       4          0              
+total                                     4          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 133 MB, peak physical RAM used: 65 MB

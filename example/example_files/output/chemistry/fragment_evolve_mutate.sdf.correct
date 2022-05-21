@@ -1,0 +1,156 @@
+Written by BCL::WriteToMDL,
+
+
+ 13 14  0  0  0  0  0  0  0  0999 V2000
+    0.4422    0.0170    0.1180 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.3101   -4.1084    0.1654 O   0  0  0  1  0  2  0  0  0  0  0  0
+   -0.7557   -0.6429    0.4108 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.5939   -0.7248   -0.1637 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.3536   -2.7524    0.1501 C   0  0  0  1  0  3  0  0  0  0  0  0
+    1.5455   -2.1002   -0.1467 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.7953   -2.0187    0.4256 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.6651   -4.7451    1.3120 C   0  0  0  1  0  3  0  0  0  0  0  0
+    1.0489   -4.0104    2.4248 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.6390   -6.1311    1.3741 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.0004   -6.7760    2.5410 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.4094   -4.6602    3.5893 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.3880   -6.0416    3.6466 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  2  5  1  0  0  0  0
+  2  8  1  0  0  0  0
+  3  7  1  0  0  0  0
+  4  6  2  0  0  0  0
+  5  6  1  0  0  0  0
+  5  7  2  0  0  0  0
+  8  9  2  0  0  0  0
+  8 10  1  0  0  0  0
+  9 12  1  0  0  0  0
+ 10 11  2  0  0  0  0
+ 11 13  1  0  0  0  0
+ 12 13  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi O_Tr2TrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticDoubleBond AromaticSingleBond ConjugatedSingleBond ConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 29 31  0  0  0  0  0  0  0  0999 V2000
+   -0.0218    1.7577    0.0117 S   0  0  0  1  0  4  0  0  0  0  0  0
+   -0.2228    5.1467    8.6788 N   0  0  0  1  0  2  0  0  0  0  0  0
+   -0.5767    3.3560    9.8739 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.1103    3.8505    8.6955 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -0.7696    5.5725    9.8464 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -1.0042    4.4296   10.6293 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.0021   -0.0041    0.0020 C   0  0  0  1  0  3  0  0  0  0  0  0
+    1.3357    2.1775    0.0010 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -0.9650    2.1517   -0.9755 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -0.6463    2.2315    1.4705 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.0905   -0.7075   -0.4695 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.1156   -0.6827    0.4607 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.0718   -2.0897   -0.4770 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.1344   -2.0649    0.4531 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.0397   -2.7685   -0.0135 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.4539    3.0184    7.5730 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.1055    6.8318   10.3505 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.5649    4.5608   11.8925 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.0809    1.9392    2.7082 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.0602   -4.2753   -0.0218 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -0.3055    3.3236    6.2803 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -0.4920    2.7841    3.8479 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.2674    2.4788    5.1406 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.8876    5.8133   12.3696 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.6571    6.9417   11.5953 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.8100    3.3860   12.7063 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.9624    2.3781   14.4257 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -3.8634    2.3552   15.5707 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -2.7381    3.4534   13.6809 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  7  1  0  0  0  0
+  1  8  2  0  0  0  0
+  1  9  2  0  0  0  0
+  1 10  1  0  0  0  0
+  2  4  2  0  0  0  0
+  2  5  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  6  1  0  0  0  0
+  4 16  1  0  0  0  0
+  5  6  2  0  0  0  0
+  5 17  1  0  0  0  0
+  6 18  1  0  0  0  0
+  7 11  1  0  0  0  0
+  7 12  2  0  0  0  0
+ 10 19  1  0  0  0  0
+ 11 13  2  0  0  0  0
+ 12 14  1  0  0  0  0
+ 13 15  1  0  0  0  0
+ 14 15  2  0  0  0  0
+ 15 20  1  0  0  0  0
+ 16 21  1  0  0  0  0
+ 17 25  2  0  0  0  0
+ 18 24  2  0  0  0  0
+ 18 26  1  0  0  0  0
+ 19 22  1  0  0  0  0
+ 21 23  1  0  0  0  0
+ 22 23  1  0  0  0  0
+ 24 25  1  0  0  0  0
+ 26 29  1  0  0  0  0
+ 27 28  1  0  0  0  0
+ 27 29  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi N_Tr2TrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi N_TrTrTrPi2 N_Te2TeTeTe C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedSingleBond ConjugatedDoubleBond ConjugatedDoubleBond ConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticSingleBond NonConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBond NonConjugatedSingleBond AromaticDoubleBond AromaticDoubleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 22 23  0  0  0  0  0  0  0  0999 V2000
+   -0.0158    1.4700   -0.0315 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.0082   -0.0069   -0.0401 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -1.1874   -0.7276   -0.0757 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.1395    2.1623    0.0028 O   0  0  0  1  0  2  0  0  0  0  0  0
+    1.2698    5.4677   -1.3863 N   0  0  0  1  0  2  0  0  0  0  0  0
+   -1.1577   -2.1065   -0.0839 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -1.0771    2.0605   -0.0605 O   0  0  0  1  0  1  0  0  0  0  0  0
+    0.0533   -2.7758   -0.0571 C   0  0  0  1  0  3  0  0  0  0  0  0
+    1.2265   -0.6885   -0.0185 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.2415   -2.0681   -0.0219 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.0513    3.5152   -0.0947 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.8975    6.2186   -0.3685 C   0  0  0  1  0  3  0  0  0  0  0  0
+    1.3548    4.1559   -1.2870 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5795    5.6526    0.8522 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.6549    4.2772    1.0001 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.4469   -2.8860   -0.1218 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.0776   -4.2826   -0.0605 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.8185    7.7140   -0.5376 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -2.1709   -5.6707   -0.5858 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.4648   -3.8927    1.0169 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.7952   -5.1042    0.6004 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -3.1885   -5.1566   -1.1765 N   0  0  0  0  0  2  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  4  1  0  0  0  0
+  1  7  2  0  0  0  0
+  2  3  1  0  0  0  0
+  2  9  2  0  0  0  0
+  3  6  2  0  0  0  0
+  4 11  1  0  0  0  0
+  5 12  2  0  0  0  0
+  5 13  1  0  0  0  0
+  6  8  1  0  0  0  0
+  6 16  1  0  0  0  0
+  8 10  2  0  0  0  0
+  8 17  1  0  0  0  0
+  9 10  1  0  0  0  0
+ 11 13  2  0  0  0  0
+ 11 15  1  0  0  0  0
+ 12 14  1  0  0  0  0
+ 12 18  1  0  0  0  0
+ 14 15  2  0  0  0  0
+ 16 20  1  0  0  0  0
+ 19 21  1  0  0  0  0
+ 19 22  2  0  0  0  0
+ 20 21  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi O_Tr2TrTrPi2 N_Tr2TrTrPi C_TrTrTrPi O_Tr2Tr2TrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe N_TrTrTrPi2 N_Tr2TrTrPi
+M  BCL BND ConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond ConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond NonConjugatedSingleBond AromaticDoubleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond NonConjugatedSingleBond AromaticDoubleBond NonConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond NonConjugatedSingleBond
+M  END
+$$$$

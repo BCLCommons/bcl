@@ -1,0 +1,53 @@
+
+
+
+ 21 23  0  0  0  0  0  0  0  0999 V2000
+    3.2143   21.0499    7.3507 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.9443   20.8482    6.5894 C   0  0  0  1  0  0  0  0  0  0  0  0
+    3.9174   20.0031    7.9235 C   0  0  0  1  0  0  0  0  0  0  0  0
+    3.6512   22.2189    7.4728 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -1.5961   20.3591    4.4953 O   0  0  0  1  0  0  0  0  0  0  0  0
+    1.3913   19.5719    6.3768 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2702   21.9744    6.1339 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.4592   20.6208    5.1720 C   0  0  0  1  0  0  0  0  0  0  0  0
+    0.0479   21.8049    5.3798 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.1896   19.4496    5.6710 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.0960   19.5388    7.3491 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4596   19.3893    9.0910 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.1573   18.3410    9.6693 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.8032   18.4856    7.9105 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.3418   17.8859    9.0802 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.1339   19.1033    4.2749 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -3.4913   18.9767    4.0645 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.3061   18.0085    4.2701 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.8492   16.7514    4.0470 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.0191   17.7186    3.8488 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.1976   16.6088    3.8313 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  2  0  0  0  0
+  2  6  1  0  0  0  0
+  2  7  2  0  0  0  0
+  3 11  1  0  0  0  0
+  3 12  2  0  0  0  0
+  5  8  1  0  0  0  0
+  5 16  1  0  0  0  0
+  6 10  2  0  0  0  0
+  7  9  1  0  0  0  0
+  8  9  2  0  0  0  0
+  8 10  1  0  0  0  0
+ 11 14  2  0  0  0  0
+ 12 13  1  0  0  0  0
+ 13 15  2  0  0  0  0
+ 14 15  1  0  0  0  0
+ 16 17  1  0  0  0  0
+ 16 18  2  0  0  0  0
+ 17 20  2  0  0  0  0
+ 18 19  1  0  0  0  0
+ 19 21  2  0  0  0  0
+ 20 21  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi O_Tr2Tr2TrPi O_Tr2TrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND ConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond ConjugatedSingleBond ConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  BCL DBI - - - - - - - - - -
+M  END
+$$$$

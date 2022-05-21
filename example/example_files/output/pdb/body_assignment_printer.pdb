@@ -1,0 +1,21 @@
+REMARK  30                                                                      
+REMARK  30 map: 0 rod: 0 index: 0 begin: 8 end: 26 orientation: 1               
+REMARK  30 map: 0 rod: 1 index: 1 begin: 48 end: 56 orientation: 1              
+REMARK  30 map: 0 rod: 2 index: 2 begin: 58 end: 79 orientation: 1              
+REMARK  30 map: 0 rod: 3 index: 3 begin: 87 end: 107 orientation: 1             
+REMARK  30 map: 0 rod: 4 index: 4 begin: 138 end: 154 orientation: 1            
+REMARK  30 map: 0 rod: 5 index: 5 begin: 158 end: 171 orientation: 1            
+REMARK  30 map: 0 rod: 6 index: 6 begin: 180 end: 203 orientation: 1            
+REMARK  30 map: 0 rod: 7 index: 7 begin: 210 end: 237 orientation: 1            
+REMARK  30 map: 0 rod: 8 index: 8 begin: 247 end: 255 orientation: 1            
+REMARK  30 map: 0 rod: 0 angle: 0 translation: 0                                
+REMARK  30 map: 0 rod: 1 angle: 1.20742e-06 translation: 0                      
+REMARK  30 map: 0 rod: 2 angle: 0 translation: 0                                
+REMARK  30 map: 0 rod: 3 angle: 1.70755e-06 translation: 0                      
+REMARK  30 map: 0 rod: 4 angle: 0 translation: 0                                
+REMARK  30 map: 0 rod: 5 angle: 0 translation: 0                                
+REMARK  30 map: 0 rod: 6 angle: 0 translation: 0                                
+REMARK  30 map: 0 rod: 7 angle: 0 translation: 0                                
+REMARK  30 map: 0 rod: 8 angle: 1.70755e-06 translation: 0                      
+MASTER       19    0    0    0    0    0    0    0    0    0    0    0          
+END                                                                             

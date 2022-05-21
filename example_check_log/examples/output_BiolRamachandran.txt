@@ -1,0 +1,158 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec BiolRamachandran 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> BiolRamachandran
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: BiolRamachandran ====================
+=std=bcl=> successful example check:
+               default_ramachandran.GetDefaultHistogramFilename() ==
+              phi_psi_angles_by_sstype.histogram2D
+=std=bcl=> successful example check:  ramachandran.GetHistogramFilename() == phi_psi_angles_by_sstype.histogram2D
+=std=bcl=> testing GetRandomPhiPsi for each AAType
+=std=bcl=> ALA ==> phi: -1.44008	psi: 2.22558
+=std=bcl=> ARG ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> ASN ==> phi: -2.48742	psi: 1.44008
+=std=bcl=> ASP ==> phi: -2.74925	psi: 2.74925
+=std=bcl=> CYS ==> phi: -1.44008	psi: -0.916417
+=std=bcl=> GLN ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> GLU ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> GLY ==> phi: -1.70192	psi: -3.01108
+=std=bcl=> HIS ==> phi: -2.22558	psi: 0.130917
+=std=bcl=> ILE ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> LEU ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> LYS ==> phi: -1.17825	psi: -0.39275
+=std=bcl=> MET ==> phi: -1.70192	psi: -0.654583
+=std=bcl=> PHE ==> phi: 0.916417	psi: 0.39275
+=std=bcl=> PRO ==> phi: -1.17825	psi: 2.22558
+=std=bcl=> SER ==> phi: -2.74925	psi: 2.74925
+=std=bcl=> THR ==> phi: -1.44008	psi: -0.130917
+=std=bcl=> TRP ==> phi: -0.916417	psi: -0.654583
+=std=bcl=> TYR ==> phi: -2.48742	psi: 2.48742
+=std=bcl=> VAL ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> One or more random phi/psi generated from AAType were out of range test succeeded:  success == 1
+=std=bcl=> testing GetRandomPhiPsi for each SSType and AAType
+=std=bcl=> 
+=std=bcl=> HELIX	ALA ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> HELIX	ARG ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> HELIX	ASN ==> phi: -1.17825	psi: -0.39275
+=std=bcl=> HELIX	ASP ==> phi: -0.916417	psi: -0.916417
+=std=bcl=> HELIX	CYS ==> phi: -0.916417	psi: -0.916417
+=std=bcl=> HELIX	GLN ==> phi: -0.916417	psi: -0.916417
+=std=bcl=> HELIX	GLU ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> HELIX	GLY ==> phi: -1.96375	psi: -0.130917
+=std=bcl=> HELIX	HIS ==> phi: -0.916417	psi: -0.654583
+=std=bcl=> HELIX	ILE ==> phi: -1.17825	psi: -0.916417
+=std=bcl=> HELIX	LEU ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> HELIX	LYS ==> phi: -1.44008	psi: -0.654583
+=std=bcl=> HELIX	MET ==> phi: -0.916417	psi: -0.654583
+=std=bcl=> HELIX	PHE ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> HELIX	PRO ==> phi: -0.916417	psi: -0.39275
+=std=bcl=> HELIX	SER ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> HELIX	THR ==> phi: -0.916417	psi: -0.916417
+=std=bcl=> HELIX	TRP ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> HELIX	TYR ==> phi: -0.916417	psi: -0.916417
+=std=bcl=> HELIX	VAL ==> phi: -1.17825	psi: -0.916417
+=std=bcl=> 
+=std=bcl=> STRAND	ALA ==> phi: -2.22558	psi: 2.48742
+=std=bcl=> STRAND	ARG ==> phi: -1.96375	psi: 2.48742
+=std=bcl=> STRAND	ASN ==> phi: -2.22558	psi: 0.916417
+=std=bcl=> STRAND	ASP ==> phi: -1.96375	psi: 2.74925
+=std=bcl=> STRAND	CYS ==> phi: -1.70192	psi: 0.130917
+=std=bcl=> STRAND	GLN ==> phi: -1.70192	psi: 1.96375
+=std=bcl=> STRAND	GLU ==> phi: -2.74925	psi: 3.01108
+=std=bcl=> STRAND	GLY ==> phi: -1.44008	psi: 2.48742
+=std=bcl=> STRAND	HIS ==> phi: -2.48742	psi: 2.22558
+=std=bcl=> STRAND	ILE ==> phi: -2.22558	psi: 2.22558
+=std=bcl=> STRAND	LEU ==> phi: -1.96375	psi: 2.22558
+=std=bcl=> STRAND	LYS ==> phi: -2.22558	psi: 2.22558
+=std=bcl=> STRAND	MET ==> phi: -2.22558	psi: 2.22558
+=std=bcl=> STRAND	PHE ==> phi: -1.96375	psi: 2.74925
+=std=bcl=> STRAND	PRO ==> phi: -1.17825	psi: 2.48742
+=std=bcl=> STRAND	SER ==> phi: -2.48742	psi: 2.74925
+=std=bcl=> STRAND	THR ==> phi: -1.96375	psi: 2.48742
+=std=bcl=> STRAND	TRP ==> phi: -1.44008	psi: 2.48742
+=std=bcl=> STRAND	TYR ==> phi: -2.22558	psi: 1.96375
+=std=bcl=> STRAND	VAL ==> phi: -1.96375	psi: 2.22558
+=std=bcl=> 
+=std=bcl=> COIL	ALA ==> phi: -1.17825	psi: -0.654583
+=std=bcl=> COIL	ARG ==> phi: -1.17825	psi: 2.48742
+=std=bcl=> COIL	ASN ==> phi: -1.70192	psi: 0.39275
+=std=bcl=> COIL	ASP ==> phi: 0.916417	psi: 0.916417
+=std=bcl=> COIL	CYS ==> phi: -0.916417	psi: -0.654583
+=std=bcl=> COIL	GLN ==> phi: -1.70192	psi: -0.130917
+=std=bcl=> COIL	GLU ==> phi: -2.74925	psi: 2.22558
+=std=bcl=> COIL	GLY ==> phi: 1.96375	psi: -0.916417
+=std=bcl=> COIL	HIS ==> phi: -1.44008	psi: -0.130917
+=std=bcl=> COIL	ILE ==> phi: -1.96375	psi: 1.96375
+=std=bcl=> COIL	LEU ==> phi: -1.70192	psi: 3.01108
+=std=bcl=> COIL	LYS ==> phi: -1.17825	psi: -0.39275
+=std=bcl=> COIL	MET ==> phi: -2.74925	psi: 2.74925
+=std=bcl=> COIL	PHE ==> phi: -2.48742	psi: 0.130917
+=std=bcl=> COIL	PRO ==> phi: -1.17825	psi: 2.74925
+=std=bcl=> COIL	SER ==> phi: -1.44008	psi: -0.130917
+=std=bcl=> COIL	THR ==> phi: -2.22558	psi: 3.01108
+=std=bcl=> COIL	TRP ==> phi: -1.17825	psi: 2.48742
+=std=bcl=> COIL	TYR ==> phi: -1.70192	psi: 1.44008
+=std=bcl=> COIL	VAL ==> phi: -1.96375	psi: -0.916417
+=std=bcl=> One or more random phi/psi generated from SSType and AATypes were out of range test succeeded:  success == 1
+=std=bcl=> successful example check:
+               ramachandran.GetHistogramFilename() == ramachandran_read.GetHistogramFilename() ==
+              phi_psi_angles_by_sstype.histogram2D
+=std=bcl::app=> BCL Example | END  : BiolRamachandran ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+BiolRamachandran_total                    5          0              
+total                                     5          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 136 MB, peak physical RAM used: 68 MB

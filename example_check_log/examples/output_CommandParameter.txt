@@ -1,0 +1,107 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec CommandParameter 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> CommandParameter
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: CommandParameter ====================
+=std=bcl=> successful example check:
+               GetStaticClassName< command::Parameter>() == parameter_ptr_a->GetClassIdentifier()
+              == bcl::command::Parameter
+=std=bcl=> successful example check:  parameter_ptr_a->GetWasSetInCommandLine() == 0
+=std=bcl=> successful example check:  parameter_ptr_b->GetWasSetInCommandLine() == 0
+=std=bcl=> successful example check:  parameter_ptr_c->GetWasSetInCommandLine() == 0
+=std=bcl=> successful example check:  parameter_ptr_d->GetWasSetInCommandLine() == 0
+=std=bcl=> successful example check:  parameter_ptr_e->GetWasSetInCommandLine() == 0
+=std=bcl=> successful example check:  parameter_ptr_f->GetWasSetInCommandLine() == 0
+=std=bcl=> successful example check:  parameter_ptr_a->GetWasDefaultGiven() == 0
+=std=bcl=> successful example check:  parameter_ptr_b->GetWasDefaultGiven() == 0
+=std=bcl=> successful example check:  parameter_ptr_c->GetWasDefaultGiven() == 0
+=std=bcl=> successful example check:  parameter_ptr_d->GetWasDefaultGiven() == 1
+=std=bcl=> successful example check:  parameter_ptr_e->GetWasDefaultGiven() == 1
+=std=bcl=> successful example check:  parameter_ptr_f->GetWasDefaultGiven() == 0
+=std=bcl=> successful example check:  parameter_ptr_a->SetParameter( "first_parameter", error_stream) == 1
+=std=bcl=> successful example check:  parameter_ptr_a->GetWasSetInCommandLine() == 1
+=std=bcl=> successful example check:  parameter_ptr_b->GetName() == parameter_ptr_b_name == second_parameter
+=std=bcl=> successful example check:
+               parameter_ptr_b->GetDescription() == parameter_ptr_b_description ==
+              the second test parameter
+=std=bcl=> successful example check:  parameter_ptr_d->GetValue() == default_parameter_string == default parameter
+=std=bcl=> successful example check:  parameter_ptr_d->GetDefaultValue() == default_parameter_string == default parameter
+=std=bcl=> successful example check:  parameter_ptr_b->GetWasDefaultGiven() == 1
+=std=bcl=> successful example check:  parameter_ptr_b->GetValue() == default_parameter_string == default parameter
+=std=bcl=> successful example check:  parameter_ptr_c->SetParameter( default_parameter_double_string, error_stream) == 1
+=std=bcl=> successful example check:  parameter_ptr_c->GetValue() == default_parameter_double_string == 3.1415
+=std=bcl=> successful example check:  parameter_ptr_c->GetNumericalValue< double>() == default_parameter_double == 3.1415
+=std=bcl=> successful example check:  check_class == check_class_expected == bcl::command::ParameterCheckDefault
+=std=bcl=> successful example check:  parameter_ptr_d->IsAllowedParameter( "bob", error_stream) == 1
+=std=bcl=> successful example check:  parameter_ptr_a->GetValue().empty() == 1
+=std=bcl=> successful example check:  parameter_ptr_a->GetWasSetInCommandLine() == 0
+=std=bcl=> successful example check:  output_stream.str().length() > 0 == 1
+=std=bcl=> successful example check:  output_stream.str().length() > 0 == 1
+=std=bcl=> successful example check:  parameter_ptr_d->GetName() == parameter_read.GetName() == fourth_parameter
+=std=bcl=> successful example check:
+               parameter_ptr_d->GetDescription() == parameter_read.GetDescription() ==
+              the fourth test parameter
+=std=bcl=> successful example check:  parameter_ptr_d->GetValue() == parameter_read.GetValue() == default parameter
+=std=bcl=> successful example check:
+               parameter_ptr_d->GetWasSetInCommandLine() ==
+              parameter_read.GetWasSetInCommandLine() == 0
+=std=bcl=> successful example check:  parameter_ptr_d->GetWasDefaultGiven() == parameter_read.GetWasDefaultGiven() == 1
+=std=bcl::app=> BCL Example | END  : CommandParameter ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+CommandParameter_total                   35          0              
+total                                    35          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

@@ -1,0 +1,5 @@
+bcl::assemble::LocatorAtom
+  LocatorAtom(
+    locator_aa=LocatorAA(locator_chain=B,seq_id=52,aa type=Undefined,use_pdb_id=0),
+    atom_type=CB
+  )

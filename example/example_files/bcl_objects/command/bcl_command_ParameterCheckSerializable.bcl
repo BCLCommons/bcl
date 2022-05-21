@@ -1,0 +1,2 @@
+bcl::command::ParameterCheckSerializable
+  bcl::util::OwnPtr<bcl::io::SerializationInterface>

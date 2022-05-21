@@ -1,0 +1,4 @@
+Multiply(
+    Subtract(lhs=Log(DbScreen(property=Default("Activity"),name="aid891_actives")),rhs=Log(Constant(1e+06))),
+    Constant(-1)
+)

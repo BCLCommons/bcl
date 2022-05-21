@@ -1,0 +1,17 @@
+bcl::assemble::AnalyzeChiAnglePairDistribution
+  ".ChiAnglePairDistribution"
+  10
+  bcl::storage::Set<bcl::biol::AATypes::Enum,std::less<bcl::biol::AATypes::Enum>>
+    1
+    bcl::biol::AATypes::Enum
+      "methanesulfonothioate"
+
+  e_One
+  e_Two
+  0
+  "TitleTest"
+  0
+  16
+  640
+  640
+  "example/example_files/input/biology/AnalyzeChiAnglePairDistribution_reference_pairs.ls"

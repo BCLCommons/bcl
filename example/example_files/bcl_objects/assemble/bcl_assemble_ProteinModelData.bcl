@@ -1,0 +1,20 @@
+bcl::assemble::ProteinModelData
+  bcl::storage::Map<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>,bcl::util::ShPtr<bcl::util::ObjectInterface>,std::less<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>>>
+    3
+    std::pair<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>,bcl::util::ShPtr<bcl::util::ObjectInterface>>
+      loop_domain_locators
+      bcl::util::ShPtr<bcl::util::ObjectInterface>
+        12345678
+        bcl::linal::Vector3D
+          5	6	7
+    std::pair<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>,bcl::util::ShPtr<bcl::util::ObjectInterface>>
+      membrane
+      bcl::util::ShPtr<bcl::util::ObjectInterface>
+        12345678
+        bcl::linal::Vector3D
+          3	4	5
+    std::pair<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>,bcl::util::ShPtr<bcl::util::ObjectInterface>>
+      undefined
+      bcl::util::ShPtr<bcl::util::ObjectInterface>
+        0
+

@@ -1,0 +1,37 @@
+bcl::command::FlagDynamic
+  "bob_sagets_jokes_1"
+  "the titles of bob saget's jokes"
+  1
+  bcl::util::ShPtrVector<bcl::command::ParameterInterface>
+    1
+    bcl::util::ShPtr<bcl::command::ParameterInterface>
+      12345678
+      bcl::command::Parameter
+        "bs-joke"
+        "a joke that bob saget has made"
+        bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+          12345678
+          bcl::command::ParameterCheckDefault
+
+        "knock-knock"
+        1
+        0
+        ""
+
+  2
+  4
+  bcl::util::ShPtrVector<bcl::command::ParameterInterface>
+    1
+    bcl::util::ShPtr<bcl::command::ParameterInterface>
+      12345678
+      bcl::command::Parameter
+        "bs-joke"
+        "a joke that bob saget has made"
+        bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+          12345678
+          bcl::command::ParameterCheckDefault
+
+        ""
+        0
+        0
+        ""

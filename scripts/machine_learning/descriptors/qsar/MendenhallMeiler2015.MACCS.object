@@ -1,0 +1,10 @@
+# "Substructure" descriptor set used in 
+# Mendenhall, Meiler "Advances in Machine Learning Applied to Quantitative Structural Activity Relationship Modeling" 
+# Unpublished 2015
+# 922 numbers total, 616 non-redundant
+# This descriptor set performed the worst of those in the benchmark
+Combine(
+  # BCL-Edition of the PubChem Substructure fingerprint
+  # See ftp://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.txt
+  MACCS
+)

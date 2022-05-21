@@ -1,0 +1,14 @@
+bcl::contact::Statistics
+  bcl::math::Range<size_t>
+    [ 6 , nan ]
+  0
+  bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<bcl::assemble::ProteinModel,bcl::assemble::AANeighborListContainer>>
+    12345678
+    bcl::assemble::AANeighborListContainerGeneratorProteinModel
+      8	      6	      1
+      0
+      bcl::util::ShPtr<bcl::math::BinaryFunctionInterface<bcl::assemble::SSE,bcl::assemble::SSE,bcl::assemble::AANeighborListContainer>>
+        0
+
+      bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<bcl::assemble::SSE,bcl::assemble::AANeighborListContainer>>
+        0

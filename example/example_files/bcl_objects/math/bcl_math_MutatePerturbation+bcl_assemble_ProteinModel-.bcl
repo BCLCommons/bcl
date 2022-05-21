@@ -1,0 +1,95 @@
+bcl::math::MutatePerturbation<bcl::assemble::ProteinModel>
+  bcl::assemble::ProteinModel
+    bcl::util::ShPtrVector<bcl::assemble::Chain>
+      0
+
+    bcl::util::ShPtr<bcl::assemble::ProteinModelData>
+      12345678
+      bcl::assemble::ProteinModelData
+        bcl::storage::Map<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>,bcl::util::ShPtr<bcl::util::ObjectInterface>,std::less<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>>>
+          1
+          std::pair<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>,bcl::util::ShPtr<bcl::util::ObjectInterface>>
+            undefined
+            bcl::util::ShPtr<bcl::util::ObjectInterface>
+              0
+
+
+  bcl::storage::Vector<bcl::math::MutatePerturbation<bcl::assemble::ProteinModel>::SinglePerturbation>
+    3
+    bcl::math::MutatePerturbation<bcl::assemble::ProteinModel>::SinglePerturbation
+      2
+      0
+      bcl::assemble::ProteinModel
+        bcl::util::ShPtrVector<bcl::assemble::Chain>
+          0
+
+        bcl::util::ShPtr<bcl::assemble::ProteinModelData>
+          12345678
+          bcl::assemble::ProteinModelData
+            bcl::storage::Map<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>,bcl::util::ShPtr<bcl::util::ObjectInterface>,std::less<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>>>
+              1
+              std::pair<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>,bcl::util::ShPtr<bcl::util::ObjectInterface>>
+                undefined
+                bcl::util::ShPtr<bcl::util::ObjectInterface>
+                  0
+
+
+      bcl::util::ShPtr<bcl::math::MutateInterface<bcl::assemble::ProteinModel>>
+        12345678
+        bcl::fold::MutateProteinModelSSE
+          MutateProteinModelSSE(
+            locator=LocatorSSE(chain id=A,start id=1,end id=7,use pdb id=0),
+            mutate=bcl::math::MutateMoveWrapper<bcl::assemble::SSE>
+          )
+    bcl::math::MutatePerturbation<bcl::assemble::ProteinModel>::SinglePerturbation
+      2
+      0
+      bcl::assemble::ProteinModel
+        bcl::util::ShPtrVector<bcl::assemble::Chain>
+          0
+
+        bcl::util::ShPtr<bcl::assemble::ProteinModelData>
+          12345678
+          bcl::assemble::ProteinModelData
+            bcl::storage::Map<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>,bcl::util::ShPtr<bcl::util::ObjectInterface>,std::less<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>>>
+              1
+              std::pair<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>,bcl::util::ShPtr<bcl::util::ObjectInterface>>
+                undefined
+                bcl::util::ShPtr<bcl::util::ObjectInterface>
+                  0
+
+
+      bcl::util::ShPtr<bcl::math::MutateInterface<bcl::assemble::ProteinModel>>
+        12345678
+        bcl::fold::MutateProteinModelSSE
+          MutateProteinModelSSE(
+            locator=LocatorSSE(chain id=A,start id=12,end id=18,use pdb id=0),
+            mutate=bcl::math::MutateMoveWrapper<bcl::assemble::SSE>
+          )
+    bcl::math::MutatePerturbation<bcl::assemble::ProteinModel>::SinglePerturbation
+      2
+      0
+      bcl::assemble::ProteinModel
+        bcl::util::ShPtrVector<bcl::assemble::Chain>
+          0
+
+        bcl::util::ShPtr<bcl::assemble::ProteinModelData>
+          12345678
+          bcl::assemble::ProteinModelData
+            bcl::storage::Map<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>,bcl::util::ShPtr<bcl::util::ObjectInterface>,std::less<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>>>
+              1
+              std::pair<bcl::util::WrapperEnum<bcl::assemble::ProteinModelData::Type,bcl::assemble::ProteinModelData::GetTypeName,11>,bcl::util::ShPtr<bcl::util::ObjectInterface>>
+                undefined
+                bcl::util::ShPtr<bcl::util::ObjectInterface>
+                  0
+
+
+      bcl::util::ShPtr<bcl::math::MutateInterface<bcl::assemble::ProteinModel>>
+        12345678
+        bcl::fold::MutateProteinModelSSE
+          MutateProteinModelSSE(
+            locator=LocatorSSE(chain id=A,start id=23,end id=31,use pdb id=0),
+            mutate=bcl::math::MutateMoveWrapper<bcl::assemble::SSE>
+          )
+
+  0

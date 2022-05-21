@@ -1,0 +1,104 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ChemistryElementStructureFactor 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ChemistryElementStructureFactor
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ChemistryElementStructureFactor ====================
+=std=bcl=> successful example check:  structure_cloned.IsDefined() == 1
+=std=bcl=> successful example check:  structure_param.GetAValues()( 0) == cm_a[0] == 2.31
+=std=bcl=> successful example check:  structure_param.GetAValues()( 1) == cm_a[1] == 1.02
+=std=bcl=> successful example check:  structure_param.GetAValues()( 2) == cm_a[2] == 1.589
+=std=bcl=> successful example check:  structure_param.GetAValues()( 3) == cm_a[3] == 0.865
+=std=bcl=> successful example check:  structure_param.GetBValues()( 0) == cm_b[0] == 20.844
+=std=bcl=> successful example check:  structure_param.GetBValues()( 1) == cm_b[1] == 10.208
+=std=bcl=> successful example check:  structure_param.GetBValues()( 2) == cm_b[2] == 0.569
+=std=bcl=> successful example check:  structure_param.GetBValues()( 3) == cm_b[3] == 51.651
+=std=bcl=> successful example check:  structure_param.GetC() == cm_c == 0.216
+=std=bcl=> successful example check:  util::IsDefined( structure_default.GetAValues()( 0)) == 0
+=std=bcl=> successful example check:  util::IsDefined( structure_default.GetAValues()( 1)) == 0
+=std=bcl=> successful example check:  util::IsDefined( structure_default.GetAValues()( 2)) == 0
+=std=bcl=> successful example check:  util::IsDefined( structure_default.GetAValues()( 3)) == 0
+=std=bcl=> successful example check:  util::IsDefined( structure_default.GetBValues()( 0)) == 0
+=std=bcl=> successful example check:  util::IsDefined( structure_default.GetBValues()( 1)) == 0
+=std=bcl=> successful example check:  util::IsDefined( structure_default.GetBValues()( 2)) == 0
+=std=bcl=> successful example check:  util::IsDefined( structure_default.GetBValues()( 3)) == 0
+=std=bcl=> successful example check:  util::IsDefined( structure_default.GetC()) == 0
+=std=bcl=>  incorrect result for q = 0 test succeeded:  calculated_form_factor == expected_form_factor == 6  (+/- 0.001%)
+=std=bcl=>  incorrect result for q = 1.26 test succeeded:
+               calculated_form_factor == expected_form_factor == 5.10436
+               (+/- 0.001%)
+=std=bcl=> read and write test succeeded:
+               structure_default.GetAValues() == structure_param.GetAValues() ==
+              bcl::storage::Vector<double>
+                4
+                2.31
+                1.02
+                1.589
+                0.865
+=std=bcl=> read and write test succeeded:
+               structure_default.GetBValues() == structure_param.GetBValues() ==
+              bcl::storage::Vector<double>
+                4
+                20.844
+                10.208
+                0.569
+                51.651
+=std=bcl=> read and write test succeeded:  structure_default.GetC() == structure_param.GetC() == 0.216
+=std=bcl::app=> BCL Example | END  : ChemistryElementStructureFactor ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>         success      error error_string 
+ChemistryElementStructureFactor_total         24          0              
+total                                         24          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

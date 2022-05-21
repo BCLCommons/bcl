@@ -1,0 +1,4 @@
+bcl::coord::Sphere
+  bcl::linal::Vector3D
+    1.5	1.5	1.5
+  3

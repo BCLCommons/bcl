@@ -1,0 +1,131 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec RestraintConeModel 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> RestraintConeModel
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: RestraintConeModel ====================
+=std=bcl::pdb=> no SEQRES information given, try to retrieve sequence from ATOM section, which requires that every residue is given in there!
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1686  H   R1A A 105      34.818  -7.313   5.575  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1687  HA  R1A A 105      37.141  -5.484   5.729  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1688 1HB  R1A A 105      35.637  -7.342   3.815  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1689 2HB  R1A A 105      36.556  -6.026   3.042  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1690  H14 R1A A 105      41.110  -6.610   2.093  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1691  H13 R1A A 105      39.540  -7.372   1.719  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1692  H7  R1A A 105      39.300  -3.106   2.667  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1693  H8  R1A A 105      40.842  -2.313   2.350  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1694  H9  R1A A 105      40.808  -3.854   3.228  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1695  H10 R1A A 105      42.455  -3.310   0.592  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1696  H11 R1A A 105      41.999  -4.773  -0.279  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1697  H12 R1A A 105      42.452  -4.871   1.433  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1698  H4  R1A A 105      37.190  -3.141   0.758  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1699  H5  R1A A 105      36.496  -3.931  -0.671  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1700  H6  R1A A 105      37.337  -2.377  -0.823  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1704  H15 R1A A 105      38.040  -6.195   0.082  1.00  0.00              
+=std=bcl::pdb=> no SEQRES information given, try to retrieve sequence from ATOM section, which requires that every residue is given in there!
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1686  H   R1A A 105      36.853  -6.063   8.782  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1687  HA  R1A A 105      39.321  -4.620   9.551  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1688 1HB  R1A A 105      37.876  -5.816   7.110  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1689 2HB  R1A A 105      39.158  -4.622   6.789  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1690  H14 R1A A 105      43.663  -5.922   6.553  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1691  H13 R1A A 105      42.129  -6.377   5.763  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1692  H7  R1A A 105      42.269  -2.333   7.472  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1693  H8  R1A A 105      43.935  -1.761   7.535  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1694  H9  R1A A 105      43.544  -3.398   8.094  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1695  H10 R1A A 105      45.677  -2.705   5.874  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1696  H11 R1A A 105      45.184  -3.911   4.687  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1697  H12 R1A A 105      45.319  -4.361   6.397  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1698  H4  R1A A 105      40.532  -1.710   5.305  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1699  H5  R1A A 105      39.994  -2.131   3.668  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1700  H6  R1A A 105      41.049  -0.731   3.935  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1704  H15 R1A A 105      41.067  -4.708   4.197  1.00  0.00              
+=std=bcl::pdb=> no SEQRES information given, try to retrieve sequence from ATOM section, which requires that every residue is given in there!
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1686  H   R1A A 105      39.055  -6.284  10.371  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1687  HA  R1A A 105      41.558  -5.109  11.416  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1688 1HB  R1A A 105      41.576  -6.689   9.453  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1689 2HB  R1A A 105      40.244  -5.793   8.682  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1690  H14 R1A A 105      45.243  -4.234   9.393  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1691  H13 R1A A 105      44.397  -5.306  10.544  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1692  H7  R1A A 105      47.617  -6.391   7.594  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1693  H8  R1A A 105      48.805  -5.095   7.720  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1694  H9  R1A A 105      47.080  -4.700   7.594  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1695  H10 R1A A 105      48.991  -3.738   9.912  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1696  H11 R1A A 105      47.932  -4.121  11.268  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1697  H12 R1A A 105      47.270  -3.318   9.832  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1698  H4  R1A A 105      47.855  -8.814   9.068  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1699  H5  R1A A 105      47.561  -9.650  10.605  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1700  H6  R1A A 105      49.196  -9.119  10.170  1.00  0.00              
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM   1704  H15 R1A A 105      45.609  -7.643  11.089  1.00  0.00              
+=std=bcl=> successful example check:
+               GetStaticClassName< restraint::ConeModel>() == correct_static_class_name ==
+              bcl::restraint::ConeModel
+=std=bcl=> successful example check:
+               GetStaticClassName< restraint::ConeModel>() == clone_constr->GetClassIdentifier()
+              == bcl::restraint::ConeModel
+=std=bcl=> successful example check:  result == expected == 0.841783  (+/- 1e-06%)
+=std=bcl=> successful example check:  result == expected == 1.82451  (+/- 1e-06%)
+=std=bcl=> successful example check:  result == expected == 6.49789  (+/- 1e-06%)
+=std=bcl=> testing read and write functionalities
+=std=bcl=> successful example check:  sl->GetChainID() == A
+=std=bcl=> successful example check:  sl->GetSeqID() == 105
+=std=bcl=> successful example check:
+               result == expected == bcl::linal::Vector3D
+                39.914	-2.778	-0.139
+               (+/- 0.0001%)
+=std=bcl::app=> BCL Example | END  : RestraintConeModel ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+RestraintConeModel_total                  8          0              
+total                                     8          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 136 MB, peak physical RAM used: 68 MB

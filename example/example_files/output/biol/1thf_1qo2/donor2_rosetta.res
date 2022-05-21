@@ -1,0 +1,23 @@
+NATAA
+start
+# scaffold->donor donor1_site
+122 A PIKAA VP
+# no need to design identical AA
+#123 A PIKAA VV
+124 A PIKAA VF
+125 A PIKAA AS
+126 A PIKAA IL
+# no need to design identical AA
+#127 A PIKAA DD
+128 A PIKAA AT
+150 A PIKAA LP
+151 A PIKAA RV
+152 A PIKAA DS
+# donor->scaffold donor1_site
+153 A PIKAA WL
+154 A PIKAA VL
+155 A PIKAA VK
+156 A PIKAA ER
+157 A PIKAA VL
+158 A PIKAA EK
+159 A PIKAA KE

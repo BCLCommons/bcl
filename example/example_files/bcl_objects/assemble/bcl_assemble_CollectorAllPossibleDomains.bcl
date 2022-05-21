@@ -1,0 +1,6 @@
+bcl::assemble::CollectorAllPossibleDomains
+  CollectorAllPossibleDomains(
+    domain size="[0,18446744073709551615]",
+    force domain connectivity=0,
+    packing criterion=bcl::assemble::SSEGeometryPackingCriteriaCombine
+  )

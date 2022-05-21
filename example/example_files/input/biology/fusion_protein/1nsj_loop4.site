@@ -1,0 +1,15 @@
+bcl::pdb::Site
+"AC1"
+SOFTWARE
+"BINDING loop4"
+bcl::storage::List<bcl::pdb::ResidueSimple>
+  2
+  bcl::pdb::ResidueSimple
+    "HIS"     A       83      ' '
+  bcl::pdb::ResidueSimple
+    "PRO"     A       87      ' '
+bcl::storage::List<bcl::pdb::ResidueSimple>
+  0
+bcl::util::ShPtr<bcl::pdb::Ligand>
+  0
+  NULL

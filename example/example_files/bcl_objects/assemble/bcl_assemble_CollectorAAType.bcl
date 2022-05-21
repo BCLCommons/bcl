@@ -1,0 +1,5 @@
+bcl::assemble::CollectorAAType
+  bcl::storage::Set<bcl::biol::AATypes::Enum,std::less<bcl::biol::AATypes::Enum>>
+    1
+    bcl::biol::AATypes::Enum
+      "GLYCINE"

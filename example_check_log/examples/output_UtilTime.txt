@@ -1,0 +1,119 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec UtilTime 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> UtilTime
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: UtilTime ====================
+=std=bcl=> default initialized time to 0: bcl::util::Time
+  0	  0
+=std=bcl=> zero time constructor test succeeded:  time_zero.GetSeconds() == size_t( 0) == 0
+=std=bcl=> zero time constructor test succeeded:  time_zero.GetMicroSeconds() == size_t( 0) == 0
+=std=bcl=> time initialized to current system time: Mon Nov  2 11:33:44 2020
+=std=bcl=> time initialized from seconds and micro seconds: 445649:33:44.428
+=std=bcl=> successful example check:
+               util::Time( 4, 1000400) == time_5_400 == bcl::util::Time
+                5	  400
+=std=bcl=> successful example check:  time_5_400.GetTotalMilliseconds() == 5000
+=std=bcl=> time initialized from compilation time: Mon Nov  2 10:36:46 2020
+=std=bcl=> successful example check:  time_from_hours.GetSeconds() == 7200
+=std=bcl=> this is the      seconds part of the current time: 1604338424
+=std=bcl=> this is the microseconds part of the current time: 428900
+=std=bcl=> successful example check:  time_5_400.GetSeconds() == 5 && time_5_400.GetMicroSeconds() == 400 == 1
+=std=bcl=> this is the current time in normal format: bcl::util::Time
+  1604338424	  428900
+=std=bcl=> this is the current time in readable format: Mon Nov  2 11:33:44 2020
+=std=bcl=> this is the current time in normal format: 445649:33:44
+=std=bcl=> this is the current time in normal format: 18568d 17:33:44
+=std=bcl=> delayed program by 1000 milli seconds, actual delay: bcl::util::Time
+  1	  71
+=std=bcl=> delay should be at least one second but was bcl::util::Time
+                1	  121 test succeeded:
+              elapsed_time >= util::Time( 0, util::Time::s_MicroSecondsPerSecond - 10 * util::Time::s_MicroSecondsPerMiliSecond)
+              == 1
+=std=bcl=> successful example check:  zero_time.IsZero() == 1
+=std=bcl=> time should have been set to the current time, but is still zero test succeeded:  zero_time.IsZero() == 0
+=std=bcl=> time should be zero, after setting to zero test succeeded:  zero_time.IsZero() == 1
+=std=bcl=> set default initialized time to current time
+=std=bcl=> this is the current time in hour::minutes::seconds format: 445649:33:44
+=std=bcl=> the two current times deviate by more than 2 second: 0 test succeeded:  seconds_difference < 3 == 1
+=std=bcl=> sum: bcl::util::Time
+  5	  500 + bcl::util::Time
+  6	  400 = bcl::util::Time
+  11	  900
+=std=bcl=> sum is incorrect: 00d 00:00:05 + 00d 00:00:06 != 00d 00:00:11 test succeeded:
+              time_sum.GetSeconds() == time_5_500.GetSeconds() + time_6_400.GetSeconds() && time_sum.GetMicroSeconds() == time_5_500.GetMicroSeconds() + time_6_400.GetMicroSeconds()
+              == 1
+=std=bcl=> result is incorrect after -=: should be 00d 00:00:05 but is 00d 00:00:05 test succeeded:
+               time_sum ==
+              time_5_500 == bcl::util::Time
+                5	  500
+=std=bcl=> operator += test succeeded:
+               time_sum == time_5_500 + time_6_400 == bcl::util::Time
+                11	  900
+=std=bcl=> times should be equal test succeeded:  time_5_500 == time_5_500 == 1
+=std=bcl=> times should be not equal test succeeded:  time_5_500 != time_6_400 == 1
+=std=bcl=> time should be smaller test succeeded:  time_5_500 < time_6_400 == 1
+=std=bcl=> time should be smaller equal test succeeded:  time_5_500 <= time_5_500 && time_5_500 <= time_6_400 == 1
+=std=bcl=> time should be larger test succeeded:  time_6_400 > time_5_500 == 1
+=std=bcl=> time should be larger equal test succeeded:  time_6_400 >= time_6_400 && time_6_400 >= time_5_500 == 1
+=std=bcl=> written time to read time test succeeded:
+               time_6_400 == read_time == bcl::util::Time
+                6	  400
+=std=bcl::app=> BCL Example | END  : UtilTime ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+UtilTime_total                           21          0              
+total                                    21          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:01, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

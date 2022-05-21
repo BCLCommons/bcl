@@ -1,0 +1,542 @@
+bcl::storage::Map<bcl::sspred::Methods::Enum,bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>,std::less<bcl::sspred::Methods::Enum>>
+  6
+  std::pair<bcl::sspred::Methods::Enum,bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>>
+    bcl::sspred::Methods::Enum
+      "PSIPRED"
+    bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>
+      3
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_CORE"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0.00288134	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	0	
+                bcl::linal::Vector<double>
+                  1
+                  -1.99424	
+                bcl::linal::Vector<double>
+                  1
+                  2.99136	
+
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_TRANSITION"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  9.12713e-06	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	0	
+                bcl::linal::Vector<double>
+                  1
+                  -1.99998	
+                bcl::linal::Vector<double>
+                  1
+                  2.99997	
+
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "SOLUTION"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  4
+                  0	1	1	1	
+                bcl::linal::Vector<double>
+                  4
+                  0	0.986301	0.99711	1	
+                bcl::linal::Vector<double>
+                  4
+                  0	1.9726	1.30164e+13	0	
+                bcl::linal::Vector<double>
+                  3
+                  0	-4.67721e+44	0	
+                bcl::linal::Vector<double>
+                  3
+                  0.986301	2.53214e+29	-1.46552e+28	
+
+
+
+  std::pair<bcl::sspred::Methods::Enum,bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>>
+    bcl::sspred::Methods::Enum
+      "JUFO"
+    bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>
+      3
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_CORE"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	0	
+                bcl::linal::Vector<double>
+                  1
+                  -2	
+                bcl::linal::Vector<double>
+                  1
+                  3	
+
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_TRANSITION"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	0	
+                bcl::linal::Vector<double>
+                  1
+                  -2	
+                bcl::linal::Vector<double>
+                  1
+                  3	
+
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "SOLUTION"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	0	
+                bcl::linal::Vector<double>
+                  1
+                  -2	
+                bcl::linal::Vector<double>
+                  1
+                  3	
+
+
+
+  std::pair<bcl::sspred::Methods::Enum,bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>>
+    bcl::sspred::Methods::Enum
+      "JUFO9D"
+    bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>
+      3
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_CORE"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  89
+                  0.125125	0.151	0.165165	0.179	0.191	0.193193	0.196	0.2	0.206	0.210579	0.216433	0.229	0.238	0.239	0.242	0.245	0.24975	0.255255	0.258	0.264	0.272545	0.276276	0.281563	0.288	0.291708	0.298298	0.305	0.31	0.317	0.321321	0.326	0.337	0.345	0.35	0.355289	0.363636	0.375375	0.383	0.38961	0.393393	0.397	0.3996	0.406	0.411	0.41958	0.429	0.43	0.434	0.44012	0.447	0.452547	0.460539	0.469	0.470529	0.474	0.48	0.482762	0.488488	0.494505	0.497006	0.507	0.517518	0.525475	0.539461	0.54955	0.563564	0.576424	0.58	0.583	0.585586	0.59	0.594406	0.596404	0.5987	0.5996	0.602846	0.605606	0.61039	0.615	0.618	0.621561	0.627178	0.634635	0.641	0.648	0.653	0.667333	0.706707	1	
+                bcl::linal::Vector<double>
+                  89
+                  0	6.65286e-06	1.1041e-05	3.92726e-05	4.71054e-05	8.70853e-05	8.80411e-05	9.60773e-05	0.000130801	0.00017225	0.000196143	0.000244637	0.000272665	0.00028885	0.000395509	0.000408608	0.000447661	0.000566802	0.000636087	0.00068975	0.000814423	0.000817996	0.00107959	0.00139531	0.00151491	0.00152711	0.00174115	0.00194104	0.00238862	0.00241546	0.00254375	0.00288891	0.0030303	0.00408892	0.00489168	0.00525799	0.00703503	0.00732729	0.00733823	0.00903145	0.00908678	0.010223	0.0120728	0.0141844	0.0151724	0.0176991	0.0179211	0.0193618	0.0213882	0.022546	0.0245515	0.0254174	0.0275953	0.03	0.0343788	0.0344515	0.0390244	0.0394138	0.0555556	0.0576208	0.069299	0.0855615	0.0981928	0.124874	0.183486	0.241107	0.28022	0.289062	0.319444	0.328125	0.363636	0.416667	0.418033	0.5	0.515152	0.526316	0.533333	0.538462	0.58427	0.607143	0.673077	0.678571	0.689655	0.740741	0.795775	0.8	0.902344	0.956522	1	
+                bcl::linal::Vector<double>
+                  89
+                  0	0.000291151	0.000619568	0.00129739	0.00130547	0.00068108	0.00068108	0.00352037	0.00763913	0.00687061	0.00401061	0.00342497	0.00622849	0.0210271	0.00873237	0.00585842	0.0144379	0.024045	0.0178877	0.0112729	0.00191533	0.00191533	0.0492855	0.0383916	0.00370394	0.00370394	0.0365425	0.0499622	0.0124227	0.0124227	0.0286017	0.0234442	0.0353487	0.182589	0.0877689	0.0877689	0.0766613	0.00330996	0.00330996	0.0306795	0.0306795	0.394219	0.363864	0.230296	0.188125	0.226467	0.249657	0.348684	0.254464	0.275257	0.216699	0.18076	0.514831	1.47726	0.0242421	0.0242421	0.136021	0.136021	1.37103	0.8945	1.35255	1.56969	1.70358	3.81543	5.09881	3.55356	2.5963	4.94501	6.49116	5.08857	10.0427	1.36749	1.36749	22.1503	6.87835	2.95468	2.00469	2.1439	8.53557	12.6048	1.95629	1.19655	2.97292	7.94765	1.69014	1.69014	2.75196	0.296483	0	
+                bcl::linal::Vector<double>
+                  88
+                  -0.333202	1.45103	-11.3074	9.00965	-7166.51	86.4516	11.4587	-11.5327	-171.464	79.3298	-1.78623	42.2835	-5114.59	-4594.07	650.935	170.788	-158.441	-1135.37	313.136	-219.008	137.578	-1708.74	-251.457	-1629.61	85.2889	-526.092	261.921	-1336.62	665.246	-631.22	-88.5099	366.316	-8220.3	-1185.92	1259.75	-1003.8	56.9359	75.7476	-60176.1	2358.58	-66402.8	4395.46	-10019.9	2555.23	-1373.71	32059.9	-7623.4	-1578.37	4080.88	-7508.9	2830.03	2525.26	-492644	-84842.8	673.392	-413011	4148.04	-106570	98144.2	-900.809	-1538.83	1554.03	8709.12	-26572.5	2184.95	404.933	202982	-979830	727743	-49136.9	-652465	342556	-9.07061e+06	-5.78315e+06	280386	-16566.9	87592.1	-432460	654616	-1.77223e+06	37920.7	21521	-126624	-124208	67605.6	-47896.1	191.241	0	
+                bcl::linal::Vector<double>
+                  88
+                  0.0185585	-0.0192387	0.259152	-0.161837	23.434	-0.363979	0.286159	0.447025	1.09374	-0.940874	0.0103709	-0.415076	15.0712	18.6242	-3.4082	-0.313873	2.18091	3.55276	-3.36946	2.25962	-0.769995	18.0308	1.58168	4.38755	-0.843082	7.73859	-0.622442	11.3531	-4.31212	6.15893	1.22598	-3.65176	76.3762	0.446121	-15.7726	17.2024	-5.46133	-0.751082	345.087	-12.7597	328.911	-44.5654	61.7927	-35.3448	21.4448	-36.4945	58.1188	6.79084	-40.6051	57.205	-36.1748	-12.3047	1444.86	232.337	-6.06053	1731.39	-35.63	1064.48	-463.4	36.4205	34.5997	-10.135	-107.21	465.737	-101.062	-45.0297	-760.564	4666.93	-3093.7	886.5	3327.18	-1026.64	35775.5	-693.396	-1969.64	-103.529	-614.012	3683.89	-2267.57	7970.8	-387.142	-121.59	1599.78	857.216	-507.042	1066.76	-42.4764	-0.505438	
+
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_TRANSITION"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  8
+                  0.175	0.285714	0.359359	0.418581	0.482966	0.542	0.654655	1	
+                bcl::linal::Vector<double>
+                  8
+                  0	2.4781e-06	4.24309e-05	5.07881e-05	5.72181e-05	0.00035565	0.00738007	1	
+                bcl::linal::Vector<double>
+                  8
+                  0	4.47657e-05	0.000282233	0.000121354	0.000199737	0.0101105	0.124707	0	
+                bcl::linal::Vector<double>
+                  7
+                  0	-0.139762	0.0346008	0.0292746	0.0573131	0.796663	-47.1549	
+                bcl::linal::Vector<double>
+                  7
+                  0.000202168	0.0170514	-0.00443197	-0.00221853	0.078866	0.373998	24.2465	
+
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "SOLUTION"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  69
+                  0	0.091	0.0970728	0.0990991	0.106	0.111	0.117	0.127127	0.14	0.147147	0.149	0.158076	0.166166	0.171	0.18018	0.186627	0.188188	0.191	0.195195	0.198	0.2	0.205	0.208	0.208791	0.213213	0.218	0.22022	0.222	0.225	0.228	0.231	0.236	0.241	0.244	0.245	0.246246	0.247	0.247495	0.251251	0.256511	0.258483	0.26	0.263	0.272272	0.279	0.279279	0.281718	0.286	0.292	0.297	0.3	0.306306	0.313343	0.326673	0.342315	0.35	0.381618	0.407407	0.411411	0.416	0.434	0.448551	0.456	0.463463	0.475	0.485485	0.494494	0.538536	0.665	
+                bcl::linal::Vector<double>
+                  69
+                  0	0.274194	0.5	0.52381	0.530864	0.584906	0.608696	0.641337	0.69988	0.70229	0.713235	0.73577	0.739224	0.778578	0.789078	0.813953	0.845996	0.846774	0.853526	0.86	0.883413	0.884806	0.90583	0.914286	0.917391	0.920844	0.921323	0.926136	0.944474	0.94697	0.955435	0.958651	0.963588	0.970109	0.970455	0.970551	0.972973	0.977273	0.980668	0.981406	0.983871	0.986852	0.987058	0.987764	0.98895	0.989091	0.989126	0.991767	0.992443	0.994377	0.995345	0.996135	0.996798	0.996842	0.997557	0.998028	0.998347	0.998496	0.998542	0.999278	0.999324	0.999541	0.99963	0.999776	0.999784	0.999798	0.999901	0.999994	1	
+                bcl::linal::Vector<double>
+                  69
+                  0	6.02623	18.1133	2.04457	2.04457	7.6977	3.68902	3.80641	0.67443	0.67443	4.96557	0.853967	0.853967	2.2876	2.2876	7.71739	0.553593	0.553593	2.02817	4.61621	0.556877	0.556877	9.91967	1.40461	0.711457	0.375758	0.430916	3.97361	1.66373	1.66373	1.28637	0.815361	1.72872	0.6917	0.154112	0.154112	6.42755	1.80801	0.280509	0.280509	1.65431	0.137304	0.0704776	0.134188	0.352641	0.0288217	0.0288217	0.225347	0.225347	0.346692	0.250615	0.110592	0.00667305	0.00667305	0.0561674	0.0201322	0.00770493	0.0107113	0.0229542	0.005124	0.005124	0.0129902	0.0157504	0.00151047	0.00106107	0.00267807	0.00423718	9.05928e-05	0	
+                bcl::linal::Vector<double>
+                  68
+                  0	-1.36193e+06	-814196	42932.8	-474973	96020.1	10228.6	-27847.6	13203	-1.79852e+06	10366.2	13048.6	-562401	27144.3	55045.7	-1.34412e+07	70019.4	-36203.6	257809	-4.56009e+06	22275.1	-393268	-1.60555e+07	36384	-15515.7	76228.3	-317199	-731980	184859	-299255	32614.4	22760.4	-214050	154112	99226.7	271255	-3.72937e+07	19880.9	10138.4	-145409	-929527	7830.84	609.784	2964.67	-8.02147e+06	4845.01	-53416.6	6259.64	-8068.8	-5316.88	2780.81	-1435.34	37.5544	-116.871	-784.077	7.70707	10.3119	668.12	-13898.3	15.8148	-55.3024	85.2133	-390.332	7.97246	9.65086	-195.376	0.0467056	0	
+                bcl::linal::Vector<double>
+                  68
+                  33.1112	13401.3	-1490.41	-444.413	4127.61	-1198.24	-149.583	416.068	-141.545	6156.58	-367.631	-158.341	4226.12	-373.784	-111.146	29187.6	-295.322	403.567	-623.3	12665.5	-167.063	3330.17	13673.8	-319.71	76.3402	-241.444	1842.08	2908.93	-831.864	1283.75	-291.709	-79.367	790.386	-499.962	-185.491	3854.78	23023.7	-315.344	-79.9925	778.436	1615.08	-46.3766	-5.04561	-13.6829	2780.6	-17.7255	366.022	-56.3368	72.6505	7.91312	-37.4068	7.76695	-0.750903	4.32425	6.69339	-0.562048	-0.34061	-2.4839	93.7175	-0.427	1.47739	-0.766792	3.41587	-0.157439	-0.0746842	2.72675	-0.0501614	-0.000358176	
+
+
+
+  std::pair<bcl::sspred::Methods::Enum,bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>>
+    bcl::sspred::Methods::Enum
+      "OCTOPUS"
+    bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>
+      3
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_CORE"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0.0540192	0.875357	
+                bcl::linal::Vector<double>
+                  2
+                  0	0	
+                bcl::linal::Vector<double>
+                  1
+                  -1.64268	
+                bcl::linal::Vector<double>
+                  1
+                  2.46401	
+
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_TRANSITION"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0.00047117	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	0	
+                bcl::linal::Vector<double>
+                  1
+                  -1.99906	
+                bcl::linal::Vector<double>
+                  1
+                  2.99859	
+
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "SOLUTION"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0.12388	0.945563	
+                bcl::linal::Vector<double>
+                  2
+                  0	0	
+                bcl::linal::Vector<double>
+                  1
+                  -1.64337	
+                bcl::linal::Vector<double>
+                  1
+                  2.46505	
+
+
+
+  std::pair<bcl::sspred::Methods::Enum,bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>>
+    bcl::sspred::Methods::Enum
+      "BOCTOPUS"
+    bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>
+      3
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_CORE"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	0	
+                bcl::linal::Vector<double>
+                  1
+                  -2	
+                bcl::linal::Vector<double>
+                  1
+                  3	
+
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_TRANSITION"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	0	
+                bcl::linal::Vector<double>
+                  1
+                  -2	
+                bcl::linal::Vector<double>
+                  1
+                  3	
+
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "SOLUTION"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	0	
+                bcl::linal::Vector<double>
+                  1
+                  -2	
+                bcl::linal::Vector<double>
+                  1
+                  3	
+
+
+
+  std::pair<bcl::sspred::Methods::Enum,bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>>
+    bcl::sspred::Methods::Enum
+      "MASP"
+    bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction,std::less<bcl::biol::EnvironmentTypes::Enum>>
+      3
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_CORE"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  41
+                  0.000499536	0.000999001	0.001	0.001001	0.001001	0.001998	0.002	0.009	0.035035	0.039	0.04	0.044	0.05	0.0519567	0.061	0.0771616	0.0840541	0.0889758	0.0940791	0.098	0.102	0.105894	0.109	0.114	0.119	0.12	0.121	0.123	0.126	0.132	0.136	0.141909	0.148617	0.361	0.361361	0.36252	0.372216	0.38961	0.396183	0.398345	1	
+                bcl::linal::Vector<double>
+                  41
+                  6.30691e-05	0.0020202	0.00417616	0.00680272	0.00816327	0.00829187	0.0102227	0.0113383	0.0137065	0.0212766	0.0229358	0.0243013	0.0250784	0.0375	0.0390744	0.0683625	0.0833333	0.0963855	0.0994624	0.104	0.107769	0.125	0.127451	0.148936	0.186441	0.194805	0.208333	0.231111	0.24581	0.254717	0.25974	0.276596	0.334746	0.388889	0.4	0.407407	0.414815	0.423729	0.571429	0.584416	0.903195	
+                bcl::linal::Vector<double>
+                  41
+                  0	7.83691	2390.79	5247.87	0.257991	0.257991	0.318739	0.144874	0.181921	1.70955	0.682778	0.256636	0.259011	0.348182	0.348182	2.06447	2.45204	1.20581	0.916418	1.0509	1.88471	1.57828	1.57828	5.89897	8.22058	10.9463	12.8151	8.79319	2.96898	1.34729	1.90041	5.57646	0.509863	0.509863	12.7919	1.52792	0.673942	1.0249	10.0822	1.05968	0	
+                bcl::linal::Vector<double>
+                  40
+                  0	-1.92143e+15	2.38601e+15	-2.66884e+53	259545	-4.84014e+14	2956.61	213.734	-122578	-926038	16039.7	7128.77	-3.15752e+06	4257.49	-4639.26	3629.04	-67955.6	35187.2	-22588.8	65681.1	-355220	163610	-44673.2	-35290.1	2.43787e+06	-3.29489e+06	-292382	218097	37424.6	46003.7	50743.8	-250040	11.3035	-3.69072e+08	1.13913e+06	7168.54	2227.32	-783294	-186105	0	
+                bcl::linal::Vector<double>
+                  40
+                  7845.31	4.07194e+09	-2.15549e+09	8.68067e+34	-388.151	1.45061e+09	-43.4634	-7.63539	921.668	875.67	-149.506	-63.961	9290.32	-57.7525	165.565	-9.40411	375.079	-297.711	150.002	-289.86	2035.55	-762.233	767.118	496.837	-2293.94	5876.7	-128.318	-1952.14	-471.962	-206.882	-138.687	2138.26	-3.60101	217046	-6841.85	-148.297	-48.0277	8411.4	-1482.68	-0.880634	
+
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_TRANSITION"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  2
+                  0	1	
+                bcl::linal::Vector<double>
+                  2
+                  1.59183e-05	1	
+                bcl::linal::Vector<double>
+                  2
+                  0	0	
+                bcl::linal::Vector<double>
+                  1
+                  -1.99997	
+                bcl::linal::Vector<double>
+                  1
+                  2.99995	
+
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::PiecewiseFunction>
+        bcl::biol::EnvironmentTypes::Enum
+          "SOLUTION"
+        bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+          1
+          bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+            bcl::math::Range<double>
+              [ -1.79769e+308 , 1.79769e+308 ]
+            bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+              12345678
+              bcl::math::CubicSplineDamped
+                bcl::linal::Vector<double>
+                  40
+                  0.299818	0.602	0.604	0.61	0.628	0.638	0.851289	0.853383	0.858894	0.869	0.877	0.879	0.879	0.88012	0.886	0.890009	0.892	0.893	0.895	0.9	0.909091	0.916	0.922977	0.929	0.93994	0.949	0.95005	0.956	0.96	0.961	0.964965	0.971029	0.991992	0.998	0.998002	0.999	0.999001	1	1	1	
+                bcl::linal::Vector<double>
+                  40
+                  0.0964461	0.395062	0.5	0.575	0.585714	0.592105	0.668122	0.68	0.723404	0.742188	0.770925	0.780488	0.8	0.808824	0.84918	0.86747	0.874016	0.875	0.88	0.888525	0.903258	0.915663	0.930757	0.954545	0.958138	0.964912	0.971989	0.974295	0.978355	0.978541	0.984571	0.987253	0.98815	0.989054	0.991274	0.995902	0.998557	0.999902	0.999934	0.999946	
+                bcl::linal::Vector<double>
+                  40
+                  0	1.97639	25	1.19048	0.623434	0.626437	0.712806	6.28037	3.7173	2.82624	4.54352	9.56269	15.758	7.71649	5.49491	3.7107	1.75452	1.4895	2.27283	1.67501	1.71997	1.97856	3.12202	0.656724	0.55776	1.49548	0.775078	0.762802	0.351651	0.371588	0.884339	0.0855628	0.0855628	0.300964	9.27381	9.27381	2.69206	2.69206	1.00477e+11	0	
+                bcl::linal::Vector<double>
+                  39
+                  0	-1.94905e+07	33068.8	1924.18	-283.246	13.7702	-994400	-189361	27673.4	2896.16	1.13588e+06	-2.85171e+46	6.15286e+06	-14898.3	5084	-280252	1.27551e+06	-309416	21520.4	1859.85	2254.28	15893.9	-113577	4660.34	6794.94	-1.0168e+07	21546.2	-57231.3	351651	-113609	2326.84	194.705	2370.41	-5.54349e+14	9.31098e+06	-5.31468e+15	2.69745e+06	-3.92049e+42	-1.55357e+41	
+                bcl::linal::Vector<double>
+                  39
+                  3.2702	64227.3	-2281.75	-67.704	4.39888	-4.20307	4452.02	1333.01	-463.582	72.5761	-2152.84	4.74905e+30	-13926	-57.5012	-253.091	345.612	-2045.78	1124.08	-221.185	-22.889	-4.64854	-84.3883	821.48	-80.9988	-40.5937	15670.8	-193.333	291.994	-517.507	740.345	-87.027	-6.12241	-3.43602	1.66363e+09	-13938.6	7.96076e+09	-4042.13	1.53204e+27	-1.74511e+26	
+
+
+

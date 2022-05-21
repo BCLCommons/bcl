@@ -1,0 +1,8 @@
+bcl::opti::PrinterArgumentToFile<int,int>
+  File(
+    prefix=example/example_files/output/opti/opti_printer_to_file,
+    suffix=.txt,
+    overwrite=0,
+    interval=1,
+    result=0
+  )

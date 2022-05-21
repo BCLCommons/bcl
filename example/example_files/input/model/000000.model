@@ -1,0 +1,64 @@
+bcl::util::ShPtr<bcl::model::Interface>
+  12345678
+  bcl::model::DecisionTree
+    1 1.1 72
+    bcl::linal::Vector<float>
+      1
+      0	
+    bcl::util::ShPtr<bcl::model::DecisionTree>
+      12345678
+      bcl::model::DecisionTree
+        1 0.9 54
+        bcl::linal::Vector<float>
+          1
+          1.87703	
+        bcl::util::ShPtr<bcl::model::DecisionTree>
+          12345678
+          bcl::model::DecisionTree
+            1 0.1 48
+            bcl::linal::Vector<float>
+              1
+              1.76613	
+            bcl::util::ShPtr<bcl::model::DecisionTree>
+              12345678
+              bcl::model::DecisionTree
+                0 0.1 12
+                bcl::linal::Vector<float>
+                  1
+                  0	
+                bcl::util::ShPtr<bcl::model::DecisionTree>
+                  12345678
+                  bcl::model::DecisionTree
+                    nan nan 2
+                    bcl::linal::Vector<float>
+                      1
+                      0	
+                bcl::util::ShPtr<bcl::model::DecisionTree>
+                  12345678
+                  bcl::model::DecisionTree
+                    nan nan 10
+                    bcl::linal::Vector<float>
+                      1
+                      0	
+            bcl::util::ShPtr<bcl::model::DecisionTree>
+              12345678
+              bcl::model::DecisionTree
+                nan nan 36
+                bcl::linal::Vector<float>
+                  1
+                  1.852	
+        bcl::util::ShPtr<bcl::model::DecisionTree>
+          12345678
+          bcl::model::DecisionTree
+            nan nan 6
+            bcl::linal::Vector<float>
+              1
+              2.1	
+    bcl::util::ShPtr<bcl::model::DecisionTree>
+      12345678
+      bcl::model::DecisionTree
+        nan nan 18
+        bcl::linal::Vector<float>
+          1
+          0
+	

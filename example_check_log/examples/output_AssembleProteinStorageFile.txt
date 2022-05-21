@@ -1,0 +1,131 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec AssembleProteinStorageFile 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AssembleProteinStorageFile
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AssembleProteinStorageFile ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> successful example check:
+               sp_storage->GetClassIdentifier() == GetStaticClassName( protein_storage_attach) ==
+              bcl::assemble::ProteinStorageFile
+=std=bcl=> successful example check:
+               protein_storage_overwrite.GetInitializer() == initializer.GetPath() ==
+              example/example_files/output/assemble/run_aa
+=std=bcl=> successful example check:
+               protein_storage_attach.GetInitializer() == initializer.GetPath() ==
+              example/example_files/output/assemble/run_aa
+=std=bcl=> successful example check:  protein_storage_attach.GetAllKeys( source_a).GetSize() == 0
+=std=bcl=> successful example check:  protein_storage_attach.GetSize( source_a) == 0
+=std=bcl=> Store attach test succeeded:  store_a1_key == _0000
+=std=bcl=> Store create test succeeded:  store_a2_key == _0001
+=std=bcl=> successful example check:  protein_storage_attach.Store( protein_model, source_a, store_a1_key) == 1
+=std=bcl=> successful example check:  protein_storage_attach.Store( protein_model, source_a, store_a3_key) == 1
+=std=bcl=> store ensemble test succeeded:  store_a4a5_keys.GetSize() == 2
+=std=bcl=> store ensemble test succeeded:  store_a4a5_keys( 0) == _0004
+=std=bcl=> store ensemble test succeeded:  store_a4a5_keys( 1) == _0005
+=std=bcl=> source b empty test succeeded:  protein_storage_attach.GetAllKeys( source_b).GetSize() == 0
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM     15  CA  GLY A  10      28.926  44.064  14.710  1.00 34.29           C  
+=std=bcl::assemble=> key size does not match 11 or 5 as it has size 6 candidate key was: 000007
+=std=bcl=> retrieve by source and key1 test succeeded:  sp_model1.IsDefined() == 1
+=std=bcl=> retrieve by source and wrong key test succeeded:  sp_model2.IsDefined() == 0
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM     15  CA  GLY A  10      28.926  44.064  14.710  1.00 34.29           C  
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM     15  CA  GLY A  10      28.926  44.064  14.710  1.00 34.29           C  
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM     15  CA  GLY A  10      28.926  44.064  14.710  1.00 34.29           C  
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM     15  CA  GLY A  10      28.926  44.064  14.710  1.00 34.29           C  
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM     15  CA  GLY A  10      28.926  44.064  14.710  1.00 34.29           C  
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM     15  CA  GLY A  10      28.926  44.064  14.710  1.00 34.29           C  
+=std=bcl=> retrieve ensemble for source test succeeded:
+               protein_storage_attach.RetrieveEnsemble( source_a).GetSize() ==
+              6
+=std=bcl=> retrieve ensemble for source test succeeded:
+               protein_storage_attach.RetrieveEnsemble( source_b).GetSize() ==
+              0
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM     15  CA  GLY A  10      28.926  44.064  14.710  1.00 34.29           C  
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM     15  CA  GLY A  10      28.926  44.064  14.710  1.00 34.29           C  
+=std=bcl=> retrieve ensemble for source from keys test succeeded:
+               ensemble_retrieved.GetSize() ==
+              store_a4a5_keys.GetSize() == 2
+=crt=bcl::assemble=> could not find protein example/example_files/output/assemble/run_aa/source2_0004.pdb
+=crt=bcl::assemble=> could not find protein example/example_files/output/assemble/run_aa/source2_0005.pdb
+=std=bcl=> retrieve by keys from wrong source test succeeded:
+              protein_storage_attach.RetrieveEnsemble( source_b, store_a4a5_keys).IsEmpty() == 1
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM     15  CA  GLY A  10      28.926  44.064  14.710  1.00 34.29           C  
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM     15  CA  GLY A  10      28.926  44.064  14.710  1.00 34.29           C  
+=std=bcl=> retrieve by range test succeeded:
+              protein_storage_attach.RetrieveEnsemble( source_a, math::Range< size_t>( 0, 1)).GetSize() == 2
+=std=bcl=> read write test succeeded:
+               protein_storage_attach.GetInitializer() == protein_storage_read.GetInitializer()
+              == example/example_files/output/assemble/run_aa
+=std=bcl=> read write test succeeded:
+               protein_storage_attach.GetAllKeys( source_a).GetSize() ==
+              protein_storage_read.GetAllKeys( source_a).GetSize() == 6
+=std=bcl::app=> BCL Example | END  : AssembleProteinStorageFile ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AssembleProteinStorageFile_total         22          0              
+total                                    22          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 133 MB, peak physical RAM used: 65 MB

@@ -1,0 +1,32 @@
+bcl::biol::Membrane
+  bcl::math::TransformationMatrix3D
+    bcl::linal::Matrix<double>
+      4	      4
+      1	0	0	0	
+      0	1	0	0	
+      0	0	1	0	
+      0	0	0	1	
+
+  bcl::storage::Vector<double>
+    9
+    10
+    2.5
+    10
+    2.5
+    100000
+    0
+    0
+    0
+    0
+
+  bcl::storage::Vector<double>
+    9
+    10
+    12.5
+    22.5
+    25
+    100025
+    100025
+    100025
+    100025
+    100025

@@ -1,0 +1,9 @@
+REMARK  20                                                                      
+REMARK  20 Loops         T          domain length  omega closed    rms rms<0.8  
+REMARK  20 A 9 T - 10 G  C         8-9,8-9  1.304  3.127      1  0.040       1  
+REMARK  20 A 22 T - 23 I C     18-22,18-22  1.332  3.100      1  0.060       1  
+REMARK  20 A 39 D - 40 Q C     35-39,35-39  1.328  3.109      1  0.055       1  
+REMARK  20 A 47 G - 48 K C     46-47,46-47  1.316 -3.136      1  0.035       1  
+REMARK  20 A 63 K - 64 E C     51-63,51-63  1.346  3.115      1  0.124       1  
+MASTER        7    0    0    0    0    0    0    0    0    0    0    0          
+END                                                                             

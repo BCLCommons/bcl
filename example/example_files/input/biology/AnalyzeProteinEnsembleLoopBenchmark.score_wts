@@ -1,0 +1,2 @@
+bcl::storage::Table<double>    aaclash     aadist    aaneigh       loop loop_closure sse_connectivity      rgyr   sseclash sse_atom_clash ssepack_fr  strand_fr phipsi_loop_grow aaclashint  atomclash 
+weights                            1          1         1           0            0                 0         0          0               0       0          0               0            00          0 

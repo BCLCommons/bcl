@@ -1,0 +1,74 @@
+bcl::biol::EnvironmentTypes
+  9
+  "MEMBRANE_CORE"
+  bcl::biol::EnvironmentTypeData
+    "MC"
+    "MC"
+    0
+    0
+    10
+
+  "MEMBRANE_GAP_CORE_TRANSITION"
+  bcl::biol::EnvironmentTypeData
+    "G1"
+    "TR"
+    1
+    1
+    2.5
+
+  "MEMBRANE_TRANSITION"
+  bcl::biol::EnvironmentTypeData
+    "TR"
+    "TR"
+    1
+    0
+    10
+
+  "MEMBRANE_GAP_TRANSITION_SOLUTION"
+  bcl::biol::EnvironmentTypeData
+    "G2"
+    "SO"
+    2
+    1
+    2.5
+
+  "SOLUTION"
+  bcl::biol::EnvironmentTypeData
+    "SO"
+    "SO"
+    2
+    0
+    100000
+
+  "MEMBRANE_INSIDE"
+  bcl::biol::EnvironmentTypeData
+    "MI"
+    "MC"
+    0
+    0
+    10
+
+  "MEMBRANE_OUTSIDE"
+  bcl::biol::EnvironmentTypeData
+    "ME"
+    "MC"
+    0
+    0
+    10
+
+  "SOLUTION_INSIDE"
+  bcl::biol::EnvironmentTypeData
+    "SI"
+    "SO"
+    2
+    0
+    100000
+
+  "SOLUTION_OUTSIDE"
+  bcl::biol::EnvironmentTypeData
+    "SE"
+    "SO"
+    2
+    0
+    100000
+

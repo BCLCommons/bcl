@@ -1,0 +1,106 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec PdbLine 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> PdbLine
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: PdbLine ====================
+=std=bcl=> construct Lines from strings
+=std=bcl=> construct new Line from LineType
+=std=bcl=> These are the linetypes of the constructed pdb_Lines
+=std=bcl=> bcl::pdb::LineTypes::Enum
+  "SEQRES"
+=std=bcl=> bcl::pdb::LineTypes::Enum
+  "ATOM"
+=std=bcl=> bcl::pdb::LineTypes::Enum
+  "HETATM"
+=std=bcl=> bcl::pdb::LineTypes::Enum
+  "HETATM"
+=std=bcl=> bcl::pdb::LineTypes::Enum
+  "ATOM"
+=std=bcl=> this is a complete ATOM line:
+ATOM      1  CA  MET A   1      -0.565  44.678  29.773  1.00  0.00           C  
+=std=bcl=> this is the Atom Name:  CA 
+=std=bcl=> this is the ResidueName containing this Atom: MET
+=std=bcl=> this is the Chain ID of this Atom: A
+=std=bcl=> this is the ResidueID of this Atom: 1
+=std=bcl=> these are the x, y and z coordinates of the Atom: -0.565 44.678 29.773
+=std=bcl=> to get the Position of the ATOM you can use instead the function Position()
+bcl::linal::Vector3D
+  -0.565	44.678	29.773
+=std=bcl=> this is an empty ATOM line: HETATM10183  N   MET D  91      45.662  -4.287  27.185  1.00 20.40           N  
+=std=bcl=> you can Put every Value in the line at the Entries position
+=std=bcl=> write X coordinate to ATOM line
+=std=bcl=> ATOM                            -1.234                                          
+=std=bcl=> write Y coordinate to ATOM line
+=std=bcl=> ATOM                            -1.234   9.876                                  
+=std=bcl=> write Atom name to ATOM line
+=std=bcl=> ATOM          CA                -1.234   9.876                                  
+=std=bcl=> write Residue name to ATOM line
+=std=bcl=> ATOM          CA LYS            -1.234   9.876                                  
+=std=bcl=> write vector3D to ATOM line
+=std=bcl=> ATOM          CA LYS             1.111   2.222   3.333                          
+=std=bcl=> does line contain CA in GetEntryTypes().AtomName entry? 0
+=std=bcl=> does line contain GLY in GetEntryTypes().AtomResidueName entry? 0
+=std=bcl=> successful example check:
+               pdb::GetLineTypes().HET->GetLastEntryType() == pdb::GetEntryTypes().HETDescription
+              == bcl::pdb::EntryTypes::Enum
+                "HETDescription"
+=std=bcl=> successful example check:  pdb::GetLineTypes().HET->GetNumberOfEntryTypes() == 6
+=std=bcl::app=> BCL Example | END  : PdbLine ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+PdbLine_total                             2          0              
+total                                     2          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

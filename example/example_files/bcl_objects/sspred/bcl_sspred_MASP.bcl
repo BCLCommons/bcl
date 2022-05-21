@@ -1,0 +1,6 @@
+bcl::sspred::MASP
+bcl::linal::Matrix<double>
+  3	  3
+  1	0	0	
+  0	0	0	
+  0	0	0	

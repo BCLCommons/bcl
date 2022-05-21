@@ -1,0 +1,50 @@
+HEADER  BCL MODEL                                                               
+SEQRES   1 A   76  MET GLN ILE PHE VAL LYS THR LEU THR GLY LYS THR ILE          
+SEQRES   2 A   76  THR LEU GLU VAL GLU PRO SER ASP THR ILE GLU ASN VAL          
+SEQRES   3 A   76  LYS ALA LYS ILE GLN ASP LYS GLU GLY ILE PRO PRO ASP          
+SEQRES   4 A   76  GLN GLN ARG LEU ILE PHE ALA GLY LYS GLN LEU GLU ASP          
+SEQRES   5 A   76  GLY ARG THR LEU SER ASP TYR ASN ILE GLN LYS GLU SER          
+SEQRES   6 A   76  THR LEU HIS LEU VAL LEU ARG LEU ARG GLY GLY                  
+SHEET    1       GLY A  10  VAL A  17                                           
+ATOM      1  N   GLY A  10      30.180  46.651  14.356  1.00 28.46           N  
+ATOM      2  CA  GLY A  10      29.444  45.539  13.669  1.00 34.29           C  
+ATOM      3  C   GLY A  10      30.407  44.481  13.184  1.00 32.19           C  
+ATOM      4  O   GLY A  10      31.445  44.757  12.605  1.00 38.00           O  
+ATOM      5  N   LYS A  11      29.977  43.258  13.468  1.00 15.51           N  
+ATOM      6  CA  LYS A  11      30.820  42.095  13.035  1.00  8.92           C  
+ATOM      7  C   LYS A  11      29.958  40.996  12.459  1.00  9.17           C  
+ATOM      8  O   LYS A  11      28.925  40.627  12.993  1.00 11.80           O  
+ATOM      9  CB  LYS A  11      31.566  41.520  14.253  1.00  8.86           C  
+ATOM     10  N   THR A  12      30.470  40.510  11.336  1.00  7.72           N  
+ATOM     11  CA  THR A  12      29.734  39.397  10.649  1.00 10.14           C  
+ATOM     12  C   THR A  12      30.697  38.340  10.164  1.00 25.56           C  
+ATOM     13  O   THR A  12      31.735  38.616   9.584  1.00 17.81           O  
+ATOM     14  CB  THR A  12      28.988  39.954   9.422  1.00 11.70           C  
+ATOM     15  N   ILE A  13      30.266  37.117  10.447  1.00  5.46           N  
+ATOM     16  CA  ILE A  13      31.109  35.954  10.015  1.00 22.37           C  
+ATOM     17  C   ILE A  13      30.248  34.855   9.439  1.00  5.75           C  
+ATOM     18  O   ILE A  13      29.214  34.485   9.972  1.00 11.84           O  
+ATOM     19  CB  ILE A  13      31.856  35.379  11.232  1.00 20.18           C  
+ATOM     20  N   THR A  14      30.759  34.369   8.315  1.00  6.46           N  
+ATOM     21  CA  THR A  14      30.024  33.256   7.628  1.00  8.20           C  
+ATOM     22  C   THR A  14      30.987  32.198   7.143  1.00 16.42           C  
+ATOM     23  O   THR A  14      32.025  32.474   6.563  1.00 18.03           O  
+ATOM     24  CB  THR A  14      29.278  33.813   6.402  1.00 11.19           C  
+ATOM     25  N   LEU A  15      30.556  30.976   7.426  1.00  6.49           N  
+ATOM     26  CA  LEU A  15      31.399  29.813   6.994  1.00  5.40           C  
+ATOM     27  C   LEU A  15      30.538  28.714   6.418  1.00  4.45           C  
+ATOM     28  O   LEU A  15      29.504  28.344   6.952  1.00 14.37           O  
+ATOM     29  CB  LEU A  15      32.146  29.238   8.211  1.00  9.18           C  
+ATOM     30  N   GLU A  16      31.049  28.227   5.294  1.00 10.98           N  
+ATOM     31  CA  GLU A  16      30.314  27.115   4.607  1.00 11.36           C  
+ATOM     32  C   GLU A  16      31.276  26.057   4.122  1.00 15.36           C  
+ATOM     33  O   GLU A  16      32.315  26.333   3.543  1.00 12.57           O  
+ATOM     34  CB  GLU A  16      29.568  27.672   3.381  1.00  7.18           C  
+ATOM     35  N   VAL A  17      30.846  24.835   4.406  1.00 11.41           N  
+ATOM     36  CA  VAL A  17      31.689  23.672   3.973  1.00 14.21           C  
+ATOM     37  C   VAL A  17      30.828  22.572   3.397  1.00  8.25           C  
+ATOM     38  O   VAL A  17      29.794  22.203   3.931  1.00 16.44           O  
+ATOM     39  CB  VAL A  17      32.436  23.097   5.191  1.00 16.24           C  
+TER      40      VAL A  17                                                      
+MASTER        0    0    0    0    1    0    0    0   39    1    0    6          
+END                                                                             

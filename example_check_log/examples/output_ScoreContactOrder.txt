@@ -1,0 +1,92 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ScoreContactOrder 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ScoreContactOrder
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ScoreContactOrder ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> successful example check:
+               GetStaticClassName< score::ContactOrder>() == clone_constr->GetClassIdentifier() ==
+              bcl::score::ContactOrder
+=std=bcl=> Testing GetScheme
+=std=bcl=> successful example check:  score_model_rel_aas.GetScheme() == co_score
+=std=bcl=> Testing GetHistogramFileName
+=std=bcl=> successful example check:
+               score_model_rel_aas.GetHistogramFilename() ==
+              score::ContactOrder::GetDefaultHistogramFilename( contact::Order::e_RelativeAAsUsed) ==
+              contact_order_chain_relative_sses.histogram
+=std=bcl=> successful example check:
+               score_model_rel_seq.GetHistogramFilename() ==
+              score::ContactOrder::GetDefaultHistogramFilename( contact::Order::e_RelativeSequenceLength) ==
+              contact_order_chain_relative_sequence.histogram
+=std=bcl=> Testing GetEnergyFunction
+=std=bcl=> successful example check:
+               score_model_rel_aas.GetEnergyFunction()->operator ()( 0.25) == -0.935785
+               (+/- 0.0001%)
+=std=bcl=> successful example check:
+               score_model_rel_seq.GetEnergyFunction()->operator ()( 0.25) == -0.78382
+               (+/- 0.0001%)
+=std=bcl=> Testing Operator
+=std=bcl=> successful example check:  score_model_rel_aas( this_model) == -105.156  (+/- 0.0001%)
+=std=bcl=> successful example check:  score_model_rel_seq( this_model_sse) == 11.231  (+/- 0.0001%)
+=std=bcl=> testing read and write functionalities for score::ContactOrder
+=std=bcl=> read and write test succeeded:  score_model_rel_aas( this_model) == read_obj( this_model) == -105.156
+=std=bcl::app=> BCL Example | END  : ScoreContactOrder ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+ScoreContactOrder_total                   9          0              
+total                                     9          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 65 MB

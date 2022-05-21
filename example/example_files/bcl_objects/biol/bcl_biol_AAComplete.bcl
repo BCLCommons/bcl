@@ -1,0 +1,40 @@
+bcl::biol::AAComplete
+  bcl::util::ShPtr<bcl::biol::AAData>
+    12345678
+    bcl::biol::AAData
+      bcl::biol::AATypes::Enum
+        "Undefined"
+      1
+      1
+      ' '
+      A
+  bcl::storage::List<bcl::biol::Atom>
+    4
+    bcl::biol::Atom
+      bcl::linal::Vector3D
+        nan	nan	nan
+      bcl::biol::AtomTypes::Enum
+        "N"
+      nan
+      nan
+    bcl::biol::Atom
+      bcl::linal::Vector3D
+        nan	nan	nan
+      bcl::biol::AtomTypes::Enum
+        "CA"
+      nan
+      nan
+    bcl::biol::Atom
+      bcl::linal::Vector3D
+        nan	nan	nan
+      bcl::biol::AtomTypes::Enum
+        "C"
+      nan
+      nan
+    bcl::biol::Atom
+      bcl::linal::Vector3D
+        nan	nan	nan
+      bcl::biol::AtomTypes::Enum
+        "O"
+      nan
+      nan

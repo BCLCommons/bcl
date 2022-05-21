@@ -1,0 +1,6 @@
+bcl::restraint::LocatorCoordinatesHydrogen
+  A
+  26
+  "HG13"
+  bcl::biol::AtomTypes::Enum
+    "HG13"

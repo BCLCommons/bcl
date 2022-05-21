@@ -1,0 +1,17 @@
+bcl::score::BodyConnectivityDensity
+  bcl::storage::Map<bcl::density::Connectivity,double,bcl::density::Connectivity::LessThan>
+    0
+
+  bcl::util::ShPtr<bcl::restraint::Body>
+    12345678
+    bcl::restraint::Body
+      bcl::util::ShPtr<bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>>
+        12345678
+        bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+          0
+
+      bcl::util::ShPtr<bcl::util::BinaryFunctionInterface<bcl::assemble::SSEGeometryInterface,bcl::assemble::SSE,bool>>
+        12345678
+        bcl::restraint::ContainsBodyOrigin
+
+  "connectivity"

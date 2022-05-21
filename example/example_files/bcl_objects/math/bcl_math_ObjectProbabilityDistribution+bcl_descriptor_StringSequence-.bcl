@@ -1,0 +1,6 @@
+bcl::math::ObjectProbabilityDistribution<bcl::descriptor::StringSequence>
+  (
+    String(probability=0.7,String(yellow)),
+    String(probability=0.5,String(blue)),
+    String(probability=0.3,String(green))
+  )

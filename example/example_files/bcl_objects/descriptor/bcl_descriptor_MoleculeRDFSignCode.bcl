@@ -1,0 +1,2 @@
+bcl::descriptor::MoleculeRDFSignCode
+  RDFSign(property=Atom_Vcharge,step size=0.25,temperature=100,steps=48,normalized=0)

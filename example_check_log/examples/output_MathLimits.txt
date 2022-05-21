@@ -1,0 +1,93 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec MathLimits 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> MathLimits
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: MathLimits ====================
+=std=bcl=> successful example check:
+               math::GetHighestBoundedValue< double>() == std::numeric_limits< double>::max() ==
+              1.79769e+308
+=std=bcl=> successful example check:
+               math::GetLowestBoundedValue< double>() == -std::numeric_limits< double>::max() ==
+              -1.79769e+308
+=std=bcl=> successful example check:
+               math::GetHighestBoundedValue< int>() == std::numeric_limits< int>::max() ==
+              2147483647
+=std=bcl=> successful example check:
+               math::GetLowestBoundedValue< int>() == std::numeric_limits< int>::min() ==
+              -2147483648
+=std=bcl=> successful example check:
+               math::GetLowestBoundedValue< int>() == math::GetLowestUnboundedValue< int>() ==
+              -2147483648
+=std=bcl=> successful example check:
+               math::GetHighestBoundedValue< size_t>() == std::numeric_limits< size_t>::max() ==
+              18446744073709551615
+=std=bcl=> successful example check:  math::GetLowestBoundedValue< size_t>() == 0
+=std=bcl=> successful example check:
+               math::GetHighestUnboundedValue< double>() > math::GetHighestBoundedValue< double>()
+              == 1
+=std=bcl=> successful example check:
+               math::GetHighestUnboundedValue< float>() > math::GetHighestBoundedValue< float>()
+              == 1
+=std=bcl=> successful example check:  math::GetLowestBoundedValue< double>() < std::numeric_limits< double>::min() == 1
+=std=bcl=> successful example check:
+               math::GetLowestUnboundedValue< double>() < math::GetLowestBoundedValue< double>()
+              == 1
+=std=bcl::app=> BCL Example | END  : MathLimits ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+MathLimits_total                         11          0              
+total                                    11          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

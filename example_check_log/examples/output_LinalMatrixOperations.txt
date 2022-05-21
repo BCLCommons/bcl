@@ -1,0 +1,109 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec LinalMatrixOperations 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> LinalMatrixOperations
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: LinalMatrixOperations ====================
+=std=bcl=> successful example check:  sqr_mat( 2, 2) == 5
+=std=bcl=> successful example check:
+              linal::FindUndefinedRows( linal::Matrix< float>( size_t( 4), size_t( 2), row_zero_and_two_nan)) ==
+              storage::Vector< size_t>::Create( 0, 2) == bcl::storage::Vector<size_t>
+                2
+                0
+                2
+=std=bcl=> this is the outer product u*v result: bcl::linal::Matrix<double>
+  3	  4
+  6	7.5	9	10.5	
+  10	12.5	15	17.5	
+  14	17.5	21	24.5	
+=std=bcl=> successful example check:  outer_product_uv.Sum() == sum_outer_product_uv_expected == 165
+=std=bcl=> successful example check:
+               linal::MatrixTransposeTimesMatrix( random_5_by_4_matrix) == explicit_mt_times_m ==
+              bcl::linal::Matrix<double>
+                4	  4
+                115.991	67.0088	115.183	128.195	
+                67.0088	81.7134	97.0251	101.031	
+                115.183	97.0251	146.975	146.508	
+                128.195	101.031	146.508	200.812	
+               (+/- 1e-05)
+=std=bcl=> successful example check:
+               linal::MatrixTimesItselfTransposed( random_5_by_4_matrix) == explicit_m_times_mt ==
+              bcl::linal::Matrix<double>
+                5	  5
+                208.306	31.6688	122.196	142.869	126.31	
+                31.6688	22.7994	23.1244	37.354	37.2145	
+                122.196	23.1244	77.9807	88.4316	74.8618	
+                142.869	37.354	88.4316	132.237	90.0073	
+                126.31	37.2145	74.8618	90.0073	104.168	
+               (+/- 1e-05)
+=std=bcl=> successful example check:
+               linal::MatrixTransposeTimesMatrix( random_5_by_4_matrix, random_5_by_8_matrix) ==
+              explicit_mt_times_n ==
+              bcl::linal::Matrix<double>
+                4	  8
+                51.7752	101.376	131.05	62.2589	86.9701	94.1601	73.1343	152.725	
+                61.8974	76.6618	130.02	81.5202	101.205	102.567	88.6401	109.862	
+                68.0183	116.094	181.33	108.004	119.551	120.51	107.561	156.443	
+                52.2361	96.4111	201.415	90.7305	96.734	108.139	118.01	181.166	
+               (+/- 1e-05)
+=std=bcl=> matrix multiplication with dimension of 100x100 takes 0.00897626 s.
+=std=bcl=> matrix multiplication with dimension of 100x100 takes 0.00114389 s.
+=std=bcl=> matrix vector multiplication with dimension of 100x100 takes 1.1117e-05 s.
+=std=bcl::app=> BCL Example | END  : LinalMatrixOperations ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+LinalMatrixOperations_total               6          0              
+total                                     6          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:10, peak virtual memory used: 133 MB, peak physical RAM used: 64 MB

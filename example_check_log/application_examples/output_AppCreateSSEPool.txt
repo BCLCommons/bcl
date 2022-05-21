@@ -1,0 +1,142 @@
+./build/linux64_release/bin/bcl-example-apps-static.exe Examples -exec AppCreateSSEPool 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AppCreateSSEPool
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AppCreateSSEPool ====================
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+CreateSSEPool 
+
+=std=bcl=> Command line was invalid
+=std=bcl=> successful example check:  create_sse_pool.CheckCommandString( false) == 0
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: CreateSSEPool -chop_sses -factory SSPredHighest -output_prefix example/example_files/output/sspred/ -pool_min_sse_lengths 10 4 -prefix example/example_files/input/biology/1IE9 -sse_threshold 0.4 0.2 -ssmethods JUFO PSIPRED PROFphd 
+
+=std=bcl::app=> read fasta file from example/example_files/input/biology/1IE9.fasta
+=std=bcl::app=> sequence read: 
+>1IE9:A|PDBID|CHAIN|SEQUENCE
+DSLRPKLSEEQQRIIAILLDAHHKTYDPTYSDFCQFRPPVRVNDGGGSVT
+LELSQLSMLPHLADLVSYSIQKVIGFAKMIPGFRDLTSEDQIVLLKSSAI
+EVIMLRSNESFTMDDMSWTCGNQDYKYRVSDVTKAGHSLELIEPLIKFQV
+GLKKLNLHEEEHVLLMAICIVSPDRPGVQDAALIEAIQDRLSNTLQTYIR
+CRHPPPGSHLLYAKMIQKLADLRSLNEEHSKQYRCLSFQPECSMKLTPLV
+LEVFGNEIS
+=std=bcl::app=> Reading the ss methods
+=std=bcl::app=> Creating the sse pool from provided secondary structure information
+=std=bcl::app=> Writing the pool to file: example/example_files/output/sspred/1IE9A.SSPredHighest_PSIPRED_JUFO_PROFphd.pool
+=std=bcl=> Run completed of CreateSSEPool -chop_sses -factory SSPredHighest -output_prefix example/example_files/output/sspred/ -pool_min_sse_lengths 10 4 -prefix example/example_files/input/biology/1IE9 -sse_threshold 0.4 0.2 -ssmethods JUFO PSIPRED PROFphd 
+, return status was: 0
+Command line took 0.011063 sec to run
+=std=bcl=> successful example check:  create_sse_pool.RunCommand() == 0
+=std=bcl=> Validation of last command test succeeded:
+              io::File::FilesMatch ( output_file_highest_three_method, output_file_highest_three_method_correct ) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: CreateSSEPool -factory SSPredThreshold -output_prefix example/example_files/output/sspred/ -pool_min_sse_lengths 10 4 -prefix example/example_files/input/biology/1IE9 -sse_threshold 0.4 0.2 -ssmethods JUFO 
+
+=std=bcl::app=> read fasta file from example/example_files/input/biology/1IE9.fasta
+=std=bcl::app=> sequence read: 
+>1IE9:A|PDBID|CHAIN|SEQUENCE
+DSLRPKLSEEQQRIIAILLDAHHKTYDPTYSDFCQFRPPVRVNDGGGSVT
+LELSQLSMLPHLADLVSYSIQKVIGFAKMIPGFRDLTSEDQIVLLKSSAI
+EVIMLRSNESFTMDDMSWTCGNQDYKYRVSDVTKAGHSLELIEPLIKFQV
+GLKKLNLHEEEHVLLMAICIVSPDRPGVQDAALIEAIQDRLSNTLQTYIR
+CRHPPPGSHLLYAKMIQKLADLRSLNEEHSKQYRCLSFQPECSMKLTPLV
+LEVFGNEIS
+=std=bcl::app=> Reading the ss methods
+=std=bcl::app=> Creating the sse pool from provided secondary structure information
+=std=bcl::app=> Writing the pool to file: example/example_files/output/sspred/1IE9A.SSPredThreshold_JUFO.pool
+=std=bcl=> Run completed of CreateSSEPool -factory SSPredThreshold -output_prefix example/example_files/output/sspred/ -pool_min_sse_lengths 10 4 -prefix example/example_files/input/biology/1IE9 -sse_threshold 0.4 0.2 -ssmethods JUFO 
+, return status was: 0
+Command line took 0.004175 sec to run
+=std=bcl=> successful example check:  create_sse_pool.RunCommand() == 0
+=std=bcl=> Validation of last command test succeeded:
+              io::File::FilesMatch( output_file_threshold_jufo, output_file_threshold_jufo_correct) == 1
+=std=bcl=> filename is: example/example_files/output/sspred/1IE9.pool.correct
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: CreateSSEPool -pdb example/example_files/input/biology/1IE9.pdb example/example_files/output/sspred/1IE9.pool -prefix example/example_files/input/biology/1IE9 -ssmethods JUFO 
+
+=std=bcl::app=> read fasta file from example/example_files/input/biology/1IE9.fasta
+=std=bcl::app=> sequence read: 
+>1IE9:A|PDBID|CHAIN|SEQUENCE
+DSLRPKLSEEQQRIIAILLDAHHKTYDPTYSDFCQFRPPVRVNDGGGSVT
+LELSQLSMLPHLADLVSYSIQKVIGFAKMIPGFRDLTSEDQIVLLKSSAI
+EVIMLRSNESFTMDDMSWTCGNQDYKYRVSDVTKAGHSLELIEPLIKFQV
+GLKKLNLHEEEHVLLMAICIVSPDRPGVQDAALIEAIQDRLSNTLQTYIR
+CRHPPPGSHLLYAKMIQKLADLRSLNEEHSKQYRCLSFQPECSMKLTPLV
+LEVFGNEIS
+=std=bcl::app=> Reading the ss methods
+=std=bcl::app=> Reading the provided pdb file to get real pool
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 ASP A  149  PHE A  153  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 GLY A  250  LEU A  254  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    7   7 ASN A  290  ASP A  292  5                                   3    
+=std=bcl::app=> writing native pool to file: example/example_files/output/sspred/1IE9.pool
+=std=bcl=> Run completed of CreateSSEPool -pdb example/example_files/input/biology/1IE9.pdb example/example_files/output/sspred/1IE9.pool -prefix example/example_files/input/biology/1IE9 -ssmethods JUFO 
+, return status was: 0
+Command line took 0.014233 sec to run
+=std=bcl=> successful example check:  create_sse_pool.RunCommand() == 0
+=std=bcl=> creating the pool from the pdb file test succeeded:
+              io::File::FilesMatch( filename_1IE9_pool, filename_1IE9_pool_correct) == 1
+=std=bcl=> generated filename is: example/example_files/output/sspred/1IE9.pool
+=std=bcl::app=> BCL Example | END  : AppCreateSSEPool ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AppCreateSSEPool_total                    7          0              
+total                                     7          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 116 MB, peak physical RAM used: 57 MB

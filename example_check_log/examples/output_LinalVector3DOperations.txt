@@ -1,0 +1,76 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec LinalVector3DOperations 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> LinalVector3DOperations
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: LinalVector3DOperations ====================
+=std=bcl=> successful example check:
+               dihedral_vector_a_vector_b_vector_c_vector_d ==
+              dihedral_vector_d_vector_c_vector_b_vector_a == -0.904519  (+/- 0.01)
+=std=bcl=> successful example check:
+               linal::CoordinatesTetrahedral( vector_a, vector_b, vector_c, vector_d, 5.0) ==
+              linal::Vector3D( 4.14384, -0.664385, 4.5137) == bcl::linal::Vector3D
+                4.14384	-0.664385	4.5137
+               (+/- 0.001%)
+=std=bcl=> successful example check:  distance == math::Sqrt( double( 2.0)) == 1.41421
+=std=bcl=> successful example check:
+               footpoint == linal::Vector3D( 1.0, 0.0, 0.0) == bcl::linal::Vector3D
+                1	0	0
+=std=bcl::app=> BCL Example | END  : LinalVector3DOperations ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+LinalVector3DOperations_total            39          0              
+total                                    39          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

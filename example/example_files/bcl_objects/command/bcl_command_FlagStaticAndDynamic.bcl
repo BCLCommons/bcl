@@ -1,0 +1,62 @@
+bcl::command::FlagStaticAndDynamic
+  "density_agreement"
+  "information required for density agreement score"
+  1
+  bcl::util::ShPtrVector<bcl::command::ParameterInterface>
+    3
+    bcl::util::ShPtr<bcl::command::ParameterInterface>
+      12345678
+      bcl::command::Parameter
+        "mrc_file"
+        "filename of density map to be used"
+        bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+          12345678
+          bcl::command::ParameterCheckFileExistence
+
+        "example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc"
+        1
+        1
+        ""
+    bcl::util::ShPtr<bcl::command::ParameterInterface>
+      12345678
+      bcl::command::Parameter
+        "mrc_resolution"
+        "resolution of density map to be used"
+        bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+          12345678
+          bcl::command::ParameterCheckRanged<double>
+            bcl::math::Range<double>
+              [ 0 , 100 ]
+        "6.6"
+        1
+        1
+        ""
+    bcl::util::ShPtr<bcl::command::ParameterInterface>
+      12345678
+      bcl::command::Parameter
+        "score"
+        "choice of agremment score"
+        bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+          12345678
+          bcl::command::ParameterCheckEnumerate<bcl::density::ProteinAgreements>
+
+        "CCC"
+        1
+        0
+        ""
+
+  0
+  6
+  bcl::util::ShPtr<bcl::command::ParameterInterface>
+    12345678
+    bcl::command::Parameter
+      "score"
+      "choice of agremment score"
+      bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+        12345678
+        bcl::command::ParameterCheckEnumerate<bcl::density::ProteinAgreements>
+
+      ""
+      0
+      0
+      ""

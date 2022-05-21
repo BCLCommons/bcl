@@ -1,0 +1,4 @@
+bcl::util::ShPtr<bcl::linal::VectorInterface<double>>
+  12345678
+  bcl::linal::Vector3D
+    2	1	1

@@ -1,0 +1,16 @@
+bcl::biol::SSTypeData
+  H
+  1
+  4.24
+  -1.74533
+  1.50247
+  -0.996767
+  -0.80718
+  5
+  4
+  bcl::linal::Vector3D
+    1	0	0
+  bcl::math::Range<double>
+    [ -2.35619 , -0.436332 ]
+  bcl::math::Range<double>
+    [ -1.22173 , 0.349066 ]

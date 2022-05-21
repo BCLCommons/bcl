@@ -1,0 +1,2 @@
+bcl::score::Loop
+  Loop(histogram filename=loop.histograms,max loop length=25)

@@ -1,0 +1,107 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec GraphPath 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> GraphPath
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: GraphPath ====================
+=std=bcl=> successful example check:  default_path.GetSize() == 0
+=std=bcl=> successful example check:  default_path.Contains( 0) == 0
+=std=bcl=> successful example check:  one_three_undirected.Identical( three_one_undirected) == 1
+=std=bcl=> successful example check:  one_three_undirected.Contains( 0) == 0
+=std=bcl=> successful example check:  one_three_undirected.Contains( 1) == 1
+=std=bcl=> successful example check:  one_three_undirected.Contains( 3) == 1
+=std=bcl=> successful example check:  one_three_undirected.IsUndirected() == 1
+=std=bcl=> successful example check:  one_three_undirected.IsDirected() == 0
+=std=bcl=> successful example check:  one_three_undirected.EndsAt( 0) == 0
+=std=bcl=> successful example check:  one_three_undirected.EndsAt( 1) == 1
+=std=bcl=> successful example check:  one_three_undirected.EndsAt( 3) == 1
+=std=bcl=> successful example check:  one_three_directed.Identical( three_one_directed) == 0
+=std=bcl=> successful example check:  one_three_directed.IsUndirected() == 0
+=std=bcl=> successful example check:  one_three_directed.IsDirected() == 1
+=std=bcl=> successful example check:  one_three_directed.Identical( three_one_directed) == 1
+=std=bcl=> successful example check:  one_three_four_undirected.Identical( three_four_undirected) == 0
+=std=bcl=> successful example check:  one_three_four_undirected.Contains( 0) == 0
+=std=bcl=> successful example check:  one_three_four_undirected.Contains( 1) == 1
+=std=bcl=> successful example check:  one_three_four_undirected.Contains( 3) == 1
+=std=bcl=> successful example check:  one_three_four_undirected.Contains( 4) == 1
+=std=bcl=> successful example check:  one_three_four_undirected.IsUndirected() == 1
+=std=bcl=> successful example check:  one_three_four_undirected.IsDirected() == 0
+=std=bcl=> successful example check:  one_three_four_undirected.EndsAt( 0) == 0
+=std=bcl=> successful example check:  one_three_four_undirected.EndsAt( 1) == 1
+=std=bcl=> successful example check:  one_three_four_undirected.EndsAt( 3) == 0
+=std=bcl=> successful example check:  one_three_four_undirected.EndsAt( 4) == 1
+=std=bcl=> successful example check:  one_three_four_undirected.Crosses( one_three_undirected) == 1
+=std=bcl=> successful example check:  one_three_four_undirected.Crosses( three_four_undirected) == 1
+=std=bcl=> successful example check:  one_three_four_undirected.Crosses( zero_two_undirected) == 0
+=std=bcl=> successful example check:  one_three_four_undirected.Covers( one_three_undirected) == 1
+=std=bcl=> successful example check:  one_three_four_undirected.Covers( three_four_undirected) == 1
+=std=bcl=> successful example check:  one_three_four_undirected.Covers( zero_one_undirected) == 0
+=std=bcl=> successful example check:  one_three_undirected.Connects( three_four_undirected) == 1
+=std=bcl=> successful example check:  one_three_undirected.Connects( zero_two_undirected) == 0
+=std=bcl=> successful example check:  one_three_undirected.CountVertexRepetitions() == 0
+=std=bcl=> successful example check:  one_three_four_undirected.CountVertexRepetitions() == 0
+=std=bcl=> successful example check:
+              graph::Path ( 5, storage::Vector< size_t>::Create( 1, 2, 1), true ).CountVertexRepetitions() == 1
+=std=bcl=> successful example check:
+              graph::Path ( 5, storage::Vector< size_t>::Create( 0, 4, 0, 4, 0), true ).CountVertexRepetitions() == 3
+=std=bcl=> successful example check:  one_two_three_four.EquivalentTour( one_three_two_four) == 1
+=std=bcl=> successful example check:  one_two_three_four.EquivalentTour( one_four_two_three) == 0
+=std=bcl=> Path I/O test succeeded:  TestBCLObjectIOForSymmetry( one_two_three_four, default_path) == 1
+=std=bcl::app=> BCL Example | END  : GraphPath ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+GraphPath_total                          41          0              
+total                                    41          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

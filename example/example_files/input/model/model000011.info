@@ -1,0 +1,11 @@
+bcl::model::CrossValidationInfo
+  CVMetadata(
+    independent=Subset(filename=dataset.bin,number chunks=5,chunks="[2,2]"),
+    monitoring=Chunk(
+      chunks="[0,1839]",
+      dataset=Subset(filename=dataset.bin,number chunks=5,chunks="[4,4]")
+    ),
+    result=0.78327,
+    improvement type=LargerIsBetter,
+    objective=Accuracy(cutoff=4)
+  )

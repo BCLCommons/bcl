@@ -1,0 +1,58 @@
+# Descriptor file for Koehler, et. al. Simultaneous prediction of protein secondary structure and trans-membrane spans, 
+# Protein 2013
+Combine(
+  # Change the constant to 1 if the sequence is known to come from a multimer
+  Define(IsMultimeric=Constant(0)),
+  
+  # Window of 15 around the central atom
+  DefineNaN(
+    Window(
+    Combine(
+      AA_StericalParameter, AA_Polarizability, AA_Volume, AA_IsoelectricPoint, 
+      AA_SASA, AA_FreeEnergyHelix, AA_FreeEnergyStrand, AA_FreeEnergyCoil, 
+      AA_FreeEnergyCore, AA_FreeEnergyTransition, AA_FreeEnergySolution, 
+      AA_FreeEnergyCoreHelix, AA_FreeEnergyTransitionHelix, AA_FreeEnergySolutionHelix, 
+      AA_FreeEnergyCoreStrand,  AA_FreeEnergyTransitionStrand, AA_FreeEnergySolutionStrand,
+      AA_FreeEnergyCoreCoil, AA_FreeEnergyTransitionCoil, AA_FreeEnergySolutionCoil
+    ),
+    size=15,
+    alignment=JufoCenter
+    ),
+    replacement=Constant(2.165,0.147,3.33,6.141,263.191,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0)
+  ),
+  
+  # 31-AA Window of Blast profile
+  DefineNaN(Window(AABlastProfile,size=15,alignment=JufoCenter),replacement=Constant(0)),
+  IsMultimeric,                          
+  
+  # Sequence size
+  NElements,
+  
+  # Sequence averages of all AA properties and blast profile                                      
+  Template(
+    signature=DefinedSequenceMean(Descriptor,ReplacementValue),
+    SequenceMean(DefineNaN(Descriptor,replacement=Constant(ReplacementValue)))
+  ),
+  
+  DefinedSequenceMean(AA_StericalParameter,2.165),     
+  DefinedSequenceMean(AA_Polarizability,0.147),        
+  DefinedSequenceMean(AA_Volume,3.33),                 
+  DefinedSequenceMean(AA_IsoelectricPoint,6.141),      
+  DefinedSequenceMean(AA_SASA,263.191),                
+  DefinedSequenceMean(AA_FreeEnergyHelix,0),           
+  DefinedSequenceMean(AA_FreeEnergyStrand,0),          
+  DefinedSequenceMean(AA_FreeEnergyCoil,0),            
+  DefinedSequenceMean(AA_FreeEnergyCore,0),            
+  DefinedSequenceMean(AA_FreeEnergyTransition,0),      
+  DefinedSequenceMean(AA_FreeEnergySolution,0),        
+  DefinedSequenceMean(AA_FreeEnergyCoreHelix,0),       
+  DefinedSequenceMean(AA_FreeEnergyTransitionHelix,0), 
+  DefinedSequenceMean(AA_FreeEnergySolutionHelix,0),   
+  DefinedSequenceMean(AA_FreeEnergyCoreStrand,0),      
+  DefinedSequenceMean(AA_FreeEnergyTransitionStrand,0),
+  DefinedSequenceMean(AA_FreeEnergySolutionStrand,0),  
+  DefinedSequenceMean(AA_FreeEnergyCoreCoil,0),        
+  DefinedSequenceMean(AA_FreeEnergyTransitionCoil,0),  
+  DefinedSequenceMean(AA_FreeEnergySolutionCoil,0),    
+  DefinedSequenceMean(AABlastProfile,0)                
+)

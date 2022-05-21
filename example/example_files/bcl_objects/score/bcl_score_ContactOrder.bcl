@@ -1,0 +1,2 @@
+bcl::score::ContactOrder
+  co_score(normalization=RelativeAAUsed,cache neighbor lists=0,normalize=0)

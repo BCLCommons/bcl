@@ -1,0 +1,101 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec MathRangeSet 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> MathRangeSet
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: MathRangeSet ====================
+=std=bcl=> successful example check:  math::RangeSet< double>().IsEmpty() == 1
+=std=bcl=> successful example check:  range_set_cm5_p5c.IsWithin( -5.0) == 1
+=std=bcl=> successful example check:  range_set_cm5_p5c.IsWithin( 5.0) == 1
+=std=bcl=> successful example check:  range_set_cm5_p5c.IsWithin( -5.1) == 0
+=std=bcl=> successful example check:  range_set_cm5_p5c.IsWithin( -4.9) == 1
+=std=bcl=> successful example check:  range_set_cm5_p5c.IsEmpty() == 0
+=std=bcl=> successful example check:
+              math::RangeSet< double>( overlapping_ranges.Begin(), overlapping_ranges.End()).GetRanges().GetSize() == 1
+=std=bcl=> math::RangeSet< double> ability to combine ranges test succeeded:
+               *overlapping_range ==
+              math::Range< double>( -5.0, 11.0) == bcl::math::Range<double>
+                [ -5 , 11 ]
+=std=bcl=> successful example check:
+              math::RangeSet< double>( two_distinct_ranges.Begin(), two_distinct_ranges.End()).GetRanges().GetSize() == 2
+=std=bcl=> successful example check:  n70_n20_n5_p5.IsWithin( -5.0) == 1
+=std=bcl=> successful example check:  n70_n20_n5_p5.IsWithin( 5.0) == 1
+=std=bcl=> successful example check:  n70_n20_n5_p5.IsWithin( -5.1) == 0
+=std=bcl=> successful example check:  n70_n20_n5_p5.IsWithin( -4.9) == 1
+=std=bcl=> successful example check:  n70_n20_n5_p5.IsWithin( -14.0) == 0
+=std=bcl=> successful example check:  n70_n20_n5_p5.IsWithin( -35.0) == 1
+=std=bcl=> successful example check:  n70_n20_n5_p5.IsEmpty() == 0
+=std=bcl=> successful example check:
+               n70_n20_n5_p5.GetLabel().ToString() == "\"[-70,-20]+[-5,11]\"" ==
+              "[-70,-20]+[-5,11]"
+=std=bcl=> successful example check:
+              from6_to_9_from19_to_80.GetMappedSubset( math::Range< size_t>( 5, 15)).GetLabel().ToString() == "\"[20,30]\""
+              == "[20,30]"
+=std=bcl=> successful example check:
+              from6_to_9_from19_to_80.GetMappedSubset( math::Range< size_t>( 2, 10)).GetLabel().ToString() ==
+              "\"[8,9]+[19,25]\"" == "[8,9]+[19,25]"
+=std=bcl=> successful example check:
+              powers_of_two1_2_4_8_16_32_64.GetMappedSubset( math::Range< size_t>( 2, 4)).GetLabel().ToString() ==
+              "\"[4,4]+[8,8]+[16,16]\"" == "[4,4]+[8,8]+[16,16]"
+=std=bcl=> successful example check:  range_from_string.AsString() == n70_n20_n5_p5.AsString() == [-70,-20]+[-5,11]
+=std=bcl=> successful example check:  range_from_string.AsString() == [-70,-20]+[-5,11]
+=std=bcl=> Constructor from -[ -70.0, -20.0 ]-[ -5.0, 11.0 ] test succeeded:  range_from_neg_string.IsWithin( -25.0) == 0
+=std=bcl=> Constructor from -[ -70.0, -20.0 ]-[ -5.0, 11.0 ] test succeeded:  range_from_neg_string.IsWithin( -75.0) == 1
+=std=bcl::app=> BCL Example | END  : MathRangeSet ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+MathRangeSet_total                       24          0              
+total                                    24          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

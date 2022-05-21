@@ -1,0 +1,7 @@
+bcl::descriptor::Molecule3DSignDistribution
+  3dDistributionSign(
+    property=Atom_Vcharge,
+    center property=Abs(Atom_Vcharge),
+    step size=0.25,
+    steps=48
+  )

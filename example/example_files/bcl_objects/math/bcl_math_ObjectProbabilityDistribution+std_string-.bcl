@@ -1,0 +1,18 @@
+bcl::math::ObjectProbabilityDistribution<std::string>
+  bcl::util::ShPtrVector<bcl::storage::Pair<double,std::string>>
+    3
+    bcl::util::ShPtr<bcl::storage::Pair<double,std::string>>
+      12345678
+      bcl::storage::Pair<double,std::string>
+        0.7
+        "yellow"
+    bcl::util::ShPtr<bcl::storage::Pair<double,std::string>>
+      12345678
+      bcl::storage::Pair<double,std::string>
+        0.5
+        "blue"
+    bcl::util::ShPtr<bcl::storage::Pair<double,std::string>>
+      12345678
+      bcl::storage::Pair<double,std::string>
+        0.3
+        "green"

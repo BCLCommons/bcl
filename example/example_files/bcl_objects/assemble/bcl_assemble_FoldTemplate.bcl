@@ -1,0 +1,841 @@
+bcl::assemble::FoldTemplate
+  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryPhiPsi>
+    5
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryPhiPsi>
+      12345678
+      bcl::assemble::SSEGeometryPhiPsi
+        bcl::util::ShPtr<bcl::assemble::SSEGeometry>
+          12345678
+          bcl::assemble::SSEGeometry
+            bcl::biol::SSTypes::Enum
+              "HELIX"
+            18.0296
+            "HELIX A   23 ILE <==>   34 GLU"
+            bcl::math::TransformationMatrix3D
+              bcl::linal::Matrix<double>
+                4	                4
+                -0.706812	0.585261	0.397348	0	
+                0.487866	-0.00345152	0.872911	0	
+                0.512253	0.810837	-0.28309	0	
+                37.2691	27.4225	13.196	1	
+
+            bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+              8
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "HELIX"
+                  7.51235
+                  "HELIX A   23 ILE <==>   27 LYS"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.692488	0.61271	0.38085	0	
+                      0.480745	-0.00169905	0.876859	0	
+                      0.537907	0.790306	-0.293381	0	
+                      34.5633	23.2329	14.7581	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "HELIX"
+                  7.51235
+                  "HELIX A   24 GLU <==>   28 ALA"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.617391	-0.103474	0.779821	0	
+                      0.580213	-0.609507	-0.540235	0	
+                      0.531207	0.785999	-0.316267	0	
+                      35.357	24.4384	14.2886	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "HELIX"
+                  7.51235
+                  "HELIX A   25 ASN <==>   29 LYS"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.460425	-0.56951	-0.680931	0	
+                      -0.71867	0.211129	-0.662524	0	
+                      0.521078	0.794407	-0.312081	0	
+                      36.1498	25.669	13.7968	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "HELIX"
+                  7.51235
+                  "HELIX A   26 VAL <==>   30 ILE"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.783683	0.334381	-0.523478	0	
+                      -0.316895	0.509599	0.799929	0	
+                      0.534245	0.792779	-0.293401	0	
+                      36.9468	26.8728	13.3252	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "HELIX"
+                  7.51235
+                  "HELIX A   27 LYS <==>   31 GLN"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.153958	0.446591	0.881393	0	
+                      0.820859	-0.438716	0.365676	0	
+                      0.549988	0.779798	-0.299045	0	
+                      37.7394	28.0694	12.8806	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "HELIX"
+                  7.51235
+                  "HELIX A   28 ALA <==>   32 ASP"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.829633	-0.514899	0.215842	0	
+                      0.00941667	-0.37364	-0.927526	0	
+                      0.55823	0.771539	-0.305135	0	
+                      38.566	29.2244	12.4259	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "HELIX"
+                  7.51235
+                  "HELIX A   29 LYS <==>   33 LYS"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.135792	-0.278469	-0.950797	0	
+                      -0.833887	0.550329	-0.0420855	0	
+                      0.534971	0.787142	-0.306942	0	
+                      39.3572	30.3971	11.9833	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "HELIX"
+                  7.51235
+                  "HELIX A   30 ILE <==>   34 GLU"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.878641	0.47216	0.0710972	0	
+                      0.157741	0.146492	0.976554	0	
+                      0.450674	0.869256	-0.203193	0	
+                      40.0169	31.6111	11.6644	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+
+        bcl::util::ShPtr<bcl::biol::AASequencePhiPsi>
+          12345678
+          bcl::biol::AASequencePhiPsi
+            bcl::linal::Vector3D
+              37.616	26.576	11.939
+            bcl::linal::Vector3D
+              37.419	27.377	10.758
+            bcl::linal::Vector3D
+              37.439	28.848	11.101
+            bcl::storage::Vector<bcl::storage::VectorND<2,double>>
+              12
+              bcl::storage::VectorND<2,double>
+                nan
+                -0.660348
+              bcl::storage::VectorND<2,double>
+                -0.994727
+                -0.702324
+              bcl::storage::VectorND<2,double>
+                -1.23755
+                -0.661231
+              bcl::storage::VectorND<2,double>
+                -1.09078
+                -0.754883
+              bcl::storage::VectorND<2,double>
+                -1.08192
+                -0.596008
+              bcl::storage::VectorND<2,double>
+                -1.19791
+                -0.655142
+              bcl::storage::VectorND<2,double>
+                -1.11515
+                -0.738391
+              bcl::storage::VectorND<2,double>
+                -1.11666
+                -0.699177
+              bcl::storage::VectorND<2,double>
+                -1.12596
+                -0.762243
+              bcl::storage::VectorND<2,double>
+                -1.02713
+                -0.677148
+              bcl::storage::VectorND<2,double>
+                -1.64404
+                -0.492016
+              bcl::storage::VectorND<2,double>
+                -2.07813
+                -0.153751
+
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryPhiPsi>
+      12345678
+      bcl::assemble::SSEGeometryPhiPsi
+        bcl::util::ShPtr<bcl::assemble::SSEGeometry>
+          12345678
+          bcl::assemble::SSEGeometry
+            bcl::biol::SSTypes::Enum
+              "STRAND"
+            20.55
+            "STRAND A   40 GLN <==>   45 PHE"
+            bcl::math::TransformationMatrix3D
+              bcl::linal::Matrix<double>
+                4	                4
+                -0.285171	0.435662	0.853743	0	
+                0.028664	0.894207	-0.446736	0	
+                -0.958048	-0.102924	-0.26749	0	
+                29.8797	30.1605	21.1851	1	
+
+            bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+              4
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   40 GLN <==>   42 ARG"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.225469	0.151422	0.962411	0	
+                      -0.0886107	0.980566	-0.175038	0	
+                      -0.970212	-0.124746	-0.20767	0	
+                      34.528	30.6784	22.4809	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   41 GLN <==>   43 LEU"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.250844	-0.308223	-0.917647	0	
+                      0.0610802	-0.941027	0.332773	0	
+                      -0.966099	-0.139524	-0.217225	0	
+                      31.5093	30.2982	21.6795	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   42 ARG <==>   44 ILE"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.345786	0.510722	0.787144	0	
+                      0.12465	0.85646	-0.500938	0	
+                      -0.929997	-0.0751001	-0.359813	0	
+                      28.3635	29.9433	20.8032	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   43 LEU <==>   45 PHE"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.228815	-0.698088	-0.678467	0	
+                      -0.114573	-0.711425	0.693359	0	
+                      -0.966704	-0.0809167	-0.242767	0	
+                      25.2757	29.6571	19.7317	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+
+        bcl::util::ShPtr<bcl::biol::AASequencePhiPsi>
+          12345678
+          bcl::biol::AASequencePhiPsi
+            bcl::linal::Vector3D
+              29.731	29.456	21.013
+            bcl::linal::Vector3D
+              28.748	29.558	19.917
+            bcl::linal::Vector3D
+              27.33	29.341	20.395
+            bcl::storage::Vector<bcl::storage::VectorND<2,double>>
+              6
+              bcl::storage::VectorND<2,double>
+                nan
+                -0.183455
+              bcl::storage::VectorND<2,double>
+                -1.48021
+                2.27135
+              bcl::storage::VectorND<2,double>
+                -2.24065
+                1.87839
+              bcl::storage::VectorND<2,double>
+                -1.6773
+                2.28782
+              bcl::storage::VectorND<2,double>
+                -2.13912
+                2.28511
+              bcl::storage::VectorND<2,double>
+                -2.50607
+                2.24348
+
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryPhiPsi>
+      12345678
+      bcl::assemble::SSEGeometryPhiPsi
+        bcl::util::ShPtr<bcl::assemble::SSEGeometry>
+          12345678
+          bcl::assemble::SSEGeometry
+            bcl::biol::SSTypes::Enum
+              "STRAND"
+            23.975
+            "STRAND A    1 MET <==>    7 THR"
+            bcl::math::TransformationMatrix3D
+              bcl::linal::Matrix<double>
+                4	                4
+                0.609196	-0.636195	0.473431	0	
+                0.781054	0.378034	-0.497035	0	
+                0.137238	0.672567	0.727199	0	
+                27.4797	32.4955	9.6245	1	
+
+            bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+              5
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A    1 MET <==>    3 ILE"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.0651876	-0.6117	0.788399	0	
+                      0.997106	-0.00894742	0.075502	0	
+                      -0.0391305	0.791039	0.610513	0	
+                      26.6042	28.2028	4.71266	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A    2 GLN <==>    4 PHE"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.484849	0.724572	-0.489814	0	
+                      -0.870691	-0.347004	0.348549	0	
+                      0.082581	0.59547	0.799122	0	
+                      26.773	30.5815	6.98137	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A    3 ILE <==>    5 VAL"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.679532	-0.665162	0.309509	0	
+                      0.687529	0.430156	-0.585039	0	
+                      0.256008	0.610349	0.749622	0	
+                      27.2102	32.6237	9.66929	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A    4 PHE <==>    6 LYS"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.779308	0.585703	-0.22278	0	
+                      -0.581346	-0.543039	0.605925	0	
+                      0.233914	0.601715	0.763691	0	
+                      27.9593	34.6708	12.0782	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A    5 VAL <==>    7 THR"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.96694	-0.241244	0.0826334	0	
+                      0.229655	0.682979	-0.693396	0	
+                      0.110841	0.68945	0.715803	0	
+                      28.6091	36.6568	14.4858	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+
+        bcl::util::ShPtr<bcl::biol::AASequencePhiPsi>
+          12345678
+          bcl::biol::AASequencePhiPsi
+            bcl::linal::Vector3D
+              26.262	32.107	8.77
+            bcl::linal::Vector3D
+              26.738	33.375	9.262
+            bcl::linal::Vector3D
+              27.1	33.305	10.722
+            bcl::storage::Vector<bcl::storage::VectorND<2,double>>
+              7
+              bcl::storage::VectorND<2,double>
+                nan
+                2.68
+              bcl::storage::VectorND<2,double>
+                -1.62432
+                2.3137
+              bcl::storage::VectorND<2,double>
+                -2.26724
+                2.78891
+              bcl::storage::VectorND<2,double>
+                -1.95343
+                2.35162
+              bcl::storage::VectorND<2,double>
+                -2.0159
+                1.86127
+              bcl::storage::VectorND<2,double>
+                -1.56264
+                2.12042
+              bcl::storage::VectorND<2,double>
+                -1.6593
+                2.94171
+
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryPhiPsi>
+      12345678
+      bcl::assemble::SSEGeometryPhiPsi
+        bcl::util::ShPtr<bcl::assemble::SSEGeometry>
+          12345678
+          bcl::assemble::SSEGeometry
+            bcl::biol::SSTypes::Enum
+              "STRAND"
+            27.4
+            "STRAND A   10 GLY <==>   17 VAL"
+            bcl::math::TransformationMatrix3D
+              bcl::linal::Matrix<double>
+                4	                4
+                -0.510465	0.360016	-0.780906	0	
+                0.858857	0.25814	-0.442412	0	
+                0.0423072	-0.896522	-0.440974	0	
+                30.5652	34.6351	8.83607	1	
+
+            bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+              6
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   10 GLY <==>   12 THR"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.990619	-0.106039	-0.0861926	0	
+                      -0.00386263	0.652227	-0.758014	0	
+                      0.136596	-0.750571	-0.646518	0	
+                      30.1315	41.5585	12.6617	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   11 LYS <==>   13 ILE"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.931059	-0.159801	0.328013	0	
+                      -0.361475	-0.526301	0.769638	0	
+                      0.0496445	-0.835147	-0.547781	0	
+                      30.5167	39.13	10.695	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   12 THR <==>   14 THR"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.68418	0.260219	-0.68131	0	
+                      0.708157	0.460408	-0.535292	0	
+                      0.174388	-0.848711	-0.499278	0	
+                      30.7742	36.3411	8.99702	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   13 ILE <==>   15 LEU"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.327288	-0.452711	0.829419	0	
+                      -0.944892	-0.164121	0.283273	0	
+                      0.00788392	-0.876423	-0.481478	0	
+                      31.1926	33.5343	7.36888	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   14 THR <==>   16 GLU"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.211389	0.246308	-0.945858	0	
+                      0.97707	-0.0280359	0.211064	0	
+                      0.0254688	-0.968786	-0.246587	0	
+                      31.1271	30.4865	6.08757	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   15 LEU <==>   17 VAL"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.249216	-0.0458973	0.96736	0	
+                      -0.948888	0.211313	-0.234431	0	
+                      -0.193656	-0.97634	-0.0962139	0	
+                      30.9582	27.3099	5.52119	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+
+        bcl::util::ShPtr<bcl::biol::AASequencePhiPsi>
+          12345678
+          bcl::biol::AASequencePhiPsi
+            bcl::linal::Vector3D
+              31.227	34.987	7.306
+            bcl::linal::Vector3D
+              30.599	33.927	6.546
+            bcl::linal::Vector3D
+              31.487	32.695	6.498
+            bcl::storage::Vector<bcl::storage::VectorND<2,double>>
+              8
+              bcl::storage::VectorND<2,double>
+                nan
+                0.251091
+              bcl::storage::VectorND<2,double>
+                -1.78966
+                2.29647
+              bcl::storage::VectorND<2,double>
+                -1.96819
+                2.23633
+              bcl::storage::VectorND<2,double>
+                -1.88253
+                2.38356
+              bcl::storage::VectorND<2,double>
+                -1.68335
+                2.41341
+              bcl::storage::VectorND<2,double>
+                -2.24438
+                2.60259
+              bcl::storage::VectorND<2,double>
+                -1.88817
+                1.99617
+              bcl::storage::VectorND<2,double>
+                -2.39004
+                2.89922
+
+    bcl::util::ShPtr<bcl::assemble::SSEGeometryPhiPsi>
+      12345678
+      bcl::assemble::SSEGeometryPhiPsi
+        bcl::util::ShPtr<bcl::assemble::SSEGeometry>
+          12345678
+          bcl::assemble::SSEGeometry
+            bcl::biol::SSTypes::Enum
+              "STRAND"
+            30.825
+            "STRAND A   64 GLU <==>   72 ARG"
+            bcl::math::TransformationMatrix3D
+              bcl::linal::Matrix<double>
+                4	                4
+                -0.804567	0.0997948	0.585416	0	
+                0.0319468	-0.977079	0.210467	0	
+                0.593002	0.188037	0.782938	0	
+                27.5826	33.194	16.7729	1	
+
+            bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+              7
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   64 GLU <==>   66 THR"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.171465	0.938236	-0.300521	0	
+                      -0.957387	0.230641	0.173823	0	
+                      0.232399	0.25791	0.937802	0	
+                      22.3796	30.9687	9.22131	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   65 SER <==>   67 LEU"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.441826	-0.894795	0.0642739	0	
+                      0.761672	0.33631	-0.553852	0	
+                      0.473968	0.293662	0.830131	0	
+                      23.2431	31.7783	12.0831	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   66 THR <==>   68 HIS"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.611541	0.739077	0.282459	0	
+                      -0.529688	-0.647619	0.547741	0	
+                      0.587749	0.185351	0.787525	0	
+                      25.0166	32.6556	14.7344	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   67 LEU <==>   69 LEU"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.777612	-0.355758	-0.518416	0	
+                      0.0577958	0.861481	-0.50449	0	
+                      0.626082	0.362335	0.69046	0	
+                      26.9764	33.3954	17.2301	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   68 HIS <==>   70 VAL"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.702554	0.080011	0.707118	0	
+                      0.0966195	-0.973733	0.206175	0	
+                      0.705041	0.21317	0.67637	0	
+                      29.018	34.4012	19.4622	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   69 LEU <==>   71 LEU"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      0.751474	0.225544	-0.620014	0	
+                      -0.231194	0.970187	0.0727148	0	
+                      0.617929	0.0886999	0.781214	0	
+                      31.2428	34.8777	21.7451	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+              bcl::util::ShPtr<bcl::assemble::SSEGeometryInterface>
+                12345678
+                bcl::assemble::SSEGeometry
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  10.275
+                  "STRAND A   70 VAL <==>   72 ARG"
+                  bcl::math::TransformationMatrix3D
+                    bcl::linal::Matrix<double>
+                      4	                      4
+                      -0.564431	-0.616683	0.548744	0	
+                      0.370692	-0.783314	-0.499006	0	
+                      0.737568	-0.0782396	0.670725	0	
+                      33.4158	35.0026	24.1776	1	
+
+                  bcl::util::ShPtrVector<bcl::assemble::SSEGeometryInterface>
+                    0
+
+
+        bcl::util::ShPtr<bcl::biol::AASequencePhiPsi>
+          12345678
+          bcl::biol::AASequencePhiPsi
+            bcl::linal::Vector3D
+              25.681	32.891	16.894
+            bcl::linal::Vector3D
+              26.193	34.002	17.667
+            bcl::linal::Vector3D
+              27.495	33.625	18.351
+            bcl::storage::Vector<bcl::storage::VectorND<2,double>>
+              9
+              bcl::storage::VectorND<2,double>
+                nan
+                0.313732
+              bcl::storage::VectorND<2,double>
+                -1.29454
+                2.74235
+              bcl::storage::VectorND<2,double>
+                -2.03975
+                2.13487
+              bcl::storage::VectorND<2,double>
+                -1.70801
+                2.63071
+              bcl::storage::VectorND<2,double>
+                -1.82928
+                2.25452
+              bcl::storage::VectorND<2,double>
+                -1.83669
+                2.04017
+              bcl::storage::VectorND<2,double>
+                -1.97358
+                2.33091
+              bcl::storage::VectorND<2,double>
+                -1.60982
+                2.40877
+              bcl::storage::VectorND<2,double>
+                -2.14044
+                1.7418
+
+
+  "DFLT"
+  bcl::util::ShPtr<bcl::assemble::CollectorTopologyInterface>
+    12345678
+    bcl::assemble::CollectorTopologyCombined
+      1
+  1

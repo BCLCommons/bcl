@@ -1,0 +1,8 @@
+bcl::storage::Map<std::string,int,std::less<std::string>>
+  2
+  std::pair<std::string,int>
+    "c"
+    3
+  std::pair<std::string,int>
+    "d"
+    4

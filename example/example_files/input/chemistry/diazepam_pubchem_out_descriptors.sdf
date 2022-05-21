@@ -1,0 +1,195 @@
+3016
+automatically built MDL file
+written by SmallMoleculeFactory::WriteToMDLFile method
+ 33 35  0  0  0  0  0  0  0  0  1 V2000
+    3.4148   -2.8596    0.0000 Cl  0  0  0  0  0  0  0  0  0  0  0  0
+    3.1645    2.8596    0.0000  O  0  0  0  0  0  0  0  0  0  0  0  0
+    2.9749    1.1769    0.0000  N  0  0  0  0  0  0  0  0  0  0  0  0
+    5.2219    1.1769    0.0000  N  0  0  0  0  0  0  0  0  0  0  0  0
+    4.0984   -0.2320    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    3.1975    0.2019    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    4.9994    0.2019    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    4.5984    1.9587    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    3.5984    1.9587    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    5.7812   -0.4216    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    4.1923   -1.2694    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    2.3279   -0.3715    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000    1.3994    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    3.3362   -1.8627    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    2.3977   -1.4108    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    6.7121   -0.0562    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    5.6322   -1.4104    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    7.4939   -0.6797    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    6.4140   -2.0339    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    7.3449   -1.6686    0.0000  C  0  0  0  0  0  0  0  0  0  0  0  0
+    5.1570    2.2277    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+    4.4605    2.5631    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+    4.7539   -1.5319    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+    1.7724   -0.0961    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+    2.1380    2.0038    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+    1.3955    1.5373    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+    1.8620    0.7949    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+    1.8841   -1.7581    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+    6.8045    0.5569    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+    5.0550   -1.6369    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+    8.0711   -0.4532    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+    6.3216   -2.6470    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+    7.8296   -2.0551    0.0000  H  0  0  0  0  0  0  0  0  0  0  0  0
+  1 14  1  0  0  0  0
+  2  9  2  0  0  0  0
+  3  6  1  0  0  0  0
+  3  9  1  0  0  0  0
+  3 13  1  0  0  0  0
+  4  7  2  0  0  0  0
+  4  8  1  0  0  0  0
+  5  6  4  0  0  0  0
+  5  7  1  0  0  0  0
+  5 11  4  0  0  0  0
+  6 12  4  0  0  0  0
+  7 10  1  0  0  0  0
+  8  9  1  0  0  0  0
+ 10 16  4  0  0  0  0
+ 10 17  4  0  0  0  0
+ 11 14  4  0  0  0  0
+ 12 15  4  0  0  0  0
+ 14 15  4  0  0  0  0
+ 16 18  4  0  0  0  0
+ 17 19  4  0  0  0  0
+ 18 20  4  0  0  0  0
+ 19 20  4  0  0  0  0
+  8 21  1  0  0  2  0
+  8 22  1  0  0  2  0
+ 11 23  1  0  0  2  0
+ 12 24  1  0  0  2  0
+ 13 25  1  0  0  2  0
+ 13 26  1  0  0  2  0
+ 13 27  1  0  0  2  0
+ 15 28  1  0  0  2  0
+ 16 29  1  0  0  2  0
+ 17 30  1  0  0  2  0
+ 18 31  1  0  0  2  0
+ 19 32  1  0  0  2  0
+ 20 33  1  0  0  2  0
+M  END
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BONDANNOTATIONS>
+10  16  810  17  811  14  812  15  814  15  816  18  817  19  818  20  819  20  85  11  85  6  86  12  8
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+403
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+2
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+0
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+1
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccB7IAAEAAAAAAAAAAAAAAAAAAAAAAAwYAAABAAAAAABQAAAHgIAAAAADArBmCQywIMAAACoAyVyVACCAAAhBwAIiACoZpgIYKLBk5GUIAhghgDIyAcQgMAOAABAIAACAAAAAIBAAAQAAAAAAAAAAA==
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TPSA>
+32.7
+
+> <PUBCHEM_CACTVS_XLOGP>
+2.9
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_COMPOUND_CID>
+3016
+
+> <PUBCHEM_EXACT_MASS>
+284.071641
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+20
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+7-chloro-1-methyl-5-phenyl-3H-1,4-benzodiazepin-2-one
+
+> <PUBCHEM_IUPAC_NAME>
+7-chloro-1-methyl-5-phenyl-3H-1,4-benzodiazepin-2-one
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+7-chloro-1-methyl-5-phenyl-3H-1,4-benzodiazepin-2-one
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+7-chloro-1-methyl-5-phenyl-3H-1,4-benzodiazepin-2-one
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+7-chloro-1-methyl-5-phenyl-3H-1,4-benzodiazepin-2-one
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C16H13ClN2O
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+284.74022
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+284.071641
+
+> <PUBCHEM_NIST_INCHI>
+InChI=1/C16H13ClN2O/c1-19-14-8-7-12(17)9-13(14)16(18-10-15(19)20)11-5-3-2-4-6-11/h2-9H,10H2,1H3
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CN1C(=O)CN=C(C2=C1C=CC(=C2)Cl)C3=CC=CC=C3
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CN1C(=O)CN=C(C2=C1C=CC(=C2)Cl)C3=CC=CC=C3
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <bcl_EffectiveAtomPolarizability>
+6.79653 5.24014 10.0576 9.0615 12.1886 11.4127 11.8639 8.41455 8.55927 11.0511 10.1982 9.4488 6.97506 9.92605 8.82834 8.9065 8.9065 7.83419 7.83419 7.29803 4.93127 4.93127 5.96862 5.5939 4.21077 4.21077 4.21077 5.28291 5.32275 5.32275 4.78659 4.78659 4.51549 
+
+> <bcl_HBondAcceptors>
+3
+
+> <bcl_HBondDonors>
+0
+
+> <bcl_MeanMolecularPolarizability>
+31.085
+
+> <bcl_MolecularWeight>
+284.76
+
+> <bcl_SigmaCharge>
+-0.0842554 -0.239932 -0.762988 -0.271471 0.0528033 0.13624 0.0773775 0.141402 0.319415 0.000180129 -0.029896 -0.00943054 0.0732633 0.04129 -0.039489 -0.053566 -0.053566 -0.0624527 -0.0624527 -0.0630892 0.067246 0.067246 0.0656707 0.0684143 0.079973 0.079973 0.079973 0.0649286 0.0638701 0.0638701 0.0631581 0.0631581 0.0631353 
+
+> <bcl_SigmaEN>
+10.1936 13.789 10.2386 9.90618 9.28657 10.0898 9.52102 9.31129 11.925 8.7918 8.5123 8.70218 8.6586 9.17787 8.42399 8.29491 8.29491 8.21371 8.21371 8.20792 7.58656 7.58656 7.5771 7.59397 7.66517 7.66517 7.66517 7.57255 7.56606 7.56606 7.56169 7.56169 7.56155 
+
+> <bcl_TopologicalPolarSurfaceArea>
+32.67
+
+> <bcl_XlogP>
+1.846
+
+
+$$$$

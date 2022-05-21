@@ -1,0 +1,12 @@
+bcl::assemble::SSEPool
+HELIX    1  H1 ILE A   23  GLU A   34  1
+HELIX    2  H1 SER A   20  GLU A   34  1
+HELIX    2  H1 SER A   20  PRO A   37  1
+HELIX    3  H2 LEU A   56  TYR A   59  5
+SHEET    1 BET 5 GLY A  10  VAL A  17  0
+SHEET    2 BET 5 MET A   1  THR A   7 -1
+SHEET    3 BET 5 GLU A  64  ARG A  72  1
+SHEET    4 BET 5 GLN A  40  PHE A  45 -1
+SHEET    4 BET 5 ILE A  44  LEU A  50 -1
+SHEET    5 BET 5 LYS A  48  LEU A  50 -1
+END

@@ -1,0 +1,5 @@
+bcl::fold::MutateProteinModelSSE
+  MutateProteinModelSSE(
+    locator=LocatorSSE(chain id=A,start id=48,end id=70,use pdb id=0),
+    mutate=bcl::math::MutateMoveWrapper<bcl::assemble::SSE>
+  )

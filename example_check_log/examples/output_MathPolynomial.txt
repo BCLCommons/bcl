@@ -1,0 +1,106 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec MathPolynomial 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> MathPolynomial
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: MathPolynomial ====================
+=std=bcl=> successful example check:  math::Polynomial().GetCoefficients().IsEmpty() == 1
+=std=bcl=> successful example check:  util::ShPtr< math::Polynomial>( math::Polynomial().Clone()).IsDefined() == 1
+=std=bcl=> successful example check:
+               made_polynomial.GetCoefficients() == set_polynomial.GetCoefficients() ==
+              bcl::linal::Vector<double>
+                3
+                4	3	2	
+=std=bcl=> successful example check:  made_polynomial.GetCoefficients().GetSize() == size_t( 3) == 3
+=std=bcl=> math::Polynomial::SetCoefficients() test succeeded:
+               made_polynomial.GetCoefficients()( 0) == coefficients( 0)
+              == 4
+=std=bcl=> math::Polynomial::SetCoefficients() test succeeded:
+               made_polynomial.GetCoefficients()( 1) == coefficients( 1)
+              == 3
+=std=bcl=> math::Polynomial::SetCoefficients() test succeeded:
+               made_polynomial.GetCoefficients()( 2) == coefficients( 2)
+              == 2
+=std=bcl=> successful example check:
+               math::Polynomial().GetClassIdentifier() == GetStaticClassName< math::Polynomial>()
+              == bcl::math::Polynomial
+=std=bcl=> successful example check:  math::Polynomial().GetDegree() == 0
+=std=bcl=> successful example check:  made_polynomial.GetDegree() == 2
+=std=bcl=> successful example check:  made_polynomial( x) == ( 2.0 * x + 3.0) * x + 4.0 == 94
+=std=bcl=> successful example check:  made_polynomial_derivative.GetDegree() == size_t( 1) == 1
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance( made_polynomial_derivative.GetCoefficients()( 0), 3.0, std::numeric_limits< double>::epsilon())
+              == 1
+=std=bcl=> successful example check:
+              math::EqualWithinAbsoluteTolerance( made_polynomial_derivative.GetCoefficients()( 1), 4.0, std::numeric_limits< double>::epsilon())
+              == 1
+=std=bcl=> successful example check:
+              math::Polynomial::MakeFromCoordinates( linal::Vector< double>(), linal::Vector< double>(), 10).GetCoefficients().GetSize()
+              == 0
+=std=bcl=> math::Polynomial::MakeFromCoordinates test succeeded:
+              math::EqualWithinAbsoluteTolerance( y_equals_x( 5.0), 5.0, 1e-8) == 1
+=std=bcl=> y_equals_x( 5.0) == 5 diff from 5.0= -8.88178e-16
+=std=bcl=> math::Polynomial::MakeFromCoordinates test succeeded:
+              math::EqualWithinAbsoluteTolerance( y_equals_x_plus_one( 5.0), 6.0, 1.0e-8) == 1
+=std=bcl=> math::Polynomial::MakeFromCoordinates with excess coordinates test succeeded:
+              math::EqualWithinTolerance ( made_polynomial.GetCoefficients(), reverse_engineered_made_polynomial.GetCoefficients(), 0.0, 0.01 )
+              == 1
+=std=bcl=> successful example check:  TestBCLObjectIOForSymmetry( made_polynomial, math::Polynomial()) == 1
+=std=bcl::app=> BCL Example | END  : MathPolynomial ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+MathPolynomial_total                     19          0              
+total                                    19          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

@@ -1,0 +1,1622 @@
+./build/linux64_release/bin/bcl-example-apps-static.exe Examples -exec Apps 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> Apps
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: Apps ====================
+=std=bcl=> Trying to call initialize command for AddFragments
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that AddFragments.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for AddFragments
+=std=bcl=> Trying to call initialize command for AlchemicalTransformationMapper
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that AlchemicalTransformationMapper.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for AlchemicalTransformationMapper
+=std=bcl=> Trying to call initialize command for AlignBindingPoses
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that AlignBindingPoses.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for AlignBindingPoses
+=std=bcl=> Trying to call initialize command for AlignToMSA
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that AlignToMSA.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for AlignToMSA
+=std=bcl=> Trying to call initialize command for AlignToScaffold
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that AlignToScaffold.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for AlignToScaffold
+=std=bcl=> Trying to call initialize command for Alignment
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that Alignment.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for Alignment
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for AnalyzeCodeObjectFile
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that AnalyzeCodeObjectFile.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for AnalyzeCodeObjectFile
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for AnalyzeFLDResults
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that AnalyzeFLDResults.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for AnalyzeFLDResults
+=std=bcl=> Trying to call initialize command for AnalyzeLoops
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that AnalyzeLoops.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for AnalyzeLoops
+=std=bcl=> Trying to call initialize command for AnalyzeRestraintAgreement
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that AnalyzeRestraintAgreement.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for AnalyzeRestraintAgreement
+=std=bcl=> Trying to call initialize command for AnalyzeSpinLabelParameters
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that AnalyzeSpinLabelParameters.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for AnalyzeSpinLabelParameters
+=std=bcl=> Trying to call initialize command for BenchmarkSSEPool
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that BenchmarkSSEPool.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for BenchmarkSSEPool
+=std=bcl=> Trying to call initialize command for BuildConformerLibrary
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that BuildConformerLibrary.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for BuildConformerLibrary
+=std=bcl=> Trying to call initialize command for BuildFragmentLibrary
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that BuildFragmentLibrary.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for BuildFragmentLibrary
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for BuildRotamerLibrary
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that BuildRotamerLibrary.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for BuildRotamerLibrary
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for BuildScaffoldLibrary
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that BuildScaffoldLibrary.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for BuildScaffoldLibrary
+=std=bcl=> Trying to call initialize command for CPUBenchmark
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that CPUBenchmark.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for CPUBenchmark
+=std=bcl=> Trying to call initialize command for CalculateConeModelParameters
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that CalculateConeModelParameters.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for CalculateConeModelParameters
+=std=bcl=> Trying to call initialize command for Cluster
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that Cluster.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for Cluster
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for ComputeJuryStatistics
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ComputeJuryStatistics.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for ComputeJuryStatistics
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for ConformerGenerator
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ConformerGenerator.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for ConformerGenerator
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for ContactPrediction
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ContactPrediction.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for ContactPrediction
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for CreateSSEPool
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that CreateSSEPool.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for CreateSSEPool
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for DensityFromPDB
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that DensityFromPDB.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for DensityFromPDB
+=std=bcl=> Trying to call initialize command for DescriptorAnalyze
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that DescriptorAnalyze.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for DescriptorAnalyze
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for DescriptorConvertCodeObjectFile
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that DescriptorConvertCodeObjectFile.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for DescriptorConvertCodeObjectFile
+=std=bcl=> Trying to call initialize command for DescriptorDatasetSimilarityMeasures
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that DescriptorDatasetSimilarityMeasures.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for DescriptorDatasetSimilarityMeasures
+=std=bcl=> Trying to call initialize command for DescriptorGenerateDataset
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that DescriptorGenerateDataset.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for DescriptorGenerateDataset
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for DescriptorGeneratePCAEigenVectors
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that DescriptorGeneratePCAEigenVectors.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for DescriptorGeneratePCAEigenVectors
+=std=bcl=> Trying to call initialize command for DescriptorRefineByScore
+=std=bcl=> Check that DescriptorRefineByScore.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for DescriptorRefineByScore
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for DescriptorScoreDataset
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that DescriptorScoreDataset.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for DescriptorScoreDataset
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for DescriptorSequentialFeatureSelection
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that DescriptorSequentialFeatureSelection.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for DescriptorSequentialFeatureSelection
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for DistributionPlotFromTables
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that DistributionPlotFromTables.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for DistributionPlotFromTables
+=std=bcl=> Trying to call initialize command for EMFold
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that EMFold.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for EMFold
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for EvoGen
+=std=bcl::app=> A
+=std=bcl::app=> B
+=std=bcl::app=> C
+=std=bcl::app=> D
+=std=bcl::app=> E
+=std=bcl::app=> F
+=std=bcl::app=> G
+=std=bcl::app=> H
+=std=bcl::app=> I
+=std=bcl::app=> J
+=std=bcl::app=> K
+=std=bcl::app=> L
+=std=bcl::app=> M
+=std=bcl::app=> N
+=std=bcl::app=> O
+=std=bcl::app=> P
+=std=bcl::app=> Q
+=std=bcl::app=> R
+=std=bcl::app=> S
+=std=bcl::app=> T
+=std=bcl::app=> U
+=std=bcl::app=> V
+=std=bcl::app=> W
+=std=bcl::app=> X
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that EvoGen.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for EvoGen
+=std=bcl=> Trying to call initialize command for EvoGenAnalysis
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that EvoGenAnalysis.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for EvoGenAnalysis
+=std=bcl=> Trying to call initialize command for Examples
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that Examples.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for Examples
+=std=bcl=> Trying to call initialize command for ExposurePrediction
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ExposurePrediction.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for ExposurePrediction
+=std=bcl=> Trying to call initialize command for ExtractFocusedLibraryDesignFragments
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ExtractFocusedLibraryDesignFragments.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for ExtractFocusedLibraryDesignFragments
+=std=bcl=> Trying to call initialize command for ExtractMCS
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ExtractMCS.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for ExtractMCS
+=std=bcl=> Trying to call initialize command for ExtractSites
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ExtractSites.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for ExtractSites
+=std=bcl=> Trying to call initialize command for FitInDensity
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that FitInDensity.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for FitInDensity
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for FitInDensityMinimize
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that FitInDensityMinimize.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for FitInDensityMinimize
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for FocusedLibraryDesign
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that FocusedLibraryDesign.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for FocusedLibraryDesign
+=std=bcl=> Trying to call initialize command for FocusedLibraryDesignOld
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that FocusedLibraryDesignOld.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for FocusedLibraryDesignOld
+=std=bcl=> Trying to call initialize command for FocusedLibraryDesignRecombinationOld
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that FocusedLibraryDesignRecombinationOld.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for FocusedLibraryDesignRecombinationOld
+=std=bcl=> Trying to call initialize command for Fold
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that Fold.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for Fold
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for FoldAnalysis
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that FoldAnalysis.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for FoldAnalysis
+=std=bcl=> Trying to call initialize command for FoldRecognition
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that FoldRecognition.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for FoldRecognition
+=std=bcl=> Trying to call initialize command for FusionProtein
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that FusionProtein.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for FusionProtein
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for GenerateAAPairStatistics
+=std=bcl=> Check that GenerateAAPairStatistics.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for GenerateAAPairStatistics
+=std=bcl=> Trying to call initialize command for GenerateAlignmentDescription
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that GenerateAlignmentDescription.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for GenerateAlignmentDescription
+=std=bcl=> Trying to call initialize command for GenerateAtomEnvironmentHashmap
+=std=bcl=> Check that GenerateAtomEnvironmentHashmap.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for GenerateAtomEnvironmentHashmap
+=std=bcl=> Trying to call initialize command for GenerateAtomHybridizationDescriptors
+=std=bcl=> Check that GenerateAtomHybridizationDescriptors.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for GenerateAtomHybridizationDescriptors
+=std=bcl=> Trying to call initialize command for GenerateDataset
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that GenerateDataset.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for GenerateDataset
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for GenerateExposureDescription
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that GenerateExposureDescription.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for GenerateExposureDescription
+=std=bcl=> Trying to call initialize command for GenerateHierarchicalTree
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that GenerateHierarchicalTree.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for GenerateHierarchicalTree
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for GenerateJufoDescription
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that GenerateJufoDescription.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for GenerateJufoDescription
+=std=bcl=> Trying to call initialize command for GenerateLicenseFile
+=std=bcl=> Check that GenerateLicenseFile.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for GenerateLicenseFile
+=std=bcl=> Trying to call initialize command for GenerateRandomOrientation
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that GenerateRandomOrientation.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for GenerateRandomOrientation
+=std=bcl=> Trying to call initialize command for GenerateRandomOrientationInDensity
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that GenerateRandomOrientationInDensity.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for GenerateRandomOrientationInDensity
+=std=bcl=> Trying to call initialize command for GenerateRosettaNCAAInstructions
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that GenerateRosettaNCAAInstructions.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for GenerateRosettaNCAAInstructions
+=std=bcl=> Trying to call initialize command for GenerateSSEPairMatrix
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that GenerateSSEPairMatrix.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for GenerateSSEPairMatrix
+=std=bcl=> Trying to call initialize command for GenerateWordbasedAlignerStatistics
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that GenerateWordbasedAlignerStatistics.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for GenerateWordbasedAlignerStatistics
+=std=bcl=> Trying to call initialize command for Help
+=std=bcl=> Check that Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for Help
+=std=bcl=> Trying to call initialize command for Jufo
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that Jufo.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for Jufo
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for LinkFragments
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that LinkFragments.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for LinkFragments
+=std=bcl=> Trying to call initialize command for LoopTemplate
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that LoopTemplate.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for LoopTemplate
+=std=bcl=> Trying to call initialize command for MSA2PSSM
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MSA2PSSM.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for MSA2PSSM
+=std=bcl=> Trying to call initialize command for MakeChimericMolecule
+=std=bcl=> Check that MakeChimericMolecule.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for MakeChimericMolecule
+=std=bcl=> Trying to call initialize command for MakeFocusedLibraryDesignScaffold
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MakeFocusedLibraryDesignScaffold.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for MakeFocusedLibraryDesignScaffold
+=std=bcl=> Trying to call initialize command for MakeGrowFragments
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MakeGrowFragments.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for MakeGrowFragments
+=std=bcl=> Trying to call initialize command for MatchReactions
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MatchReactions.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for MatchReactions
+=std=bcl=> Trying to call initialize command for MinimizeScoreWeightSet
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MinimizeScoreWeightSet.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for MinimizeScoreWeightSet
+=std=bcl=> Trying to call initialize command for ModelComputeStatistics
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ModelComputeStatistics.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for ModelComputeStatistics
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for ModelPredictionMerge
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ModelPredictionMerge.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for ModelPredictionMerge
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for ModelTest
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ModelTest.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for ModelTest
+=std=bcl=> Trying to call initialize command for ModelTestANNWithDropoutResampling
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ModelTestANNWithDropoutResampling.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for ModelTestANNWithDropoutResampling
+=std=bcl=> Trying to call initialize command for ModelTrain
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ModelTrain.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for ModelTrain
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for MoleculeAtomPairwisePotential
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MoleculeAtomPairwisePotential.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for MoleculeAtomPairwisePotential
+=std=bcl=> Trying to call initialize command for MoleculeCompare
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MoleculeCompare.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for MoleculeCompare
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for MoleculeCoordinates
+=std=bcl=> Check that MoleculeCoordinates.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for MoleculeCoordinates
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for MoleculeExtractProteinPocket
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MoleculeExtractProteinPocket.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for MoleculeExtractProteinPocket
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for MoleculeFeatures
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MoleculeFeatures.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for MoleculeFeatures
+=std=bcl=> Trying to call initialize command for MoleculeFilter
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MoleculeFilter.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for MoleculeFilter
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for MoleculeFit
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MoleculeFit.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for MoleculeFit
+=std=bcl=> Trying to call initialize command for MoleculeMultiAlign
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MoleculeMultiAlign.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for MoleculeMultiAlign
+=std=bcl=> Trying to call initialize command for MoleculeProperties
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MoleculeProperties.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for MoleculeProperties
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for MoleculeReorder
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that MoleculeReorder.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for MoleculeReorder
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for MoleculeSplit
+=std=bcl=> Check that MoleculeSplit.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for MoleculeSplit
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for MoleculeUnique
+=std=bcl=> Check that MoleculeUnique.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for MoleculeUnique
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for NmrFileConvert
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that NmrFileConvert.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for NmrFileConvert
+=std=bcl=> Trying to call initialize command for Optimize
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that Optimize.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for Optimize
+=std=bcl=> Trying to call initialize command for OptimizeDataSetPairwise
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that OptimizeDataSetPairwise.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for OptimizeDataSetPairwise
+=std=bcl=> Trying to call initialize command for PDBCompare
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that PDBCompare.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for PDBCompare
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for PDBConvert
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that PDBConvert.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for PDBConvert
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for PDBToDensity
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that PDBToDensity.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for PDBToDensity
+=std=bcl=> Trying to call initialize command for PerturbProtein
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that PerturbProtein.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for PerturbProtein
+=std=bcl=> Trying to call initialize command for PharmMap
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that PharmMap.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for PharmMap
+=std=bcl=> Trying to call initialize command for ProteinCompare
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ProteinCompare.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for ProteinCompare
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for ProteinComparisonGallery
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ProteinComparisonGallery.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for ProteinComparisonGallery
+=std=bcl=> Trying to call initialize command for ProteinDocking
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ProteinDocking.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for ProteinDocking
+=std=bcl=> Trying to call initialize command for ProteinPerturb
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ProteinPerturb.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for ProteinPerturb
+=std=bcl=> Trying to call initialize command for ProteinScore
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ProteinScore.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for ProteinScore
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for ProteinStatistics
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ProteinStatistics.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for ProteinStatistics
+=std=bcl=> Trying to call initialize command for QuenchReactiveGroups
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that QuenchReactiveGroups.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for QuenchReactiveGroups
+=std=bcl=> Trying to call initialize command for React
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that React.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for React
+=std=bcl=> Trying to call initialize command for ReactionCombichem
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ReactionCombichem.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for ReactionCombichem
+=std=bcl=> Trying to call initialize command for RefineDescriptors
+=std=bcl=> Check that RefineDescriptors.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for RefineDescriptors
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for RestraintPofr
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that RestraintPofr.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for RestraintPofr
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for RestraintSaxs
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that RestraintSaxs.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for RestraintSaxs
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for RestraintSaxsPrep
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that RestraintSaxsPrep.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for RestraintSaxsPrep
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for RestraintSimulateAccessibility
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that RestraintSimulateAccessibility.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for RestraintSimulateAccessibility
+=std=bcl=> Trying to call initialize command for RestraintSimulateDistances
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that RestraintSimulateDistances.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for RestraintSimulateDistances
+=std=bcl=> Trying to call initialize command for RestraintSimulateRdcs
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that RestraintSimulateRdcs.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for RestraintSimulateRdcs
+=std=bcl=> Trying to call initialize command for SSPred
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that SSPred.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for SSPred
+=std=bcl=> Trying to call initialize command for SaxsStatistics
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that SaxsStatistics.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for SaxsStatistics
+=std=bcl=> Trying to call initialize command for ScatterplotFromTables
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ScatterplotFromTables.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for ScatterplotFromTables
+=std=bcl=> Trying to call initialize command for ScoreFeatureResultDataset
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ScoreFeatureResultDataset.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for ScoreFeatureResultDataset
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for ScoreProtein
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that ScoreProtein.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for ScoreProtein
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for SetSampleByPartsAtoms
+=std=bcl=> Check that SetSampleByPartsAtoms.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for SetSampleByPartsAtoms
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for SimulateAccessibilityRestraints
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that SimulateAccessibilityRestraints.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for SimulateAccessibilityRestraints
+=std=bcl=> Trying to call initialize command for SimulateDistanceRestraints
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that SimulateDistanceRestraints.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for SimulateDistanceRestraints
+=std=bcl=> Trying to call initialize command for SimulateRdcRestraints
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that SimulateRdcRestraints.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for SimulateRdcRestraints
+=std=bcl=> Trying to call initialize command for SimulateSaxsData
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that SimulateSaxsData.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for SimulateSaxsData
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for SimulateSaxsDataPrep
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that SimulateSaxsDataPrep.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for SimulateSaxsDataPrep
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for StatisticNoe
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that StatisticNoe.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for StatisticNoe
+=std=bcl=> Trying to call initialize command for StatisticSpinLabel
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that StatisticSpinLabel.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for StatisticSpinLabel
+=std=bcl=> Trying to call initialize command for TemplateModel
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that TemplateModel.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for TemplateModel
+=std=bcl=> Trying to call initialize command for TestANNWithDropoutResampling
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that TestANNWithDropoutResampling.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for TestANNWithDropoutResampling
+=std=bcl=> Trying to call initialize command for TestModel
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that TestModel.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for TestModel
+=std=bcl=> Trying to call initialize command for TrainModel
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that TrainModel.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for TrainModel
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for TrainModelDescriptorSelection
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that TrainModelDescriptorSelection.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for TrainModelDescriptorSelection
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for TrainModelPredictionMerge
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that TrainModelPredictionMerge.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for TrainModelPredictionMerge
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for WriteAppWebText
+=std=bcl=> Check that WriteAppWebText.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for WriteAppWebText
+=std=bcl=> Trying to call initialize command for WriteBCLObject
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that WriteBCLObject.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for WriteBCLObject
+=std=bcl=> Trying to call initialize command for WriteObject
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that WriteObject.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for WriteObject
+=std=bcl=> Trying to call initialize command for all:Help
+=std=bcl=> Check that all:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for all:Help
+=std=bcl=> Trying to call initialize command for bcl:Cluster
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bcl:Cluster.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for bcl:Cluster
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for bcl:DistributionPlotFromTables
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bcl:DistributionPlotFromTables.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bcl:DistributionPlotFromTables
+=std=bcl=> Trying to call initialize command for bcl:Examples
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bcl:Examples.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for bcl:Examples
+=std=bcl=> Trying to call initialize command for bcl:GenerateLicenseFile
+=std=bcl=> Check that bcl:GenerateLicenseFile.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bcl:GenerateLicenseFile
+=std=bcl=> Trying to call initialize command for bcl:Help
+=std=bcl=> Check that bcl:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for bcl:Help
+=std=bcl=> Trying to call initialize command for bcl:MinimizeScoreWeightSet
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bcl:MinimizeScoreWeightSet.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bcl:MinimizeScoreWeightSet
+=std=bcl=> Trying to call initialize command for bcl:ScatterplotFromTables
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bcl:ScatterplotFromTables.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bcl:ScatterplotFromTables
+=std=bcl=> Trying to call initialize command for bioinfo:ContactPrediction
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioinfo:ContactPrediction.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioinfo:ContactPrediction
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for bioinfo:ExposurePrediction
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioinfo:ExposurePrediction.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioinfo:ExposurePrediction
+=std=bcl=> Trying to call initialize command for bioinfo:Help
+=std=bcl=> Check that bioinfo:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioinfo:Help
+=std=bcl=> Trying to call initialize command for bioinfo:Jufo
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioinfo:Jufo.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioinfo:Jufo
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for bioinfo:MSA2PSSM
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioinfo:MSA2PSSM.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for bioinfo:MSA2PSSM
+=std=bcl=> Trying to call initialize command for bioutil:AlignToMSA
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:AlignToMSA.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for bioutil:AlignToMSA
+=std=bcl=> Trying to call initialize command for bioutil:AnalyzeLoops
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:AnalyzeLoops.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:AnalyzeLoops
+=std=bcl=> Trying to call initialize command for bioutil:BenchmarkSSEPool
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:BenchmarkSSEPool.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:BenchmarkSSEPool
+=std=bcl=> Trying to call initialize command for bioutil:CalculateConeModelParameters
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:CalculateConeModelParameters.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:CalculateConeModelParameters
+=std=bcl=> Trying to call initialize command for bioutil:ExtractSites
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:ExtractSites.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:ExtractSites
+=std=bcl=> Trying to call initialize command for bioutil:GenerateAAPairStatistics
+=std=bcl=> Check that bioutil:GenerateAAPairStatistics.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:GenerateAAPairStatistics
+=std=bcl=> Trying to call initialize command for bioutil:GenerateAlignmentDescription
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:GenerateAlignmentDescription.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:GenerateAlignmentDescription
+=std=bcl=> Trying to call initialize command for bioutil:GenerateExposureDescription
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:GenerateExposureDescription.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:GenerateExposureDescription
+=std=bcl=> Trying to call initialize command for bioutil:GenerateJufoDescription
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:GenerateJufoDescription.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:GenerateJufoDescription
+=std=bcl=> Trying to call initialize command for bioutil:GenerateWordbasedAlignerStatistics
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:GenerateWordbasedAlignerStatistics.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:GenerateWordbasedAlignerStatistics
+=std=bcl=> Trying to call initialize command for bioutil:Help
+=std=bcl=> Check that bioutil:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:Help
+=std=bcl=> Trying to call initialize command for bioutil:LoopTemplate
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:LoopTemplate.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:LoopTemplate
+=std=bcl=> Trying to call initialize command for bioutil:Optimize
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:Optimize.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for bioutil:Optimize
+=std=bcl=> Trying to call initialize command for bioutil:SaxsStatistics
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:SaxsStatistics.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:SaxsStatistics
+=std=bcl=> Trying to call initialize command for bioutil:StatisticSpinLabel
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that bioutil:StatisticSpinLabel.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for bioutil:StatisticSpinLabel
+=std=bcl=> Trying to call initialize command for cheminfo:AnalyzeFLDResults
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that cheminfo:AnalyzeFLDResults.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for cheminfo:AnalyzeFLDResults
+=std=bcl=> Trying to call initialize command for cheminfo:EvoGen
+=std=bcl::app=> A
+=std=bcl::app=> B
+=std=bcl::app=> C
+=std=bcl::app=> D
+=std=bcl::app=> E
+=std=bcl::app=> F
+=std=bcl::app=> G
+=std=bcl::app=> H
+=std=bcl::app=> I
+=std=bcl::app=> J
+=std=bcl::app=> K
+=std=bcl::app=> L
+=std=bcl::app=> M
+=std=bcl::app=> N
+=std=bcl::app=> O
+=std=bcl::app=> P
+=std=bcl::app=> Q
+=std=bcl::app=> R
+=std=bcl::app=> S
+=std=bcl::app=> T
+=std=bcl::app=> U
+=std=bcl::app=> V
+=std=bcl::app=> W
+=std=bcl::app=> X
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that cheminfo:EvoGen.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for cheminfo:EvoGen
+=std=bcl=> Trying to call initialize command for cheminfo:EvoGenAnalysis
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that cheminfo:EvoGenAnalysis.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for cheminfo:EvoGenAnalysis
+=std=bcl=> Trying to call initialize command for cheminfo:FocusedLibraryDesign
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that cheminfo:FocusedLibraryDesign.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for cheminfo:FocusedLibraryDesign
+=std=bcl=> Trying to call initialize command for cheminfo:FocusedLibraryDesignOld
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that cheminfo:FocusedLibraryDesignOld.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for cheminfo:FocusedLibraryDesignOld
+=std=bcl=> Trying to call initialize command for cheminfo:FocusedLibraryDesignRecombinationOld
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that cheminfo:FocusedLibraryDesignRecombinationOld.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for cheminfo:FocusedLibraryDesignRecombinationOld
+=std=bcl=> Trying to call initialize command for cheminfo:Help
+=std=bcl=> Check that cheminfo:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for cheminfo:Help
+=std=bcl=> Trying to call initialize command for cheminfo:LinkFragments
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that cheminfo:LinkFragments.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for cheminfo:LinkFragments
+=std=bcl=> Trying to call initialize command for cheminfo:MoleculeFeatures
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that cheminfo:MoleculeFeatures.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for cheminfo:MoleculeFeatures
+=std=bcl=> Trying to call initialize command for cheminfo:MoleculeFit
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that cheminfo:MoleculeFit.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for cheminfo:MoleculeFit
+=std=bcl=> Trying to call initialize command for cheminfo:PharmMap
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that cheminfo:PharmMap.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for cheminfo:PharmMap
+=std=bcl=> Trying to call initialize command for cheminfo:ReactionCombichem
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that cheminfo:ReactionCombichem.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for cheminfo:ReactionCombichem
+=std=bcl=> Trying to call initialize command for density:FitInDensity
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that density:FitInDensity.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for density:FitInDensity
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for density:FitInDensityMinimize
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that density:FitInDensityMinimize.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for density:FitInDensityMinimize
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for density:FromPDB
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that density:FromPDB.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for density:FromPDB
+=std=bcl=> Trying to call initialize command for density:GenerateRandomOrientation
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that density:GenerateRandomOrientation.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for density:GenerateRandomOrientation
+=std=bcl=> Trying to call initialize command for density:Help
+=std=bcl=> Check that density:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for density:Help
+=std=bcl=> Trying to call initialize command for descriptor:Analyze
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that descriptor:Analyze.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for descriptor:Analyze
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for descriptor:ConvertCodeObjectFile
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that descriptor:ConvertCodeObjectFile.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for descriptor:ConvertCodeObjectFile
+=std=bcl=> Trying to call initialize command for descriptor:DatasetSimilarityMeasures
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that descriptor:DatasetSimilarityMeasures.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for descriptor:DatasetSimilarityMeasures
+=std=bcl=> Trying to call initialize command for descriptor:GenerateDataset
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that descriptor:GenerateDataset.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for descriptor:GenerateDataset
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for descriptor:GeneratePCAEigenVectors
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that descriptor:GeneratePCAEigenVectors.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for descriptor:GeneratePCAEigenVectors
+=std=bcl=> Trying to call initialize command for descriptor:Help
+=std=bcl=> Check that descriptor:Help.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for descriptor:Help
+=std=bcl=> Trying to call initialize command for descriptor:RefineByScore
+=std=bcl=> Check that descriptor:RefineByScore.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for descriptor:RefineByScore
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for descriptor:ScoreDataset
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that descriptor:ScoreDataset.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for descriptor:ScoreDataset
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for descriptor:SequentialFeatureSelection
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that descriptor:SequentialFeatureSelection.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for descriptor:SequentialFeatureSelection
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for model:ComputeStatistics
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that model:ComputeStatistics.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for model:ComputeStatistics
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for model:Help
+=std=bcl=> Check that model:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for model:Help
+=std=bcl=> Trying to call initialize command for model:PredictionMerge
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that model:PredictionMerge.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for model:PredictionMerge
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for model:Test
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that model:Test.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for model:Test
+=std=bcl=> Trying to call initialize command for model:TestANNWithDropoutResampling
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that model:TestANNWithDropoutResampling.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for model:TestANNWithDropoutResampling
+=std=bcl=> Trying to call initialize command for model:Train
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that model:Train.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for model:Train
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:AddFragments
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:AddFragments.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:AddFragments
+=std=bcl=> Trying to call initialize command for molecule:AlchemicalTransformationMapper
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:AlchemicalTransformationMapper.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:AlchemicalTransformationMapper
+=std=bcl=> Trying to call initialize command for molecule:AlignBindingPoses
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:AlignBindingPoses.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:AlignBindingPoses
+=std=bcl=> Trying to call initialize command for molecule:AlignToScaffold
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:AlignToScaffold.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:AlignToScaffold
+=std=bcl=> Trying to call initialize command for molecule:AtomPairwisePotential
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:AtomPairwisePotential.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:AtomPairwisePotential
+=std=bcl=> Trying to call initialize command for molecule:BuildConformerLibrary
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:BuildConformerLibrary.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:BuildConformerLibrary
+=std=bcl=> Trying to call initialize command for molecule:BuildFragmentLibrary
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:BuildFragmentLibrary.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:BuildFragmentLibrary
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:BuildRotamerLibrary
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:BuildRotamerLibrary.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:BuildRotamerLibrary
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:BuildScaffoldLibrary
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:BuildScaffoldLibrary.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:BuildScaffoldLibrary
+=std=bcl=> Trying to call initialize command for molecule:Compare
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:Compare.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for molecule:Compare
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:ConformerGenerator
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:ConformerGenerator.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:ConformerGenerator
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:Coordinates
+=std=bcl=> Check that molecule:Coordinates.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:Coordinates
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:ExtractFocusedLibraryDesignFragments
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:ExtractFocusedLibraryDesignFragments.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:ExtractFocusedLibraryDesignFragments
+=std=bcl=> Trying to call initialize command for molecule:ExtractMCS
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:ExtractMCS.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for molecule:ExtractMCS
+=std=bcl=> Trying to call initialize command for molecule:ExtractProteinPocket
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:ExtractProteinPocket.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:ExtractProteinPocket
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:Filter
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:Filter.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for molecule:Filter
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:GenerateHierarchicalTree
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:GenerateHierarchicalTree.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:GenerateHierarchicalTree
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:GenerateRosettaNCAAInstructions
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:GenerateRosettaNCAAInstructions.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:GenerateRosettaNCAAInstructions
+=std=bcl=> Trying to call initialize command for molecule:Help
+=std=bcl=> Check that molecule:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:Help
+=std=bcl=> Trying to call initialize command for molecule:MakeChimericMolecule
+=std=bcl=> Check that molecule:MakeChimericMolecule.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:MakeChimericMolecule
+=std=bcl=> Trying to call initialize command for molecule:MakeFocusedLibraryDesignScaffold
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:MakeFocusedLibraryDesignScaffold.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:MakeFocusedLibraryDesignScaffold
+=std=bcl=> Trying to call initialize command for molecule:MakeGrowFragments
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:MakeGrowFragments.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:MakeGrowFragments
+=std=bcl=> Trying to call initialize command for molecule:MatchReactions
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:MatchReactions.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:MatchReactions
+=std=bcl=> Trying to call initialize command for molecule:MultiAlign
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:MultiAlign.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for molecule:MultiAlign
+=std=bcl=> Trying to call initialize command for molecule:Properties
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:Properties.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for molecule:Properties
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:QuenchReactiveGroups
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:QuenchReactiveGroups.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:QuenchReactiveGroups
+=std=bcl=> Trying to call initialize command for molecule:React
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:React.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:React
+=std=bcl=> Trying to call initialize command for molecule:Reorder
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that molecule:Reorder.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for molecule:Reorder
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:SetSampleByPartsAtoms
+=std=bcl=> Check that molecule:SetSampleByPartsAtoms.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:SetSampleByPartsAtoms
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:Split
+=std=bcl=> Check that molecule:Split.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for molecule:Split
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molecule:Unique
+=std=bcl=> Check that molecule:Unique.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for molecule:Unique
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for molutil:GenerateAtomEnvironmentHashmap
+=std=bcl=> Check that molutil:GenerateAtomEnvironmentHashmap.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molutil:GenerateAtomEnvironmentHashmap
+=std=bcl=> Trying to call initialize command for molutil:GenerateAtomHybridizationDescriptors
+=std=bcl=> Check that molutil:GenerateAtomHybridizationDescriptors.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for molutil:GenerateAtomHybridizationDescriptors
+=std=bcl=> Trying to call initialize command for molutil:Help
+=std=bcl=> Check that molutil:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for molutil:Help
+=std=bcl=> Trying to call initialize command for protein:Compare
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that protein:Compare.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for protein:Compare
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for protein:ComparisonGallery
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that protein:ComparisonGallery.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for protein:ComparisonGallery
+=std=bcl=> Trying to call initialize command for protein:CreateSSEPool
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that protein:CreateSSEPool.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for protein:CreateSSEPool
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for protein:Docking
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that protein:Docking.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for protein:Docking
+=std=bcl=> Trying to call initialize command for protein:Fold
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that protein:Fold.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for protein:Fold
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for protein:FoldAnalysis
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that protein:FoldAnalysis.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for protein:FoldAnalysis
+=std=bcl=> Trying to call initialize command for protein:FusionProtein
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that protein:FusionProtein.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for protein:FusionProtein
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for protein:GenerateSSEPairMatrix
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that protein:GenerateSSEPairMatrix.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for protein:GenerateSSEPairMatrix
+=std=bcl=> Trying to call initialize command for protein:Help
+=std=bcl=> Check that protein:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for protein:Help
+=std=bcl=> Trying to call initialize command for protein:PDBConvert
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that protein:PDBConvert.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for protein:PDBConvert
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for protein:Perturb
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that protein:Perturb.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for protein:Perturb
+=std=bcl=> Trying to call initialize command for protein:Score
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that protein:Score.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for protein:Score
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for protein:TemplateModel
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that protein:TemplateModel.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for protein:TemplateModel
+=std=bcl=> Trying to call initialize command for restraint:AnalyzeSpinLabelParameters
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that restraint:AnalyzeSpinLabelParameters.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for restraint:AnalyzeSpinLabelParameters
+=std=bcl=> Trying to call initialize command for restraint:Help
+=std=bcl=> Check that restraint:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for restraint:Help
+=std=bcl=> Trying to call initialize command for restraint:NmrFileConvert
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that restraint:NmrFileConvert.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for restraint:NmrFileConvert
+=std=bcl=> Trying to call initialize command for restraint:OptimizeDataSetPairwise
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that restraint:OptimizeDataSetPairwise.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for restraint:OptimizeDataSetPairwise
+=std=bcl=> Trying to call initialize command for restraint:Pofr
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that restraint:Pofr.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for restraint:Pofr
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for restraint:ProteinStatistics
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that restraint:ProteinStatistics.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for restraint:ProteinStatistics
+=std=bcl=> Trying to call initialize command for restraint:Saxs
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that restraint:Saxs.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for restraint:Saxs
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for restraint:SaxsPrep
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that restraint:SaxsPrep.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for restraint:SaxsPrep
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for restraint:SimulateAccessibility
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that restraint:SimulateAccessibility.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for restraint:SimulateAccessibility
+=std=bcl=> Trying to call initialize command for restraint:SimulateDistances
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that restraint:SimulateDistances.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for restraint:SimulateDistances
+=std=bcl=> Trying to call initialize command for restraint:SimulateRdcs
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that restraint:SimulateRdcs.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for restraint:SimulateRdcs
+=std=bcl=> Trying to call initialize command for restraint:StatisticNoe
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that restraint:StatisticNoe.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for restraint:StatisticNoe
+=std=bcl=> Trying to call initialize command for sequence:Alignment
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that sequence:Alignment.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for sequence:Alignment
+=std=bcl=> release app overrides GetReadMe test succeeded:
+               application.GetReadMe() != app::Interface::DefaultReadMe() ==
+              1
+=std=bcl=> Trying to call initialize command for sequence:FoldRecognition
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that sequence:FoldRecognition.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for sequence:FoldRecognition
+=std=bcl=> Trying to call initialize command for sequence:Help
+=std=bcl=> Check that sequence:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for sequence:Help
+=std=bcl=> Trying to call initialize command for sequence:SSPred
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that sequence:SSPred.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for sequence:SSPred
+=std=bcl=> Trying to call initialize command for util:CPUBenchmark
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that util:CPUBenchmark.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined()
+              == 1
+=std=bcl=> Trying to call help for util:CPUBenchmark
+=std=bcl=> Trying to call initialize command for util:Help
+=std=bcl=> Check that util:Help.InitializeCommand() returned a valid ShPtr test succeeded:  command.IsDefined() == 1
+=std=bcl=> Trying to call help for util:Help
+=std=bcl=> Trying to call initialize command for util:WriteAppWebText
+=std=bcl=> Check that util:WriteAppWebText.InitializeCommand() returned a valid ShPtr test succeeded:
+              command.IsDefined() == 1
+=std=bcl=> Trying to call help for util:WriteAppWebText
+=std=bcl=> Trying to call initialize command for util:WriteObject
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Check that util:WriteObject.InitializeCommand() returned a valid ShPtr test succeeded:
+               command.IsDefined() ==
+              1
+=std=bcl=> Trying to call help for util:WriteObject
+=std=bcl::app=> BCL Example | END  : Apps ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+Apps_total                              349          0              
+total                                   349          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 116 MB, peak physical RAM used: 58 MB

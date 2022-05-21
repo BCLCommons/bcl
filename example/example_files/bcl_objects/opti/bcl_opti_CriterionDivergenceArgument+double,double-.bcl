@@ -1,0 +1,2 @@
+bcl::opti::CriterionDivergenceArgument<double,double>
+  DivergenceArgument(repeats=3,tolerance=0.25,current repetitions=3,last argument=1.1)

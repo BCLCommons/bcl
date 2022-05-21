@@ -1,0 +1,5 @@
+bcl::assemble::ProteinStorageFile
+  bcl::util::ShPtr<bcl::io::Directory>
+    12345678
+    bcl::io::Directory
+      "example/example_files/output/assemble/run_aa"

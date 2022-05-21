@@ -1,0 +1,346 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ScoreSlicelistBenchmark 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ScoreSlicelistBenchmark
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ScoreSlicelistBenchmark ====================
+=std=bcl=> Initializing Slicelist Benchmark . . .
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> 1C1D.pdb Number of AAs: 460
+=std=bcl=>  Voxel Grid neighbor-by-neighbor Iterations/Second: 3441.13 1.45301s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel grid is using 1 dimensions to cache positions
+=std=bcl=>  Voxel Grid cached edge neighbor-by-neighbor Iterations/Second: 3454.72 1.44729s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid global Iterations/Second: 6189.87 0.807771s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid cached edge global Iterations/Second: 6175.62 0.809636s per 5000 iterations
+=std=bcl=>  VoxelGrid cached edge Score: 0
+=std=bcl=>  Voxel Grid global Duration, recreate each time: 4913.68 1.01757s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid cached edge global Duration, recreate each time: 5012.3 0.997547s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Brute force iterations / second: 94.502 52.9089s per 5000 iterations
+=std=bcl=>  Brute force Score: 0
+=std=bcl=>  Voxel Grid pairs iterations / second: 24532.1 0.203815s per 5000 iterations
+=std=bcl=>  Voxel Grid pairs Score: 0
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> 1ubi.pdb Number of AAs: 42
+=std=bcl=>  Voxel Grid neighbor-by-neighbor Iterations/Second: 54453 0.0918223s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel grid is using 1 dimensions to cache positions
+=std=bcl=>  Voxel Grid cached edge neighbor-by-neighbor Iterations/Second: 54268.5 0.0921344s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid global Iterations/Second: 92323.9 0.0541572s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid cached edge global Iterations/Second: 92094.8 0.0542919s per 5000 iterations
+=std=bcl=>  VoxelGrid cached edge Score: 0
+=std=bcl=>  Voxel Grid global Duration, recreate each time: 73341.1 0.0681746s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid cached edge global Duration, recreate each time: 73321.9 0.0681925s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Brute force iterations / second: 10441.6 0.478852s per 5000 iterations
+=std=bcl=>  Brute force Score: 0
+=std=bcl=>  Voxel Grid pairs iterations / second: 3.05071e+06 0.00163896s per 5000 iterations
+=std=bcl=>  Voxel Grid pairs Score: 0
+=std=bcl=> 1ubi_clashed.pdb Number of AAs: 46
+=std=bcl=>  Voxel Grid neighbor-by-neighbor Iterations/Second: 44564.1 0.112198s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 6.90086
+=std=bcl=>  Voxel grid is using 1 dimensions to cache positions
+=std=bcl=>  Voxel Grid cached edge neighbor-by-neighbor Iterations/Second: 46684.8 0.107101s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 6.90086
+=std=bcl=>  Voxel Grid global Iterations/Second: 82970.7 0.0602622s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 3.45043
+=std=bcl=>  Voxel Grid cached edge global Iterations/Second: 92696.2 0.0539396s per 5000 iterations
+=std=bcl=>  VoxelGrid cached edge Score: 3.45043
+=std=bcl=>  Voxel Grid global Duration, recreate each time: 69176.4 0.072279s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 3.45043
+=std=bcl=>  Voxel Grid cached edge global Duration, recreate each time: 69205 0.0722491s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 3.45043
+=std=bcl=>  Brute force iterations / second: 7702.93 0.649104s per 5000 iterations
+=std=bcl=>  Brute force Score: 3.45043
+=std=bcl=>  Voxel Grid pairs iterations / second: 3.0328e+06 0.00164864s per 5000 iterations
+=std=bcl=>  Voxel Grid pairs Score: 3.45043
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 ASP A  149  PHE A  153  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 GLY A  250  LEU A  254  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    7   7 ASN A  290  ASP A  292  5                                   3    
+=std=bcl=> 1IE9.pdb Number of AAs: 176
+=std=bcl=>  Voxel Grid neighbor-by-neighbor Iterations/Second: 14229.2 0.351389s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel grid is using 1 dimensions to cache positions
+=std=bcl=>  Voxel Grid cached edge neighbor-by-neighbor Iterations/Second: 14566.9 0.343244s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid global Iterations/Second: 20478.9 0.244154s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid cached edge global Iterations/Second: 25504.6 0.196043s per 5000 iterations
+=std=bcl=>  VoxelGrid cached edge Score: 0
+=std=bcl=>  Voxel Grid global Duration, recreate each time: 21317.5 0.234549s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid cached edge global Duration, recreate each time: 18583.6 0.269054s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Brute force iterations / second: 1102.54 4.53498s per 5000 iterations
+=std=bcl=>  Brute force Score: 0
+=std=bcl=>  Voxel Grid pairs iterations / second: 922548 0.00541977s per 5000 iterations
+=std=bcl=>  Voxel Grid pairs Score: 0
+=std=bcl=> 1IE9_more_clashed.pdb Number of AAs: 186
+=std=bcl=>  Voxel Grid neighbor-by-neighbor Iterations/Second: 5000.35 0.99993s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 232.259
+=std=bcl=>  Voxel grid is using 2 dimensions to cache positions
+=std=bcl=>  Voxel Grid cached edge neighbor-by-neighbor Iterations/Second: 4967.02 1.00664s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 232.259
+=std=bcl=>  Voxel Grid global Iterations/Second: 12740.6 0.392446s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 116.129
+=std=bcl=>  Voxel Grid cached edge global Iterations/Second: 15897.2 0.314521s per 5000 iterations
+=std=bcl=>  VoxelGrid cached edge Score: 116.129
+=std=bcl=>  Voxel Grid global Duration, recreate each time: 10861.1 0.460356s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 116.129
+=std=bcl=>  Voxel Grid cached edge global Duration, recreate each time: 8716.45 0.573628s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 116.129
+=std=bcl=>  Brute force iterations / second: 1024.14 4.88214s per 5000 iterations
+=std=bcl=>  Brute force Score: 116.129
+=std=bcl=>  Voxel Grid pairs iterations / second: 1.39484e+06 0.00358464s per 5000 iterations
+=std=bcl=>  Voxel Grid pairs Score: 116.129
+=std=bcl=> 2y01A.pdb Number of AAs: 249
+=std=bcl=>  Voxel Grid neighbor-by-neighbor Iterations/Second: 8866.93 0.563893s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel grid is using 1 dimensions to cache positions
+=std=bcl=>  Voxel Grid cached edge neighbor-by-neighbor Iterations/Second: 7989.34 0.625834s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid global Iterations/Second: 13979.7 0.35766s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid cached edge global Iterations/Second: 13977.4 0.35772s per 5000 iterations
+=std=bcl=>  VoxelGrid cached edge Score: 0
+=std=bcl=>  Voxel Grid global Duration, recreate each time: 11561 0.43249s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid cached edge global Duration, recreate each time: 11555.9 0.43268s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Brute force iterations / second: 617.857 8.09248s per 5000 iterations
+=std=bcl=>  Brute force Score: 0
+=std=bcl=>  Voxel Grid pairs iterations / second: 683861 0.00731143s per 5000 iterations
+=std=bcl=>  Voxel Grid pairs Score: 0
+=std=bcl=> 2y01A_clashed.pdb Number of AAs: 249
+=std=bcl=>  Voxel Grid neighbor-by-neighbor Iterations/Second: 4673.57 1.06985s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 244.905
+=std=bcl=>  Voxel grid is using 1 dimensions to cache positions
+=std=bcl=>  Voxel Grid cached edge neighbor-by-neighbor Iterations/Second: 4653.67 1.07442s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 244.905
+=std=bcl=>  Voxel Grid global Iterations/Second: 10109.9 0.494564s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 122.452
+=std=bcl=>  Voxel Grid cached edge global Iterations/Second: 10082.5 0.495906s per 5000 iterations
+=std=bcl=>  VoxelGrid cached edge Score: 122.452
+=std=bcl=>  Voxel Grid global Duration, recreate each time: 8716.09 0.573652s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 122.452
+=std=bcl=>  Voxel Grid cached edge global Duration, recreate each time: 8701.12 0.574638s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 122.452
+=std=bcl=>  Brute force iterations / second: 573.008 8.72588s per 5000 iterations
+=std=bcl=>  Brute force Score: 122.452
+=std=bcl=>  Voxel Grid pairs iterations / second: 782061 0.00639337s per 5000 iterations
+=std=bcl=>  Voxel Grid pairs Score: 122.452
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    1 AA1 ILE A   13  GLY A   17  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    8 AA8 PRO A  194  THR A  197  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   11 AB2 ILE A  275  ARG A  277  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   13 AB4 ASN A  325  ASP A  327  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   17 AB8 LEU A  380  LEU A  384  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   26 AC8 GLU A  509  VAL A  525  5                                  17    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   33 AD6 GLU A  705  PHE A  708  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   38 AE2 VAL A  773  ALA A  775  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   41 AE5 SER A  808  PHE A  811  5                                   4    
+=std=bcl=> 4yua.pdb Number of AAs: 539
+=std=bcl=>  Voxel Grid neighbor-by-neighbor Iterations/Second: 3284.29 1.5224s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel grid is using 2 dimensions to cache positions
+=std=bcl=>  Voxel Grid cached edge neighbor-by-neighbor Iterations/Second: 3255.23 1.53599s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid global Iterations/Second: 6573.57 0.760622s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid cached edge global Iterations/Second: 6231.39 0.802389s per 5000 iterations
+=std=bcl=>  VoxelGrid cached edge Score: 0
+=std=bcl=>  Voxel Grid global Duration, recreate each time: 5193.25 0.962787s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Voxel Grid cached edge global Duration, recreate each time: 3221.75 1.55195s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0
+=std=bcl=>  Brute force iterations / second: 68.9391 72.5278s per 5000 iterations
+=std=bcl=>  Brute force Score: 0
+=std=bcl=>  Voxel Grid pairs iterations / second: 16213.5 0.308386s per 5000 iterations
+=std=bcl=>  Voxel Grid pairs Score: 0
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 GLY A   43  LEU A   47  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 ASN A   96  LEU A  100  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    7   7 GLY A  129  CYS A  135  5                                   7    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   12  12 TYR A  277  GLY A  281  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   15  15 PRO A  332  PRO A  334  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO A  529  GLY A  531  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   28  28 TYR A  685  GLU A  688  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   30  30 PRO A  718  GLY A  724  5                                   7    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   35  35 PRO A  812  LEU A  815  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   36  36 ILE A  830  ILE A  834  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   37  37 PRO A  871  VAL A  876  5                                   6    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   39  39 ASN A  906  THR A  910  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   40  40 ASP A  966  PHE A  970  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   42  42 PRO A 1005  GLN A 1008  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   51  51 PRO A 1464  ARG A 1468  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   56  56 SER A 1584  ILE A 1588  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   57  57 LEU A 1629  HIS A 1631  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   62  62 ASP A 1716  THR A 1718  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   66  66 ALA A 1783  LYS A 1787  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   67  67 LEU A 1795  LEU A 1799  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   78  78 GLY B   43  LEU B   47  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   81  81 ASN B   96  LEU B  100  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   83  83 GLY B  129  CYS B  135  5                                   7    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   88  88 TYR B  277  GLY B  281  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   91  91 PRO B  332  PRO B  334  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   96  96 PRO B  529  GLY B  531  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  104 104 TYR B  685  GLU B  688  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  106 106 PRO B  718  GLY B  724  5                                   7    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  111 111 PRO B  812  LEU B  815  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  112 112 ILE B  830  ILE B  834  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  113 113 PRO B  871  VAL B  876  5                                   6    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  115 115 ASN B  906  THR B  910  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  116 116 ASP B  966  PHE B  970  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  118 118 PRO B 1005  GLN B 1008  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  129 129 PRO B 1464  ARG B 1468  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  134 134 SER B 1584  ILE B 1588  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  135 135 LEU B 1629  HIS B 1631  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  140 140 ASP B 1716  THR B 1718  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  144 144 ALA B 1783  LYS B 1787  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX  145 145 LEU B 1795  LEU B 1799  5                                   5    
+=std=bcl=> 2vz8.pdb Number of AAs: 2375
+=std=bcl=>  Voxel Grid neighbor-by-neighbor Iterations/Second: 566.222 8.83046s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 1.39178
+=std=bcl=>  Voxel grid is using 2 dimensions to cache positions
+=std=bcl=>  Voxel Grid cached edge neighbor-by-neighbor Iterations/Second: 595.713 8.39331s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 1.39178
+=std=bcl=>  Voxel Grid global Iterations/Second: 1191.45 4.19655s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0.695888
+=std=bcl=>  Voxel Grid cached edge global Iterations/Second: 1258.93 3.97162s per 5000 iterations
+=std=bcl=>  VoxelGrid cached edge Score: 0.695888
+=std=bcl=>  Voxel Grid global Duration, recreate each time: 1079.22 4.63297s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0.695888
+=std=bcl=>  Voxel Grid cached edge global Duration, recreate each time: 752.711 6.64265s per 5000 iterations
+=std=bcl=>  VoxelGrid Score: 0.695888
+=std=bcl=>  Brute force iterations / second: 2.87181 1741.07s per 5000 iterations
+=std=bcl=>  Brute force Score: 0.695888
+=std=bcl=>  Voxel Grid pairs iterations / second: 246.708 20.2669s per 5000 iterations
+=std=bcl=>  Voxel Grid pairs Score: 0.695888
+=std=bcl=>  Finished Slicelist Benchmark.
+=std=bcl::app=> BCL Example | END  : ScoreSlicelistBenchmark ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+ScoreSlicelistBenchmark_total             0          0              
+total                                     0          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:01:16, peak virtual memory used: 199 MB, peak physical RAM used: 131 MB

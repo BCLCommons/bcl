@@ -1,0 +1,5 @@
+bcl::score::StrandPairing
+  "strand_fr"
+  "strand_fragment_angle_distance.histograms2D"
+  bcl::math::Range<double>
+    [ 3.5 , 5.5 ]

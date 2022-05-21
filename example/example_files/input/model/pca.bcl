@@ -1,0 +1,29 @@
+bcl::model::RescaleFeatureDataSet
+  bcl::storage::Vector<bcl::math::Range<float>>
+    5 
+    bcl::math::Range<float>
+      [ 1.1 , 15.15 ]
+    bcl::math::Range<float>
+      [ 2.2 , 16.16 ]
+    bcl::math::Range<float>
+      [ 3.3 , 17.17 ]
+    bcl::math::Range<float>
+      [ 4.4 , 18.18 ]
+    bcl::math::Range<float>
+      [ 5.5 , 19.19 ]
+      
+    bcl::math::Range<float>
+      [ 0 , 1 ]
+      
+bcl::storage::Pair<bcl::linal::Matrix<float>,bcl::linal::Vector<float>>
+  bcl::linal::Matrix<float>
+    5	    5
+8	5	4	6	9
+5	4	1	2	6
+1	2	5	7	8
+9	5	4	1	2
+2	2	8	4	6 
+
+  bcl::linal::Vector<float>
+    5
+4	3	2	1 0

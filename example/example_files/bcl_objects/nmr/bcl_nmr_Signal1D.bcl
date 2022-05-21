@@ -1,0 +1,18 @@
+bcl::nmr::Signal1D
+  100
+  3
+  bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+    1
+    bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+      Doublet
+      5
+
+  bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+    bcl::chemistry::AtomComplete
+      bcl::storage::Vector<bcl::chemistry::BondConformational>
+        1
+        bcl::chemistry::BondConformational
+          bcl::chemistry::ConfigurationalBondTypes::Enum
+            "NonConjugatedSingleBond"
+      bcl::linal::Vector3D
+        0	0	0

@@ -1,0 +1,18 @@
+density_map : 0 density_rod : 0 pool_index : 0 pool_sse_begin : 8 pool_sse_end : 26 orientation : 1
+density_map : 0 density_rod : 1 pool_index : 1 pool_sse_begin : 48 pool_sse_end : 56 orientation : 1
+density_map : 0 density_rod : 2 pool_index : 2 pool_sse_begin : 58 pool_sse_end : 79 orientation : 1
+density_map : 0 density_rod : 3 pool_index : 3 pool_sse_begin : 87 pool_sse_end : 107 orientation : 1
+density_map : 0 density_rod : 4 pool_index : 4 pool_sse_begin : 138 pool_sse_end : 154 orientation : 1
+density_map : 0 density_rod : 5 pool_index : 5 pool_sse_begin : 158 pool_sse_end : 171 orientation : 1
+density_map : 0 density_rod : 6 pool_index : 6 pool_sse_begin : 180 pool_sse_end : 203 orientation : 1
+density_map : 0 density_rod : 7 pool_index : 7 pool_sse_begin : 210 pool_sse_end : 237 orientation : 1
+density_map : 0 density_rod : 8 pool_index : 8 pool_sse_begin : 247 pool_sse_end : 255 orientation : 1
+density_map : 0 density_rod : 0 relative rotation angle to native : 0 relative translation to native : 0
+density_map : 0 density_rod : 1 relative rotation angle to native : 0 relative translation to native : 0
+density_map : 0 density_rod : 2 relative rotation angle to native : 3.67801e-10 relative translation to native : 0
+density_map : 0 density_rod : 3 relative rotation angle to native : 0 relative translation to native : 0
+density_map : 0 density_rod : 4 relative rotation angle to native : 0 relative translation to native : 0
+density_map : 0 density_rod : 5 relative rotation angle to native : 0 relative translation to native : 0
+density_map : 0 density_rod : 6 relative rotation angle to native : 0 relative translation to native : 0
+density_map : 0 density_rod : 7 relative rotation angle to native : 0 relative translation to native : 0
+density_map : 0 density_rod : 8 relative rotation angle to native : 0 relative translation to native : 0

@@ -1,0 +1,5 @@
+bcl::nmr::StarTagData
+  bcl::nmr::StarTagCategories::Enum
+    "DistConstraintValue"
+  "Distance_val"
+  DT_DOUBLE

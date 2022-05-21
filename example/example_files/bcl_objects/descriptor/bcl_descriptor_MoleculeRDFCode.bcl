@@ -1,0 +1,2 @@
+bcl::descriptor::MoleculeRDFCode
+  RDF(property=Atom_SigmaCharge,step size=0.1,temperature=100,steps=128,normalized=0)

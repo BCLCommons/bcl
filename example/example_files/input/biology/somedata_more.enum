@@ -1,0 +1,8 @@
+bcl::SomeDataTypes
+  2
+  "XXX"
+  bcl::SomeData
+    1.5
+  "ADD"
+  bcl::SomeData
+    9.9

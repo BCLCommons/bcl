@@ -1,0 +1,840 @@
+automatically builded mdl file by CMolecule::WriteInMDLFile
+  DSViewer          3D                             0
+
+ 62 68  0  0  0  0  0  0  0  0999 V2000
+   -1.9865    0.6772    3.2606 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -0.8311    1.0854    3.4102 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -2.7956    0.4879    4.5269 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -4.1410    0.1316    4.5501 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.8106   -0.0358    5.7570 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.1390    0.1551    6.9584 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.7987    0.5192    6.9459 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.1351    0.6847    5.7358 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.3937    0.4139    1.8825 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.5865   -0.2609    1.3399 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.7631   -1.6654    1.9057 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -5.0291   -2.2419    1.9267 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -5.2061   -3.5231    2.4358 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.1159   -4.2344    2.9225 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.8486   -3.6642    2.8980 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.6733   -2.3828    2.3893 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.2543   -0.4889   -0.1572 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7856   -0.5128    0.1034 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -1.9022    0.0048   -0.6099 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -3.3848   -1.8569   -0.5330 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.8115    0.8241   -1.5258 O   0  0  0  1  0  0  0  0  0  0  0  0
+    0.6377   -0.1621   -0.1427 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0401    1.3228   -0.0900 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.2799   -0.9086    1.0313 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6079   -0.3450    1.6715 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.1978    0.9978    2.1492 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.8172    1.8142    0.9365 C   0  0  0  1  0  0  0  0  0  0  0  0
+    0.6295    2.1783   -1.3004 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9474    0.8604    3.0756 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3021    1.6527    3.0150 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3891    3.1602    0.9180 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3772    3.1963   -0.2529 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.3557    2.1712    0.3791 C   0  0  0  1  0  0  0  0  0  0  0  0
+    5.3400    0.8023    0.8762 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0708   -0.3106    0.8924 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6944    2.8547    0.5944 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1734    2.3844    0.1383 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.9624    0.8694    0.6796 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.4778    0.9796    2.0953 C   0  0  0  1  0  0  0  0  0  0  0  0
+    3.1040    3.4377    2.1255 O   0  0  0  1  0  0  0  0  0  0  0  0
+    4.4897    3.3357    1.9258 C   0  0  0  1  0  0  0  0  0  0  0  0
+    5.4236    3.6370    3.0566 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9464    2.9848    0.8308 O   0  0  0  1  0  0  0  0  0  0  0  0
+    3.1241    3.9973   -1.1593 O   0  0  0  1  0  0  0  0  0  0  0  0
+    2.8701   -1.1628    2.8092 O   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8440   -1.1428   -0.2960 O   0  0  0  1  0  0  0  0  0  0  0  0
+    2.9676   -0.6534   -1.3024 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.6872   -1.5063   -2.4449 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.8708   -1.0524   -3.4729 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6084   -1.8737   -4.5636 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.2410   -2.7806   -2.5038 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9779   -3.6015   -3.5947 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1617   -3.1479   -4.6250 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4636    0.4725   -1.2238 O   0  0  0  1  0  0  0  0  0  0  0  0
+    8.1257    0.1058    0.2004 O   0  0  0  1  0  0  0  0  0  0  0  0
+    5.6186    1.5185    3.2289 O   0  0  0  1  0  0  0  0  0  0  0  0
+    6.9471   -0.0521    1.0447 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8648    2.7691    3.2176 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.1107    3.1548    4.4537 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8121    3.5474    2.2653 O   0  0  0  1  0  0  0  0  0  0  0  0
+    3.6827    2.0077    1.7954 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7462    4.2725    0.7005 O   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  9  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  8  2  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  9 10  1  0  0  0  0
+ 10 11  1  0  0  0  0
+ 10 17  1  0  0  0  0
+ 11 12  1  0  0  0  0
+ 11 16  2  0  0  0  0
+ 12 13  2  0  0  0  0
+ 13 14  1  0  0  0  0
+ 14 15  2  0  0  0  0
+ 15 16  1  0  0  0  0
+ 17 19  1  0  0  0  0
+ 17 20  1  0  0  0  0
+ 18 19  1  0  0  0  0
+ 18 22  1  0  0  0  0
+ 19 21  2  0  0  0  0
+ 22 23  1  0  0  0  0
+ 22 24  1  0  0  0  0
+ 23 27  2  0  0  0  0
+ 23 28  1  0  0  0  0
+ 24 25  1  0  0  0  0
+ 25 26  1  0  0  0  0
+ 25 35  1  0  0  0  0
+ 25 45  1  0  0  0  0
+ 26 27  1  0  0  0  0
+ 26 29  1  0  0  0  0
+ 26 30  1  0  0  0  0
+ 27 31  1  0  0  0  0
+ 31 32  1  0  0  0  0
+ 31 40  1  0  0  0  0
+ 32 33  1  0  0  0  0
+ 32 44  2  0  0  0  0
+ 33 34  1  0  0  0  0
+ 33 36  1  0  0  0  0
+ 33 61  1  0  0  0  0
+ 34 35  1  0  0  0  0
+ 34 39  1  0  0  0  0
+ 35 46  1  0  0  0  0
+ 36 37  1  0  0  0  0
+ 36 62  1  0  0  0  0
+ 37 38  1  0  0  0  0
+ 38 39  1  0  0  0  0
+ 38 55  1  0  0  0  0
+ 39 56  1  0  0  0  0
+ 39 57  1  0  0  0  0
+ 40 41  1  0  0  0  0
+ 41 42  1  0  0  0  0
+ 41 43  2  0  0  0  0
+ 46 47  1  0  0  0  0
+ 47 48  1  0  0  0  0
+ 47 54  2  0  0  0  0
+ 48 49  1  0  0  0  0
+ 48 51  2  0  0  0  0
+ 49 50  2  0  0  0  0
+ 50 53  1  0  0  0  0
+ 51 52  1  0  0  0  0
+ 52 53  2  0  0  0  0
+ 55 57  1  0  0  0  0
+ 56 58  1  0  0  0  0
+ 58 59  1  0  0  0  0
+ 58 60  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi O_Tr2Tr2TrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe O_Tr2TrTrPi2 C_TrTrTrPi O_Te2Te2TeTe O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe O_Tr2TrTrPi2 C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi O_Tr2Tr2TrPi O_Te2Te2TeTe O_Tr2TrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi O_Tr2Tr2TrPi O_Te2Te2TeTe O_Tr2TrTrPi2 C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi C_TeTeTeTe O_Te2Te2TeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond AmideSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing ConjugatedDoubleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBondInRing ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond
+M  BCL CHI  10   S  17   S  22   R  25   R  31   S  33   S  34   S  35   R  36   R  38   S  39   R
+M  BCL DBI - - - - - - - - Z - - - - - - -
+M  END
+$$$$
+automatically builded mdl file by CMolecule::WriteInMDLFile
+  DSViewer          3D                             0
+
+ 62 68  0  0  0  0  0  0  0  0999 V2000
+   -5.0948    2.8576    0.0914 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -4.6672    3.7728    0.8010 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -6.4683    3.0678   -0.5113 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -7.0695    2.1940   -1.4128 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.3414    2.4521   -1.9113 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -9.0270    3.5934   -1.5136 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.4323    4.4761   -0.6211 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.1605    4.2120   -0.1263 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.2200    1.6952   -0.0415 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.4679    0.3603   -0.6152 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -5.6711   -0.3272    0.0202 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -6.3541   -1.3090   -0.6904 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.4507   -1.9478   -0.1236 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.8661   -1.6093    1.1587 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.1830   -0.6329    1.8741 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.0871    0.0054    1.3058 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.2543   -0.4889   -0.1572 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7856   -0.5128    0.1034 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -1.9022    0.0048   -0.6099 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -3.3848   -1.8569   -0.5330 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.8115    0.8241   -1.5258 O   0  0  0  1  0  0  0  0  0  0  0  0
+    0.6377   -0.1621   -0.1427 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0401    1.3228   -0.0900 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.2799   -0.9086    1.0313 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6079   -0.3450    1.6715 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.1978    0.9978    2.1492 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.8172    1.8142    0.9365 C   0  0  0  1  0  0  0  0  0  0  0  0
+    0.6295    2.1783   -1.3004 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9474    0.8604    3.0756 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3021    1.6527    3.0150 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3891    3.1602    0.9180 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3772    3.1963   -0.2529 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.4154    2.1366    0.2019 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.9234    1.0280    1.4679 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0708   -0.3106    0.8924 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6944    2.8547    0.5944 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1734    2.3844    0.1383 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.5853    1.1410    1.0960 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2377    1.1794    0.4374 C   0  0  0  1  0  0  0  0  0  0  0  0
+    3.1040    3.4377    2.1255 O   0  0  0  1  0  0  0  0  0  0  0  0
+    4.4897    3.3357    1.9258 C   0  0  0  1  0  0  0  0  0  0  0  0
+    5.4236    3.6370    3.0566 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9464    2.9848    0.8308 O   0  0  0  1  0  0  0  0  0  0  0  0
+    3.1241    3.9973   -1.1593 O   0  0  0  1  0  0  0  0  0  0  0  0
+    2.8701   -1.1628    2.8092 O   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8440   -1.1428   -0.2960 O   0  0  0  1  0  0  0  0  0  0  0  0
+    2.9676   -0.6534   -1.3024 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.6872   -1.5063   -2.4449 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.8708   -1.0524   -3.4729 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6084   -1.8737   -4.5636 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.2410   -2.7806   -2.5038 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9779   -3.6015   -3.5947 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1617   -3.1479   -4.6250 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4636    0.4725   -1.2238 O   0  0  0  1  0  0  0  0  0  0  0  0
+    8.1257    0.1058    0.2004 O   0  0  0  1  0  0  0  0  0  0  0  0
+    6.9664    2.1325   -0.4975 O   0  0  0  1  0  0  0  0  0  0  0  0
+    6.9471   -0.0521    1.0447 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.4959    3.4469   -0.1447 C   0  0  0  1  0  0  0  0  0  0  0  0
+    8.1448    4.2632   -1.2208 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.4366    3.9483    0.9780 O   0  0  0  1  0  0  0  0  0  0  0  0
+    4.6074    1.4711   -1.2144 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.8474    3.4486    1.8781 O   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  9  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  8  2  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  9 10  1  0  0  0  0
+ 10 11  1  0  0  0  0
+ 10 17  1  0  0  0  0
+ 11 12  1  0  0  0  0
+ 11 16  2  0  0  0  0
+ 12 13  2  0  0  0  0
+ 13 14  1  0  0  0  0
+ 14 15  2  0  0  0  0
+ 15 16  1  0  0  0  0
+ 17 19  1  0  0  0  0
+ 17 20  1  0  0  0  0
+ 18 19  1  0  0  0  0
+ 18 22  1  0  0  0  0
+ 19 21  2  0  0  0  0
+ 22 23  1  0  0  0  0
+ 22 24  1  0  0  0  0
+ 23 27  2  0  0  0  0
+ 23 28  1  0  0  0  0
+ 24 25  1  0  0  0  0
+ 25 26  1  0  0  0  0
+ 25 35  1  0  0  0  0
+ 25 45  1  0  0  0  0
+ 26 27  1  0  0  0  0
+ 26 29  1  0  0  0  0
+ 26 30  1  0  0  0  0
+ 27 31  1  0  0  0  0
+ 31 32  1  0  0  0  0
+ 31 40  1  0  0  0  0
+ 32 33  1  0  0  0  0
+ 32 44  2  0  0  0  0
+ 33 34  1  0  0  0  0
+ 33 36  1  0  0  0  0
+ 33 61  1  0  0  0  0
+ 34 35  1  0  0  0  0
+ 34 39  1  0  0  0  0
+ 35 46  1  0  0  0  0
+ 36 37  1  0  0  0  0
+ 36 62  1  0  0  0  0
+ 37 38  1  0  0  0  0
+ 38 39  1  0  0  0  0
+ 38 55  1  0  0  0  0
+ 39 56  1  0  0  0  0
+ 39 57  1  0  0  0  0
+ 40 41  1  0  0  0  0
+ 41 42  1  0  0  0  0
+ 41 43  2  0  0  0  0
+ 46 47  1  0  0  0  0
+ 47 48  1  0  0  0  0
+ 47 54  2  0  0  0  0
+ 48 49  1  0  0  0  0
+ 48 51  2  0  0  0  0
+ 49 50  2  0  0  0  0
+ 50 53  1  0  0  0  0
+ 51 52  1  0  0  0  0
+ 52 53  2  0  0  0  0
+ 55 57  1  0  0  0  0
+ 56 58  1  0  0  0  0
+ 58 59  1  0  0  0  0
+ 58 60  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi O_Tr2Tr2TrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe O_Tr2TrTrPi2 C_TrTrTrPi O_Te2Te2TeTe O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe O_Tr2TrTrPi2 C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi O_Tr2Tr2TrPi O_Te2Te2TeTe O_Tr2TrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi O_Tr2Tr2TrPi O_Te2Te2TeTe O_Tr2TrTrPi2 C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi C_TeTeTeTe O_Te2Te2TeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond AmideSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing ConjugatedDoubleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBondInRing ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond
+M  BCL CHI  10   S  17   R  22   R  25   R  31   S  33   R  34   R  35   R  36   S  38   R  39   S
+M  BCL DBI - - - - - - - - Z - - - - - - -
+M  END
+$$$$
+automatically builded mdl file by CMolecule::WriteInMDLFile
+  DSViewer          3D                             0
+
+ 62 68  0  0  0  0  0  0  0  0999 V2000
+   -0.9457   -3.7920   -2.0109 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -1.6211   -3.3857   -1.0607 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -1.1289   -5.2484   -2.3842 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -0.5297   -5.8558   -3.4840 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7380   -7.2041   -3.7516 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.5537   -7.9614   -2.9198 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.1632   -7.3626   -1.8247 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.9506   -6.0142   -1.5626 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0504   -2.8109   -2.6192 N   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0321   -2.9726   -3.6064 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0746   -3.9910   -3.1591 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.8516   -4.6408   -4.1126 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8089   -5.5691   -3.7207 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.9953   -5.8482   -2.3721 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.2249   -5.1970   -1.4159 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.2677   -4.2695   -1.8094 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.7840   -1.6170   -3.5813 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.1562   -0.9905   -1.2626 O   0  0  0  1  0  0  0  0  0  0  0  0
+    1.2409   -0.5852   -2.6235 C   0  0  0  1  0  0  0  0  0  0  0  0
+    3.1762   -1.7808   -3.3272 O   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8795    0.5188   -3.0344 O   0  0  0  1  0  0  0  0  0  0  0  0
+    0.6377   -0.1621   -0.1427 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0401    1.3228   -0.0900 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.2799   -0.9086    1.0313 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4734    0.1231    0.9836 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.1978    0.9978    2.1492 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.8172    1.8142    0.9365 C   0  0  0  1  0  0  0  0  0  0  0  0
+    0.6295    2.1783   -1.3004 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9474    0.8604    3.0756 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3021    1.6527    3.0150 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3891    3.1602    0.9180 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3772    3.1963   -0.2529 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.4154    2.1366    0.2019 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.9234    1.0280    1.4679 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0708   -0.3106    0.8924 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6944    2.8547    0.5944 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1734    2.3844    0.1383 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2652    0.9601   -0.6337 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2377    1.1794    0.4374 C   0  0  0  1  0  0  0  0  0  0  0  0
+    3.1040    3.4377    2.1255 O   0  0  0  1  0  0  0  0  0  0  0  0
+    4.4897    3.3357    1.9258 C   0  0  0  1  0  0  0  0  0  0  0  0
+    5.4236    3.6370    3.0566 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9464    2.9848    0.8308 O   0  0  0  1  0  0  0  0  0  0  0  0
+    3.1241    3.9973   -1.1593 O   0  0  0  1  0  0  0  0  0  0  0  0
+    2.2051    0.9343   -0.1574 O   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7699   -1.7224    1.1619 O   0  0  0  1  0  0  0  0  0  0  0  0
+    2.6674   -2.3154    0.4885 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.3256   -3.6912    0.8073 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.2831   -4.3248    0.1430 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9629   -5.6418    0.4524 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.0482   -4.3710    1.7819 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7272   -5.6881    2.0909 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6846   -6.3238    1.4260 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0193   -1.6899   -0.3580 O   0  0  0  1  0  0  0  0  0  0  0  0
+    8.1257    0.1058    0.2004 O   0  0  0  1  0  0  0  0  0  0  0  0
+    6.9664    2.1325   -0.4975 O   0  0  0  1  0  0  0  0  0  0  0  0
+    6.9471   -0.0521    1.0447 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.4959    3.4469   -0.1447 C   0  0  0  1  0  0  0  0  0  0  0  0
+    8.1448    4.2632   -1.2208 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.4366    3.9483    0.9780 O   0  0  0  1  0  0  0  0  0  0  0  0
+    4.6074    1.4711   -1.2144 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7462    4.2725    0.7005 O   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  9  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  8  2  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  9 10  1  0  0  0  0
+ 10 11  1  0  0  0  0
+ 10 17  1  0  0  0  0
+ 11 12  1  0  0  0  0
+ 11 16  2  0  0  0  0
+ 12 13  2  0  0  0  0
+ 13 14  1  0  0  0  0
+ 14 15  2  0  0  0  0
+ 15 16  1  0  0  0  0
+ 17 19  1  0  0  0  0
+ 17 20  1  0  0  0  0
+ 18 19  1  0  0  0  0
+ 18 22  1  0  0  0  0
+ 19 21  2  0  0  0  0
+ 22 23  1  0  0  0  0
+ 22 24  1  0  0  0  0
+ 23 27  2  0  0  0  0
+ 23 28  1  0  0  0  0
+ 24 25  1  0  0  0  0
+ 25 26  1  0  0  0  0
+ 25 35  1  0  0  0  0
+ 25 45  1  0  0  0  0
+ 26 27  1  0  0  0  0
+ 26 29  1  0  0  0  0
+ 26 30  1  0  0  0  0
+ 27 31  1  0  0  0  0
+ 31 32  1  0  0  0  0
+ 31 40  1  0  0  0  0
+ 32 33  1  0  0  0  0
+ 32 44  2  0  0  0  0
+ 33 34  1  0  0  0  0
+ 33 36  1  0  0  0  0
+ 33 61  1  0  0  0  0
+ 34 35  1  0  0  0  0
+ 34 39  1  0  0  0  0
+ 35 46  1  0  0  0  0
+ 36 37  1  0  0  0  0
+ 36 62  1  0  0  0  0
+ 37 38  1  0  0  0  0
+ 38 39  1  0  0  0  0
+ 38 55  1  0  0  0  0
+ 39 56  1  0  0  0  0
+ 39 57  1  0  0  0  0
+ 40 41  1  0  0  0  0
+ 41 42  1  0  0  0  0
+ 41 43  2  0  0  0  0
+ 46 47  1  0  0  0  0
+ 47 48  1  0  0  0  0
+ 47 54  2  0  0  0  0
+ 48 49  1  0  0  0  0
+ 48 51  2  0  0  0  0
+ 49 50  2  0  0  0  0
+ 50 53  1  0  0  0  0
+ 51 52  1  0  0  0  0
+ 52 53  2  0  0  0  0
+ 55 57  1  0  0  0  0
+ 56 58  1  0  0  0  0
+ 58 59  1  0  0  0  0
+ 58 60  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi O_Tr2Tr2TrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe O_Tr2TrTrPi2 C_TrTrTrPi O_Te2Te2TeTe O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe O_Tr2TrTrPi2 C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi O_Tr2Tr2TrPi O_Te2Te2TeTe O_Tr2TrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi O_Tr2Tr2TrPi O_Te2Te2TeTe O_Tr2TrTrPi2 C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi C_TeTeTeTe O_Te2Te2TeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond AmideSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing ConjugatedDoubleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBondInRing ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond
+M  BCL CHI  10   S  17   S  22   S  25   S  31   S  33   R  34   R  35   S  36   R  38   S  39   S
+M  BCL DBI - - - - - - - - Z - - - - - - -
+M  END
+$$$$
+automatically builded mdl file by CMolecule::WriteInMDLFile
+  DSViewer          3D                             0
+
+ 62 68  0  0  0  0  0  0  0  0999 V2000
+   -1.9865    0.6772    3.2606 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -0.8311    1.0854    3.4102 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -2.7956    0.4879    4.5269 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -4.1410    0.1316    4.5501 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.8106   -0.0358    5.7570 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.1390    0.1551    6.9584 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.7987    0.5192    6.9459 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.1351    0.6847    5.7358 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.3937    0.4139    1.8825 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.5865   -0.2609    1.3399 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.7631   -1.6654    1.9057 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -5.0291   -2.2419    1.9267 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -5.2061   -3.5231    2.4358 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.1159   -4.2344    2.9225 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.8486   -3.6642    2.8980 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.6733   -2.3828    2.3893 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.2543   -0.4889   -0.1572 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7856   -0.5128    0.1034 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -1.9022    0.0048   -0.6099 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -3.3848   -1.8569   -0.5330 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.8115    0.8241   -1.5258 O   0  0  0  1  0  0  0  0  0  0  0  0
+    0.6377   -0.1621   -0.1427 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0401    1.3228   -0.0900 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.2799   -0.9086    1.0313 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6079   -0.3450    1.6715 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.1978    0.9978    2.1492 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.8172    1.8142    0.9365 C   0  0  0  1  0  0  0  0  0  0  0  0
+    0.6295    2.1783   -1.3004 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9474    0.8604    3.0756 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3021    1.6527    3.0150 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3891    3.1602    0.9180 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3772    3.1963   -0.2529 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.2350    2.5231    0.8510 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.6215    1.0243    0.0180 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0708   -0.3106    0.8924 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6944    2.8547    0.5944 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1734    2.3844    0.1383 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.5853    1.1410    1.0960 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2377    1.1794    0.4374 C   0  0  0  1  0  0  0  0  0  0  0  0
+    3.1040    3.4377    2.1255 O   0  0  0  1  0  0  0  0  0  0  0  0
+    4.4897    3.3357    1.9258 C   0  0  0  1  0  0  0  0  0  0  0  0
+    5.4236    3.6370    3.0566 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9464    2.9848    0.8308 O   0  0  0  1  0  0  0  0  0  0  0  0
+    3.1241    3.9973   -1.1593 O   0  0  0  1  0  0  0  0  0  0  0  0
+    2.8023   -1.1704    2.8172 O   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7699   -1.7224    1.1619 O   0  0  0  1  0  0  0  0  0  0  0  0
+    2.6674   -2.3154    0.4885 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.3256   -3.6912    0.8073 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.2831   -4.3248    0.1430 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9629   -5.6418    0.4524 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.0482   -4.3710    1.7819 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7272   -5.6881    2.0909 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.6846   -6.3238    1.4260 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0193   -1.6899   -0.3580 O   0  0  0  1  0  0  0  0  0  0  0  0
+    8.1257    0.1058    0.2004 O   0  0  0  1  0  0  0  0  0  0  0  0
+    6.9664    2.1325   -0.4975 O   0  0  0  1  0  0  0  0  0  0  0  0
+    6.9471   -0.0521    1.0447 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.4959    3.4469   -0.1447 C   0  0  0  1  0  0  0  0  0  0  0  0
+    8.1448    4.2632   -1.2208 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.4366    3.9483    0.9780 O   0  0  0  1  0  0  0  0  0  0  0  0
+    3.6548    3.2203    2.1406 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7462    4.2725    0.7005 O   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  9  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  8  2  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  9 10  1  0  0  0  0
+ 10 11  1  0  0  0  0
+ 10 17  1  0  0  0  0
+ 11 12  1  0  0  0  0
+ 11 16  2  0  0  0  0
+ 12 13  2  0  0  0  0
+ 13 14  1  0  0  0  0
+ 14 15  2  0  0  0  0
+ 15 16  1  0  0  0  0
+ 17 19  1  0  0  0  0
+ 17 20  1  0  0  0  0
+ 18 19  1  0  0  0  0
+ 18 22  1  0  0  0  0
+ 19 21  2  0  0  0  0
+ 22 23  1  0  0  0  0
+ 22 24  1  0  0  0  0
+ 23 27  2  0  0  0  0
+ 23 28  1  0  0  0  0
+ 24 25  1  0  0  0  0
+ 25 26  1  0  0  0  0
+ 25 35  1  0  0  0  0
+ 25 45  1  0  0  0  0
+ 26 27  1  0  0  0  0
+ 26 29  1  0  0  0  0
+ 26 30  1  0  0  0  0
+ 27 31  1  0  0  0  0
+ 31 32  1  0  0  0  0
+ 31 40  1  0  0  0  0
+ 32 33  1  0  0  0  0
+ 32 44  2  0  0  0  0
+ 33 34  1  0  0  0  0
+ 33 36  1  0  0  0  0
+ 33 61  1  0  0  0  0
+ 34 35  1  0  0  0  0
+ 34 39  1  0  0  0  0
+ 35 46  1  0  0  0  0
+ 36 37  1  0  0  0  0
+ 36 62  1  0  0  0  0
+ 37 38  1  0  0  0  0
+ 38 39  1  0  0  0  0
+ 38 55  1  0  0  0  0
+ 39 56  1  0  0  0  0
+ 39 57  1  0  0  0  0
+ 40 41  1  0  0  0  0
+ 41 42  1  0  0  0  0
+ 41 43  2  0  0  0  0
+ 46 47  1  0  0  0  0
+ 47 48  1  0  0  0  0
+ 47 54  2  0  0  0  0
+ 48 49  1  0  0  0  0
+ 48 51  2  0  0  0  0
+ 49 50  2  0  0  0  0
+ 50 53  1  0  0  0  0
+ 51 52  1  0  0  0  0
+ 52 53  2  0  0  0  0
+ 55 57  1  0  0  0  0
+ 56 58  1  0  0  0  0
+ 58 59  1  0  0  0  0
+ 58 60  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi O_Tr2Tr2TrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe O_Tr2TrTrPi2 C_TrTrTrPi O_Te2Te2TeTe O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe O_Tr2TrTrPi2 C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi O_Tr2Tr2TrPi O_Te2Te2TeTe O_Tr2TrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi O_Tr2Tr2TrPi O_Te2Te2TeTe O_Tr2TrTrPi2 C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi C_TeTeTeTe O_Te2Te2TeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond AmideSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing ConjugatedDoubleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBondInRing ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond
+M  BCL CHI  10   S  17   S  22   R  25   R  31   S  33   S  34   S  35   S  36   R  38   R  39   S
+M  BCL DBI - - - - - - - - Z - - - - - - -
+M  END
+$$$$
+automatically builded mdl file by CMolecule::WriteInMDLFile
+  DSViewer          3D                             0
+
+ 62 68  0  0  0  0  0  0  0  0999 V2000
+   -5.5699    0.1291   -3.0361 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -5.2651    0.2471   -4.2266 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -7.0400   -0.0870   -2.7429 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -7.5564   -0.3387   -1.4750 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.9228   -0.5131   -1.2865 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -9.7902   -0.4400   -2.3695 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -9.2840   -0.1979   -3.6402 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.9169   -0.0242   -3.8217 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.4673    0.2401   -2.0842 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.4679    0.3603   -0.6152 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -5.6711   -0.3272    0.0202 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -6.3541   -1.3090   -0.6904 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.4507   -1.9478   -0.1236 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.8661   -1.6093    1.1587 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.1830   -0.6329    1.8741 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.0871    0.0054    1.3058 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.2543   -0.4889   -0.1572 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7856   -0.5128    0.1034 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -1.9022    0.0048   -0.6099 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -3.3848   -1.8569   -0.5330 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.8115    0.8241   -1.5258 O   0  0  0  1  0  0  0  0  0  0  0  0
+    0.6377   -0.1621   -0.1427 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0401    1.3228   -0.0900 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.2799   -0.9086    1.0313 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6079   -0.3450    1.6715 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.1978    0.9978    2.1492 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.8172    1.8142    0.9365 C   0  0  0  1  0  0  0  0  0  0  0  0
+    0.6295    2.1783   -1.3004 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9474    0.8604    3.0756 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3021    1.6527    3.0150 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3891    3.1602    0.9180 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3772    3.1963   -0.2529 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.7885    2.6582   -0.6083 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.5624    1.2197    0.3763 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0708   -0.3106    0.8924 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6944    2.8547    0.5944 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1734    2.3844    0.1383 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.5853    1.1410    1.0960 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2377    1.1794    0.4374 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.3811    4.1500    0.6936 O   0  0  0  1  0  0  0  0  0  0  0  0
+    1.8949    5.4434    0.8769 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.0123    6.6297    0.6413 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.0637    5.6129    1.2459 O   0  0  0  1  0  0  0  0  0  0  0  0
+    3.1241    3.9973   -1.1593 O   0  0  0  1  0  0  0  0  0  0  0  0
+    2.8023   -1.1704    2.8172 O   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8718   -1.6901    1.3547 O   0  0  0  1  0  0  0  0  0  0  0  0
+    2.7868   -2.4312    0.8124 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.5465   -3.7710    1.3207 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.5243   -4.5475    0.7899 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3014   -5.8291    1.2804 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3458   -4.2724    2.3423 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1222   -5.5542    2.8324 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1000   -6.3329    2.3013 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0699   -1.9622   -0.0787 O   0  0  0  1  0  0  0  0  0  0  0  0
+    8.1257    0.1058    0.2004 O   0  0  0  1  0  0  0  0  0  0  0  0
+    6.9664    2.1325   -0.4975 O   0  0  0  1  0  0  0  0  0  0  0  0
+    6.9471   -0.0521    1.0447 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.4959    3.4469   -0.1447 C   0  0  0  1  0  0  0  0  0  0  0  0
+    8.1448    4.2632   -1.2208 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.4366    3.9483    0.9780 O   0  0  0  1  0  0  0  0  0  0  0  0
+    5.3193    3.5875   -1.7660 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2214    1.8560    1.4905 O   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  9  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  8  2  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  9 10  1  0  0  0  0
+ 10 11  1  0  0  0  0
+ 10 17  1  0  0  0  0
+ 11 12  1  0  0  0  0
+ 11 16  2  0  0  0  0
+ 12 13  2  0  0  0  0
+ 13 14  1  0  0  0  0
+ 14 15  2  0  0  0  0
+ 15 16  1  0  0  0  0
+ 17 19  1  0  0  0  0
+ 17 20  1  0  0  0  0
+ 18 19  1  0  0  0  0
+ 18 22  1  0  0  0  0
+ 19 21  2  0  0  0  0
+ 22 23  1  0  0  0  0
+ 22 24  1  0  0  0  0
+ 23 27  2  0  0  0  0
+ 23 28  1  0  0  0  0
+ 24 25  1  0  0  0  0
+ 25 26  1  0  0  0  0
+ 25 35  1  0  0  0  0
+ 25 45  1  0  0  0  0
+ 26 27  1  0  0  0  0
+ 26 29  1  0  0  0  0
+ 26 30  1  0  0  0  0
+ 27 31  1  0  0  0  0
+ 31 32  1  0  0  0  0
+ 31 40  1  0  0  0  0
+ 32 33  1  0  0  0  0
+ 32 44  2  0  0  0  0
+ 33 34  1  0  0  0  0
+ 33 36  1  0  0  0  0
+ 33 61  1  0  0  0  0
+ 34 35  1  0  0  0  0
+ 34 39  1  0  0  0  0
+ 35 46  1  0  0  0  0
+ 36 37  1  0  0  0  0
+ 36 62  1  0  0  0  0
+ 37 38  1  0  0  0  0
+ 38 39  1  0  0  0  0
+ 38 55  1  0  0  0  0
+ 39 56  1  0  0  0  0
+ 39 57  1  0  0  0  0
+ 40 41  1  0  0  0  0
+ 41 42  1  0  0  0  0
+ 41 43  2  0  0  0  0
+ 46 47  1  0  0  0  0
+ 47 48  1  0  0  0  0
+ 47 54  2  0  0  0  0
+ 48 49  1  0  0  0  0
+ 48 51  2  0  0  0  0
+ 49 50  2  0  0  0  0
+ 50 53  1  0  0  0  0
+ 51 52  1  0  0  0  0
+ 52 53  2  0  0  0  0
+ 55 57  1  0  0  0  0
+ 56 58  1  0  0  0  0
+ 58 59  1  0  0  0  0
+ 58 60  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi O_Tr2Tr2TrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe O_Tr2TrTrPi2 C_TrTrTrPi O_Te2Te2TeTe O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe O_Tr2TrTrPi2 C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi O_Tr2Tr2TrPi O_Te2Te2TeTe O_Tr2TrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi O_Tr2Tr2TrPi O_Te2Te2TeTe O_Tr2TrTrPi2 C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi C_TeTeTeTe O_Te2Te2TeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond AmideSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing ConjugatedDoubleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBondInRing ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond
+M  BCL CHI  10   R  17   R  22   R  25   R  31   R  33   R  34   R  35   R  36   S  38   R  39   S
+M  BCL DBI - - - - - - - - Z - - - - - - -
+M  END
+$$$$
+automatically builded mdl file by CMolecule::WriteInMDLFile
+  DSViewer          3D                             0
+
+ 62 68  0  0  0  0  0  0  0  0999 V2000
+   -5.5699    0.1291   -3.0361 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -5.2651    0.2471   -4.2266 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -7.0400   -0.0870   -2.7429 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -7.5564   -0.3387   -1.4750 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.9228   -0.5131   -1.2865 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -9.7902   -0.4400   -2.3695 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -9.2840   -0.1979   -3.6402 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.9169   -0.0242   -3.8217 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.4673    0.2401   -2.0842 N   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.4679    0.3603   -0.6152 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -5.6711   -0.3272    0.0202 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -6.3541   -1.3090   -0.6904 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.4507   -1.9478   -0.1236 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.8661   -1.6093    1.1587 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.1830   -0.6329    1.8741 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.0871    0.0054    1.3058 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.2543   -0.4889   -0.1572 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7856   -0.5128    0.1034 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -1.9022    0.0048   -0.6099 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -3.3848   -1.8569   -0.5330 O   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.8115    0.8241   -1.5258 O   0  0  0  1  0  0  0  0  0  0  0  0
+    0.6377   -0.1621   -0.1427 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0401    1.3228   -0.0900 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.2799   -0.9086    1.0313 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4734    0.1231    0.9836 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.1978    0.9978    2.1492 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.8172    1.8142    0.9365 C   0  0  0  1  0  0  0  0  0  0  0  0
+    0.6295    2.1783   -1.3004 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.9474    0.8604    3.0756 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3021    1.6527    3.0150 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.3891    3.1602    0.9180 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3772    3.1963   -0.2529 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.2291    2.8321    0.9918 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.5624    1.2197    0.3763 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0708   -0.3106    0.8924 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6944    2.8547    0.5944 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1734    2.3844    0.1383 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.2652    0.9601   -0.6337 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.9816    0.4389   -0.0577 C   0  0  0  1  0  0  0  0  0  0  0  0
+    3.1040    3.4377    2.1255 O   0  0  0  1  0  0  0  0  0  0  0  0
+    4.4897    3.3357    1.9258 C   0  0  0  1  0  0  0  0  0  0  0  0
+    5.4236    3.6370    3.0566 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.9464    2.9848    0.8308 O   0  0  0  1  0  0  0  0  0  0  0  0
+    3.1241    3.9973   -1.1593 O   0  0  0  1  0  0  0  0  0  0  0  0
+    2.1987    0.8973   -0.1813 O   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8643   -1.7062    1.2997 O   0  0  0  1  0  0  0  0  0  0  0  0
+    2.7806   -2.4221    0.7219 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.5326   -3.7797    1.1764 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.5115   -4.5316    0.6093 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2812   -5.8304    1.0483 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3234   -4.3229    2.1831 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.0923   -5.6219    2.6218 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0712   -6.3760    2.0542 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0712   -1.9166   -0.1550 O   0  0  0  1  0  0  0  0  0  0  0  0
+    8.1257    0.1058    0.2004 O   0  0  0  1  0  0  0  0  0  0  0  0
+    5.7110    0.9038   -1.4804 O   0  0  0  1  0  0  0  0  0  0  0  0
+    6.9471   -0.0521    1.0447 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.3316    0.0542   -2.6058 C   0  0  0  1  0  0  0  0  0  0  0  0
+    5.1528    0.6932   -3.9494 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1598   -1.1629   -2.5387 O   0  0  0  1  0  0  0  0  0  0  0  0
+    3.7507    3.9971    1.9403 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.2214    1.8560    1.4905 O   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  9  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  8  2  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  9 10  1  0  0  0  0
+ 10 11  1  0  0  0  0
+ 10 17  1  0  0  0  0
+ 11 12  1  0  0  0  0
+ 11 16  2  0  0  0  0
+ 12 13  2  0  0  0  0
+ 13 14  1  0  0  0  0
+ 14 15  2  0  0  0  0
+ 15 16  1  0  0  0  0
+ 17 19  1  0  0  0  0
+ 17 20  1  0  0  0  0
+ 18 19  1  0  0  0  0
+ 18 22  1  0  0  0  0
+ 19 21  2  0  0  0  0
+ 22 23  1  0  0  0  0
+ 22 24  1  0  0  0  0
+ 23 27  2  0  0  0  0
+ 23 28  1  0  0  0  0
+ 24 25  1  0  0  0  0
+ 25 26  1  0  0  0  0
+ 25 35  1  0  0  0  0
+ 25 45  1  0  0  0  0
+ 26 27  1  0  0  0  0
+ 26 29  1  0  0  0  0
+ 26 30  1  0  0  0  0
+ 27 31  1  0  0  0  0
+ 31 32  1  0  0  0  0
+ 31 40  1  0  0  0  0
+ 32 33  1  0  0  0  0
+ 32 44  2  0  0  0  0
+ 33 34  1  0  0  0  0
+ 33 36  1  0  0  0  0
+ 33 61  1  0  0  0  0
+ 34 35  1  0  0  0  0
+ 34 39  1  0  0  0  0
+ 35 46  1  0  0  0  0
+ 36 37  1  0  0  0  0
+ 36 62  1  0  0  0  0
+ 37 38  1  0  0  0  0
+ 38 39  1  0  0  0  0
+ 38 55  1  0  0  0  0
+ 39 56  1  0  0  0  0
+ 39 57  1  0  0  0  0
+ 40 41  1  0  0  0  0
+ 41 42  1  0  0  0  0
+ 41 43  2  0  0  0  0
+ 46 47  1  0  0  0  0
+ 47 48  1  0  0  0  0
+ 47 54  2  0  0  0  0
+ 48 49  1  0  0  0  0
+ 48 51  2  0  0  0  0
+ 49 50  2  0  0  0  0
+ 50 53  1  0  0  0  0
+ 51 52  1  0  0  0  0
+ 52 53  2  0  0  0  0
+ 55 57  1  0  0  0  0
+ 56 58  1  0  0  0  0
+ 58 59  1  0  0  0  0
+ 58 60  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi O_Tr2Tr2TrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe O_Tr2TrTrPi2 C_TrTrTrPi O_Te2Te2TeTe O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe O_Tr2TrTrPi2 C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi O_Tr2Tr2TrPi O_Te2Te2TeTe O_Tr2TrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi O_Tr2Tr2TrPi O_Te2Te2TeTe O_Tr2TrTrPi2 C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi C_TeTeTeTe O_Te2Te2TeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond AmideSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing ConjugatedDoubleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBond NonConjugatedSingleBondInRing ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBondInRing ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond
+M  BCL CHI  10   R  17   R  22   R  25   S  31   S  33   S  34   R  35   S  36   S  38   S  39   R
+M  BCL DBI - - - - - - - - Z - - - - - - -
+M  END
+$$$$

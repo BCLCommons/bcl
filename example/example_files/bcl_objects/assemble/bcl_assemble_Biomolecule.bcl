@@ -1,0 +1,18 @@
+bcl::assemble::Biomolecule
+  bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+    4
+    bcl::biol::AtomTypes::Enum
+      "N"
+    bcl::biol::AtomTypes::Enum
+      "CA"
+    bcl::biol::AtomTypes::Enum
+      "C"
+    bcl::biol::AtomTypes::Enum
+      "O"
+
+  bcl::util::ShPtr<bcl::quality::SuperimposeInterface>
+    12345678
+    bcl::quality::RMSD
+      1
+      0
+  1

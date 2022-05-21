@@ -1,0 +1,80 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec DescriptorMoleculeRDFMaxSignCode 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> DescriptorMoleculeRDFMaxSignCode
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: DescriptorMoleculeRDFMaxSignCode ====================
+=std=bcl=> successful example check:  copy_rdf_code.GetAtomProperty().GetString() == Atom_Vcharge
+=std=bcl=> successful example check:
+               rdf_code.GetAtomProperty().GetAlias() == descriptor::AtomVcharge().GetAlias() ==
+              Atom_Vcharge
+=std=bcl=> successful example check:  rdf_code.GetNumberSteps() == 48
+=std=bcl=> successful example check:  rdf_code.GetStepSize() == float( 0.25) == 0.25
+=std=bcl=> successful example check:  rdf_code.GetTemperature() == 100.0 == 100
+=std=bcl=> successful example check:  vector_vdw_rdf_code.GetSize() == 144
+=std=bcl=> successful example check:
+               vector_vdw_rdf_code == expected_vector
+              output of result suppressed (result was 1390 bytes), set message verbosity to Detail to override  (+/- 0.001)
+=std=bcl=> vector: bcl::linal::Vector<float>
+  144
+  0.217536	0.24662	8.40779e-45	0.000419943	0.000476089	8.26899e-26	3.02113e-12	3.42504e-12	3.08128e-12	3.74536e-20	1.27651e-05	0.000427884	3.14333e-09	0.0066204	0.221432	0.00166831	0.000166119	0.381941	0.00476596	0.134444	0.378399	0.000301461	0.0224303	0.00987728	0.000450618	0.109057	0.096406	0.320257	0.0820786	0.067193	0.180689	0.257045	0.111479	0.138833	0.072364	0.325261	0.309336	0.155437	0.247711	0.305216	0.0686165	0.132608	0.0318441	0.119621	0.195776	0.234582	0.292465	0.194417	0.135161	0.271454	0.352673	0.232581	0.202716	0.246859	0.234459	0.0798443	0.258571	0.275106	0.0970293	0.142898	0.0604441	0.106929	0.283127	0.115704	0.0740058	0.27122	0.290794	0.141939	0.26128	0.294745	0.191366	0.205961	0.250353	0.242662	0.368423	0.124583	0.175643	0.37229	0.318329	0.163743	0.367409	0.197599	0.361858	0.360316	0.257286	0.240752	0.351964	0.158375	0.255647	0.43439	0.226299	0.45522	0.362278	0.326355	0.0777621	0.327598	0.291577	0.0971583	0.0881306	0.162262	0.235276	0.295953	0.112741	0.285231	0.257146	0.28054	0.0867511	0.250906	0.120675	0.162176	0.432062	0.301646	0.129258	0.375354	0.297682	0.0655743	0.330184	0.281628	0.172203	0.375054	0.288392	0.175328	0.307113	0.224725	0.343976	0.109448	0.179459	0.0758988	0.383062	0.287009	0.11805	0.194181	0.264815	0.0776482	0.292432	0.0445708	0.0619357	0.196035	0.0568433	0.128195	0.113888	0.194118	0.226438	0.0728552	
+=std=bcl=> MoleculeRDFMaxSignCode I/O test succeeded:
+              TestBCLObjectIOForSymmetry( rdf_code, descriptor::MoleculeRDFMaxSignCode( atom_property)) == 1
+=std=bcl::app=> BCL Example | END  : DescriptorMoleculeRDFMaxSignCode ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>          success      error error_string 
+DescriptorMoleculeRDFMaxSignCode_total          8          0              
+total                                           8          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

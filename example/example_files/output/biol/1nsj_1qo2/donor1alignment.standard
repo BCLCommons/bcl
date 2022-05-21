@@ -1,0 +1,25 @@
+23
+             1NSJ          1QO2         
+    1  0.000     3 V VAL E     * * *** *
+    2 -0.834     4 V VAL E     3 R ARG E
+    3  0.449     5 P PRO E     4 V VAL E
+    4  0.158     6 A ALA E     5 K LYS E
+    5  1.323     7 I ILE E     6 I ILE E
+    6  0.000     8 D ASP E     * * *** *
+    7  0.000     9 L LEU E     * * *** *
+    8  0.000    10 F PHE E     * * *** *
+    9  0.000     * * *** *     * * *** *
+   10  0.000     * * *** *    12 L LEU H
+   11  0.000     * * *** *    13 E GLU H
+   12  1.323    31 D ASP H    14 D ASP H
+   13  0.289    32 P PRO H    15 A ALA H
+   14  0.417    33 V VAL H    16 L LEU H
+   15 -0.989    34 E GLU H    17 F PHE H
+   16 -0.495    35 L LEU H    18 S SER H
+   17  1.323    36 V VAL H    19 V VAL H
+   18  1.323    37 E GLU H    20 E GLU H
+   19  0.397    38 K LYS H    21 S SER H
+   20  0.000    39 L LEU H     * * *** *
+   21  0.000    40 I ILE H     * * *** *
+   22  0.000    41 E GLU H     * * *** *
+   23  0.000    42 E GLU H     * * *** *

@@ -1,0 +1,84 @@
+./build/linux64_release/bin/bcl-example-apps-static.exe Examples -exec AppDescriptorGenerateDataset 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AppDescriptorGenerateDataset
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AppDescriptorGenerateDataset ====================
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+descriptor:GenerateDataset -feature_labels example/example_files/input/model/code_features.object -result_labels example/example_files/input/model/code_result_file.object -source 'SdfFile( filename=/dors/meilerlab/apps/bcl/app_example_files/descriptor:GenerateDataset/AID891_actives.sdf)' 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  generate_dataset_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: descriptor:GenerateDataset -feature_labels example/example_files/input/model/code_features.object -output example/example_files/output/model/generated_code_891_file.bin -result_labels example/example_files/input/model/code_result_file.object -source 'SdfFile( filename=/dors/meilerlab/apps/bcl/app_example_files/descriptor:GenerateDataset/AID891_actives.sdf)' 
+
+=std=bcl::model=> Values per feature: 348 Values per result: 1 Characters per id: 0 Nominal dataset # feature rows: 1334
+=std=bcl::chemistry=> finished reading ensemble with 1334 molecules.
+=std=bcl::model=> Actual final dataset size: 1334
+=std=bcl=> Run completed of descriptor:GenerateDataset -feature_labels example/example_files/input/model/code_features.object -output example/example_files/output/model/generated_code_891_file.bin -result_labels example/example_files/input/model/code_result_file.object -source 'SdfFile( filename=/dors/meilerlab/apps/bcl/app_example_files/descriptor:GenerateDataset/AID891_actives.sdf)' 
+, return status was: 0
+Command line took 22.7594 sec to run
+=std=bcl=> successful example check:  generate_dataset_helper.RunCommand() == 0
+=std=bcl=> Code generation produces correct binary file when molecules are loaded from an sdf file test succeeded:
+              io::File::BinaryFilesMatch( generated_891_descriptors_file_filename, correct_891_descriptors_filename_file) || io::File::BinaryFilesMatch( generated_891_descriptors_file_filename, correct_891_descriptors_filename_file_win) || io::File::BinaryFilesMatch( generated_891_descriptors_file_filename, correct_891_descriptors_filename_file_mac)
+              == 1
+=std=bcl::app=> BCL Example | END  : AppDescriptorGenerateDataset ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>      success      error error_string 
+AppDescriptorGenerateDataset_total          3          0              
+total                                       3          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:22, peak virtual memory used: 140 MB, peak physical RAM used: 81 MB

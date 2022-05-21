@@ -1,0 +1,23 @@
+cluster_0000_final.pdb 0.429461
+cluster_0001_final.pdb 0.138705
+cluster_0002_final.pdb 0.119508
+cluster_0003_final.pdb 1.60168
+cluster_0004_final.pdb 2.883
+cluster_0005_final.pdb 0.549634
+cluster_0006_final.pdb 2.26794
+cluster_0007_final.pdb 2.31929
+cluster_0008_final.pdb 2.40771
+cluster_0009_final.pdb 1.86806
+cluster_0010_final.pdb 0.320237
+cluster_0010_final.pdb 100
+cluster_0011_final.pdb 1.56955
+cluster_0012_final.pdb 0.983533 extra columns
+cluster_0013_final.pdb 2.51653
+cluster_0014_final.pdb 1.87142
+cluster_0015_final.pdb 2.13617
+cluster_0016_final.pdb 2.45725
+too_few_columns
+cluster_0017_final.pdb 1.89071
+cluster_0018_final.pdb 0.170274
+cluster_0019_final.pdb 0.173507
+cluster_0020_final.pdb -0.103498

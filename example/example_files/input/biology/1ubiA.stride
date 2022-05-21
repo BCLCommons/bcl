@@ -1,0 +1,129 @@
+REM  --------------------------------------------------------------------  1UBI
+REM                                                                        1UBI
+REM  STRIDE: Knowledge-based secondary structure assignment                1UBI
+REM  Please cite: D.Frishman & P.Argos, Proteins XX, XXX-XXX, 1995         1UBI
+REM                                                                        1UBI
+REM  Residue accessible surface area calculation                           1UBI
+REM  Please cite: F.Eisenhaber & P.Argos, J.Comp.Chem. 14, 1272-1280, 1993 1UBI
+REM               F.Eisenhaber et al., J.Comp.Chem., 1994, submitted       1UBI
+REM                                                                        1UBI
+REM  ------------------------ General information -----------------------  1UBI
+REM                                                                        1UBI
+HDR  CHROMOSOMAL PROTEIN                     03-FEB-94   1UBI              1UBI
+CMP  MOL_ID: 1;                                                            1UBI
+CMP   MOLECULE: UBIQUITIN;                                                 1UBI
+CMP   CHAIN: A;                                                            1UBI
+CMP   ENGINEERED: YES                                                      1UBI
+SRC  MOL_ID: 1;                                                            1UBI
+SRC   ORGANISM_SCIENTIFIC: HOMO SAPIENS                                    1UBI
+AUT  D.ALEXEEV,S.M.BURY,M.A.TURNER,O.M.OGUNJOBI,T.W.MUIR,                  1UBI
+AUT   R.RAMAGE,L.SAWYER                                                    1UBI
+REM                                                                        1UBI
+REM  -------------------- Secondary structure summary -------------------  1UBI
+REM                                                                        1UBI
+CHN  /home/mendenjl/workspace/bcl/example/exa A                            1UBI
+REM                                                                        1UBI
+REM                .         .         .         .         .               1UBI
+SEQ  1    MQIFVKTLTGKTITLEVEPSDTIENVKAKIQDKEGIPPDQQRLIFAGKQL   50          1UBI
+STR        EEEEETTTT EEEEE TTTTBHHHHHHHHHHHH   GGGEEEEETTEE                1UBI
+REM                                                                        1UBI
+REM                .         .                                             1UBI
+SEQ  51   EDGRTLSDYNIQKESTLHLVLRLRGG                           76          1UBI
+STR       TTTTBGGGG  TTTTEEEEEE                                            1UBI
+REM                                                                        1UBI
+REM                                                                        1UBI
+REM                                                                        1UBI
+LOC  AlphaHelix   ILE    23 A      GLU     34 A                            1UBI
+LOC  310Helix     PRO    38 A      GLN     40 A                            1UBI
+LOC  310Helix     LEU    56 A      TYR     59 A                            1UBI
+LOC  Strand       GLN     2 A      LYS      6 A                            1UBI
+LOC  Strand       THR    12 A      GLU     16 A                            1UBI
+LOC  Strand       GLN    41 A      PHE     45 A                            1UBI
+LOC  Strand       LYS    48 A      GLN     49 A                            1UBI
+LOC  Strand       THR    66 A      LEU     71 A                            1UBI
+LOC  TurnI        THR     7 A      GLY     10 A                            1UBI
+LOC  TurnI        GLU    18 A      ASP     21 A                            1UBI
+LOC  TurnIV       ILE    44 A      GLY     47 A                            1UBI
+LOC  TurnI'       PHE    45 A      LYS     48 A                            1UBI
+LOC  TurnI        GLU    51 A      ARG     54 A                            1UBI
+LOC  TurnII       GLN    62 A      SER     65 A                            1UBI
+REM                                                                        1UBI
+REM  --------------- Detailed secondary structure assignment-------------  1UBI
+REM                                                                        1UBI
+REM  |---Residue---|    |--Structure--|   |-Phi-|   |-Psi-|  |-Area-|      1UBI
+ASG  MET A    1    1    C          Coil    360.00    153.55      53.9      1UBI
+ASG  GLN A    2    2    E        Strand    -93.07    132.57      76.3      1UBI
+ASG  ILE A    3    3    E        Strand   -129.90    159.79       0.0      1UBI
+ASG  PHE A    4    4    E        Strand   -111.92    134.74      52.9      1UBI
+ASG  VAL A    5    5    E        Strand   -115.50    106.64       0.0      1UBI
+ASG  LYS A    6    6    E        Strand    -89.53    121.49     102.3      1UBI
+ASG  THR A    7    7    T          Turn    -95.07    170.62      25.4      1UBI
+ASG  LEU A    8    8    T          Turn    -72.95    -11.46     137.3      1UBI
+ASG  THR A    9    9    T          Turn    -95.40      4.06     123.3      1UBI
+ASG  GLY A   10   10    T          Turn     87.72     14.39      68.4      1UBI
+ASG  LYS A   11   11    C          Coil   -102.54    131.58      95.2      1UBI
+ASG  THR A   12   12    E        Strand   -112.77    128.13      65.7      1UBI
+ASG  ILE A   13   13    E        Strand   -107.86    136.57       4.9      1UBI
+ASG  THR A   14   14    E        Strand    -96.45    138.28      59.4      1UBI
+ASG  LEU A   15   15    E        Strand   -128.59    149.12       8.7      1UBI
+ASG  GLU A   16   16    E        Strand   -108.18    114.37     154.1      1UBI
+ASG  VAL A   17   17    C          Coil   -136.94    167.85       3.7      1UBI
+ASG  GLU A   18   18    T          Turn   -116.55    142.21     110.6      1UBI
+ASG  PRO A   19   19    T          Turn    -55.56    -18.03      47.1      1UBI
+ASG  SER A   20   20    T          Turn    -83.60     -4.78      89.0      1UBI
+ASG  ASP A   21   21    T          Turn    -74.21    143.66      36.7      1UBI
+ASG  THR A   22   22    B        Bridge    -82.13    161.59      45.2      1UBI
+ASG  ILE A   23   23    H    AlphaHelix    -63.93    -37.84       0.2      1UBI
+ASG  GLU A   24   24    H    AlphaHelix    -56.99    -40.24     131.9      1UBI
+ASG  ASN A   25   25    H    AlphaHelix    -70.91    -37.89      52.9      1UBI
+ASG  VAL A   26   26    H    AlphaHelix    -62.50    -43.25       0.2      1UBI
+ASG  LYS A   27   27    H    AlphaHelix    -61.99    -34.15      15.2      1UBI
+ASG  ALA A   28   28    H    AlphaHelix    -68.64    -37.54      43.9      1UBI
+ASG  LYS A   29   29    H    AlphaHelix    -63.89    -42.31      65.5      1UBI
+ASG  ILE A   30   30    H    AlphaHelix    -63.98    -40.06       0.6      1UBI
+ASG  GLN A   31   31    H    AlphaHelix    -64.51    -43.67      85.1      1UBI
+ASG  ASP A   32   32    H    AlphaHelix    -58.85    -38.80     150.4      1UBI
+ASG  LYS A   33   33    H    AlphaHelix    -94.20    -28.19     105.4      1UBI
+ASG  GLU A   34   34    H    AlphaHelix   -119.07    -11.04      75.2      1UBI
+ASG  GLY A   35   35    C          Coil     84.09      5.81      51.6      1UBI
+ASG  ILE A   36   36    C          Coil    -79.37    119.24      31.9      1UBI
+ASG  PRO A   37   37    C          Coil    -59.41    136.46      44.7      1UBI
+ASG  PRO A   38   38    G      310Helix    -56.22    -34.93      43.1      1UBI
+ASG  ASP A   39   39    G      310Helix    -64.42    -18.44      88.4      1UBI
+ASG  GLN A   40   40    G      310Helix    -92.33    -10.51      51.5      1UBI
+ASG  GLN A   41   41    E        Strand    -84.81    130.14       0.0      1UBI
+ASG  ARG A   42   42    E        Strand   -128.38    107.62      91.8      1UBI
+ASG  LEU A   43   43    E        Strand    -96.10    131.08       0.8      1UBI
+ASG  ILE A   44   44    E        Strand   -122.56    130.93      30.9      1UBI
+ASG  PHE A   45   45    E        Strand   -143.59    128.46      38.9      1UBI
+ASG  ALA A   46   46    T          Turn     50.84     44.03      67.8      1UBI
+ASG  GLY A   47   47    T          Turn     71.24      9.69      78.1      1UBI
+ASG  LYS A   48   48    E        Strand   -112.70    140.02      99.8      1UBI
+ASG  GLN A   49   49    E        Strand    -84.60    122.20     102.6      1UBI
+ASG  LEU A   50   50    C          Coil    -75.34    133.83       5.8      1UBI
+ASG  GLU A   51   51    T          Turn    -95.63    133.42     128.5      1UBI
+ASG  ASP A   52   52    T          Turn    -45.16    -45.68      67.4      1UBI
+ASG  GLY A   53   53    T          Turn    -75.38    -16.95      48.0      1UBI
+ASG  ARG A   54   54    T          Turn    -82.58    164.18     116.5      1UBI
+ASG  THR A   55   55    B        Bridge   -103.38    166.02      28.1      1UBI
+ASG  LEU A   56   56    G      310Helix    -62.28    -32.93       0.0      1UBI
+ASG  SER A   57   57    G      310Helix    -66.14    -31.41      64.8      1UBI
+ASG  ASP A   58   58    G      310Helix    -57.65    -32.62      90.0      1UBI
+ASG  TYR A   59   59    G      310Helix    -96.76     -0.23      39.5      1UBI
+ASG  ASN A   60   60    C          Coil     63.40     35.80     119.7      1UBI
+ASG  ILE A   61   61    C          Coil    -77.27    112.56       5.1      1UBI
+ASG  GLN A   62   62    T          Turn    -99.28    169.73     125.3      1UBI
+ASG  LYS A   63   63    T          Turn    -53.65    139.52     138.0      1UBI
+ASG  GLU A   64   64    T          Turn     72.71     17.98     112.3      1UBI
+ASG  SER A   65   65    T          Turn    -74.17    157.13      21.3      1UBI
+ASG  THR A   66   66    E        Strand   -116.87    122.32      58.0      1UBI
+ASG  LEU A   67   67    E        Strand    -97.86    150.73       0.4      1UBI
+ASG  HIS A   68   68    E        Strand   -104.81    129.17      80.8      1UBI
+ASG  LEU A   69   69    E        Strand   -105.23    116.89       4.9      1UBI
+ASG  VAL A   70   70    E        Strand   -113.08    133.55      31.3      1UBI
+ASG  LEU A   71   71    E        Strand    -92.24    138.01      80.0      1UBI
+ASG  ARG A   72   72    C          Coil   -122.64     96.90     105.9      1UBI
+ASG  LEU A   73   73    C          Coil    -81.23    147.21     119.5      1UBI
+ASG  ARG A   74   74    C          Coil    -99.06     93.88     211.3      1UBI
+ASG  GLY A   75   75    C          Coil    120.41    125.56      72.9      1UBI
+ASG  GLY A   76   76    C          Coil    174.16    360.00     153.5      1UBI

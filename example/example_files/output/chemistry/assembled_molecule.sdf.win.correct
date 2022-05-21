@@ -1,0 +1,108 @@
+
+ABcorina  11250611113D 1   1.00000     0.00000 
+CORINA evaluation license 3.40 0066  02.08.2006
+ 22 24  0  0  0  0  0  0  0  0999 V2000
+   -1.2713    2.2185    3.1340 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -2.5662    2.0420    3.9434 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -0.9870    3.5294    2.3419 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -0.4244    1.2858    3.1108 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -6.4494    1.6744    5.6013 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -0.3158    3.5294    1.1078 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.4055    4.7143    2.8700 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.7952    1.3109    5.1545 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.6243    2.6975    3.3464 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -5.1166    1.7899    5.0684 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -4.8718    2.5714    3.9721 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -4.0585    1.1092    5.6596 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.1133    5.8991    2.1525 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0790    4.6891    0.3846 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.7070    0.8521    6.7549 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -0.4738    5.8991    0.9069 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -0.2253    7.1867    0.1603 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.0067   -0.3360    6.9400 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.6566    1.2382    7.6923 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.9034    0.4425    8.8074 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.2621   -1.1258    8.0491 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.2085   -0.7403    8.9798 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  2  0  0  0  0
+  2  8  2  0  0  0  0
+  2  9  1  0  0  0  0
+  3  6  2  0  0  0  0
+  3  7  1  0  0  0  0
+  5 10  1  0  0  0  0
+  5 15  1  0  0  0  0
+  6 14  1  0  0  0  0
+  7 13  2  0  0  0  0
+  8 12  1  0  0  0  0
+  9 11  2  0  0  0  0
+ 10 11  1  0  0  0  0
+ 10 12  2  0  0  0  0
+ 13 16  1  0  0  0  0
+ 14 16  2  0  0  0  0
+ 15 18  2  0  0  0  0
+ 15 19  1  0  0  0  0
+ 16 17  1  0  0  0  0
+ 18 21  1  0  0  0  0
+ 19 20  2  0  0  0  0
+ 20 22  1  0  0  0  0
+ 21 22  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi O_Tr2Tr2TrPi O_Tr2TrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND ConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond ConjugatedSingleBond ConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond
+M  BCL DBI - - - - - - - - - -
+M  END
+$$$$
+
+
+
+ 22 22  0  0  0  0  0  0  0  0999 V2000
+    6.3074   26.5212    9.0178 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7183   25.5709    8.1935 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6213   27.0177   10.0989 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.3377   26.5715   10.3672 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.4357   25.1245    8.4731 C   0  0  0  1  0  0  0  0  0  0  0  0
+    3.7310   25.6187    9.5516 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.3236   25.1438    9.8469 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.6179   27.1016   11.5089 N   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8301   24.1304    7.6254 O   0  0  0  1  0  0  0  0  0  0  0  0
+    6.3210   28.1378   11.0713 S   0  0  0  1  0  0  0  0  0  0  0  0
+    2.0556   25.2396   12.2962 S   0  0  0  1  0  0  0  0  0  0  0  0
+    2.2742   26.6345   11.7897 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.1419   27.5158   11.5810 N   0  0  0  1  0  0  0  0  0  0  0  0
+   -0.2018   27.0487   11.8618 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -1.1858   27.8146   11.6804 O   0  0  0  1  0  0  0  0  0  0  0  0
+   -0.4175   25.6725   12.3616 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.3488   28.8363   11.1015 N   0  0  0  1  0  0  0  0  0  0  0  0
+    0.3492   29.6143   10.9172 N   0  0  0  1  0  0  0  0  0  0  0  0
+    0.5634   30.9813   10.4209 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9629   24.8853    6.7255 C   0  0  0  0  0  0  0  0  0  0  0  0
+    8.5698   29.1545    9.8358 N   0  0  0  1  0  0  0  0  0  0  0  0
+    7.6247   28.7272   10.3550 C   0  0  0  1  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  2  5  1  0  0  0  0
+  3  4  2  0  0  0  0
+  3 10  1  0  0  0  0
+  4  6  1  0  0  0  0
+  4  8  1  0  0  0  0
+  5  6  2  0  0  0  0
+  5  9  1  0  0  0  0
+  6  7  1  0  0  0  0
+  8 12  1  0  0  0  0
+  9 20  1  0  0  0  0
+ 10 22  1  0  0  0  0
+ 11 12  2  0  0  0  0
+ 12 13  1  0  0  0  0
+ 13 14  1  0  0  0  0
+ 13 17  1  0  0  0  0
+ 14 15  2  0  0  0  0
+ 14 16  1  0  0  0  0
+ 17 18  2  0  0  0  0
+ 18 19  1  0  0  0  0
+ 21 22  3  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe N_TrTrTrPi2 O_Te2Te2TeTe S_Te2Te2TeTe S_Tr2Tr2TrPi C_TrTrTrPi N_TrTrTrPi2 C_TrTrTrPi O_Tr2Tr2TrPi C_TrTrTrPi N_Tr2TrTrPi N_Tr2TrTrPi C_TeTeTeTe C_TeTeTeTe N_Di2DiPiPi C_DiDiPiPi
+M  BCL BND AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond ConjugatedSingleBond AromaticSingleBond ConjugatedSingleBond AromaticDoubleBond ConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond ConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedTripleBond
+M  BCL DBI - - - - - -
+M  END
+$$$$

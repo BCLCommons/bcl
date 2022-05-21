@@ -1,0 +1,78 @@
+$RXN
+
+  1_pictet_spengler
+
+  2  1
+$MOL
+Written by BCL::WriteToMDL,
+  1_pictet_spengler 08211511222D
+
+ 10 10  0  0  0  0  0  0  0  0999 V2000
+   -4.4866    3.8830    0.0000 C   0  0  0  0  0  3  0  0  0  1  0  0
+   -5.2010    3.4705    0.0000 C   0  0  0  0  0  3  0  0  0  2  0  0
+   -5.2010    2.6455    0.0000 C   0  0  0  0  0  3  0  0  0  3  0  0
+   -4.4866    2.2330    0.0000 C   0  0  0  0  0  3  0  0  0  4  0  0
+   -3.7721    2.6455    0.0000 C   0  0  0  0  0  3  0  0  0  5  0  0
+   -3.7721    3.4705    0.0000 C   0  0  0  1  0  3  0  0  0  6  0  0
+   -3.0576    3.8830    0.0000 C   0  0  0  0  0  4  0  0  0  7  0  0
+   -2.3432    3.4705    0.0000 C   0  0  0  0  0  4  0  0  0  8  0  0
+   -2.3432    2.6455    0.0000 N   0  0  0  0  0  3  0  0  0  9  0  0
+   -1.6287    2.2330    0.0000 H   0  0  0  1  0  1  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  6  2  0  0  0  0
+  2  3  2  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  1  0  0  0  0
+  7  8  1  0  0  0  0
+  8  9  1  0  0  0  0
+  9 10  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe N_Te2TeTeTe H_S
+M  BCL BND AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  BCL DBI - - -
+M  END
+$MOL
+Written by BCL::WriteToMDL,
+  1_pictet_spengler 08211511222D
+
+  3  2  0  0  0  0  0  0  0  0999 V2000
+   -0.5580    2.7901    0.0000 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -0.5580    3.6151    0.0000 C   0  0  0  0  0  3  0  0  0 10  0  0
+    0.1564    4.0276    0.0000 H   0  0  0  1  0  1  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  2  3  1  0  0  0  0
+M  BCL ATM O_Tr2Tr2TrPi C_TrTrTrPi H_S
+M  BCL BND ConjugatedDoubleBond NonConjugatedSingleBond
+M  BCL DBI -
+M  END
+$MOL
+Written by BCL::WriteToMDL,
+  1_pictet_spengler 08211511222D
+
+ 10 11  0  0  0  0  0  0  0  0999 V2000
+    3.9508    3.7714    0.0000 C   0  0  0  0  0  3  0  0  0  1  0  0
+    3.2364    3.3589    0.0000 C   0  0  0  0  0  3  0  0  0  2  0  0
+    3.2364    2.5339    0.0000 C   0  0  0  0  0  3  0  0  0  3  0  0
+    3.9508    2.1214    0.0000 C   0  0  0  0  0  3  0  0  0  4  0  0
+    4.6653    2.5339    0.0000 C   0  0  0  1  0  3  0  0  0  5  0  0
+    4.6653    3.3589    0.0000 C   0  0  0  1  0  3  0  0  0  6  0  0
+    5.3797    3.7714    0.0000 C   0  0  0  0  0  4  0  0  0  7  0  0
+    5.3797    2.1214    0.0000 C   0  0  0  0  0  4  0  0  0 10  0  0
+    6.0942    2.5339    0.0000 N   0  0  0  0  0  3  0  0  0  9  0  0
+    6.0942    3.3589    0.0000 C   0  0  0  0  0  4  0  0  0  8  0  0
+  1  2  2  0  0  0  0
+  1  6  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  2  0  0  0  0
+  4  5  1  0  0  0  0
+  5  6  2  0  0  0  0
+  5  8  1  0  0  0  0
+  6  7  1  0  0  0  0
+  7 10  1  0  0  0  0
+  8  9  1  0  0  0  0
+  9 10  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe N_Te2TeTeTe C_TeTeTeTe
+M  BCL BND AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing
+M  BCL DBI - - -
+M  END

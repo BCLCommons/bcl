@@ -1,0 +1,7 @@
+bcl::fold::MutateProteinModelReplicateConformation
+  bcl::util::ShPtr<bcl::find::CollectorInterface<bcl::util::SiPtrList<const-bcl::assemble::ProteinModel>,bcl::assemble::ProteinModel>>
+    12345678
+    bcl::assemble::CollectorProteinModelConformations
+      1
+  5
+  "replicate_scheme"

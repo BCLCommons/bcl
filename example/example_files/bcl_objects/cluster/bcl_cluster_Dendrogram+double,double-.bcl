@@ -1,0 +1,145 @@
+bcl::cluster::Dendrogram<double,double>
+  bcl::util::ShPtr<bcl::cluster::LinkageInterface<double,double>>
+    12345678
+    bcl::cluster::LinkageComplete<double,double>
+      bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<bcl::storage::VectorND<2,bcl::util::SiPtr<const-double>>,double>>
+        12345678
+        bcl::ExampleClusterDendrogram::DoubleCompare
+
+  bcl::util::ShPtr<bcl::storage::List<double>>
+    12345678
+    bcl::storage::List<double>
+      5
+      1
+      11
+      6
+      8
+      2
+
+  bcl::cluster::Node<double,double>
+    bcl::util::ShPtrList<bcl::cluster::Node<double,double>>
+      2
+      bcl::util::ShPtr<bcl::cluster::Node<double,double>>
+        12345678
+        bcl::cluster::Node<double,double>
+          bcl::util::ShPtrList<bcl::cluster::Node<double,double>>
+            2
+            bcl::util::ShPtr<bcl::cluster::Node<double,double>>
+              12345678
+              bcl::cluster::Node<double,double>
+                bcl::util::ShPtrList<bcl::cluster::Node<double,double>>
+                  0
+
+                bcl::util::SiPtrList<double>
+                  1
+                  bcl::util::SiPtr<double>
+                    1
+
+                nan
+            bcl::util::ShPtr<bcl::cluster::Node<double,double>>
+              12345678
+              bcl::cluster::Node<double,double>
+                bcl::util::ShPtrList<bcl::cluster::Node<double,double>>
+                  0
+
+                bcl::util::SiPtrList<double>
+                  1
+                  bcl::util::SiPtr<double>
+                    2
+
+                nan
+
+          bcl::util::SiPtrList<double>
+            2
+            bcl::util::SiPtr<double>
+              1
+            bcl::util::SiPtr<double>
+              2
+
+          1
+      bcl::util::ShPtr<bcl::cluster::Node<double,double>>
+        12345678
+        bcl::cluster::Node<double,double>
+          bcl::util::ShPtrList<bcl::cluster::Node<double,double>>
+            2
+            bcl::util::ShPtr<bcl::cluster::Node<double,double>>
+              12345678
+              bcl::cluster::Node<double,double>
+                bcl::util::ShPtrList<bcl::cluster::Node<double,double>>
+                  2
+                  bcl::util::ShPtr<bcl::cluster::Node<double,double>>
+                    12345678
+                    bcl::cluster::Node<double,double>
+                      bcl::util::ShPtrList<bcl::cluster::Node<double,double>>
+                        0
+
+                      bcl::util::SiPtrList<double>
+                        1
+                        bcl::util::SiPtr<double>
+                          6
+
+                      nan
+                  bcl::util::ShPtr<bcl::cluster::Node<double,double>>
+                    12345678
+                    bcl::cluster::Node<double,double>
+                      bcl::util::ShPtrList<bcl::cluster::Node<double,double>>
+                        0
+
+                      bcl::util::SiPtrList<double>
+                        1
+                        bcl::util::SiPtr<double>
+                          8
+
+                      nan
+
+                bcl::util::SiPtrList<double>
+                  2
+                  bcl::util::SiPtr<double>
+                    6
+                  bcl::util::SiPtr<double>
+                    8
+
+                2
+            bcl::util::ShPtr<bcl::cluster::Node<double,double>>
+              12345678
+              bcl::cluster::Node<double,double>
+                bcl::util::ShPtrList<bcl::cluster::Node<double,double>>
+                  0
+
+                bcl::util::SiPtrList<double>
+                  1
+                  bcl::util::SiPtr<double>
+                    11
+
+                nan
+
+          bcl::util::SiPtrList<double>
+            3
+            bcl::util::SiPtr<double>
+              6
+            bcl::util::SiPtr<double>
+              8
+            bcl::util::SiPtr<double>
+              11
+
+          5
+
+    bcl::util::SiPtrList<double>
+      5
+      bcl::util::SiPtr<double>
+        1
+      bcl::util::SiPtr<double>
+        11
+      bcl::util::SiPtr<double>
+        6
+      bcl::util::SiPtr<double>
+        8
+      bcl::util::SiPtr<double>
+        2
+
+    10
+  0
+  bcl::util::ShPtr<bcl::util::BinaryFunctionInterface<double,double,bool>>
+    12345678
+    bcl::util::BinaryFunctionSTLWrapper<std::less<double>>
+      bcl::util::BinaryFunctionSTLWrapper<std::less<double>>

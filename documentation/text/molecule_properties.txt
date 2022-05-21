@@ -1,0 +1,404 @@
+choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface:
+  * 2DA : computes 2D (bond distance) autocorrelation of a specified atom property
+    Default label : 2DA(steps=0,property=bcl::chemistry::AtomPropertiesInterface,normalized=0)
+    Parameters:
+    <steps> # of steps; corresponds to maximum # of bonds between atoms that will be considered for autocorrelation, 
+    default: "11", Any non-negative integer >= 1 <= 1000000
+    <property> property over which to calculate the 2D-autocorrelation, default: "Atom_Identity", 
+          choose any implementation of bcl::chemistry::AtomPropertiesInterface:
+      * Add : Adds two atom properties; "Add(help)" shows internal options
+      * AtomTypeNumber : Gets the index of each atom type
+      * Atom_AdditiveAtomicPolarizability : Retrieves the AdditiveAtomicPolarizability of each atom
+      * Atom_BoilingPoint : Retrieves the BoilingPoint of each atom
+      * Atom_Constant : a constant for every atom; "Atom_Constant(help)" shows internal options
+      * Atom_CovalentRadius : Retrieves the CovalentRadius of each atom
+      * Atom_CovalentSurfaceArea : approximates the surface area of atoms using the covalent radius, considering overlap
+    from neighboring atoms
+      * Atom_CovalentVolume : approximates the volume of atoms using the covalent radius, considering overlap from
+    neighboring atoms
+      * Atom_Default : given a number, returns that number, otherwise retrieves the value of the misc property by that
+    name; 
+        "Atom_Default(help)" shows internal options
+      * Atom_EffectivePolarizability : atomic polarizibility smoothed over molecule
+      * Atom_ElectroNegativity : Retrieves the ElectroNegativity of each atom
+      * Atom_EstCovalentSurfaceArea : The surface area, estimated from atom type covalent radii
+      * Atom_EstVdwSurfaceArea : The surface area, estimated from atom type elemental van der waals radii
+      * Atom_EstVdwSurfaceAreaCSD : The surface area, estimated from atom type CSD-derived van der waals radii
+      * Atom_FormalCharge : the formal charge of each atom
+      * Atom_GyromagneticRatio : Retrieves the GyromagneticRatio of each atom
+      * Atom_HbondAcceptors : 1 for hydrogen bond acceptors (N and O), 0 for other elements
+      * Atom_HbondDonors : 1 for hydrogen bond donors (NH and OH), 0 for others
+      * Atom_Identity : 1 for every atom
+      * Atom_IonizationPotential : Retrieves the IonizationPotential of each atom
+      * Atom_Log : takes the log base 10 of an atom property; "Atom_Log(help)" shows internal options
+      * Atom_LonePairEN : calculates lone-pair electronegativity, see
+    http://www.springerlink.com/content/w300520690302287/fulltext.pdf
+      * Atom_LonePairElectronAffinity : Retrieves the LonePairElectronAffinity of each atom
+      * Atom_LonePairElectronegativity : Retrieves the LonePairElectronegativity of each atom
+      * Atom_LonePairIonizationPotential : Retrieves the LonePairIonizationPotential of each atom
+      * Atom_Mask : 1 for property values in a given range, 0 otherwise; "Atom_Mask(help)" shows internal options
+      * Atom_Mass : Retrieves the Mass of each atom
+      * Atom_MeltingPoint : Retrieves the MeltingPoint of each atom
+      * Atom_MiscProperty : retrieves an atom property that cannot be calculated directly by the bcl, e.g. spectra; 
+        "Atom_MiscProperty(help)" shows internal options
+      * Atom_PiCharge : uses Hueckel matrix to determine pi-orbital partial charge
+      * Atom_PiEN : calculates pi-electronegativity using pi-charge
+      * Atom_PiOrbitalElectronegativityMulliken : Retrieves the PiOrbitalElectronegativityMulliken of each atom
+      * Atom_PiOrbitalElectronegativityPauling : Retrieves the PiOrbitalElectronegativityPauling of each atom
+      * Atom_PiValenceStateElectronAffinity : Retrieves the PiValenceStateElectronAffinity of each atom
+      * Atom_PiValenceStateIonizationPotential : Retrieves the PiValenceStateIonizationPotential of each atom
+      * Atom_Polarizability : computes the polarizability of each atom using the method from see J.Am.Chem.Soc. Vol 112,
+    No. 23, 1990, 8534
+      * Atom_ReplaceUndefinedValues : replaces undefined values in an atom property with another value; 
+        "Atom_ReplaceUndefinedValues(help)" shows internal options
+      * Atom_SigmaCharge : uses PEOE to determine sigma-orbital partial charge
+      * Atom_SigmaEN : calculates sigma-electronegativity using sigma-charge
+      * Atom_SigmaOrbitalElectronegativityMulliken : Retrieves the SigmaOrbitalElectronegativityMulliken of each atom
+      * Atom_SigmaOrbitalElectronegativityPauling : Retrieves the SigmaOrbitalElectronegativityPauling of each atom
+      * Atom_SigmaValenceStateElectronAffinity : Retrieves the SigmaValenceStateElectronAffinity of each atom
+      * Atom_SigmaValenceStateIonizationPotential : Retrieves the SigmaValenceStateIonizationPotential of each atom
+      * Atom_Stereocenters : 1 for R, -1 for S, 0 for achiral atoms
+      * Atom_TopologicalPolarSurfaceArea : see Ertl, et. al. J. Med. Chem. 2000, 43, 3715
+      * Atom_TotalCharge : Atom_SigmaCharge+Atom_PiCharge
+      * Atom_VDWSurfaceArea : approximates the surface area of atoms using the vdw radius, considering overlap from
+    neighboring atoms
+      * Atom_VDWVolume : approximates the volume of atoms using the vdw radius, considering overlap from neighboring
+    atoms
+      * Atom_VDWaalsRadius : Retrieves the VDWaalsRadius of each atom
+      * Atom_Vcharge : Partial charges computed using vcharge 2003 algorithm and parameters, see
+    http://pubs.acs.org/doi/full/10.1021/ci034148o
+      * AtomicNumbers : Retrieves the atomic number of each atom
+      * Divide : Divides two atom properties; "Divide(help)" shows internal options
+      * Equal : Equals two atom properties; "Equal(help)" shows internal options
+      * Exponentiate : Exponentiates two atom properties; "Exponentiate(help)" shows internal options
+      * Greater : Greaters two atom properties; "Greater(help)" shows internal options
+      * GreaterEqual : GreaterEquals two atom properties; "GreaterEqual(help)" shows internal options
+      * IsH : AtomicNumbers<Atom_Constant(1.5)
+      * IsNotH : AtomicNumbers>Atom_Constant(1.5)
+      * Less : Lesss two atom properties; "Less(help)" shows internal options
+      * LessEqual : LessEquals two atom properties; "LessEqual(help)" shows internal options
+      * Multiply : Multiplys two atom properties; "Multiply(help)" shows internal options
+      * MultiplyAtomProps : A deprecated synonym for Multiply; "MultiplyAtomProps(help)" shows internal options
+      * NotEqual : NotEquals two atom properties; "NotEqual(help)" shows internal options
+      * Subtract : Subtracts two atom properties; "Subtract(help)" shows internal options
+    <normalized> whether to normalize the the 2DA by 2DA of atom identity (1 for each atom), default: "0", 
+      Any non-negative integer
+  * 3DA : computes 3D autocorrelation of a specified atom property
+    Default label : 3DA(property=bcl::chemistry::AtomPropertiesInterface,step size=0,steps=0,normalized=0)
+    Parameters:
+    <property> property over which to calculate the 3D-autocorrelation, 
+          choose any implementation of bcl::chemistry::AtomPropertiesInterface (already listed)
+    <step size> size of each step in angstroms, default: "1.0", Any decimal (floating-point) value >= 0.01 <= 100
+    <steps> # of steps/bins (each of size = step size) used in the autocorrelation, default: "12", 
+      Any non-negative integer >= 1 <= 1000000
+    <normalized> whether to normalize the 3DA by 3DA of atom identity (1 for each atom), default: "0", 
+      Any non-negative integer
+  * 3daSmooth : computes the smooth radial distribution function using a given atom property
+    Default label : 3daSmooth(property=Atom_Identity,step size=0.1,temperature=100,steps=128,gaussian=1,interpolate=1)
+    Parameters:
+    <property> property over which to calculate the smooth radial distribution function,     1 for every atom
+    <step size> size of each step in angstroms, default: "0.25", Any decimal (floating-point) value >= 0.01 <= 100
+    <temperature> increasing temperature spreads autocorrelation across more distant bins, default: "100", 
+      Any decimal (floating-point) value >= 0 <= 1000
+    <steps> # of steps/bins (each of size = step size) used in the radial distribution function, default: "48", 
+      Any non-negative integer >= 1 <= 1000000
+    <gaussian> whether to apply gaussian smoothing to the final curve. If set to false, temperature is ignored,
+    interpolation is linear, and no gaussian smoothing is performed, default: "True", Any non-negative integer
+    <interpolate> whether to interpolate values to the two nearest points; if false, all weight will be applied to the
+    nearest bin, default: "True", Any non-negative integer
+  * 3daSmoothSign : computes the smooth radial distribution function using a given atom property
+    Default label : 3daSmoothSign(property=Atom_Identity,step
+    size=0.1,temperature=100,steps=128,gaussian=1,interpolate=1)
+    Parameters:
+    <property> property over which to calculate the smooth radial distribution function,     1 for every atom
+    <step size> size of each step in angstroms, default: "0.25", Any decimal (floating-point) value >= 0.01 <= 100
+    <temperature> increasing temperature spreads autocorrelation across more distant bins, default: "100", 
+      Any decimal (floating-point) value >= 0 <= 1000
+    <steps> # of steps/bins (each of size = step size) used in the radial distribution function, default: "48", 
+      Any non-negative integer >= 1 <= 1000000
+    <gaussian> whether to apply gaussian smoothing to the final curve. If set to false, temperature is ignored,
+    interpolation is linear, and no gaussian smoothing is performed, default: "True", Any non-negative integer
+    <interpolate> whether to interpolate values to the two nearest points; if false, all weight will be applied to the
+    nearest bin, default: "True", Any non-negative integer
+  * 3daSoftMax : computes the smooth radial distribution function using a given atom property
+    Default label : 3daSoftMax(property=Atom_Identity,step size=0.1,temperature=100,steps=128,gaussian=1)
+    Parameters:
+    <property> property over which to calculate the smooth radial distribution function,     1 for every atom
+    <step size> size of each step in angstroms, default: "0.25", Any decimal (floating-point) value >= 0.01 <= 100
+    <temperature> increasing temperature spreads autocorrelation across more distant bins, default: "100", 
+      Any decimal (floating-point) value >= 0 <= 1000
+    <steps> # of steps/bins (each of size = step size) used in the radial distribution function, default: "48", 
+      Any non-negative integer >= 1 <= 1000000
+    <gaussian> whether to apply gaussian smoothing to the final curve. If set to false, temperature is ignored,
+    interpolation is linear, and no gaussian smoothing is performed, default: "True", Any non-negative integer
+  * 3daSoftMaxSign : computes the smooth radial distribution function using a given atom property
+    Default label : 3daSoftMaxSign(property=Atom_Identity,step size=0.1,temperature=100,steps=128,gaussian=1)
+    Parameters:
+    <property> property over which to calculate the smooth radial distribution function,     1 for every atom
+    <step size> size of each step in angstroms, default: "0.25", Any decimal (floating-point) value >= 0.01 <= 100
+    <temperature> increasing temperature spreads autocorrelation across more distant bins, default: "100", 
+      Any decimal (floating-point) value >= 0 <= 1000
+    <steps> # of steps/bins (each of size = step size) used in the radial distribution function, default: "48", 
+      Any non-negative integer >= 1 <= 1000000
+    <gaussian> whether to apply gaussian smoothing to the final curve. If set to false, temperature is ignored,
+    interpolation is linear, and no gaussian smoothing is performed, default: "True", Any non-negative integer
+  * 3daSoftMin : computes the smooth radial distribution function using a given atom property
+    Default label : 3daSoftMin(property=Atom_Identity,step size=0.1,temperature=100,steps=128,gaussian=1)
+    Parameters:
+    <property> property over which to calculate the smooth radial distribution function,     1 for every atom
+    <step size> size of each step in angstroms, default: "0.25", Any decimal (floating-point) value >= 0.01 <= 100
+    <temperature> increasing temperature spreads autocorrelation across more distant bins, default: "100", 
+      Any decimal (floating-point) value >= 0 <= 1000
+    <steps> # of steps/bins (each of size = step size) used in the radial distribution function, default: "48", 
+      Any non-negative integer >= 1 <= 1000000
+    <gaussian> whether to apply gaussian smoothing to the final curve. If set to false, temperature is ignored,
+    interpolation is linear, and no gaussian smoothing is performed, default: "True", Any non-negative integer
+  * Add : Adds two small molecule properties
+    (anonymous) parameter: Properties to Add, 
+      Container with 2     choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already
+    listed)
+  * BondTypeCount : Counts the number of bonds that satisfy a condition (property == value)
+    Default label : BondTypeCount(property=Identity,value=1)
+    Parameters:
+    <property> bond property to query, default: "Identity", 
+      Allowed values: {Identity, BondOrder, NumberOfElectrons, Conjugation, IsConjugated, IsAromatic, IsInRing,
+    BondOrderInRingOrAromatic, BondOrderOrAromatic, BondOrderOrAromaticWithRingness, ConstitutionalBondType,
+    BondOrderWithIsometry, Isometry, IsIsometric, BondOrderWithIsometryOrAromatic,
+    BondOrderWithIsometryOrAromaticWithRingness, ConfigurationalBondType}
+    <value> value to calculate number of bonds satisfying property == value, default: "1", Any non-negative integer
+  * Combine : concatenates properties into a new property
+    (anonymous) parameter: properties to combine, 
+      Container with at least 1     choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface
+    (already listed)
+  * Constant : a constant
+    (anonymous) parameter: value to return, Any decimal (floating-point) value
+  * CovalentSurfaceArea : covalent surface area
+  * CovalentVolume : covalent volume
+  * DbID : ID of this molecule from a Db
+    (anonymous) parameter: Session name (mapped to a table name), any string
+  * DbScreen : Transfers properties to/from the database screening table.  If properties are not in the db, calculates
+  them from the molecules and adds them to the DB, otherwise retrieves the properties from the db
+    Default label : DbScreen(property=bcl::chemistry::SmallMoleculePropertiesInterface,name="")
+    Parameters:
+    <property> Molecular property to use the calculate the screen values, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+    <name> Name of the screen; also used to name the origin of the molecules, any string
+  * Default : given a number, returns that number, otherwise retrieves the value of the misc property by that name
+    (anonymous) parameter: number or misc property name, default: "", any string
+  * Divide : Divides two small molecule properties
+    Default label : 
+    Divide(lhs=bcl::chemistry::SmallMoleculePropertiesInterface,rhs=bcl::chemistry::SmallMoleculePropertiesInterface)
+    Parameters:
+    <lhs> argument for the left hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+    <rhs> argument for the right hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+  * Equal : Equals two small molecule properties
+    (anonymous) parameter: Properties to Equal, 
+      Container with 2     choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already
+    listed)
+  * EstCovSurfaceArea : Estimated covalent surface area (conformation independent)
+  * EstVdwSurfaceArea : Estimated van-der-waals surface area (conformation independent), using element-based VDW radii
+  * EstVdwSurfaceAreaCSD : Estimated van-der-waals surface area (conformation independent), using more accurate,
+  CSD-derived atom-type VdW radii, which tend to give larger SAs to H than EstVdwSurfaceArea
+  * Exponentiate : Exponentiates two small molecule properties
+    Default label : 
+    Exponentiate(lhs=bcl::chemistry::SmallMoleculePropertiesInterface,rhs=bcl::chemistry::SmallMoleculePropertiesInterface)
+    Parameters:
+    <lhs> argument for the left hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+    <rhs> argument for the right hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+  * FileID : ID of this molecule from a File
+    (anonymous) parameter: Filename, Any of the following:
+file pattern <*.sdf> 
+    Or file pattern <*.sdf.bz2> 
+    Or file pattern <*.sdf.gz>
+  * Girth : calculates the girth of a molecule
+  * Greater : Greaters two small molecule properties
+    Default label : 
+    Greater(lhs=bcl::chemistry::SmallMoleculePropertiesInterface,rhs=bcl::chemistry::SmallMoleculePropertiesInterface)
+    Parameters:
+    <lhs> argument for the left hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+    <rhs> argument for the right hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+  * GreaterEqual : GreaterEquals two small molecule properties
+    Default label : 
+    GreaterEqual(lhs=bcl::chemistry::SmallMoleculePropertiesInterface,rhs=bcl::chemistry::SmallMoleculePropertiesInterface)
+    Parameters:
+    <lhs> argument for the left hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+    <rhs> argument for the right hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+  * HbondAcceptor : # hydrogen bond acceptors
+  * HbondDonor : # hydrogen bond donors
+  * Histogram : computes a weighted histogram from two atom properties
+    Default label : Histogram(value property=Atom_Identity,bin property=AtomicNumbers,min=0.5,bin size=1,number
+    bins=100)
+    Parameters:
+    <value property> weight for each atom in the histogram, default: "Atom_Identity",     1 for every atom
+    <bin property> property whose value chooses the correct bin to add this atom to, default: "AtomicNumber", 
+          Retrieves the atomic number of each atom
+    <min> min value to put into the histogram, default: "0.0", Any decimal (floating-point) value
+    <bin size> size of each bin in the histogram, Any decimal (floating-point) value >= 0
+    <number bins> # of bins for the histogram, Any non-negative integer >= 1 <= 1000000
+  * Identity : 1
+  * Less : Lesss two small molecule properties
+    Default label : 
+    Less(lhs=bcl::chemistry::SmallMoleculePropertiesInterface,rhs=bcl::chemistry::SmallMoleculePropertiesInterface)
+    Parameters:
+    <lhs> argument for the left hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+    <rhs> argument for the right hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+  * LessEqual : LessEquals two small molecule properties
+    Default label : 
+    LessEqual(lhs=bcl::chemistry::SmallMoleculePropertiesInterface,rhs=bcl::chemistry::SmallMoleculePropertiesInterface)
+    Parameters:
+    <lhs> argument for the left hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+    <rhs> argument for the right hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+  * Log : takes the log base 10 of a molecular property
+    (anonymous) parameter: Molecular property to take the log of, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+  * LogP : Calculates logp using the heuristic formula from http://pubs.acs.org/doi/full/10.1021/ci010315d
+  * Mean : computes the average of values from a molecular property
+    (anonymous) parameter: Small molecule property to average, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+  * MiscProperty : retrieves a molecule property that cannot be calculated directly by the bcl, e.g. biological data
+    Default label : MiscProperty("",values per molecule=0)
+    Parameters:
+    name of the miscellaneous property, any string
+    <values per molecule> expected number of values per molecule, default: "1", Any non-negative integer >= 1 <= 100000
+  * MolecularAsymmetry : Calculates an rdf-like asymmetry vector for the molecule based on overall distribution of atoms
+  and/or properties
+    Default label : MolecularAsymmetry(property=Atom_Identity,step size=0.1,temperature=100,steps=24,sum properties=0)
+    Parameters:
+    <property> property over which to calculate the molecular asymmetry score,     1 for every atom
+    <step size> size of each step in angstroms, default: "0.1", Any decimal (floating-point) value >= 0.01 <= 100
+    <temperature> increasing temperature spreads intensity across more distant bins, default: "100", 
+      Any decimal (floating-point) value >= 0 <= 1000
+    <steps> # of steps/bins (each of size = step size) used in the radial distribution function, default: "24", 
+      Any non-negative integer >= 1 <= 1000000
+    <sum properties> Use summation method to weight properties, Any non-negative integer
+  * Multiply : Multiplys two small molecule properties
+    (anonymous) parameter: Properties to Multiply, 
+      Container with 2     choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already
+    listed)
+  * NAromaticRings : Number of Aromatic rings in the molecule
+  * NAtoms : Number of atoms
+  * NConjugatedRings : Number of Conjugated rings in the molecule
+  * NNonconjugatedRings : Number of Nonconjugated rings in the molecule
+  * NRings : Number of rings in the molecule
+  * NRotBond : calculates the number of non-trivially rotatable bonds
+  * NStereo : Number of sterepcenters
+  * NotEqual : NotEquals two small molecule properties
+    (anonymous) parameter: Properties to NotEqual, 
+      Container with 2     choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already
+    listed)
+  * Partial : selects values of another small molecule property
+    Default label : Partial(bcl::chemistry::SmallMoleculePropertiesInterface,indices="")
+    Parameters:
+    Molecular property of interest, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+    <indices> desired indices (0-offset) of the property to keep, Container with at least 1 Any non-negative integer
+  * Polarizability : total polarizability
+  * PredictedActivity : use a trained model to predict the activity of a small molecule
+    Parameter: <storage> type of storage for models,     choose any implementation of bcl::model::RetrieveInterface:
+      * Db : Storage of trained model on the mysql database; "Db(help)" shows internal options
+      * File : Storage of trained model on the file system; "File(help)" shows internal options
+  * RDF : computes the radial distribution function using a given atom property
+    Default label : RDF(property=Atom_Identity,step size=0.1,temperature=100,steps=128,normalized=0)
+    Parameters:
+    <property> property over which to calculate the radial distribution function,     1 for every atom
+    <step size> size of each step in angstroms, default: "0.25", Any decimal (floating-point) value >= 0.01 <= 100
+    <temperature> increasing temperature spreads autocorrelation across more distant bins, default: "100", 
+      Any decimal (floating-point) value >= 0 <= 1000
+    <steps> # of steps/bins (each of size = step size) used in the radial distribution function, default: "48", 
+      Any non-negative integer >= 1 <= 1000000
+    <normalized> whether to normalize the RDF by RDF of atom identity (1 for each atom), default: "0", 
+      Any non-negative integer
+  * RDFGrid : computes the radial distribution function using a given atom property, see
+  http://www.opus.ub.uni-erlangen.de/opus/volltexte/2007/736/pdf/MarkusHemmerDissertation.pdf, p. 65 for details
+    Default label : RDFGrid(property=bcl::chemistry::AtomPropertiesInterface,weight
+    property=bcl::chemistry::AtomPropertiesInterface,distance steps=24,property steps=12,distance step size=0.5,property
+    step size=0.5,distance temperature=100,property temperature=100,normalized=0)
+    Parameters:
+    <property> property over which to calculate the radial distribution function, 
+          choose any implementation of bcl::chemistry::AtomPropertiesInterface (already listed)
+    <weight property> property whose product will weight the radial distribution function, 
+          choose any implementation of bcl::chemistry::AtomPropertiesInterface (already listed)
+    <distance steps> number of distance bins (each of size distance size) used in the radial distribution function, 
+    default: "24", Any non-negative integer >= 1 <= 1000000
+    <property steps> number of property bins (each of size property step size) used in the radial distribution function,
+    default: "12", Any non-negative integer >= 1 <= 1000000
+    <distance step size> size of each step for the distance axis in angstroms, default: "0.5", 
+      Any decimal (floating-point) value >= 0.01 <= 100
+    <property step size> size of each step for the property axis in angstroms, default: "0.5", 
+      Any decimal (floating-point) value >= 0.01 <= 10000
+    <distance temperature> increasing temperature spreads autocorrelation across more distant bins, default: "100", 
+      Any decimal (floating-point) value >= 0 <= 1000
+    <property temperature> same as distance temperature but used to distribute values of atom property over more distant
+    bins, default: "100", Any decimal (floating-point) value >= 0 <= 1000
+    <normalized> whether to normalize the RDF by RDF of atom identity (1 for each atom), default: "0", 
+      Any non-negative integer
+  * RDFMaxSign : computes the radial distribution function using a given atom property
+    Default label : RDFMaxSign(property=Atom_Identity,step size=0.1,temperature=100,steps=128)
+    Parameters:
+    <property> property over which to calculate the radial distribution function,     1 for every atom
+    <step size> size of each step in angstroms, default: "0.25", Any decimal (floating-point) value >= 0.01 <= 100
+    <temperature> increasing temperature spreads autocorrelation across more distant bins, default: "100", 
+      Any decimal (floating-point) value >= 0 <= 1000
+    <steps> # of steps/bins (each of size = step size) used in the radial distribution function, default: "48", 
+      Any non-negative integer >= 1 <= 1000000
+  * RDFSign : computes the radial distribution function using a given atom property
+    Default label : RDFSign(property=Atom_Identity,step size=0.1,temperature=100,steps=128,normalized=0)
+    Parameters:
+    <property> property over which to calculate the radial distribution function,     1 for every atom
+    <step size> size of each step in angstroms, default: "0.25", Any decimal (floating-point) value >= 0.01 <= 100
+    <temperature> increasing temperature spreads autocorrelation across more distant bins, default: "100", 
+      Any decimal (floating-point) value >= 0 <= 1000
+    <steps> # of steps/bins (each of size = step size) used in the radial distribution function, default: "48", 
+      Any non-negative integer >= 1 <= 1000000
+    <normalized> whether to normalize the RDF by RDF of atom identity (1 for each atom), default: "0", 
+      Any non-negative integer
+  * SortAsc : sort property values in ascending order
+    (anonymous) parameter: Molecular property to sort property values, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+  * SortDesc : sort property values in descending order
+    (anonymous) parameter: Molecular property to sort property values, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+  * Subtract : Subtracts two small molecule properties
+    Default label : 
+    Subtract(lhs=bcl::chemistry::SmallMoleculePropertiesInterface,rhs=bcl::chemistry::SmallMoleculePropertiesInterface)
+    Parameters:
+    <lhs> argument for the left hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+    <rhs> argument for the right hand side of the operation, 
+          choose any implementation of bcl::chemistry::SmallMoleculePropertiesInterface (already listed)
+  * Sum : Sums individual values of an atom property over the molecule
+    (anonymous) parameter: Atom property to sum, 
+          choose any implementation of bcl::chemistry::AtomPropertiesInterface (already listed)
+  * TopologicalPolarSurfaceArea : topological polar surface area
+  * TotalCharge : Sum of sigma and pi charges
+  * TotalFormalCharge : Sum of formal charges on the molecule
+  * Triangulator : computes triangular autocorrelation of a specified atom property.This is much like RDF, but considers
+  all triplets of atoms.
+    Default label : Triangulator(property=Atom_Identity,step size=1,cutoff=0,temperature=100,steps=50)
+    Parameters:
+    <property> property over which to calculate the triangular autocorrelation,     1 for every atom
+    <step size> size of each step in angstroms, default: "1.0", Any decimal (floating-point) value >= 0.01 <= 100
+    <cutoff> max area (A^2) to consider; 0.0 to consider all areas, default: "0.0", 
+      Any decimal (floating-point) value >= 0 <= 100
+    <temperature> increasing temperature spreads autocorrelation across more distant bins, default: "100", 
+      Any decimal (floating-point) value >= 0 <= 1000
+    <steps> # of steps/bins (each of size = step size) used in the radial distribution function, default: "11", 
+      Any non-negative integer >= 1 <= 1000000
+  * VdwSurfaceArea : van der waals surface area
+  * VdwVolume : van der waals volume
+  * Weight : Molecular weight (amu)
+Other strings will be interpreted as follows:
+*  : given a number, returns that number, otherwise retrieves the value of the misc property by that name; 
+"(help)" shows internal options

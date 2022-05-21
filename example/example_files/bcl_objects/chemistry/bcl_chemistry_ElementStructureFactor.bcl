@@ -1,0 +1,16 @@
+bcl::chemistry::ElementStructureFactor
+  bcl::storage::Vector<double>
+    4
+    2.31
+    1.02
+    1.589
+    0.865
+
+  bcl::storage::Vector<double>
+    4
+    20.844
+    10.208
+    0.569
+    51.651
+
+  0.216

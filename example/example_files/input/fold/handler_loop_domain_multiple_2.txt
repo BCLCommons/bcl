@@ -1,0 +1,7 @@
+'A' 40 45 true
+'A' 46 47 false
+'A' 48 50 false
+DomainLocatorEnd
+'A'  8  9 false
+'A' 10 17 true
+DomainLocatorEnd

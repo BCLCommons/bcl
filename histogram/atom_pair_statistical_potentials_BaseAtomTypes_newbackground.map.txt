@@ -1,0 +1,84 @@
+bcl::storage::Map<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>,std::less<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>>>
+  9
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+    bcl::linal::Vector<double>
+      20
+      0.255639	0.0469103	0.0710886	-0.0233097	-0.0103439	0.00744363	-0.0245293	0.0831409	-0.124868	0.131957	0.0667151	-0.0686335	-0.0254368	0	0	0	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+    bcl::linal::Vector<double>
+      20
+      0.523776	0.142072	-0.0029356	-0.169168	-0.29934	0.0233512	0.179311	0.153475	0.111395	-0.0308525	0.181248	-0.0743805	0.0486905	-0.10443	0	0	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+    bcl::linal::Vector<double>
+      20
+      0.250151	0.0361863	-0.174279	-0.060257	-0.211752	-0.205206	0.109209	-0.00489583	0.169944	-0.0731799	0.0720099	0.0111268	0.0215998	0.0135152	0	0	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+    bcl::linal::Vector<double>
+      20
+      -0.0555582	-0.0984431	-0.0213579	0.0433704	-0.0392292	-0.0659436	0.0596885	-0.194841	-0.0850372	-0.0195614	0.0189435	-0.152988	-0.0717333	0.484957	0	0	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+    bcl::linal::Vector<double>
+      20
+      -0.0764404	-0.206981	-0.272015	-0.558054	-0.322063	0.309552	0.121573	-0.234591	0.000886812	-0.107009	0.355137	-0.0481218	-0.114304	0.433061	-0.0168462	0.179553	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+    bcl::linal::Vector<double>
+      20
+      0.229969	-0.195237	0.144323	0.132615	-0.0407519	-0.0116704	0.216782	0.134686	-0.220565	0.266613	0.139716	-0.151267	-0.166081	-0.0763446	0.66797	0	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+    bcl::linal::Vector<double>
+      20
+      -0.259899	-0.15322	-0.134549	-0.0831754	-0.0356027	0.130483	-0.121056	-0.0692504	0.0207068	-0.0227683	0.122577	0.0429827	-0.027139	0.0622529	0	0	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+    bcl::linal::Vector<double>
+      20
+      -0.55133	-0.422661	0.0414971	-0.0854166	0.0635581	-0.162556	-0.196609	-0.215086	0.0689494	0.172786	0.00393717	0.130011	0.190376	0.0646583	-0.168745	0	0	0	0	0	
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::linal::Vector<double>>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+    bcl::linal::Vector<double>
+      20
+      -0.229285	0.0950125	-0.308573	-0.276876	0.0793524	0.119935	-0.0887835	-0.0317547	-0.0316783	0.0998921	-0.122212	0.165323	0.140934	-0.0680398	0.0346255	0	0	0	0	0	
+

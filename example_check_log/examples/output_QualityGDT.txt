@@ -1,0 +1,101 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec QualityGDT 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> QualityGDT
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: QualityGDT ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> successful example check:  gdt_8.GetDistanceCutoff() == 8.0 == 8
+=std=bcl=> successful example check:  gdt_8.GetSeedLength() == quality::GDT::GetDefaultSeedLength() == 3
+=std=bcl=> successful example check:
+               GetStaticClassName< quality::GDT>() == gdt_8.GetClassIdentifier() ==
+              bcl::quality::GDT
+=std=bcl=> successful example check:  quality::GDT::GetDefaultSeedLength() == default_seed_length == 3
+=std=bcl=> Checking CalculateMeasure() with a single cutoff
+=std=bcl=> GDT_8: 98.6842
+=std=bcl=> successful example check:  gdt_8_result == expected_gdt_8_result == 98.6842  (+/- 0.001%)
+=std=bcl=> Checking CalculateMeasure() fort GDT_TS
+=std=bcl=> GDT_TS: 70.7237
+=std=bcl=> successful example check:  gdt_ts_result == expected_gdt_ts_result == 70.7237  (+/- 0.001%)
+=std=bcl=> Checking CalculateMeasure() fort GDT_HA
+=std=bcl=> GDT_HA: 51.3158
+=std=bcl=> successful example check:  gdt_ha_result == expected_gdt_ha_result == 51.3158  (+/- 0.001%)
+=std=bcl=> testing CalculateSuperimposition gdt 0.5
+=std=bcl=> GDT 0.5: 21.0526
+=std=bcl=> the superimposition matrix
+bcl::storage::Pair<double,bcl::math::TransformationMatrix3D>
+  21.0526
+  bcl::math::TransformationMatrix3D
+    bcl::linal::Matrix<double>
+      4	      4
+      0.367862	-0.919359	0.139487	0	
+      0.0407068	0.165783	0.985322	0	
+      -0.928989	-0.356784	0.0984093	0	
+      -2.66104	20.3012	-31.5503	1	
+
+=std=bcl=> comparison failed for transformation matrix calculated test succeeded:
+              math::EqualWithinTolerance ( linal::Vector< double>( 16, superimposition_matrix.Second().GetMatrix().Begin()), expected_superimposition_vector, 0.001, 0.001 )
+              == 1
+=std=bcl=> successful example check:  gdt_read.GetDistanceCutoff() == gdt_8.GetDistanceCutoff() == 8
+=std=bcl=> successful example check:  gdt_read.GetSeedLength() == gdt_8.GetSeedLength() == 3
+=std=bcl::app=> BCL Example | END  : QualityGDT ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+QualityGDT_total                         10          0              
+total                                    10          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 65 MB

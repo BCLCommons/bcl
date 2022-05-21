@@ -1,0 +1,35 @@
+Molecule With Mol_ID = 1
+
+
+  0  0  0     1  0  0  0  0  0999 V2000
+M  END
+> <Mol_ID>
+1
+
+$$$$
+Molecule With Mol_ID = 2
+
+
+  0  0  0  0  0  0  0  0  0  0999 V2000
+M  END
+> <Mol_ID>
+2
+
+$$$$
+Molecule With Mol_ID = 58
+
+
+  0  0  0  0  0  0  0  0  0  0999 V2000
+M  END
+> <Mol_ID>
+58
+
+$$$$
+Molecule Without Mol_ID property
+
+
+  0  0  0  0  0  0  0  0  0  0999 V2000
+M  END
+
+$$$$
+

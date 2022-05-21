@@ -1,0 +1,100 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec FoldPlacementStrandNextToSheet 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> FoldPlacementStrandNextToSheet
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: FoldPlacementStrandNextToSheet ====================
+=std=bcl=> successful example check:
+               placement.GetClassIdentifier() == GetStaticClassName( placement) ==
+              bcl::fold::PlacementStrandNextToSheet
+=std=bcl=> ========>  test with one strand
+=std=bcl=> ========>  test with two strands
+=std=bcl=> ========> Test with three strands
+=std=bcl=> Iteration #2
+=std=bcl=>  Number SSEs# 2 #sheets: 1
+number elements 2	type: beta-sheet
+STRAND A   38 THR <==>   45 HIS
+STRAND A   16 GLN <==>   20 TYR	 GEO_1: STRAND A   41 VAL <==>   43 CYS	GEO_2: STRAND A   17 ASN <==>   19 ILE	co: STRAND_STRAND	dist: 4.20599	ortho: 1	int_weight: 1	str_weight: 1	twist:0.419779	orient:PARALLEL	rel_pos:3.14152	rel_weight:1.37544e-18	int_length:4
+
+=std=bcl=> Iteration #3
+=std=bcl=>  Number SSEs# 3 #sheets: 1
+number elements 3	type: beta-sheet
+STRAND A   38 THR <==>   45 HIS
+STRAND A   16 GLN <==>   20 TYR	 GEO_1: STRAND A   41 VAL <==>   43 CYS	GEO_2: STRAND A   17 ASN <==>   19 ILE	co: STRAND_STRAND	dist: 4.20599	ortho: 1	int_weight: 1	str_weight: 1	twist:0.419779	orient:PARALLEL	rel_pos:3.14152	rel_weight:1.37544e-18	int_length:4
+STRAND A   53 PHE <==>   59 ASN	 GEO_1: STRAND A   16 GLN <==>   18 ILE	GEO_2: STRAND A   56 ASP <==>   58 GLN	co: STRAND_STRAND	dist: 4.20599	ortho: 1	int_weight: 1	str_weight: 1	twist:-2.72185	orient:ANTIPARALLEL	rel_pos:3.14151	rel_weight:3.03611e-18	int_length:4
+
+=std=bcl=> Iteration #4
+=std=bcl=>  Number SSEs# 4 #sheets: 1
+number elements 4	type: beta-sheet
+STRAND A   68 ASP <==>   76 ARG
+STRAND A   38 THR <==>   45 HIS	 GEO_1: STRAND A   71 PHE <==>   73 PHE	GEO_2: STRAND A   41 VAL <==>   43 CYS	co: STRAND_STRAND	dist: 4.20599	ortho: 1	int_weight: 1	str_weight: 1	twist:-2.72183	orient:ANTIPARALLEL	rel_pos:3.14159	rel_weight:0	int_length:4
+STRAND A   16 GLN <==>   20 TYR	 GEO_1: STRAND A   41 VAL <==>   43 CYS	GEO_2: STRAND A   17 ASN <==>   19 ILE	co: STRAND_STRAND	dist: 4.20599	ortho: 1	int_weight: 1	str_weight: 1	twist:0.419779	orient:PARALLEL	rel_pos:3.14152	rel_weight:1.37544e-18	int_length:4
+STRAND A   53 PHE <==>   59 ASN	 GEO_1: STRAND A   16 GLN <==>   18 ILE	GEO_2: STRAND A   56 ASP <==>   58 GLN	co: STRAND_STRAND	dist: 4.20599	ortho: 1	int_weight: 1	str_weight: 1	twist:-2.72185	orient:ANTIPARALLEL	rel_pos:3.14151	rel_weight:3.03611e-18	int_length:4
+
+=std=bcl=> Iteration #5
+=std=bcl=>  Number SSEs# 5 #sheets: 1
+number elements 5	type: beta-sheet
+STRAND A   82 CYS <==>   89 ILE
+STRAND A   68 ASP <==>   76 ARG	 GEO_1: STRAND A   84 VAL <==>   86 ASN	GEO_2: STRAND A   71 PHE <==>   73 PHE	co: STRAND_STRAND	dist: 4.20599	ortho: 1	int_weight: 1	str_weight: 1	twist:0.449028	orient:PARALLEL	rel_pos:3.14159	rel_weight:0	int_length:4
+STRAND A   38 THR <==>   45 HIS	 GEO_1: STRAND A   71 PHE <==>   73 PHE	GEO_2: STRAND A   41 VAL <==>   43 CYS	co: STRAND_STRAND	dist: 4.20599	ortho: 1	int_weight: 1	str_weight: 1	twist:-2.72183	orient:ANTIPARALLEL	rel_pos:3.14159	rel_weight:0	int_length:4
+STRAND A   16 GLN <==>   20 TYR	 GEO_1: STRAND A   41 VAL <==>   43 CYS	GEO_2: STRAND A   17 ASN <==>   19 ILE	co: STRAND_STRAND	dist: 4.20599	ortho: 1	int_weight: 1	str_weight: 1	twist:0.419779	orient:PARALLEL	rel_pos:3.14152	rel_weight:1.37544e-18	int_length:4
+STRAND A   53 PHE <==>   59 ASN	 GEO_1: STRAND A   16 GLN <==>   18 ILE	GEO_2: STRAND A   56 ASP <==>   58 GLN	co: STRAND_STRAND	dist: 4.20599	ortho: 1	int_weight: 1	str_weight: 1	twist:-2.72185	orient:ANTIPARALLEL	rel_pos:3.14151	rel_weight:3.03611e-18	int_length:4
+
+=std=bcl::app=> BCL Example | END  : FoldPlacementStrandNextToSheet ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>        success      error error_string 
+FoldPlacementStrandNextToSheet_total          8          0              
+total                                         8          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 133 MB, peak physical RAM used: 65 MB

@@ -1,0 +1,220 @@
+./build/linux64_release/bin/bcl-example-apps-static.exe Examples -exec AppCluster 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AppCluster
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AppCluster ====================
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+bcl:Cluster 
+
+=std=bcl=> Command line was invalid
+=std=bcl=> successful example check:  cluster.CheckCommandString( false) == 0
+=std=bcl=> Checking command line:
+bcl:Cluster -distance_input_file example/example_files/input/cluster/models_10.matrix -input_format TableLowerTriangle -output_file example/example_files/output/cluster/models_10.out -output_format Rows 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  cluster.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: bcl:Cluster -distance_input_file example/example_files/input/cluster/models_10.matrix -input_format TableLowerTriangle -output_file example/example_files/output/cluster/models_10.out -output_format Rows 
+
+=crt=bcl::app=> start getting distance function
+=crt=bcl::util=> Read in table has run for 0.002399 seconds
+=crt=bcl::util=>  Input Table HandleInput  has run for 0.002541 seconds
+=std=bcl::app=> height cutoff undefined with less or less_equal comparison so setting to most positive float possible
+=crt=bcl::util=>  initializenode  has run for 7e-06 seconds
+=crt=bcl::util=>  get_initial_linkages  has run for 6.5e-05 seconds
+=std=bcl::cluster=> initial linkages_nodes size 45
+=crt=bcl::util=>  dendrogram clustering  has run for 0.00025 seconds
+=std=bcl::app=> Outputting to file example/example_files/output/cluster/models_10.Rows.out
+=std=bcl=> Run completed of bcl:Cluster -distance_input_file example/example_files/input/cluster/models_10.matrix -input_format TableLowerTriangle -output_file example/example_files/output/cluster/models_10.out -output_format Rows 
+, return status was: 0
+Command line took 0.003344 sec to run
+=std=bcl=> successful example check:  cluster.RunCommand() == 0
+=std=bcl=> cluster generated incorrectly test succeeded:
+              io::File::FilesMatch( models_10_rows_filename_correct, models_10_rows_filename) == 1
+=std=bcl=> Checking command line:
+bcl:Cluster -distance_input_file example/example_files/input/cluster/models_10.matrix -input_format TableLowerTriangle -output_file example/example_files/output/cluster/models_10.out -output_format Rows -precluster 3.5 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  cluster.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: bcl:Cluster -distance_input_file example/example_files/input/cluster/models_10.matrix -input_format TableLowerTriangle -output_file example/example_files/output/cluster/models_10_precluster.out -output_format Rows -precluster 3.5 
+
+=crt=bcl::app=> start getting distance function
+=crt=bcl::util=> Read in table has run for 7e-05 seconds
+=crt=bcl::util=>  Input Table HandleInput  has run for 0.000136 seconds
+=std=bcl::app=> height cutoff undefined with less or less_equal comparison so setting to most positive float possible
+=crt=bcl::util=>  initializenode  has run for 4e-06 seconds
+=crt=bcl::cluster=> number of preclustered node is
+4
+=crt=bcl::util=>  get_initial_linkages  has run for 2.8e-05 seconds
+=std=bcl::cluster=> initial linkages_nodes size 21
+=crt=bcl::util=>  dendrogram clustering  has run for 0.000129 seconds
+=std=bcl::app=> Outputting to file example/example_files/output/cluster/models_10_precluster.Rows.out
+=std=bcl=> Run completed of bcl:Cluster -distance_input_file example/example_files/input/cluster/models_10.matrix -input_format TableLowerTriangle -output_file example/example_files/output/cluster/models_10_precluster.out -output_format Rows -precluster 3.5 
+, return status was: 0
+Command line took 0.000612 sec to run
+=std=bcl=> successful example check:  cluster.RunCommand() == 0
+=std=bcl=> cluster generated incorrectly test succeeded:
+              io::File::FilesMatch( models_10_rows_filename_correct, models_10_rows_filename) == 1
+=std=bcl=> Checking command line:
+bcl:Cluster -distance_input_file example/example_files/input/cluster/models_10.matrix -input_format TableLowerTriangle -output_file example/example_files/output/cluster/models_10.out -output_format Centers -output_pymol 100 2 20 20 10 example/example_files/output/cluster/color_description_dendrogram.py -pymol_color_nodes_by_description example/example_files/input/cluster/descriptions.ls 9.0 32.0 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  cluster.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: bcl:Cluster -distance_input_file example/example_files/input/cluster/models_10.matrix -input_format TableLowerTriangle -output_file example/example_files/output/cluster/models_10.out -output_format Centers -output_pymol 100 2 20 20 10 example/example_files/output/cluster/color_description_dendrogram.py -pymol_color_nodes_by_description example/example_files/input/cluster/descriptions.ls 9.0 32.0 
+
+=crt=bcl::app=> start getting distance function
+=crt=bcl::util=> Read in table has run for 7e-05 seconds
+=crt=bcl::util=>  Input Table HandleInput  has run for 0.000136 seconds
+=std=bcl::app=> height cutoff undefined with less or less_equal comparison so setting to most positive float possible
+=crt=bcl::util=>  initializenode  has run for 4e-06 seconds
+=crt=bcl::util=>  get_initial_linkages  has run for 5.5e-05 seconds
+=std=bcl::cluster=> initial linkages_nodes size 45
+=crt=bcl::util=>  dendrogram clustering  has run for 0.000228 seconds
+=std=bcl::cluster=> Average description for node of girth 6.54591 and size 10 is 16.5688
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 15.6771
+=std=bcl::cluster=> Average description for node of girth 6.31 and size 9 is 16.6678
+=std=bcl::cluster=> Average description for node of girth 6.54591 and size 10 is 16.5688
+=std=bcl::cluster=> Average description for node of girth 5.39709 and size 8 is 17.5375
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 9.7106
+=std=bcl::cluster=> Average description for node of girth 6.31 and size 9 is 16.6678
+=std=bcl::cluster=> Average description for node of girth 4.82608 and size 7 is 17.6938
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 16.4436
+=std=bcl::cluster=> Average description for node of girth 5.39709 and size 8 is 17.5375
+=std=bcl::cluster=> Average description for node of girth 3.86311 and size 6 is 17.753
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 17.3385
+=std=bcl::cluster=> Average description for node of girth 4.82608 and size 7 is 17.6938
+=std=bcl::cluster=> Average description for node of girth 3.59632 and size 5 is 18.0562
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 16.2368
+=std=bcl::cluster=> Average description for node of girth 3.86311 and size 6 is 17.753
+=std=bcl::cluster=> Average description for node of girth 3.24795 and size 4 is 18.4968
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 16.2938
+=std=bcl::cluster=> Average description for node of girth 3.59632 and size 5 is 18.0562
+=std=bcl::cluster=> Average description for node of girth 2.75821 and size 3 is 21.187
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 10.4263
+=std=bcl::cluster=> Average description for node of girth 3.24795 and size 4 is 18.4968
+=std=bcl::cluster=> Average description for node of girth 1.56603 and size 2 is 24.4983
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 14.5643
+=std=bcl::cluster=> Average description for node of girth 2.75821 and size 3 is 21.187
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 24.9397
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 24.057
+=std=bcl::cluster=> Average description for node of girth 1.56603 and size 2 is 24.4983
+=std=bcl=> Run completed of bcl:Cluster -distance_input_file example/example_files/input/cluster/models_10.matrix -input_format TableLowerTriangle -output_file example/example_files/output/cluster/models_10.out -output_format Centers -output_pymol 100 2 20 20 10 example/example_files/output/cluster/color_description_dendrogram.py -pymol_color_nodes_by_description example/example_files/input/cluster/descriptions.ls 9.0 32.0 
+, return status was: 0
+Command line took 0.003589 sec to run
+=std=bcl=> successful example check:  cluster.RunCommand() == 0
+=std=bcl=> cluster generated incorrectly test succeeded:
+              io::File::FilesMatch( models_10_rows_filename_correct, models_10_rows_filename) == 1
+=std=bcl=> Checking command line:
+bcl:Cluster -distance_input_file example/example_files/input/cluster/models_10.matrix -input_format TableLowerTriangle -output_file example/example_files/output/cluster/models_10_output_members.out -output_format Centers -output_node_members example/example_files/output/cluster/models_10_node_members -pymol_color_nodes_by_description example/example_files/input/cluster/descriptions.ls 9.0 32.0 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  cluster.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: bcl:Cluster -distance_input_file example/example_files/input/cluster/models_10.matrix -input_format TableLowerTriangle -output_file example/example_files/output/cluster/models_10_output_members.out -output_format Centers -output_node_members example/example_files/output/cluster/models_10_node_members -pymol_color_nodes_by_description example/example_files/input/cluster/descriptions.ls 9.0 32.0 
+
+=crt=bcl::app=> start getting distance function
+=crt=bcl::util=> Read in table has run for 7.2e-05 seconds
+=crt=bcl::util=>  Input Table HandleInput  has run for 0.000144 seconds
+=std=bcl::app=> height cutoff undefined with less or less_equal comparison so setting to most positive float possible
+=crt=bcl::util=>  initializenode  has run for 4e-06 seconds
+=crt=bcl::util=>  get_initial_linkages  has run for 5.3e-05 seconds
+=std=bcl::cluster=> initial linkages_nodes size 45
+=crt=bcl::util=>  dendrogram clustering  has run for 0.000218 seconds
+=std=bcl::cluster=> Average description for node of girth 6.54591 and size 10 is 16.5688
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 15.6771
+=std=bcl::cluster=> Average description for node of girth 6.31 and size 9 is 16.6678
+=std=bcl::cluster=> Average description for node of girth 6.54591 and size 10 is 16.5688
+=std=bcl::cluster=> Average description for node of girth 5.39709 and size 8 is 17.5375
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 9.7106
+=std=bcl::cluster=> Average description for node of girth 6.31 and size 9 is 16.6678
+=std=bcl::cluster=> Average description for node of girth 4.82608 and size 7 is 17.6938
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 16.4436
+=std=bcl::cluster=> Average description for node of girth 5.39709 and size 8 is 17.5375
+=std=bcl::cluster=> Average description for node of girth 3.86311 and size 6 is 17.753
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 17.3385
+=std=bcl::cluster=> Average description for node of girth 4.82608 and size 7 is 17.6938
+=std=bcl::cluster=> Average description for node of girth 3.59632 and size 5 is 18.0562
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 16.2368
+=std=bcl::cluster=> Average description for node of girth 3.86311 and size 6 is 17.753
+=std=bcl::cluster=> Average description for node of girth 3.24795 and size 4 is 18.4968
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 16.2938
+=std=bcl::cluster=> Average description for node of girth 3.59632 and size 5 is 18.0562
+=std=bcl::cluster=> Average description for node of girth 2.75821 and size 3 is 21.187
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 10.4263
+=std=bcl::cluster=> Average description for node of girth 3.24795 and size 4 is 18.4968
+=std=bcl::cluster=> Average description for node of girth 1.56603 and size 2 is 24.4983
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 14.5643
+=std=bcl::cluster=> Average description for node of girth 2.75821 and size 3 is 21.187
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 24.9397
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 24.057
+=std=bcl::cluster=> Average description for node of girth 1.56603 and size 2 is 24.4983
+=std=bcl=> Run completed of bcl:Cluster -distance_input_file example/example_files/input/cluster/models_10.matrix -input_format TableLowerTriangle -output_file example/example_files/output/cluster/models_10_output_members.out -output_format Centers -output_node_members example/example_files/output/cluster/models_10_node_members -pymol_color_nodes_by_description example/example_files/input/cluster/descriptions.ls 9.0 32.0 
+, return status was: 0
+Command line took 0.004661 sec to run
+=std=bcl=> successful example check:  cluster.RunCommand() == 0
+=std=bcl=> cluster generated incorrectly test succeeded:
+              io::File::FilesMatch( models_10_rows_filename_correct, models_10_rows_filename) == 1
+=std=bcl=> not all expected files exist test succeeded:  all_exist == 1
+=std=bcl::app=> BCL Example | END  : AppCluster ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AppCluster_total                         14          0              
+total                                    14          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 115 MB, peak physical RAM used: 55 MB

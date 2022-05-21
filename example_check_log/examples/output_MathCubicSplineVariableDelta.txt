@@ -1,0 +1,219 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec MathCubicSplineVariableDelta 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> MathCubicSplineVariableDelta
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: MathCubicSplineVariableDelta ====================
+=std=bcl=> Example for a natural spline (f''(x_0)=f''(x_dim-1)=0):
+=std=bcl=> Lower / Upper  bound: 
+=std=bcl=>  x       f(x)      f'(x)
+=std=bcl=>  -180.00 26.000000 -2.836237
+=std=bcl=>  -179.90 25.716382 -2.836076
+=std=bcl=>  -179.80 25.432795 -2.835594
+=std=bcl=>  -179.70 25.149274 -2.834789
+=std=bcl=>  -179.60 24.865848 -2.833663
+=std=bcl=>  -179.50 24.582552 -2.832215
+=std=bcl=> Between bounds: 
+=std=bcl=>  x       f(x)      f'(x)
+=std=bcl=>  -80.10  6.939413  0.610792
+=std=bcl=>  -77.10  8.319088  0.309148
+=std=bcl=>  -74.10  8.796311  0.009336
+=std=bcl=>  -71.10  8.377114 -0.288464
+=std=bcl=> Example for a natural spline variable delta (f''(x_0)=f''(x_dim-1)=0):
+=std=bcl=> Lower / Upper  bound: 
+=std=bcl=>  x       f(x)      f'(x)
+=std=bcl=>  -180.00 26.000000 -2.897439
+=std=bcl=>  -160.00  0.873256  0.253151
+=std=bcl=>  -140.00  1.071083 -0.019590
+=std=bcl=>  -120.00  4.712886 -0.288283
+=std=bcl=>  -100.00  7.082028 -0.426608
+=std=bcl=>  -80.00  6.978661  0.594465
+=std=bcl=>  -60.00  3.000000 -0.150166
+=std=bcl=>  -40.00  2.072955 -0.303726
+=std=bcl=>  -20.00 -1.878190 -0.374694
+=std=bcl=>  0.00 30.000000 -1.333664
+=std=bcl=>  20.00  1.532698  0.465743
+=std=bcl=>  40.00  6.000000 -0.246752
+=std=bcl=>  60.00  3.942712  0.001269
+=std=bcl=>  80.00  3.046871 -0.103626
+=std=bcl=>  100.00  8.249134 -0.297025
+=std=bcl=>  120.00  7.965289  0.169955
+=std=bcl=>  140.00  1.868742 -0.386797
+=std=bcl=>  160.00  2.000000  0.151833
+=std=bcl=> Between bounds: 
+=std=bcl=>  x       f(x)      f'(x)
+=std=bcl=>  -80.10  6.918888  0.600970
+=std=bcl=>  -77.10  8.337296  0.312431
+=std=bcl=>  -74.10  8.643760 -0.100634
+=std=bcl=>  -71.10  7.874369 -0.387408
+=std=bcl=> Example for a NotAKnot spline variable delta (f''(x_0)=f''(x_dim-1)=0):
+=std=bcl=> Lower / Upper  bound: 
+=std=bcl=>  x       f(x)      f'(x)
+=std=bcl=>  -180.00 26.000000 -3.778794
+=std=bcl=>  -160.00  1.105010  0.155417
+=std=bcl=>  -140.00  1.059892 -0.019816
+=std=bcl=>  -120.00  4.712439 -0.288254
+=std=bcl=>  -100.00  7.082002 -0.426616
+=std=bcl=>  -80.00  6.978661  0.594465
+=std=bcl=>  -60.00  3.000000 -0.150166
+=std=bcl=>  -40.00  2.072955 -0.303726
+=std=bcl=>  -20.00 -1.878190 -0.374694
+=std=bcl=>  0.00 30.000000 -1.333664
+=std=bcl=>  20.00  1.532698  0.465743
+=std=bcl=>  40.00  6.000000 -0.246752
+=std=bcl=>  60.00  3.942712  0.001269
+=std=bcl=>  80.00  3.046870 -0.103626
+=std=bcl=>  100.00  8.249221 -0.297006
+=std=bcl=>  120.00  7.965434  0.170014
+=std=bcl=>  140.00  1.875949 -0.379117
+=std=bcl=>  160.00  2.000000  0.226238
+=std=bcl=> Between bounds: 
+=std=bcl=>  x       f(x)      f'(x)
+=std=bcl=>  -80.10  6.918887  0.600970
+=std=bcl=>  -77.10  8.337296  0.312432
+=std=bcl=>  -74.10  8.643761 -0.100633
+=std=bcl=>  -71.10  7.874369 -0.387408
+=std=bcl=> Ln(x) with BCL Splines and Variable Delta Implementation: 
+=std=bcl=>  x     f(x)_BCL  f'(x)_BCL  f(x)_VD  f'(x)_VD
+=std=bcl=>  2.00  0.693100  0.433087  0.693100  0.433087
+=std=bcl=>  2.10  0.736381  0.432260  0.736381  0.432260
+=std=bcl=>  2.20  0.779497  0.429777  0.779497  0.429777
+=std=bcl=>  2.30  0.822281  0.425639  0.822281  0.425639
+=std=bcl=>  2.40  0.864569  0.419845  0.864569  0.419845
+=std=bcl=>  2.50  0.906195  0.412397  0.906195  0.412397
+=std=bcl=>  2.60  0.946994  0.403293  0.946994  0.403293
+=std=bcl=>  2.70  0.986799  0.392534  0.986799  0.392534
+=std=bcl=>  2.80  1.025445  0.380120  1.025445  0.380120
+=std=bcl=>  2.90  1.062767  0.366050  1.062767  0.366050
+=std=bcl=>  3.00  1.098600  0.350325  1.098600  0.350325
+=std=bcl=>  3.10  1.132825  0.334377  1.132825  0.334377
+=std=bcl=>  3.20  1.165516  0.319637  1.165516  0.319637
+=std=bcl=>  3.30  1.196793  0.306105  1.196793  0.306105
+=std=bcl=>  3.40  1.226777  0.293781  1.226777  0.293781
+=std=bcl=>  3.50  1.255589  0.282666  1.255589  0.282666
+=std=bcl=>  3.60  1.283350  0.272759  1.283350  0.272759
+=std=bcl=>  3.70  1.310181  0.264059  1.310181  0.264059
+=std=bcl=>  3.80  1.336203  0.256568  1.336203  0.256568
+=std=bcl=>  3.90  1.361535  0.250285  1.361535  0.250285
+=std=bcl=>  4.00  1.386300  0.245211  1.386300  0.245211
+=std=bcl=>  4.10  1.410598  0.240747  1.410598  0.240747
+=std=bcl=>  4.20  1.434450  0.236299  1.434450  0.236299
+=std=bcl=>  4.30  1.457858  0.231864  1.457858  0.231864
+=std=bcl=>  4.40  1.480823  0.227445  1.480823  0.227445
+=std=bcl=>  4.50  1.503347  0.223039  1.503347  0.223039
+=std=bcl=>  4.60  1.525432  0.218649  1.525432  0.218649
+=std=bcl=>  4.70  1.547078  0.214273  1.547078  0.214273
+=std=bcl=>  4.80  1.568287  0.209911  1.568287  0.209911
+=std=bcl=>  4.90  1.589060  0.205564  1.589060  0.205564
+=std=bcl=>  5.00  1.609400  0.201231  1.609400  0.201231
+=std=bcl=>  5.10  1.629310  0.196990  1.629310  0.196990
+=std=bcl=>  5.20  1.648804  0.192916  1.648804  0.192916
+=std=bcl=>  5.30  1.667899  0.189010  1.667899  0.189010
+=std=bcl=>  5.40  1.686611  0.185272  1.686611  0.185272
+=std=bcl=>  5.50  1.704959  0.181701  1.704959  0.181701
+=std=bcl=>  5.60  1.722957  0.178298  1.722957  0.178298
+=std=bcl=>  5.70  1.740624  0.175063  1.740624  0.175063
+=std=bcl=>  5.80  1.757975  0.171995  1.757975  0.171995
+=std=bcl=>  5.90  1.775028  0.169096  1.775028  0.169096
+=std=bcl=>  6.00  1.791800  0.166363  1.791800  0.166363
+=std=bcl=>  6.10  1.808305  0.163744  1.808305  0.163744
+=std=bcl=>  6.20  1.824551  0.161184  1.824551  0.161184
+=std=bcl=>  6.30  1.840544  0.158682  1.840544  0.158682
+=std=bcl=>  6.40  1.856289  0.156240  1.856289  0.156240
+=std=bcl=>  6.50  1.871794  0.153855  1.871794  0.153855
+=std=bcl=>  6.60  1.887062  0.151530  1.887062  0.151530
+=std=bcl=>  6.70  1.902101  0.149263  1.902101  0.149263
+=std=bcl=>  6.80  1.916917  0.147055  1.916917  0.147055
+=std=bcl=>  6.90  1.931514  0.144906  1.931514  0.144906
+=std=bcl=>  7.00  1.945900  0.142815  1.945900  0.142815
+=std=bcl=>  7.10  1.960079  0.140783  1.960079  0.140783
+=std=bcl=>  7.20  1.974059  0.138811  1.974059  0.138811
+=std=bcl=>  7.30  1.987844  0.136899  1.987844  0.136899
+=std=bcl=>  7.40  2.001440  0.135046  2.001440  0.135046
+=std=bcl=>  7.50  2.014855  0.133252  2.014855  0.133252
+=std=bcl=>  7.60  2.028093  0.131518  2.028093  0.131518
+=std=bcl=>  7.70  2.041160  0.129843  2.041160  0.129843
+=std=bcl=>  7.80  2.054063  0.128228  2.054063  0.128228
+=std=bcl=>  7.90  2.066808  0.126673  2.066808  0.126673
+=std=bcl=>  8.00  2.079400  0.125177  2.079400  0.125177
+=std=bcl=>  8.10  2.091844  0.123709  2.091844  0.123709
+=std=bcl=>  8.20  2.104142  0.122239  2.104142  0.122239
+=std=bcl=>  8.30  2.116292  0.120766  2.116292  0.120766
+=std=bcl=>  8.40  2.128295  0.119290  2.128295  0.119290
+=std=bcl=>  8.50  2.140150  0.117811  2.140150  0.117811
+=std=bcl=>  8.60  2.151857  0.116330  2.151857  0.116330
+=std=bcl=>  8.70  2.163416  0.114846  2.163416  0.114846
+=std=bcl=>  8.80  2.174826  0.113359  2.174826  0.113359
+=std=bcl=>  8.90  2.186088  0.111870  2.186088  0.111870
+=std=bcl=>  9.00  2.197200  0.110378  2.197200  0.110378
+=std=bcl=>  9.10  2.208166  0.108959  2.208166  0.108959
+=std=bcl=>  9.20  2.218997  0.107690  2.218997  0.107690
+=std=bcl=>  9.30  2.229709  0.106570  2.229709  0.106570
+=std=bcl=>  9.40  2.240316  0.105599  2.240316  0.105599
+=std=bcl=>  9.50  2.250833  0.104778  2.250833  0.104778
+=std=bcl=>  9.60  2.261276  0.104106  2.261276  0.104106
+=std=bcl=>  9.70  2.271660  0.103583  2.271660  0.103583
+=std=bcl=>  9.80  2.281998  0.103210  2.281998  0.103210
+=std=bcl=>  9.90  2.292306  0.102986  2.292306  0.102986
+=std=bcl=>  10.00  2.302600  0.102911  2.302600  0.102911
+=std=bcl=> successful example check:
+               GetStaticClassName< math::CubicSplineVariableDelta>() ==
+              sp_natural_spline->GetClassIdentifier() == bcl::math::CubicSplineVariableDelta
+=std=bcl::app=> BCL Example | END  : MathCubicSplineVariableDelta ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>      success      error error_string 
+MathCubicSplineVariableDelta_total         32          0              
+total                                      32          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

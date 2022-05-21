@@ -1,0 +1,407 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec PdbFactory 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> PdbFactory
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: PdbFactory ====================
+=std=bcl=> read pdb file: example/example_files/input/biology/1C1D.pdb
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> building sequences from pdb chains using backbone
+=std=bcl=> pdb has 2 chains.
+=std=bcl=> chain with identifier 'A' has 355 residues.
+=std=bcl=> sequence for this chain is: SIDSALNWDGEMTVTRFDAMTGAHFVIRLDSTQLGPAAGGTRAAQYSNLADALTDAGKLAGAMTLKMAVSNLPMGGGKSVIALPAPRHSIDPSTWARILRIHAENIDKLSGNYWTGPDVNTNSADMDTLNDTTEFVFGRSLERGGAGSSAFTTAVGVFEAMKATVAHRGLGSLDGLTVLVQGLGAVGGSLASLAAEAGAQLLVADTDTERVAHAVALGHTAVALEDVLSTPCDVFAPCAMGGVITTEVARTLDCSVVAGAANNVIADEAASDILHARGILYAPDFVANAGGAIHLVGREVLGWSESVVHERAVAIGDTLNQVFEISDNDGVTPDEAARTLAGRRAREASTTTATA
+=std=bcl=> chain with identifier 'B' has 355 residues.
+=std=bcl=> sequence for this chain is: SIDSALNWDGEMTVTRFDSMTGAHFVIRLDSTQLGPAAGGTRAAQYSQLADALTDAGKLAGAMTLKMAVSNLPMGGGKSVIALPAPRHSIDPSTWARILRIHAENIDKLSGNYWTGPDVNTNSADMDTLNDTTEFVFGRSLERGGAGSSAFTTAVGVFEAMKATVAHRGLGSLDGLTVLVQGLGAVGGSLASLAAEAGAQLLVADTDTERVAHAVALGHTAVALEDVLSTPCDVFAPCAMGGVITTEVARTLDCSVVAGAANNVIADEAASDILHARGILYAPDFVANAGGAIHLVGREVLGWSESVVHERAVAIGDTLNQVFEISDNDGVTPDEAARTLAGRRAREASTTTATA
+=std=bcl=> building models from pdb chains and sse information
+=std=bcl=> write model_withoutloop_nonideal_backbone.pdb
+=std=bcl=> this is the number of helices and strands in the chain A: 14 11
+=std=bcl=> these are beginning and ending amino acid seqids according to the secondary structure elements
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 1 1
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 12 12
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 23 23
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 37 37
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 48 48
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 75 75
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 91 91
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 113 113
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 122 122
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 149 149
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 177 177
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 184 184
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 200 200
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 207 207
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 220 220
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 234 234
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 245 245
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 256 256
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 267 267
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 280 280
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 283 283
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 289 289
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 304 304
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 315 315
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 332 332
+=std=bcl=> this is the number of helices and strands in the chain B: 14 12
+=std=bcl=> these are beginning and ending amino acid seqids according to the secondary structure elements
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 1 1
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 12 12
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 23 23
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 37 37
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 41 41
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 48 48
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 75 75
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 91 91
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 113 113
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 122 122
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 149 149
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 177 177
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 184 184
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 200 200
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 207 207
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 220 220
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 234 234
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 245 245
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 256 256
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 267 267
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 280 280
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 283 283
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 289 289
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 304 304
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 315 315
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 332 332
+=std=bcl=> building sequences from pdb chains using cacb
+=std=bcl=> pdb has 2 chains.
+=std=bcl=> chain with identifier 'A' has 355 residues.
+=std=bcl=> sequence for this chain is: SIDSALNWDGEMTVTRFDAMTGAHFVIRLDSTQLGPAAGGTRAAQYSNLADALTDAGKLAGAMTLKMAVSNLPMGGGKSVIALPAPRHSIDPSTWARILRIHAENIDKLSGNYWTGPDVNTNSADMDTLNDTTEFVFGRSLERGGAGSSAFTTAVGVFEAMKATVAHRGLGSLDGLTVLVQGLGAVGGSLASLAAEAGAQLLVADTDTERVAHAVALGHTAVALEDVLSTPCDVFAPCAMGGVITTEVARTLDCSVVAGAANNVIADEAASDILHARGILYAPDFVANAGGAIHLVGREVLGWSESVVHERAVAIGDTLNQVFEISDNDGVTPDEAARTLAGRRAREASTTTATA
+=std=bcl=> chain with identifier 'B' has 355 residues.
+=std=bcl=> sequence for this chain is: SIDSALNWDGEMTVTRFDSMTGAHFVIRLDSTQLGPAAGGTRAAQYSQLADALTDAGKLAGAMTLKMAVSNLPMGGGKSVIALPAPRHSIDPSTWARILRIHAENIDKLSGNYWTGPDVNTNSADMDTLNDTTEFVFGRSLERGGAGSSAFTTAVGVFEAMKATVAHRGLGSLDGLTVLVQGLGAVGGSLASLAAEAGAQLLVADTDTERVAHAVALGHTAVALEDVLSTPCDVFAPCAMGGVITTEVARTLDCSVVAGAANNVIADEAASDILHARGILYAPDFVANAGGAIHLVGREVLGWSESVVHERAVAIGDTLNQVFEISDNDGVTPDEAARTLAGRRAREASTTTATA
+=std=bcl=> building models from pdb chains and sse information
+=std=bcl=> write model_withoutloop_nonideal_cacb.pdb
+=std=bcl=> this is the number of helices and strands in the chain A: 14 11
+=std=bcl=> these are beginning and ending amino acid seqids according to the secondary structure elements
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 1 1
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 12 12
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 23 23
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 37 37
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 48 48
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 75 75
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 91 91
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 113 113
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 122 122
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 149 149
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 177 177
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 184 184
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 200 200
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 207 207
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 220 220
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 234 234
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 245 245
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 256 256
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 267 267
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 280 280
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 283 283
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 289 289
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 304 304
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 315 315
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 332 332
+=std=bcl=> this is the number of helices and strands in the chain B: 14 12
+=std=bcl=> these are beginning and ending amino acid seqids according to the secondary structure elements
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 1 1
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 12 12
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 23 23
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 37 37
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 41 41
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 48 48
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 75 75
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 91 91
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 113 113
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 122 122
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 149 149
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 177 177
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 184 184
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 200 200
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 207 207
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 220 220
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 234 234
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 245 245
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 256 256
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 267 267
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "STRAND"
+=std=bcl=> 280 280
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 283 283
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 289 289
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 304 304
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 315 315
+=std=bcl=> bcl::biol::SSTypes::Enum
+  "HELIX"
+=std=bcl=> 332 332
+=std=bcl::app=> BCL Example | END  : PdbFactory ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+PdbFactory_total                          0          0              
+total                                     0          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 137 MB, peak physical RAM used: 69 MB

@@ -1,0 +1,33 @@
+CMAKE_MINIMUM_REQUIRED( VERSION 2.8.8)
+
+SET( LIBRARY_NAME bclexamplesdf)
+SET( LIBRARY_OBJECTS ${LIBRARY_NAME}-objects)
+PROJECT( lib${LIBRARY_NAME})
+
+SET(
+  LIBRARY_SOURCES
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_atom_info.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_bond_info.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_ctab_handler.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_factory.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_fragment_factory.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_mdl_entry_type_data.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_mdl_entry_types.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_mdl_handler.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_mdl_header.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_mdl_property.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_molfile_handler.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_rxn_factory.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_sdf_rxn_handler.cpp
+)
+MACRO_CHECK_CMAKE_DIRECTORY_LIST( ${CMAKE_CURRENT_SOURCE_DIR} "${LIBRARY_SOURCES}")
+
+ADD_LIBRARY( ${LIBRARY_OBJECTS} OBJECT ${LIBRARY_SOURCES})
+
+IF( LINK_NAMESPACE_ARCHIVES)
+  ADD_LIBRARY( ${LIBRARY_NAME} STATIC $<TARGET_OBJECTS:${LIBRARY_OBJECTS}>)
+ENDIF()
+
+SET( SUBDIRECTORY_LIBRARY_NAME ${LIBRARY_NAME} PARENT_SCOPE)
+SET( SUBDIRECTORY_LIBRARY_OBJECTS ${LIBRARY_OBJECTS} PARENT_SCOPE)

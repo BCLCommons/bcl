@@ -1,0 +1,149 @@
+./build/linux64_release/bin/bcl-example-apps-static.exe Examples -exec AppFitInDensityMinimize 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AppFitInDensityMinimize
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AppFitInDensityMinimize ====================
+=std=bcl=> successful example check:  app_enum_fit_in_density.IsDefined() == 1
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> create directory for output: example/example_files/output/biol/fit_in_density_minimize test succeeded:
+              output_directory->Make() == 1
+=std=bcl=> Checking command line:
+FitInDensityMinimize example/example_files/input/biology/1ubi_ideal_model.pdb example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc -approximator MC -mrc_resolution 6.6 -prefix example/example_files/output/biol/fit_in_density_minimize/ 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  fit_in_density_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: FitInDensityMinimize example/example_files/input/biology/1ubi_ideal_model.pdb example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc -approximator MC -mrc_resolution 6.6 -prefix example/example_files/output/biol/fit_in_density_minimize/ 
+
+=std=bcl::app=> read DensityMap from mrc file
+=std=bcl::app=> read Density map from mrc file done
+=std=bcl::app=> name of mrc: 1ubi_res_6.6voxelsize_2.200Gaussian.mrc
+=std=bcl::app=> fitting: example/example_files/input/biology/1ubi_ideal_model.pdb
+=std=bcl::app=> minimization started
+=std=bcl::mc=> MC Minimization started
+ Status: Iteration 2 -0.751092 -0.773266 Status: Iteration 3 -0.751459 -0.773266  Status: Iteration 4 -0.716144 -0.773266  Status: Iteration 5 -0.715485 -0.773266  Status: Iteration 6 -0.67993 -0.773266   Status: Iteration 7 -0.696057 -0.773266 Status: Iteration 8 -0.647648 -0.773266  Status: Iteration 9 -0.550027 -0.773266  Status: Iteration 10 -0.494945 -0.773266 Status: Iteration 11 -0.487406 -0.773266  Status: Iteration 12 -0.773266 -0.773266  Status: Iteration 13 -0.774021 -0.774021  Status: Iteration 14 -0.770708 -0.774021  Status: Iteration 15 -0.773737 -0.774021  Status: Iteration 16 -0.770513 -0.774021  Status: Iteration 17 -0.757287 -0.774021  Status: Iteration 18 -0.757704 -0.774021  Status: Iteration 19 -0.749568 -0.774021  Status: Iteration 20 -0.746055 -0.774021  Status: Iteration 21 -0.741037 -0.774021  Status: Iteration 22 -0.744914 -0.774021  Status: Iteration 23 -0.74304 -0.774021   Status: Iteration 24 -0.729987 -0.774021 Status: Iteration 25 -0.728403 -0.774021  Status: Iteration 26 -0.72679 -0.774021   Status: Iteration 27 -0.699051 -0.774021 Status: Iteration 28 -0.668837 -0.774021  Status: Iteration 29 -0.621504 -0.774021  Status: Iteration 30 -0.5734 -0.774021    Status: Iteration 31 -0.549044 -0.774021 Status: Iteration 32 -0.545247 -0.774021  Status: Iteration 33 -0.555024 -0.774021  Status: Iteration 34 -0.774021 -0.774021  Status: Iteration 35 -0.7684 -0.774021    Status: Iteration 36 -0.759031 -0.774021 Status: Iteration 37 -0.740167 -0.774021  Status: Iteration 38 -0.696013 -0.774021  Status: Iteration 39 -0.73101 -0.774021  
+=std=bcl::mc=> MC Minimization ended
+=std=bcl::mc=> #MC steps: 39
+=std=bcl::mc=> #MC steps improved:	    2	% 5.13
+=std=bcl::mc=> #MC steps accepted:	   35	%89.74
+=std=bcl::mc=> #MC steps rejected:	    2	% 5.13
+=std=bcl::mc=> #MC steps skipped:	    0	% 0.00
+=std=bcl::app=> write transformed protein model in file example/example_files/output/biol/fit_in_density_minimize/transformed_min.pdb
+=std=bcl::app=> minimization finished
+bcl::storage::Table<double>  ccc_start    ccc_min       RMSD 
+protein                       0.773266   0.774021   0.364121 
+=std=bcl::app=> fit in density finished
+=std=bcl::util=> minimization MC has run for 0.082118 seconds
+=std=bcl=> Run completed of FitInDensityMinimize example/example_files/input/biology/1ubi_ideal_model.pdb example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc -approximator MC -mrc_resolution 6.6 -prefix example/example_files/output/biol/fit_in_density_minimize/ 
+, return status was: 0
+Command line took 0.086718 sec to run
+=std=bcl=> successful example check:  fit_in_density_helper.RunCommand() == 0
+=std=bcl=> check if example/example_files/output/biol/fit_in_density_minimize/transformed_min.pdb was written test succeeded:
+              result_file_name.DoesExist() == 1
+=std=bcl=> successful example check:  output_directory->Remove( true) == 1
+=std=bcl=> ccc: -0.774022 rmsd: 0.364176
+=std=bcl=> successful example check:  rmsd < 0.5 == 1
+=std=bcl=> successful example check:  ccc < -0.7 == 1
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> create directory for output: example/example_files/output/biol/fit_in_density_minimize test succeeded:
+              output_directory->Make() == 1
+=std=bcl=> Checking command line:
+FitInDensityMinimize example/example_files/input/biology/1ubi_ideal_model.pdb example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc -approximator Powell -mrc_resolution 6.6 -prefix example/example_files/output/biol/fit_in_density_minimize/ 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  fit_in_density_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: FitInDensityMinimize example/example_files/input/biology/1ubi_ideal_model.pdb example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc -approximator Powell -mrc_resolution 6.6 -prefix example/example_files/output/biol/fit_in_density_minimize/ 
+
+=std=bcl::app=> read DensityMap from mrc file
+=std=bcl::app=> read Density map from mrc file done
+=std=bcl::app=> name of mrc: 1ubi_res_6.6voxelsize_2.200Gaussian.mrc
+=std=bcl::app=> fitting: example/example_files/input/biology/1ubi_ideal_model.pdb
+=std=bcl::app=> minimization started
+=std=bcl::opti=> CURRENT: bcl::storage::Pair<bcl::linal::Vector<double>,double>
+  bcl::linal::Vector<double>
+    6
+    -0.0145354	-0.00675427	-0.00016261	-0.104512	0	-0.160973	
+  -0.77774
+=std=bcl::opti=> CURRENT: bcl::storage::Pair<bcl::linal::Vector<double>,double>
+  bcl::linal::Vector<double>
+    6
+    -0.0290708	-0.0130493	-0.000554829	-0.169557	0.226385	-0.164812	
+  -0.778443
+=std=bcl::app=> write transformed protein model in file example/example_files/output/biol/fit_in_density_minimize/transformed_min.pdb
+=std=bcl::app=> minimization finished
+bcl::storage::Table<double>  ccc_start    ccc_min       RMSD 
+protein                       0.773266   0.773266          0 
+=std=bcl::app=> fit in density finished
+=std=bcl::util=> minimization Powell has run for 0.308736 seconds
+=std=bcl=> Run completed of FitInDensityMinimize example/example_files/input/biology/1ubi_ideal_model.pdb example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc -approximator Powell -mrc_resolution 6.6 -prefix example/example_files/output/biol/fit_in_density_minimize/ 
+, return status was: 0
+Command line took 0.31293 sec to run
+=std=bcl=> successful example check:  fit_in_density_helper.RunCommand() == 0
+=std=bcl=> check if example/example_files/output/biol/fit_in_density_minimize/transformed_min.pdb was written test succeeded:
+              result_file_name.DoesExist() == 1
+=std=bcl=> successful example check:  output_directory->Remove( true) == 1
+=std=bcl=> ccc: -0.774022 rmsd: 0.364176
+=std=bcl=> successful example check:  rmsd < 0.5 == 1
+=std=bcl=> successful example check:  ccc < -0.7 == 1
+=std=bcl::app=> BCL Example | END  : AppFitInDensityMinimize ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AppFitInDensityMinimize_total            15          0              
+total                                    15          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 116 MB, peak physical RAM used: 57 MB

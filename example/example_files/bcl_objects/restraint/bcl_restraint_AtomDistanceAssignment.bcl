@@ -1,0 +1,19 @@
+bcl::restraint::AtomDistanceAssignment
+  bcl::biol::Atom
+    bcl::linal::Vector3D
+      29.085	28.631	18.728
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    336
+    1.28
+  bcl::biol::Atom
+    bcl::linal::Vector3D
+      35.739	30.737	13.838
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    230
+    2.42
+  bcl::util::ShPtr<bcl::restraint::Distance>
+    12345678
+    bcl::restraint::Distance
+      3      3.75      1.8

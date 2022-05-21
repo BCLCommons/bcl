@@ -1,0 +1,1 @@
+EnsembleFilter(score function=ProteinModelCompleteness(ignore term loops=0),keep=0.67)

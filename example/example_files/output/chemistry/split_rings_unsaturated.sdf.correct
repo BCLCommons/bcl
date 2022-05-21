@@ -1,0 +1,112 @@
+RingsWithUnsaturatedSubstituents isolated from automatically builded mdl file by CMolecule::WriteInMDLFile
+  DSViewer          3D                             0
+
+  6  6  0  0  0  0  0  0  0  0999 V2000
+   -6.4683    3.0678   -0.5113 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.0695    2.1940   -1.4128 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.3414    2.4521   -1.9113 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -9.0270    3.5934   -1.5136 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -8.4323    4.4761   -0.6211 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.1605    4.2120   -0.1263 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  6  2  0  0  0  0
+  2  3  2  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  BCL DBI - - -
+M  END
+$$$$
+RingsWithUnsaturatedSubstituents isolated from automatically builded mdl file by CMolecule::WriteInMDLFile
+  DSViewer          3D                             0
+
+  6  6  0  0  0  0  0  0  0  0999 V2000
+   -5.6711   -0.3272    0.0202 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.3541   -1.3090   -0.6904 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.4507   -1.9478   -0.1236 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.8661   -1.6093    1.1587 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -7.1830   -0.6329    1.8741 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -6.0871    0.0054    1.3058 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  6  2  0  0  0  0
+  2  3  2  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  BCL DBI - - -
+M  END
+$$$$
+RingsWithUnsaturatedSubstituents isolated from automatically builded mdl file by CMolecule::WriteInMDLFile
+  DSViewer          3D                             0
+
+ 18 21  0  0  0  0  0  0  0  0999 V2000
+    0.6377   -0.1621   -0.1427 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.0401    1.3228   -0.0900 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2799   -0.9086    1.0313 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.6079   -0.3450    1.6715 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.1978    0.9978    2.1492 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8172    1.8142    0.9365 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.3891    3.1602    0.9180 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.3772    3.1963   -0.2529 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.6823    2.3762   -0.4314 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6571    0.6191   -0.3889 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.0708   -0.3106    0.8924 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.6944    2.8547    0.5944 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.1734    2.3844    0.1383 C   0  0  0  0  0  0  0  0  0  0  0  0
+    7.3260    0.9846   -0.6680 C   0  0  0  0  0  0  0  0  0  0  0  0
+    6.2246    0.0273   -0.3192 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1241    3.9973   -1.1593 O   0  0  0  1  0  0  0  0  0  0  0  0
+    8.1257    0.1058    0.2004 O   0  0  0  1  0  0  0  0  0  0  0  0
+    6.9471   -0.0521    1.0447 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  1  0  0  0  0
+  2  6  2  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4 11  1  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  1  0  0  0  0
+  7  8  1  0  0  0  0
+  8  9  1  0  0  0  0
+  8 16  2  0  0  0  0
+  9 10  1  0  0  0  0
+  9 12  1  0  0  0  0
+ 10 11  1  0  0  0  0
+ 10 15  1  0  0  0  0
+ 12 13  1  0  0  0  0
+ 13 14  1  0  0  0  0
+ 14 15  1  0  0  0  0
+ 14 17  1  0  0  0  0
+ 15 18  1  0  0  0  0
+ 17 18  1  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe O_Tr2Tr2TrPi O_Te2Te2TeTe C_TeTeTeTe
+M  BCL BND NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing ConjugatedDoubleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing ConjugatedDoubleBond NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing NonConjugatedSingleBondInRing
+M  BCL CHI   4   S   9   S  10   R  14   R  15   R
+M  BCL DBI Z -
+M  END
+$$$$
+RingsWithUnsaturatedSubstituents isolated from automatically builded mdl file by CMolecule::WriteInMDLFile
+  DSViewer          3D                             0
+
+  6  6  0  0  0  0  0  0  0  0999 V2000
+    4.0058   -3.8008   -0.6227 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4687   -4.4670   -1.7169 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.7046   -5.8268   -1.8846 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.7773   -4.4915    0.3056 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.0126   -5.8515    0.1373 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.4764   -6.5193   -0.9581 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  4  2  0  0  0  0
+  2  3  2  0  0  0  0
+  3  6  1  0  0  0  0
+  4  5  1  0  0  0  0
+  5  6  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond
+M  BCL DBI - - -
+M  END
+$$$$

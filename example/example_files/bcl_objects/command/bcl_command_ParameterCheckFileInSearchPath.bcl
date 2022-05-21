@@ -1,0 +1,5 @@
+bcl::command::ParameterCheckFileInSearchPath
+  bcl::storage::Vector<std::string>
+    2
+    "example/example_files/input/biology/bob.bob"
+    "example/example_files/input/biology/1ubi.pdb"

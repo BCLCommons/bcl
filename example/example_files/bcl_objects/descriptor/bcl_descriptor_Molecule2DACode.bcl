@@ -1,0 +1,2 @@
+bcl::descriptor::Molecule2DACode
+  2DA(steps=12,property=Atom_SigmaCharge,normalized=1)

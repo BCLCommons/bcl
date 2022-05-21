@@ -1,0 +1,12 @@
+bcl::mc::PrinterCombined<bcl::assemble::ProteinModel,double>
+  ""
+  bcl::util::ShPtrList<bcl::mc::PrintInterface<bcl::assemble::ProteinModel,double>>
+    2
+    bcl::util::ShPtr<bcl::mc::PrintInterface<bcl::assemble::ProteinModel,double>>
+      12345678
+      bcl::assemble::PrinterProteinModel
+
+    bcl::util::ShPtr<bcl::mc::PrintInterface<bcl::assemble::ProteinModel,double>>
+      12345678
+      bcl::assemble::PrinterProteinModelMultimer
+

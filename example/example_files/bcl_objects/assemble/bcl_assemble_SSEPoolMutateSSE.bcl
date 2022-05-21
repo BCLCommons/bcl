@@ -1,0 +1,16 @@
+bcl::assemble::SSEPoolMutateSSE
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::util::SiPtr<const-bcl::assemble::SSE>,bcl::assemble::DomainInterface>>
+    12345678
+    bcl::assemble::LocatorSSERandom
+      LocatorSSERandom
+  bcl::util::ShPtr<bcl::math::MutateInterface<bcl::assemble::SSE>>
+    12345678
+    bcl::fold::MutateSSEType
+      bcl::storage::Set<bcl::biol::SSTypes::Enum,std::less<bcl::biol::SSTypes::Enum>>
+        2
+        bcl::biol::SSTypes::Enum
+          "HELIX"
+        bcl::biol::SSTypes::Enum
+          "STRAND"
+
+      "sse_type"

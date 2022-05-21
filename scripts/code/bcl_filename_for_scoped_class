@@ -1,0 +1,1 @@
+echo $1 | sed 's/\([^A-Z]\)AA\([A-Z]\)/\1Aa\2/g' | sed 's/^AA\([A-Z]\)/Aa\1/g' | sed 's/RMSD/Rmsd/g' | sed 's/\([^A-Z]\)SSE\([A-Z]\)/\1Sse\2/g' | sed "s/^\([A-Z]\)/\L\1/" | sed "s/\([A-Z0-9]\+\)\([A-Z][a-z]\)/_\L\1_\2/g" | sed "s/\([0-9]\+\)\([A-Z]\)/_\1\L\2/g" | sed "s/\([A-Z]\)/_\L\1/g"  | sed "s/\(_[a-z]\)_/\1/g"

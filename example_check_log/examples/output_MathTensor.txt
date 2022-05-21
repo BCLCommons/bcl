@@ -1,0 +1,110 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec MathTensor 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> MathTensor
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: MathTensor ====================
+=std=bcl=> this is a 4 x 4 x 4 tensor with random values
+=std=bcl=> 4	4	4
+7.86821	2.5048	7.10671	9.46668	
+0.192711	4.04902	2.51318	0.227124	
+5.20643	3.4467	2.74196	5.61032	
+1.40039	5.43856	5.21916	8.57077	
+
+4.99774	4.1937	7.44281	2.49168	
+2.39277	3.20065	9.10501	1.64833	
+2.45533	1.9832	7.15893	9.67825	
+7.69432	0.807073	4.59925	2.57262	
+
+7.77046	5.83883	9.503	4.381	
+3.22289	5.32405	2.56359	0.455399	
+5.04976	6.96239	0.912189	9.0712	
+0.309147	1.52036	9.8152	6.20412	
+
+2.98767	3.61325	4.80969	2.97847	
+2.85187	9.24194	6.28902	7.55031	
+7.13892	7.22758	0.69837	4.86835	
+0.888609	7.59622	4.23817	5.96983	
+
+
+=std=bcl=> this is element ( 1, 2, 3) which means ( layer, row, col): 9.67825
+=std=bcl=> 4	4	4
+7.86821	2.5048	7.10671	9.46668	
+0.192711	4.04902	2.51318	0.227124	
+5.20643	3.4467	2.74196	5.61032	
+1.40039	5.43856	5.21916	8.57077	
+
+4.99774	4.1937	7.44281	2.49168	
+2.39277	3.20065	9.10501	1.64833	
+2.45533	1.9832	7.15893	9.67825	
+7.69432	0.807073	4.59925	2.57262	
+
+7.77046	5.83883	9.503	4.381	
+3.22289	5.32405	2.56359	0.455399	
+5.04976	6.96239	0.912189	9.0712	
+0.309147	1.52036	9.8152	6.20412	
+
+2.98767	3.61325	4.80969	2.97847	
+2.85187	9.24194	6.28902	7.55031	
+7.13892	7.22758	0.69837	4.86835	
+0.888609	7.59622	4.23817	5.96983	
+
+
+=std=bcl::app=> BCL Example | END  : MathTensor ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+MathTensor_total                          0          0              
+total                                     0          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

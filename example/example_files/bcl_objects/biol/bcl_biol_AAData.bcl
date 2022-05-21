@@ -1,0 +1,7 @@
+bcl::biol::AAData
+  bcl::biol::AATypes::Enum
+    "CYSTEINE"
+  2
+  -5
+  K
+  D

@@ -1,0 +1,1025 @@
+Written by BCL::WriteToMDL,
+
+
+  6  6  0  0  0  0  0  0  0  0999 V2000
+   -4.9221   -0.0932    1.5295 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -5.8427    0.6390    2.2700 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -6.8148   -0.0156    2.9721 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -6.8736   -1.3979    2.9483 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -5.9622   -2.1155    2.1845 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -4.9452   -1.4911    1.4460 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  6  2  0  0  0  0
+  2  3  2  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  7  7  0  0  0  0  0  0  0  0999 V2000
+   -0.8040   12.9840    0.1033 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -1.4659   13.4836   -1.0051 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.4307   14.4640   -0.8631 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.7362   14.9710    0.3769 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.0554   14.5030    1.4766 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.0990   13.5016    1.3458 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.1690   11.8579   -0.0878 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  6  2  0  0  0  0
+  1  7  1  0  0  0  0
+  2  3  2  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe
+M  BCL BND AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+   -2.0138    8.9209    5.0379 S   0  0  0  1  0  4  0  0  0  0  0  0
+   -3.1943    8.2613    5.4993 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -0.7957    8.1940    4.9412 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -2.3598    9.4870    3.5882 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.7286   10.2676    6.1119 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  1  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 10 11  0  0  0  0  0  0  0  0999 V2000
+    3.2593   10.8857   13.5839 N   0  0  0  1  0  2  0  0  0  0  0  0
+    3.0900    9.0744   12.2520 N   0  0  0  0  0  3  0  0  0  0  0  0
+    2.7908    9.6502   13.4582 C   0  0  0  0  0  3  0  0  0  0  0  0
+    3.8072   10.0223   11.5336 C   0  0  0  1  0  3  0  0  0  0  0  0
+    3.9024   11.1353   12.3762 C   0  0  0  1  0  3  0  0  0  0  0  0
+    4.5834   12.2781   11.9362 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.1483   12.2455   10.6672 C   0  0  0  1  0  3  0  0  0  0  0  0
+    5.0201   11.1131    9.8411 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.3577    9.9828   10.2601 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.8726   13.4548   10.1987 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  3  2  0  0  0  0
+  1  5  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+  4  9  1  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  7 10  1  0  0  0  0
+  8  9  2  0  0  0  0
+M  BCL ATM N_Tr2TrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond ConjugatedSingleBond AromaticDoubleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  9 10  0  0  0  0  0  0  0  0999 V2000
+    2.3252    6.1940    8.5529 N   0  0  0  1  0  2  0  0  0  0  0  0
+    1.8541    6.7318    6.4190 N   0  0  0  0  0  3  0  0  0  0  0  0
+    2.4917    7.0779    7.5933 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.2386    5.5156    6.6642 C   0  0  0  1  0  3  0  0  0  0  0  0
+    1.5433    5.2020    7.9929 C   0  0  0  1  0  3  0  0  0  0  0  0
+    1.0695    4.0258    8.5559 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.2843    3.1999    7.7747 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.0338    3.5540    6.4478 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.4356    4.7069    5.8717 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  3  2  0  0  0  0
+  1  5  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  9  2  0  0  0  0
+  5  6  2  0  0  0  0
+  6  7  1  0  0  0  0
+  7  8  2  0  0  0  0
+  8  9  1  0  0  0  0
+M  BCL ATM N_Tr2TrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 10 11  0  0  0  0  0  0  0  0999 V2000
+   13.2530   -1.5076    2.9911 C   0  0  0  0  0  4  0  0  0  0  0  0
+   13.7817   -0.1295    3.2057 C   0  0  0  1  0  3  0  0  0  0  0  0
+   14.9368    0.1471    3.7453 N   0  0  0  1  0  2  0  0  0  0  0  0
+   15.0228    1.5382    3.7492 C   0  0  0  1  0  3  0  0  0  0  0  0
+   13.8492    2.0761    3.1939 C   0  0  0  1  0  3  0  0  0  0  0  0
+   13.0778    0.9933    2.8592 N   0  0  0  0  0  3  0  0  0  0  0  0
+   13.6640    3.4401    3.0679 C   0  0  0  0  0  3  0  0  0  0  0  0
+   14.6633    4.2557    3.5050 C   0  0  0  0  0  3  0  0  0  0  0  0
+   15.8347    3.7508    4.0741 C   0  0  0  0  0  3  0  0  0  0  0  0
+   16.0329    2.3809    4.1942 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  2  0  0  0  0
+  2  6  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4 10  2  0  0  0  0
+  5  6  1  0  0  0  0
+  5  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  8  9  2  0  0  0  0
+  9 10  1  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TrTrTrPi N_Tr2TrTrPi C_TrTrTrPi C_TrTrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND NonConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    5.2100    6.4634    2.3671 N   0  0  0  0  0  3  0  0  0  0  0  0
+    6.4783    6.8952    2.4928 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.1038    7.4195    2.1471 C   0  0  0  0  0  4  0  0  0  0  0  0
+    3.1069    7.3836    3.2741 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    0.7508    1.8914    4.3686 S   0  0  0  0  0  4  0  0  0  0  0  0
+   -0.4046    2.1043    3.5213 O   0  0  0  1  0  1  0  0  0  0  0  0
+    1.6306    0.4955    3.7039 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.8678    0.1590    4.4767 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi
+M  BCL BND ConjugatedDoubleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+   -0.0248   -0.6263   -0.3977 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.1942   -0.3894   -1.8079 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.7849   -0.2032   -2.6825 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.3720    0.0079   -4.0983 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+M  BCL ATM C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe
+M  BCL BND NonConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    7.2276    5.7170   20.2797 O   0  0  0  1  0  1  0  0  0  0  0  0
+    7.3974    7.5904   21.5175 N   0  0  0  0  0  3  0  0  0  0  0  0
+    6.7077    6.7222   20.7728 C   0  0  0  0  0  3  0  0  0  0  0  0
+    8.8196    7.4699   21.8219 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  3  2  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+M  BCL ATM O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    6.5817   11.9439    4.1569 C   0  0  0  0  0  4  0  0  0  0  0  0
+    6.6037   10.6045    3.5088 N   0  0  0  0  0  3  0  0  0  0  0  0
+    7.7870   10.1293    3.0814 C   0  0  0  1  0  3  0  0  0  0  0  0
+    7.8662    8.8556    2.2911 C   0  0  0  0  0  4  0  0  0  0  0  0
+    8.8285   10.7338    3.3309 O   0  0  0  1  0  1  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  5  2  0  0  0  0
+M  BCL ATM C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi
+M  BCL BND NonConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+   31.6408   -0.0351    7.4095 N   0  0  0  0  0  3  0  0  0  0  0  0
+   32.6011   -0.5803    8.3531 C   0  0  0  0  0  4  0  0  0  0  0  0
+   32.4041   -2.0856    8.5567 C   0  0  0  0  0  4  0  0  0  0  0  0
+   32.5437   -2.8703    7.3275 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe
+M  BCL BND NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    0.9100    0.8924    4.7896 S   0  0  0  0  0  4  0  0  0  0  0  0
+    2.0762    0.0333    5.4684 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.6583    1.8844    3.5023 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.9165    0.5322    6.5567 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    0.1811    8.0194    4.0881 N   0  0  0  0  0  3  0  0  0  0  0  0
+    0.6428    6.1314    5.3221 N   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5207    5.2516    6.4772 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -0.0846    7.2273    5.1454 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  4  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi
+M  BCL BND ConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    8.2326    8.9735    8.2164 C   0  0  0  0  0  4  0  0  0  0  0  0
+    7.4357    7.9863    8.8780 N   0  0  0  0  0  3  0  0  0  0  0  0
+    5.3839    6.7715    9.4138 O   0  0  0  1  0  1  0  0  0  0  0  0
+    5.5517    8.0411    7.3324 O   0  0  0  1  0  1  0  0  0  0  0  0
+    6.1777    7.2102    8.3022 S   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  5  1  0  0  0  0
+  3  5  2  0  0  0  0
+  4  5  2  0  0  0  0
+M  BCL ATM C_TeTeTeTe N_TrTrTrPi2 O_Tr2Tr2TrPi O_Tr2Tr2TrPi S_TeTeTeTePiPi
+M  BCL BND NonConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond ConjugatedDoubleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    8.7878    5.2676    3.2458 S   0  0  0  1  0  4  0  0  0  0  0  0
+    9.2847    4.1504    3.9803 O   0  0  0  1  0  1  0  0  0  0  0  0
+    9.5769    5.8253    2.1980 O   0  0  0  1  0  1  0  0  0  0  0  0
+    7.3741    4.8347    2.5960 N   0  0  0  0  0  3  0  0  0  0  0  0
+    8.3900    6.5586    4.4154 C   0  0  0  0  0  4  0  0  0  0  0  0
+    6.8506    5.5332    1.4019 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  1  5  1  0  0  0  0
+  4  6  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    8.1540   -4.5871    6.1840 S   0  0  0  0  0  4  0  0  0  0  0  0
+    7.1788   -4.9778    7.1754 O   0  0  0  1  0  1  0  0  0  0  0  0
+    8.4193   -2.9904    6.3922 N   0  0  0  0  0  3  0  0  0  0  0  0
+    7.3797   -4.7956    4.5703 C   0  0  0  0  0  4  0  0  0  0  0  0
+    7.3612   -2.1170    6.9147 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  1  0  0  0  0
+  3  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    0.6627    1.9198    0.7512 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.3780    2.8593    2.9540 C   0  0  0  0  0  4  0  0  0  0  0  0
+    1.0622    1.9543    2.0582 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.3847    2.5977    0.4476 N   0  0  0  0  0  2  0  0  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  2  0  0  0  0
+  2  3  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TeTeTeTe N_TrTrTrPi2 N_Tr2TrTrPi
+M  BCL BND ConjugatedSingleBond ConjugatedDoubleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    5.7618    7.5762    4.0425 S   0  0  0  0  0  4  0  0  0  0  0  0
+    5.0073    7.9918    2.9057 O   0  0  0  1  0  1  0  0  0  0  0  0
+    5.2612    6.0799    4.4273 N   0  0  0  0  0  3  0  0  0  0  0  0
+    7.4653    7.4376    3.5817 C   0  0  0  0  0  4  0  0  0  0  0  0
+    5.7167    5.4680    5.6910 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  1  0  0  0  0
+  3  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  8  8  0  0  0  0  0  0  0  0999 V2000
+   -5.8214    4.6650    7.3964 S   0  0  0  0  0  4  0  0  0  0  0  0
+   -5.3538    4.4083    5.6803 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -6.5430    4.6344    4.7846 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -6.8037    5.8709    4.2326 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -7.8812    6.0475    3.3808 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -8.7107    4.9815    3.0899 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -8.4656    3.7483    3.6463 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -7.3839    3.5673    4.4827 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  8  2  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND NonConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    8.8159    4.0948    0.9725 C   0  0  0  0  0  4  0  0  0  0  0  0
+    7.9634    4.2385    2.1537 N   0  0  0  0  0  3  0  0  0  0  0  0
+    6.7771    3.2637    4.0676 O   0  0  0  1  0  1  0  0  0  0  0  0
+    8.0280    3.1835    3.3928 S   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  4  1  0  0  0  0
+  3  4  2  0  0  0  0
+M  BCL ATM C_TeTeTeTe N_TrTrTrPi2 O_Tr2Tr2TrPi S_TeTeTeTePiPi
+M  BCL BND NonConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    5.4952    4.8200   -5.5140 S   0  0  0  0  0  4  0  0  0  0  0  0
+    5.1963    3.4224   -5.5341 O   0  0  0  1  0  1  0  0  0  0  0  0
+    6.0188    5.4374   -6.6995 O   0  0  0  1  0  1  0  0  0  0  0  0
+    4.0081    5.7282   -5.1051 C   0  0  0  0  0  4  0  0  0  0  0  0
+    3.5436    5.5323   -3.7066 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi
+M  BCL BND ConjugatedDoubleBond ConjugatedDoubleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    5.0397    5.4537    2.2091 N   0  0  0  0  0  3  0  0  0  0  0  0
+    6.9575    4.1430    1.9617 N   0  0  0  0  0  3  0  0  0  0  0  0
+    6.2773    5.4554    0.1883 N   0  0  0  0  0  2  0  0  0  0  0  0
+    6.1030    5.0560    1.4235 C   0  0  0  1  0  3  0  0  0  0  0  0
+    8.2541    3.8258    1.3672 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  4  1  0  0  0  0
+  2  4  1  0  0  0  0
+  2  5  1  0  0  0  0
+  3  4  2  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_TrTrTrPi2 N_Tr2TrTrPi C_TrTrTrPi C_TeTeTeTe
+M  BCL BND ConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+   -2.1476   10.5376    3.3389 S   0  0  0  1  0  4  0  0  0  0  0  0
+   -1.7308    9.2233    3.6993 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -1.2656   11.3540    2.5806 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -3.5040   10.4291    2.5119 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.5052   11.3951    4.8641 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.2844   11.5623    5.7255 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  1  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi
+M  BCL BND ConjugatedDoubleBond ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    3.5961    2.7483    9.3576 S   0  0  0  0  0  4  0  0  0  0  0  0
+    4.2249    1.5276    9.7620 O   0  0  0  1  0  1  0  0  0  0  0  0
+    3.8945    2.9118    7.7553 N   0  0  0  0  0  3  0  0  0  0  0  0
+    4.4051    4.1081   10.1712 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.2060    4.0663   11.6556 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 11 12  0  0  0  0  0  0  0  0999 V2000
+   10.1004    1.2412   -0.6769 N   0  0  0  0  0  3  0  0  0  0  0  0
+   11.0173    1.9462    1.2425 N   0  0  0  1  0  2  0  0  0  0  0  0
+   10.7313    2.2559   -0.0183 C   0  0  0  1  0  3  0  0  0  0  0  0
+   10.6173   -0.1799    2.5080 C   0  0  0  0  0  3  0  0  0  0  0  0
+   10.1132   -1.4521    2.3982 C   0  0  0  0  0  3  0  0  0  0  0  0
+    9.5329   -1.8885    1.1968 C   0  0  0  0  0  3  0  0  0  0  0  0
+    9.4621   -1.0725    0.1082 C   0  0  0  0  0  3  0  0  0  0  0  0
+    9.9687    0.2009    0.2165 C   0  0  0  1  0  3  0  0  0  0  0  0
+   10.5332    0.6517    1.4118 C   0  0  0  1  0  3  0  0  0  0  0  0
+   11.0664    3.5937   -0.5931 C   0  0  0  0  0  4  0  0  0  0  0  0
+    9.8957    4.5529   -0.5458 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  3  1  0  0  0  0
+  1  8  1  0  0  0  0
+  2  3  2  0  0  0  0
+  2  9  1  0  0  0  0
+  3 10  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  9  2  0  0  0  0
+  5  6  2  0  0  0  0
+  6  7  1  0  0  0  0
+  7  8  2  0  0  0  0
+  8  9  1  0  0  0  0
+ 10 11  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_Tr2TrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi
+M  BCL BND AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+   -2.1476   10.5376    3.3389 S   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.7308    9.2233    3.6993 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -3.5040   10.4291    2.5119 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.5052   11.3951    4.8641 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.2844   11.5623    5.7255 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    3.5961    2.7483    9.3576 S   0  0  0  0  0  4  0  0  0  0  0  0
+    3.8945    2.9118    7.7553 N   0  0  0  0  0  3  0  0  0  0  0  0
+    4.4051    4.1081   10.1712 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.2060    4.0663   11.6556 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi
+M  BCL BND ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    1.8169   15.1250    3.1709 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.4632   15.2256    1.8099 C   0  0  0  0  0  4  0  0  0  0  0  0
+    3.5459   16.2057    1.7840 N   0  0  0  0  0  3  0  0  0  0  0  0
+    3.3252   17.4916    1.5377 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.2048   17.9440    1.2736 O   0  0  0  1  0  1  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi O_Tr2Tr2TrPi
+M  BCL BND NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    0.6139   11.6389    5.2149 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.7962   10.2234    4.7420 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.8232   10.1597    3.2820 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.2804   10.0260    2.5785 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.1032    9.9961    1.0441 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe
+M  BCL BND NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    4.9086    1.3116    1.5830 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.8180    2.8210    1.3343 C   0  0  0  0  0  4  0  0  0  0  0  0
+    6.1292    3.4170    1.2460 N   0  0  0  0  0  3  0  0  0  0  0  0
+    6.7900    3.8754    2.2936 C   0  0  0  1  0  3  0  0  0  0  0  0
+    8.1506    4.5212    2.0033 C   0  0  0  0  0  4  0  0  0  0  0  0
+    6.3698    3.8082    3.4358 O   0  0  0  1  0  1  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  6  2  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi
+M  BCL BND NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    3.0817    4.1177    5.8791 N   0  0  0  0  0  3  0  0  0  0  0  0
+    4.3390    4.5444    6.0305 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.2356    3.7673    7.0096 C   0  0  0  0  0  4  0  0  0  0  0  0
+    1.7806    2.2983    6.9029 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.9644    1.3310    6.9302 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+   11.9574   18.9186    3.3742 N   0  0  0  0  0  3  0  0  0  0  0  0
+   10.8171   18.0340    3.3121 C   0  0  0  0  0  4  0  0  0  0  0  0
+    9.6264   18.6502    2.5726 C   0  0  0  0  0  4  0  0  0  0  0  0
+    8.4294   17.6770    2.5912 C   0  0  0  0  0  4  0  0  0  0  0  0
+    8.7523   16.4167    1.9251 N   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2
+M  BCL BND NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  9  9  0  0  0  0  0  0  0  0999 V2000
+    5.9670    6.0014    3.7163 S   0  0  0  0  0  4  0  0  0  0  0  0
+    6.0642    5.2351    4.9236 O   0  0  0  1  0  1  0  0  0  0  0  0
+    4.7739    7.2856    4.0115 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.5422    8.1847    2.8382 C   0  0  0  1  0  3  0  0  0  0  0  0
+    3.4379    8.0098    2.0256 C   0  0  0  0  0  3  0  0  0  0  0  0
+    3.2307    8.8605    0.9566 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.1000    9.8671    0.7029 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.2027   10.0342    1.4746 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.4296    9.2084    2.5435 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  9  2  0  0  0  0
+  5  6  2  0  0  0  0
+  6  7  1  0  0  0  0
+  7  8  2  0  0  0  0
+  8  9  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND ConjugatedDoubleBond NonConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 10 10  0  0  0  0  0  0  0  0999 V2000
+    2.0993    5.2491    9.2353 S   0  0  0  0  0  4  0  0  0  0  0  0
+    3.3700    5.2835    8.6036 O   0  0  0  1  0  1  0  0  0  0  0  0
+    1.1367    4.3080    8.7914 O   0  0  0  1  0  1  0  0  0  0  0  0
+    1.3990    6.8840    9.2403 C   0  0  0  0  0  4  0  0  0  0  0  0
+    1.4387    7.5075    7.8750 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.4280    7.2953    6.9700 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5057    7.8699    5.7099 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.5722    8.6501    5.3745 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5716    8.8783    6.2703 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5092    8.3091    7.5344 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+  5 10  2  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  8  9  2  0  0  0  0
+  9 10  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND ConjugatedDoubleBond ConjugatedDoubleBond NonConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    0.8946    7.0690    7.7494 N   0  0  0  0  0  3  0  0  0  0  0  0
+    2.8903    8.0785    8.1684 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.7726    7.5156    8.6549 C   0  0  0  0  0  3  0  0  0  0  0  0
+    3.9253    8.6377    9.0120 C   0  0  0  0  0  4  0  0  0  0  0  0
+    5.0287    9.2315    8.1813 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  3  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+   -0.9361    9.5856    3.0658 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.3560    9.7291    3.7290 N   0  0  0  0  0  2  0  0  0  0  0  0
+    0.1828    9.1540    3.7147 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.9387   10.3280    1.8016 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -2.3713   10.7161    1.4898 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  1  0  0  0  0
+  2  3  2  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_Tr2TrTrPi C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    5.1617    1.0560    1.3788 N   0  0  0  0  0  3  0  0  0  0  0  0
+    5.0119    1.2331    3.7033 N   0  0  0  0  0  3  0  0  0  0  0  0
+    7.0774    0.9329    2.7500 N   0  0  0  0  0  2  0  0  0  0  0  0
+    5.7649    1.0787    2.6082 C   0  0  0  1  0  3  0  0  0  0  0  0
+    5.5252    1.4699    5.0754 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.2922    1.7123    5.9496 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  4  1  0  0  0  0
+  2  4  1  0  0  0  0
+  2  5  1  0  0  0  0
+  3  4  2  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_TrTrTrPi2 N_Tr2TrTrPi C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 11 11  0  0  0  0  0  0  0  0999 V2000
+    2.0993    5.2491    9.2353 S   0  0  0  1  0  4  0  0  0  0  0  0
+    3.3700    5.2835    8.6036 O   0  0  0  1  0  1  0  0  0  0  0  0
+    1.1367    4.3080    8.7914 O   0  0  0  1  0  1  0  0  0  0  0  0
+    2.3112    4.9061   10.8275 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.4387    7.5075    7.8750 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.4280    7.2953    6.9700 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5092    8.3091    7.5344 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.3990    6.8840    9.2403 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.5716    8.8783    6.2703 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5057    7.8699    5.7099 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.5722    8.6501    5.3745 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  1  8  1  0  0  0  0
+  5  6  1  0  0  0  0
+  5  7  2  0  0  0  0
+  5  8  1  0  0  0  0
+  6 10  2  0  0  0  0
+  7  9  1  0  0  0  0
+  9 11  2  0  0  0  0
+ 10 11  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND ConjugatedDoubleBond ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  9  9  0  0  0  0  0  0  0  0999 V2000
+    2.0993    5.2491    9.2353 S   0  0  0  0  0  4  0  0  0  0  0  0
+    2.3112    4.9061   10.8275 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.4387    7.5075    7.8750 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.4280    7.2953    6.9700 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5092    8.3091    7.5344 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.3990    6.8840    9.2403 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.5716    8.8783    6.2703 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5057    7.8699    5.7099 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.5722    8.6501    5.3745 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  6  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  5  2  0  0  0  0
+  3  6  1  0  0  0  0
+  4  8  2  0  0  0  0
+  5  7  1  0  0  0  0
+  7  9  2  0  0  0  0
+  8  9  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND ConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+   -2.1476   10.5376    3.3389 S   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.7308    9.2233    3.6993 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -3.5040   10.4291    2.5119 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.2844   11.5623    5.7255 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.5052   11.3951    4.8641 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -4.6046    9.5932    2.9745 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  5  1  0  0  0  0
+  3  6  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 10 10  0  0  0  0  0  0  0  0999 V2000
+    2.0993    5.2491    9.2353 S   0  0  0  0  0  4  0  0  0  0  0  0
+    3.3700    5.2835    8.6036 O   0  0  0  1  0  1  0  0  0  0  0  0
+    2.3112    4.9061   10.8275 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.4387    7.5075    7.8750 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.4280    7.2953    6.9700 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5092    8.3091    7.5344 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.3990    6.8840    9.2403 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.5716    8.8783    6.2703 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5057    7.8699    5.7099 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.5722    8.6501    5.3745 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  7  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  6  2  0  0  0  0
+  4  7  1  0  0  0  0
+  5  9  2  0  0  0  0
+  6  8  1  0  0  0  0
+  8 10  2  0  0  0  0
+  9 10  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 10 10  0  0  0  0  0  0  0  0999 V2000
+    2.0993    5.2491    9.2353 S   0  0  0  0  0  4  0  0  0  0  0  0
+    1.1367    4.3080    8.7914 O   0  0  0  1  0  1  0  0  0  0  0  0
+    2.3112    4.9061   10.8275 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.4387    7.5075    7.8750 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.4280    7.2953    6.9700 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5092    8.3091    7.5344 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.3990    6.8840    9.2403 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.5716    8.8783    6.2703 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5057    7.8699    5.7099 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.5722    8.6501    5.3745 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  7  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  6  2  0  0  0  0
+  4  7  1  0  0  0  0
+  5  9  2  0  0  0  0
+  6  8  1  0  0  0  0
+  8 10  2  0  0  0  0
+  9 10  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+   -2.1476   10.5376    3.3389 S   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.2656   11.3540    2.5806 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -3.5040   10.4291    2.5119 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.2844   11.5623    5.7255 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.5052   11.3951    4.8641 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -4.6046    9.5932    2.9745 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  5  1  0  0  0  0
+  3  6  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    1.3969    1.9998    7.5516 N   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5460    1.1496    7.3106 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.4409    0.4124    5.9948 C   0  0  0  0  0  4  0  0  0  0  0  0
+    3.7136   -0.3427    5.6527 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.7811    0.5359    5.2130 N   0  0  0  0  0  3  0  0  0  0  0  0
+    5.0139    0.7940    3.9308 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi
+M  BCL BND NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  7  6  0  0  0  0  0  0  0  0999 V2000
+    1.9675    6.8036   22.7601 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.8981    7.1195   21.7168 C   0  0  0  0  0  4  0  0  0  0  0  0
+    1.4441    7.4812   20.3400 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.1923    8.7355   20.3546 N   0  0  0  0  0  3  0  0  0  0  0  0
+    0.3570   10.0580   20.2720 O   0  0  0  1  0  1  0  0  0  0  0  0
+    1.5768    9.9256   20.3440 C   0  0  0  1  0  3  0  0  0  0  0  0
+    2.4605   11.1509   20.4825 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  6  1  0  0  0  0
+  5  6  2  0  0  0  0
+  6  7  1  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 O_Tr2Tr2TrPi C_TrTrTrPi C_TeTeTeTe
+M  BCL BND NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+   -0.1191    8.2564    0.5510 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.1191    7.2472   -0.5510 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.3125    5.8216   -0.0423 C   0  0  0  0  0  4  0  0  0  0  0  0
+    1.4672    5.6642    0.8120 N   0  0  0  0  0  3  0  0  0  0  0  0
+    2.9132    5.1991   -0.8499 O   0  0  0  1  0  1  0  0  0  0  0  0
+    2.6675    5.3627    0.3465 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  6  1  0  0  0  0
+  5  6  2  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 O_Tr2Tr2TrPi C_TrTrTrPi
+M  BCL BND NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    0.7917    3.8837    5.2878 C   0  0  0  0  0  4  0  0  0  0  0  0
+    1.9299    4.4424    6.1235 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.2761    5.8713    5.6980 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.7340    5.9665    4.3165 N   0  0  0  0  0  3  0  0  0  0  0  0
+    3.9863    5.7566    3.9026 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.1580    5.9064    2.4023 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe
+M  BCL BND NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    6.8419    0.9501    5.2637 N   0  0  0  0  0  3  0  0  0  0  0  0
+    7.7822   -1.0457    5.8563 N   0  0  0  0  0  3  0  0  0  0  0  0
+    5.2927    4.1902    4.0477 C   0  0  0  0  0  4  0  0  0  0  0  0
+    5.6550    3.0568    4.9894 C   0  0  0  0  0  4  0  0  0  0  0  0
+    6.5175    2.0125    4.3333 C   0  0  0  0  0  4  0  0  0  0  0  0
+    7.5318   -0.1442    4.9009 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  5  1  0  0  0  0
+  1  6  1  0  0  0  0
+  2  6  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi
+M  BCL BND NonConjugatedSingleBond ConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    0.2019    1.8252    1.9121 N   0  0  0  0  0  2  0  0  0  0  0  0
+    0.0969    0.6024   -0.0190 N   0  0  0  0  0  3  0  0  0  0  0  0
+    0.7306    1.5212    0.7657 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.1226   -0.0527    0.4303 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.6757   -0.9771   -0.5636 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -0.9051   -2.1696   -0.9576 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  3  2  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM N_Tr2TrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  7  6  0  0  0  0  0  0  0  0999 V2000
+    0.2019    1.8252    1.9121 N   0  0  0  0  0  2  0  0  0  0  0  0
+    1.8879    2.0181    0.2836 N   0  0  0  0  0  3  0  0  0  0  0  0
+    0.0969    0.6024   -0.0190 N   0  0  0  0  0  3  0  0  0  0  0  0
+    0.7306    1.5212    0.7657 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -1.1226   -0.0527    0.4303 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.6757   -0.9771   -0.5636 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -0.9051   -2.1696   -0.9576 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  4  2  0  0  0  0
+  2  4  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  1  0  0  0  0
+M  BCL ATM N_Tr2TrTrPi N_TrTrTrPi2 N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe
+M  BCL BND ConjugatedDoubleBond ConjugatedSingleBond ConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond
+M  END
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  7  6  0  0  0  0  0  0  0  0999 V2000
+    1.3969    1.9998    7.5516 N   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5460    1.1496    7.3106 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.4409    0.4124    5.9948 C   0  0  0  0  0  4  0  0  0  0  0  0
+    3.7136   -0.3427    5.6527 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.7811    0.5359    5.2130 N   0  0  0  0  0  3  0  0  0  0  0  0
+    4.4125    0.2278    3.0294 O   0  0  0  1  0  1  0  0  0  0  0  0
+    5.0139    0.7940    3.9308 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  5  7  1  0  0  0  0
+  6  7  2  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 O_Tr2Tr2TrPi C_TrTrTrPi
+M  BCL BND NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond
+M  END
+$$$$

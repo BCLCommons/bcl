@@ -1,0 +1,148 @@
+7057110
+  -OEChem-09011618182D
+
+ 20 20  0     1  0  0  0  0  0999 V2000
+    4.2690    1.3450    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    2.5369    0.3450    0.0000 O   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2690    0.3450    0.0000 C   0  0  2  0  0  0  0  0  0  0  0  0
+    3.4030   -0.1550    0.0000 C   0  0  2  0  0  0  0  0  0  0  0  0
+    5.1350   -0.1550    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4030   -1.1550    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1350   -1.1550    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.2690   -1.6550    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8059    0.6550    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.4030    0.4650    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7456   -0.2627    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.3471    0.4276    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7924   -1.0473    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.1909   -1.7376    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.3471   -1.7376    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    5.7456   -1.0473    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8705   -2.1300    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.6675   -2.1300    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    4.8059    1.6550    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+    2.0000    0.0350    0.0000 H   0  0  0  0  0  0  0  0  0  0  0  0
+  3  1  1  1  0  0  0
+  1 19  1  0  0  0  0
+  4  2  1  6  0  0  0
+  2 20  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  5  1  0  0  0  0
+  3  9  1  0  0  0  0
+  4  6  1  0  0  0  0
+  4 10  1  0  0  0  0
+  5  7  1  0  0  0  0
+  5 11  1  0  0  0  0
+  5 12  1  0  0  0  0
+  6  8  1  0  0  0  0
+  6 13  1  0  0  0  0
+  6 14  1  0  0  0  0
+  7  8  1  0  0  0  0
+  7 15  1  0  0  0  0
+  7 16  1  0  0  0  0
+  8 17  1  0  0  0  0
+  8 18  1  0  0  0  0
+M  END
+> <PUBCHEM_COMPOUND_CID>
+7057110
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+62.9
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+2
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+2
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+0
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADccBgMAAAAAAAAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAAAGgAACAAACBSggAIAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAABEAIAAAAAQAAEAAABAAGAQAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAAA==
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+(1S,2S)-cyclohexane-1,2-diol
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+(1S,2S)-cyclohexane-1,2-diol
+
+> <PUBCHEM_IUPAC_NAME>
+(1S,2S)-cyclohexane-1,2-diol
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+(1S,2S)-cyclohexane-1,2-diol
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+(1S,2S)-cyclohexane-1,2-diol
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C6H12O2/c7-5-3-1-2-4-6(5)8/h5-8H,1-4H2/t5-,6-/m0/s1
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+PFURGBBHAOXLIO-WDSKDSINSA-N
+
+> <PUBCHEM_XLOGP3>
+0.2
+
+> <PUBCHEM_EXACT_MASS>
+116.08373
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C6H12O2
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+116.15828
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+C1CCC(C(C1)O)O
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+C1CC[C@@H]([C@H](C1)O)O
+
+> <PUBCHEM_CACTVS_TPSA>
+40.5
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+116.08373
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+8
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+2
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_COMPONENT_COUNT>
+1
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+1
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_BONDANNOTATIONS>
+3  1  5
+4  2  6
+
+$$$$

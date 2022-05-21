@@ -1,0 +1,29 @@
+REMARK  10                                                                      
+REMARK  10 Scores                           weight         value  weighted_val  
+REMARK  10 aa_clash_hires                  50.0000        0.0000        0.0000  
+REMARK  10 aaneigh                         50.0000      -14.5959     -729.7953  
+REMARK  10 aaneigh_ent                     50.0000        0.0000        0.0000  
+REMARK  10 loop                            10.0000       -3.4333      -34.3325  
+REMARK  10 loop_closure_gradient        50000.0000        0.0000        0.0000  
+REMARK  10 sse_linear_loop_proximity       10.0000        0.0000        0.0000  
+REMARK  10 rgyr                             5.0000      -22.0191     -110.0954  
+REMARK  10 ssepack_fr                       8.0000      -21.8695     -174.9558  
+REMARK  10 strand_fr                       20.0000      -64.2777    -1285.5532  
+REMARK  10 sum                          50203.0000     -126.1954    -2334.7323  
+REMARK  10 co                               1.0000       28.4867       28.4867  
+REMARK  10 rco_seq                          1.0000        0.3748        0.3748  
+REMARK  10 rco_aas                          1.0000        0.3748        0.3748  
+REMARK  10 cr6                              1.0000           nan           nan  
+REMARK  10 cr12                             1.0000           nan           nan  
+REMARK  10 cr24                             1.0000           nan           nan  
+REMARK  10 cr6_mcc                          1.0000           nan           nan  
+REMARK  10 cr12_mcc                         1.0000           nan           nan  
+REMARK  10 cr24_mcc                         1.0000           nan           nan  
+REMARK  10 topology_f                       1.0000           nan           nan  
+REMARK  10 topology_tpr                     1.0000           nan           nan  
+REMARK  10 topology_ppv                     1.0000           nan           nan  
+REMARK  10 completeness                     1.0000        1.0000        1.0000  
+REMARK  10 RMSD                             1.0000        0.0000        0.0000  
+REMARK  10 RMSD100                          1.0000        0.0000        0.0000  
+MASTER       27    0    0    0    0    0    0    0    0    0    0    0          
+END                                                                             

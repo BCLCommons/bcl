@@ -1,0 +1,12 @@
+bcl::util::Stopwatch
+  "running bcl::ExampleUtilStopwatch"
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  bcl::util::Time
+    0	    0
+  Standard
+  1

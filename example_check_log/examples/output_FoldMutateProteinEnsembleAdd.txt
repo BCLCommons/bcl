@@ -1,0 +1,94 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec FoldMutateProteinEnsembleAdd 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> FoldMutateProteinEnsembleAdd
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: FoldMutateProteinEnsembleAdd ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 ASP A  149  PHE A  153  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 GLY A  250  LEU A  254  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    7   7 ASN A  290  ASP A  292  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6  H6 GLU A  108  GLY A  113  5                                   6    
+=std=bcl=> test default constructor
+=std=bcl=> successful example check:  default_constr( ensemble).GetArgument().IsDefined() == 0
+=std=bcl=> test param constructor
+=std=bcl=> successful example check:  param_constr( ensemble).GetArgument()->GetSize() == 3
+=std=bcl=> test clone constructor
+=std=bcl=> successful example check:  clone_constr->operator()( ensemble).GetArgument()->GetSize() == 3
+=std=bcl=> test GetStaticClassName GetClassIdentifier
+=std=bcl=> successful example check:
+               GetStaticClassName< fold::MutateProteinEnsembleAdd>() == correct_static_class_name
+              == bcl::fold::MutateProteinEnsembleAdd
+=std=bcl=> successful example check:
+               GetStaticClassName< fold::MutateProteinEnsembleAdd>() ==
+              clone_constr->GetClassIdentifier() == bcl::fold::MutateProteinEnsembleAdd
+=std=bcl=> test operator
+=std=bcl=> successful example check:  mutated_ensemble->GetSize() == 3
+=std=bcl=> successful example check:  lzm_itr != mutated_ensemble->End() == 1
+=std=bcl=> testing read and write functionalities
+=std=bcl=> successful example check:  TestBCLObjectIOForSymmetry( param_constr, fold::MutateProteinEnsembleAdd()) == 1
+=std=bcl=> compare written and read objects
+=std=bcl=> successful example check:  mutated_ensemble->GetSize() == 3
+=std=bcl::app=> BCL Example | END  : FoldMutateProteinEnsembleAdd ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>      success      error error_string 
+FoldMutateProteinEnsembleAdd_total          9          0              
+total                                       9          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 147 MB, peak physical RAM used: 76 MB

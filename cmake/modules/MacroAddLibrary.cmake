@@ -1,0 +1,4 @@
+MACRO( MACRO_ADD_LIBRARY)
+  ADD_LIBRARY( ${ARGV})
+  MESSAGE( STATUS "Add CMake target library: ${ARGV0}")
+ENDMACRO()

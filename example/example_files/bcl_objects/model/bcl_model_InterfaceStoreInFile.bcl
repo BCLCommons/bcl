@@ -1,0 +1,7 @@
+bcl::model::InterfaceStoreInFile
+  File(
+    directory=example/example_files/output/model/dir_storage_model,
+    prefix="",
+    write_descriptors=1,
+    key=777
+  )

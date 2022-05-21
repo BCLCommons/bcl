@@ -1,0 +1,2 @@
+bcl::score::LoopClosure
+  LoopClosure(number excluded residues=1,sigmoid width=1,fraction allowed distance=1,exclude coil=1)

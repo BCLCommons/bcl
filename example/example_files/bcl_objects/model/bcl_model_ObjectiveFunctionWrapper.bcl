@@ -1,0 +1,2 @@
+bcl::model::ObjectiveFunctionWrapper
+  AucRocCurve(cutoff=0.5,x_axis_log=0,polynomial(1),parity=1,min fpr=0,max fpr=1)

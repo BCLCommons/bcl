@@ -1,0 +1,2272 @@
+Numeric descriptors
+choose any  Sequence / Amino Acid Numeric descriptor :
+  
+  *********************************************************************************************************************
+  ******************************************** Descriptors of Sequences ***********************************************
+  *********************************************************************************************************************
+
+  
+  Basic Implementations
+    * NElements : The number of Amino Acid in the Sequence
+
+  Customizable Implementations
+    * Constant : Returns a constant set of values
+      (anonymous) parameter: Container with at least 1 Any decimal (floating-point) value
+    * Define : Define an alias for a given descriptor
+      (anonymous) parameter: The LHS of the = sign will become an alias that can be used later (in the same file or
+      command) to refer to the RHS. Existing aliases cannot be overridden. Accepts , any object serialization tree
+    * HelixStrandCoilCounts : Counts of each each secondary structure element (helices, strands, and coils) 
+      Default label : HelixStrandCoilCounts(method=Undefined,min helix size=0,min strand size=0,min coil size=0)
+      Parameters:
+      <method> secondary structure prediction or analysis method for which counts should be made, 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+      CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+      CIPhiPsi, Kaksi}
+      <min helix size> minimum number of residues in a helix to require before declaring it a helix, default: "0", 
+        Any non-negative integer
+      <min strand size> minimum number of residues in a helix to require before declaring it a helix, default: "0", 
+        Any non-negative integer
+      <min coil size> minimum number of residues in a helix to require before declaring it a helix, default: "0", 
+        Any non-negative integer
+    * HelixStrandCoilCountsInMembrane : Counts of each each secondary structure element (helices, strands, and coils) 
+    in the membrane
+      Default label : HelixStrandCoilCountsInMembrane(method=Undefined,membrane method=Undefined,min helix size=0,min
+      strand size=0,min coil size=0)
+      Parameters:
+      <method> secondary structure prediction or analysis method for which counts should be made, 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+      CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+      CIPhiPsi, Kaksi}
+      <membrane method> membrane environment prediction or analysis method that should define the membrane, 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+      CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+      CIPhiPsi, Kaksi}
+      <min helix size> minimum number of residues in a helix to require before declaring it a helix, default: "0", 
+        Any non-negative integer
+      <min strand size> minimum number of residues in a helix to require before declaring it a helix, default: "0", 
+        Any non-negative integer
+      <min coil size> minimum number of residues in a helix to require before declaring it a helix, default: "0", 
+        Any non-negative integer
+    * HelixStrandCoilCountsInSolution : Counts of each each secondary structure element (helices, strands, and coils) 
+    in solution
+      Default label : HelixStrandCoilCountsInSolution(method=Undefined,membrane method=Undefined,min helix size=0,min
+      strand size=0,min coil size=0)
+      Parameters:
+      <method> secondary structure prediction or analysis method for which counts should be made, 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+      CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+      CIPhiPsi, Kaksi}
+      <membrane method> membrane environment prediction or analysis method that should define the membrane, 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+      CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+      CIPhiPsi, Kaksi}
+      <min helix size> minimum number of residues in a helix to require before declaring it a helix, default: "0", 
+        Any non-negative integer
+      <min strand size> minimum number of residues in a helix to require before declaring it a helix, default: "0", 
+        Any non-negative integer
+      <min coil size> minimum number of residues in a helix to require before declaring it a helix, default: "0", 
+        Any non-negative integer
+    * Template : Create a descriptor template; which is a partial definition for a descriptor, with remaining
+    user-defined arguments that can be set later
+      Default label : Template(signature="","")
+      Parameters:
+      <signature> Signature of the descriptor template, e.g. 3DA12(X). Parameters of the signature become (anonymous)
+      arguments whenever the template is called, so the template can  be called with 3DA12(Atom_Identity), any object serialization tree
+      Definition of the descriptor template. Each argument in the signature should normally appear in the definition,
+      e.g. Template(signature=3DA12(X),3DA(property=X,steps=48,step size=0.25,temperature=100)), any object serialization tree
+    * UniformRandom : Returns a uniform-randomly chosen set of values
+      Parameter: <size> number of values to return per Sequence, Any non-negative integer
+    * UniformRandomDuplicated : Returns a uniform-randomly chosen  value, copied {size} times
+      Parameter: <size> number of values to return per Sequence, Any non-negative integer
+
+  Operations
+    * SequenceMax : Returns the max of the given descriptor across a Sequence
+      (anonymous) parameter: The descriptor to compute the max of across the Sequence, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * SequenceMean : Returns the mean of the given descriptor across a Sequence
+      (anonymous) parameter: The descriptor to compute the mean of across the Sequence, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * SequenceMin : Returns the min of the given descriptor across a Sequence
+      (anonymous) parameter: The descriptor to compute the min of across the Sequence, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * SequenceRange : Returns the range of the given descriptor across a Sequence
+      (anonymous) parameter: The descriptor to compute the range of across the Sequence, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * SequenceStandardDeviation : Returns the standarddeviation of the given descriptor across a Sequence
+      (anonymous) parameter: The descriptor to compute the standarddeviation of across the Sequence, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * SequenceSum : Returns the sum of the given descriptor across a Sequence
+      (anonymous) parameter: The descriptor to compute the sum of across the Sequence, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * SequenceWeightedMean : mean of a descriptor across the Sequence, weighted by any other descriptor
+      Default label : SequenceWeightedMean(Sequence/Amino Acid Numeric Descriptor,weight=Sequence/Amino Acid Numeric
+      Descriptor)
+      Parameters:
+      The descriptor to compute the mean of across the Sequence, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <weight> The descriptor used to weight the primary descriptor, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * SequenceWeightedStandardDeviation : standarddeviation of a descriptor across the Sequence, weighted by any other
+    descriptor
+      Default label : SequenceWeightedStandardDeviation(Sequence/Amino Acid Numeric Descriptor,weight=Sequence/Amino
+      Acid Numeric Descriptor)
+      Parameters:
+      The descriptor to compute the standarddeviation of across the Sequence, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <weight> The descriptor used to weight the primary descriptor, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * SequenceWeightedSum : sum of a descriptor across the Sequence, weighted by any other descriptor
+      Default label : SequenceWeightedSum(Sequence/Amino Acid Numeric Descriptor,weight=Sequence/Amino Acid Numeric
+      Descriptor)
+      Parameters:
+      The descriptor to compute the sum of across the Sequence, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <weight> The descriptor used to weight the primary descriptor, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+
+  Customizable Operations
+    * SequenceHistogram1D : computes a histogram using a single descriptor
+      Default label : SequenceHistogram1D(Sequence/Amino Acid Numeric Descriptor,min=0,max=1,bin
+      size=1,smoothing=0,catchall=0)
+      Parameters:
+      descriptor to use,       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <min> min value to consider, Any decimal (floating-point) value
+      <max> max value to consider, Any decimal (floating-point) value
+      <bin size> size of each bin, Any decimal (floating-point) value >= 0
+      <smoothing> if non-zero, return a histogram with points smoothed with a gaussian kernel, specifically
+      Ae^(-BinDistance/SmoothingDistance), where BinDistance is the euclidean distance to center of the given bin, and
+      A is chosen such that the histogram's sum still equals 1, default: "0", Any decimal (floating-point) value >= 0
+      <catchall> If set, values that fall outside the boundaries will be placed into the nearest bin, 
+      default: "False", Any non-negative integer
+    * SequenceSegmentStatistics : computes statistics of segments across the sequence -- regions of the sequence that
+    have the same value of a descriptor, which is termed the condition. An additional descriptor can be averaged over
+    the elements of the segments and/or the sequence. Segment statistics for particular conditions of interest can also
+    be computed
+      Default label : SequenceSegmentStatistics(descriptor=Sequence/Amino Acid Numeric
+      Descriptor,condition=Sequence/Amino Acid Numeric Descriptor)
+      Parameters:
+      <descriptor> descriptor to take statistics of, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <condition> descriptor that defines the segments; adjacent elements in the sequence with the same value of this
+      descriptor are grouped into a segment,       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <statistics> List of statistics to calculate. If no statistics are given, all of them will be added, optional, 
+        Container with at least 1 Allowed values: {NumSegments, FractionSegments, FractionElements, LengthSegmentsAve,
+      LengthSegmentsSD, LengthSegmentsElementwiseAve, LengthSegmentsElementwiseSD, DescriptorSegmentsAve,
+      DescriptorSegmentsSD, DescriptorSegmentsElementwiseAve, DescriptorSegmentsElementwiseSD, ConditionSegmentsAve,
+      ConditionSegmentsSD, ConditionSegmentsElementwiseAve, ConditionSegmentsElementwiseSD}
+      <conditions> values returned by the condition descriptor to compute separate sequence segment statistics for.
+      Overall segment statistics will be returned regardless of the setting for this, optional, Container with at least 1 Container with at least 1 Any decimal (floating-point) value
+
+  
+  *********************************************************************************************************************
+  ******************************************* Descriptors of Amino Acids **********************************************
+  *********************************************************************************************************************
+
+    These can be converted into a Sequence-level descriptor using SequenceSum(X), where X is any descriptor listed
+    below
+  
+  Basic Implementations
+    * AASeqID : Returns the amino acid's sequence ID
+    * AAType : Binary descriptor (0/1), 1 iff the AA in question is the given type; order is ARNDCQEGHILKMFPSTWYV
+    * AA_Aromatic : AA_Aromatic for each amino acid
+    * AA_Charge : AA_Charge for each amino acid
+    * AA_FreeEnergyCoil : AA_FreeEnergyCoil for each amino acid
+    * AA_FreeEnergyCore : AA_FreeEnergyCore for each amino acid
+    * AA_FreeEnergyCoreCoil : AA_FreeEnergyCoreCoil for each amino acid
+    * AA_FreeEnergyCoreHelix : AA_FreeEnergyCoreHelix for each amino acid
+    * AA_FreeEnergyCoreMembrane : AA_FreeEnergyCoreMembrane for each amino acid
+    * AA_FreeEnergyCorePore : AA_FreeEnergyCorePore for each amino acid
+    * AA_FreeEnergyCoreStrand : AA_FreeEnergyCoreStrand for each amino acid
+    * AA_FreeEnergyExtracellularBlastBB : AA_FreeEnergyExtracellularBlastBB for each amino acid
+    * AA_FreeEnergyExtracellularTypeBB : AA_FreeEnergyExtracellularTypeBB for each amino acid
+    * AA_FreeEnergyHelix : AA_FreeEnergyHelix for each amino acid
+    * AA_FreeEnergySolution : AA_FreeEnergySolution for each amino acid
+    * AA_FreeEnergySolutionCoil : AA_FreeEnergySolutionCoil for each amino acid
+    * AA_FreeEnergySolutionHelix : AA_FreeEnergySolutionHelix for each amino acid
+    * AA_FreeEnergySolutionStrand : AA_FreeEnergySolutionStrand for each amino acid
+    * AA_FreeEnergyStrand : AA_FreeEnergyStrand for each amino acid
+    * AA_FreeEnergyTransition : AA_FreeEnergyTransition for each amino acid
+    * AA_FreeEnergyTransitionCoil : AA_FreeEnergyTransitionCoil for each amino acid
+    * AA_FreeEnergyTransitionHelix : AA_FreeEnergyTransitionHelix for each amino acid
+    * AA_FreeEnergyTransitionStrand : AA_FreeEnergyTransitionStrand for each amino acid
+    * AA_HAcceptors : AA_HAcceptors for each amino acid
+    * AA_HDonors : AA_HDonors for each amino acid
+    * AA_HelixProbability : AA_HelixProbability for each amino acid
+    * AA_Hydrophobicity : AA_Hydrophobicity for each amino acid
+    * AA_IsoelectricPoint : AA_IsoelectricPoint for each amino acid
+    * AA_Mass : AA_Mass for each amino acid
+    * AA_MembraneStrandOrientationHydrophobicity : AA_MembraneStrandOrientationHydrophobicity for each amino acid
+    * AA_NaturalPrevalence : AA_NaturalPrevalence for each amino acid
+    * AA_Polarizability : AA_Polarizability for each amino acid
+    * AA_PositionInTM : AA_PositionInTM based on octopus predictions. Eventually, this will be extended to support any
+      sse method.
+    * AA_SASA : AA_SASA for each amino acid
+    * AA_SideChainGirth : AA_SideChainGirth for each amino acid
+    * AA_SideChainPolarizability : AA_SideChainPolarizability for each amino acid
+    * AA_StericalParameter : AA_StericalParameter for each amino acid
+    * AA_StrandProbability : AA_StrandProbability for each amino acid
+    * AA_TopologicalPolarSurfaceArea : AA_TopologicalPolarSurfaceArea for each amino acid
+    * AA_TransferFreeEnergyEisenberg : AA_TransferFreeEnergyEisenberg for each amino acid
+    * AA_TransferFreeEnergyEngelmanSeitzGoldman : AA_TransferFreeEnergyEngelmanSeitzGoldman for each amino acid
+    * AA_TransferFreeEnergyGuy : AA_TransferFreeEnergyGuy for each amino acid
+    * AA_TransferFreeEnergyHoppWoods : AA_TransferFreeEnergyHoppWoods for each amino acid
+    * AA_TransferFreeEnergyJanin : AA_TransferFreeEnergyJanin for each amino acid
+    * AA_TransferFreeEnergyKyteDoolittle : AA_TransferFreeEnergyKyteDoolittle for each amino acid
+    * AA_TransferFreeEnergyPuntaMaritan1D : AA_TransferFreeEnergyPuntaMaritan1D for each amino acid
+    * AA_TransferFreeEnergyPuntaMaritan3D : AA_TransferFreeEnergyPuntaMaritan3D for each amino acid
+    * AA_TransferFreeEnergyWhimleyWhite : AA_TransferFreeEnergyWhimleyWhite for each amino acid
+    * AA_VdwSurfaceArea : AA_VdwSurfaceArea for each amino acid
+    * AA_Volume : AA_Volume for each amino acid
+    * AA_pK_Bjellqvist : AA_pK_Bjellqvist for each amino acid
+    * AA_pK_Bjellqvist_CTerm : AA_pK_Bjellqvist_CTerm for each amino acid
+    * AA_pK_Bjellqvist_NTerm : AA_pK_Bjellqvist_NTerm for each amino acid
+    * AA_pK_Carey_CTerm : AA_pK_Carey_CTerm for each amino acid
+    * AA_pK_Carey_NTerm : AA_pK_Carey_NTerm for each amino acid
+    * AA_pK_DTASelect : AA_pK_DTASelect for each amino acid
+    * AA_pK_EMBOSS : AA_pK_EMBOSS for each amino acid
+    * AA_pK_Grimsely : AA_pK_Grimsely for each amino acid
+    * AA_pK_Lehninger : AA_pK_Lehninger for each amino acid
+    * AA_pK_Patrickios : AA_pK_Patrickios for each amino acid
+    * AA_pK_ProMoST : AA_pK_ProMoST for each amino acid
+    * AA_pK_ProMoST_CTerm : AA_pK_ProMoST_CTerm for each amino acid
+    * AA_pK_ProMoST_NTerm : AA_pK_ProMoST_NTerm for each amino acid
+    * AA_pK_Rodwell : AA_pK_Rodwell for each amino acid
+    * AA_pK_Sillero : AA_pK_Sillero for each amino acid
+    * AA_pK_Wikipedia : AA_pK_Wikipedia for each amino acid
+    * AA_pk_Solomon : AA_pk_Solomon for each amino acid
+    * Amphipathic : Uses CiPhiPsi to determine the TM segment direction
+    * FacesPore : Uses the Membrane Aware Hybrid Secondary Structure & Membrane topology Identification algorithm
+      (unpublished) to find beta barrel pores.  This descriptor returns 1 if the residue's side chain points towards
+      the pore and the residue is in the membrane
+    * InsideMembrane : Uses CiPhiPsi to determine the TM segment direction
+    * NonMembrane : Uses CiPhiPsi to determine the TM segment direction
+    * OutsideMembrane : Uses CiPhiPsi to determine the TM segment direction
+    * Pore : Uses CiPhiPsi to determine the TM segment direction
+    * Position : Returns the X,Y,Z coordinates of the Amino Acid
+    * SASANeighborCount : Computes SASA using the count of AA neighbors, see
+      http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2712621/
+    * SASANeighborVector : Computes SASA using the neighbor vector method, see
+      http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2712621/
+    * SASAOverlappingSpheres : Computes SASA via the overlapping spheres method, see
+      http://www.ncbi.nlm.nih.gov/pmc/articles/PMC2712621/
+    * TMOriginatesInCytosol : Uses the Membrane Aware Hybrid Secondary Structure & Membrane topology Identification
+      algorithm (unpublished) to find identify TM regions whose N-terminii are in the cytosol (returns 1).
+      Extracellular N-terminii regions can be identified by taking
+      Multiply(Not(TMOriginatesInCytosol),MembraneTransitionSolution(method=MAHSSMI/CIPhiPsi))
+    * TMSegmentEnteringCytosol : Uses CiPhiPsi to determine the TM segment direction
+    * TMSegmentLeavingCytosol : Uses CiPhiPsi to determine the TM segment direction
+
+  Customizable Implementations
+    * AABlastProbability : BLAST-derived PSSM probability for an AA
+      Parameter: <extension> ascii pssm file extension for the blast profile; if blank, uses the blast profile stored
+        on the AA. When using dataset storage retrievers, this is specified by the blast extension parameter of
+        ProteinDirectory or SequenceDirectory, optional, any string
+    * AABlastProfile : BLAST-derived PSSM, 10 * Log10(Probability) for an AA
+      Parameter: <extension> ascii pssm file extension for the blast profile; if blank, uses the blast profile stored
+        on the AA. When using dataset storage retrievers, this is specified by the blast extension parameter of
+        ProteinDirectory or SequenceDirectory, optional, any string
+    * AAPairType : Returns a (normally binary) vector representing a 20x20 matrix (one value for each amino acid type
+      pair)where M(x,y) = 1 iff x is the central amino acid in the stencil and y is the distal. If multiple amino acids
+      are specified by the stencil, the average will sum to 1.Undefined x would cause M(x,y) = 1/20 for all valid x
+      Default label : AAPairType(alignment=Center,stencil(1))
+      Parameters:
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. JufoCenter is strictly
+        for compatiblity with the old JUFO; it is slower to calculate than normal Center, but yields the same set of
+        values in a different order, default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <stencil> AA relative distances to consider (not counting the central residue), default: "(1,5)", 
+        Container with at least 1 Any non-negative integer >= 1 <= 12
+      <weight> weight for each component in the stencil (1 by default).  If given, should be the same size as stencil, 
+      optional,Container with at least 1 Any decimal (floating-point) value
+    * AASymmetricTripletType : Returns a (normally binary) vector representing a 20x20x20 tensor (one value for each
+      amino acid type triplet)where M(x,y,z) = 1 iff the sequence surrounding the current amino acid is XYZ
+      (anonymous) parameter: Stencils to use; relative positions used to return the AA type.  The central AA's position
+        (0) is always included, default: "((-1,1))", Container with at most 10 Container with at least 1 Any integer
+    * AATripletType : Returns a (normally binary) vector representing a 20x20x20 tensor (one value for each amino acid
+      type triplet)where M(x,y,z) = 1 iff the sequence surrounding the current amino acid is XYZ
+      (anonymous) parameter: Stencils to use; relative positions used to return the AA type.  The central AA's position
+        (0) is always included, default: "((-1,1))", Container with at most 10 Container with at least 1 Any integer
+    * AA_AtomPosition : Retrieves the position of the given atom in the aa
+      (anonymous) parameter: atom type for which the position should be retrieved, default: "CA", 
+        Choose from the following: { N, CA, C, O, CB, CG, CG1, CG2, CD, CD1, CD2, CE, CE1, CE2, CE3, CZ, CZ2, CZ3, CH2,
+        ND1, ND2, NE, NE1, NE2, NZ, NH1, NH2, OD1, OD2, OG, OG1, OE1, OE2, OH, SD, SE, SG, H, HA, HA2, HA3, HB, HB1,
+        HB2, HB3, HG, HG1, HG2, HG3, HG11, HG12, HG13, HG21, HG22, HG23, HD1, HD2, HD3, HD11, HD12, HD13, HD21, HD22,
+        HD23, HE, HE1, HE2, HE3, HE21, HE22, HZ, HZ1, HZ2, HZ3, HH, HH2, HH11, HH12, HH21, HH22, H1, H2, H3, HXT, OXT,
+        C2, C3, C4, C5, C6, C7, C8, C9, N1, O1}
+    * AA_BlastAlignmentWeight : Alignment weight, relative to pseudocount weight, as reported in PSSM (last column)
+      Parameter: <extension> ascii pssm file extension for the blast profile; if blank, uses the blast profile stored
+        on the AA. When using dataset storage retrievers, this is specified by the blast extension parameter of
+        ProteinDirectory or SequenceDirectory, optional, any string
+    * AA_BlastConservation : Reports the conservation of the amino acid = Sum(blast probability * log10 blast
+      probability)
+      Parameter: <extension> ascii pssm file extension for the blast profile; if blank, uses the blast profile stored
+        on the AA. When using dataset storage retrievers, this is specified by the blast extension parameter of
+        ProteinDirectory or SequenceDirectory, optional, any string
+    * AA_BlastPositionInformation : Position information, as reported in the PSSM (second to last column)
+      Parameter: <extension> ascii pssm file extension for the blast profile; if blank, uses the blast profile stored
+        on the AA. When using dataset storage retrievers, this is specified by the blast extension parameter of
+        ProteinDirectory or SequenceDirectory, optional, any string
+    * AA_DistanceFromAABlastProfileType : The sequence distance to an amino acid whose blast probability is at least
+      0.05
+      Default label : AA_DistanceFromAABlastProfileType(type=Undefined,direction=Left,max=10,size=1)
+      Parameters:
+      <type> type of amino acid to find, 
+        Choose from the following: { ALANINE, ARGININE, ASPARAGINE, ASPARTIC_ACID, CYSTEINE, GLUTAMINE, GLUTAMIC_ACID,
+        GLYCINE, HISTIDINE, ISOLEUCINE, LEUCINE, LYSINE, METHIONINE, PHENYLALANINE, PROLINE, SERINE, THREONINE,
+        TRYPTOPHAN, TYROSINE, VALINE, ASPARAGINE_or_ASPARTIC_ACID, GLUTAMINE_or_GLUTAMIC_ACID, ARBITRARY_AMINO_ACID,
+        UNKNOWN_AMINO_ACID, SEQUENCE_GAP, D-ALANINE, 2-AMINO-3-OXO-4-SULFO-BUTYRIC ACID, DEOXY-CHLOROMETHYL-ARGININE,
+        S,S-(2-HYDROXYETHYL)THIOCYSTEINE, SELENOCYSTEINE, 3-SULFINOALANINE, S-HYDROXYCYSTEINE, CYSTEINE-S-DIOXIDE,
+        2-AMINO-4-(AMINO-3-OXO-PROPYLSULFANYLCARBONYL)-BUTYRIC ACID, CYSTEINESULFONIC_ACID, N-ACETYL-L-CYSTEINE,
+        GAMMA-CARBOXY-GLUTAMIC_ACID, PYROGLUTAMIC_ACID, LYSINE_NZ-CARBOXYLIC ACID,
+        2-LYSINE(3-HYDROXY-2-METHYL-5-PHOSPHONOOXYMETHYL-PYRIDIN-4-YLMETHANE), N-TRIMETHYLLYSINE, N-DIMETHYL-LYSINE,
+        N~6~-[(2Z,4E,6E,8E)-3,7-DIMETHYL-9-(2,6,6-TRIMETHYLCYCLOHEX-1-EN-1-YL)NONA-2,4,6,8-TETRAENYL]LYSINE,
+        N-CARBOXYMETHIONINE, N-FORMYLMETHIONINE, SELENO_METHIONINE, D-PHENYLALANINE, 1-HEXADECANOSULFONYL-O-L-SERINE,
+        N-ACETYL-SERINE, PHOSPHOSERINE, PHOSPHOTHREONINE, O-SULFO-L-TYROSINE, methanesulfonothioate,
+        BETA-L-ASPARTIC_ACID}
+      <direction> directions in which to search for the aa, default: "Center", 
+        Allowed values: {Left, Right, Center, JufoCenter}
+      <max> maximum distance to search; if the type is not found, returns this # + 1, Any non-negative integer >= 1
+      <size> # of AAs of the specified type to locate; e.g. 2 to find the nearest two matches in the given direction, 
+        default: "1", Any non-negative integer >= 1
+    * AA_DistanceFromAAType : The sequence distance to an amino acid with the specified type
+      Default label : AA_DistanceFromAAType(type=Undefined,direction=Left,max=10,size=1)
+      Parameters:
+      <type> type of amino acid to find, 
+        Choose from the following: { ALANINE, ARGININE, ASPARAGINE, ASPARTIC_ACID, CYSTEINE, GLUTAMINE, GLUTAMIC_ACID,
+        GLYCINE, HISTIDINE, ISOLEUCINE, LEUCINE, LYSINE, METHIONINE, PHENYLALANINE, PROLINE, SERINE, THREONINE,
+        TRYPTOPHAN, TYROSINE, VALINE, ASPARAGINE_or_ASPARTIC_ACID, GLUTAMINE_or_GLUTAMIC_ACID, ARBITRARY_AMINO_ACID,
+        UNKNOWN_AMINO_ACID, SEQUENCE_GAP, D-ALANINE, 2-AMINO-3-OXO-4-SULFO-BUTYRIC ACID, DEOXY-CHLOROMETHYL-ARGININE,
+        S,S-(2-HYDROXYETHYL)THIOCYSTEINE, SELENOCYSTEINE, 3-SULFINOALANINE, S-HYDROXYCYSTEINE, CYSTEINE-S-DIOXIDE,
+        2-AMINO-4-(AMINO-3-OXO-PROPYLSULFANYLCARBONYL)-BUTYRIC ACID, CYSTEINESULFONIC_ACID, N-ACETYL-L-CYSTEINE,
+        GAMMA-CARBOXY-GLUTAMIC_ACID, PYROGLUTAMIC_ACID, LYSINE_NZ-CARBOXYLIC ACID,
+        2-LYSINE(3-HYDROXY-2-METHYL-5-PHOSPHONOOXYMETHYL-PYRIDIN-4-YLMETHANE), N-TRIMETHYLLYSINE, N-DIMETHYL-LYSINE,
+        N~6~-[(2Z,4E,6E,8E)-3,7-DIMETHYL-9-(2,6,6-TRIMETHYLCYCLOHEX-1-EN-1-YL)NONA-2,4,6,8-TETRAENYL]LYSINE,
+        N-CARBOXYMETHIONINE, N-FORMYLMETHIONINE, SELENO_METHIONINE, D-PHENYLALANINE, 1-HEXADECANOSULFONYL-O-L-SERINE,
+        N-ACETYL-SERINE, PHOSPHOSERINE, PHOSPHOTHREONINE, O-SULFO-L-TYROSINE, methanesulfonothioate,
+        BETA-L-ASPARTIC_ACID}
+      <direction> directions in which to search for the aa, default: "Center", 
+        Allowed values: {Left, Right, Center, JufoCenter}
+      <max> maximum distance to search; if the type is not found, returns this # + 1, Any non-negative integer >= 1
+      <size> # of AAs of the specified type to locate; e.g. 2 to find the nearest two matches in the given direction, 
+        default: "1", Any non-negative integer >= 1
+    * AA_DistanceFromMembraneCenter : Absolute distance from the center of the membrane, as defined by the PDBTM xml
+      file (which must be present in same directory as the pdb file for this descriptor to work).  When absent, and for
+      soluble proteins, uses the defualt value parameter
+      Parameter: <default> value to use for soluble proteins or when the PDBTM xml file is absent, default: "30.0", 
+        Any decimal (floating-point) value
+    * AA_DistanceFromSSECenter : Normalized [0,1] AA's distance from the center of the SSE based on predictions or
+      actual secondary structure. 
+      Parameter: <method> secondary structure prediction or analysis method to use to obtain result, 
+        default: "OCTOPUS", 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+        CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+        CIPhiPsi, Kaksi}
+    * AA_NormDistanceFromMembraneCenter : Normalized distance to center of membrane; 0-1 -> in membrane core, 1-2 in
+      transition region, 2-3 soluble (near 2 for close to transition region)
+      Parameter: <default> value to use for soluble proteins or when the PDBTM xml file is absent, default: "3.0", 
+        Any decimal (floating-point) value
+    * AA_PositionInSSE : Normalized [0-1] AA's position in the SSE based on predictions or actual secondary structure. 
+      Parameter: <method> secondary structure prediction or analysis method to use to obtain result, 
+        default: "OCTOPUS", 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+        CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+        CIPhiPsi, Kaksi}
+    * AA_SSEID : Index of the AA's SSE based on predictions or actual secondary structure. 
+      Parameter: <method> secondary structure prediction or analysis method to use to obtain result, 
+        default: "OCTOPUS", 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+        CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+        CIPhiPsi, Kaksi}
+    * AA_SSESize : Size of the AA's SSE based on predictions or actual secondary structure. 
+      Parameter: <method> secondary structure prediction or analysis method to use to obtain result, 
+        default: "OCTOPUS", 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+        CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+        CIPhiPsi, Kaksi}
+    * BackBoneChemDescriptor : Uses a chemical descriptor on back bone atoms of each AA
+      (anonymous) parameter: molecular property to use on each residue individually, 
+              choose any  Molecule / Atom Numeric descriptor :
+        
+        ******************************************************************************************************
+        ************************************* Descriptors of Molecules ***************************************
+        ******************************************************************************************************
+
+        
+        Basic Implementations
+          * Atom_Identity : 1, for any atom or molecule. The Atom_ prefix is purely for
+            backwards-compatibility. In new descriptor files, the use of Constant(1) is preferred. Alias for :
+            Constant(1)
+          * BondGirth : User-defined. Alias for :
+            DescriptorSum(2DAMax(steps=96,property=Atom_Identity,substitution_value=nan))
+          * CovalentSurfaceArea : covalent surface area. Alias for : MoleculeSum(Atom_CovalentSurfaceArea)
+          * CovalentVolume : covalent volume. Alias for : MoleculeSum(Atom_CovalentVolume)
+          * EstCovSurfaceArea : Estimated covalent surface area (conformation independent). Alias for :
+            MoleculeSum(Atom_EstCovalentSurfaceArea)
+          * EstVdwSurfaceArea : Estimated van-der-waals surface area (conformation independent), using
+            element-based VDW radii. Alias for : MoleculeSum(Atom_EstVdwSurfaceArea)
+          * EstVdwSurfaceAreaCSD : Estimated van-der-waals surface area (conformation independent), using more
+            accurate, CSD-derived atom-type VdW radii, which tend to give larger SAs to H than
+            EstVdwSurfaceArea. Alias for : MoleculeSum(Atom_EstVdwSurfaceAreaCSD)
+          * Girth : calculates the girth of a molecule
+          * HbondAcceptor : # hydrogen bond acceptors. Alias for : MoleculeSum(Atom_HbondAcceptors)
+          * HbondDonor : # hydrogen bond donors. Alias for : MoleculeSum(Atom_HbondDonors)
+          * LipinskiDruglike : Returns 1 if the number of Lipinski violations is less than 2. Alias for :
+            Less(lhs=LipinskiViolations,rhs=Constant(2))
+          * LipinskiViolations : calculates how many times a molecule violates Lipinski's Rule of 5
+          * LipinskiViolationsVeber : calculates how many times a molecule violates Veber's variant of the
+            Lipinski's Rule of 5 (<10 rotatable bonds, Polar SA < 140 A^2; see J. Med. Chem., 2002, 45 (12),
+            pp 2615–2623)
+          * LogP : Calculates logp using the heuristic formula from
+            http://pubs.acs.org/doi/full/10.1021/ci010315d
+          * LogP2008 : Calculates logp using the heuristic formula from
+            http://pubs.acs.org/doi/full/10.1021/ci010315d
+          * MACCS : Retrieves the MACCS of each molecule using a modified pubchem MACCS fingerprint. See
+            ftp://ftp.ncbi.nlm.nih.gov/pubchem/specifications/pubchem_fingerprints.txt for details on the
+            pubchem values
+          * MaxRingSize : Largest unbridged ring inside the molecule; returns 2 for ringless molecules. Alias
+            for : MoleculeMax(AtomMaxRingSize)
+          * MinRingSize : Smallest ring inside the molecule; returns 10000 for ringless molecules. Alias for :
+            MoleculeMin(AtomMinRingSize)
+          * MoleculeComplexity : calculates the complexity of a molecule (see
+            http://www.jcheminf.com/content/1/1/8)
+          * MoleculeOneFourClashScore : Calculates the sum of one-four clash scores in the molecule
+          * MoleculeTotalBondEnergy : Calculates the sum of bond energies derived from the statistical bond
+            potential
+          * MoleculeVDWScore : Calculates the total molecule VDW score normalized by the number of atoms in
+            the molecule
+          * NAromaticMacrocyclicRings : Number of Aromatic macrocyclic (>8 atoms) rings in the molecule
+          * NAromaticRings : Number of Aromatic rings in the molecule
+          * NAtoms : Number of atoms. Alias for : NElements
+          * NConjugatedMacrocyclicRings : Number of Conjugated macrocyclic (>8 atoms) rings in the molecule
+          * NConjugatedRings : Number of Conjugated rings in the molecule
+          * NElements : The number of Atom in the Molecule
+          * NHeavyAtoms : Number of non-hydrogen atoms in the molecule. Alias for : MoleculeSum(IsNotH)
+          * NMacrocyclicRings : Number of macrocyclic (>8 atoms) rings in the molecule
+          * NNonconjugatedMacrocyclicRings : Number of Nonconjugated macrocyclic (>8 atoms) rings in the
+            molecule
+          * NNonconjugatedRings : Number of Nonconjugated rings in the molecule
+          * NRings : Number of rings in the molecule
+          * NRotBond : calculates the number of non-trivially rotatable bonds
+          * NRotBondSym : calculates the number of non-trivially rotatable bonds
+          * NStereo : Number of stereocenters. Alias for :
+            MoleculeSum(NotEqual(Atom_Stereocenters,Constant(0)))
+          * Polarizability : total polarizability. Alias for : MoleculeSum(Atom_Polarizability)
+          * TopologicalPolarSurfaceArea : topological polar surface area. Alias for :
+            MoleculeSum(Atom_TopologicalPolarSurfaceArea)
+          * TotalCharge : Sum of sigma and pi charges. Alias for : MoleculeSum(Atom_TotalCharge)
+          * TotalFormalCharge : Sum of formal charges on the molecule. Alias for :
+            MoleculeSum(Atom_FormalCharge)
+          * VdwSurfaceArea : van der waals surface area. Alias for : MoleculeSum(Atom_VDWSurfaceArea)
+          * VdwVolume : van der waals volume. Alias for : MoleculeSum(Atom_VDWVolume)
+          * Weight : Molecular weight (amu). Alias for : MoleculeSum(Atom_Mass)
+          * XLogP : Calculates LogP using a multi-tasking deep neural network trained to predict LogP, LogS,
+            and hydration free energy
+          
+        Customizable Implementations
+          * 3DInterHBondCode : Represents hydrogen bond interactions in relative distance and angle
+            correlation bins; "3DInterHBondCode(help)" shows internal options
+          * AffinityNet : Calculates binding affinity (in units of pKd); 
+            "AffinityNet(help)" shows internal options
+          * AffinityNetAD : Calculates binding affinity (in units of pKd) weighted by 1.0 minus the model
+            applicability domain score; "AffinityNetAD(help)" shows internal options
+          * BuserMetric : calculates the buser similarity score between ; 
+            "BuserMetric(help)" shows internal options
+          * Constant : Returns a constant set of values; "Constant(help)" shows internal options
+          * Default : given a number, returns that number, otherwise retrieves the value of the misc property
+            by that name; "Default(help)" shows internal options
+          * Define : Define an alias for a given descriptor; "Define(help)" shows internal options
+          * DockANNScore : Calculates a docking score based on the local ppv classifying a pose as within 1.0
+            Angstroms of the native pose weighted by the predicted affinity of the pose; "DockANNScore(help)" shows
+        internal options
+          * EntropyQHA : Sampling options for relative conformational entropy estimates. Descriptor output
+            indices correspond to the global_s, local_s, global_s - local_s, and -ln(local_s/global_s). The
+            first 4 indices are actual entropy estimates in J*K^-1*mol^-1, while the latter 4 indices are the
+            PCA eigenvalue sums.; "EntropyQHA(help)" shows internal options
+          * IsConstitutionDruglike : Returns 1 if the molecule is druglike and 0 otherwise; 
+            "IsConstitutionDruglike(help)" shows internal options
+          * IsConstitutionDruglikeAndHitlike : Returns 1 if the molecule is druglike and 0 otherwise; 
+            "IsConstitutionDruglikeAndHitlike(help)" shows internal options
+          * MiscProperty : retrieves a molecule property that cannot be calculated directly by the bcl, e.g.
+            biological data; "MiscProperty(help)" shows internal options
+          * MolAlignPharmScore : Performs quick property-based molecular alignment with BCL::MolAlign and
+            returnsthe RMSDX score as well as atomic overlap metrics.; "MolAlignPharmScore(help)" shows internal
+        options
+          * MoleculeAtomEnvironmentMap : Determines if molecule fragment radial atom environments exist in
+            database; "MoleculeAtomEnvironmentMap(help)" shows internal options
+          * MoleculeSimilarity : Searches for specified substructures within the query molecule. Returns 1 if
+            a structure exists in the query molecule; "MoleculeSimilarity(help)" shows internal options
+          * NAromaticRingHalogensMaxFragment : Determines the sum of the number of halogen substituents on
+            aromatic rings in a molecule. Alternatively, identifies the aromatic ring with the most number of
+            halogens and returns that count.; "NAromaticRingHalogensMaxFragment(help)" shows internal options
+          * NAromaticRingHalogensTotal : Determines the sum of the number of halogen substituents on aromatic
+            rings in a molecule. Alternatively, identifies the aromatic ring with the most number of halogens
+            and returns that count.; "NAromaticRingHalogensTotal(help)" shows internal options
+          * PCC-AD-DNN : Calculates binding affinity (in units of pKd) weighted by 1.0 minus the model
+            applicability domain score; "PCC-AD-DNN(help)" shows internal options
+          * PCC-DNN : Calculates binding affinity (in units of pKd); "PCC-DNN(help)" shows internal options
+          * ReactionStructureSearch : Searches for specified substructures within the query molecule. Returns
+            1 if a structure exists in the query molecule; "ReactionStructureSearch(help)" shows internal options
+          * StructureCount : Searches for specified substructures within the query molecule. Returns the
+            number of substructure matches that exist in the query molecule; "StructureCount(help)" shows internal
+        options
+          * StructureSearch : Searches for specified substructures within the query molecule. Returns 1 if a
+            structure exists in the query molecule; "StructureSearch(help)" shows internal options
+          * Template : Create a descriptor template; which is a partial definition for a descriptor, with
+            remaining user-defined arguments that can be set later; "Template(help)" shows internal options
+          * UMol2D : calculates the number of certain types of atom environments; 
+            "UMol2D(help)" shows internal options
+          * UniformRandom : Returns a uniform-randomly chosen set of values; 
+            "UniformRandom(help)" shows internal options
+          * UniformRandomDuplicated : Returns a uniform-randomly chosen  value, copied {size} times; 
+            "UniformRandomDuplicated(help)" shows internal options
+          
+        Operations
+          * MoleculeMax : Returns the max of the given descriptor across a Molecule; 
+            "MoleculeMax(help)" shows internal options
+          * MoleculeMean : Returns the mean of the given descriptor across a Molecule; 
+            "MoleculeMean(help)" shows internal options
+          * MoleculeMin : Returns the min of the given descriptor across a Molecule; 
+            "MoleculeMin(help)" shows internal options
+          * MoleculeRange : Returns the range of the given descriptor across a Molecule; 
+            "MoleculeRange(help)" shows internal options
+          * MoleculeStandardDeviation : Returns the standarddeviation of the given descriptor across a
+            Molecule; "MoleculeStandardDeviation(help)" shows internal options
+          * MoleculeSum : Returns the sum of the given descriptor across a Molecule; 
+            "MoleculeSum(help)" shows internal options
+          * MoleculeWeightedMean : mean of a descriptor across the Molecule, weighted by any other descriptor;
+            "MoleculeWeightedMean(help)" shows internal options
+          * MoleculeWeightedStandardDeviation : standarddeviation of a descriptor across the Molecule,
+            weighted by any other descriptor; "MoleculeWeightedStandardDeviation(help)" shows internal options
+          * MoleculeWeightedSum : sum of a descriptor across the Molecule, weighted by any other descriptor; 
+            "MoleculeWeightedSum(help)" shows internal options
+          * ShapeMoments : computes the mean, std, and skew of atomic distances from four anchor points: the
+            molecular centroid (mct), closest atom to the mct (cam), furthest atom from mct (fam), and
+            furthest atom from fam (faf). The molecular centroid is the center of the positions, weighted by
+            the anchor property.; "ShapeMoments(help)" shows internal options
+          
+        Customizable Operations
+          * 2DAMax : computes max for each bin of the 2DA of a specified atom property; 
+            "2DAMax(help)" shows internal options
+          * 2DAMaxSign : computes 2D (bond distance) autocorrelation of a specified atom property; 
+            "2DAMaxSign(help)" shows internal options
+          * 2DAMin : computes min for each bin of the 2DA of a specified atom property; 
+            "2DAMin(help)" shows internal options
+          * 3DAClosestPairRealSpace : Relates the autocorrelations of two independent molecules; 
+            "3DAClosestPairRealSpace(help)" shows internal options
+          * 3DAClosestPairRealSpaceAsymmetry : Relates the autocorrelations of two independent molecules; 
+            "3DAClosestPairRealSpaceAsymmetry(help)" shows internal options
+          * 3DAPairConvolution : Relates the autocorrelations of two independent molecules; 
+            "3DAPairConvolution(help)" shows internal options
+          * 3DAPairConvolutionAsymmetry : Relates the autocorrelations of two independent molecules; 
+            "3DAPairConvolutionAsymmetry(help)" shows internal options
+          * 3DAPairRealSpace : Relates the autocorrelations of two independent molecules; 
+            "3DAPairRealSpace(help)" shows internal options
+          * 3DAPairRealSpaceAsymmetry : Relates the autocorrelations of two independent molecules; 
+            "3DAPairRealSpaceAsymmetry(help)" shows internal options
+          * 3DAPairRealSpaceConvolution : Relates the autocorrelations of two independent molecules; 
+            "3DAPairRealSpaceConvolution(help)" shows internal options
+          * 3DAPairRealSpaceConvolutionAsymmetry : Relates the autocorrelations of two independent molecules; 
+            "3DAPairRealSpaceConvolutionAsymmetry(help)" shows internal options
+          * 3dDistribution : computes the smooth radial distribution function using a given atom property; 
+            "3dDistribution(help)" shows internal options
+          * 3dDistributionSign : computes the smooth radial distribution function using a given atom property;
+            "3dDistributionSign(help)" shows internal options
+          * 3daSoftMax : computes the smooth radial distribution function using a given atom property; 
+            "3daSoftMax(help)" shows internal options
+          * 3daSoftMaxSign : computes the smooth radial distribution function using a given atom property; 
+            "3daSoftMaxSign(help)" shows internal options
+          * 3daSoftMin : computes the smooth radial distribution function using a given atom property; 
+            "3daSoftMin(help)" shows internal options
+          * Central2DASign : Measure 2DASign of property at variable distances from molecule topological
+            center; "Central2DASign(help)" shows internal options
+          * CoulombicForce : computes the intramolecular coulombic force (without the dielectric constant); 
+            "CoulombicForce(help)" shows internal options
+          * MolecularAsymmetry : Calculates an rdf-like asymmetry vector for the molecule based on overall
+            distribution of atoms and/or properties. Use of this descriptor must be cited as: Sliwoski,
+            Gregory, et al. "BCL:: EMAS—Enantioselective Molecular Asymmetry Descriptor for 3D-QSAR."
+            Molecules 17.8 (2012): 9971-9989.
+          Link:  www.http://meilerlab.org/index.php/publications/show/2012
+          ; "MolecularAsymmetry(help)" shows internal options
+          * MolecularFragmentRescale : Statistics of a descriptor across the series of fragments split off the
+            original molecule; "MolecularFragmentRescale(help)" shows internal options
+          * MolecularFragmentStatistics : Statistics of a descriptor across the series of fragments split off
+            the original molecule; "MolecularFragmentStatistics(help)" shows internal options
+          * MolecularMaxFragmentStatistics : Statistics of a descriptor across the series of fragments split
+            off the original molecule; "MolecularMaxFragmentStatistics(help)" shows internal options
+          * MoleculeHistogram1D : computes a histogram using a single descriptor; 
+            "MoleculeHistogram1D(help)" shows internal options
+          * RDFMaxSign : computes the smooth radial distribution function using a given atom property; 
+            "RDFMaxSign(help)" shows internal options
+          * RotamerCoulombicForce : computes the intramolecular coulombic force (without the dielectric
+            constant) due to the rotamer chosen, thus ignoring covalent and 1,3 bonding interactions;
+        "RotamerCoulombicForce(help)" shows internal options
+          * Triangulator : computes triangular autocorrelation of a specified atom property.This is much like
+            RDF, but considers all triplets of atoms.; "Triangulator(help)" shows internal options
+          
+        
+        ******************************************************************************************************
+        *************************************** Descriptors of Atoms *****************************************
+        ******************************************************************************************************
+
+          These can be converted into a Molecule-level descriptor using MoleculeSum(X), where X is any
+          descriptor listed below
+        
+        Basic Implementations
+          * AtomMaxRingSize : Maximum size of a ring that this atom is part of. For atoms that are not in a
+            ring, returns 2. The size of the largest ring with no internal rings is returned for atoms that
+            are part of ring systems
+          * AtomMinRingSize : Minimum size of a ring that this atom is part of. For atoms that are not in a
+            ring, returns 10000. 
+          * AtomTypeNumber : Retrieves the atomic number of each atom
+          * Atom_AdditiveAtomicPolarizability : Retrieves the AdditiveAtomicPolarizability of desired atom
+          * Atom_AromaticityAxes : For aromatic atoms, the axes of the aromatic field
+          * Atom_BoilingPoint : Retrieves the elemental BoilingPoint for each atom
+          * Atom_CovalentRadius : Retrieves the elemental CovalentRadius for each atom
+          * Atom_CovalentSurfaceArea : approximates the surface area of atoms using the covalent radius,
+            considering overlap from neighboring atoms. Alias for :
+            Atom_SurfaceArea(radius=Atom_CovalentRadius,min radius=Molecule/Atom Numeric Descriptor)
+          * Atom_CovalentVolume : approximates the volume of atoms using the covalent radius, considering
+            overlap from neighboring atoms. Alias for : Atom_Volume(radius=Atom_CovalentRadius,min
+            radius=Molecule/Atom Numeric Descriptor)
+          * Atom_EffectivePolarizability : atomic polarizability smoothed over molecule
+          * Atom_ElectroNegativity : Retrieves the elemental ElectroNegativity for each atom
+          * Atom_EstCovalentSurfaceArea : The surface area, estimated from atom type covalent radii
+          * Atom_EstVdwSurfaceArea : The surface area, estimated from atom type elemental van der waals radii
+          * Atom_EstVdwSurfaceAreaCSD : The surface area, estimated from atom type CSD-derived van der waals
+            radii
+          * Atom_FormalCharge : the formal charge of each atom
+          * Atom_GyromagneticRatio : Retrieves the elemental GyromagneticRatio for each atom
+          * Atom_HSigmaChargeL : User-defined. Alias for : Multiply(Atom_SigmaChargeL,IsH)
+          * Atom_HVchargeL : User-defined. Alias for : Multiply(Atom_VchargeL,IsH)
+          * Atom_HbondAcceptors : 1 for hydrogen bond acceptors (N and O), 0 for other elements
+          * Atom_HbondDonors : 1 for hydrogen bond donors (NH and OH), 0 for others
+          * Atom_InAromaticRingIntersection : User-defined. Alias for :
+            GreaterEqual(lhs=BondTypeCount(property=IsAromatic,value=1),rhs=3)
+          * Atom_InRingIntersection : User-defined. Alias for :
+            GreaterEqual(lhs=BondTypeCount(property=IsInRing,value=1),rhs=3)
+          * Atom_IonizationPotential : Retrieves the elemental IonizationPotential for each atom
+          * Atom_IsInAromaticRing : User-defined. Alias for :
+            GreaterEqual(lhs=BondTypeCount(property=IsAromatic,value=1),rhs=2)
+          * Atom_IsSP : 1 for sp, -1 for non-sp non-terminal atoms, 0 for everything else
+          * Atom_IsSP2 : 1 for sp2, -1 for non-sp2 non-terminal atoms, 0 for everything else
+          * Atom_IsSP3 : 1 for sp3, -1 for non-sp3 non-terminal atoms, 0 for everything else
+          * Atom_LonePairEN : calculates lone-pair electronegativity, see
+            http://www.springerlink.com/content/w300520690302287/fulltext.pdf
+          * Atom_LonePairElectronAffinity : Retrieves the LonePairElectronAffinity of desired atom
+          * Atom_LonePairElectronegativity : Retrieves the LonePairElectronegativity of desired atom
+          * Atom_LonePairIonizationPotential : Retrieves the LonePairIonizationPotential of desired atom
+          * Atom_MainGroup : Retrieves the elemental MainGroup for each atom
+          * Atom_Mass : Retrieves the elemental Mass for each atom
+          * Atom_MeltingPoint : Retrieves the elemental MeltingPoint for each atom
+          * Atom_NeighborDirection : The unit vector formed by the relative positions of neighboring atoms
+          * Atom_NumberValences : the formal charge of each atom
+          * Atom_PiCharge : uses Hueckel matrix to determine pi-orbital partial charge
+          * Atom_PiEN : uses Hueckel matrix to determine pi-orbital electronegativity
+          * Atom_PiOrbitalElectronegativityMulliken : Retrieves the PiOrbitalElectronegativityMulliken of
+            desired atom
+          * Atom_PiOrbitalElectronegativityPauling : Retrieves the PiOrbitalElectronegativityPauling of
+            desired atom
+          * Atom_PiValenceStateElectronAffinity : Retrieves the PiValenceStateElectronAffinity of desired atom
+          * Atom_PiValenceStateIonizationPotential : Retrieves the PiValenceStateIonizationPotential of
+            desired atom
+          * Atom_Polarizability : computes the polarizability of each atom using the method from see
+            J.Am.Chem.Soc. Vol 112, No. 23, 1990, 8534
+          * Atom_SigmaCharge : uses PEOE to determine sigma-orbital partial charge
+          * Atom_SigmaEN : uses PEOE to determine sigma-orbital electronegativity
+          * Atom_SigmaOrbitalElectronegativityMulliken : Retrieves the SigmaOrbitalElectronegativityMulliken
+            of desired atom
+          * Atom_SigmaOrbitalElectronegativityPauling : Retrieves the SigmaOrbitalElectronegativityPauling of
+            desired atom
+          * Atom_SigmaValenceStateElectronAffinity : Retrieves the SigmaValenceStateElectronAffinity of
+            desired atom
+          * Atom_SigmaValenceStateIonizationPotential : Retrieves the SigmaValenceStateIonizationPotential of
+            desired atom
+          * Atom_Stereocenters : 1 for R, -1 for S, 0 for achiral atoms, 2 for undefined chirality
+          * Atom_TernaryHBond : User-defined. Alias for :
+            Subtract(lhs=Atom_HbondAcceptors,rhs=Multiply(Constant(2),Atom_HbondDonors))
+          * Atom_TopologicalPolarSurfaceArea : see Ertl, et. al. J. Med. Chem. 2000, 43, 3715
+          * Atom_TotalCharge : Returns the total charge on an atom. Alias for :
+            Add(Atom_SigmaCharge,Atom_PiCharge)
+          * Atom_VDWSurfaceArea : approximates the surface area of atoms using the vdw radius, considering
+            overlap from neighboring atoms. Alias for : Atom_SurfaceArea(radius=Atom_VDWaalsRadius,min
+            radius=Atom_CovalentRadius)
+          * Atom_VDWVolume : approximates the volume of atoms using the vdw radius, considering overlap from
+            neighboring atoms. Alias for : Atom_Volume(radius=Atom_VDWaalsRadius,min
+            radius=Atom_CovalentRadius)
+          * Atom_VDWaalsRadius : Retrieves the elemental VDWaalsRadius for each atom
+          * Atom_Vcharge : Partial charges computed using vcharge 2003 algorithm and parameters, see
+            http://pubs.acs.org/doi/full/10.1021/ci034148o
+          * Atom_VchargeV2 : Partial charges computed using vcharge 2003 algorithm and parameters, see
+            http://pubs.acs.org/doi/full/10.1021/ci034148o
+          * AtomicNumbers : Retrieves the atomic number of each atom
+          * ChargeNegative : User-defined. Alias for :
+            Multiply(Less(lhs=Atom_SigmaCharge,rhs=Constant(0)),Atom_SigmaCharge)
+          * ChargePositive : User-defined. Alias for :
+            Multiply(Greater(lhs=Atom_SigmaCharge,rhs=Constant(0)),Atom_SigmaCharge)
+          * ENegOffset : User-defined. Alias for : Subtract(lhs=Atom_ElectroNegativity,rhs=Constant(2.5))
+          * HbondAcceptorsStrict : User-defined. Alias for :
+           
+        Multiply(Atom_HbondAcceptors,Not(Atom_HbondDonors),LessEqual(lhs=BondTypeCount(property=Identity,value=1),rhs=Constant(2)))
+          * IsB : Returns 1 for boron atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(5))
+          * IsBr : Returns 1 for bromine atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(35))
+          * IsC : Returns 1 for carbon atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(6))
+          * IsCl : Returns 1 for chlorine atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(17))
+          * IsENeg : User-defined. Alias for : Greater(lhs=ENegOffset,rhs=Constant(0))
+          * IsF : Returns 1 for fluorine atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(9))
+          * IsH : Returns 1 for hydrogen atoms, 0 for heavy atoms. Alias for :
+            Less(lhs=AtomicNumbers,rhs=Constant(1.5))
+          * IsHTernary : User-defined. Alias for : Add(Constant(-1),Multiply(IsH,Constant(2)))
+          * IsHalogen : Returns 1 for atoms in main group 7 (F,Cl,Br,I,At,Uus). Alias for :
+            Equal(Atom_MainGroup,Constant(7))
+          * IsI : Returns 1 for iodine atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(53))
+          * IsN : Returns 1 for nitrogen atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(7))
+          * IsNotC : Returns 1 for non-carbon atoms, 0 for others. Alias for :
+            NotEqual(AtomicNumbers,Constant(6))
+          * IsNotH : Returns 1 for heavy atoms, 0 for hydrogen atoms. Alias for :
+            Greater(lhs=AtomicNumbers,rhs=Constant(1.5))
+          * IsO : Returns 1 for oxygen atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(8))
+          * IsP : Returns 1 for phosphorus atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(15))
+          * IsPeriodThreePlus : Returns 1 for all elements in periods 3-7. Alias for :
+            Greater(lhs=AtomicNumbers,rhs=Constant(10.5))
+          * IsS : Returns 1 for sulfur atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(16))
+          * IsSi : Returns 1 for silicon atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(14))
+          * PolarTernary : User-defined. Alias for :
+            Subtract(lhs=Multiply(Add(HbondAcceptorsStrict,Atom_HbondDonors),Constant(2)),rhs=Constant(1))
+          * Position : Returns the X,Y,Z coordinates of the Atom
+          
+        Customizable Implementations
+          * Atom_RelativePropertyScore : Compute per-atom contribution of QSAR score relative to a provided
+            scaffold; "Atom_RelativePropertyScore(help)" shows internal options
+          * BondTypeCount : Counts the number of bonds that satisfy a condition (property == value); 
+            "BondTypeCount(help)" shows internal options
+          
+        Operations
+          * Atom_SurfaceArea : approximates the surface area of the atom, considering neighbor overlap; 
+            "Atom_SurfaceArea(help)" shows internal options
+          * Atom_Volume : approximates the volume of the atom, considering neighbor overlap; 
+            "Atom_Volume(help)" shows internal options
+          
+        Customizable Operations
+          * 3DA : computes 3D autocorrelation of a specified atom property; "3DA(help)" shows internal options
+          * ElementHistogram1D : computes a histogram using a single descriptor; 
+            "ElementHistogram1D(help)" shows internal options
+          * ElementHistogram2D : computes a binary histogram using different descriptors for X and Y axis; 
+            "ElementHistogram2D(help)" shows internal options
+          * PlanarityAtoms : Returns the chi-squared value of the set of atoms from a perfect plane; 
+            "PlanarityAtoms(help)" shows internal options
+          * RDF : computes the radial distribution function using a given atom property; 
+            "RDF(help)" shows internal options
+          * RDFGrid : computes the radial distribution function using a given atom property, see
+          http://www.opus.ub.uni-erlangen.de/opus/volltexte/2007/736/pdf/MarkusHemmerDissertation.pdf, p. 65
+            for details; "RDFGrid(help)" shows internal options
+          * RDFSign : computes the radial distribution function using a given atom property; 
+            "RDFSign(help)" shows internal options
+          
+        
+        ******************************************************************************************************
+        *************** Descriptors that can be natively computed for both Molecule and Atom *****************
+        ******************************************************************************************************
+
+          By default, these are computed for each Atom, except when using GenerateDataset with a Molecule
+          -level result descriptor.Molecule-level descriptors can be obtained instead by using MoleculeSum(X),
+          where X is any descriptor listed below
+        
+        Customizable Operations
+          * 2DA : computes 2D (bond distance) autocorrelation of a specified atom property; 
+            "2DA(help)" shows internal options
+          * 2DASign : computes 2D (bond distance) autocorrelation of a specified atom property; 
+            "2DASign(help)" shows internal options
+          * 2DASmoothSign : computes 2D (bond distance) autocorrelation of a specified atom property; 
+            "2DASmoothSign(help)" shows internal options
+          * 3daClashSensitiveSign : computes the smooth radial distribution function using a given atom
+            property; "3daClashSensitiveSign(help)" shows internal options
+          * 3daSmooth : computes the smooth radial distribution function using a given atom property; 
+            "3daSmooth(help)" shows internal options
+          * 3daSmoothSign : computes the smooth radial distribution function using a given atom property; 
+            "3daSmoothSign(help)" shows internal options
+          
+        
+        ******************************************************************************************************
+        ****************************** General-purpose descriptor operations *********************************
+        ******************************************************************************************************
+
+           These can be used for any type of descriptor (Molecule-level, Atom-level, etc, or other general
+          purpose descriptors)
+        
+        Basic Implementations
+          * Atom_Hydrophobic : User-defined. Alias for :
+            Not(DescriptorSum(Abs(Partial(2DASign(property=PolarTernary,steps=3),indices(1,2,5,8)))))
+          * Atom_SigmaChargeL : User-defined. Alias for : Limit(Atom_SigmaCharge,max=0.25,min=-0.25)
+          * Atom_VchargeL : User-defined. Alias for : Limit(Atom_Vcharge,max=0.5,min=-0.5)
+          
+        Customizable Implementations
+          * ForEach : Allows creation of a set of descriptors by substituting a user-specified set of values
+            in for a specific parameter; "ForEach(help)" shows internal options
+          * IterativePrediction : uses pre-trained machine learning model(s) on the given object; 
+            "IterativePrediction(help)" shows internal options
+          * IterativePredictionMean : computes the mean prediction of pre-trained machine learning model(s) on
+            the given object, iteratively substituting the values returned by the sub-model with the values
+            returned by this model; "IterativePredictionMean(help)" shows internal options
+          * KohonenMapInfo : Computes distances to all members of one or more kohonen maps. May
+            alternatively/additionally compute position  of an element on the map. If both are computed,
+            output will be in the format: position in kohonen map 1, distances to nodes of kohonen map 1,
+            position in kohonen map 2, etc.; "KohonenMapInfo(help)" shows internal options
+          * Mapped : 
+              Note that commas are automatically stripped from the given inputs; 
+            "Mapped(help)" shows internal options
+          * Prediction : uses pre-trained machine learning model(s) on the given object; 
+            "Prediction(help)" shows internal options
+          * PredictionInfo : Computes prediction-related information, including standard deviation, min, max,
+            and ROC-curve derived statistics such as the PPV or local-PPV associated with a prediction. Output
+            will be statistics first, in the order provided; followed by metrics, in the order they are
+            provided; "PredictionInfo(help)" shows internal options
+          * PredictionMean : computes the mean prediction of pre-trained machine learning model(s) on the
+            given object; "PredictionMean(help)" shows internal options
+          * ToNumeric : Calculates a numeric descriptor and converts it into a string; 
+            "ToNumeric(help)" shows internal options
+          
+        Operations
+          * 1st : For pairwise or higher dimension descriptor generation, selects the result from the 1st
+            sub-object; "1st(help)" shows internal options
+          * 2nd : For pairwise or higher dimension descriptor generation, selects the result from the 2nd
+            sub-object; "2nd(help)" shows internal options
+          * 3rd : For pairwise or higher dimension descriptor generation, selects the result from the 3rd
+            sub-object; "3rd(help)" shows internal options
+          * 4th : For pairwise or higher dimension descriptor generation, selects the result from the 4th
+            sub-object; "4th(help)" shows internal options
+          * Abs : Takes the absolute value of a descriptor; "Abs(help)" shows internal options
+          * Cos : Takes the cosine of a descriptor; "Cos(help)" shows internal options
+          * DefineNaN : replaces undefined/NaN values in a descriptor with another value or descriptor; 
+            "DefineNaN(help)" shows internal options
+          * DescriptorMax : Returns the max of a descriptor; "DescriptorMax(help)" shows internal options
+          * DescriptorMean : Returns the mean of a descriptor; "DescriptorMean(help)" shows internal options
+          * DescriptorMin : Returns the min of a descriptor; "DescriptorMin(help)" shows internal options
+          * DescriptorRange : Returns the range of a descriptor; 
+            "DescriptorRange(help)" shows internal options
+          * DescriptorStandardDeviation : Returns the standarddeviation of a descriptor; 
+            "DescriptorStandardDeviation(help)" shows internal options
+          * DescriptorSum : Returns the sum of a descriptor; "DescriptorSum(help)" shows internal options
+          * Divide : Divides two descriptors (binary true/false); "Divide(help)" shows internal options
+          * Equal : Equals two descriptors (binary true/false); "Equal(help)" shows internal options
+          * Exp : Takes the exponential of a descriptor; "Exp(help)" shows internal options
+          * Exponentiate : Exponentiates two descriptors (binary true/false); 
+            "Exponentiate(help)" shows internal options
+          * Greater : Greaters two descriptors (binary true/false); "Greater(help)" shows internal options
+          * GreaterEqual : GreaterEquals two descriptors (binary true/false); 
+            "GreaterEqual(help)" shows internal options
+          * Less : Lesss two descriptors (binary true/false); "Less(help)" shows internal options
+          * LessEqual : LessEquals two descriptors (binary true/false); 
+            "LessEqual(help)" shows internal options
+          * Ln : Takes the natural log of a descriptor; "Ln(help)" shows internal options
+          * Log : Takes the base-10 logarithm of a descriptor; "Log(help)" shows internal options
+          * MaxIndex : computes the index of maximum value for the given descriptor; 
+            "MaxIndex(help)" shows internal options
+          * MinIndex : computes the index of minimum value for the given descriptor; 
+            "MinIndex(help)" shows internal options
+          * Mod : Mods two descriptors (binary true/false); "Mod(help)" shows internal options
+          * Negative : gives the negative of the given argument of a descriptor; 
+            "Negative(help)" shows internal options
+          * Not : 1 if the argument is exactly 0, otherwise returns 0 of a descriptor; 
+            "Not(help)" shows internal options
+          * NotEqual : NotEquals two descriptors (binary true/false); "NotEqual(help)" shows internal options
+          * OuterProduct : Outer product of two descriptors; "OuterProduct(help)" shows internal options
+          * RankAsc : rank property values in ascending order. e.g. 0.2 0.21 0.5 0.1 -> 1 2 3 0Duplicate
+            values receive the same rank (averaged) assigned, so 1 1 4 -> 0.5 0.5 2; "RankAsc(help)" shows internal
+        options
+          * RankDesc : rank property values in descending order. e.g. 0.2 0.21 0.5 0.1 -> 2 1 0 3Duplicate
+            values receive the same rank (averaged) assigned, so 1 1 4 -> 1.5 1.5 0; "RankDesc(help)" shows internal
+        options
+          * Rescale : Rescales values relative to the Molecule values, specifically, computes:
+            (X-MoleculeMean(X))/MoleculeStd(X). In the event that std is 0, returns 0; "Rescale(help)" shows internal
+        options
+          * SetNaNToDefinedDescriptorMean : replaces undefined/NaN values in a descriptor with the
+            DescriptorMean of the defined values; "SetNaNToDefinedDescriptorMean(help)" shows internal options
+          * Sin : Takes the sine of a descriptor; "Sin(help)" shows internal options
+          * SortAsc : sort property values in ascending order; "SortAsc(help)" shows internal options
+          * SortDesc : sort property values in descending order; "SortDesc(help)" shows internal options
+          * Sqr : squares the argument of a descriptor; "Sqr(help)" shows internal options
+          * Sqrt : Takes the square root of a descriptor; "Sqrt(help)" shows internal options
+          * Subtract : Subtracts two descriptors (binary true/false); "Subtract(help)" shows internal options
+          
+        Customizable Operations
+          * Add : Adds two descriptors (binary true/false); "Add(help)" shows internal options
+          * Combine : Array of descriptors; "Combine(help)" shows internal options
+          * Limit : limit descriptor values to a specified range; "Limit(help)" shows internal options
+          * Multiply : Multiplys two descriptors (binary true/false); "Multiply(help)" shows internal options
+          * Partial : selects particular values (by index) of another descriptor; 
+            "Partial(help)" shows internal options
+          * Sigmoid : Amplitude / ( 1 + exp(-(x-x_offset)/slope)) + y_offset; 
+            "Sigmoid(help)" shows internal options
+          * WithinRange : This descriptor takes on a value of 1 if a descriptor's mean value is within a
+            range, or 0 otherwise; "WithinRange(help)" shows internal options
+          * WithinRangeGaussian : Returns a value between 0 and 1 based on where another descriptor's value
+            falls relative to a given mean value; "WithinRangeGaussian(help)" shows internal options
+          * WithinRangeSmooth : This descriptor gives values between 0.0 and 1.0 depending on if another
+            descriptor's magnitude is within a specified range.  This descriptor's value decreases smoothly as
+            calculated by a sinusoidal transition (sigmoid-like); "WithinRangeSmooth(help)" shows internal options
+          
+      Other strings will be interpreted as follows:
+      *  : given a number, returns that number, otherwise retrieves the value of the misc property by that
+        name; "(help)" shows internal options
+    * ChemDescriptor : Uses a chemical descriptor on all atoms of each AA
+      (anonymous) parameter: molecular property to use on each residue individually, 
+              choose any implementation of Molecule/Atom Numeric Descriptor (already listed)
+    * DSSP_Accessibility : Residue water exposed surface area in A^2 based on DSSP output. 
+      Parameter: <extension> extension of the dssp file, defaults to .dssp, optional, any string
+    * DSSP_BondedStrandResidue : 1 if the residue is labeled a strand and this residue is hbonded to a strand based on
+      DSSP output. 
+      Parameter: <extension> extension of the dssp file, defaults to .dssp, optional, any string
+    * DSSP_BondsAntiparallel : True if the residue bonds to another strand oriented antiparallel to this strand based
+      on DSSP output. 
+      Parameter: <extension> extension of the dssp file, defaults to .dssp, optional, any string
+    * DSSP_BondsBridge : True if the residue bonds to another strand only at this residue based on DSSP output. 
+      Parameter: <extension> extension of the dssp file, defaults to .dssp, optional, any string
+    * DSSP_BondsParallel : True if the residue bonds to another strand oriented parallel to this strand based on DSSP
+      output. 
+      Parameter: <extension> extension of the dssp file, defaults to .dssp, optional, any string
+    * DSSP_IsInSheetCore : 1 if residue is h-bonded to another strand and at least one neighboring residue is too based
+      on DSSP output. 
+      Parameter: <extension> extension of the dssp file, defaults to .dssp, optional, any string
+    * DSSP_IsOnSheetEdge : 1 if the residue is labeled a strand but neither neighbor is bonded to a strand, though this
+      residue is based on DSSP output. 
+      Parameter: <extension> extension of the dssp file, defaults to .dssp, optional, any string
+    * DSSP_MaxHBondNeighborOffset : Offset of the neighbor with max hbond energy based on DSSP output. 
+      Parameter: <extension> extension of the dssp file, defaults to .dssp, optional, any string
+    * DSSP_MaxHBondPotential : Best (lowest) energy for any neighbor based on DSSP output. 
+      Parameter: <extension> extension of the dssp file, defaults to .dssp, optional, any string
+    * DSSP_NonBondedStrandResidue : 1 if the residue is labeled a strand but this residue is not hbonded to a strand
+      based on DSSP output. 
+      Parameter: <extension> extension of the dssp file, defaults to .dssp, optional, any string
+    * DSSP_TotalEnergy : Total h-bond energy determined for this AA based on DSSP output. 
+      Parameter: <extension> extension of the dssp file, defaults to .dssp, optional, any string
+    * HelixStrandCoil : Prediction of secondary structure probabilities in the order: Helix Strand Coilrequires a
+      prediction file with the methods normal extension (e.g. JUFO needs a .jufo file, SAM needs a .rdb6 file)
+        with the same basename as the .fasta or .pdb file in the same directory as the pdb or fasta file
+      Default label : HelixStrandCoil(method=Undefined,min strand size=0,min helix size=0)
+      Parameters:
+      <method> the method to use to perform the prediction, 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+        CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+        CIPhiPsi, Kaksi}
+      <min strand size> If fewer than this many consecutive residues are in a strand, it is reclassified as a coil, 
+      optional,Any non-negative integer
+      <min helix size> If fewer than this many consecutive residues are in a helix, it is reclassified as a coil, 
+      optional,Any non-negative integer
+    * InsideOutsideMembrane : Returns whether a secondary structure prediction for an AA is inside, outside, or within
+      the membrane. This method works only for methods that consider the inside and outside of the membrane separately,
+      such as OCTOPUS and BOCTOPUS
+      Parameter: <method> secondary structure prediction or analysis method to use to obtain result, 
+        default: "OCTOPUS", 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+        CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+        CIPhiPsi, Kaksi}
+    * MeanAtomProperty : Takes the mean of a chemical descriptor on all atoms of each AA
+      (anonymous) parameter: atom property to use on the complete protein-molecule, 
+              choose any implementation of Molecule/Atom Numeric Descriptor (already listed)
+    * MeanBackBoneAtomProperty : Takes the mean of a chemical descriptor on back bone atoms of each AA
+      (anonymous) parameter: atom property to use on the complete protein-molecule, 
+              choose any implementation of Molecule/Atom Numeric Descriptor (already listed)
+    * MeanSideChainAtomProperty : Takes the mean of a chemical descriptor on side chain atoms of each AA
+      (anonymous) parameter: atom property to use on the complete protein-molecule, 
+              choose any implementation of Molecule/Atom Numeric Descriptor (already listed)
+    * MembraneEnvironment : Protein environment prediction 1 state
+        returns 0 if AA is predicted to be membrane, 1 for the transition region, and 2 for solution,
+        requires a prediction file with the methods normal extension (e.g. JUFO needs a .jufo file, SAM needs a .rdb6
+      file)
+        with the same basename as the .fasta or .pdb file in the same directory as the pdb or fasta file
+      Parameter: <method> the method to use to perform the prediction, 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+        CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+        CIPhiPsi, Kaksi}
+    * MembraneTransitionSolution : Prediction of protein environment probabilities in the order: Membrane, Transition,
+      Solutionrequires a prediction file with the methods normal extension (e.g. JUFO needs a .jufo file, SAM needs a
+      .rdb6 file)
+        with the same basename as the .fasta or .pdb file in the same directory as the pdb or fasta file
+      Default label : MembraneTransitionSolution(method=Undefined,min membrane size=0)
+      Parameters:
+      <method> the method to use to perform the prediction, 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+        CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+        CIPhiPsi, Kaksi}
+      <min membrane size> If fewer than this many consecutive residues are in the membrane, return soluble, optional, 
+        Any non-negative integer
+    * Phi : Calculates the phi angle (C-C-N-C)
+      Parameter: <origin> point at which to wrap all other angles around by adding 2-pi, default: "-10", 
+        Any decimal (floating-point) value >= -360 <= 0
+    * Psi : Calculates the psi angle (N-C-C-N)
+      Parameter: <origin> point at which to wrap all other angles around by adding 2-pi, default: "-90", 
+        Any decimal (floating-point) value >= -360 <= 0
+    * SecondaryStructure9D : Prediction of probabilities of each combination of secondary structure
+        (H=Helix, E=Strand, C=Coil) with environment (M=Membrane, T=Transition, S=Solution)
+        in the following order: HM EM CM HT ET CT HS ES CSrequires a prediction file with the methods normal extension
+      (e.g. JUFO needs a .jufo file, SAM needs a .rdb6 file)
+        with the same basename as the .fasta or .pdb file in the same directory as the pdb or fasta file
+      Default label : SecondaryStructure9D(method=Undefined,min membrane size=0,min strand size=0,min helix size=0)
+      Parameters:
+      <method> the method to use to perform the prediction, 
+        Choose from the following: { PDB, PSIPRED, JUFO, JUFO9D, SAM, PROFphd, TMHMM, TMMOD, B2TMPRED, PROFTMB,
+        CONPRED, TALOS, OCTOPUS, BOCTOPUS, TMBETANET, PARTIFOLD, MASP, Stride, DSSP, DSSPStride, Palsse, MAHSSMI,
+        CIPhiPsi, Kaksi}
+      <min membrane size> If fewer than this many consecutive residues are in the membrane, return soluble, optional, 
+        Any non-negative integer
+      <min strand size> If fewer than this many consecutive residues are in a strand, it is reclassified as a coil, 
+      optional,Any non-negative integer
+      <min helix size> If fewer than this many consecutive residues are in a helix, it is reclassified as a coil, 
+      optional,Any non-negative integer
+    * SideChainChemDescriptor : Uses a chemical descriptor on side chain atoms of each AA
+      (anonymous) parameter: molecular property to use on each residue individually, 
+              choose any implementation of Molecule/Atom Numeric Descriptor (already listed)
+    * SumAtomProperty : Takes the sum of a chemical descriptor on all atoms of each AA
+      (anonymous) parameter: atom property to use on the complete protein-molecule, 
+              choose any implementation of Molecule/Atom Numeric Descriptor (already listed)
+    * SumBackBoneAtomProperty : Takes the sum of a chemical descriptor on back bone atoms of each AA
+      (anonymous) parameter: atom property to use on the complete protein-molecule, 
+              choose any implementation of Molecule/Atom Numeric Descriptor (already listed)
+    * SumSideChainAtomProperty : Takes the sum of a chemical descriptor on side chain atoms of each AA
+      (anonymous) parameter: atom property to use on the complete protein-molecule, 
+              choose any implementation of Molecule/Atom Numeric Descriptor (already listed)
+    * SymmetricAAPairType : Returns a (normally binary) vector representing a 20x20 matrix (one value for each amino
+      acid type pair)where M(x,y) = 1 iff x is the central amino acid in the stencil and y is the distal. If multiple
+      amino acids are specified by the stencil, the average will sum to 1.Undefined x would cause M(x,y) = 1/20 for all
+      valid x
+      Default label : SymmetricAAPairType(alignment=Center,stencil(1))
+      Parameters:
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. JufoCenter is strictly
+        for compatiblity with the old JUFO; it is slower to calculate than normal Center, but yields the same set of
+        values in a different order, default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <stencil> AA relative distances to consider (not counting the central residue), default: "(1,5)", 
+        Container with at least 1 Any non-negative integer >= 1 <= 12
+      <weight> weight for each component in the stencil (1 by default).  If given, should be the same size as stencil, 
+      optional,Container with at least 1 Any decimal (floating-point) value
+
+  Customizable Operations
+    * AABlastProfileEntropy : Computes aa-type pairwise probabilities
+      Default label : AABlastProfileEntropy(filename=histogram/blast_profile_entropies.txt,mutant multiplier=1,native
+        dominance=0,blast type=Sequence/Amino Acid Numeric Descriptor)
+      Parameters:
+      <filename> file that contains the statistics to read, default: "histogram/blast_profile_entropies.txt", 
+        any existent file
+      <mutant multiplier> multiplier to use if the blast profile suggests that the AA is a mutant, not normally present
+        at the position, default: "1.0", Any decimal (floating-point) value >= 0 <= 1
+      <native dominance> true if the only dominant type to consider is the native, default: "False", 
+        Any non-negative integer
+      <blast type> Blast or AA type descriptor to consider (must return 20 values per AA). Defaults to AABlastProfile, 
+        default: "AABlastProfile",       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * AAPairSSProbability : Computes aa-type pairwise probabilities
+      Default label : AAPairSSProbability(filename="",probability type=Helix,aa type=Sequence/Amino Acid Numeric
+        Descriptor,stencil="")
+      Parameters:
+      <filename> file that contains the statistics to read, any existent file
+      <probability type> type of probability to consider, 
+        Allowed values: {Helix, Strand, Coil, ToHelix, ToStrand, ToCoil, FromHelix, FromStrand, FromCoil}
+      <aa type> AA type descriptor to consider (must return 20 values per AA), default: "AAType", 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <stencil> AA relative distances to consider (not counting the central residue), default: "(1,5)", 
+        Container with at least 1 Any non-negative integer >= 1 <= 6
+      <force alignment> Force the alignment from the type implied by probability type.  For example, ToHelix normally
+        implies Left because the amino acid(s) to the left would normally control a To type transition; Helix defaults
+        to Center, FromHelix defaults to Right, optional, Allowed values: {Left, Right, Center, JufoCenter}
+    * AATripletHelixLocationType : Computes lookups on an optionally smoothed aa triplet table
+      Default label : AATripletHelixLocationType(filename="",blast weight=0,blast type=Sequence/Amino Acid Numeric
+        Descriptor)
+      Parameters:
+      <filename> file that contains the aa triplet HSC probabilities.  An example row in this file should look like:
+        CPA 1.34 1.535 0.12 
+      The meaning of each number is shown on the annotated table below
+      CPARK -- AA triplet 
+      0 -- # of times the C (in CPARK) is in a helix
+      1 -- # of times the C (in CPARK) is in a strand
+      5 -- # of times the C (in CPARK) is in a coil
+      0 -- # of times the P (in CPARK) is in a helix
+      and so forth for the remaining positions in the triplet.
+      , any existent file
+      <blast weight> relative weight (0-1) to assign for the blast-computed values, optional, 
+        Any decimal (floating-point) value
+      <blast type> Blast or AA type descriptor to consider (must return 20 values per AA). Defaults to AABlastProfile, 
+      optional,      choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * AATripletLookup : Computes lookups on an optionally smoothed aa triplet table
+      Default label : AATripletLookup(filename="",blast threshold=1,blast type=Sequence/Amino Acid Numeric Descriptor)
+      Parameters:
+      <filename> file that contains the aa triplet HSC probabilities.  An example row in this file should look like:
+        CPA 1.34 1.535 0.12 
+      The meaning of each number is shown on the annotated table below
+      CPARK -- AA triplet 
+      0 -- # of times the C (in CPARK) is in a helix
+      1 -- # of times the C (in CPARK) is in a strand
+      5 -- # of times the C (in CPARK) is in a coil
+      0 -- # of times the P (in CPARK) is in a helix
+      and so forth for the remaining positions in the triplet.
+      Note: This file will be overwritten if it is incomplete with a complete table, which will be computed using the
+        transitions file, any existent file
+      <blast threshold> number of steps which to smooth out SS types from triplet neighbors, using the transition
+        matrices, optional, Any decimal (floating-point) value
+      <blast type> Blast or AA type descriptor to consider (must return 20 values per AA). Defaults to
+        AABlastProbability, optional,       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * AA_BlastLogPPearson : Uses the blast profile probabilities to weight an AA property, specifically Mean( amino
+      acid property value * blast profile probability for given AA type for this AA) over all AA types
+      Default label : AA_BlastLogPPearson(property=AA_NaturalPrevalence,blast type=Sequence/Amino Acid Numeric
+        Descriptor)
+      Parameters:
+      <property> the AA property of interest, 
+        Allowed values: {AA_NaturalPrevalence, AA_StericalParameter, AA_Polarizability, AA_Volume, AA_Hydrophobicity,
+        AA_IsoelectricPoint, AA_Mass, AA_Charge, AA_pK_EMBOSS, AA_pK_DTASelect, AA_pk_Solomon, AA_pK_Sillero,
+        AA_pK_Rodwell, AA_pK_Patrickios, AA_pK_Wikipedia, AA_pK_Lehninger, AA_pK_Grimsely, AA_pK_Bjellqvist,
+        AA_pK_ProMoST, AA_pK_Bjellqvist_NTerm, AA_pK_Bjellqvist_CTerm, AA_pK_ProMoST_NTerm, AA_pK_ProMoST_CTerm,
+        AA_pK_Carey_NTerm, AA_pK_Carey_CTerm, AA_HelixProbability, AA_StrandProbability, AA_FreeEnergyHelix,
+        AA_FreeEnergyStrand, AA_FreeEnergyCoil, AA_TransferFreeEnergyWhimleyWhite,
+        AA_TransferFreeEnergyEngelmanSeitzGoldman, AA_TransferFreeEnergyKyteDoolittle, AA_TransferFreeEnergyEisenberg,
+        AA_TransferFreeEnergyHoppWoods, AA_TransferFreeEnergyGuy, AA_TransferFreeEnergyJanin,
+        AA_TransferFreeEnergyPuntaMaritan1D, AA_TransferFreeEnergyPuntaMaritan3D, AA_FreeEnergyCore,
+        AA_FreeEnergyTransition, AA_FreeEnergySolution, AA_FreeEnergyCoreHelix, AA_FreeEnergyTransitionHelix,
+        AA_FreeEnergySolutionHelix, AA_FreeEnergyCoreStrand, AA_FreeEnergyTransitionStrand,
+        AA_FreeEnergySolutionStrand, AA_FreeEnergyCoreCoil, AA_FreeEnergyTransitionCoil, AA_FreeEnergySolutionCoil,
+        AA_FreeEnergyCorePore, AA_FreeEnergyCoreMembrane, AA_MembraneStrandOrientationHydrophobicity,
+        AA_FreeEnergyExtracellularBlastBB, AA_FreeEnergyExtracellularTypeBB, AA_SASA, AA_SideChainGirth,
+        AA_SideChainPolarizability, AA_TopologicalPolarSurfaceArea, AA_VdwSurfaceArea, AA_HAcceptors, AA_HDonors,
+        AA_Aromatic}
+      <blast type> Blast or AA type descriptor to consider (must return 20 values per AA). Defaults to AABlastProfile, 
+        default: "AABlastProfile",       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * AA_BlastLogPSign : Uses the blast profile probabilities to weight an AA property, specifically Mean( amino acid
+      property value * blast profile probability for given AA type for this AA) over all AA types
+      Default label : AA_BlastLogPSign(property=AA_NaturalPrevalence,blast type=Sequence/Amino Acid Numeric Descriptor)
+      Parameters:
+      <property> the AA property of interest, 
+        Allowed values: {AA_NaturalPrevalence, AA_StericalParameter, AA_Polarizability, AA_Volume, AA_Hydrophobicity,
+        AA_IsoelectricPoint, AA_Mass, AA_Charge, AA_pK_EMBOSS, AA_pK_DTASelect, AA_pk_Solomon, AA_pK_Sillero,
+        AA_pK_Rodwell, AA_pK_Patrickios, AA_pK_Wikipedia, AA_pK_Lehninger, AA_pK_Grimsely, AA_pK_Bjellqvist,
+        AA_pK_ProMoST, AA_pK_Bjellqvist_NTerm, AA_pK_Bjellqvist_CTerm, AA_pK_ProMoST_NTerm, AA_pK_ProMoST_CTerm,
+        AA_pK_Carey_NTerm, AA_pK_Carey_CTerm, AA_HelixProbability, AA_StrandProbability, AA_FreeEnergyHelix,
+        AA_FreeEnergyStrand, AA_FreeEnergyCoil, AA_TransferFreeEnergyWhimleyWhite,
+        AA_TransferFreeEnergyEngelmanSeitzGoldman, AA_TransferFreeEnergyKyteDoolittle, AA_TransferFreeEnergyEisenberg,
+        AA_TransferFreeEnergyHoppWoods, AA_TransferFreeEnergyGuy, AA_TransferFreeEnergyJanin,
+        AA_TransferFreeEnergyPuntaMaritan1D, AA_TransferFreeEnergyPuntaMaritan3D, AA_FreeEnergyCore,
+        AA_FreeEnergyTransition, AA_FreeEnergySolution, AA_FreeEnergyCoreHelix, AA_FreeEnergyTransitionHelix,
+        AA_FreeEnergySolutionHelix, AA_FreeEnergyCoreStrand, AA_FreeEnergyTransitionStrand,
+        AA_FreeEnergySolutionStrand, AA_FreeEnergyCoreCoil, AA_FreeEnergyTransitionCoil, AA_FreeEnergySolutionCoil,
+        AA_FreeEnergyCorePore, AA_FreeEnergyCoreMembrane, AA_MembraneStrandOrientationHydrophobicity,
+        AA_FreeEnergyExtracellularBlastBB, AA_FreeEnergyExtracellularTypeBB, AA_SASA, AA_SideChainGirth,
+        AA_SideChainPolarizability, AA_TopologicalPolarSurfaceArea, AA_VdwSurfaceArea, AA_HAcceptors, AA_HDonors,
+        AA_Aromatic}
+      <blast type> Blast or AA type descriptor to consider (must return 20 values per AA). Defaults to AABlastProfile, 
+        default: "AABlastProfile",       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * AA_BlastLogPSignWeighted : Uses the blast profile probabilities to weight an AA property, specifically Mean(
+      amino acid property value * blast profile probability for given AA type for this AA) over all AA types
+      Default label : AA_BlastLogPSignWeighted(property=AA_NaturalPrevalence,blast type=Sequence/Amino Acid Numeric
+        Descriptor)
+      Parameters:
+      <property> the AA property of interest, 
+        Allowed values: {AA_NaturalPrevalence, AA_StericalParameter, AA_Polarizability, AA_Volume, AA_Hydrophobicity,
+        AA_IsoelectricPoint, AA_Mass, AA_Charge, AA_pK_EMBOSS, AA_pK_DTASelect, AA_pk_Solomon, AA_pK_Sillero,
+        AA_pK_Rodwell, AA_pK_Patrickios, AA_pK_Wikipedia, AA_pK_Lehninger, AA_pK_Grimsely, AA_pK_Bjellqvist,
+        AA_pK_ProMoST, AA_pK_Bjellqvist_NTerm, AA_pK_Bjellqvist_CTerm, AA_pK_ProMoST_NTerm, AA_pK_ProMoST_CTerm,
+        AA_pK_Carey_NTerm, AA_pK_Carey_CTerm, AA_HelixProbability, AA_StrandProbability, AA_FreeEnergyHelix,
+        AA_FreeEnergyStrand, AA_FreeEnergyCoil, AA_TransferFreeEnergyWhimleyWhite,
+        AA_TransferFreeEnergyEngelmanSeitzGoldman, AA_TransferFreeEnergyKyteDoolittle, AA_TransferFreeEnergyEisenberg,
+        AA_TransferFreeEnergyHoppWoods, AA_TransferFreeEnergyGuy, AA_TransferFreeEnergyJanin,
+        AA_TransferFreeEnergyPuntaMaritan1D, AA_TransferFreeEnergyPuntaMaritan3D, AA_FreeEnergyCore,
+        AA_FreeEnergyTransition, AA_FreeEnergySolution, AA_FreeEnergyCoreHelix, AA_FreeEnergyTransitionHelix,
+        AA_FreeEnergySolutionHelix, AA_FreeEnergyCoreStrand, AA_FreeEnergyTransitionStrand,
+        AA_FreeEnergySolutionStrand, AA_FreeEnergyCoreCoil, AA_FreeEnergyTransitionCoil, AA_FreeEnergySolutionCoil,
+        AA_FreeEnergyCorePore, AA_FreeEnergyCoreMembrane, AA_MembraneStrandOrientationHydrophobicity,
+        AA_FreeEnergyExtracellularBlastBB, AA_FreeEnergyExtracellularTypeBB, AA_SASA, AA_SideChainGirth,
+        AA_SideChainPolarizability, AA_TopologicalPolarSurfaceArea, AA_VdwSurfaceArea, AA_HAcceptors, AA_HDonors,
+        AA_Aromatic}
+      <blast type> Blast or AA type descriptor to consider (must return 20 values per AA). Defaults to AABlastProfile, 
+        default: "AABlastProfile",       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * AA_BlastLogPSpearman : Uses the blast profile probabilities to weight an AA property, specifically Mean( amino
+      acid property value * blast profile probability for given AA type for this AA) over all AA types
+      Default label : AA_BlastLogPSpearman(property=AA_NaturalPrevalence,blast type=Sequence/Amino Acid Numeric
+        Descriptor)
+      Parameters:
+      <property> the AA property of interest, 
+        Allowed values: {AA_NaturalPrevalence, AA_StericalParameter, AA_Polarizability, AA_Volume, AA_Hydrophobicity,
+        AA_IsoelectricPoint, AA_Mass, AA_Charge, AA_pK_EMBOSS, AA_pK_DTASelect, AA_pk_Solomon, AA_pK_Sillero,
+        AA_pK_Rodwell, AA_pK_Patrickios, AA_pK_Wikipedia, AA_pK_Lehninger, AA_pK_Grimsely, AA_pK_Bjellqvist,
+        AA_pK_ProMoST, AA_pK_Bjellqvist_NTerm, AA_pK_Bjellqvist_CTerm, AA_pK_ProMoST_NTerm, AA_pK_ProMoST_CTerm,
+        AA_pK_Carey_NTerm, AA_pK_Carey_CTerm, AA_HelixProbability, AA_StrandProbability, AA_FreeEnergyHelix,
+        AA_FreeEnergyStrand, AA_FreeEnergyCoil, AA_TransferFreeEnergyWhimleyWhite,
+        AA_TransferFreeEnergyEngelmanSeitzGoldman, AA_TransferFreeEnergyKyteDoolittle, AA_TransferFreeEnergyEisenberg,
+        AA_TransferFreeEnergyHoppWoods, AA_TransferFreeEnergyGuy, AA_TransferFreeEnergyJanin,
+        AA_TransferFreeEnergyPuntaMaritan1D, AA_TransferFreeEnergyPuntaMaritan3D, AA_FreeEnergyCore,
+        AA_FreeEnergyTransition, AA_FreeEnergySolution, AA_FreeEnergyCoreHelix, AA_FreeEnergyTransitionHelix,
+        AA_FreeEnergySolutionHelix, AA_FreeEnergyCoreStrand, AA_FreeEnergyTransitionStrand,
+        AA_FreeEnergySolutionStrand, AA_FreeEnergyCoreCoil, AA_FreeEnergyTransitionCoil, AA_FreeEnergySolutionCoil,
+        AA_FreeEnergyCorePore, AA_FreeEnergyCoreMembrane, AA_MembraneStrandOrientationHydrophobicity,
+        AA_FreeEnergyExtracellularBlastBB, AA_FreeEnergyExtracellularTypeBB, AA_SASA, AA_SideChainGirth,
+        AA_SideChainPolarizability, AA_TopologicalPolarSurfaceArea, AA_VdwSurfaceArea, AA_HAcceptors, AA_HDonors,
+        AA_Aromatic}
+      <blast type> Blast or AA type descriptor to consider (must return 20 values per AA). Defaults to AABlastProfile, 
+        default: "AABlastProfile",       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * AA_BlastLogPTTest : Uses the blast profile probabilities to weight an AA property, specifically Mean( amino acid
+      property value * blast profile probability for given AA type for this AA) over all AA types
+      Default label : AA_BlastLogPTTest(property=AA_NaturalPrevalence,blast type=Sequence/Amino Acid Numeric
+        Descriptor)
+      Parameters:
+      <property> the AA property of interest, 
+        Allowed values: {AA_NaturalPrevalence, AA_StericalParameter, AA_Polarizability, AA_Volume, AA_Hydrophobicity,
+        AA_IsoelectricPoint, AA_Mass, AA_Charge, AA_pK_EMBOSS, AA_pK_DTASelect, AA_pk_Solomon, AA_pK_Sillero,
+        AA_pK_Rodwell, AA_pK_Patrickios, AA_pK_Wikipedia, AA_pK_Lehninger, AA_pK_Grimsely, AA_pK_Bjellqvist,
+        AA_pK_ProMoST, AA_pK_Bjellqvist_NTerm, AA_pK_Bjellqvist_CTerm, AA_pK_ProMoST_NTerm, AA_pK_ProMoST_CTerm,
+        AA_pK_Carey_NTerm, AA_pK_Carey_CTerm, AA_HelixProbability, AA_StrandProbability, AA_FreeEnergyHelix,
+        AA_FreeEnergyStrand, AA_FreeEnergyCoil, AA_TransferFreeEnergyWhimleyWhite,
+        AA_TransferFreeEnergyEngelmanSeitzGoldman, AA_TransferFreeEnergyKyteDoolittle, AA_TransferFreeEnergyEisenberg,
+        AA_TransferFreeEnergyHoppWoods, AA_TransferFreeEnergyGuy, AA_TransferFreeEnergyJanin,
+        AA_TransferFreeEnergyPuntaMaritan1D, AA_TransferFreeEnergyPuntaMaritan3D, AA_FreeEnergyCore,
+        AA_FreeEnergyTransition, AA_FreeEnergySolution, AA_FreeEnergyCoreHelix, AA_FreeEnergyTransitionHelix,
+        AA_FreeEnergySolutionHelix, AA_FreeEnergyCoreStrand, AA_FreeEnergyTransitionStrand,
+        AA_FreeEnergySolutionStrand, AA_FreeEnergyCoreCoil, AA_FreeEnergyTransitionCoil, AA_FreeEnergySolutionCoil,
+        AA_FreeEnergyCorePore, AA_FreeEnergyCoreMembrane, AA_MembraneStrandOrientationHydrophobicity,
+        AA_FreeEnergyExtracellularBlastBB, AA_FreeEnergyExtracellularTypeBB, AA_SASA, AA_SideChainGirth,
+        AA_SideChainPolarizability, AA_TopologicalPolarSurfaceArea, AA_VdwSurfaceArea, AA_HAcceptors, AA_HDonors,
+        AA_Aromatic}
+      <blast type> Blast or AA type descriptor to consider (must return 20 values per AA). Defaults to AABlastProfile, 
+        default: "AABlastProfile",       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * AA_BlastLogProbabilityWeighted : Uses the blast profile (log) values to weight an AA property, specifically Mean(
+      amino acid property value * ( blast profile log probability for given AA type for this AA + offset)) over all AA
+      types,where offset is = ( 1.0 - blast profile log probability sum ) / # AA types
+      Default label : AA_BlastLogProbabilityWeighted(property=AA_NaturalPrevalence,blast type=Sequence/Amino Acid
+        Numeric Descriptor)
+      Parameters:
+      <property> the AA property of interest, 
+        Allowed values: {AA_NaturalPrevalence, AA_StericalParameter, AA_Polarizability, AA_Volume, AA_Hydrophobicity,
+        AA_IsoelectricPoint, AA_Mass, AA_Charge, AA_pK_EMBOSS, AA_pK_DTASelect, AA_pk_Solomon, AA_pK_Sillero,
+        AA_pK_Rodwell, AA_pK_Patrickios, AA_pK_Wikipedia, AA_pK_Lehninger, AA_pK_Grimsely, AA_pK_Bjellqvist,
+        AA_pK_ProMoST, AA_pK_Bjellqvist_NTerm, AA_pK_Bjellqvist_CTerm, AA_pK_ProMoST_NTerm, AA_pK_ProMoST_CTerm,
+        AA_pK_Carey_NTerm, AA_pK_Carey_CTerm, AA_HelixProbability, AA_StrandProbability, AA_FreeEnergyHelix,
+        AA_FreeEnergyStrand, AA_FreeEnergyCoil, AA_TransferFreeEnergyWhimleyWhite,
+        AA_TransferFreeEnergyEngelmanSeitzGoldman, AA_TransferFreeEnergyKyteDoolittle, AA_TransferFreeEnergyEisenberg,
+        AA_TransferFreeEnergyHoppWoods, AA_TransferFreeEnergyGuy, AA_TransferFreeEnergyJanin,
+        AA_TransferFreeEnergyPuntaMaritan1D, AA_TransferFreeEnergyPuntaMaritan3D, AA_FreeEnergyCore,
+        AA_FreeEnergyTransition, AA_FreeEnergySolution, AA_FreeEnergyCoreHelix, AA_FreeEnergyTransitionHelix,
+        AA_FreeEnergySolutionHelix, AA_FreeEnergyCoreStrand, AA_FreeEnergyTransitionStrand,
+        AA_FreeEnergySolutionStrand, AA_FreeEnergyCoreCoil, AA_FreeEnergyTransitionCoil, AA_FreeEnergySolutionCoil,
+        AA_FreeEnergyCorePore, AA_FreeEnergyCoreMembrane, AA_MembraneStrandOrientationHydrophobicity,
+        AA_FreeEnergyExtracellularBlastBB, AA_FreeEnergyExtracellularTypeBB, AA_SASA, AA_SideChainGirth,
+        AA_SideChainPolarizability, AA_TopologicalPolarSurfaceArea, AA_VdwSurfaceArea, AA_HAcceptors, AA_HDonors,
+        AA_Aromatic}
+      <blast type> Blast or AA type descriptor to consider (must return 20 values per AA). Defaults to AABlastProfile, 
+        default: "AABlastProfile",       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * AA_BlastProbabilityWeighted : Uses the blast profile probabilities to weight an AA property, specifically Mean(
+      amino acid property value * blast profile probability for given AA type for this AA) over all AA types
+      Default label : AA_BlastProbabilityWeighted(property=AA_NaturalPrevalence,blast type=Sequence/Amino Acid Numeric
+        Descriptor)
+      Parameters:
+      <property> the AA property of interest, 
+        Allowed values: {AA_NaturalPrevalence, AA_StericalParameter, AA_Polarizability, AA_Volume, AA_Hydrophobicity,
+        AA_IsoelectricPoint, AA_Mass, AA_Charge, AA_pK_EMBOSS, AA_pK_DTASelect, AA_pk_Solomon, AA_pK_Sillero,
+        AA_pK_Rodwell, AA_pK_Patrickios, AA_pK_Wikipedia, AA_pK_Lehninger, AA_pK_Grimsely, AA_pK_Bjellqvist,
+        AA_pK_ProMoST, AA_pK_Bjellqvist_NTerm, AA_pK_Bjellqvist_CTerm, AA_pK_ProMoST_NTerm, AA_pK_ProMoST_CTerm,
+        AA_pK_Carey_NTerm, AA_pK_Carey_CTerm, AA_HelixProbability, AA_StrandProbability, AA_FreeEnergyHelix,
+        AA_FreeEnergyStrand, AA_FreeEnergyCoil, AA_TransferFreeEnergyWhimleyWhite,
+        AA_TransferFreeEnergyEngelmanSeitzGoldman, AA_TransferFreeEnergyKyteDoolittle, AA_TransferFreeEnergyEisenberg,
+        AA_TransferFreeEnergyHoppWoods, AA_TransferFreeEnergyGuy, AA_TransferFreeEnergyJanin,
+        AA_TransferFreeEnergyPuntaMaritan1D, AA_TransferFreeEnergyPuntaMaritan3D, AA_FreeEnergyCore,
+        AA_FreeEnergyTransition, AA_FreeEnergySolution, AA_FreeEnergyCoreHelix, AA_FreeEnergyTransitionHelix,
+        AA_FreeEnergySolutionHelix, AA_FreeEnergyCoreStrand, AA_FreeEnergyTransitionStrand,
+        AA_FreeEnergySolutionStrand, AA_FreeEnergyCoreCoil, AA_FreeEnergyTransitionCoil, AA_FreeEnergySolutionCoil,
+        AA_FreeEnergyCorePore, AA_FreeEnergyCoreMembrane, AA_MembraneStrandOrientationHydrophobicity,
+        AA_FreeEnergyExtracellularBlastBB, AA_FreeEnergyExtracellularTypeBB, AA_SASA, AA_SideChainGirth,
+        AA_SideChainPolarizability, AA_TopologicalPolarSurfaceArea, AA_VdwSurfaceArea, AA_HAcceptors, AA_HDonors,
+        AA_Aromatic}
+      <blast type> Blast or AA type descriptor to consider (must return 20 values per AA). Defaults to AABlastProfile, 
+        default: "AABlastProbability",       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * BandPassFilter : Bandpass a single element of a windowed signal. If only maxp is given, functions as a high pass
+      filter  (only high frequency signals preserved). If only minp is given, functions as a low pass filter (only low
+      frequency signals preserved).  
+      Default label : BandPassFilter(Sequence/Amino Acid Numeric
+        Descriptor,size=0,alignment=Center,minp=1,maxp=1000,weighting=bcl::descriptor::WindowWeightingInterface)
+      Parameters:
+      descriptor to use for computing the amplitude, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...) used to
+        compute the periodogram. Larger values decrease noise but include more non-local information and are slower.
+        Typically a value somewhat larger than the maximum period of interest is used, Any non-negative integer >= 1
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. , default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <minp> Minimal period desired; <= 2  for a high-pass filter, default: "1", Any decimal (floating-point) value
+      <maxp> Maximum period desired; >= window size  for a low-pass filter, default: "10000", 
+        Any decimal (floating-point) value
+      <weighting> method of generating weights for the windowing function; rectangular emphasizes longer-range
+        frequencies, while triangular emphasizes the local oscillation, default: "Rectangular",       choose any implementation of bcl::descriptor::WindowWeightingInterface:
+        
+        Basic Implementations
+          * Gaussian : Gaussian window.  Ends at 1/window size
+          * Hamming : Hamming window 25/46 + 21/46 cos(2 pi n / ( N - 1))
+          * Hann : Hann window 0.5 + 0.5 cos( 2 pi n / ( N - 1))
+          * Inverse : Inverse window: 1/max(x,1)
+          * Rectangular : equal weighting
+          * Triangular : linear decrease from 1 to 1/window size
+          * Welch : Quadratic window, see
+    * CumulativeReflectingWindowAverage : computes descriptor weighted window averages for bcl::biol::AABase reflecting
+      at boundaries
+      Default label : CumulativeReflectingWindowAverage(Sequence/Amino Acid Numeric
+        Descriptor,size=0,alignment=Center,weighting=bcl::descriptor::WindowWeightingInterface)
+      Parameters:
+      descriptor to use for the window, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...), 
+        Any non-negative integer
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. JufoCenter is strictly
+        for compatiblity with the old JUFO; it is slower to calculate than normal Center, but yields the same set of
+        values in a different order, default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <weighting> method of generating weights for the window, 
+              choose any implementation of bcl::descriptor::WindowWeightingInterface (already listed)
+    * CumulativeWindowAverage : computes descriptor weighted window averages for bcl::biol::AABase respecting the
+      boundaries
+      Default label : CumulativeWindowAverage(Sequence/Amino Acid Numeric
+        Descriptor,size=0,alignment=Center,weighting=bcl::descriptor::WindowWeightingInterface)
+      Parameters:
+      descriptor to use for the window, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...), 
+        Any non-negative integer
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. JufoCenter is strictly
+        for compatiblity with the old JUFO; it is slower to calculate than normal Center, but yields the same set of
+        values in a different order, default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <weighting> method of generating weights for the window, 
+              choose any implementation of bcl::descriptor::WindowWeightingInterface (already listed)
+    * ElementHistogram1D : computes a histogram using a single descriptor
+      Default label : ElementHistogram1D(Sequence/Amino Acid Numeric Descriptor,min=0,max=1,bin
+        size=1,smoothing=0,catchall=0)
+      Parameters:
+      descriptor to use,       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <min> min value to consider, Any decimal (floating-point) value
+      <max> max value to consider, Any decimal (floating-point) value
+      <bin size> size of each bin, Any decimal (floating-point) value >= 0
+      <smoothing> if non-zero, return a histogram with points smoothed with a gaussian kernel, specifically
+        Ae^(-BinDistance/SmoothingDistance), where BinDistance is the euclidean distance to center of the given bin,
+        and A is chosen such that the histogram's sum still equals 1, default: "0", Any decimal (floating-point) value >= 0
+      <catchall> If set, values that fall outside the boundaries will be placed into the nearest bin, 
+        default: "False", Any non-negative integer
+    * ElementHistogram2D : computes a binary histogram using different descriptors for X and Y axis
+      Default label : ElementHistogram2D(x=Sequence/Amino Acid Numeric Descriptor,y=Sequence/Amino Acid Numeric
+        Descriptor,min x=0,min y=0,max x=1,max y=1,bin size x=1,bin size y=1,smoothing=0,catchall=0)
+      Parameters:
+      <x> descriptor to use for the x-axis, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <y> descriptor to use for the y-axis, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <min x> min value to plot for the x-axis, Any decimal (floating-point) value
+      <min y> min value to plot for the y-axis, Any decimal (floating-point) value
+      <max x> max value to plot for the x-axis, Any decimal (floating-point) value
+      <max y> max value to plot for the y-axis, Any decimal (floating-point) value
+      <bin size x> bin size for the x-axis, Any decimal (floating-point) value >= 0
+      <bin size y> bin size for the y-axis, Any decimal (floating-point) value >= 0
+      <smoothing> if non-zero, return a grid with points smoothed with a gaussian kernel, specifically
+        Ae^(-BinDistance/SmoothingDistance), where BinDistance is the euclidean distance to center of the given bin,
+        and A is chosen such that the histogram's sum still equals 1, default: "0", Any decimal (floating-point) value >= 0
+      <catchall> If set, values that fall outside the histogram boundaries will be placed into the nearest bin, 
+        default: "False", Any non-negative integer
+    * Offset : Computes the descriptor at a specified offset. If the end of the sequence is reached before the offset,
+      the last value  is returned
+      Default label : Offset(Sequence/Amino Acid Numeric Descriptor,offset=0)
+      Parameters:
+      descriptor of interest, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <offset> Desired # of bcl::biol::AABaseaway to retrieve the descriptor for; sign implies directionality, 
+        Any integer
+    * Periodogram : computes amplitudes of oscillations in a given property at desired frequencies
+      Default label : Periodogram(Sequence/Amino Acid Numeric
+        Descriptor,size=0,alignment=Center,bandpass=0,maxperiod=0,bins="",bin
+        resolution="",weighting=bcl::descriptor::WindowWeightingInterface,max periods=2)
+      Parameters:
+      descriptor to use for computing the amplitude, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...) used to
+        compute the periodogram. Larger values decrease noise but include more non-local information. Typically a value
+        somewhat larger than the maximum period of interest is used, Any non-negative integer >= 1
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. , default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <bandpass> True to include the band-pass filtered values in the output (not normalized), default: "False", 
+        Any non-negative integer
+      <maxperiod> True to include the period that had the maximum amplitude for each range composed of multiple
+        frequencies, default: "False", Any non-negative integer
+      <bins> Contains the ranges of periods of interest to bin together, 
+        Container with at least 1 A range of values, [] indicates closed lhs/rhs borders, () denotes open borders
+      ',' separates low/high end of the border when a true range is specified
+      A single value may also be given e.g. [7]
+      <bin resolution> Contains the resolution of bins, should be one value per bin, 
+        Container with at least 1 Any decimal (floating-point) value
+      <weighting> method of generating weights for the windowing function; rectangular emphasizes longer-range
+        frequencies, while triangular emphasizes the local oscillation, default: "Rectangular", 
+              choose any implementation of bcl::descriptor::WindowWeightingInterface (already listed)
+      <max periods> for each frequency; maximum number of periods to consider before zero-ing out the contribution;
+        helps improvelocalization of high-frequencies using large windows when set to 2-3, default: "2", Any non-negative integer
+    * PlanarityAtoms : Returns the chi-squared value of the set of atoms from a perfect plane
+      (anonymous) parameter: coordinate retrievers; must each return 3 values per atom, 
+        Container with at least 4       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already
+        listed)
+    * PowerSpectrum : computes the spectral power and phase of oscillations in a given variable
+      Default label : PowerSpectrum(Sequence/Amino Acid Numeric Descriptor,size=0,alignment=Center,bandpass=0,bandpass
+        offset=0,weighting=bcl::descriptor::WindowWeightingInterface,max periods=2)
+      Parameters:
+      descriptor to use for computing the amplitude, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...) used to
+        compute the spectrogram. Larger values decrease noise but include more non-local information. Typically a value
+        somewhat larger than the maximum period of interest is used, Any non-negative integer >= 1
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. , default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <bandpass> True to include the band-pass filtered values in the output (not normalized), default: "False", 
+        Any non-negative integer
+      <bandpass offset> True to include the band-pass filtered values in the output, offset by the mean value, 
+        default: "False", Any non-negative integer
+      <bins> Contains the ranges of periods of interest to bin together; by default, all calculated amplitudes are
+        returned  as separate values / phases; but this option allows selection of the ranges of periods to bin
+        amplitudes & phases across, optional, Container with at least 1 A range of values, [] indicates closed lhs/rhs borders, () denotes open borders
+      ',' separates low/high end of the border when a true range is specified
+      A single value may also be given e.g. [7]
+      <weighting> method of generating weights for the windowing function; rectangular emphasizes longer-range
+        frequencies, while triangular emphasizes the local oscillation, default: "Hamming",       choose any implementation of bcl::descriptor::WindowWeightingInterface (already listed)
+      <max periods> for each frequency; maximum number of periods to consider before zero-ing out the contribution;
+        helps improvelocalization of high-frequencies using large windows when set to 2-3, default: "2", Any non-negative integer
+    * PowerSpectrumSequenceWidth : computes the spectral power and phase of oscillations in a given variable
+      Default label : PowerSpectrumSequenceWidth(Sequence/Amino Acid Numeric Descriptor,number bins=1,frequencies per
+        bin=1,min period=2,alignment=Center,bandpass=0,bandpass
+        offset=0,weighting=bcl::descriptor::WindowWeightingInterface,max periods=48)
+      Parameters:
+      descriptor to use for computing the amplitude, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <number bins> Number of different frequency bands to assign each sequence, Any non-negative integer >= 1
+      <frequencies per bin> Number of frequency bands per bin, default: "1", Any non-negative integer >= 1
+      <min period> Minimum period to allow.  If the sequence is too short, the result will be 0 padded, 
+        Any non-negative integer >= 2
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. , default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <bandpass> True to include the band-pass filtered values in the output (not normalized), default: "False", 
+        Any non-negative integer
+      <bandpass offset> True to include the band-pass filtered values in the output, offset by the mean value, 
+        default: "False", Any non-negative integer
+      <weighting> method of generating weights for the windowing function; rectangular emphasizes longer-range
+        frequencies, while triangular emphasizes the local oscillation, default: "Hamming",       choose any implementation of bcl::descriptor::WindowWeightingInterface (already listed)
+      <max periods> for each frequency; maximum number of periods to consider before zero-ing out the contribution;
+        helps improvelocalization of high-frequencies using large windows when set to 2-3, default: "2", Any non-negative integer
+    * ReflectingBandPassFilter : Bandpass a single element of a windowed signal. If only maxp is given, functions as a
+      high pass filter  (only high frequency signals preserved). If only minp is given, functions as a low pass filter
+      (only low frequency signals preserved).  
+      Default label : ReflectingBandPassFilter(Sequence/Amino Acid Numeric
+        Descriptor,size=0,alignment=Center,minp=1,maxp=1000,weighting=bcl::descriptor::WindowWeightingInterface)
+      Parameters:
+      descriptor to use for computing the amplitude, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...) used to
+        compute the periodogram. Larger values decrease noise but include more non-local information and are slower.
+        Typically a value somewhat larger than the maximum period of interest is used, Any non-negative integer >= 1
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. , default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <minp> Minimal period desired; <= 2  for a high-pass filter, default: "1", Any decimal (floating-point) value
+      <maxp> Maximum period desired; >= window size  for a low-pass filter, default: "10000", 
+        Any decimal (floating-point) value
+      <weighting> method of generating weights for the windowing function; rectangular emphasizes longer-range
+        frequencies, while triangular emphasizes the local oscillation, default: "Rectangular", 
+              choose any implementation of bcl::descriptor::WindowWeightingInterface (already listed)
+    * ReflectingOffset : Computes the descriptor at a specified offset. If the end of the sequence is reached before
+      the offset, the  the iterator reflects and continues  is returned
+      Default label : ReflectingOffset(Sequence/Amino Acid Numeric Descriptor,offset=0)
+      Parameters:
+      descriptor of interest, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <offset> Desired # of bcl::biol::AABaseaway to retrieve the descriptor for; sign implies directionality, 
+        Any integer
+    * ReflectingPeriodogram : computes amplitudes of oscillations in a given property at desired frequencies
+      Default label : ReflectingPeriodogram(Sequence/Amino Acid Numeric
+        Descriptor,size=0,alignment=Center,bandpass=0,maxperiod=0,bins="",bin
+        resolution="",weighting=bcl::descriptor::WindowWeightingInterface,max periods=2)
+      Parameters:
+      descriptor to use for computing the amplitude, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...) used to
+        compute the periodogram. Larger values decrease noise but include more non-local information. Typically a value
+        somewhat larger than the maximum period of interest is used, Any non-negative integer >= 1
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. , default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <bandpass> True to include the band-pass filtered values in the output (not normalized), default: "False", 
+        Any non-negative integer
+      <maxperiod> True to include the period that had the maximum amplitude for each range composed of multiple
+        frequencies, default: "False", Any non-negative integer
+      <bins> Contains the ranges of periods of interest to bin together, 
+        Container with at least 1 A range of values, [] indicates closed lhs/rhs borders, () denotes open borders
+      ',' separates low/high end of the border when a true range is specified
+      A single value may also be given e.g. [7]
+      <bin resolution> Contains the resolution of bins, should be one value per bin, 
+        Container with at least 1 Any decimal (floating-point) value
+      <weighting> method of generating weights for the windowing function; rectangular emphasizes longer-range
+        frequencies, while triangular emphasizes the local oscillation, default: "Rectangular", 
+              choose any implementation of bcl::descriptor::WindowWeightingInterface (already listed)
+      <max periods> for each frequency; maximum number of periods to consider before zero-ing out the contribution;
+        helps improvelocalization of high-frequencies using large windows when set to 2-3, default: "2", Any non-negative integer
+    * ReflectingPowerSpectrum : computes the spectral power and phase of oscillations in a given variable
+      Default label : ReflectingPowerSpectrum(Sequence/Amino Acid Numeric
+        Descriptor,size=0,alignment=Center,bandpass=0,bandpass
+        offset=0,weighting=bcl::descriptor::WindowWeightingInterface,max periods=2)
+      Parameters:
+      descriptor to use for computing the amplitude, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...) used to
+        compute the spectrogram. Larger values decrease noise but include more non-local information. Typically a value
+        somewhat larger than the maximum period of interest is used, Any non-negative integer >= 1
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. , default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <bandpass> True to include the band-pass filtered values in the output (not normalized), default: "False", 
+        Any non-negative integer
+      <bandpass offset> True to include the band-pass filtered values in the output, offset by the mean value, 
+        default: "False", Any non-negative integer
+      <bins> Contains the ranges of periods of interest to bin together; by default, all calculated amplitudes are
+        returned  as separate values / phases; but this option allows selection of the ranges of periods to bin
+        amplitudes & phases across, optional, Container with at least 1 A range of values, [] indicates closed lhs/rhs borders, () denotes open borders
+      ',' separates low/high end of the border when a true range is specified
+      A single value may also be given e.g. [7]
+      <weighting> method of generating weights for the windowing function; rectangular emphasizes longer-range
+        frequencies, while triangular emphasizes the local oscillation, default: "Hamming",       choose any implementation of bcl::descriptor::WindowWeightingInterface (already listed)
+      <max periods> for each frequency; maximum number of periods to consider before zero-ing out the contribution;
+        helps improvelocalization of high-frequencies using large windows when set to 2-3, default: "2", Any non-negative integer
+    * ReflectingWindow : computes descriptor windows for bcl::biol::AABase reflecting at boundaries
+      Default label : ReflectingWindow(Sequence/Amino Acid Numeric Descriptor,size=0,alignment=Center)
+      Parameters:
+      descriptor to use for the window, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...), 
+        Any non-negative integer
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. JufoCenter is strictly
+        for compatiblity with the old JUFO; it is slower to calculate than normal Center, but yields the same set of
+        values in a different order, default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+    * ReflectingWindowAverage : computes descriptor weighted window averages for bcl::biol::AABase reflecting at
+      boundaries
+      Default label : ReflectingWindowAverage(Sequence/Amino Acid Numeric
+        Descriptor,size=0,alignment=Center,weighting=bcl::descriptor::WindowWeightingInterface)
+      Parameters:
+      descriptor to use for the window, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...), 
+        Any non-negative integer
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. JufoCenter is strictly
+        for compatiblity with the old JUFO; it is slower to calculate than normal Center, but yields the same set of
+        values in a different order, default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <weighting> method of generating weights for the window, 
+              choose any implementation of bcl::descriptor::WindowWeightingInterface (already listed)
+    * ReflectingWindowMinMax : computes minimum (first value(s)) and maximum (second value(s)) of a descriptor over a
+      window for bcl::biol::AABase reflecting at boundaries.  For multi-value descriptors, the minimum and maximum are
+      given consecutively for every column
+      Default label : ReflectingWindowMinMax(Sequence/Amino Acid Numeric Descriptor,size=0,alignment=Center)
+      Parameters:
+      descriptor to use for the window, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...), 
+        Any non-negative integer
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. JufoCenter is strictly
+        for compatiblity with the old JUFO; it is slower to calculate than normal Center, but yields the same set of
+        values in a different order, default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+    * Window : computes descriptor windows for bcl::biol::AABase returning NaNs for positions beyond the end of the
+      sequence
+      Default label : Window(Sequence/Amino Acid Numeric Descriptor,size=0,alignment=Center)
+      Parameters:
+      descriptor to use for the window, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...), 
+        Any non-negative integer
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. JufoCenter is strictly
+        for compatiblity with the old JUFO; it is slower to calculate than normal Center, but yields the same set of
+        values in a different order, default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+    * WindowAverage : computes descriptor weighted window averages for bcl::biol::AABase respecting the boundaries
+      Default label : WindowAverage(Sequence/Amino Acid Numeric
+        Descriptor,size=0,alignment=Center,weighting=bcl::descriptor::WindowWeightingInterface)
+      Parameters:
+      descriptor to use for the window, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...), 
+        Any non-negative integer
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. JufoCenter is strictly
+        for compatiblity with the old JUFO; it is slower to calculate than normal Center, but yields the same set of
+        values in a different order, default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+      <weighting> method of generating weights for the window, 
+              choose any implementation of bcl::descriptor::WindowWeightingInterface (already listed)
+    * WindowConditionalAverage : computes the average of one descriptor so long as the conditional descriptor returns
+      the same value
+      Default label : WindowConditionalAverage(size=1,condition=Sequence/Amino Acid Numeric Descriptor,Sequence/Amino
+        Acid Numeric Descriptor,alignment=Center,stride=1)
+      Parameters:
+      <size> absolute maximum size of the window, Any non-negative integer
+      <condition> Descriptor that should return the same value so long as the averaging should continue; typically a
+        comparison,       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      actual descriptor to average, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <alignment> Direction(s) to allow travel when computing the conditional average, default: "Center", 
+        Allowed values: {Left, Right, Center, JufoCenter}
+      <stride> distance between adjacent t_DataTypes that are averaged, optional, Any non-negative integer >= 1
+    * WindowConditionalSum : computes the average of one descriptor so long as the conditional descriptor returns the
+      same value
+      Default label : WindowConditionalSum(size=1,condition=Sequence/Amino Acid Numeric Descriptor,Sequence/Amino Acid
+        Numeric Descriptor,alignment=Center,stride=1)
+      Parameters:
+      <size> absolute maximum size of the window, Any non-negative integer
+      <condition> Descriptor that should return the same value so long as the averaging should continue; typically a
+        comparison,       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      actual descriptor to average, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <alignment> Direction(s) to allow travel when computing the conditional average, default: "Center", 
+        Allowed values: {Left, Right, Center, JufoCenter}
+      <stride> distance between adjacent t_DataTypes that are averaged, optional, Any non-negative integer >= 1
+    * WindowMinMax : computes minimum (first value(s)) and maximum (second value(s)) of a descriptor over a window for
+      bcl::biol::AABase respecting the boundaries.  For multi-value descriptors, the minimum and maximum are given
+      consecutively for every column
+      Default label : WindowMinMax(Sequence/Amino Acid Numeric Descriptor,size=0,alignment=Center)
+      Parameters:
+      descriptor to use for the window, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...), 
+        Any non-negative integer
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. JufoCenter is strictly
+        for compatiblity with the old JUFO; it is slower to calculate than normal Center, but yields the same set of
+        values in a different order, default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+    * WindowSegmentStatistics : computes statistics over segments -- regions of the sequence that have the same value
+      of a descriptor, which is termed the condition. An additional descriptor can be averaged over the elements of the
+      segments and/or the sequence
+      Default label : WindowSegmentStatistics(radius=0,descriptor=Sequence/Amino Acid Numeric
+        Descriptor,condition=Sequence/Amino Acid Numeric Descriptor,ignore undefined elements=0)
+      Parameters:
+      <radius> maximum number of segments to consider in each direction beyond the current segment, 
+        Any non-negative integer
+      <descriptor> descriptor to take statistics of, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <condition> descriptor that defines the segments; adjacent elements in the sequence with the same value of this
+        descriptor are grouped into a segment,       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <ignore undefined elements> If set, elements for which the conditional descriptor is not defined will be ignored
+        (not counted towards any statistics or segment sizes). The default behavior is that undefined values are
+        treated like other numbers, so regions where the condition is undefined will normally be distinct segments from
+        the surrounding regions. This setting causes the elements to be explicitly ignored, default: "False", Any non-negative integer
+      <statistics> List of statistics to calculate. If no statistics are given, all of them will be added, optional, 
+        Container with at least 1 Allowed values: {Condition, Length, DescriptorAve, DescriptorSD, DescriptorMin,
+        DescriptorMax, DescriptorFirst, DescriptorLast, SegmentsBefore, SegmentsAfter, SegmentsTillNearestEnd,
+        ElementsFromSegmentStart, ElementsFromSegmentEnd, ElementsTillNearestSegmentEnd, ConditionalSegmentsBefore,
+        ConditionalSegmentsAfter, ConditionalSegmentsTillNearestEnd}
+
+  
+  *********************************************************************************************************************
+  ***************************************** Descriptors of Amino Acid pairs *******************************************
+  *********************************************************************************************************************
+
+    These can be converted into a Sequence-level descriptor using SequenceSum(X), where X is any descriptor listed
+    below
+  
+  Basic Implementations
+    * AAPairDistance : Returns the distance between the amino acid pair in Angstrom
+    * AAPairSeparation : the sequence separation between the amino acid pair
+
+  Customizable Implementations
+    * AACorrelationFromFile : data for amino acid pairs based on their sequence index and the given correlation matrix
+      file with suffix .corr_mat_bcl
+      Parameter: <suffix> suffix of the file to be used for the correlation values (MSA must have the same
+        basename_suffix) - default is just PDBFileBasename.corr_mat_bcl, any string
+    * AAInfoFromSymMatrixFile : data for amino acid pairs based on their sequence index and the given symmetric matrix
+      file
+      Parameter: <suffix> suffix of the bcl symmetric matrix file to be read in, any string
+    * AAPairProbability : uses an amino acid assignment score to return a similarity value between two AAs
+      Parameter: <method> method for calculating the scoring the pair of AAs considered, 
+        Choose from the following: { identity, pam100, pam120, pam160, pam250, blosum90, blosum80, blosum62, blosum45,
+        phat85, phat80, phat75, phat70, blast, psipred, jufo, sam, tmhmm, tmmod, b2tmpred, proftmb, conpred, steric,
+        polarizability, volume, hydrophobicity, isoelectric, tfe_white, tfe_engelman}
+
+  Customizable Operations
+    * WindowPairSquare : computes descriptor windows for bcl::biol::AABase returning NaNs for positions beyond the end
+      of the sequence
+      Default label : WindowPairSquare(Sequence/Amino Acid Numeric Descriptor,size=0)
+      Parameters:
+      descriptor to use for the window, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values for both
+        members of the pair, ...), Any non-negative integer
+
+  
+  *********************************************************************************************************************
+  ************************************** General-purpose descriptor operations ****************************************
+  *********************************************************************************************************************
+
+     These can be used for any type of descriptor (Sequence-level, Amino Acid-level, etc, or other general purpose
+    descriptors)
+  
+  Customizable Implementations
+    * ForEach : Allows creation of a set of descriptors by substituting a user-specified set of values in for a
+      specific parameter
+      Default label : ForEach(template="",variable="")
+      Parameters:
+      <template> Template descriptor; should contain one or more variables to substitute e.g.
+        template=3DA(property=X,step size=0.25,number steps=48), any object serialization tree
+      <variable> Variable name; this name should be unique from any other descriptor used inside this label, any string
+      <values> Values that the variable will take on for this descriptor. Can be omitted if descriptors parameter is
+        given, optional, Container any object serialization tree
+      <descriptors> If the replacement values are descriptors of Sequence, then the descriptors can be taken from any
+        previously-defined list, or given directly. E.g., if Define(YZ=Combine(Y,Z)), then
+        ForEach(template=Foo(Bar),variable=Bar,descriptors(YZ,T)) expands to: Combine(Foo(Y),Foo(Z),Foo(T)), optional, Container with at least 1 any object serialization tree
+    * IterativePrediction : uses pre-trained machine learning model(s) on the given object
+      Default label : IterativePrediction(storage=bcl::model::RetrieveInterface,lower
+        layer=bcl::model::RetrieveInterface,iterations=2)
+      Parameters:
+      <storage> type of storage for models,       choose any implementation of bcl::model::RetrieveInterface:
+        
+        Customizable Implementations
+          * File : Storage of trained model on the file system; "File(help)" shows internal options
+      <lower layer> storage for the predictor that this descriptor's predictions should overwrite.  Note that using
+        this descriptor causes the cache to be modified; such that the original predictions of this model cannot be
+        returned,       choose any implementation of bcl::model::RetrieveInterface (already listed)
+      <iterations> number of iterations to perform, Any non-negative integer
+    * IterativePredictionMean : computes the mean prediction of pre-trained machine learning model(s) on the given
+      object, iteratively substituting the values returned by the sub-model with the values returned by this model
+      Default label : IterativePredictionMean(storage=bcl::model::RetrieveInterface,lower
+        layer=bcl::model::RetrieveInterface,iterations=2)
+      Parameters:
+      <storage> type of storage for models, 
+              choose any implementation of bcl::model::RetrieveInterface (already listed)
+      <lower layer> storage for the predictor that this descriptor's predictions should overwrite.  Note that using
+        this descriptor causes the cache to be modified; such that the original predictions of this model cannot be
+        returned,       choose any implementation of bcl::model::RetrieveInterface (already listed)
+      <iterations> number of iterations to perform, Any non-negative integer
+    * KohonenMapInfo : Computes distances to all members of one or more kohonen maps. May alternatively/additionally
+      compute position  of an element on the map. If both are computed, output will be in the format: position in
+      kohonen map 1, distances to nodes of kohonen map 1, position in kohonen map 2, etc.
+      Default label : KohonenMapInfo(distances=1,positions=0,storage=bcl::model::RetrieveInterface)
+      Parameters:
+      <distances> Whether to compute distances to all nodes of the kohonen map, default: "True", 
+        Any non-negative integer
+      <positions> Whether to return positions of best matching node in each kohonen map, default: "False", 
+        Any non-negative integer
+      <storage> type of storage for models, 
+              choose any implementation of bcl::model::RetrieveInterface (already listed)
+    * Mapped : 
+        Note that commas are automatically stripped from the given inputs
+      Default label : Mapped(file="",key=Sequence/Amino Acid String Descriptor,delimiter= )
+      Parameters:
+      <file> file with every line containing a key followed by a value, any existent file
+      <key> descriptor key (id type) to calculate the key for a given input, 
+              choose any  Sequence / Amino Acid String descriptor :
+        
+        ******************************************************************************************************
+        ************************************* Descriptors of Sequences ***************************************
+        ******************************************************************************************************
+
+        
+        Basic Implementations
+          * NElements : The number of Amino Acid in the Sequence
+          
+        Customizable Implementations
+          * Define : Define an alias for a given descriptor; "Define(help)" shows internal options
+          * ProteinId : the PDB ID of the protein; "ProteinId(help)" shows internal options
+          * String : A constant string; "String(help)" shows internal options
+          
+        
+        ******************************************************************************************************
+        ************************************ Descriptors of Amino Acids **************************************
+        ******************************************************************************************************
+
+          These can be converted into a Sequence-level descriptor using SequenceSum(X), where X is any
+          descriptor listed below
+        
+        Basic Implementations
+          * AAOneLetterCode : Returns the amino acid's one letter code
+          * AAPdbID : the amino acid's PDB ID
+          * AASeqID : the amino acid's sequence ID
+          * AAThreeLetterCode : Returns the amino acid's three letter code
+          
+        Customizable Operations
+          * ReflectingWindow : computes descriptor windows for bcl::biol::AABase reflecting at boundaries; 
+            "ReflectingWindow(help)" shows internal options
+          * Window : computes descriptor windows for bcl::biol::AABase returning NaNs for positions beyond the
+            end of the sequence; "Window(help)" shows internal options
+          
+        
+        ******************************************************************************************************
+        ********************************* Descriptors of Amino Acid pairs ************************************
+        ******************************************************************************************************
+
+          These can be converted into a Sequence-level descriptor using SequenceSum(X), where X is any
+          descriptor listed below
+        
+        Customizable Operations
+          * WindowPairSquare : computes descriptor windows for bcl::biol::AABase returning NaNs for positions
+            beyond the end of the sequence; "WindowPairSquare(help)" shows internal options
+          
+        
+        ******************************************************************************************************
+        ****************************** General-purpose descriptor operations *********************************
+        ******************************************************************************************************
+
+           These can be used for any type of descriptor (Sequence-level, Amino Acid-level, etc, or other
+          general purpose descriptors)
+        
+        Customizable Implementations
+          * ForEach : Allows creation of a set of descriptors by substituting a user-specified set of values
+            in for a specific parameter; "ForEach(help)" shows internal options
+          * ToString : Calculates a numeric descriptor and converts it into a string; 
+            "ToString(help)" shows internal options
+          
+        Operations
+          * 1st : For pairwise or higher dimension descriptor generation, selects the result from the 1st
+            sub-object; "1st(help)" shows internal options
+          * 2nd : For pairwise or higher dimension descriptor generation, selects the result from the 2nd
+            sub-object; "2nd(help)" shows internal options
+          * 3rd : For pairwise or higher dimension descriptor generation, selects the result from the 3rd
+            sub-object; "3rd(help)" shows internal options
+          * 4th : For pairwise or higher dimension descriptor generation, selects the result from the 4th
+            sub-object; "4th(help)" shows internal options
+          
+        Customizable Operations
+          * Combine : Array of descriptors; "Combine(help)" shows internal options
+          * Mapped : 
+              Note that commas are automatically stripped from the given inputs; 
+            "Mapped(help)" shows internal options
+          * MappedSequence : 
+              Note that commas are automatically stripped from the given inputs; 
+            "MappedSequence(help)" shows internal options
+          * Partial : selects particular values (by index) of another descriptor; 
+            "Partial(help)" shows internal options
+      <delimiter> Delimiter between the id and key. If not given, the ids must be fixed width, based on the # of
+        characters as the given key descriptorIf the delimiter is given, the read-in string will be tokenized, such
+        that repeated spacing is ignored, optional, any letter or character
+      <default> Value(s) returned if the key is not present in the file, optional, 
+        Container with at least 1 Any decimal (floating-point) value
+    * MappedSequence : 
+        Note that commas are automatically stripped from the given inputs
+      Default label : MappedSequence(file extension="",key=Sequence/Amino Acid String Descriptor,size=0,delimiter= )
+      Parameters:
+      <file extension> extension of a file with every line containing a key followed by a value, any string
+      <key> descriptor key (id type) to calculate the key for a given input, 
+              choose any implementation of Sequence/Amino Acid String Descriptor (already listed)
+      <size> size of the current descriptor, Any non-negative integer
+      <delimiter> Delimiter between the id and key. If not given, the ids must be fixed width, based on the # of
+        characters as the given key descriptorIf the delimiter is given, the read-in string will be tokenized, such
+        that repeated spacing is ignored, optional, any letter or character
+    * Prediction : uses pre-trained machine learning model(s) on the given object
+      Parameter: <storage> type of storage for models, 
+              choose any implementation of bcl::model::RetrieveInterface (already listed)
+    * PredictionInfo : Computes prediction-related information, including standard deviation, min, max, and ROC-curve
+      derived statistics such as the PPV or local-PPV associated with a prediction. Output will be statistics first, in
+      the order provided; followed by metrics, in the order they are provided
+      Default label : PredictionInfo(predictor=bcl::model::RetrieveInterface)
+      Parameters:
+      <predictor> predictor to obtain derived info from, uses pre-trained machine learning model(s) on the given object
+        Parameter: <storage> type of storage for models, 
+                  choose any implementation of bcl::model::RetrieveInterface (already listed)
+      <statistics> statistics to compute for the predictions, optional, 
+        Container with at least 1 Allowed values: {Min, Max, Mean, StandardDeviation}
+      <metrics> ROC-curve based metrics to compute for each model's output. e.g. LocalPPV will give you the likelihood
+        that a prediction is a true positive, optional, 
+        Container with at least 1 Allowed values: {TPR, FPR, FNR, TNR, Accuracy, Specificity, Precision, Recall, PPV,
+        Ideal-PPV, Ideal-PPV_FPRelative, NPV, FDR, HitRate, MCC, Enrichment, InformationGainRatio, Cutoff, LocalPPV}
+    * PredictionMean : computes the mean prediction of pre-trained machine learning model(s) on the given object
+      Parameter: <storage> type of storage for models, 
+              choose any implementation of bcl::model::RetrieveInterface (already listed)
+    * ToNumeric : Calculates a numeric descriptor and converts it into a string
+      Default label : ToNumeric(Sequence/Amino Acid String Descriptor,size=1)
+      Parameters:
+      data label for a numeric descriptor, 
+              choose any implementation of Sequence/Amino Acid String Descriptor (already listed)
+      <size> size of the descriptor, default: "1", Any non-negative integer
+
+  Operations
+    * 1st : For pairwise or higher dimension descriptor generation, selects the result from the 1st sub-object
+      (anonymous) parameter: descriptor of interest, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * 2nd : For pairwise or higher dimension descriptor generation, selects the result from the 2nd sub-object
+      (anonymous) parameter: descriptor of interest, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * 3rd : For pairwise or higher dimension descriptor generation, selects the result from the 3rd sub-object
+      (anonymous) parameter: descriptor of interest, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * 4th : For pairwise or higher dimension descriptor generation, selects the result from the 4th sub-object
+      (anonymous) parameter: descriptor of interest, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * AAHbondNeighbor : Retrieve a descriptor from the highest energy hbonded neighbor of an aa according to the dssp
+      file
+      (anonymous) parameter: Descriptor to retrieve from the neighbor, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Abs : Takes the absolute value of a descriptor
+      (anonymous) parameter: descriptor for which to Takes the absolute value, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Cos : Takes the cosine of a descriptor
+      (anonymous) parameter: descriptor for which to Takes the cosine, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * DefineNaN : replaces undefined/NaN values in a descriptor with another value or descriptor
+      Default label : DefineNaN(Sequence/Amino Acid Numeric Descriptor,replacement=Sequence/Amino Acid Numeric
+        Descriptor)
+      Parameters:
+      descriptor whose undefined/NaN values should be replaced, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <replacement> undefined values will be replaced with this property value (usually constants), 
+        default: "Constant(0)",       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * DescriptorMax : Returns the max of a descriptor
+      (anonymous) parameter: The descriptor on which to compute the max, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * DescriptorMean : Returns the mean of a descriptor
+      (anonymous) parameter: The descriptor on which to compute the mean, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * DescriptorMin : Returns the min of a descriptor
+      (anonymous) parameter: The descriptor on which to compute the min, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * DescriptorRange : Returns the range of a descriptor
+      (anonymous) parameter: The descriptor on which to compute the range, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * DescriptorStandardDeviation : Returns the standarddeviation of a descriptor
+      (anonymous) parameter: The descriptor on which to compute the standarddeviation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * DescriptorSum : Returns the sum of a descriptor
+      (anonymous) parameter: The descriptor on which to compute the sum, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Divide : Divides two descriptors (binary true/false)
+      Default label : Divide(lhs=Sequence/Amino Acid Numeric Descriptor,rhs=Sequence/Amino Acid Numeric Descriptor)
+      Parameters:
+      <lhs> argument for the left hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <rhs> argument for the right hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Equal : Equals two descriptors (binary true/false)
+      (anonymous) parameter: Descriptors to Equal, 
+        Container with 2       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Exp : Takes the exponential of a descriptor
+      (anonymous) parameter: descriptor for which to Takes the exponential, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Exponentiate : Exponentiates two descriptors (binary true/false)
+      Default label : Exponentiate(lhs=Sequence/Amino Acid Numeric Descriptor,rhs=Sequence/Amino Acid Numeric
+        Descriptor)
+      Parameters:
+      <lhs> argument for the left hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <rhs> argument for the right hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Greater : Greaters two descriptors (binary true/false)
+      Default label : Greater(lhs=Sequence/Amino Acid Numeric Descriptor,rhs=Sequence/Amino Acid Numeric Descriptor)
+      Parameters:
+      <lhs> argument for the left hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <rhs> argument for the right hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * GreaterEqual : GreaterEquals two descriptors (binary true/false)
+      Default label : GreaterEqual(lhs=Sequence/Amino Acid Numeric Descriptor,rhs=Sequence/Amino Acid Numeric
+        Descriptor)
+      Parameters:
+      <lhs> argument for the left hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <rhs> argument for the right hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Less : Lesss two descriptors (binary true/false)
+      Default label : Less(lhs=Sequence/Amino Acid Numeric Descriptor,rhs=Sequence/Amino Acid Numeric Descriptor)
+      Parameters:
+      <lhs> argument for the left hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <rhs> argument for the right hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * LessEqual : LessEquals two descriptors (binary true/false)
+      Default label : LessEqual(lhs=Sequence/Amino Acid Numeric Descriptor,rhs=Sequence/Amino Acid Numeric Descriptor)
+      Parameters:
+      <lhs> argument for the left hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <rhs> argument for the right hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Ln : Takes the natural log of a descriptor
+      (anonymous) parameter: descriptor for which to Takes the natural log, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Log : Takes the base-10 logarithm of a descriptor
+      (anonymous) parameter: descriptor for which to Takes the base-10 logarithm, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * MaxIndex : computes the index of maximum value for the given descriptor
+      (anonymous) parameter: descriptor for which to find the index with the maximum corresponding value, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * MinIndex : computes the index of minimum value for the given descriptor
+      (anonymous) parameter: descriptor for which to find the index with the minimum corresponding value, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Mod : Mods two descriptors (binary true/false)
+      Default label : Mod(lhs=Sequence/Amino Acid Numeric Descriptor,rhs=Sequence/Amino Acid Numeric Descriptor)
+      Parameters:
+      <lhs> argument for the left hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <rhs> argument for the right hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Negative : gives the negative of the given argument of a descriptor
+      (anonymous) parameter: descriptor for which to gives the negative of the given argument, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Not : 1 if the argument is exactly 0, otherwise returns 0 of a descriptor
+      (anonymous) parameter: descriptor for which to 1 if the argument is exactly 0, otherwise returns 0, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * NotEqual : NotEquals two descriptors (binary true/false)
+      (anonymous) parameter: Descriptors to NotEqual, 
+        Container with 2       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * OuterProduct : Outer product of two descriptors
+      Default label : OuterProduct(lhs=Sequence/Amino Acid Numeric Descriptor,rhs=Sequence/Amino Acid Numeric
+        Descriptor)
+      Parameters:
+      <lhs> argument for the left hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <rhs> argument for the right hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * RankAsc : rank property values in ascending order. e.g. 0.2 0.21 0.5 0.1 -> 1 2 3 0Duplicate values receive the
+      same rank (averaged) assigned, so 1 1 4 -> 0.5 0.5 2
+      (anonymous) parameter: descriptor to rank, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * RankDesc : rank property values in descending order. e.g. 0.2 0.21 0.5 0.1 -> 2 1 0 3Duplicate values receive the
+      same rank (averaged) assigned, so 1 1 4 -> 1.5 1.5 0
+      (anonymous) parameter: descriptor to rank, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Rescale : Rescales values relative to the Sequence values, specifically, computes:
+      (X-SequenceMean(X))/SequenceStd(X). In the event that std is 0, returns 0
+      (anonymous) parameter: descriptor to rescale, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * SetNaNToDefinedDescriptorMean : replaces undefined/NaN values in a descriptor with the DescriptorMean of the
+      defined values
+      (anonymous) parameter: descriptor whose undefined/NaN values should be replaced, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Sin : Takes the sine of a descriptor
+      (anonymous) parameter: descriptor for which to Takes the sine, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * SortAsc : sort property values in ascending order
+      (anonymous) parameter: descriptor to sort property values, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * SortDesc : sort property values in descending order
+      (anonymous) parameter: descriptor to sort property values, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Sqr : squares the argument of a descriptor
+      (anonymous) parameter: descriptor for which to squares the argument, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Sqrt : Takes the square root of a descriptor
+      (anonymous) parameter: descriptor for which to Takes the square root, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+    * Subtract : Subtracts two descriptors (binary true/false)
+      Default label : Subtract(lhs=Sequence/Amino Acid Numeric Descriptor,rhs=Sequence/Amino Acid Numeric Descriptor)
+      Parameters:
+      <lhs> argument for the left hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <rhs> argument for the right hand side of the operation, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+
+  Customizable Operations
+    * Add : Adds two descriptors (binary true/false)
+      (anonymous) parameter: Descriptors to Add, 
+        Container with between 2 and 1000       choose any implementation of Sequence/Amino Acid Numeric Descriptor
+        (already listed)
+    * Combine : Array of descriptors
+      (anonymous) parameter: descriptors to concatenate, 
+        Container with at least 1       choose any implementation of Sequence/Amino Acid Numeric Descriptor (already
+        listed)
+    * Limit : limit descriptor values to a specified range
+      Default label : Limit(Sequence/Amino Acid Numeric Descriptor,max=3.40282e+38,min=-3.40282e+38)
+      Parameters:
+      descriptor to limit values of, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <max> maximum value for the limit; higher values will be reduced to this value, default: "3.40282e+38", 
+        Any decimal (floating-point) value
+      <min> minimum value for the limit; lower values will be reduced to this value, default: "-3.40282e+38", 
+        Any decimal (floating-point) value
+    * Multiply : Multiplys two descriptors (binary true/false)
+      (anonymous) parameter: Descriptors to Multiply, 
+        Container with between 2 and 1000       choose any implementation of Sequence/Amino Acid Numeric Descriptor
+        (already listed)
+    * Partial : selects particular values (by index) of another descriptor
+      Default label : Partial(Sequence/Amino Acid Numeric Descriptor,indices="")
+      Parameters:
+      descriptor of interest, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <indices> desired indices (0-offset) of the descriptor to keep, 
+        Container with at least 1 Any non-negative integer
+    * Sigmoid : Amplitude / ( 1 + exp(-(x-x_offset)/slope)) + y_offset
+      Default label : Sigmoid(descriptor=Sequence/Amino Acid Numeric Descriptor,amplitude=1,x offset=0,y
+        offset=0,x=1,y=0.731059)
+      Parameters:
+      <descriptor> the property to consider, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <amplitude> amplitude of the sigmoid, default: "1.0", Any decimal (floating-point) value
+      <x offset> offset of the sigmoid midpoint along the x-axis, default: "0", Any decimal (floating-point) value
+      <y offset> Offset of the sigmoid midpoint along the y-axis, default: "0", Any decimal (floating-point) value
+      <x> Any x along the sigmoid other than x-offset, for which the y-value can be provided to compute the sigmoidal
+        slope, default: "1", Any decimal (floating-point) value
+      <y> y on the desired sigmoidal curve, default: "0.731", Any decimal (floating-point) value
+    * WithinRange : This descriptor takes on a value of 1 if a descriptor's mean value is within a range, or 0
+      otherwise
+      Default label : WithinRange(descriptor=Sequence/Amino Acid Numeric Descriptor,begin=nan,end=nan,inclusive=1)
+      Parameters:
+      <descriptor> the descriptor to consider, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <begin> beginning of the range, Any decimal (floating-point) value
+      <end> end of the region where properties will be within range, Any decimal (floating-point) value
+      <inclusive> whether to include the endpoints in the range, default: "true", Any non-negative integer
+    * WithinRangeGaussian : Returns a value between 0 and 1 based on where another descriptor's value falls relative to
+      a given mean value
+      Default label : WithinRangeGaussian(descriptor=Sequence/Amino Acid Numeric Descriptor,mean=0,stdev=1)
+      Parameters:
+      <descriptor> the property to consider, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <mean> the mean of the gaussian function, Any decimal (floating-point) value
+      <stdev> the standard deviation of the gaussian function, Any decimal (floating-point) value
+    * WithinRangeSmooth : This descriptor gives values between 0.0 and 1.0 depending on if another descriptor's
+      magnitude is within a specified range.  This descriptor's value decreases smoothly as calculated by a sinusoidal
+      transition (sigmoid-like)
+      Default label : WithinRangeSmooth(descriptor=Sequence/Amino Acid Numeric Descriptor,begin=0,end=0,left
+        width=0,right width=0,inclusive=1)
+      Parameters:
+      <descriptor> the property to consider, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+      <begin> the beginning of the range where this descriptor will take on a value of 1.0, 
+        Any decimal (floating-point) value
+      <end> the end of the range where this descriptor will take on a value of 1.0, Any decimal (floating-point) value
+      <left width> how wide the interpolation region should be to the left of the beginning of the range, 
+        default: "0", Any decimal (floating-point) value >= 0
+      <right width> how wide the interpolation region should be to the right of the end of the range, default: "0", 
+        Any decimal (floating-point) value >= 0
+      <inclusive> whether the ends of the ranges should be inclusive.  practically, this only effects a ranges that
+        have interpolation width(s) of zero, default: "true", Any non-negative integer
+
+Identification descriptors
+choose any  Sequence / Amino Acid String descriptor :
+  
+  *********************************************************************************************************************
+  ******************************************** Descriptors of Sequences ***********************************************
+  *********************************************************************************************************************
+
+  
+  Basic Implementations
+    * NElements : The number of Amino Acid in the Sequence
+
+  Customizable Implementations
+    * Define : Define an alias for a given descriptor
+      (anonymous) parameter: The LHS of the = sign will become an alias that can be used later (in the same file or
+        command) to refer to the RHS. Existing aliases cannot be overridden. Accepts , any object serialization tree
+    * ProteinId : the PDB ID of the protein
+      (anonymous) parameter: Number of characters to include for each ID. For PDB-id'ed files, the default (5) is
+        appropriate for including chain ids, optional, Any non-negative integer
+    * String : A constant string
+      (anonymous) parameter: any string
+
+  
+  *********************************************************************************************************************
+  ******************************************* Descriptors of Amino Acids **********************************************
+  *********************************************************************************************************************
+
+    These can be converted into a Sequence-level descriptor using SequenceSum(X), where X is any descriptor listed
+    below
+  
+  Basic Implementations
+    * AAOneLetterCode : Returns the amino acid's one letter code
+    * AAPdbID : the amino acid's PDB ID
+    * AASeqID : the amino acid's sequence ID
+    * AAThreeLetterCode : Returns the amino acid's three letter code
+
+  Customizable Operations
+    * ReflectingWindow : computes descriptor windows for bcl::biol::AABase reflecting at boundaries
+      Default label : ReflectingWindow(Sequence/Amino Acid String Descriptor,size=0,alignment=Center)
+      Parameters:
+      descriptor to use for the window, 
+              choose any implementation of Sequence/Amino Acid String Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...), 
+        Any non-negative integer
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. JufoCenter is strictly
+        for compatiblity with the old JUFO; it is slower to calculate than normal Center, but yields the same set of
+        values in a different order, default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+    * Window : computes descriptor windows for bcl::biol::AABase returning NaNs for positions beyond the end of the
+      sequence
+      Default label : Window(Sequence/Amino Acid String Descriptor,size=0,alignment=Center)
+      Parameters:
+      descriptor to use for the window, 
+              choose any implementation of Sequence/Amino Acid String Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values, ...), 
+        Any non-negative integer
+      <alignment> Alignment of the window.  Use center to consider the window around this element; left to consider the
+        window up until this element, and right to consider the window following this element. JufoCenter is strictly
+        for compatiblity with the old JUFO; it is slower to calculate than normal Center, but yields the same set of
+        values in a different order, default: "Center", Allowed values: {Left, Right, Center, JufoCenter}
+
+  
+  *********************************************************************************************************************
+  ***************************************** Descriptors of Amino Acid pairs *******************************************
+  *********************************************************************************************************************
+
+    These can be converted into a Sequence-level descriptor using SequenceSum(X), where X is any descriptor listed
+    below
+  
+  Customizable Operations
+    * WindowPairSquare : computes descriptor windows for bcl::biol::AABase returning NaNs for positions beyond the end
+      of the sequence
+      Default label : WindowPairSquare(Sequence/Amino Acid String Descriptor,size=0)
+      Parameters:
+      descriptor to use for the window, 
+              choose any implementation of Sequence/Amino Acid String Descriptor (already listed)
+      <size> desired size of the window (0 = just central value, 1 = central value and neighboring values for both
+        members of the pair, ...), Any non-negative integer
+
+  
+  *********************************************************************************************************************
+  ************************************** General-purpose descriptor operations ****************************************
+  *********************************************************************************************************************
+
+     These can be used for any type of descriptor (Sequence-level, Amino Acid-level, etc, or other general purpose
+    descriptors)
+  
+  Customizable Implementations
+    * ForEach : Allows creation of a set of descriptors by substituting a user-specified set of values in for a
+      specific parameter
+      Default label : ForEach(template="",variable="")
+      Parameters:
+      <template> Template descriptor; should contain one or more variables to substitute e.g.
+        template=3DA(property=X,step size=0.25,number steps=48), any object serialization tree
+      <variable> Variable name; this name should be unique from any other descriptor used inside this label, any string
+      <values> Values that the variable will take on for this descriptor. Can be omitted if descriptors parameter is
+        given, optional, Container any object serialization tree
+      <descriptors> If the replacement values are descriptors of Sequence, then the descriptors can be taken from any
+        previously-defined list, or given directly. E.g., if Define(YZ=Combine(Y,Z)), then
+        ForEach(template=Foo(Bar),variable=Bar,descriptors(YZ,T)) expands to: Combine(Foo(Y),Foo(Z),Foo(T)), optional, Container with at least 1 any object serialization tree
+    * ToString : Calculates a numeric descriptor and converts it into a string
+      (anonymous) parameter: data label for a numeric descriptor, 
+              choose any implementation of Sequence/Amino Acid Numeric Descriptor (already listed)
+
+  Operations
+    * 1st : For pairwise or higher dimension descriptor generation, selects the result from the 1st sub-object
+      (anonymous) parameter: descriptor of interest, 
+              choose any implementation of Sequence/Amino Acid String Descriptor (already listed)
+    * 2nd : For pairwise or higher dimension descriptor generation, selects the result from the 2nd sub-object
+      (anonymous) parameter: descriptor of interest, 
+              choose any implementation of Sequence/Amino Acid String Descriptor (already listed)
+    * 3rd : For pairwise or higher dimension descriptor generation, selects the result from the 3rd sub-object
+      (anonymous) parameter: descriptor of interest, 
+              choose any implementation of Sequence/Amino Acid String Descriptor (already listed)
+    * 4th : For pairwise or higher dimension descriptor generation, selects the result from the 4th sub-object
+      (anonymous) parameter: descriptor of interest, 
+              choose any implementation of Sequence/Amino Acid String Descriptor (already listed)
+
+  Customizable Operations
+    * Combine : Array of descriptors
+      (anonymous) parameter: descriptors to concatenate, 
+        Container with at least 1       choose any implementation of Sequence/Amino Acid String Descriptor (already
+        listed)
+    * Mapped : 
+        Note that commas are automatically stripped from the given inputs
+      Default label : Mapped(file="",key=Sequence/Amino Acid String Descriptor,delimiter= )
+      Parameters:
+      <file> file with every line containing a key followed by a value, any existent file
+      <key> descriptor key (id type) to calculate the key for a given input, 
+              choose any implementation of Sequence/Amino Acid String Descriptor (already listed)
+      <delimiter> Delimiter between the id and key. If not given, the ids must be fixed width, based on the # of
+        characters as the given key descriptorIf the delimiter is given, the read-in string will be tokenized, such
+        that repeated spacing is ignored, optional, any letter or character
+      <default> Value(s) returned if the key is not present in the file, optional, any string
+    * MappedSequence : 
+        Note that commas are automatically stripped from the given inputs
+      Default label : MappedSequence(file extension="",key=Sequence/Amino Acid String Descriptor,size=0,delimiter= )
+      Parameters:
+      <file extension> extension of a file with every line containing a key followed by a value, any string
+      <key> descriptor key (id type) to calculate the key for a given input, 
+              choose any implementation of Sequence/Amino Acid String Descriptor (already listed)
+      <size> size of the current descriptor, Any non-negative integer
+      <delimiter> Delimiter between the id and key. If not given, the ids must be fixed width, based on the # of
+        characters as the given key descriptorIf the delimiter is given, the read-in string will be tokenized, such
+        that repeated spacing is ignored, optional, any letter or character
+    * Partial : selects particular values (by index) of another descriptor
+      Default label : Partial(Sequence/Amino Acid String Descriptor,indices="")
+      Parameters:
+      descriptor of interest,       choose any implementation of Sequence/Amino Acid String Descriptor (already listed)
+      <indices> desired indices (0-offset) of the descriptor to keep, 
+        Container with at least 1 Any non-negative integer

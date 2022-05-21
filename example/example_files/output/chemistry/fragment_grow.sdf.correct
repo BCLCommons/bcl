@@ -1,0 +1,73 @@
+
+
+
+ 31 33  0  0  0  0  0  0  0  0999 V2000
+   -0.7145    0.4125    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.7145   -0.4125    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.0000   -0.8250    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7145   -0.4125    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7145    0.4125    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.0000    0.8250    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan S   0  0  0  1  0  0  0  0  0  0  0  0
+       nan       nan       nan N   0  0  0  1  0  0  0  0  0  0  0  0
+       nan       nan       nan N   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  1  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  1  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  1  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  1  0  0  0  0  0  0  0  0
+       nan       nan       nan O   0  0  0  1  0  0  0  0  0  0  0  0
+       nan       nan       nan O   0  0  0  1  0  0  0  0  0  0  0  0
+       nan       nan       nan N   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  1  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  1  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+       nan       nan       nan C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+  6 27  2  0  0  0  0
+  7 13  1  0  0  0  0
+  7 14  2  0  0  0  0
+  7 15  2  0  0  0  0
+  7 16  1  0  0  0  0
+  8 10  2  0  0  0  0
+  8 11  1  0  0  0  0
+  9 10  1  0  0  0  0
+  9 12  1  0  0  0  0
+ 10 22  1  0  0  0  0
+ 11 12  2  0  0  0  0
+ 11 23  1  0  0  0  0
+ 12 24  1  0  0  0  0
+ 13 17  1  0  0  0  0
+ 13 18  2  0  0  0  0
+ 16 25  1  0  0  0  0
+ 17 19  2  0  0  0  0
+ 18 20  1  0  0  0  0
+ 19 21  1  0  0  0  0
+ 20 21  2  0  0  0  0
+ 21 26  1  0  0  0  0
+ 22 27  1  0  0  0  0
+ 23 31  2  0  0  0  0
+ 24 30  2  0  0  0  0
+ 25 28  1  0  0  0  0
+ 27 29  1  0  0  0  0
+ 28 29  1  0  0  0  0
+ 30 31  1  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi S_TeTeTeTePiPi N_Tr2TrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi
+M  BCL BND NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedDoubleBond ConjugatedDoubleBond ConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticSingleBond NonConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond NonConjugatedSingleBond NonConjugatedSingleBond AromaticDoubleBond AromaticDoubleBond NonConjugatedSingleBond NonConjugatedSingleBond NonConjugatedSingleBond AromaticSingleBond
+M  BCL DBI - - - - - - - - - -
+M  END
+$$$$

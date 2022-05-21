@@ -1,0 +1,131 @@
+./build/linux64_release/bin/bcl-example-apps-static.exe Examples -exec AppModelComputeStatistics 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AppModelComputeStatistics
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AppModelComputeStatistics ====================
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+model:ComputeStatistics 
+
+=std=bcl=> Command line was invalid
+=std=bcl=> successful example check:  comp_jury_stat.CheckCommandString( false) == 0
+=std=bcl=> successful example check:  output_directory.DoesExist() == 1
+=std=bcl=> Checking command line:
+model:ComputeStatistics -image_format png -input example/example_files/input/model/prediction_merge_1.txt -output_directory example/example_files/output/model//compute_jury_statistics/ -potency_cutoff 1.0 -table_name compute_jury_statistics_table.txt 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  comp_jury_stat.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: model:ComputeStatistics -image_format png -input example/example_files/input/model/prediction_merge_1.txt -output_directory example/example_files/output/model//compute_jury_statistics/ -potency_cutoff 1.0 -table_name compute_jury_statistics_table.txt 
+
+gnuplot 4.4 patchlevel 4
+=std=bcl::model=> Ideal FPPvsPPV integral is 0!
+=std=bcl::model=> Ideal FPPvsPPV integral is 0!
+=std=bcl::model=> Ideal FPPvsPPV integral is 0!
+=std=bcl::app=> name: prediction_merge_1.txt RMSD: 0.796241 Enr:2.5 AUC: 0.4375 Int_FppVsPPV(0.1%,1%): 0 Int_FppVsPPV(0.1%,2%): 0 Int_FppVsPPV(0.1%,3%): 0 Int_FppVsPPV(0%,100%): 0.976076
+=std=bcl=> Run completed of model:ComputeStatistics -image_format png -input example/example_files/input/model/prediction_merge_1.txt -output_directory example/example_files/output/model//compute_jury_statistics/ -potency_cutoff 1.0 -table_name compute_jury_statistics_table.txt 
+, return status was: 0
+Command line took 0.209011 sec to run
+=std=bcl=> successful example check:  comp_jury_stat.RunCommand() == 0
+=std=bcl=> command line executed successfully!
+=std=bcl=> Checking command line:
+model:ComputeStatistics -correlation -image_format png -input example/example_files/input/model/prediction_merge_1.txt -output_directory example/example_files/output/model//compute_jury_statistics/ -table_name compute_jury_statistics_table.txt 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  comp_jury_stat.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: model:ComputeStatistics -correlation -image_format png -input example/example_files/input/model/prediction_merge_1.txt -output_directory example/example_files/output/model//compute_jury_statistics/ -table_name compute_jury_statistics_table.txt 
+
+gnuplot 4.4 patchlevel 4
+=std=bcl=> Run completed of model:ComputeStatistics -correlation -image_format png -input example/example_files/input/model/prediction_merge_1.txt -output_directory example/example_files/output/model//compute_jury_statistics/ -table_name compute_jury_statistics_table.txt 
+, return status was: 0
+Command line took 0.129192 sec to run
+=std=bcl=> successful example check:  comp_jury_stat.RunCommand() == 0
+=std=bcl=> command line executed successfully!
+=std=bcl=> Checking command line:
+model:ComputeStatistics -image_format png -input example/example_files/input/model/prediction_merge_1.txt example/example_files/input/model/prediction_merge_2.txt -output_directory example/example_files/output/model//compute_jury_statistics/ -potency_cutoff 1.0 -table_name compute_jury_statistics_table.txt 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  comp_jury_stat.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: model:ComputeStatistics -image_format png -input example/example_files/input/model/prediction_merge_1.txt example/example_files/input/model/prediction_merge_2.txt -output_directory example/example_files/output/model//compute_jury_statistics/ -potency_cutoff 1.0 -table_name compute_jury_statistics_table.txt 
+
+gnuplot 4.4 patchlevel 4
+=std=bcl::model=> Ideal FPPvsPPV integral is 0!
+=std=bcl::model=> Ideal FPPvsPPV integral is 0!
+=std=bcl::model=> Ideal FPPvsPPV integral is 0!
+=std=bcl::app=> name: prediction_merge_1.txt RMSD: 0.796241 Enr:2.5 AUC: 0.4375 Int_FppVsPPV(0.1%,1%): 0 Int_FppVsPPV(0.1%,2%): 0 Int_FppVsPPV(0.1%,3%): 0 Int_FppVsPPV(0%,100%): 0.976076
+=std=bcl::model=> Ideal FPPvsPPV integral is 0!
+=std=bcl::model=> Ideal FPPvsPPV integral is 0!
+=std=bcl::model=> Ideal FPPvsPPV integral is 0!
+=std=bcl::app=> name: prediction_merge_2.txt RMSD: 0.841427 Enr:2.5 AUC: 0.4375 Int_FppVsPPV(0.1%,1%): 0 Int_FppVsPPV(0.1%,2%): 0 Int_FppVsPPV(0.1%,3%): 0 Int_FppVsPPV(0%,100%): 0.976076
+=std=bcl::model=> Ideal FPPvsPPV integral is 0!
+=std=bcl::model=> Ideal FPPvsPPV integral is 0!
+=std=bcl::model=> Ideal FPPvsPPV integral is 0!
+=std=bcl::app=> name: prediction_merge_1.txt+prediction_merge_2.txt RMSD: 0.813327 Enr:2.5 AUC: 0.4375 Int_FppVsPPV(0.1%,1%): 0 Int_FppVsPPV(0.1%,2%): 0 Int_FppVsPPV(0.1%,3%): 0 Int_FppVsPPV(0%,100%): 0.976076
+=std=bcl=> Run completed of model:ComputeStatistics -image_format png -input example/example_files/input/model/prediction_merge_1.txt example/example_files/input/model/prediction_merge_2.txt -output_directory example/example_files/output/model//compute_jury_statistics/ -potency_cutoff 1.0 -table_name compute_jury_statistics_table.txt 
+, return status was: 0
+Command line took 0.370982 sec to run
+=std=bcl=> successful example check:  comp_jury_stat.RunCommand() == 0
+=std=bcl=> command line executed successfully!
+=std=bcl=> successful example check:  io::Directory( output_directory_name).Remove( true) == 1
+=std=bcl::app=> BCL Example | END  : AppModelComputeStatistics ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AppModelComputeStatistics_total           9          0              
+total                                     9          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 115 MB, peak physical RAM used: 55 MB

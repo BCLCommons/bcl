@@ -1,0 +1,4 @@
+bcl::assemble::LocatorAA
+  LocatorAA(locator_chain=D,seq_id=51,use_pdb_id=1)
+bcl::assemble::LocatorAA
+  LocatorAA(locator_chain=D,seq_id=58,use_pdb_id=1)

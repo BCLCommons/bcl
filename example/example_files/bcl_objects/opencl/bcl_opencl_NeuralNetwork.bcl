@@ -1,0 +1,46 @@
+bcl::opencl::NeuralNetwork
+  Sigmoid
+  bcl::util::ShPtr<bcl::model::RescaleFeatureDataSet>
+    12345678
+    bcl::model::RescaleFeatureDataSet
+      bcl::storage::Vector<bcl::math::Range<float>>
+        2
+        bcl::math::Range<float>
+          [ 0 , 1 ]
+        bcl::math::Range<float>
+          [ 0 , 5 ]
+
+      bcl::math::Range<float>
+        [ -1 , 1 ]
+  bcl::util::ShPtr<bcl::model::RescaleFeatureDataSet>
+    12345678
+    bcl::model::RescaleFeatureDataSet
+      bcl::storage::Vector<bcl::math::Range<float>>
+        2
+        bcl::math::Range<float>
+          [ -1 , 2 ]
+        bcl::math::Range<float>
+          [ -1 , 2 ]
+
+      bcl::math::Range<float>
+        [ 0.1 , 0.9 ]
+  bcl::storage::Vector<bcl::linal::Vector<float>>
+    2
+    bcl::linal::Vector<float>
+      3
+      0	0	0	
+    bcl::linal::Vector<float>
+      2
+      0	0	
+
+  bcl::storage::Vector<bcl::linal::Matrix<float>>
+    2
+    bcl::linal::Matrix<float>
+      3	      2
+      0	0	
+      0	0	
+      0	0	
+    bcl::linal::Matrix<float>
+      2	      3
+      0	0	0	
+      0	0	0	

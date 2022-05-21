@@ -1,0 +1,3 @@
+1cru example/example_files/input/biology/1cru_xtal.pdb example/example_files/input/biology/1cru.loop 2.00 2.54
+1d4o example/example_files/input/biology/1d4o_xtal.pdb example/example_files/input/biology/1d4o.loop 1.60 2.33
+1f74 example/example_files/input/biology/1f74_xtal.pdb example/example_files/input/biology/1f74.loop 1.53 2.72

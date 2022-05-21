@@ -1,0 +1,4 @@
+bcl::function::BinaryCached<const-bcl::ExampleFunctionBinaryCached::Teacher,const-bcl::ExampleFunctionBinaryCached::Student,double>
+  bcl::util::ShPtr<bcl::function::BinaryInterface<const-bcl::ExampleFunctionBinaryCached::Teacher,const-bcl::ExampleFunctionBinaryCached::Student,double>>
+    12345678
+    bcl::ExampleFunctionBinaryCached::GradeExam

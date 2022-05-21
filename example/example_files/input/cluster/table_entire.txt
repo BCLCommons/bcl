@@ -1,0 +1,5 @@
+bcl::storage::Table<double> a b c d
+w  1  2  3  4
+x  5  6  7  8
+y  9 10 11 12
+z 13 14 15 16

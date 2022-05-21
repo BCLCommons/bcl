@@ -1,0 +1,94 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ContactPredictionMap 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ContactPredictionMap
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ContactPredictionMap ====================
+=std=bcl=> read pdb: example/example_files/input/biology/1IE9.pdb
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 ASP A  149  PHE A  153  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 GLY A  250  LEU A  254  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    7   7 ASN A  290  ASP A  292  5                                   3    
+=std=bcl=> Calling default constructor
+=std=bcl=> Creating the prediction map for a chain of 1IE9
+=std=bcl=> Creating the prediction map for a model of 1IE9
+=std=bcl=> Calling clone
+=std=bcl=> This class has the following identifierbcl::contact::PredictionMap
+=std=bcl=> Number of sequences stored: 1
+=std=bcl=> successful example check:  prediction_map_a.GetSequences().GetSize() == 1
+=std=bcl=>  Sequence with chain ID A
+DSLRPKLSEEQQRIIAILLDAHHKTYDPTYSDFCQFRPPV
+=std=bcl=> successful example check:  prediction_map_a.GetSequence( 'A').IsDefined() == 1
+=std=bcl=> successful example check:  prediction_map_a.GetSequence( 'A')->GetChainID() == A
+=std=bcl=> Sequence of the chain A
+DSLRPKLSEEQQRIIAILLDAHHKTYDPTYSDFCQFRPPV
+=std=bcl=> Printing out predictions for different residue couples :
+=std=bcl=>    11 Q    21 A 0.776 0.878 0.000 0.000 0.000 0.677
+=std=bcl=>    21 A    11 Q 0.776 0.000 0.878 0.000 0.000 0.677
+=std=bcl=>    21 A    31 S 0.292 0.153 0.187 0.082 0.238 0.060
+=std=bcl=>    31 S    21 A 0.292 0.187 0.153 0.082 0.238 0.060
+=std=bcl=>    11 Q    31 S 0.408 0.432 0.000 0.078 0.037 0.112
+=std=bcl=>    31 S    11 Q 0.408 0.000 0.432 0.078 0.037 0.112
+=std=bcl=> Writing the the map to file example/example_files/output/contact/1IE9A.contact_prediction_map
+=std=bcl=> Reading a new contact map from file
+=std=bcl=> Comparing values between two maps
+=std=bcl::app=> BCL Example | END  : ContactPredictionMap ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+ContactPredictionMap_total                4          0              
+total                                     4          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 133 MB, peak physical RAM used: 66 MB

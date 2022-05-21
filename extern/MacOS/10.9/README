@@ -1,0 +1,3 @@
+cross compilers have been built with directions, scripts and patches from https://github.com/tpoechtrager/osxcross
+all libs in here are built with an apple-darwin13 cross compiler using SDK version 10.9 with minimum target system 10.6
+universal binaries were created with "lipo -create {i386}.dylib {x86_64}.dylib -output {multi}.dylib"

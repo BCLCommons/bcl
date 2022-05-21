@@ -1,0 +1,171 @@
+CMAKE_MINIMUM_REQUIRED( VERSION 2.8.8)
+
+SET( LIBRARY_NAME bclexampledescriptor)
+SET( LIBRARY_OBJECTS ${LIBRARY_NAME}-objects)
+PROJECT( lib${LIBRARY_NAME})
+
+SET(
+  LIBRARY_SOURCES
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_atom_position.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_atom_property.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_blast_profile.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_blast_weighted_property.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_distance_from_aa_type.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_dssp_info.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_hbond_neighbor.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_info_from_sym_matrix_file.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_inside_outside_membrane.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_molecule_property.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_pair_probability.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_pair_separation.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_pair_type.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_phi_psi.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_pore_orientation.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_position_in_tm.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_property.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_sasa.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_ss_tm_prediction.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_sse_info.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_tm_direction.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_aa_triplet_type.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_aromaticity_axes.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_effective_polarizability.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_estimated_surface_area.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_formal_charge.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_hbond_info.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_is_sp.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_is_sp2.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_is_sp3.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_lone_pair_en.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_misc_property.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_neighbor_direction.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_number_valences.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_pi_charge.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_polarizability.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_relative_property_score.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_ring_size.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_sigma_charge.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_stereocenters.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_surface_area.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_topological_polar_surface_area.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_type_number.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_type_property_retriever.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_vcharge.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atom_volume.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_atomic_number.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_band_pass_filter.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_binary_operation.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_bond_type_count.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_buser_metric.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_cache_map.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_central_2da_sign.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_cheminfo_properties.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_combine.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_constants.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_dataset.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_dataset_builder.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_define.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_element_histogram_1d.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_element_histogram_2d.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_element_type_property_retriever.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_for_each.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_has_cache.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_iterator.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_limit.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_maccs.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_mapped.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_mapped_sequence.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_min_max_index.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_2da_code.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_2da_max_min.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_2da_max_sign.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_2da_smooth_sign_code.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_3d_distribution.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_3d_sign_distribution.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_3da_code.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_3da_smooth.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_3da_smooth_sign_code.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_3da_smooth_sign_occlusion_code.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_3da_soft_max.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_3da_soft_max_sign.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_3da_soft_min.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_asymmetry.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_cached_string.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_complexity.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_entropy_qha.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_fragment_rescale.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_fragment_statistics.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_girth.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_halogenated_aromatic_rings.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_lipinski_violations.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_log_p.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_log_p2008.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_maximum_fragment_statistics.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_name.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_rdf_code.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_rdf_grid_code.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_rdf_max_sign_code.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_rdf_sign_code.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_rings.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_rotatable_bonds.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_shape_moments.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_storage_id.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_total_bond_energy.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_triangulator_code.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_xlog_p.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_mutation_aa_property.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_named.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_numeric.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_numeric_string.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_offset.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_outer_product.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_partial.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_periodogram.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_positional.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_power_spectrum.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_power_spectrum_sequence_width.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_prediction.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_prediction_info.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_protein_id.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_replace_undefined_values.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_rescale.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_sdf_file_id.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_segment_finder.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_segment_info.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_sequence_histogram_1d.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_sequence_segment_statistics.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_sequence_size.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_sequence_sse_count.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_sequence_statistics.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_sequence_weighted_statistics.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_sigmoid.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_sort.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_statistics.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_structure_count.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_structure_search.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_template.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_type.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_umol2d.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_unary_operation.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_window.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_window_average.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_window_conditional_average.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_window_min_max.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_window_pair_square.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_window_segment_statistics.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_window_weights.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_within_range.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_within_range_gaussian.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_within_range_smooth.cpp
+)
+MACRO_CHECK_CMAKE_DIRECTORY_LIST( ${CMAKE_CURRENT_SOURCE_DIR} "${LIBRARY_SOURCES}")
+
+ADD_LIBRARY( ${LIBRARY_OBJECTS} OBJECT ${LIBRARY_SOURCES})
+
+IF( LINK_NAMESPACE_ARCHIVES)
+  ADD_LIBRARY( ${LIBRARY_NAME} STATIC $<TARGET_OBJECTS:${LIBRARY_OBJECTS}>)
+ENDIF()
+
+SET( SUBDIRECTORY_LIBRARY_NAME ${LIBRARY_NAME} PARENT_SCOPE)
+SET( SUBDIRECTORY_LIBRARY_OBJECTS ${LIBRARY_OBJECTS} PARENT_SCOPE)

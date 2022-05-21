@@ -1,0 +1,7 @@
+bcl::fold::CollectorUnconnectedSSE
+  CollectorUnconnectedSSE(
+    sequence direction=n_terminal,
+    bond connected=1,
+    sse types(COIL),
+    ignore termini=0
+  )

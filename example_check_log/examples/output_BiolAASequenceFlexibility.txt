@@ -1,0 +1,98 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec BiolAASequenceFlexibility 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> BiolAASequenceFlexibility
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: BiolAASequenceFlexibility ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> residue 29 native		phi: -1.11515 ( -63.8936)	psi: -0.738391 ( -42.3067)
+=std=bcl=> Checking CalculatePhiPsiChange()
+=std=bcl=> residue 29 change expected	phi: -0.106577 ( -6.10639)	psi: 0.127526 ( 7.30668)
+=std=bcl=> residue 29 change calc	phi: -0.106577 ( -6.10639)	psi: 0.127526 ( 7.30668)
+=std=bcl=> The CalculatePhiPsiChange function failed test succeeded:
+              math::EqualWithinTolerance( phi_psi_29_change.First(), phi_psi_29_calc_change.First()) && math::EqualWithinTolerance( phi_psi_29_change.Second(), phi_psi_29_calc_change.Second())
+              == 1
+=std=bcl=> Checking GetNumberDifferentPhiPsi() with 0 changes
+=std=bcl=> successful example check:  flexibility.GetNumberDifferentPhiPsi( *sp_helix, *sp_helix) == 0
+=std=bcl=> Checking SetPhiPsi()
+=std=bcl=> residue 29 after set		phi: -1.22173 ( -70)	psi: -0.610865 ( -35)
+=std=bcl=> SetPhiPsi function on sp_helix failed test succeeded:
+              math::EqualWithinTolerance( phi_psi_29_new.First(), phi_psi_29_after.First()) && math::EqualWithinTolerance( phi_psi_29_new.Second(), phi_psi_29_after.Second())
+              == 1
+=std=bcl=> Checking GetNumberDifferentPhiPsi() with 1 change
+=std=bcl=> successful example check:  flexibility.GetNumberDifferentPhiPsi( *helix_23_34, *sp_helix) == 1
+=std=bcl=> Checking ChangePhiPsi()
+=std=bcl=> residue 29 after change		phi: -1.22173 ( -70)	psi: -0.610865 ( -35)
+=std=bcl=> ChangePhiPsi function on sp_helix failed test succeeded:
+              math::EqualWithinTolerance( phi_psi_29_new.First(), phi_psi_29_after.First()) && math::EqualWithinTolerance( phi_psi_29_new.Second(), phi_psi_29_after.Second())
+              == 1
+=std=bcl=> residue 67 native		phi: -1.70801 ( -97.8618)	psi: 2.63071 ( 150.728)
+=std=bcl=> Checking SetPhiPsi()
+=std=bcl=> residue 67 after set		phi: 2.61799 ( 150)	psi: 1.91986 ( 110)
+=std=bcl=> SetPhiPsi function on sp_strand failed test succeeded:
+              math::EqualWithinTolerance( phi_psi_67_new.First(), phi_psi_67_after.First()) && math::EqualWithinTolerance( phi_psi_67_new.Second(), phi_psi_67_after.Second())
+              == 1
+=std=bcl=> Checking ChangePhiPsi()
+=std=bcl=> residue 67 after change	phi: 2.61799 ( 150)	psi: 1.91986 ( 110)
+=std=bcl=> ChangePhiPsi function on sp_strand failed test succeeded:
+              math::EqualWithinTolerance( phi_psi_67_new.First(), phi_psi_67_after.First()) && math::EqualWithinTolerance( phi_psi_67_new.Second(), phi_psi_67_after.Second())
+              == 1
+=std=bcl::app=> BCL Example | END  : BiolAASequenceFlexibility ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+BiolAASequenceFlexibility_total           7          0              
+total                                     7          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 65 MB

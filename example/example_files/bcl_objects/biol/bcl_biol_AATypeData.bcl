@@ -1,0 +1,40 @@
+bcl::biol::AATypeData
+  "ASN"	  N	  1	  "ASN"
+  bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+    14
+    bcl::biol::AtomTypes::Enum
+      "N"
+    bcl::biol::AtomTypes::Enum
+      "CA"
+    bcl::biol::AtomTypes::Enum
+      "C"
+    bcl::biol::AtomTypes::Enum
+      "O"
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    bcl::biol::AtomTypes::Enum
+      "CG"
+    bcl::biol::AtomTypes::Enum
+      "ND2"
+    bcl::biol::AtomTypes::Enum
+      "OD1"
+    bcl::biol::AtomTypes::Enum
+      "H"
+    bcl::biol::AtomTypes::Enum
+      "HA"
+    bcl::biol::AtomTypes::Enum
+      "HB2"
+    bcl::biol::AtomTypes::Enum
+      "HB3"
+    bcl::biol::AtomTypes::Enum
+      "HD21"
+    bcl::biol::AtomTypes::Enum
+      "HD22"
+
+  bcl::storage::Map<bcl::biol::AtomTypes::Enum,std::string,std::less<bcl::biol::AtomTypes::Enum>>
+    0
+
+  bcl::biol::AtomTypes::Enum
+    "CB"
+  bcl::storage::Map<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>,bcl::storage::VectorND<4,bcl::biol::AtomTypes::Enum>,std::less<bcl::util::WrapperEnum<bcl::biol::ChiAngle::Chi,bcl::biol::ChiAngle::GetChiName,6>>>
+    0

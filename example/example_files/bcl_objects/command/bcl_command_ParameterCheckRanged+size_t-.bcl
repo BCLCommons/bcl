@@ -1,0 +1,3 @@
+bcl::command::ParameterCheckRanged<size_t>
+  bcl::math::Range<size_t>
+    [ 1 , 10 ]

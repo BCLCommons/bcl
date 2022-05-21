@@ -1,0 +1,55 @@
+bcl::opti::ApproximatorRootSecant<double>
+  bcl::util::ShPtr<bcl::opti::PrintInterface<double,double>>
+    0
+
+  bcl::util::ShPtr<bcl::opti::CriterionInterface<double,double>>
+    12345678
+    bcl::opti::CriterionConvergenceArgument<double,double>
+      ConvergenceArgument(repeats=1,tolerance=1e-05,current repetitions=1,last argument=5.54025e-16)
+  bcl::opti::Tracker<double,double>
+    125
+    125
+    SmallerAbsIsBetter
+    End
+    bcl::storage::Vector<size_t>
+      4
+      125
+      0
+      0
+      0
+
+    bcl::storage::Vector<size_t>
+      4
+      0
+      0
+      0
+      0
+
+    bcl::storage::Vector<size_t>
+      4
+      124
+      0
+      0
+      0
+
+    improved
+    bcl::util::ShPtr<bcl::storage::Pair<double,double>>
+      12345678
+      bcl::storage::Pair<double,double>
+        5.54025e-16
+        1.70054e-46
+    bcl::util::ShPtr<bcl::storage::Pair<double,double>>
+      12345678
+      bcl::storage::Pair<double,double>
+        5.54025e-16
+        1.70054e-46
+    ""
+  bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+    12345678
+    bcl::ExampleOptiApproximatorRootSecant::CubeExampleFunction
+
+  bcl::util::ShPtr<bcl::storage::Pair<double,double>>
+    12345678
+    bcl::storage::Pair<double,double>
+      7.33926e-16
+      3.95328e-46

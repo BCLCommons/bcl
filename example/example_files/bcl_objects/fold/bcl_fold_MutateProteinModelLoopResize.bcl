@@ -1,0 +1,30 @@
+bcl::fold::MutateProteinModelLoopResize
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::util::SiPtr<const-bcl::assemble::SSE>,bcl::assemble::DomainInterface>>
+    12345678
+    bcl::assemble::LocatorSSETerminusResidue
+      A	35	n_terminal
+  0
+  bcl::math::Range<size_t>
+    [ 4 , 4 ]
+  c_terminal
+  0
+  bcl::storage::Map<bcl::biol::SSTypes::Enum,size_t,std::less<bcl::biol::SSTypes::Enum>>
+    1
+    std::pair<bcl::biol::SSTypes::Enum,size_t>
+      bcl::biol::SSTypes::Enum
+        "COIL"
+      1
+
+  "scheme"
+  bcl::storage::Map<bcl::biol::SSTypes::Enum,size_t,std::less<bcl::biol::SSTypes::Enum>>
+    1
+    std::pair<bcl::biol::SSTypes::Enum,size_t>
+      bcl::biol::SSTypes::Enum
+        "COIL"
+      5
+
+  bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<bcl::fold::MutationResidue,bcl::storage::VectorND<2,double>>>
+    12345678
+    bcl::fold::PhiPsiGeneratorRamachandran
+      Ramachandran(histogram filename=phi_psi_angles_by_sstype.histogram2D)
+  1

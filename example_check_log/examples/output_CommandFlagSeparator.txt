@@ -1,0 +1,87 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec CommandFlagSeparator 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> CommandFlagSeparator
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: CommandFlagSeparator ====================
+=std=bcl=> successful example check:  flag_default.GetSeparatorText() == empty_string ==
+=std=bcl=> successful example check:  flag.GetSeparatorText() == string_a == TEST
+=std=bcl=> successful example check:  sp_flag->GetSeparatorText() == flag.GetSeparatorText() == TEST
+=std=bcl=> successful example check:
+               GetStaticClassName< command::FlagSeparator>() == flag.GetClassIdentifier() ==
+              bcl::command::FlagSeparator
+=std=bcl=> successful example check:  flag.GetSeparatorText() == string_a == TEST
+=std=bcl=> successful example check:  flag.GetName() == empty_string ==
+=std=bcl=> successful example check:  flag.GetDescription() == empty_string ==
+=std=bcl=> successful example check:  flag.GetFlag() == 1
+=std=bcl=> successful example check:  flag.GetParameterList().GetSize() == 0
+=std=bcl=> successful example check:  const_flag.GetParameterList().GetSize() == 0
+=std=bcl=> successful example check:  flag.ReadFromList( parameter_list, sstream) == 1
+=std=bcl=> successful example check:  sstream.str() == empty_string ==
+=std=bcl=> successful example check:  flag.IsValidList( sstream) == 1
+=std=bcl=> successful example check:  sstream.str() == empty_string ==
+=std=bcl=> successful example check:
+               sstream.str() == expected_out == 
+              TEST
+=std=bcl=> successful example check:
+               sstream.str() == expected_out == 
+              TEST
+=std=bcl=> successful example check:  flag_read.GetSeparatorText() == flag.GetSeparatorText() == TEST
+=std=bcl::app=> BCL Example | END  : CommandFlagSeparator ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+CommandFlagSeparator_total               17          0              
+total                                    17          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

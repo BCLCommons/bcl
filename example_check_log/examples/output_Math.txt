@@ -1,0 +1,169 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec Math 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> Math
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: Math ====================
+=std=bcl=> successful example check:  math::Absolute( int( -1)) == 1
+=std=bcl=> successful example check:  math::Absolute( int( 1)) == 1
+=std=bcl=> successful example check:  math::Absolute( size_t( 1)) == size_t( 1) == 1
+=std=bcl=> successful example check:  math::Absolute( float( -1.5)) == float( 1.5) == 1.5
+=std=bcl=> successful example check:  math::Absolute( float( 1.5)) == float( 1.5) == 1.5
+=std=bcl=> successful example check:  math::Absolute( double( -1.5)) == double( 1.5) == 1.5
+=std=bcl=> successful example check:  math::Absolute( double( 1.5)) == double( 1.5) == 1.5
+=std=bcl=> successful example check:
+              math::EqualWithinTolerance ( math::Absolute( std::complex< double>( double( 1.5), double( 1.5))).real(), double( math::Sqrt( double( 4.5))) )
+              == 1
+=std=bcl=> test container version of absolute values test succeeded:
+               test_values == correct_values ==
+              bcl::storage::Vector<double>
+                36
+                180
+                172
+                157
+                151
+                145
+                130
+                125
+                114
+                102
+                90
+                81
+                76
+                60
+                53
+                47
+                30
+                27
+                15
+                0
+                7
+                19
+                25
+                40
+                50
+                59
+                68
+                81
+                86
+                95
+                110
+                119
+                121
+                139
+                150
+                160
+                170
+=std=bcl=> successful example check:  math::Absolute( pair).first == abs_pair.first == 0.5234
+=std=bcl=> successful example check:  math::Absolute( pair).second == abs_pair.second == 0.6326
+=std=bcl=> successful example check:  math::Sqr( int_number) == 25.0 == 25  (+/- 1e-06%)
+=std=bcl=> successful example check:  math::Sqr( nonint_number) == 17.64  (+/- 1e-06%)
+=std=bcl=> successful example check:  math::Sqrt( int_number) == 2.236068 == 2.23607  (+/- 1e-06%)
+=std=bcl=> successful example check:  math::Sqrt( nonint_number) == 2.049390 == 2.04939  (+/- 1e-06%)
+=std=bcl=> successful example check:  math::Pow( nonint_number, nonint_number) == 414.616918 == 414.617  (+/- 1e-06%)
+=std=bcl=> successful example check:  math::Pow( value, exponent) == 128  (+/- 0.0001%)
+=std=bcl=> successful example check:  math::Sign( a, b) == -3.0 == -3
+=std=bcl=> successful example check:  math::Sign( a, a) == 3.0 == 3
+=std=bcl=> successful example check:  math::Sign( b, a) == 4.0 == 4
+=std=bcl=> successful example check:  math::Sign( b, b) == -4.0 == -4
+=std=bcl=> successful example check:  math::Pythag( a, b) == 5.0 == 5  (+/- 0.0001%)
+=std=bcl=> successful example check:  math::operator< ( number_one, number_two) == 1
+=std=bcl=> successful example check:  math::operator< ( number_two, number_one) == 0
+=std=bcl=> successful example check:  math::operator<= ( number_one, number_one) == 1
+=std=bcl=> successful example check:  math::operator>= ( number_two, number_two) == 1
+=std=bcl=> successful example check:  math::operator> ( number_two, number_one) == 1
+=std=bcl=> successful example check:  math::operator> ( number_one, number_two) == 0
+=std=bcl=> successful example check:  math::IsPowerOfTwo( 0) == 0
+=std=bcl=> successful example check:  math::IsPowerOfTwo( 1) == 1
+=std=bcl=> successful example check:  math::IsPowerOfTwo( 2) == 1
+=std=bcl=> successful example check:  math::IsPowerOfTwo( 36) == 0
+=std=bcl=> successful example check:  math::IsPowerOfTwo( 512) == 1
+=std=bcl=> successful example check:  math::EqualWithinAbsoluteTolerance( double( 2.615), double( 2.62)) == 0
+=std=bcl=> successful example check:  math::EqualWithinAbsoluteTolerance( double( 2.615), double( 2.62), 0.1) == 1
+=std=bcl=> successful example check:  math::EqualWithinTolerance( double( 2.615), double( 2.62)) == 0
+=std=bcl=> test EqualWithinTolerance test succeeded:  result == 0
+=std=bcl=> successful example check:  math::WeightBetweenZeroAndPi_ThreeSections(6.256) == 0.0 == 0  (+/- 1e-06%)
+=std=bcl=> successful example check:  math::WeightBetweenZeroAndPi_ThreeSections(0.002) == 1.0 == 1  (+/- 1e-06%)
+=std=bcl=> successful example check:  math::WeightBetweenZeroAndPi_ThreeSections( 1.562) == 0.513193  (+/- 1e-06%)
+=std=bcl=> successful example check:  math::WeightBetweenZeroAndPi( 2.562) == 0.0816571  (+/- 1e-07%)
+=std=bcl=> successful example check:
+               math::FilterValuesSmallerEqualLimit( double( 2.562), double( 3.0)) == 0.0 == 0
+               (+/- 0.001%)
+=std=bcl=> successful example check:
+               math::FilterValuesSmallerEqualLimit( double( 2.562), double( 2.0)) == 2.562
+               (+/- 0.001%)
+=std=bcl=> successful example check:  math::ConvertBooleanToSign( true) == 1  (+/- 0.001%)
+=std=bcl=> successful example check:  math::ConvertBooleanToSign( false) == -1  (+/- 0.001%)
+=std=bcl=> successful example check:  math::Absolute( int( -1)) == std::abs( int( -1)) == 1
+=std=bcl=> successful example check:  math::Absolute( int( 1)) == std::abs( int( 1)) == 1
+=std=bcl=> successful example check:  math::Absolute( size_t( 1)) == size_t( 1) == 1
+=std=bcl=> successful example check:  math::Absolute( float( -1.5)) == std::abs( float( -1.5)) == 1.5
+=std=bcl=> successful example check:  math::Absolute( float( 1.5)) == std::abs( float( 1.5)) == 1.5
+=std=bcl=> successful example check:  math::Absolute( double( -1.5)) == std::abs( double( -1.5)) == 1.5
+=std=bcl=> successful example check:  math::Absolute( double( 1.5)) == std::abs( double( 1.5)) == 1.5
+=std=bcl=> successful example check:
+               math::Absolute( std::complex< double>( 1.5, 1.5)) ==
+              std::abs( std::complex< double>( 1.5, 1.5)) == (2.12132,0)
+=std=bcl=> successful example check:  math::BinomialCoefficient( 10, 4) == math::BinomialCoefficient( 10, 6) == 210
+=std=bcl=> successful example check:  math::BinomialCoefficient( 10, 4) == 210
+=std=bcl=> successful example check:  math::Factorial( 4) == 24UL == 24
+=std=bcl=> successful example check:  math::Erf( double( .1723)) == 0.192513  (+/- 1e-06%)
+=std=bcl=> successful example check:  math::Erfc( double( .1723)) == 0.807487  (+/- 1e-06%)
+=std=bcl::app=> BCL Example | END  : Math ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+Math_total                               58          0              
+total                                    58          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

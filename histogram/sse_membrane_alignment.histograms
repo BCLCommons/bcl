@@ -1,0 +1,140 @@
+bcl::storage::Map<bcl::biol::SSTypes::Enum,bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram,std::less<bcl::biol::EnvironmentTypes::Enum>>,std::less<bcl::biol::SSTypes::Enum>>
+  3
+  std::pair<bcl::biol::SSTypes::Enum,bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram,std::less<bcl::biol::EnvironmentTypes::Enum>>>
+    bcl::biol::SSTypes::Enum
+      "HELIX"
+    bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram,std::less<bcl::biol::EnvironmentTypes::Enum>>
+      5
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_CORE"
+        bcl::math::Histogram
+          		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+          center		   0.000	   0.087	   0.262	   0.436	   0.611	   0.785	   0.960	   1.134	   1.309	   1.484	   1.571
+          counts		   0.000	  27.000	  78.000	 111.000	 302.000	 980.000	1643.000	1925.000	1859.000	 843.000	   0.000
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_GAP_CORE_TRANSITION"
+        bcl::math::Histogram
+          		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+          center		   0.000	   0.087	   0.262	   0.436	   0.611	   0.785	   0.960	   1.134	   1.309	   1.484	   1.571
+          counts		   0.000	  52.000	  59.000	  49.000	  71.000	 114.000	 173.000	 173.000	 194.000	  79.000	   0.000
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_TRANSITION"
+        bcl::math::Histogram
+          		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+          center		   0.000	   0.087	   0.262	   0.436	   0.611	   0.785	   0.960	   1.134	   1.309	   1.484	   1.571
+          counts		   0.000	 171.000	 185.000	 215.000	 144.000	 134.000	 212.000	 294.000	 263.000	 144.000	   0.000
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_GAP_TRANSITION_SOLUTION"
+        bcl::math::Histogram
+          		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+          center		   0.000	   0.087	   0.262	   0.436	   0.611	   0.785	   0.960	   1.134	   1.309	   1.484	   1.571
+          counts		   0.000	  21.000	  39.000	  33.000	  18.000	  14.000	  19.000	  40.000	  20.000	  12.000	   0.000
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "SOLUTION"
+        bcl::math::Histogram
+          		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+          center		   0.000	   0.087	   0.262	   0.436	   0.611	   0.785	   0.960	   1.134	   1.309	   1.484	   1.571
+          counts		   0.000	46428.000	43976.000	40412.000	37212.000	32323.000	26665.000	20321.000	13886.000	4622.000	  26.000
+
+
+  std::pair<bcl::biol::SSTypes::Enum,bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram,std::less<bcl::biol::EnvironmentTypes::Enum>>>
+    bcl::biol::SSTypes::Enum
+      "STRAND"
+    bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram,std::less<bcl::biol::EnvironmentTypes::Enum>>
+      5
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_CORE"
+        bcl::math::Histogram
+          		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+          center		   0.000	   0.087	   0.262	   0.436	   0.611	   0.785	   0.960	   1.134	   1.309	   1.484	   1.571
+          counts		   0.000	  17.322	  12.025	 103.402	 437.605	1245.524	1398.597	 259.000	  13.000	   1.000	   0.000
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_GAP_CORE_TRANSITION"
+        bcl::math::Histogram
+          		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+          center		   0.000	   0.087	   0.262	   0.436	   0.611	   0.785	   0.960	   1.134	   1.309	   1.484	   1.571
+          counts		   0.000	   3.107	   2.305	  16.343	  55.134	 131.297	 131.867	  31.000	   4.000	   0.000	   0.000
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_TRANSITION"
+        bcl::math::Histogram
+          		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+          center		   0.000	   0.087	   0.262	   0.436	   0.611	   0.785	   0.960	   1.134	   1.309	   1.484	   1.571
+          counts		   0.000	  10.250	  15.978	  35.087	  74.143	 242.332	 231.790	  81.000	  11.000	   2.000	   0.000
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_GAP_TRANSITION_SOLUTION"
+        bcl::math::Histogram
+          		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+          center		   0.000	   0.087	   0.262	   0.436	   0.611	   0.785	   0.960	   1.134	   1.309	   1.484	   1.571
+          counts		   0.000	   4.559	   4.868	  15.430	   9.733	  27.462	  36.887	  19.000	   3.000	   3.000	   0.000
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "SOLUTION"
+        bcl::math::Histogram
+          		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+          center		   0.000	   0.087	   0.262	   0.436	   0.611	   0.785	   0.960	   1.134	   1.309	   1.484	   1.571
+          counts		   0.000	12565.037	12777.543	13091.587	14363.505	15444.343	14473.261	10867.000	6657.000	2315.000	  25.000
+
+
+  std::pair<bcl::biol::SSTypes::Enum,bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram,std::less<bcl::biol::EnvironmentTypes::Enum>>>
+    bcl::biol::SSTypes::Enum
+      "COIL"
+    bcl::storage::Map<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram,std::less<bcl::biol::EnvironmentTypes::Enum>>
+      5
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_CORE"
+        bcl::math::Histogram
+          		...<	>...
+          center		   0.000	   0.000
+          counts		   0.000	 336.000
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_GAP_CORE_TRANSITION"
+        bcl::math::Histogram
+          		...<	>...
+          center		   0.000	   0.000
+          counts		   0.000	 202.000
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_TRANSITION"
+        bcl::math::Histogram
+          		...<	>...
+          center		   0.000	   0.000
+          counts		   0.000	 645.000
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "MEMBRANE_GAP_TRANSITION_SOLUTION"
+        bcl::math::Histogram
+          		...<	>...
+          center		   0.000	   0.000
+          counts		   0.000	  93.000
+
+      std::pair<bcl::biol::EnvironmentTypes::Enum,bcl::math::Histogram>
+        bcl::biol::EnvironmentTypes::Enum
+          "SOLUTION"
+        bcl::math::Histogram
+          		...<	>...
+          center		   0.000	   0.000
+          counts		   0.000	69078.000
+
+

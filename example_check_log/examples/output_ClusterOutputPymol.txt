@@ -1,0 +1,100 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ClusterOutputPymol 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ClusterOutputPymol
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ClusterOutputPymol ====================
+=crt=bcl::util=> Read in table has run for 6.9e-05 seconds
+=crt=bcl::util=>  Input Table HandleInput  has run for 0.000127 seconds
+=crt=bcl::util=>  initializenode  has run for 5e-06 seconds
+=crt=bcl::util=>  get_initial_linkages  has run for 2e-05 seconds
+=std=bcl::cluster=> initial linkages_nodes size 6
+=std=bcl=> default constructor
+=std=bcl=> constructor taking parameters
+=std=bcl=> successful example check:
+              param_constr.GetCylinderLength() == 100 && param_constr.GetCylinderRadius() == 50 && param_constr.GetCylinderSeparation() == 100 && param_constr.GetNodeColorer() == node_colorer && param_constr.GetMaxNodeLabels() == 250 && param_constr.GetLabelMaker() == label_maker
+              == 1
+=std=bcl=> clone function
+=std=bcl=> successful example check:  output_format_protein_clone.IsDefined() == 1
+=std=bcl=> successful example check:
+               ( GetStaticClassName< cluster::OutputPymol< std::string, float> >()) ==
+              output_format_protein_clone->GetClassIdentifier() == bcl::cluster::OutputPymol<std::string,float>
+=std=bcl=> successful example check:  output_format_protein_def.GetCylinderLength() == 100
+=std=bcl=> successful example check:  output_format_protein_def.GetCylinderRadius() == 50
+=std=bcl=> successful example check:  output_format_protein_def.GetCylinderSeparation() == 100
+=std=bcl=> successful example check:
+               output_format_protein_def.GetNodeColorer() == node_colorer
+              output of result suppressed (result was 854 bytes), set message verbosity to Detail to override
+=std=bcl=> successful example check:  output_format_protein_def.GetMaxNodeLabels() == 250
+=std=bcl=> successful example check:
+               output_format_protein_def.GetLabelMaker() == label_maker
+              output of result suppressed (result was 1743 bytes), set message verbosity to Detail to override
+=std=bcl::cluster=> Average description for node of girth 14 and size 4 is 5
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 5
+=std=bcl::cluster=> Average description for node of girth 9.5 and size 3 is 5
+=std=bcl::cluster=> Average description for node of girth 14 and size 4 is 5
+=std=bcl::cluster=> Average description for node of girth 5 and size 2 is 5
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 5
+=std=bcl::cluster=> Average description for node of girth 9.5 and size 3 is 5
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 5
+=std=bcl::cluster=> Average description for node of girth nan and size 1 is 5
+=std=bcl::cluster=> Average description for node of girth 5 and size 2 is 5
+=std=bcl=> successful example check:  io::File::FilesMatch( dendrogram_filename, dendrogram_filename_correct) == 1
+=std=bcl::app=> BCL Example | END  : ClusterOutputPymol ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+ClusterOutputPymol_total                 10          0              
+total                                    10          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

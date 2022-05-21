@@ -1,0 +1,14 @@
+bcl::assemble::SSEPool
+HELIX    1   1 LEU B    5  GLY B   25  1                                  21    
+HELIX    2   2 LEU B    5  MET B   29  1                                  25    
+HELIX    3   3 GLU B   42  SER B   64  1                                  23    
+HELIX    4   4 LYS B   43  SER B   63  1                                  21    
+HELIX    5   5 ASP B   75  ILE B   95  1                                  21    
+HELIX    6   6 ILE B   77  LEU B   99  1                                  23    
+HELIX    7   7 ILE B  120  ILE B  124  1                                   5    
+HELIX    8   8 MET B  128  ARG B  163  1                                  36    
+HELIX    9   9 TYR B  129  LEU B  143  1                                  15    
+HELIX   10  10 ASN B  145  LEU B  159  1                                  15    
+HELIX   11  11 PRO B  165  GLU B  173  1                                   9    
+HELIX   12  12 GLU B  178  GLY B  184  1                                   7    
+END

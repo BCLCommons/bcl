@@ -1,0 +1,90 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec SspredMethods 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> SspredMethods
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: SspredMethods ====================
+=std=bcl=> read fasta: example/example_files/input/biology/1eco_.fasta
+>e.coli dagk
+MANNTTGFTRIIKAAGYSWKGLRAAWINEAAFRQEGVAVLLAVVIACWLD
+VDAITRVLLISSVMLVMIVEILNSAIEAVVDRIGSEYHELSGRAKDMGSA
+AVLIAIIVAVITWCILLWSHFG
+=std=bcl=> reading BLAST
+=std=bcl=> reading PSIPRED
+=std=bcl=> reading JUFO
+=std=bcl=> reading SAM
+=std=bcl=> reading TMMOD
+=std=bcl=> reading B2TMPRED
+C   0.995  0.004  0.001
+C   0.950  0.025  0.025
+C   0.921  0.057  0.022
+C   0.929  0.051  0.020
+C   0.920  0.029  0.051
+C   0.804  0.099  0.097
+C   0.882  0.080  0.038
+C   0.782  0.104  0.114
+C   0.760  0.144  0.096
+C   0.858  0.120  0.022
+C   0.821  0.076  0.103
+C   0.791  0.143  0.066
+C   0.705  0.245  0.050
+C   0.823  0.059  0.118
+C   0.727  0.208  0.066
+=std=bcl::app=> BCL Example | END  : SspredMethods ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+SspredMethods_total                       0          0              
+total                                     0          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

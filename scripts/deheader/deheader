@@ -1,0 +1,1477 @@
+#!/usr/bin/env python
+"""\
+deheader -- find (optionally remove) unneeded includes in C or C++ sourcefiles.
+
+Usage: deheader [-h] [-v] [-r] [-i pattern] [-x pattern] [sourcefiles]
+    -h, --help     Emit this help message and quit.
+    -m, --maker    Set the build command (by default "make")
+    -i, --ignore   Ignore (don't remove) headers matching the argument regexp
+    -r, --remove   Remove the final set of unneeded headers
+    -v, --verbose  Be chatty about what you're doing.
+    -x, --exclude  Exclude files matching regexp
+    -V, --version  Emit version and exit.
+
+This tool takes a list of C or C++ sourcefiles and generates a report
+on which #includes can be omitted from them -- the test, for each foo.c
+or foo.cc or foo.cpp, is simply whether 'rm foo.o; make foo.o' returns a
+zero status. Optionally, with the -r option, the unneeded headers are removed.
+The tool also reports on headers required for strict portability.
+
+If a sourcefile argument is a directory, the report is generated on all source
+files beneath it.  Subdirectories beginning with a dot are ignored.  If no
+arguments are given, the program runs as if the name of the current directory
+had been passed to it.
+
+The original sourcefile is moved to a name with an .orig suffix and restored
+on interrupt or after processing with its original timestamp, unless the
+-r option was given and headers removed.
+
+The last line of the output is a statistical summary of operations.
+"""
+
+import sys, os, getopt, time, re, operator, commands, multiprocessing, threading, Queue
+
+BATON_DEBUG    = 1
+PROGRESS_DEBUG = 2
+COMMAND_DEBUG  = 3
+VERBOSITY = 0
+
+version = "0.8"
+
+# Difference in various compiler implementations and OSes mean that for cross-
+# platform compatibility you sometimes want to leave "unneeded" headers alone
+# because they're required in order to satify dependencies on other platforms.
+# Note: This table is not yet complete.
+requirements = (
+    # Headers mandated by SuS Version 2 System Interfaces.
+    # a64l, l64a - convert between a 32-bit integer and a radix-64 ASCII string 
+    (r"a64l()",          ["<stdlib.h>"]),
+    (r"l64a()",          ["<stdlib.h>"]),
+    # abort - generate an abnormal process abort 
+    (r"abort()",         ["<stdlib.h>"]),
+    # abs - return an integer absolute value 
+    (r"abs()",           ["<stdlib.h>"]),
+    # access - determine accessibility of a file
+    (r"access()",        ["<unistd.h>"]),
+    # acos - arc cosine function 
+    (r"acos()",          ["<math.h>"]),
+    # acosh, asinh, atanh - inverse hyperbolic functions 
+    (r"acosh()",         ["<math.h>"]),
+    (r"asinh()",         ["<math.h>"]),
+    (r"atanh()",         ["<math.h>"]),
+    # advance - pattern match given a compiled regular expression
+    (r"advance()",       ["<regexp.h>"]),
+    # aio.h - asynchronous input and output
+    (r"aio_cancel()",    ["<aio.h>"]),
+    (r"aio_error()",     ["<aio.h>"]),
+    (r"aio_fsync()",     ["<aio.h>"]),
+    (r"aio_read()",      ["<aio.h>"]),
+    (r"aio_return()",    ["<aio.h>"]),
+    (r"aio_suspend()",   ["<aio.h>"]),
+    (r"aio_write()",     ["<aio.h>"]),
+    (r"lio_listio()",    ["<aio.h>"]),
+    # alarm - schedule an alarm signal
+    (r"alarm()",         ["<unistd.h>"]),
+    # asctime, asctime_r - convert date and time to a string 
+    (r"asctime()",       ["<time.h>"]),
+    (r"asctime_r()",     ["<time.h>"]),
+    # asin - arc sine function 
+    (r"asin()",          ["<math.h>"]),
+    # atan - arc tangent function 
+    (r"atan()",          ["<math.h>"]),
+    # atan2 - arc tangent function 
+    (r"atanh()",         ["<math.h>"]),
+    # atanh - hyperbolic arc tangent
+    (r"atan2()",         ["<math.h>"]),
+    # atexit - register a function to run at process termination
+    (r"atexit()",        ["<stdlib.h>"]),
+    # atof - convert a string to double-precision number 
+    (r"atof()",          ["<stdlib.h>"]),
+    # atoi - convert a string to integer 
+    (r"atol()",          ["<stdlib.h>"]),
+    # atol - convert a string to long integer
+    (r"atol()",          ["<stdlib.h>"]),
+    # basename - return the last component of a pathname 
+    (r"basename()",      ["<libgen.h>"]),
+    # bcmp - memory operations 
+    (r"bcmp()",          ["<strings.h>"]),
+    # bcopy - memory operations 
+    (r"bcopy()",         ["<strings.h>"]),
+    # brk, sbrk - change space allocation (LEGACY) 
+    (r"brk()",           ["<unistd.h>"]),
+    (r"sbrk()",          ["<unistd.h>"]),
+    # bsearch - binary search a sorted table 
+    (r"bsort()",         ["<stdlib.h>"]),
+    # btowc - single-byte to wide-character conversion 
+    (r"btowc()",         ["<stdio.h>", "<wchar.h>"]),
+    # bzero - memory operations 
+    (r"bzero()",         ["<strings.h>"]),
+    # calloc - a memory allocator
+    (r"calloc()",        ["<stdlib.h>"]),
+    # catclose - close a message catalogue descriptor 
+    (r"catclose()",      ["<nl_types.h>"]),
+    # catgets - read a program message 
+    (r"catgets()",       ["<nl_types.h>"]),
+    # catopen - open a message catalogue 
+    (r"catopen()",       ["<nl_types.h>"]),
+    # cbrt - cube root function 
+    (r"cbrt()",          ["<math.h>"]),
+    # ceil - ceiling value function
+    (r"ceil()",          ["<math.h>"]),
+    # chdir - change working directory 
+    (r"chdir()",         ["<unistd.h>"]),
+    # chmod - change mode of a file 
+    (r"chmod()",         ["<sys/stat.h>", "<sys/types.h>"]),
+    # chown - change owner and group of a file
+    (r"chown()",         ["<sys/types.h>", "<unistd.h>"]),
+    # chroot - change root directory (LEGACY)
+    (r"chroot()",        ["<unistd.h>"]),
+    # clearerr - clear indicators on a stream
+    (r"clearerr()",      ["<stdio.h>"]),
+    # clock - report CPU time used 
+    (r"clock()",         ["<time.h>"]),
+    # clock_settime, clock_gettime, clock_getres - clock and timer functions
+    (r"clock_settime()", ["<time.h>"]),
+    (r"clock_gettime()", ["<time.h>"]),
+    (r"clock_getres()",  ["<time.h>"]),
+    # close - close a file descriptor 
+    (r"close()",         ["<unistd.h>"]),
+    # closedir - close a directory stream
+    (r"closedir()",      ["<sys/types.h>", "<dirent.h>"]),
+    # closelog, openlog, setlogmask, syslog - control system log 
+    (r"closelog()",      ["<syslog.h>"]),
+    (r"openlog()",       ["<syslog.h>"]),
+    (r"setlogmask()",    ["<syslog.h>"]),
+    (r"syslog()",        ["<syslog.h>"]),
+    # compile - produce a compiled regular expression
+    (r"compile()",       ["<regexp.h>"]),
+    # confstr - get configurable variables 
+    (r"confstr()",       ["<unistd.h>"]),
+    # cos - cosine function 
+    (r"cos()",           ["<math.h>"]),
+    # cosh - hyperbolic cosine function
+    (r"cosh()",          ["<math.h>"]),
+    # creat - create a new file or rewrite an existing one 
+    (r"creat()",         ["<sys/types.h>", "<sys/stat.h>", "<fcntl.h>"]),
+    # crypt - string encoding function
+    (r"crypt()",         ["<unistd.h>"]),
+    # ctermid - generate a pathname for controlling terminal
+    (r"ctermid()",       ["<stdio.h>"]),
+    # ctime, ctime_r - convert a time value to date and time string
+    (r"ctime()",         ["<time.h>"]),
+    (r"ctime_r()",       ["<time.h>"]),
+    # ctype.h - character types
+    (r"isalnum()",       ["<ctype.h>"]),
+    (r"isalpha()",       ["<ctype.h>"]),
+    (r"isascii()",       ["<ctype.h>"]),
+    (r"iscntrl()",       ["<ctype.h>"]),
+    (r"isdigit()",       ["<ctype.h>"]),
+    (r"isgraph()",       ["<ctype.h>"]),
+    (r"islower()",       ["<ctype.h>"]),
+    (r"isprint()",       ["<ctype.h>"]),
+    (r"ispunct()",       ["<ctype.h>"]),
+    (r"isspace()",       ["<ctype.h>"]),
+    (r"isupper()",       ["<ctype.h>"]),
+    (r"isxdigit()",      ["<ctype.h>"]),
+    (r"toascii()",       ["<ctype.h>"]),
+    (r"tolower()",       ["<ctype.h>"]),
+    (r"toupper()",       ["<ctype.h>"]),
+    (r"_tolower()",      ["<ctype.h>"]),
+    (r"_toupper()",      ["<ctype.h>"]),
+    # cuserid - character login name of the user
+    (r"cuserid()",       ["<stdio.h>"]),
+    # daylight - daylight savings time flag
+    (r"extern\s+int\s+daylight;", ["<time.h>"]),
+    # dbm_clearerr, dbm_close, dbm_delete, dbm_error, dbm_fetch, dbm_firstkey, dbm_nextkey, dbm_open, dbm_store - database functions 
+    (r"dbm_clearerr()",  ["<ndbm.h>"]),
+    (r"dbm_close()",     ["<ndbm.h>"]),
+    (r"dbm_delete()",    ["<ndbm.h>"]),
+    (r"dbm_error()",     ["<ndbm.h>"]),
+    (r"dbm_fetch()",     ["<ndbm.h>"]),
+    (r"dbm_firstkey()",  ["<ndbm.h>"]),
+    (r"dbm_nextkey()",   ["<ndbm.h>"]),
+    (r"dbm_open()",      ["<ndbm.h>"]),
+    (r"dbm_store()",     ["<ndbm.h>"]),
+    # difftime - compute the difference between two calendar time values
+    (r"difftime()",      ["<time.h>"]),
+    # dirname - report the parent directory name of a file pathname
+    (r"dirname()",       ["<libgen.h>"]),
+    # div - compute the quotient and remainder of an integer division 
+    (r"div()",           ["<stdio.h>"]),
+    # dlclose - close a dlopen() object
+    (r"dlclose()",       ["<dlfcn.h>"]),
+    # dlerror - get diagnostic information
+    (r"dlerror()",       ["<dlfcn.h>"]),
+    # dlsym - obtain the address of a symbol from a dlopen() object 
+    (r"dlsym()",         ["<dlfcn.h>"]),
+    # drand48, erand48, jrand48, lcong48, lrand48, mrand48, nrand48, seed48, srand48 - generate uniformly distributed pseudo-random numbers
+    (r"drand48()",       ["<stdlib.h>"]),
+    (r"erand48()",       ["<stdlib.h>"]),
+    (r"jrand48()",       ["<stdlib.h>"]),
+    (r"lcong48()",       ["<stdlib.h>"]),
+    (r"lrand48()",       ["<stdlib.h>"]),
+    (r"mrand48()",       ["<stdlib.h>"]),
+    (r"nrand48()",       ["<stdlib.h>"]),
+    (r"seed48()",        ["<stdlib.h>"]),
+    (r"srand48()",       ["<stdlib.h>"]),
+    # dup, dup2 - duplicate an open file descriptor
+    (r"dup()",           ["<unistd.h>"]),
+    (r"dup2()",          ["<unistd.h>"]),
+    # exit, _exit - terminate a process 
+    (r"exit()",          ["<stdlib.h>"]),    
+    (r"_exit()",         ["<unistd.h>"]),
+    # ecvt, fcvt, gcvt - convert a floating-point number to a string
+    (r"ecvt()",          ["<stdlib.h>"]),    
+    (r"fcvt()",          ["<stdlib.h>"]),    
+    (r"gcvt()",          ["<stdlib.h>"]),
+    # encrypt - encoding function
+    (r"encrypt()",       ["<unistd.h>"]),
+    # endgrent, getgrent, setgrent - group database entry functions 
+    (r"endgrent()",      ["<grp.h>"]),
+    (r"getgrent()",      ["<grp.h>"]),
+    (r"setgrent()",      ["<grp.h>"]),
+    (r"getgrnam()",      ["<grp.h>"]),
+    (r"getgrgid()",      ["<grp.h>"]),
+    (r"getgrnam_r()",    ["<grp.h>"]),
+    (r"getgrgid_r()",    ["<grp.h>"]),
+    # endpwent, getpwent, setpwent - user database functions
+    (r"endpwent()",      ["<pwd.h>"]),
+    (r"getpwent()",      ["<pwd.h>"]),
+    (r"setpwent()",      ["<pwd.h>"]),
+    (r"getpwnam()",      ["<pwd.h>"]),
+    (r"getpwuid()",      ["<pwd.h>"]),
+    (r"getpwnam_r()",    ["<pwd.h>"]),
+    (r"getpwuid_r()",    ["<pwd.h>"]),
+    # endutxent, getutxent, getutxid, getutxline, pututxline, setutxent - user accounting database functions 
+    (r"endutxent()",     ["<utmpx.h>"]),
+    (r"getutxent()",     ["<utmpx.h>"]),
+    (r"getutxid()",      ["<utmpx.h>"]),
+    (r"getutxline()",    ["<utmpx.h>"]),
+    (r"pututxline()",    ["<utmpx.h>"]),
+    (r"setutxent()",     ["<utmpx.h>"]),
+    # erf, erfc - error and complementary error functions
+    (r"erf()",           ["<math.h>"]),
+    (r"erfc()",          ["<math.h>"]),
+    # environ, execl, execv, execle, execve, execlp, execvp - execute a file
+    (r"extern\s+char\s+\*\*environ;",         ["<unistd.h>"]),
+    (r"execl()",         ["<unistd.h>"]),
+    (r"execv()",         ["<unistd.h>"]),
+    (r"execle()",        ["<unistd.h>"]),
+    (r"execve()",        ["<unistd.h>"]),
+    (r"execlp()",        ["<unistd.h>"]),
+    (r"execvp()",        ["<unistd.h>"]),
+    # exp - exponential function
+    (r"exp()",           ["<math.h>"]),
+    #     expm1 - compute exponential functions 
+    (r"expm1()",         ["<math.h>"]),
+    # FD_CLR - macros for synchronous I/O multiplexing
+    (r"FD_CLR()",        ["<sys/time.h>"]),
+    (r"FD_ISSET()",      ["<sys/time.h>"]),
+    (r"FD_SET()",        ["<sys/time.h>"]),
+    (r"FD_ZERO()",       ["<sys/time.h>"]),
+    # fabs - absolute value function
+    (r"fabs()",          ["<math.h>"]),
+    # fattach - attach a STREAMS-based file descriptor to a file in the file system name space 
+    (r"fattach()",       ["<stropts.h>"]),
+    # fchdir - change working directory 
+    (r"fchdir()",        ["<unistd.h>"]),
+    # fchmod - change mode of a file
+    (r"fchmod()",        ["<sys/stat.h>"]),
+    # fchown - change owner and group of a file
+    (r"fchown()",        ["<unistd.h>"]),
+    # fdopen - associate a stream with a file descriptor
+    (r"fdopen()",        ["<stdio.h>"]),
+    # fclose - close a stream
+    (r"fclose()",        ["<stdio.h>"]),
+    # fdatasync - synchronise the data of a file
+    (r"fdatasync()",     ["<unistd.h>"]),
+    # fdetach - detach a name from a STREAMS-based file descriptor 
+    (r"fdetach()",       ["<stropts.h>"]),
+    # fdopen - associate a stream with a file descriptor 
+    (r"fdopen()",        ["<stdio.h>"]),
+    # ferror - test error indicator on a stream
+    (r"ferror()",        ["<stdio.h>"]),
+    # feof - test end-of-file indicator on a stream
+    (r"feof()",          ["<stdio.h>"]),
+    # fflush - flush a stream 
+    (r"fflush()",        ["<stdio.h>"]),
+    # ffs - find first set bit
+    (r"ffs()",           ["<strings.h>"]),
+    # fgetc - get a byte from a stream
+    (r"fgetc()",         ["<stdio.h>"]),
+    # fgetpos - get current file position information
+    (r"fgetpos()",       ["<stdio.h>"]),
+    # fgets - get a string from a stream
+    (r"fgets()",         ["<stdio.h>"]),
+    # fgetwc - get a wide-character code from a stream
+    (r"fgetwc()",        ["<stdio.h>", "<wchar.h>"]),
+    # fgetws - get a wide-character string from a stream 
+    (r"fgetws()",        ["<stdio.h>", "<wchar.h>"]),
+    # fileno - map a stream pointer to a file descriptor
+    (r"fileno()",        ["<stdio.h>"]),
+    # flockfile, ftrylockfile, funlockfile - stdio locking functions 
+    (r"flockfile()",     ["<stdio.h>"]),
+    (r"ftrylockfile()",  ["<stdio.h>"]),
+    (r"funlockfile()",   ["<stdio.h>"]),
+    # fmod - floating-point remainder value function 
+    (r"fmod()",          ["<math.h>"]),
+    # fmtmsg.h - message display structures
+    (r"fmtmsg()",        ["<fmtmsg.h>"]),
+    # fnmatch.h - filename-matching types
+    (r"fnmatch()",       ["<fnmatch.h>"]),
+    # fopen - open a stream
+    (r"fopen()",         ["<stdio.h>"]),
+    # fork - create a new process
+    (r"fork()",          ["<sys/types.h>", "<unistd.h>"]),
+    # fpathconf, pathconf - get configurable pathname variables 
+    (r"fpathconf()",     ["<unistd.h>"]),
+    (r"pathconf()",      ["<unistd.h>"]),
+    # fputc - put a byte on a stream
+    (r"fputc()",         ["<stdio.h>"]),
+    # fputs - put a string on a stream
+    (r"fputs()",         ["<stdio.h>"]),
+    # fputwc - put a wide-character code on a stream
+    (r"fputwc()",        ["<stdio.h>"]),
+    # fputws - put a wide-character string on a stream
+    (r"fputws()",        ["<stdio.h>"]),
+    # fread - binary input
+    (r"fread()",         ["<stdio.h>"]),
+    # free - free allocated memory
+    (r"free()",          ["<stdlib.h>"]),
+    # freopen - open a stream
+    (r"freopen()",       ["<stdio.h>"]),
+    # frexp - extract mantissa and exponent from a double precision number
+    (r"frexp()",         ["<math.h>"]),
+    # fscanf, scanf, sscanf - convert formatted input
+    (r"fscanf()",        ["<stdio.h>"]),
+    (r"scanf()",         ["<stdio.h>"]),
+    (r"sscanf()",        ["<stdio.h>"]),
+    # fseek, fseeko - reposition a file-position indicator in a stream
+    (r"fseek()",         ["<stdio.h>"]),
+    (r"fseeko()",        ["<stdio.h>"]),
+    # fsetpos - set current file position
+    (r"fsetpos()",       ["<stdio.h>"]),
+    # fstat - get file status
+    (r"fstat()",         ["<sys/types.h>", "<sys/stat.h>"]),
+    # fstatvfs, statvfs - get file system information
+    (r"fstatvfs()",      ["<sys/fstatvfs.h>"]),
+    (r"statvfs()",       ["<sys/fstatvfs.h>"]),
+    # fsync - synchronise changes to a file
+    (r"fsync()",         ["<unistd.h>"]),
+    # ftell, ftello - return a file offset in a stream
+    (r"ftell()",         ["<stdio.h>"]),
+    (r"ftello()",        ["<stdio.h>"]),
+    # ftime - get date and time
+    (r"ftime()",         ["<sys/timeb.h>"]),
+    # ftok - generate an IPC key 
+    (r"ftok()",          ["<sys/ipc.h>"]),
+    # ftruncate, truncate - truncate a file to a specified length 
+    (r"truncate()",      ["<unistd.h>"]),
+    (r"ftruncate()",     ["<unistd.h>"]),
+    # ftw - traverse (walk) a file tree 
+    (r"ftw()",           ["<ftw.h>"]),
+    (r"nftw()",          ["<ftw.h>"]),
+    # fwide - set stream orientation
+    (r"fwide()",         ["<stdio.h>", "<wchar.h>"]),
+    # fwprintf, wprintf, swprintf - print formatted wide-character output
+    (r"fwprintf()",      ["<stdio.h>", "<wchar.h>"]),
+    (r"wprintf()",       ["<stdio.h>", "<wchar.h>"]),
+    (r"swprintf()",      ["<stdio.h>", "<wchar.h>"]),
+    # fwrite - binary output
+    (r"fwrite()",        ["<stdio.h>"]),
+    # fwscanf, wscanf, swscanf - convert formatted wide-character input
+    (r"fwscanf()",       ["<stdio.h>", "<wchar.h>"]),
+    (r"wscanf()",        ["<stdio.h>", "<wchar.h>"]),
+    (r"swscanf()",       ["<stdio.h>", "<wchar.h>"]),
+    # gamma, signgam - log gamma function
+    (r"gamma()",         ["<math.h>"]),
+    # getc - get a byte from a stream
+    (r"getc()",          ["<stdio.h>"]),
+    # getc_unlocked, getchar_unlocked, putc_unlocked, putchar_unlocked - stdio with explicit client locking 
+    (r"getc_unlocked()", ["<stdio.h>"]),
+    (r"getchar_unlocked()", ["<stdio.h>"]),
+    (r"putc_unlocked()",    ["<stdio.h>"]),
+    (r"putchar_unlocked()", ["<stdio.h>"]),
+    # getchar - get a byte from a stdin stream
+    (r"getchar()",          ["<stdio.h>"]),
+    # getcontext, setcontext - get and set current user context
+    (r"getcontext()",       ["<ucontext.h>"]),
+    (r"setcontext()",       ["<ucontext.h>"]),
+    # getcwd - get the pathname of the current working directory 
+    (r"getcwd()",        ["<unistd.h>"]),
+    # getdate - convert user format date and time
+    (r"getdate()",       ["<time.h>"]),
+    # getdtablesize - get the file descriptor table size
+    (r"getdtablesize()", ["<unistd.h>"]),
+    # getegid - get the effective group ID
+    (r"getegid()",       ["<unistd.h>", "<sys/types.h>"]),
+    # getenv - get value of an environment variable 
+    (r"getenv()",        ["<stdlib.h>"]),
+    # geteuid - get the effective user ID
+    (r"geteuid()",       ["<unistd.h>", "<sys/types.h>"]),
+    # getgid - get the real group ID
+    (r"getgid()",        ["<unistd.h>", "<sys/types.h>"]),
+    # getgrgid, getgrgid_r - get group database entry for a group ID
+    (r"getgrgid()",      ["<sys/types.h>", "<grp.h>"]),
+    (r"getgrgid_r()",    ["<sys/types.h>", "<grp.h>"]),
+    # getgrnam, getgrnam_r - search group database for a name 
+    (r"getgrnam()",      ["<sys/types.h>", "<pwd.h>"]),
+    (r"getgrnam_r()",    ["<sys/types.h>", "<pwd.h>"]),
+    # getgroups - get supplementary group IDs
+    (r"getgroups()",     ["<unistd.h>", "<sys/types.h>"]),
+    # gethostid - get an identifier for the current host
+    (r"gethostid()",     ["<unistd.h>"]),
+    # getitimer, setitimer - get or set value of interval timer
+    (r"getitimer()",     ["<sys/time.h>"]),
+    (r"setitimer()",     ["<sys/time.h>"]),
+    # getlogin, getlogin_r - get login name
+    (r"getlogin()",      ["<unistd.h>"]),
+    (r"getlogin_r()",    ["<unistd.h>"]),
+    # getmsg, getpmsg - receive next message from a STREAMS file 
+    (r"getmsg()",        ["<stropts.h>"]),
+    (r"getpmsg()",       ["<stropts.h>"]),
+    # getopt, optarg, optind, opterr, optopt - command option parsing
+    (r"getopt()",        ["<unistd.h>"]),
+    (r"extern\s+char\s+\*\*optarg;",  ["<unistd.h>"]),
+    # getpagesize - get the current page size
+    (r"getpagesize()",   ["<unistd.h>"]),
+    # getpass - read a string of characters without echo
+    (r"getpass()",       ["<unistd.h>"]),
+    # getpgid - get the process group ID for a process
+    (r"getpgid()",       ["<unistd.h>"]),
+    # getpgrp - get the process group ID of the calling process
+    (r"getpgrp()",       ["<sys/types.h>", "<unistd.h>"]),
+    # getpid - get the process ID
+    (r"getpid()",        ["<sys/types.h>", "<unistd.h>"]),
+    # getppid - get the parent process ID
+    (r"getppid()",       ["<sys/types.h>", "<unistd.h>"]),
+    # getpriority, setpriority - get or set the nice value 
+    (r"getpriority()",   ["<sys/resource.h>"]),
+    (r"setpriority()",   ["<sys/resource.h>"]),
+    # getpwnam, getpwnam_r - search user database for a name
+    (r"getpwnam()",      ["<sys/types.h>", "<pwd.h>"]),
+    (r"getpwnam_r()",    ["<sys/types.h>", "<pwd.h>"]),
+    # getpwuid, getpwuid_r - search user database for a user ID
+    (r"getpwuid()",      ["<sys/types.h>", "<pwd.h>"]),
+    (r"getpwuid_r()",    ["<sys/types.h>", "<pwd.h>"]),
+    # getrlimit, setrlimit - control maximum resource consumption
+    (r"getrlimit()",     ["<sys/resource.h>"]),
+    (r"setrlimit()",     ["<sys/resource.h>"]),
+    # getrusage - get information about resource utilisation
+    (r"getrusage()",     ["<sys/resource.h>"]),
+    # gets - get a string from a stdin stream
+    (r"gets()",          ["<stdio.h>"]),
+    # getsid - get the process group ID of session leader
+    (r"getsid()",        ["<unistd.h>"]),
+    # getsubopt - parse suboption arguments from a string
+    (r"getsubopt()",     ["<stdlib.h>"]),
+    # gettimeofday - get the date and time
+    (r"gettimeofday()",  ["<sys/time.h>"]),
+    # getuid - get a real user ID
+    (r"getuid()",        ["<sys/types.h>", "<unistd.h>"]),
+    # getw - get a word from a stream
+    (r"getw()",          ["<stdio.h>"]),
+    # getwc - get a wide-character code from a stream
+    (r"getwc()",         ["<stdio.h>", "<wchar.h>"]),
+    # getws - get a wide-character string from a stream 
+    (r"getws()",         ["<stdio.h>", "<wchar.h>"]),
+    # getwchar - get a wide character from a stdin stream
+    (r"getwchar()",      ["<wchar.h>"]),
+    # getwd - get the current working directory pathname 
+    (r"getwd()",         ["<unistd.h>"]),
+    # glob.h - pathname pattern-matching types
+    (r"glob()",          ["<glob.h>"]),
+    (r"globfree()",      ["<glob.h>"]),
+    # gmtime, gmtime_r - convert a time value to a broken-down UTC time
+    (r"gmtime()",        ["<time.h>"]),
+    (r"gmtime_r()",      ["<time.h>"]),
+    # grantpt - grant access to the slave pseudo-terminal device 
+    (r"grantpt()",       ["<stdlib.h>"]),
+    # hcreate, hdestroy, hsearch - manage hash search table
+    (r"hcreate()",       ["<search.h>"]),
+    (r"hdestroy()",      ["<search.h>"]),
+    (r"hsearch ()",      ["<search.h>"]),
+    # hypot - Euclidean distance function
+    (r"hypot()",         ["<math.h>"]),
+    # iconv.h - codeset conversion facility
+    (r"iconv_open()",    ["<iconv.h>"]),
+    (r"iconv()",         ["<iconv.h>"]),
+    (r"iconv_close()",   ["<iconv.h>"]),
+    # ilogb - return an unbiased exponent
+    (r"ilogb()",         ["<math.h>"]),
+    # index - character string operations
+    (r"index()",         ["<strings.h>"]),
+    # initstate, random, setstate, srandom - pseudorandom number functions
+    (r"initstate()",     ["<stdlib.h>"]),
+    (r"random()",        ["<stdlib.h>"]),
+    (r"setstate()",      ["<stdlib.h>"]),
+    (r"srandom()",       ["<stdlib.h>"]),
+    # insque, remque - insert or remove an element in a queue
+    (r"insque()",        ["<search.h>"]),
+    (r"remque()",        ["<search.h>"]),
+    # SuS ioctl specifies <stropts.h>, but that's just wrong
+    # isastream - test a file descriptor
+    (r"isastream()",     ["<stropts.h>"]),
+    # isnan - test for a NaN
+    (r"isnan()",         ["<math.h>"]),
+    # j0, j1, jn - Bessel functions of the first kind 
+    (r"j0()",            ["<math.h>"]),
+    (r"j1()",            ["<math.h>"]),
+    (r"jn()",            ["<math.h>"]),
+    # labs - return a long integer absolute value
+    (r"labs()",          ["<stdlib.h>"]),
+    # lchown - change the owner and group of a symbolic link
+    (r"lchown()",        ["<unistd.h>"]),
+    # ldexp - load exponent of a floating point number
+    (r"ldexp()",         ["<math.h>"]),
+    # ldiv - compute quotient and remainder of a long division
+    (r"ldiv()",          ["<stdlib.h>"]),
+    # lgamma - log gamma function
+    (r"lgamma()",        ["<math.h>"]),
+    # libgen.h - definitions for pattern matching functions
+    (r"regcmp()",        ["<libgen.h>"]),
+    (r"regex()",         ["<libgen.h>"]),
+    # link - link to a file
+    (r"link()",          ["<unistd.h>"]),
+    # localeconv - determine the program locale
+    (r"localeconv()",    ["<locale.h>"]),
+    # localtime, localtime_r - convert a time value to a broken-down local time
+    (r"localtime()",     ["<time.h>"]),
+    (r"localtime_r()",   ["<time.h>"]),
+    # lockf - record locking on files
+    (r"lockf()",         ["<unistd.h>"]),
+    # log - natural logarithm function
+    (r"log()",           ["<math.h>"]),
+    # log10 - base 10 logarithm function 
+    (r"log10()",         ["<math.h>"]),
+    # log1p - compute a natural logarithm
+    (r"log1p()",         ["<math.h>"]),
+    # logb - radix-independent exponent
+    (r"logb()",          ["<math.h>"]),
+    # lsearch, lfind - linear search and update
+    (r"lfind()",         ["<search.h>"]),
+    (r"lsearch()",       ["<search.h>"]),
+    # lseek - move the read/write file offset
+    (r"lseek()",         ["<sys/types.h>", "<unistd.h>"]),
+    # lstat - get symbolic link status
+    (r"lstat()",         ["<sys/stat.h>"]),
+    # makecontext, swapcontext - manipulate user contexts
+    (r"makecontext()",   ["<ucontext.h>"]),
+    (r"swapcontext()",   ["<ucontext.h>"]),
+    # malloc - a memory allocator
+    (r"malloc()",        ["<stdlib.h>"]),
+    # mblen - get number of bytes in a character 
+    (r"mblen()",         ["<stdlib.h>"]),
+    # mbrlen - get number of bytes in a character (restartable) 
+    (r"mblren()",        ["<wchar.h>"]),
+    # mbrtowc - convert a character to a wide-character code (restartable)
+    (r"mbrtowc()",       ["<wchar.h>"]),
+    # mbsinit - determine conversion object status
+    (r"mbsinit()",       ["<wchar.h>"]),
+    # mbsrtowcs - convert a character string to a wide-character string (restartable)
+    (r"mbsrtowcs()",     ["<wchar.h>"]),
+    # mbstowcs - convert a character string to a wide-character string
+    (r"mbstowcs()",      ["<wchar.h>"]),
+    # mbtowc - convert a character to a wide-character code 
+    (r"mbtowcs()",       ["<stdlib.h>"]),
+    # mkdir - make a directory 
+    (r"mkdir()",         ["<sys/types.h>", "<sys/stat.h>"]),
+    # mkfifo - make a FIFO special file
+    (r"mkfifo()",        ["<sys/types.h>", "<sys/stat.h>"]),
+    # mknod - make a directory, a special or regular file
+    (r"mknod()",         ["<sys/stat.h>"]),
+    # mkstemp - make a unique file name
+    (r"mkstemp()",       ["<stdlib.h>"]),
+    # mktemp - make a unique filename
+    (r"mktemp()",        ["<stdlib.h>"]),
+    # convert broken-down time into time since the Epoch
+    (r"mktime()",        ["<time.h>"]),
+    # sys/mman.h - memory management declarations 
+    (r"mlock()",         ["<sys/mman.h>"]),
+    (r"mlockall()",      ["<sys/mman.h>"]),
+    (r"mmap()",          ["<sys/mman.h>"]),
+    (r"mprotect()",      ["<sys/mman.h>"]),
+    (r"msync()",         ["<sys/mman.h>"]),
+    (r"munlock()",       ["<sys/mman.h>"]),
+    (r"munlockall()",    ["<sys/mman.h>"]),
+    (r"munmap()",        ["<sys/mman.h>"]),
+    (r"shm_open()",      ["<sys/mman.h>"]),
+    (r"shm_unlink()",    ["<sys/mman.h>"]),
+    # modf - decompose a floating-point number
+    (r"modf()",          ["<math.h>"]),
+    # monetary.h - monetary types 
+    (r"strfmon()",       ["<monetary.h>"]),
+    # mqueue.h - message queues
+    (r"mq_close()",      ["<mqueue.h>"]),
+    (r"mq_getattr()",    ["<mqueue.h>"]),
+    (r"mq_notify()",     ["<mqueue.h>"]),
+    (r"mq_open()",       ["<mqueue.h>"]),
+    (r"mq_receive()",    ["<mqueue.h>"]),
+    (r"mq_send()",       ["<mqueue.h>"]),
+    (r"mq_setattr()",    ["<mqueue.h>"]),
+    (r"mq_unlink()",     ["<mqueue.h>"]),
+    # sys/msg.h - message queue structures
+    (r"msgctl()",        ["<sys/msg.h>"]),
+    (r"msgget()",        ["<sys/msg.h>"]),
+    (r"msgrcv()",        ["<sys/msg.h>"]),
+    (r"msgsnd()",        ["<sys/msg.h>"]),
+    # nanosleep - high resolution sleep
+    (r"nanosleep()",     ["<time.h>"]),
+    # nextafter - next representable double-precision floating-point number
+    (r"nextafter()",     ["<math.h>"]),
+    # change nice value of a process
+    (r"nice()",          ["<unistd.h>"]),
+    # nl_langinfo - language information
+    (r"nl_langinfo()",   ["<langinfo.h>"]),
+    # open - open a file
+    (r"open()",          ["<sys/types.h>", "<sys/stat.h>", "<fcntl.h>"]),
+    # opendir - open a directory
+    (r"opendir()",       ["<sys/types.h>", "<dirent.h>"]),
+    # pause - suspend the thread until signal is received
+    (r"pause()",         ["<unistd.h>"]),
+    # pclose - close a pipe stream to or from a process 
+    (r"pclose()",        ["<stdio.h>"]),
+    # perror - write error messages to standard error
+    (r"perror()",        ["<stdio.h>"]),
+    # pipe - create an interprocess channel 
+    (r"pipe()",          ["<unistd.h>"]),
+    # poll - input/output multiplexing 
+    (r"poll()",          ["<poll.h>"]),
+    # popen - initiate pipe streams to or from a process 
+    (r"popen()",         ["<stdio.h>"]),
+    # pow - power function
+    (r"pow()",           ["<math.h>"]),
+    # pread - read from a file
+    ("pread()",          ["<unistd.h>"]),
+    # pthread.h - threads
+    (r"pthread_attr_destroy()",            ["<pthread.h>"]),
+    (r"pthread_attr_getdetachstate()",     ["<pthread.h>"]),
+    (r"pthread_attr_getguardsize()",       ["<pthread.h>"]),
+    (r"pthread_attr_getinheritsched()",    ["<pthread.h>"]),
+    (r"pthread_attr_getschedparam()",      ["<pthread.h>"]),
+    (r"pthread_attr_getschedpolicy()",     ["<pthread.h>"]),
+    (r"pthread_attr_getscope()",           ["<pthread.h>"]),
+    (r"pthread_attr_getstackaddr()",       ["<pthread.h>"]),
+    (r"pthread_attr_getstacksize()",       ["<pthread.h>"]),
+    (r"pthread_attr_init()",               ["<pthread.h>"]),
+    (r"pthread_attr_setdetachstate()",     ["<pthread.h>"]),
+    (r"pthread_attr_setguardsize()",       ["<pthread.h>"]),
+    (r"pthread_attr_setinheritsched()",    ["<pthread.h>"]),
+    (r"pthread_attr_setschedparam()",      ["<pthread.h>"]),
+    (r"pthread_attr_setschedpolicy()",     ["<pthread.h>"]),
+    (r"pthread_attr_setscope()",           ["<pthread.h>"]),
+    (r"pthread_attr_setstackaddr()",       ["<pthread.h>"]),
+    (r"pthread_attr_setstacksize()",       ["<pthread.h>"]),
+    (r"pthread_cancel()",                  ["<pthread.h>"]),
+    (r"pthread_cleanup_push()",            ["<pthread.h>"]),
+    (r"pthread_cleanup_pop()",             ["<pthread.h>"]),
+    (r"pthread_cond_broadcast()",          ["<pthread.h>"]),
+    (r"pthread_cond_destroy()",            ["<pthread.h>"]),
+    (r"pthread_cond_init()",               ["<pthread.h>"]),
+    (r"pthread_cond_signal()",             ["<pthread.h>"]),
+    (r"pthread_cond_timedwait()",          ["<pthread.h>"]),
+    (r"pthread_cond_wait()",               ["<pthread.h>"]),
+    (r"pthread_condattr_destroy()",        ["<pthread.h>"]),
+    (r"pthread_condattr_getpshared()",     ["<pthread.h>"]),
+    (r"pthread_condattr_init()",           ["<pthread.h>"]),
+    (r"pthread_condattr_setpshared()",     ["<pthread.h>"]),
+    (r"pthread_create()",                  ["<pthread.h>"]),
+    (r"pthread_detach()",                  ["<pthread.h>"]),
+    (r"pthread_equal()",                   ["<pthread.h>"]),
+    (r"pthread_exit()",                    ["<pthread.h>"]),
+    (r"pthread_getconcurrency()",          ["<pthread.h>"]),
+    (r"pthread_getschedparam()",           ["<pthread.h>"]),
+    (r"pthread_getspecific()",             ["<pthread.h>"]),
+    (r"pthread_join()",                    ["<pthread.h>"]),
+    (r"pthread_key_create()",              ["<pthread.h>"]),
+    (r"pthread_key_delete()",              ["<pthread.h>"]),
+    (r"pthread_mutex_destroy()",           ["<pthread.h>"]),
+    (r"pthread_mutex_getprioceiling()",    ["<pthread.h>"]),
+    (r"pthread_mutex_init()",              ["<pthread.h>"]),
+    (r"pthread_mutex_lock()",              ["<pthread.h>"]),
+    (r"pthread_mutex_setprioceiling()",    ["<pthread.h>"]),
+    (r"pthread_mutex_trylock()",           ["<pthread.h>"]),
+    (r"pthread_mutex_unlock()",            ["<pthread.h>"]),
+    (r"pthread_mutexattr_destroy()",       ["<pthread.h>"]),
+    (r"pthread_mutexattr_getprioceiling()",["<pthread.h>"]),
+    (r"pthread_mutexattr_getprotocol()",   ["<pthread.h>"]),
+    (r"pthread_mutexattr_getpshared()",    ["<pthread.h>"]),
+    (r"pthread_mutexattr_gettype()",       ["<pthread.h>"]),
+    (r"pthread_mutexattr_init()",          ["<pthread.h>"]),
+    (r"pthread_mutexattr_setprioceiling()",["<pthread.h>"]),
+    (r"pthread_mutexattr_setprotocol()",   ["<pthread.h>"]),
+    (r"pthread_mutexattr_setpshared()",    ["<pthread.h>"]),
+    (r"pthread_mutexattr_settype()",       ["<pthread.h>"]),
+    (r"pthread_once()",                    ["<pthread.h>"]),
+    (r"pthread_rwlock_destroy()",          ["<pthread.h>"]),
+    (r"pthread_rwlock_init()",             ["<pthread.h>"]),
+    (r"pthread_rwlock_rdlock()",           ["<pthread.h>"]),
+    (r"pthread_rwlock_tryrdlock()",        ["<pthread.h>"]),
+    (r"pthread_rwlock_trywrlock()",        ["<pthread.h>"]),
+    (r"pthread_rwlock_unlock()",           ["<pthread.h>"]),
+    (r"pthread_rwlock_wrlock()",           ["<pthread.h>"]),
+    (r"pthread_rwlockattr_destroy()",      ["<pthread.h>"]),
+    (r"pthread_rwlockattr_getpshared()",   ["<pthread.h>"]),
+    (r"pthread_rwlockattr_init()",         ["<pthread.h>"]),
+    (r"pthread_rwlockattr_setpshared()",   ["<pthread.h>"]),
+    (r"pthread_self()",                    ["<pthread.h>"]),
+    (r"pthread_setcancelstate()",          ["<pthread.h>"]),
+    (r"pthread_setcanceltype()",           ["<pthread.h>"]),
+    (r"pthread_setconcurrency()",          ["<pthread.h>"]),
+    (r"pthread_setschedparam()",           ["<pthread.h>"]),
+    (r"pthread_setspecific()",             ["<pthread.h>"]),
+    (r"pthread_testcancel()",              ["<pthread.h>"]),
+    # ptsname - get name of the slave pseudo-terminal device 
+    (r"ptsname()",       ["<stdlib.h>"]),
+    # putc - put a byte on a stream
+    (r"putc()",          ["<stdio.h>"]),
+    # putc_unlocked - stdio with explicit client locking
+    (r"putc_unlocked()", ["<stdio.h>"]),
+    # putchar - put byte on stdout stream
+    (r"putchar()",       ["<stdio.h>"]),
+    # putchar_unlocked - stdio with explicit client locking
+    (r"putchar_unlocked()",                ["<stdio.h>"]),
+    # putenv - change or add a value to environment
+    (r"putenv()",        ["<stdlib.h>"]),
+    # putmsg, putpmsg - send a message on a STREAM 
+    (r"putmsg()",        ["<stropts.h>"]),
+    (r"putpmsg()",       ["<stropts.h>"]),
+    # puts - put a string on standard output
+    (r"puts()",          ["<stdio.h>"]),
+    # putw - put a word on a stream
+    (r"putw()",          ["<stdio.h>"]),
+    # putwc - put a wide-character on a stream
+    (r"putwc()",         ["<stdio.h>", "<wchar.h>"]),
+    # putwchar - put a wide character from a stdin stream
+    (r"putwchar()",      ["<wchar.h>"]),
+    # qsort - sort a table of data
+    (r"qsort()",         ["<stdlib.h>"]),
+    # raise - send a signal to the executing process 
+    (r"raise()",         ["<signal.h>"]),
+    # rand, rand_r - pseudo-random number generator
+    (r"rand()",          ["<stdlib.h>"]),
+    (r"srand()",         ["<stdlib.h>"]),
+    (r"rand_r()",        ["<stdlib.h>"]),
+    # random - generate pseudorandom number
+    (r"random()",        ["<stdlib.h>"]),
+    # re_comp.h - regular-expression-matching functions for re_comp()
+    (r"re_comp()",       ["<re_comp.h>"]),
+    (r"re_exec()",       ["<re_comp.h>"]),
+    # read, readv, pread - read from a file
+    ("read()",           ["<unistd.h>"]),
+    ("readv()",          ["<sys/uio.h>"]),
+    # readdir, readdir_r - read directory 
+    (r"readdir()",       ["<sys/types.h>", "<dirent.h>"]),
+    (r"readdir_r()",     ["<sys/types.h>", "<dirent.h>"]),
+    # readlink - read the contents of a symbolic link 
+    ("readlink()",       ["<unistd.h>"]),
+    # realloc - memory reallocator
+    ("realloc()",        ["<unistd.h>"]),
+    # realpath - resolve a pathname
+    ("realpath()",       ["<stdlib.h>"]),
+    # regcomp, regexec, regerror, regfree - regular expression matching
+    (r"regcomp()",       ["<sys/types.h>", "<regex.h>"]),
+    (r"regexec()",       ["<sys/types.h>", "<regex.h>"]),
+    (r"regerror()",      ["<sys/types.h>", "<regex.h>"]),
+    (r"regfree()",       ["<sys/types.h>", "<regex.h>"]),
+    # remainder - remainder function
+    (r"remainder()",     ["<math.h>"]),
+    # remove - remove files
+    (r"remove()",        ["<stdio.h>"]),
+    # rename - rename a file
+    (r"rename()",        ["<stdio.h>"]),
+    # rewind - reset file position indicator in a stream
+    (r"rewind()",        ["<stdio.h>"]),
+    # rewinddir - reset position of directory stream to the beginning of a directory 
+    (r"rewinddir()",     ["<sys/types.h>", "<dirent.h>"]),
+    # rindex - character string operations
+    (r"rindex()",        ["<strings.h>"]),
+    # rint - round-to-nearest integral value 
+    (r"rint()",          ["<math.h>"]),
+    # rmdir - remove a directory
+    ("rmdir()",          ["<unistd.h>"]),
+    # scalb - load exponent of a radix-independent floating-point number
+    (r"scalb()",         ["<math.h>"]),
+    # scanf - convert formatted input
+    (r"scanf()",        ["<stdio.h>"]),
+    # sched.h - execution scheduling
+    (r"sched_get_priority_max()",      ["<sched.h>"]),
+    (r"sched_get_priority_min()",      ["<sched.h>"]),
+    (r"sched_getparam()",              ["<sched.h>"]),
+    (r"sched_getscheduler()",          ["<sched.h>"]),
+    (r"sched_rr_get_interval()",       ["<sched.h>"]),
+    (r"sched_setparam()",              ["<sched.h>"]),
+    (r"sched_setscheduler()",          ["<sched.h>"]),
+    (r"sched_yield()",                 ["<sched.h>"]),
+    # seekdir - set position of directory stream
+    (r"seekdir()",       ["<sys/types.h>", "<dirent.h>"]),
+    # select - synchronous I/O multiplexing
+    (r"select()",        ["<sys/time.h>"]),
+    # semaphore.h - semaphores
+    (r"sem_close()",     ["<semaphore.h>"]),
+    (r"sem_destroy()",   ["<semaphore.h>"]),
+    (r"sem_getvalue()",  ["<semaphore.h>"]),
+    (r"sem_init()",      ["<semaphore.h>"]),
+    (r"sem_open()",      ["<semaphore.h>"]),
+    (r"sem_post()",      ["<semaphore.h>"]),
+    (r"sem_trywait()",   ["<semaphore.h>"]),
+    (r"sem_unlink()",    ["<semaphore.h>"]),
+    (r"sem_wait()",      ["<semaphore.h>"]),
+    # sys/sem.h - semaphore facility
+    (r"semctl()",        ["<sys/sem.h>"]),
+    (r"semget()",        ["<sys/sem.h>"]),
+    (r"semop()",         ["<sys/sem.h>"]),
+    # setbuf - assign buffering to a stream
+    (r"setbuf()",        ["<stdio.h>"]),
+    # setgid - set-group-ID
+    (r"setgid()",        ["<sys/types.h>", "<unistd.h>"]),
+    # setgrent - reset group database to first entry
+    (r"setgrent()",      ["<grp.h>"]),
+    # setkey - set encoding key
+    (r"setkey()",        ["<stdlib.h>"]),
+    # setpgid - set process group ID for job control
+    (r"setpgid()",       ["<sys/types.h>", "<unistd.h>"]),
+    # setpgrp - set process group ID
+    (r"setpgrp()",       ["<unistd.h>"]),
+    # setregid - set real and effective group IDs
+    (r"setregid()",      ["<unistd.h>"]),
+    # setreuid - set real and effective user IDs 
+    (r"setreuid()",      ["<unistd.h>"]),
+    # setsid - create session and set process group ID
+    (r"setsid()",        ["<sys/types.h>", "<unistd.h>"]),
+    # setuid - set-user-ID
+    (r"setuid()",        ["<sys/types.h>", "<unistd.h>"]),
+    # setvbuf - assign buffering to a stream
+    (r"setvbuf()",       ["<stdio.h>"]),
+    # sys/shm.h - shared memory facility
+    (r"shmat()",         ["<sys/shm.h>"]),
+    (r"shmctl()",        ["<sys/shm.h>"]),
+    (r"shmdt()",         ["<sys/shm.h>"]),
+    (r"shmget()",        ["<sys/shm.h>"]),
+    # setjmp.h - stack environment declarations
+    (r"longjmp()",       ["<setjmp.h>"]),
+    (r"siglongjmp()",    ["<setjmp.h>"]),
+    (r"_longjmp()",      ["<setjmp.h>"]),
+    (r"setjmp()",        ["<setjmp.h>"]),
+    (r"sigsetjmp()",     ["<setjmp.h>"]),
+    (r"_setjmp()",       ["<setjmp.h>"]),
+    # signal.h - signals
+    (r"bsd_signal()",    ["<signal.h>"]),
+    (r"kill()",          ["<signal.h>"]),
+    (r"killpg()",        ["<signal.h>"]),
+    (r"pthread_kill()",  ["<signal.h>"]),
+    (r"pthread_sigmask()",    ["<signal.h>"]),
+    (r"raise()",         ["<signal.h>"]),
+    (r"sigaction()",     ["<signal.h>"]),
+    (r"sigaddset()",     ["<signal.h>"]),
+    (r"sigaltstack()",   ["<signal.h>"]),
+    (r"sigdelset()",     ["<signal.h>"]),
+    (r"sigemptyset()",   ["<signal.h>"]),
+    (r"sigfillset()",    ["<signal.h>"]),
+    (r"sighold()",       ["<signal.h>"]),
+    (r"sigignore()",     ["<signal.h>"]),
+    (r"siginterrupt()",  ["<signal.h>"]),
+    (r"sigismember()",   ["<signal.h>"]),
+    (r"signal()",        ["<signal.h>"]),
+    (r"sigpause()",      ["<signal.h>"]),
+    (r"sigpending()",    ["<signal.h>"]),
+    (r"sigprocmask()",   ["<signal.h>"]),
+    (r"sigqueue()",      ["<signal.h>"]),
+    (r"sigrelse()",      ["<signal.h>"]),
+    (r"sigset()",        ["<signal.h>"]),
+    (r"sigstack()",      ["<signal.h>"]),
+    (r"sigsuspend()",    ["<signal.h>"]),
+    (r"sigtimedwait()",  ["<signal.h>"]),
+    (r"sigwait()",       ["<signal.h>"]),
+    (r"sigwaitinfo()",   ["<signal.h>"]),
+    # sin - sine function
+    (r"sin()",           ["<math.h>"]),
+    # sinh - hyperbolic sine function
+    (r"sinh()",          ["<math.h>"]),
+    # sleep - suspend execution for an interval of time 
+    (r"sleep()",         ["<unistd.h>"]),
+    # fprintf, printf, snprintf, sprintf - print formatted output
+    (r"fprintf()",       ["<stdio.h>"]),
+    (r"printf()",        ["<stdio.h>"]),
+    (r"snprintf()",      ["<stdio.h>"]),
+    (r"sprintf()",       ["<stdio.h>"]),
+    # sqrt - square root function
+    (r"sqrt()",          ["<math.h>"]),
+    # stat - get file status 
+    (r"stat()",          ["<sys/types.h>", "<sys/stat.h>"]),
+    # stdarg.h - handle variable argument list
+    (r"va_start()",      ["<stdarg.h>"]),
+    (r"va_arg()",        ["<stdarg.h>"]),
+    (r"va_end()",        ["<stdarg.h>"]),
+    # stddef.h - standard type definitions
+    (r"offsetof()",      ["<stddef.h>"]),
+    # step - pattern match with regular expressions
+    (r"step()",          ["<regexp.h>"]),
+    # strcasecmp, strncasecmp - case-insensitive string comparisons 
+    (r"strcasecmp()",    ["<strings.h>"]),
+    (r"strncasecmp()",   ["<strings.h>"]),
+    # string.h - string operations 
+    (r"memccpy()",       ["<string.h>"]),
+    (r"memchr()",        ["<string.h>"]),
+    (r"memcmp()",        ["<string.h>"]),
+    (r"memcpy()",        ["<string.h>"]),
+    (r"memmove()",       ["<string.h>"]),
+    (r"memset()",        ["<string.h>"]),
+    (r"strcat()",        ["<string.h>"]),
+    (r"strchr()",        ["<string.h>"]),
+    (r"strcmp()",        ["<string.h>"]),
+    (r"strcoll()",       ["<string.h>"]),
+    (r"strcpy()",        ["<string.h>"]),
+    (r"strcspn()",       ["<string.h>"]),
+    (r"strdup()",        ["<string.h>"]),
+    (r"strerror()",      ["<string.h>"]),
+    (r"strlen()",        ["<string.h>"]),
+    (r"strncat()",       ["<string.h>"]),
+    (r"strncmp()",       ["<string.h>"]),
+    (r"strncpy()",       ["<string.h>"]),
+    (r"strpbrk()",       ["<string.h>"]),
+    (r"strrchr()",       ["<string.h>"]),
+    (r"strspn()",        ["<string.h>"]),
+    (r"strstr()",        ["<string.h>"]),
+    (r"strtok()",        ["<string.h>"]),
+    (r"strtok_r()",      ["<string.h>"]),
+    (r"strxfrm()",       ["<string.h>"]),
+    # wctype.h - wide-character classification and mapping utilities
+    (r"iswalnum()",      ["<wctype.h>"]),
+    (r"iswalpha()",      ["<wctype.h>"]),
+    (r"iswascii()",      ["<wctype.h>"]),
+    (r"iswcntrl()",      ["<wctype.h>"]),
+    (r"iswdigit()",      ["<wctype.h>"]),
+    (r"iswgraph()",      ["<wctype.h>"]),
+    (r"iswlower()",      ["<wctype.h>"]),
+    (r"iswprint()",      ["<wctype.h>"]),
+    (r"iswpunct()",      ["<wctype.h>"]),
+    (r"iswspace()",      ["<wctype.h>"]),
+    (r"iswupper()",      ["<wctype.h>"]),
+    (r"iswxdigit()",     ["<wctype.h>"]),
+    (r"iswctype()",      ["<wctype.h>"]),
+    (r"towctrans()",     ["<wctype.h>"]),
+    (r"towlower()",      ["<wctype.h>"]),
+    (r"towupper()",      ["<wctype.h>"]),
+    (r"wctrans()",       ["<wctype.h>"]),
+    (r"wctype()",        ["<wctype.h>"]),
+    # strftime - convert date and time to a string
+    (r"strftime()",      ["<time.h>"]),
+    # strptime - date and time conversion
+    (r"strptime()",      ["<time.h>"]),
+    # strtod - convert string to a double-precision number
+    (r"strtod()",        ["<stdlib.h>"]),
+    # strtol - convert string to a long integer 
+    (r"strtol()",        ["<stdlib.h>"]),
+    # strtoul - convert string to an unsigned long
+    (r"strtoul()",       ["<stdlib.h>"]),
+    # swab - swap bytes
+    (r"swab()",          ["<stdlib.h>"]),
+    # symlink - make symbolic link to a file
+    (r"symlink()",       ["<stdlib.h>"]),
+    # sync - schedule filesystem updates 
+    (r"sync()",          ["<stdlib.h>"]),
+    # sysconf - get configurable system variables 
+    (r"sysconf()",       ["<stdlib.h>"]),
+    # system - issue a command
+    (r"system()",        ["<stdlib.h>"]),
+    # sys/wait.h - declarations for waiting
+    (r"wait()",          ["<sys/types.h>", "<sys/wait.h>"]),
+    (r"wait3()",         ["<sys/types.h>", "<sys/wait.h>"]),
+    (r"waitid()",        ["<sys/types.h>", "<sys/wait.h>"]),
+    (r"waitpid()",       ["<sys/types.h>", "<sys/wait.h>"]),
+    (r"WEXITSTATUS()",   ["<sys/types.h>", "<sys/wait.h>"]),
+    (r"WIFCONTINUED()",  ["<sys/types.h>", "<sys/wait.h>"]),
+    (r"WIFEXITED()",     ["<sys/types.h>", "<sys/wait.h>"]),
+    (r"WIFSIGNALED()",   ["<sys/types.h>", "<sys/wait.h>"]),
+    (r"WIFSTOPPED()",    ["<sys/types.h>", "<sys/wait.h>"]),
+    (r"WSTOPSIG()",      ["<sys/types.h>", "<sys/wait.h>"]),
+    (r"WTERMSIG()",      ["<sys/types.h>", "<sys/wait.h>"]),
+    # tan - tangent function
+    (r"tan()",           ["<math.h>"]),
+    # tanh - hyperbolic tangent function
+    (r"tanh()",          ["<math.h>"]),
+    # tcgetpgrp - get the foreground process group ID
+    (r"tcgetpgrp()",     ["<sys/types.h>", "<unistd.h>"]),
+    # tcsetpgrp - set the foreground process group ID 
+    (r"tcsetpgrp()",     ["<sys/types.h>", "<unistd.h>"]),
+    # tdelete - delete node from binary search tree
+    (r"tdelete()",       ["<search.h>"]),
+    # telldir - current location of a named directory stream 
+    (r"telldir()",       ["<dirent.h>"]),
+    # tempnam - create a name for a temporary file
+    (r"tempnam()",       ["<stdio.h>"]),
+    # termios.h - define values for termios
+    (r"cfgetispeed()",   ["<termios.h>"]),
+    (r"cfgetospeed()",   ["<termios.h>"]),
+    (r"cfsetispeed()",   ["<termios.h>"]),
+    (r"cfsetospeed()",   ["<termios.h>"]),
+    (r"tcdrain()",       ["<termios.h>"]),
+    (r"tcflow()",        ["<termios.h>"]),
+    (r"tcflush()",       ["<termios.h>"]),
+    (r"tcgetattr()",     ["<termios.h>"]),
+    (r"tcgetsid()",      ["<termios.h>"]),
+    (r"tcsendbreak()",   ["<termios.h>"]),
+    (r"tcsetattr()",     ["<termios.h>"]),
+    # tdelete, tfind, tsearch, twalk - manage a binary search tree 
+    (r"tsearch()",       ["<termios.h>"]),
+    (r"tfind()",         ["<termios.h>"]),
+    (r"tdelete()",       ["<termios.h>"]),
+    (r"twalk()",         ["<termios.h>"]),
+    # time - get time
+    (r"time()",          ["<time.h>"]),
+    # timer_create - create a per-process timer
+    (r"timer_create()",  ["<time.h>", "<signal.h>"]),
+    # timer_delete - delete a per-process timer
+    (r"timer_delete()",  ["<time.h>", "<signal.h>"]),
+    # timer_settime, timer_gettime, timer_getoverrun - per-process timers
+    (r"timer_settime()",      ["<time.h>"]),
+    (r"timer_gettime()",      ["<time.h>"]),
+    (r"timer_getoverrun()",   ["<time.h>"]),
+    # times - get process and waited-for child process times
+    (r"times()",         ["<sys/time.h>"]),
+    # tmpfile - create a temporary file 
+    (r"tmpfile()",       ["<stdio.h>"]),
+    # tmpnam - create a name for a temporary file
+    (r"tmpnam()",        ["<stdio.h>"]),
+    # truncate - truncate a file to a specified length
+    (r"truncate()",      ["<stdio.h>"]),
+    # ttyname, ttyname_r - find pathname of a terminal 
+    ("ttyname()",        ["<unistd.h>"]),
+    ("ttyname_r()",      ["<unistd.h>"]),
+    # ttyslot - find the slot of the current user in the user accounting database
+    ("ttyslot()",        ["<unistd.h>"]),
+    # tzset - set time zone conversion information 
+    ("tzset()",          ["<time.h>"]),
+    # ualarm - set the interval timer
+    ("ualarm()",         ["<unistd.h>"]),
+    # ulimit - get and set process limits
+    ("ulimit()",         ["<ulimit.h>"]),
+    # umask - set and get file mode creation mask
+    (r"umask()",         ["<sys/stat.h>", "<sys/types.h>"]),
+    # uname - get name of current system 
+    ("uname()",          ["<sys/utsname.h>"]),
+    # ungetc - push byte back into input stream
+    (r"ungetc()",        ["<stdio.h>"]),
+    # ungetwc - push wide-character code back into input stream 
+    (r"ungetwc()",       ["<stdio.h>", "<wchar.h>"]),
+    # unlink - remove a directory entry
+    ("unlink()",         ["<unistd.h>"]),
+    # unlockpt - unlock a pseudo-terminal master/slave pair 
+    (r"unlockpt()",      ["<stdlib.h>"]),
+    # usleep - suspend execution for an interval
+    ("usleep()",         ["<unistd.h>"]),
+    # utime - set file access and modification times
+    (r"utime()",         ["<sys/types.h>", "<utime.h>"]),
+    # utimes - set file access and modification times 
+    (r"utimes()",        ["<sys/time.h>"]),
+    # valloc - page-aligned memory allocator
+    (r"valloc()",        ["<stdlib.h>"]),
+    # vfork - create new process; share virtual memory
+    ("vfork()",          ["<unistd.h>"]),
+    # vfprintf, vprintf, vsnprintf, vsprintf - format output of a stdarg argument list
+    (r"vfprintf()",      ["<stdarg.h>", "<stdio.h>"]),
+    (r"vprintf()",       ["<stdarg.h>", "<stdio.h>"]),
+    (r"vsnprintf()",     ["<stdarg.h>", "<stdio.h>"]),
+    (r"vsprintf()",      ["<stdarg.h>", "<stdio.h>"]),
+    # vfwprintf, vwprintf, vswprintf - wide-character formatted output of a stdarg argument list
+    (r"vwprintf()",      ["<stdarg.h>", "<stdio.h>", "<wchar.h>"]),
+    (r"vfwprintf()",     ["<stdarg.h>", "<stdio.h>", "<wchar.h>"]),
+    (r"vswprintf()",     ["<stdarg.h>", "<stdio.h>", "<wchar.h>"]),
+    # wchar.h - wide-character types
+    (r"wcrtomb()",       ["<wchar.h>"]),   # SuSv2 erroneously says <stdio.h> 
+    (r"wcscat()",        ["<wchar.h>"]),
+    (r"wcschr()",        ["<wchar.h>"]),
+    (r"wcscmp()",        ["<wchar.h>"]),
+    (r"wcscoll()",       ["<wchar.h>"]),
+    (r"wcscpy()",        ["<wchar.h>"]),
+    (r"wcscpy()",        ["<wchar.h>"]),
+    (r"wcsftime()",      ["<wchar.h>"]),
+    (r"wcslen()",        ["<wchar.h>"]),
+    (r"wcsncat()",       ["<wchar.h>"]),
+    (r"wcsncmp()",       ["<wchar.h>"]),
+    (r"wcsncpy()",       ["<wchar.h>"]),
+    (r"wcspbrk()",       ["<wchar.h>"]),
+    (r"wcsrchr()",       ["<wchar.h>"]),
+    (r"wcsrtombs()",     ["<wchar.h>"]),
+    (r"wcsspn()",        ["<wchar.h>"]),
+    (r"wcsstr()",        ["<wchar.h>"]),
+    (r"wcstod()",        ["<wchar.h>"]),
+    (r"wcstok()",        ["<wchar.h>"]),
+    (r"wcstol()",        ["<wchar.h>"]),
+    (r"wcstoul()",       ["<wchar.h>"]),
+    (r"wcswcs()",        ["<wchar.h>"]),
+    (r"wcswidth()",      ["<wchar.h>"]),
+    (r"wcsxfrm()",       ["<wchar.h>"]),
+    (r"wctob()",         ["<wchar.h>"]),
+    (r"wctype()",        ["<wchar.h>"]),
+    (r"wcwidth()",       ["<wchar.h>"]),
+    (r"wmemchr()",       ["<wchar.h>"]),
+    (r"wmemcmp()",       ["<wchar.h>"]),
+    (r"wmemcpy()",       ["<wchar.h>"]),
+    (r"wmemmove()",      ["<wchar.h>"]),
+    (r"wmemset()",       ["<wchar.h>"]),
+    (r"wprintf()",       ["<wchar.h>"]),
+    (r"wscanf()",        ["<wchar.h>"]),
+    # wordexp.h - word-expansion types
+    (r"wordexp()",       ["<wordexp.h>"]),
+    (r"wordfree()",      ["<wordexp.h>"]),
+    # write, writev, pwrite - write on a file
+    (r"write()",         ["<unistd.h>"]),
+    (r"pwrite()",        ["<unistd.h>"]),
+    (r"writev()",        ["<sys/uio.h>"]),
+    # y0, y1, yn - Bessel functions of the second kind 
+    (r"y0()",            ["<math.h>"]),
+    (r"y1()",            ["<math.h>"]),
+    (r"yn()",            ["<math.h>"]),
+    
+    # Headers mandated by SuS Version 2 Network Services.
+    # sys/socket.h - Internet Protocol family 
+    (r"accept()",        ["<sys/socket.h>"]),
+    (r"bind()",          ["<sys/socket.h>"]),
+    (r"connect()",       ["<sys/socket.h>"]),
+    (r"getpeername()",   ["<sys/socket.h>"]),
+    (r"getsockname()",   ["<sys/socket.h>"]),
+    (r"getsockopt()",    ["<sys/socket.h>"]),
+    (r"listen()",        ["<sys/socket.h>"]),
+    (r"recv()",          ["<sys/socket.h>"]),
+    (r"recvfrom()",      ["<sys/socket.h>"]),
+    (r"recvmsg()",       ["<sys/socket.h>"]),
+    (r"send()",          ["<sys/socket.h>"]),
+    (r"sendmsg()",       ["<sys/socket.h>"]),
+    (r"sendto()",        ["<sys/socket.h>"]),
+    (r"setsockopt()",    ["<sys/socket.h>"]),
+    (r"shutdown()",      ["<sys/socket.h>"]),
+    (r"socket()",        ["<sys/socket.h>"]),
+    (r"socketpair()",    ["<sys/socket.h>"]),
+    # arpa/inet.h - definitions for internet operations
+    (r"inet_addr()",     ["<arpa/inet.h>"]),
+    (r"inet_lnaof()",    ["<arpa/inet.h>"]),
+    (r"inet_makeaddr()", ["<arpa/inet.h>"]),
+    (r"inet_netof()",    ["<arpa/inet.h>"]),
+    (r"inet_network()",  ["<arpa/inet.h>"]),
+    (r"inet_ntoa()",     ["<arpa/inet.h>"]),
+    (r"htonl()",         ["<arpa/inet.h>"]),
+    (r"htons()",         ["<arpa/inet.h>"]),
+    (r"ntohl()",         ["<arpa/inet.h>"]),
+    (r"ntohs()",         ["<arpa/inet.h>"]),
+    # netdb.h - definitions for network database operations 
+    (r"endhostent()",      ["<netdb.h>"]),
+    (r"endnetent()",       ["<netdb.h>"]),
+    (r"endprotoent()",     ["<netdb.h>"]),
+    (r"endservent()",      ["<netdb.h>"]),
+    (r"gethostbyaddr()",   ["<netdb.h>"]),
+    (r"gethostbyname()",   ["<netdb.h>"]),
+    (r"gethostent()",      ["<netdb.h>"]),
+    (r"getnetbyaddr()",    ["<netdb.h>"]),
+    (r"getnetbyname()",    ["<netdb.h>"]),
+    (r"getnetent()",       ["<netdb.h>"]),
+    (r"getprotobyname()",  ["<netdb.h>"]),
+    (r"getprotobynumber()",["<netdb.h>"]),
+    (r"getprotoent()",     ["<netdb.h>"]),
+    (r"getservbyname()",   ["<netdb.h>"]),
+    (r"getservbyport()",   ["<netdb.h>"]),
+    (r"getservent()",      ["<netdb.h>"]),
+    (r"sethostent()",      ["<netdb.h>"]),
+    (r"setnetent()",       ["<netdb.h>"]),
+    (r"setprotoent()",     ["<netdb.h>"]),
+    (r"setservent()",      ["<netdb.h>"]),
+    # unistd.h - standard symbolic constants and types 
+    (r"gethostname()",     ["<unistd.h>"]),
+
+    # Dependencies observed on systems other than the Linux this was
+    # developed under.
+    (r"<sys/socket.h>",    ["<sys/stat.h>", "<sys/types.h>"]),
+    (r"<arpa/inet.h>",     ["<netinet/in.h>"]),
+    )
+
+class InclusionMap:
+    "Map the inclusion dependencies of a set of files and directories."
+    @staticmethod
+    def c_source(filename):
+        "Predicate: return true if the filename appears to be C or C++ source."
+        return filename.endswith(".c") or filename.endswith(".cpp") or filename.endswith(".cc")
+
+    def __init__(self, roots, ignore, excludes):
+        "Build the initial inclusion map."
+        self.files = []
+        compiled = []
+        for (r, h) in requirements:
+            if r.endswith("()"):
+                # The prefix is intended to exclude false suffix matches:
+                # also, excluding : prevents matching on C++ method names.
+                c = re.compile(r"[^a-zA-Z0-9:_]" + r.replace("()", r"\s*\("))
+            else:
+                c = re.compile(r)
+            compiled.append((r, c, set(h)))
+        for root in roots:
+            if not os.path.isdir(root):
+                if excludes and excludes.search(root):
+                    if verbosity >= PROGRESS_DEBUG:
+                        print "deheader: %s excluded" % root
+                elif InclusionMap.c_source(root):
+                    self.files.append(root)
+                else:
+                    print >>sys.stderr, "deheader: can't analyze %s" % root
+            else:
+                for root, dirs, files in os.walk(root):
+                    dirs = filter(lambda x: not x.startswith("."), dirs)
+                    for name in files:
+                        path = os.path.join(root, name)
+                        if excludes and excludes.search(path):
+                            if verbosity >= PROGRESS_DEBUG:
+                                print "deheader: %s excluded" % root
+                        elif InclusionMap.c_source(path):
+                            self.files.append(path)
+        self.depends_on = {}
+        for sourcefile in self.files:
+            includes = []
+            requires = []
+            trimmed_includes = []
+            seen = set()
+            conditions = []
+            found_first = False
+            for line in open(sourcefile):
+                if line.startswith("#ifndef"):
+                    conditions.append(line[7:].strip())
+                elif line.startswith("#ifdef"):
+                    conditions.append(line[6:].strip())
+                elif line.startswith("#if"):
+                    conditions.append(line[3:].strip())
+                elif line.startswith("#endif"):
+                    conditions.pop()
+                elif line.startswith("#include"):            
+                    if verbosity >= PROGRESS_DEBUG:
+                        name = trim(line)
+                        print "deheader: %s includes %s" % (sourcefile, name)
+                    if ignore and ignore.search(line):
+                        if verbosity >= PROGRESS_DEBUG:
+                            print "deheader: ignoring %s (exclusion match with %s)." % (name, ignore.pattern)
+                        continue
+                    if not conditions or conditions == ["S_SPLINT_S"]:
+                        if found_first:
+                          includes.append(line)
+                          trimmed_includes.append(trim(line))
+                        else:
+                          found_first = True
+                    elif verbosity > PROGRESS_DEBUG:
+                        print "deheader: ignoring %s (conditional inclusion)" % name
+                for (r, c, h) in compiled:
+                  if c.search(line):
+                    if not h.issubset(seen):
+                       for header in h:
+                          if verbosity >= PROGRESS_DEBUG:
+                            print "deheader: in %s, %s prevents uninclusion of %s" % (sourcefile, r, header)
+                          seen.add(header)
+            portability_required = [ i for i in seen if i not in set(trimmed_includes) ]
+            # Note: Lines below commented out by mendenjl
+            # in the bcl, portability-required headers are usually put in conditional includes
+            # so the scanner unnecessarily complains a lot with these lines commented in
+            #if portability_required:
+            #  print "deheader: in %s portability requires %s." % (sourcefile, ",".join(portability_required))
+            self.depends_on[sourcefile] = [ includes[i] for i in range(len(includes)) if trimmed_includes[i] not in seen ]
+
+class SaveForModification:
+    "Prepare a file to be temporarily modified, with guaranteed reversion."
+    def __init__(self, filename):
+        self.filename = filename
+        self.original = filename + "-orig"
+        os.rename(self.filename, self.original)
+    def remove_headers(self, removables):
+        "Prepare a version with specified headers deleted."
+        ofp = open(self.filename, "w")
+        for line in open(self.original):
+            if line not in removables:
+                ofp.write(line)
+        ofp.close()
+    def forget(self):
+        "Disable reversion."
+        os.remove(self.original)        
+    def revert(self):
+        "Revert modifications on the file at the end of this object's lifetime."
+        if os.path.exists(self.original):
+            try:
+                os.remove(self.filename)
+            except OSError:
+                pass
+            os.rename(self.original, self.filename)
+
+def trim(line):
+    "Get file reference from an #include, retaining <> if a system header."
+    trimmed = line
+    if trimmed[0] == '#':
+      trimmed = line[9:].strip()
+    if trimmed[0] in '"':
+        return '"' + trimmed.split('"')[1] + '"'
+    elif trimmed[0] == '<':
+        return trimmed.split('>')[0] + ">"
+    else:
+        return `line`
+
+def testcompile(source, maker, msg, showerrs=False):
+    "Test-compile a sourcefile.  Return the status and the compilation time"
+    (stem, suffix) = os.path.splitext(source)
+    derived = stem + ".o"
+    if os.path.exists(derived):
+        os.remove(derived)
+    command = maker + " -c " + source + " -o " + derived
+    start = time.time()
+    (status, output) = commands.getstatusoutput(command)
+    end = time.time()
+    if (os.WIFEXITED(status) and os.WEXITSTATUS(status) != 0 and showerrs) or verbosity >= COMMAND_DEBUG:
+        sys.stdout.write(output)
+    if status:
+        explain = "failed"
+        if verbosity >= PROGRESS_DEBUG:
+            explain += " (%d)" % status
+    else:
+        explain = "succeeded"
+    if verbosity >= PROGRESS_DEBUG:
+        print "deheader: %s%s %s." \
+          % (sourcefile, msg, explain)
+    if os.path.exists(derived):
+        os.remove(derived)
+    return (status, end - start)
+
+def c_analyze(sourcefile, maker, includes, verbose):
+    "Given a C file and a list of includes, return those that can be omitted."
+    # We'll remove headers in reverse order, because later unnecessary
+    # headers might depend on earlier ones
+    includes.reverse()
+    unneeded = []
+    if verbose == BATON_DEBUG:
+        print "Processing " + sourcefile + " ... "
+    try:
+        saveit = SaveForModification(sourcefile)
+        for header in includes:
+            unneeded.append(header)
+            saveit.remove_headers(unneeded)
+            (st, t) = testcompile(sourcefile, maker, " without %s" % trim(header), showerrs=False)
+            if st == 0:
+                includes.remove(header)
+                keepgoing = True
+            else:
+                del unneeded[-1]
+    finally:
+        saveit.revert()
+    return unneeded
+
+def deheader(sourcefile, maker, includes, remove):
+    # Sanity check against broken sourcefiles; we want this to
+    # complain visibly if the sourcefile won't build at all.
+    (st, t) = testcompile(sourcefile, maker, max(1, verbosity), showerrs=True)
+    if st == 0:
+        # Now do the analysis
+        if sourcefile.endswith(".cpp") or sourcefile.endswith(".cc"):
+            unneeded = c_analyze(sourcefile, maker, includes[:], verbosity)
+        if unneeded:
+            for line in unneeded:
+                print "deheader: remove %s from %s" % (trim(line), sourcefile)
+            if remove:
+                remove_it = SaveForModification(sourcefile)
+                remove_it.remove_headers(unneeded)
+                remove_it.forget()
+                del remove_it
+        return Summary([sourcefile], includes, unneeded)
+    else:
+        print >>sys.stderr, "deheader: basic compilation failed on %s using command %s" % (sourcefile,maker)
+        return Summary([sourcefile], includes, [])
+
+# After-action analysis starts here
+
+class Summary:
+    "Summarize results from a deheading."
+    def __init__(self, filenames=None, includes=None, unneeded=None):
+        self.filenames = filenames or []
+        self.includes = includes or []
+        self.unneeded = unneeded or []
+    def __add__(self, other):
+        result = Summary()
+        result.filenames = self.filenames + other.filenames
+        result.includes = self.includes + other.includes
+        result.unneeded = self.unneeded + other.unneeded
+        return result
+    def __repr__(self):
+        return "%d files, %d includes, %d removable" % \
+               (len(self.filenames), len(self.includes), len(self.unneeded)) 
+
+class ThreadDeheader(threading.Thread):
+    def __init__(self, queue):
+        threading.Thread.__init__(self)
+        self.queue = queue
+        self.stats = Summary()
+        
+    def run(self):
+      while True:
+        #grabs info from the queue
+        info = self.queue.get()
+        
+        # insert into the out queue after calling deheader
+        self.stats = self.stats + deheader( info[0], info[1], info[2], info[3])
+
+        #signals to queue job is done
+        self.queue.task_done()
+        
+def main():
+    (options, arguments) = getopt.getopt(sys.argv[1:], "hi:m:rvx:V",
+                                         ["help", "ignore",
+                                          "remove", "verbose",])
+    global verbosity
+    maker = "g++ "
+    verbosity = 0
+    remove = False
+    ignores = []
+    excludes = []
+    
+    for (switch, val) in options:
+        if switch in ('-h', '--help'):
+            sys.stderr.write(__doc__)
+            sys.exit(0)
+        elif switch in ('-i', '--ignore'):
+            ignores.append(val)
+        elif switch in ('-m', '--maker'):
+            maker = val
+        elif switch in ('-r', '--remove'):
+            remove = True
+        elif switch in ('-v', '--verbose'):
+            verbosity += 1
+        elif switch in ('-V', '--version'):
+            print "deheader", version
+            raise SystemExit, 0
+        elif switch in ('-x', '--exclude'):
+            excludes.append(val)
+    if not ignores:
+        ignore = None
+    else:
+        ignore = re.compile("|".join(ignores))
+    if not excludes:
+        excludes = None
+    else:
+        excludes = re.compile("|".join(excludes))
+    if not arguments:
+        arguments = ["."]
+
+    inclusion_map = InclusionMap(arguments, ignore, excludes)
+    
+    #spawn a pool of threads, and pass them queue instance
+    ncpus = multiprocessing.cpu_count()
+    queue = Queue.Queue()
+    jobs = [ThreadDeheader(queue) for i in range(ncpus)]
+    for job in jobs:
+        job.setDaemon(True)
+        job.start()
+
+    for sourcefile, dependencies in inclusion_map.depends_on.iteritems():
+        queue.put([sourcefile, maker, dependencies[:], remove])
+    queue.join()
+    stats = Summary()
+    for job in jobs:
+      stats = stats + job.stats
+    del jobs
+      
+    print "deheader: saw", stats
+    raise SystemExit, 0
+
+# End
+
+main()

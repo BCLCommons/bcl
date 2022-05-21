@@ -1,0 +1,2 @@
+bcl::descriptor::MoleculeSort
+  Combine(Atom_Mass,Constant(5),Constant(0))

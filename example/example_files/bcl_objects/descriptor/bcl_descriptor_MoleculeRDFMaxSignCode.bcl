@@ -1,0 +1,2 @@
+bcl::descriptor::MoleculeRDFMaxSignCode
+  RDFMaxSign(property=Atom_Vcharge,step size=0.25,temperature=100,steps=48)

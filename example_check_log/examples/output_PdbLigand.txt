@@ -1,0 +1,1824 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec PdbLigand 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> PdbLigand
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: PdbLigand ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> ligands found
+bcl::util::ShPtrList<bcl::pdb::Ligand>
+  12
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      "  K"	A	850	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        1
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5067  K     K A 850      14.092  50.380 -17.725  1.00 24.23           K  "
+
+      "POTASSIUM ION"
+      "4(K 1+)                                            "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        1
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5067
+          bcl::storage::Set<size_t,std::less<size_t>>
+            6
+            872
+            895
+            5228
+            5420
+            5421
+            5470
+
+
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      "  K"	B	851	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        1
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5125  K     K B 851      -0.769  35.815  60.669  1.00 21.63           K  "
+
+      "POTASSIUM ION"
+      "4(K 1+)                                            "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        1
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5125
+          bcl::storage::Set<size_t,std::less<size_t>>
+            5
+            3789
+            3805
+            3819
+            5741
+            5864
+
+
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      "  K"	B	852	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        1
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5126  K     K B 852      21.630  41.159  38.010  1.00 21.91           K  "
+
+      "POTASSIUM ION"
+      "4(K 1+)                                            "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        1
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5126
+          bcl::storage::Set<size_t,std::less<size_t>>
+            8
+            3409
+            3432
+            5745
+            5798
+            5810
+            5880
+            5986
+            6025
+
+
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      "  K"	A	853	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        1
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5068  K     K A 853       4.039  45.347  -9.557  1.00 33.57           K  "
+
+      "POTASSIUM ION"
+      "4(K 1+)                                            "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        1
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5068
+          bcl::storage::Set<size_t,std::less<size_t>>
+            8
+            1012
+            1027
+            1031
+            1038
+            2147
+            2148
+            5315
+            5637
+
+
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      " NA"	B	854	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        1
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5127 NA    NA B 854      23.931  15.611  34.555  1.00 14.38          NA  "
+
+      "SODIUM ION"
+      "2(NA 1+)                                           "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        1
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5127
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            2763
+            5689
+            5716
+
+
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      " NA"	B	855	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        1
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5128 NA    NA B 855       7.348  47.128  58.396  1.00 15.38          NA  "
+
+      "SODIUM ION"
+      "2(NA 1+)                                           "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        1
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5128
+          bcl::storage::Set<size_t,std::less<size_t>>
+            4
+            3991
+            4126
+            5680
+            6027
+
+
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      "PO4"	B	880	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        5
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5129  P   PO4 B 880      31.679  22.076  49.289  1.00 15.56           P  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5130  O1  PO4 B 880      32.612  23.123  48.815  1.00 13.42           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5131  O2  PO4 B 880      32.266  21.530  50.570  1.00 14.48           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5132  O3  PO4 B 880      31.622  20.895  48.407  1.00 17.23           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5133  O4  PO4 B 880      30.330  22.670  49.524  1.00 17.58           O  "
+
+      "PHOSPHATE ION"
+      "O4 P 3-                                            "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        5
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5129
+          bcl::storage::Set<size_t,std::less<size_t>>
+            4
+            5130
+            5131
+            5132
+            5133
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5130
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5129
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5131
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5129
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5132
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5129
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5133
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5129
+
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      "PHE"	A	361	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        12
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5069  N   PHE A 361      14.656  42.843 -16.338  1.00 26.29           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5070  CA  PHE A 361      15.484  42.554 -15.184  1.00 30.12           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5071  C   PHE A 361      16.458  41.402 -15.450  1.00 14.56           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5072  O   PHE A 361      16.936  41.229 -16.632  1.00 18.19           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5073  CB  PHE A 361      14.652  42.413 -13.891  1.00 24.23           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5074  CG  PHE A 361      13.380  41.576 -13.852  1.00 21.97           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5075  CD1 PHE A 361      12.183  41.905 -14.500  1.00 19.10           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5076  CD2 PHE A 361      13.372  40.440 -13.043  1.00 21.96           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5077  CE1 PHE A 361      11.065  41.077 -14.380  1.00 15.27           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5078  CE2 PHE A 361      12.256  39.620 -12.878  1.00 18.38           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5079  CZ  PHE A 361      11.087  39.942 -13.568  1.00 22.22           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5080  OXT PHE A 361      16.764  40.628 -14.514  1.00 17.43           O  "
+
+      "PHENYLALANINE"
+      "2(C9 H11 N O2)                                     "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      "PHE"	B	761	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        12
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5134  N   PHE B 761      19.802  34.086  37.128  1.00 19.34           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5135  CA  PHE B 761      18.476  33.673  37.542  1.00100.00           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5136  C   PHE B 761      18.323  32.482  38.474  1.00 72.71           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5137  O   PHE B 761      19.091  32.220  39.477  1.00 27.97           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5138  CB  PHE B 761      17.472  33.657  36.377  1.00 49.15           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5139  CG  PHE B 761      17.853  33.065  35.012  1.00 23.92           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5140  CD1 PHE B 761      18.889  33.459  34.163  1.00 17.47           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5141  CD2 PHE B 761      17.017  32.059  34.548  1.00 18.88           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5142  CE1 PHE B 761      19.140  32.843  32.933  1.00 16.16           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5143  CE2 PHE B 761      17.212  31.428  33.324  1.00 20.77           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5144  CZ  PHE B 761      18.275  31.830  32.510  1.00 26.02           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5145  OXT PHE B 761      17.364  31.709  38.231  1.00 25.80           O  "
+
+      "PHENYLALANINE"
+      "2(C9 H11 N O2)                                     "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      "NAD"	A	360	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        44
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5081  PA  NAD A 360      19.222  51.636 -19.186  1.00 22.14           P  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5082  O1A NAD A 360      18.340  51.797 -20.358  1.00 28.18           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5083  O2A NAD A 360      18.885  52.533 -18.051  1.00 18.21           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5084  O5B NAD A 360      20.682  52.134 -19.596  1.00 20.22           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5085  C5B NAD A 360      21.429  51.543 -20.679  1.00 16.60           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5086  C4B NAD A 360      22.529  52.559 -20.842  1.00 17.52           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5087  O4B NAD A 360      23.479  52.131 -21.867  1.00 21.35           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5088  C3B NAD A 360      22.016  53.911 -21.339  1.00 19.26           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5089  O3B NAD A 360      22.683  54.999 -20.645  1.00 20.15           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5090  C2B NAD A 360      22.391  53.799 -22.811  1.00 23.96           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5091  O2B NAD A 360      22.499  55.103 -23.391  1.00 22.65           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5092  C1B NAD A 360      23.787  53.193 -22.650  1.00 24.61           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5093  N9A NAD A 360      24.232  52.627 -23.888  1.00 24.37           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5094  C8A NAD A 360      23.456  52.062 -24.844  1.00 30.81           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5095  N7A NAD A 360      24.163  51.575 -25.870  1.00 33.02           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5096  C5A NAD A 360      25.468  51.899 -25.524  1.00 22.78           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5097  C6A NAD A 360      26.691  51.648 -26.178  1.00 29.71           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5098  N6A NAD A 360      26.814  51.028 -27.349  1.00 38.42           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5099  N1A NAD A 360      27.815  52.074 -25.559  1.00 22.58           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5100  C2A NAD A 360      27.688  52.687 -24.351  1.00 20.45           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5101  N3A NAD A 360      26.599  52.942 -23.671  1.00 25.85           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5102  C4A NAD A 360      25.520  52.541 -24.314  1.00 17.62           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5103  O3  NAD A 360      19.277  50.088 -18.799  1.00 17.24           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5104  PN  NAD A 360      19.601  49.476 -17.337  1.00 16.28           P  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5105  O1N NAD A 360      18.411  49.237 -16.475  1.00 17.23           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5106  O2N NAD A 360      20.666  50.302 -16.679  1.00 15.79           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5107  O5D NAD A 360      20.109  48.046 -17.867  1.00 19.76           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5108  C5D NAD A 360      21.466  47.904 -18.399  1.00 19.68           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5109  C4D NAD A 360      21.663  46.439 -18.718  1.00 15.28           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5110  O4D NAD A 360      21.549  45.687 -17.490  1.00 14.67           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5111  C3D NAD A 360      20.666  45.828 -19.706  1.00 12.00           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5112  O3D NAD A 360      21.260  44.692 -20.357  1.00 16.31           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5113  C2D NAD A 360      19.642  45.251 -18.741  1.00 12.17           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5114  O2D NAD A 360      18.884  44.196 -19.362  1.00 14.97           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5115  C1D NAD A 360      20.561  44.689 -17.680  1.00 16.83           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5116  N1N NAD A 360      19.878  44.375 -16.435  1.00 14.43           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5117  C2N NAD A 360      19.056  45.318 -15.824  1.00 14.56           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5118  C3N NAD A 360      18.413  45.064 -14.544  1.00 12.63           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5119  C7N NAD A 360      17.732  46.217 -13.899  1.00 18.74           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5120  O7N NAD A 360      17.237  45.926 -12.798  1.00 20.93           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5121  N7N NAD A 360      17.658  47.471 -14.438  1.00 14.83           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5122  C4N NAD A 360      18.566  43.753 -13.912  1.00 14.38           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5123  C5N NAD A 360      19.471  42.797 -14.637  1.00 14.99           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5124  C6N NAD A 360      20.037  43.127 -15.786  1.00 14.07           C  "
+
+      "NICOTINAMIDE-ADENINE-DINUCLEOTIDE"
+      "2(C21 H27 N7 O14 P2)                               "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        44
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5081
+          bcl::storage::Set<size_t,std::less<size_t>>
+            4
+            5082
+            5083
+            5084
+            5103
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5082
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5081
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5083
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5081
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5084
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5081
+            5085
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5085
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5084
+            5086
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5086
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5085
+            5087
+            5088
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5087
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5086
+            5092
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5088
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5086
+            5089
+            5090
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5089
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5088
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5090
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5088
+            5091
+            5092
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5091
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5090
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5092
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5087
+            5090
+            5093
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5093
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5092
+            5094
+            5102
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5094
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5093
+            5095
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5095
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5094
+            5096
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5096
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5095
+            5097
+            5102
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5097
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5096
+            5098
+            5099
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5098
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5097
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5099
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5097
+            5100
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5100
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5099
+            5101
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5101
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5100
+            5102
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5102
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5093
+            5096
+            5101
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5103
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5081
+            5104
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5104
+          bcl::storage::Set<size_t,std::less<size_t>>
+            4
+            5103
+            5105
+            5106
+            5107
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5105
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5104
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5106
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5104
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5107
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5104
+            5108
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5108
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5107
+            5109
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5109
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5108
+            5110
+            5111
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5110
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5109
+            5115
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5111
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5109
+            5112
+            5113
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5112
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5111
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5113
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5111
+            5114
+            5115
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5114
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5113
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5115
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5110
+            5113
+            5116
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5116
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5115
+            5117
+            5124
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5117
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5116
+            5118
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5118
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5117
+            5119
+            5122
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5119
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5118
+            5120
+            5121
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5120
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5119
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5121
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5119
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5122
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5118
+            5123
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5123
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5122
+            5124
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5124
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5116
+            5123
+
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      "NAD"	B	760	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        44
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5146  PA  NAD B 760      21.076  42.142  44.070  1.00 28.01           P  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5147  O1A NAD B 760      22.533  42.311  43.762  1.00 43.68           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5148  O2A NAD B 760      20.257  43.155  43.342  1.00 24.84           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5149  O5B NAD B 760      20.838  42.493  45.594  1.00 30.70           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5150  C5B NAD B 760      21.510  41.757  46.626  1.00 25.26           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5151  C4B NAD B 760      21.403  42.676  47.812  1.00 25.61           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5152  O4B NAD B 760      22.067  41.956  48.897  1.00 32.56           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5153  C3B NAD B 760      22.070  44.071  47.697  1.00 17.06           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5154  O3B NAD B 760      21.274  45.156  48.194  1.00 24.38           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5155  C2B NAD B 760      23.269  43.827  48.627  1.00 81.86           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5156  O2B NAD B 760      23.699  45.026  49.268  1.00 33.06           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5157  C1B NAD B 760      22.719  42.886  49.678  1.00 43.66           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5158  N9A NAD B 760      23.733  42.116  50.393  1.00 34.68           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5159  C8A NAD B 760      24.834  41.492  49.889  1.00 34.09           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5160  N7A NAD B 760      25.457  40.735  50.798  1.00 31.39           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5161  C5A NAD B 760      24.759  40.964  51.961  1.00 25.12           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5162  C6A NAD B 760      24.903  40.436  53.260  1.00 42.16           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5163  N6A NAD B 760      25.895  39.619  53.606  1.00 37.61           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5164  N1A NAD B 760      23.969  40.824  54.188  1.00 38.91           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5165  C2A NAD B 760      22.939  41.646  53.801  1.00 22.72           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5166  N3A NAD B 760      22.740  42.163  52.626  1.00 20.85           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5167  C4A NAD B 760      23.690  41.803  51.737  1.00 24.29           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5168  O3  NAD B 760      20.667  40.721  43.617  1.00 26.42           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5169  PN  NAD B 760      19.188  40.116  43.325  1.00 20.57           P  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5170  O1N NAD B 760      18.240  40.928  44.130  1.00 16.34           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5171  O2N NAD B 760      18.987  40.106  41.870  1.00 18.87           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5172  O5D NAD B 760      19.274  38.577  43.799  1.00 28.95           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5173  C5D NAD B 760      19.363  38.212  45.222  1.00 26.05           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5174  C4D NAD B 760      19.535  36.702  45.334  1.00 19.35           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5175  O4D NAD B 760      18.454  36.103  44.575  1.00 19.99           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5176  C3D NAD B 760      20.810  36.093  44.721  1.00 27.52           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5177  O3D NAD B 760      21.279  34.853  45.318  1.00 26.09           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5178  C2D NAD B 760      20.274  35.803  43.329  1.00 23.52           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5179  O2D NAD B 760      21.059  34.837  42.625  1.00 22.38           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5180  C1D NAD B 760      18.932  35.196  43.680  1.00 16.69           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5181  N1N NAD B 760      18.122  35.132  42.493  1.00 17.88           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5182  C2N NAD B 760      17.837  36.244  41.717  1.00 17.67           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5183  C3N NAD B 760      16.848  36.194  40.610  1.00 17.50           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5184  C7N NAD B 760      16.527  37.434  39.912  1.00 21.24           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5185  O7N NAD B 760      15.669  37.292  39.014  1.00 24.49           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5186  N7N NAD B 760      17.102  38.619  40.209  1.00 22.98           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5187  C4N NAD B 760      16.251  34.890  40.222  1.00 16.45           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5188  C5N NAD B 760      16.591  33.803  41.208  1.00 22.46           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5189  C6N NAD B 760      17.570  33.913  42.101  1.00 18.97           C  "
+
+      "NICOTINAMIDE-ADENINE-DINUCLEOTIDE"
+      "2(C21 H27 N7 O14 P2)                               "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        44
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5146
+          bcl::storage::Set<size_t,std::less<size_t>>
+            4
+            5147
+            5148
+            5149
+            5168
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5147
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5146
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5148
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5146
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5149
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5146
+            5150
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5150
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5149
+            5151
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5151
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5150
+            5152
+            5153
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5152
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5151
+            5157
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5153
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5151
+            5154
+            5155
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5154
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5153
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5155
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5153
+            5156
+            5157
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5156
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5155
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5157
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5152
+            5155
+            5158
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5158
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5157
+            5159
+            5167
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5159
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5158
+            5160
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5160
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5159
+            5161
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5161
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5160
+            5162
+            5167
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5162
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5161
+            5163
+            5164
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5163
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5162
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5164
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5162
+            5165
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5165
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5164
+            5166
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5166
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5165
+            5167
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5167
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5158
+            5161
+            5166
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5168
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5146
+            5169
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5169
+          bcl::storage::Set<size_t,std::less<size_t>>
+            4
+            5168
+            5170
+            5171
+            5172
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5170
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5169
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5171
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5169
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5172
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5169
+            5173
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5173
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5172
+            5174
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5174
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5173
+            5175
+            5176
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5175
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5174
+            5180
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5176
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5174
+            5177
+            5178
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5177
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5176
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5178
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5176
+            5179
+            5180
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5179
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5178
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5180
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5175
+            5178
+            5181
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5181
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5180
+            5182
+            5189
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5182
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5181
+            5183
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5183
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5182
+            5184
+            5187
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5184
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5183
+            5185
+            5186
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5185
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5184
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5186
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5184
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5187
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5183
+            5188
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5188
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5187
+            5189
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5189
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            5181
+            5188
+
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      "IPA"	B	860	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        4
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5190  C1  IPA B 860      38.660  20.207  36.236  1.00 19.73           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5191  C2  IPA B 860      37.620  21.192  36.160  1.00 16.03           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5192  C3  IPA B 860      38.077  22.392  35.414  1.00 13.45           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 5193  O2  IPA B 860      36.482  20.566  35.560  1.00 12.80           O  "
+
+      "ISOPROPYL ALCOHOL"
+      "C3 H8 O                                            "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        4
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5190
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5191
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5191
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            5190
+            5192
+            5193
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5192
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5191
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          5193
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            5191
+
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        0
+
+
+=std=bcl=> het full name
+bcl::storage::Map<std::string,std::string,std::less<std::string>>
+  6
+  std::pair<std::string,std::string>
+    "  K"
+    "POTASSIUM ION"
+  std::pair<std::string,std::string>
+    " NA"
+    "SODIUM ION"
+  std::pair<std::string,std::string>
+    "IPA"
+    "ISOPROPYL ALCOHOL"
+  std::pair<std::string,std::string>
+    "NAD"
+    "NICOTINAMIDE-ADENINE-DINUCLEOTIDE"
+  std::pair<std::string,std::string>
+    "PHE"
+    "PHENYLALANINE"
+  std::pair<std::string,std::string>
+    "PO4"
+    "PHOSPHATE ION"
+
+=std=bcl=> het formula
+bcl::storage::Map<std::string,std::string,std::less<std::string>>
+  7
+  std::pair<std::string,std::string>
+    "  K"
+    "4(K 1+)                                            "
+  std::pair<std::string,std::string>
+    " NA"
+    "2(NA 1+)                                           "
+  std::pair<std::string,std::string>
+    "HOH"
+    "928(H2 O)                                          "
+  std::pair<std::string,std::string>
+    "IPA"
+    "C3 H8 O                                            "
+  std::pair<std::string,std::string>
+    "NAD"
+    "2(C21 H27 N7 O14 P2)                               "
+  std::pair<std::string,std::string>
+    "PHE"
+    "2(C9 H11 N O2)                                     "
+  std::pair<std::string,std::string>
+    "PO4"
+    "O4 P 3-                                            "
+
+=std=bcl::app=> BCL Example | END  : PdbLigand ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+PdbLigand_total                           0          0              
+total                                     0          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 134 MB, peak physical RAM used: 66 MB

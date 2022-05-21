@@ -1,0 +1,9 @@
+bcl::ExampleIoSerialize::TestClass
+  5.5
+  ' '
+  "hello \"BCL friend\""
+  bcl::storage::Pair<std::string,bcl::storage::Pair<size_t,double>>
+    "nifty"
+    bcl::storage::Pair<size_t,double>
+      5
+      nan

@@ -1,0 +1,9 @@
+bcl::fold::MutateDomainFlip
+  bcl::storage::Set<bcl::coord::Axes::Enum,std::less<bcl::coord::Axes::Enum>>
+    1
+    bcl::coord::Axes::Enum
+      "Z_Axis"
+
+  0
+  1
+  0

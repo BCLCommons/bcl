@@ -1,0 +1,102 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ScoreProteinModelSSELinearLoopProximity 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ScoreProteinModelSSELinearLoopProximity
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ScoreProteinModelSSELinearLoopProximity ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    1   1 ASP A  148  ILE A  150  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 TYR A  151  THR A  156  5                                   6    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    4   4 ASN A  255  ILE A  259  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 ILE A  305  ILE A  308  5                                   4    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 LYS A  314  THR A  318  5                                   5    
+=std=bcl=> test constructor from nr_excluded and width and scheme
+=std=bcl=> test constructor from nr_excluded and width and scheme
+=std=bcl=> test clone
+=std=bcl=> successful example check:
+               sp_loop->GetScheme() == loop_norm_proximity.GetScheme() ==
+              sse_linear_loop_proximity_aa
+=std=bcl=> successful example check:  loop_norm_proximity( native_model) == 0.65  (+/- 0.001)
+=std=bcl=> successful example check:  loop_norm_proximity( bad_loops_model) == 9.15  (+/- 0.001)
+=std=bcl=> successful example check:  loop_dist_along_sse_unnorm( native_model) == 0.797266  (+/- 0.01)
+=std=bcl=> successful example check:  loop_dist_along_sse_unnorm( bad_loops_model) == 9.90505  (+/- 0.01)
+Loop between STRAND A  329 GLU <==>  332 LYS - STRAND A  339 ALA <==>  347 PHE closest approach from STRAND A  318 VAL <==>  323 VAL was: 0.832889 Angstrom; score contribution was: 0.797266 unweighted; weighted: 0.518223 interaction weight was: 0.797266
+Final sse_linear_loop_proximity score: 0.797266
+Loop between STRAND A   62 LYS <==>   66 ASN - STRAND A   80 SER <==>   84 GLU closest approach from STRAND A   37 GLU <==>   43 ILE was: 0.506978 Angstrom; score contribution was: 0.95839 unweighted; weighted: 0.479195 interaction weight was: 0.95839
+Loop between STRAND A  106 GLU <==>  114 ILE - STRAND A  122 TYR <==>  126 VAL closest approach from STRAND A  222 HIS <==>  228 LEU was: 1.57275 Angstrom; score contribution was: 0.510679 unweighted; weighted: 0.357475 interaction weight was: 0.510679
+Loop between STRAND A  128 LYS <==>  130 VAL - STRAND A  141 THR <==>  146 SER closest approach from STRAND A  269 ASN <==>  275 ASP was: 0.0900042 Angstrom; score contribution was: 0.949445 unweighted; weighted: 0.42725 interaction weight was: 0.949445
+Loop between STRAND A  141 THR <==>  146 SER - STRAND A  157 ASN <==>  163 SER closest approach from STRAND A  316 ASP <==>  326 VAL was: 1.26061 Angstrom; score contribution was: 0.632118 unweighted; weighted: 0.410877 interaction weight was: 0.632118
+Loop between STRAND A  184 HIS <==>  188 VAL - STRAND A  196 ILE <==>  206 VAL closest approach from STRAND A  332 TYR <==>  335 SER was: 0.988491 Angstrom; score contribution was: 0.857714 unweighted; weighted: 0.686171 interaction weight was: 0.857714
+Loop between STRAND A  249 GLU <==>  254 ILE - STRAND A  269 ASN <==>  275 ASP closest approach from STRAND A   98 TYR <==>  100 MET was: 0.534665 Angstrom; score contribution was: 0.519622 unweighted; weighted: 0.337754 interaction weight was: 0.519622
+Loop between STRAND A  249 GLU <==>  254 ILE - STRAND A  269 ASN <==>  275 ASP closest approach from COIL    84 E GLU E -    98 Y TYR E was: 1.40559 Angstrom; score contribution was: 0.439589 unweighted; weighted: 0.285733 interaction weight was: 0.439589
+Loop between STRAND A  249 GLU <==>  254 ILE - STRAND A  269 ASN <==>  275 ASP closest approach from COIL   228 L LEU E -   236 F PHE E was: 0.462572 Angstrom; score contribution was: 0.980206 unweighted; weighted: 0.637134 interaction weight was: 0.980206
+Loop between STRAND A  269 ASN <==>  275 ASP - STRAND A  281 PHE <==>  284 PHE closest approach from COIL   114 I ILE E -   122 Y TYR E was: 0.379797 Angstrom; score contribution was: 0.847138 unweighted; weighted: 0.465926 interaction weight was: 0.847138
+Loop between HELIX A  351 LYS <==>  356 ILE - STRAND A  364 LYS <==>  368 PHE closest approach from STRAND A  196 ILE <==>  206 VAL was: 0.6483 Angstrom; score contribution was: 0.898491 unweighted; weighted: 0.49417 interaction weight was: 0.898491
+Loop between HELIX A  402 ILE <==>  409 PHE - STRAND A  418 ILE <==>  423 LEU closest approach from COIL   344 V VAL E -   351 K LYS H was: 0.707026 Angstrom; score contribution was: 0.895767 unweighted; weighted: 0.627037 interaction weight was: 0.895767
+Loop between HELIX A  402 ILE <==>  409 PHE - STRAND A  418 ILE <==>  423 LEU closest approach from COIL   212 D ASP E -   222 H HIS E was: 1.919 Angstrom; score contribution was: 0.318846 unweighted; weighted: 0.223192 interaction weight was: 0.318846
+Loop between STRAND A  418 ILE <==>  423 LEU - STRAND A  433 ALA <==>  442 ASP closest approach from STRAND A  196 ILE <==>  206 VAL was: 0.122616 Angstrom; score contribution was: 0.53654 unweighted; weighted: 0.429232 interaction weight was: 0.53654
+Loop between STRAND A  418 ILE <==>  423 LEU - STRAND A  433 ALA <==>  442 ASP closest approach from STRAND A  461 PHE <==>  469 LYS was: 0.0902803 Angstrom; score contribution was: 0.560509 unweighted; weighted: 0.448407 interaction weight was: 0.560509
+Final sse_linear_loop_proximity score: 9.90505
+=std=bcl::util=> Time to score 1000 times has run for 0.620549 seconds
+=std=bcl::app=> BCL Example | END  : ScoreProteinModelSSELinearLoopProximity ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>                 success      error error_string 
+ScoreProteinModelSSELinearLoopProximity_total          5          0              
+total                                                  5          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 135 MB, peak physical RAM used: 67 MB

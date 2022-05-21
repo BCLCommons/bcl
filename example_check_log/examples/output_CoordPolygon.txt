@@ -1,0 +1,112 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec CoordPolygon 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> CoordPolygon
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: CoordPolygon ====================
+=std=bcl=> successful example check:  coord::Polygon().GetArea() == 0.0 == 0
+=std=bcl=> successful example check:  coord::Polygon().GetPerimeter() == 0.0 == 0
+=std=bcl=> successful example check:  coord::Polygon().IsCornerOf( linal::Vector2D( 0.0, 0.0)) == 0
+=std=bcl=> successful example check:  coord::Polygon().IsWithin( linal::Vector2D( 0.0, 0.0)) == 0
+=std=bcl=> successful example check:  point.GetArea() == 0.0 == 0
+=std=bcl=> successful example check:  point.GetPerimeter() == 0.0 == 0
+=std=bcl=> successful example check:  point.IsCornerOf( linal::Vector2D( 1.0, 1.0)) == 1
+=std=bcl=> successful example check:  point.IsCornerOf( linal::Vector2D( 0.0, 0.0)) == 0
+=std=bcl=> successful example check:  point.IsWithin( linal::Vector2D( 1.0, 1.0)) == 1
+=std=bcl=> successful example check:  point.IsWithin( linal::Vector2D( 0.0, 0.0)) == 0
+=std=bcl=> successful example check:
+               point.FindNearestSide( linal::Vector2D( 0.0, 0.0)).second ==
+              linal::Vector2D( 1.0, 1.0).Norm() == 1.41421
+=std=bcl=> successful example check:  line.GetArea() == 0.0 == 0
+=std=bcl=> successful example check:  line.GetPerimeter() == math::Sqrt( 5.0) == 2.23607  (+/- 0.01)
+=std=bcl=> successful example check:  line.IsCornerOf( linal::Vector2D( 1.0, 1.0)) == 0
+=std=bcl=> successful example check:  line.IsCornerOf( linal::Vector2D( 0.0, 0.0)) == 1
+=std=bcl=> successful example check:  line.IsWithin( linal::Vector2D( 1.0, 1.0)) == 0
+=std=bcl=> successful example check:  line.FindNearestSide( linal::Vector2D( -0.5, 1.0)).second == 0.0 == 0  (+/- 0.0001)
+=std=bcl=> successful example check:  triangle.GetArea() == 1.0 == 1  (+/- 0.01)
+=std=bcl=> successful example check:  triangle.GetPerimeter() == 2.0 + 2.0 * math::Sqrt( 2.0) == 4.82843  (+/- 0.01)
+=std=bcl=> successful example check:  triangle.IsCornerOf( linal::Vector2D( 3.0, 1.0)) == 1
+=std=bcl=> successful example check:  triangle.IsCornerOf( linal::Vector2D( 0.0, 0.0)) == 0
+=std=bcl=> successful example check:  triangle.IsWithin( linal::Vector2D( 3.0, 1.0)) == 1
+=std=bcl=> successful example check:  triangle.IsWithin( linal::Vector2D( 3.0, 1.9)) == 0
+=std=bcl=> successful example check:  triangle.IsWithin( linal::Vector2D( 2.0, 1.5)) == 1
+=std=bcl=> successful example check:
+               triangle.FindNearestSide( linal::Vector2D( 2.0, 1.5)).second == 0.353553
+               (+/- 0.0001)
+=std=bcl=> successful example check:  irregular.GetArea() == 12.75  (+/- 0.01)
+=std=bcl=> successful example check:  irregular.GetPerimeter() == 23.5372  (+/- 0.01)
+=std=bcl=> successful example check:  irregular.IsCornerOf( linal::Vector2D( 3.0, 1.0)) == 1
+=std=bcl=> successful example check:  irregular.IsCornerOf( linal::Vector2D( 0.0, 0.0)) == 0
+=std=bcl=> successful example check:  irregular.IsWithin( linal::Vector2D( 3.0, 1.0)) == 1
+=std=bcl=> successful example check:  irregular.IsWithin( linal::Vector2D( 3.0, 0.5)) == 0
+=std=bcl=> successful example check:  irregular.IsWithin( linal::Vector2D( 2.0, 1.5)) == 1
+=std=bcl=> successful example check:  irregular.IsWithin( linal::Vector2D( -1.0, -1.0)) == 1
+=std=bcl=> successful example check:  irregular.FindNearestSide( linal::Vector2D( 2.0, 1.5)).second == 0.5  (+/- 0.0001)
+=std=bcl=> ConvexHull test succeeded:
+               actual_convex_hull.GetArea() == computed_convex_hull.GetArea() == 3.1281
+               (+/- 0.01)
+=std=bcl=> ConvexHull test succeeded:
+               actual_convex_hull.GetPerimeter() == computed_convex_hull.GetPerimeter() ==
+              6.27642  (+/- 0.01)
+=std=bcl=> ConvexHull test succeeded:
+               actual_convex_hull.GetNumberOfSides() == computed_convex_hull.GetNumberOfSides()
+              == 100
+=std=bcl=> computed convex hull should contain all the points test succeeded:  all_points_within_convex_hull == 1
+=std=bcl::app=> BCL Example | END  : CoordPolygon ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+CoordPolygon_total                       38          0              
+total                                    38          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

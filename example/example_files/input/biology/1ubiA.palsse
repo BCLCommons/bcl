@@ -1,0 +1,10 @@
+HELIX    1     GLU A   18  THR A   22  1                                   5
+HELIX    2     THR A   22  GLY A   35  1                                  14
+HELIX    3     PRO A   37  GLN A   41  1                                   5
+HELIX    4     GLU A   51  THR A   55  1                                   5
+HELIX    5     THR A   55  ASN A   60  1                                   6
+SHEET        1   MET A   1  LEU A   8                                      8
+SHEET        1   GLY A  10  VAL A  17                                      8
+SHEET        1   GLN A  40  ALA A  46                                      7
+SHEET        1   GLY A  47  LEU A  50                                      4
+SHEET        1   LYS A  63  ARG A  72                                     10

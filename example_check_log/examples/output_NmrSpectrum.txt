@@ -1,0 +1,1531 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec NmrSpectrum 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> NmrSpectrum
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: NmrSpectrum ====================
+=std=bcl=> size: 3
+=std=bcl=> successful example check:  spectra.GetSize() == 2
+=std=bcl=> successful example check:  first_spectrum.GetSpecType() == nmr::Spectrum::e_13C == 13C
+=std=bcl=> 13C spectrum of first molecule: bcl::nmr::Spectrum
+  13C
+  bcl::util::ShPtrVector<bcl::nmr::Signal>
+    23
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              19.3
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Quadruplet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    3.7	4.7802	4.2603
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              55
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Quadruplet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -6.9536	5.2378	3.4445
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              63.3
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Triplet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    6.1171	2.315	2.7032
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              65.7
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Triplet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -1.3328	2.1122	0.0198
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              70.2
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    7.3427	0.8324	1.1074
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              73.4
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    5.9947	-0.7171	-0.3086
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              74.1
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    6.075	1.6641	1.3192
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              76
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    7.2656	0.1362	-0.2549
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              102.6
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    4.779	0.1745	-0.0421
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              112.2
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -4.6103	3.9314	3.1386
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              114.6
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -3.1062	3.0929	5.3238
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              115.8
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    0.0021	-0.0041	0.002
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              117.3
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    2.3791	1.4201	-0.013
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              119.4
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    1.1693	2.0887	0.0021
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              121.2
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "ConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                  bcl::linal::Vector3D
+                    -3.4007	3.2573	2.9442
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              123.7
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -2.6506	2.8425	4.0476
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              132.2
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -0.0167	1.3782	0.0096
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              145.1
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "ConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    2.405	0.0347	-0.0207
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              147.1
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "ConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    1.2113	-0.6805	-0.0131
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              147.4
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "ConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -5.0638	4.1735	4.4202
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              151.6
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "ConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -4.3097	3.757	5.5169
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              166.5
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "ConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "ConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "ConjugatedDoubleBond"
+                  bcl::linal::Vector3D
+                    -2.9149	2.9902	1.5776
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              171.3
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "ConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "ConjugatedDoubleBond"
+                  bcl::linal::Vector3D
+                    4.8612	3.8486	4.0263
+
+
+  298.15
+  "Methanol-D4 (CD3OD)"
+  150
+  "HSQC,HMBC,NOESY"
+=std=bcl=> successful example check:  second_spectrum.GetSpecType() == nmr::Spectrum::e_1H == 1H
+=std=bcl=> 1H spectrum of first molecule: bcl::nmr::Spectrum
+  1H
+  bcl::util::ShPtrVector<bcl::nmr::Signal>
+    20
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              2.05
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    3.7	4.7802	4.2603
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              2.05
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    3.7	4.7802	4.2603
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              2.05
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    3.7	4.7802	4.2603
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              3.38
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Multiplet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    7.3427	0.8324	1.1074
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              3.47
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    7.2656	0.1362	-0.2549
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              3.5
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    5.9947	-0.7171	-0.3086
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              3.63
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    6.075	1.6641	1.3192
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              3.87
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -6.9536	5.2378	3.4445
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              3.87
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -6.9536	5.2378	3.4445
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              3.87
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -6.9536	5.2378	3.4445
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              4.25
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    6.1171	2.315	2.7032
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              4.41
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    6.1171	2.315	2.7032
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              4.78
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBondInRing"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    4.779	0.1745	-0.0421
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              5.2
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    4
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -1.3328	2.1122	0.0198
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              6.83
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -3.1062	3.0929	5.3238
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              6.87
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    1.1693	2.0887	0.0021
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              6.96
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    0.0021	-0.0041	0.002
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              7.12
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    2.3791	1.4201	-0.013
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              7.54
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Singlet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -4.6103	3.9314	3.1386
+
+    bcl::util::ShPtr<bcl::nmr::Signal>
+      12345678
+      bcl::nmr::Signal
+        bcl::util::ShPtrVector<bcl::nmr::Signal1D>
+          1
+          bcl::util::ShPtr<bcl::nmr::Signal1D>
+            12345678
+            bcl::nmr::Signal1D
+              7.57
+              1
+              bcl::storage::Vector<bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>>
+                1
+                bcl::storage::Pair<bcl::util::WrapperEnum<bcl::nmr::Signal1D::PatternType,bcl::nmr::Signal1D::GetPatternTypeDescriptor,6>,double>
+                  Doublet
+                  0
+
+              bcl::util::SiPtr<const-bcl::chemistry::AtomConformationalInterface>
+                bcl::chemistry::AtomComplete
+                  bcl::storage::Vector<bcl::chemistry::BondConformational>
+                    3
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticDoubleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "AromaticSingleBond"
+                    bcl::chemistry::BondConformational
+                      bcl::chemistry::ConfigurationalBondTypes::Enum
+                        "NonConjugatedSingleBond"
+                  bcl::linal::Vector3D
+                    -2.6506	2.8425	4.0476
+
+
+  298.15
+  "Methanol-D4 (CD3OD)"
+  600
+  "HSQC,HMBC,NOESY"
+=std=bcl::app=> BCL Example | END  : NmrSpectrum ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+NmrSpectrum_total                         3          0              
+total                                     3          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

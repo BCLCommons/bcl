@@ -1,0 +1,45 @@
+bcl::biol::AASequencePhiPsi
+  bcl::linal::Vector3D
+    37.616	26.576	11.939
+  bcl::linal::Vector3D
+    37.419	27.377	10.758
+  bcl::linal::Vector3D
+    37.439	28.848	11.101
+  bcl::storage::Vector<bcl::storage::VectorND<2,double>>
+    12
+    bcl::storage::VectorND<2,double>
+      nan
+      -0.660348
+    bcl::storage::VectorND<2,double>
+      -0.994727
+      -0.702324
+    bcl::storage::VectorND<2,double>
+      -1.23755
+      -0.661231
+    bcl::storage::VectorND<2,double>
+      -1.09078
+      -0.754883
+    bcl::storage::VectorND<2,double>
+      -1.08192
+      -0.596008
+    bcl::storage::VectorND<2,double>
+      -1.19791
+      -0.655142
+    bcl::storage::VectorND<2,double>
+      -1.11515
+      -0.738391
+    bcl::storage::VectorND<2,double>
+      -1.11666
+      -0.699177
+    bcl::storage::VectorND<2,double>
+      -1.12596
+      -0.762243
+    bcl::storage::VectorND<2,double>
+      -1.02713
+      -0.677148
+    bcl::storage::VectorND<2,double>
+      -1.64404
+      -0.492016
+    bcl::storage::VectorND<2,double>
+      -2.07813
+      -0.153751

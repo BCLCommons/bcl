@@ -1,0 +1,6 @@
+#!/bin/sh
+
+echo "Removing unnecessary headers from source files in $*"
+export PATH=/dors/meilerlab/apps/Linux2/x86_64/bin:$PATH
+export LD_LIBRARY_PATH=/dors/meilerlab/apps/Linux2/x86_64/lib64:/dors/meilerlab/apps/Linux2/x86_64/lib:$PATH
+time ./scripts/deheader/deheader -v -r -i '.*.hpp' -i '.*_instantiations.h' -i 'example.h' -i '.*bcl_util_static_initialization_fiasco_finder.h' -m "g++ -fmessage-length=0 -Werror -Wfatal-errors -Wno-deprecated -std=c++11 -I./apps -I./include -I./ -I./extern/noarch/bzip2/1.0.5/include -I./extern/noarch/zlib/1.2.5/include -I./extern/noarch/ati/2.5/include -I./extern/noarch/mysql/5.1.48/include -I./extern/noarch/mysqlpp/4.1.0/include -I./example" $*

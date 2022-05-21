@@ -1,0 +1,39 @@
+bcl::assemble::SSEPool
+HELIX    1   1 GLU A    9  HIS A   23  1                                  15    
+HELIX    2   2 GLU A    9  LYS A   24  1                                  16    
+HELIX    3   3 GLU A    9  THR A   25  1                                  17    
+SHEET    4       SER A  48  GLU A  52                                           
+HELIX    5   5 LEU A   53  LEU A   65  1                                  13    
+HELIX    6   6 LEU A   53  MET A   79  1                                  27    
+HELIX    7   7 GLN A   55  VAL A   66  1                                  12    
+HELIX    8   8 GLN A   55  LYS A   78  1                                  24    
+HELIX    9   9 SER A   67  MET A   79  1                                  13    
+HELIX   10  10 TYR A   68  LYS A   78  1                                  11    
+HELIX   11  11 SER A   88  SER A   98  1                                  11    
+HELIX   12  12 SER A   88  SER A  110  1                                  23    
+HELIX   13  13 GLN A   91  GLU A  109  1                                  19    
+SHEET   14       ILE A  92  LYS A  96                                           
+SHEET   15       ILE A 100  LEU A 105                                           
+HELIX   16  16 ILE A  100  SER A  110  1                                  11    
+SHEET   17       SER A 117  CYS A 120                                           
+SHEET   18       LYS A 126  ASP A 131                                           
+HELIX   19  19 SER A  138  LEU A  152  1                                  15    
+HELIX   20  20 SER A  138  LYS A  154  1                                  17    
+HELIX   21  21 LEU A  139  GLN A  149  1                                  11    
+HELIX   22  22 GLU A  159  ILE A  170  1                                  12    
+HELIX   23  23 GLU A  159  SER A  172  1                                  14    
+SHEET   24       LEU A 164  VAL A 171                                           
+HELIX   25  25 VAL A  178  THR A  197  1                                  20    
+HELIX   26  26 ALA A  181  ARG A  190  1                                  10    
+HELIX   27  27 ALA A  181  CYS A  201  1                                  21    
+HELIX   28  28 SER A  192  CYS A  201  1                                  10    
+HELIX   29  29 SER A  208  LEU A  222  1                                  15    
+HELIX   30  30 SER A  208  PHE A  238  1                                  31    
+HELIX   31  31 HIS A  209  LEU A  222  1                                  14    
+HELIX   32  32 HIS A  209  LEU A  225  1                                  17    
+HELIX   33  33 HIS A  209  SER A  237  1                                  29    
+HELIX   34  34 SER A  224  SER A  237  1                                  14    
+HELIX   35  35 SER A  224  PHE A  238  1                                  15    
+SHEET   36       TYR A 233  LEU A 236                                           
+HELIX   37  37 THR A  247  ASN A  256  1                                  10    
+END                                                                             

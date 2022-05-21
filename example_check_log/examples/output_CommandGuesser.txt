@@ -1,0 +1,187 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec CommandGuesser 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> CommandGuesser
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: CommandGuesser ====================
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess( "yep this is my fave", possible_values).First() ==
+              command::Guesser::e_SomeWordsMatch == SomeWordsMatch
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess( "yep this is my fave", possible_values).Second() ==
+              storage::Vector< std::string>( size_t( 1), possible_values( 0)) ==
+              bcl::storage::Vector<std::string>
+                1
+                "this is my favorite"
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess( "favorite is my this", possible_values).First() ==
+              command::Guesser::e_ReorderedWords == ReorderedWords
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess( "favorite is my this", possible_values).Second() ==
+              storage::Vector< std::string>( size_t( 1), possible_values( 0)) ==
+              bcl::storage::Vector<std::string>
+                1
+                "this is my favorite"
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "this i", possible_values).First() ==
+              command::Guesser::e_FirstLetters == FirstLetters
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess( "favorites is my this", possible_values).First() ==
+              command::Guesser::e_ReorderedStems == ReorderedStems
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "this i", possible_values).Second() ==
+              storage::Vector< std::string>( size_t( 1), possible_values( 0)) ==
+              bcl::storage::Vector<std::string>
+                1
+                "this is my favorite"
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess( "alpha beta gamma", possible_values).First() ==
+              command::Guesser::e_CaseOrSpace == CaseOrSpace
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess( "alpha beta gamma", possible_values).Second() ==
+              storage::Vector< std::string>( size_t( 1), possible_values( 6)) ==
+              bcl::storage::Vector<std::string>
+                1
+                "ALPHA   BETA   GAMMA"
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess( "OptionToMispells", possible_values).First() ==
+              command::Guesser::e_Suffix == Suffix
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess( "OptionToMispells", possible_values).Second() ==
+              storage::Vector< std::string>( size_t( 1), possible_values( 1)) ==
+              bcl::storage::Vector<std::string>
+                1
+                "OptionToMispell"
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "Chem", possible_values).First() ==
+              command::Guesser::e_FirstLetters == FirstLetters
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess( "Chem", possible_values).Second().GetSize() == 3
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "ChemMol", possible_values).First() ==
+              command::Guesser::e_StrongAbbreviation == StrongAbbreviation
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "ChemMol", possible_values).Second()
+              ==
+              storage::Vector< std::string>::Create ( "ChemistryMolecule", "ChemistryMoleculeProperties", "ChemistryMoleculePropertiesBondTypeCount" )
+              ==
+              bcl::storage::Vector<std::string>
+                3
+                "ChemistryMolecule"
+                "ChemistryMoleculeProperties"
+                "ChemistryMoleculePropertiesBondTypeCount"
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "CMP", possible_values).First() ==
+              command::Guesser::e_StrongAbbreviation == StrongAbbreviation
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "CMP", possible_values).Second() ==
+              storage::Vector< std::string>::Create ( "ChemistryMoleculeProperties", "ChemistryMoleculePropertiesBondTypeCount" )
+              ==
+              bcl::storage::Vector<std::string>
+                2
+                "ChemistryMoleculeProperties"
+                "ChemistryMoleculePropertiesBondTypeCount"
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "Cmp", possible_values).First() ==
+              command::Guesser::e_WeakAbbreviation == WeakAbbreviation
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "CMPBT", possible_values).First() ==
+              command::Guesser::e_StrongAbbreviation == StrongAbbreviation
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "CMPBT", possible_values).Second() ==
+              storage::Vector< std::string>( size_t( 1), "ChemistryMoleculePropertiesBondTypeCount") ==
+              bcl::storage::Vector<std::string>
+                1
+                "ChemistryMoleculePropertiesBondTypeCount"
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "CMPBTC", possible_values).First() ==
+              command::Guesser::e_StrongAbbreviation == StrongAbbreviation
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "AminoAcid", possible_values).First()
+              == command::Guesser::e_Explicit == Explict
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "AminoAcid", possible_values).Second()
+              == storage::Vector< std::string>( size_t( 1), "AA") == bcl::storage::Vector<std::string>
+                1
+                "AA"
+=std=bcl=> successful example check:
+               command::Guesser::GetDefaultGuesser().Guess( "Residue", possible_values).Second()
+              == storage::Vector< std::string>( size_t( 1), "Res") == bcl::storage::Vector<std::string>
+                1
+                "Res"
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess( "AASSPredList", possible_values).Second() ==
+              storage::Vector< std::string>( size_t( 1), "aa_ss_pred_list") ==
+              bcl::storage::Vector<std::string>
+                1
+                "aa_ss_pred_list"
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess( "amino_acid_secondary_structure_prediction_list", possible_values).Second()
+              == storage::Vector< std::string>( size_t( 1), "aa_ss_pred_list") ==
+              bcl::storage::Vector<std::string>
+                1
+                "aa_ss_pred_list"
+=std=bcl=> successful example check:
+              command::Guesser::GetDefaultGuesser().Guess ( "const(0)", storage::Vector< std::string>( size_t( 1), "Constant") ).Second()
+              == storage::Vector< std::string>( size_t( 1), "Constant") ==
+              bcl::storage::Vector<std::string>
+                1
+                "Constant"
+=std=bcl::app=> BCL Example | END  : CommandGuesser ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+CommandGuesser_total                     27          0              
+total                                    27          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

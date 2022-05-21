@@ -1,0 +1,3 @@
+bcl::storage::Table<double> closure_threshold sum_sqr_dist is_closed 
+| A   88   93 A   88   93 |            0.5000       1.5307    0.0000 
+| A   94   99 A   94   99 |            0.5000       1.4740    0.0000 

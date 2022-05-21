@@ -1,0 +1,10 @@
+bcl::cluster::OutputSortedMatrix<double,double>
+  bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<bcl::storage::VectorND<2,bcl::util::SiPtr<const-double>>,double>>
+    12345678
+    bcl::ExampleClusterOutputSortedMatrix::DoubleCompare
+
+  bcl::util::ShPtr<bcl::util::BinaryFunctionInterface<double,double,bool>>
+    12345678
+    bcl::util::BinaryFunctionSTLWrapper<std::less<double>>
+      bcl::util::BinaryFunctionSTLWrapper<std::less<double>>
+  1

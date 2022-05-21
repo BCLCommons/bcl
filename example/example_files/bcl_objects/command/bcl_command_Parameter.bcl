@@ -1,0 +1,11 @@
+bcl::command::Parameter
+  "fourth_parameter"
+  "the fourth test parameter"
+  bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+    12345678
+    bcl::command::ParameterCheckDefault
+
+  "default parameter"
+  0
+  1
+  "default parameter"

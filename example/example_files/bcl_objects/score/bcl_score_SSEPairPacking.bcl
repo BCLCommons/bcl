@@ -1,0 +1,40 @@
+bcl::score::SSEPairPacking
+  "ssepack_fr"
+  "sse_fragment_angle_distance.histograms2D"
+  bcl::storage::Map<bcl::contact::Types::Enum,bcl::math::Range<double>,std::less<bcl::contact::Types::Enum>>
+    7
+    std::pair<bcl::contact::Types::Enum,bcl::math::Range<double>>
+      bcl::contact::Types::Enum
+        "HELIX_HELIX"
+      bcl::math::Range<double>
+        [ 5 , 16 ]
+    std::pair<bcl::contact::Types::Enum,bcl::math::Range<double>>
+      bcl::contact::Types::Enum
+        "HELIX_SHEET"
+      bcl::math::Range<double>
+        [ 5 , 16 ]
+    std::pair<bcl::contact::Types::Enum,bcl::math::Range<double>>
+      bcl::contact::Types::Enum
+        "SHEET_HELIX"
+      bcl::math::Range<double>
+        [ 5 , 16 ]
+    std::pair<bcl::contact::Types::Enum,bcl::math::Range<double>>
+      bcl::contact::Types::Enum
+        "HELIX_STRAND"
+      bcl::math::Range<double>
+        [ 7 , 18 ]
+    std::pair<bcl::contact::Types::Enum,bcl::math::Range<double>>
+      bcl::contact::Types::Enum
+        "STRAND_HELIX"
+      bcl::math::Range<double>
+        [ 7 , 18 ]
+    std::pair<bcl::contact::Types::Enum,bcl::math::Range<double>>
+      bcl::contact::Types::Enum
+        "STRAND_STRAND"
+      bcl::math::Range<double>
+        [ 3.5 , 5.5 ]
+    std::pair<bcl::contact::Types::Enum,bcl::math::Range<double>>
+      bcl::contact::Types::Enum
+        "SHEET_SHEET"
+      bcl::math::Range<double>
+        [ 6 , 14 ]

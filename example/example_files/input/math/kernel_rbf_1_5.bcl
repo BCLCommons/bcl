@@ -1,0 +1,4 @@
+bcl::util::ShPtr<bcl::svm::SupportVectorKernelBase>
+  12345678
+  bcl::svm::SupportVectorKernelRBF
+    1.5

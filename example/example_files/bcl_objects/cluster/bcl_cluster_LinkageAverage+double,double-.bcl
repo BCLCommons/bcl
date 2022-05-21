@@ -1,0 +1,4 @@
+bcl::cluster::LinkageAverage<double,double>
+  bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<bcl::storage::VectorND<2,bcl::util::SiPtr<const-double>>,double>>
+    12345678
+    bcl::ExampleClusterLinkageAverage::DoubleCompare

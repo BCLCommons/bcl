@@ -1,0 +1,77 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec DescriptorMoleculeRDFGridCode 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> DescriptorMoleculeRDFGridCode
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: DescriptorMoleculeRDFGridCode ====================
+=std=bcl=> successful example check:  rdf_code.GetClassIdentifier() == bcl::descriptor::MoleculeRDFGridCode
+=std=bcl=> Charges: bcl::linal::Vector<float>
+  12
+  -0.058154	-0.058154	-0.058154	-0.058154	-0.058154	-0.058154	0.058154	0.058154	0.058154	0.058154	0.058154	0.058154	
+=std=bcl=> successful example check:
+               vector_rdf_code == expected_vector
+              output of result suppressed (result was 1753 bytes), set message verbosity to Detail to override  (+/- 0.001)
+=std=bcl=> vector: bcl::linal::Vector<float>
+  288
+  12.2343	4.50075	0.224079	0.00150983	1.37679e-06	1.69909e-10	2.83777e-15	6.4143e-21	1.96215e-27	8.12318e-35	4.45613e-43	0	1.69934e-10	6.25204e-11	3.11313e-12	2.09806e-14	1.91384e-17	2.36315e-21	3.95028e-26	8.94126e-32	2.74115e-38	0	0	0	9.43998	5.52999	0.438418	0.00470396	6.83045e-06	1.34229e-09	3.5699e-14	1.28492e-19	6.25899e-26	4.1262e-33	3.68093e-41	0	17.34	6.37903	0.317593	0.00213993	1.95136e-06	2.40817e-10	4.02206e-15	9.09117e-21	2.78101e-27	1.15132e-34	6.38992e-43	0	18.8787	11.0592	0.876776	0.00940728	1.366e-05	2.6844e-09	7.13931e-14	2.56966e-19	1.25171e-25	8.25186e-33	7.36186e-41	0	24.6287	9.06067	0.451127	0.0030399	2.77238e-06	3.42207e-10	5.71724e-15	1.29293e-20	3.95827e-27	1.64078e-34	9.16449e-43	0	8.51118	3.13109	0.155888	0.00105037	9.57811e-07	1.18204e-10	1.97421e-15	4.46239e-21	1.36507e-27	5.65141e-35	3.19496e-43	0	18.88	11.06	0.876837	0.00940793	1.36609e-05	2.68459e-09	7.13981e-14	2.56984e-19	1.2518e-25	8.25243e-33	7.36186e-41	0	9.50464	5.55377	0.439601	0.00471193	6.83771e-06	1.34319e-09	3.57138e-14	1.28525e-19	6.26001e-26	4.12662e-33	3.68093e-41	0	7.0639	2.59866	0.12938	0.000871755	7.94937e-07	9.8103e-11	1.63849e-15	3.70352e-21	1.13292e-27	4.69021e-35	2.69049e-43	0	3.5643	1.31123	0.0652824	0.00043987	4.01109e-07	4.95008e-11	8.26748e-16	1.86872e-21	5.71646e-28	2.36658e-35	1.34525e-43	0	1.07152e-12	3.94189e-13	1.96255e-14	1.32236e-16	1.20583e-19	1.48812e-23	2.48541e-28	5.61785e-34	1.7185e-40	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	0	
+=std=bcl=> successful example check:  vector_rdf_code.GetSize() == 288
+=std=bcl=> MoleculeRDFGridCode I/O test succeeded:
+              TestBCLObjectIOForSymmetry( rdf_code, descriptor::MoleculeRDFGridCode()) == 1
+=std=bcl::app=> BCL Example | END  : DescriptorMoleculeRDFGridCode ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>       success      error error_string 
+DescriptorMoleculeRDFGridCode_total          4          0              
+total                                        4          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

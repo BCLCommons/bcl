@@ -1,0 +1,101 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec McTemperatureAccepted 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> McTemperatureAccepted
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: McTemperatureAccepted ====================
+=std=bcl=> successful example check:  param_constructor.GetLastCalculatedTemperature() == start_temp == 100
+=std=bcl=> Temperature after 0 rejected, 1 improved, 0 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 70  (+/- 0.1)
+=std=bcl=> Temperature after 0 rejected, 2 improved, 0 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 48.6358  (+/- 0.1)
+=std=bcl=> Temperature after 0 rejected, 2 improved, 1 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 33.6515  (+/- 0.1)
+=std=bcl=> Temperature after 1 rejected, 2 improved, 1 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 23.495  (+/- 0.1)
+=std=bcl=> Temperature after 2 rejected, 2 improved, 1 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 16.774  (+/- 0.1)
+=std=bcl=> Temperature after 3 rejected, 2 improved, 1 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 12.1569  (+/- 0.1)
+=std=bcl=> Temperature after 3 rejected, 3 improved, 1 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 8.63073  (+/- 0.1)
+=std=bcl=> Temperature after 3 rejected, 4 improved, 1 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 5.75716  (+/- 0.1)
+=std=bcl=> Temperature after 3 rejected, 4 improved, 2 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 3.60181  (+/- 0.1)
+=std=bcl=> Temperature after 3 rejected, 4 improved, 3 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 2.3429  (+/- 0.1)
+=std=bcl=> Temperature after 3 rejected, 4 improved, 4 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 1.87549  (+/- 0.1)
+=std=bcl=> Temperature after 3 rejected, 4 improved, 5 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 1.74565  (+/- 0.1)
+=std=bcl=> Temperature after 3 rejected, 4 improved, 6 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 1.45418  (+/- 0.1)
+=std=bcl=> Temperature after 3 rejected, 4 improved, 7 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 0.836078  (+/- 0.1)
+=std=bcl=> Temperature after 3 rejected, 4 improved, 8 accepted steps  test succeeded:
+              param_constructor.GetTemperature( tracker_double) == itr->Third() == 0.156511  (+/- 0.1)
+=std=bcl=> GetTemperature should return a constant value for a given tracker test succeeded:
+              param_constructor.GetTemperature( tracker_double) == param_constructor.GetTemperature( tracker_double) ==
+              0.156511
+=std=bcl=> Reset test succeeded:  param_constructor.GetLastCalculatedTemperature() == start_temp == 100
+=std=bcl=> TemperatureAccepted I/O test succeeded:
+              TestBCLObjectIOForSymmetry( param_constructor, mc::TemperatureAccepted()) == 1
+=std=bcl::app=> BCL Example | END  : McTemperatureAccepted ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+McTemperatureAccepted_total              19          0              
+total                                    19          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

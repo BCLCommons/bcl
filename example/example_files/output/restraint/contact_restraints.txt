@@ -1,0 +1,5 @@
+Atom Distance Assigned
+A 25 P A 167 F 8 10 0
+A 27 A A 116 L 8 10 0
+A 29 T A 85 G 8 10 0
+A 127 L A 149 P 8 10 0

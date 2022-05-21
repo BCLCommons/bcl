@@ -1,0 +1,955 @@
+bcl::pdb::Site
+  "AC1"
+  SOFTWARE
+  "BINDING SITE FOR RESIDUE BCL A 57                  "
+  bcl::storage::List<bcl::pdb::ResidueSimple>
+    10
+    bcl::pdb::ResidueSimple
+      "ALA"	A	26	' '
+
+    bcl::pdb::ResidueSimple
+      "THR"	A	27	' '
+
+    bcl::pdb::ResidueSimple
+      "ALA"	A	30	' '
+
+    bcl::pdb::ResidueSimple
+      "HIS"	A	34	' '
+
+    bcl::pdb::ResidueSimple
+      "TRP"	A	45	' '
+
+    bcl::pdb::ResidueSimple
+      "ALA"	B	26	' '
+
+    bcl::pdb::ResidueSimple
+      "PHE"	B	27	' '
+
+    bcl::pdb::ResidueSimple
+      "ALA"	B	31	' '
+
+    bcl::pdb::ResidueSimple
+      "HIS"	B	35	' '
+
+    bcl::pdb::ResidueSimple
+      "PHE"	E	45	' '
+
+
+  bcl::storage::List<bcl::pdb::ResidueSimple>
+    7
+    bcl::pdb::ResidueSimple
+      "LYC"	A	97	' '
+
+    bcl::pdb::ResidueSimple
+      "BCL"	B	59	' '
+
+    bcl::pdb::ResidueSimple
+      "DET"	B	77	' '
+
+    bcl::pdb::ResidueSimple
+      "BCL"	D	58	' '
+
+    bcl::pdb::ResidueSimple
+      "LYC"	D	97	' '
+
+    bcl::pdb::ResidueSimple
+      "BCL"	E	59	' '
+
+    bcl::pdb::ResidueSimple
+      "HTO"	E	79	' '
+
+
+  bcl::util::ShPtr<bcl::pdb::Ligand>
+    12345678
+    bcl::pdb::Ligand
+      "BCL"	A	57	' '
+      bcl::util::ShPtrList<bcl::pdb::Line>
+        66
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3709 MG   BCL A  57      55.911 -20.536  72.269  1.00 29.44          MG  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3710  CHA BCL A  57      58.031 -20.235  75.003  1.00 28.46           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3711  CHB BCL A  57      53.255 -21.078  74.333  1.00 29.39           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3712  CHC BCL A  57      53.910 -21.043  69.496  1.00 32.01           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3713  CHD BCL A  57      58.759 -20.523  70.198  1.00 29.90           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3714  NA  BCL A  57      55.675 -20.591  74.388  1.00 28.72           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3715  C1A BCL A  57      56.689 -20.458  75.332  1.00 24.98           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3716  C2A BCL A  57      56.105 -20.559  76.716  1.00 27.38           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3717  C3A BCL A  57      54.654 -20.895  76.500  1.00 26.80           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3718  C4A BCL A  57      54.466 -20.872  75.003  1.00 28.39           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3719  CMA BCL A  57      54.326 -22.255  77.079  1.00 24.88           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3720  CAA BCL A  57      56.230 -19.254  77.499  1.00 27.06           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3721  CBA BCL A  57      55.741 -19.309  78.920  1.00 34.47           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3722  CGA BCL A  57      55.762 -17.948  79.587  1.00 33.12           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3723  O1A BCL A  57      54.732 -17.267  79.631  1.00 39.24           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3724  O2A BCL A  57      56.861 -17.444  80.209  1.00 34.36           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3725  NB  BCL A  57      53.957 -20.838  71.971  1.00 27.24           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3726  C1B BCL A  57      53.022 -21.051  72.955  1.00 29.77           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3727  C2B BCL A  57      51.722 -21.140  72.347  1.00 28.52           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3728  C3B BCL A  57      51.873 -20.944  70.999  1.00 36.93           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3729  C4B BCL A  57      53.307 -20.951  70.761  1.00 31.30           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3730  CMB BCL A  57      50.424 -21.250  73.124  1.00 26.00           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3731  CAB BCL A  57      51.079 -21.262  69.808  1.00 32.98           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3732  OBB BCL A  57      51.897 -21.158  68.906  1.00 44.15           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3733  CBB BCL A  57      49.709 -20.745  69.445  1.00 49.76           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3734  NC  BCL A  57      56.282 -20.777  70.153  1.00 33.39           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3735  C1C BCL A  57      55.274 -20.979  69.200  1.00 30.95           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3736  C2C BCL A  57      55.894 -21.223  67.842  1.00 31.02           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3737  C3C BCL A  57      57.344 -20.838  68.025  1.00 32.76           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3738  C4C BCL A  57      57.538 -20.757  69.528  1.00 30.26           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3739  CMC BCL A  57      55.718 -22.643  67.354  1.00 28.54           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3740  CAC BCL A  57      57.692 -19.485  67.405  1.00 32.46           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3741  CBC BCL A  57      58.045 -19.610  65.937  1.00 33.39           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3742  ND  BCL A  57      57.909 -20.258  72.478  1.00 31.46           N  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3743  C1D BCL A  57      58.947 -20.291  71.572  1.00 32.32           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3744  C2D BCL A  57      60.217 -20.066  72.252  1.00 31.74           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3745  C3D BCL A  57      59.914 -19.994  73.582  1.00 32.98           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3746  C4D BCL A  57      58.502 -20.191  73.706  1.00 30.79           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3747  CMD BCL A  57      61.573 -19.929  71.580  1.00 23.93           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3748  CAD BCL A  57      60.423 -19.759  74.918  1.00 34.10           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3749  OBD BCL A  57      61.561 -19.464  75.299  1.00 36.14           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3750  CBD BCL A  57      59.237 -19.872  75.900  1.00 34.70           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3751  CGD BCL A  57      59.483 -21.020  76.864  1.00 43.20           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3752  O1D BCL A  57      59.396 -20.731  78.075  1.00 42.37           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3753  O2D BCL A  57      59.774 -22.287  76.462  1.00 47.27           O  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3754  CED BCL A  57      59.352 -23.356  77.200  1.00 57.55           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3755  C1  BCL A  57      56.590 -16.511  81.286  1.00 45.89           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3756  C2  BCL A  57      57.634 -16.583  82.180  1.00 51.22           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3757  C3  BCL A  57      57.652 -16.834  83.534  1.00 48.50           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3758  C4  BCL A  57      58.931 -16.870  84.355  1.00 50.99           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3759  C5  BCL A  57      56.392 -17.041  84.355  1.00 48.32           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3760  C6  BCL A  57      56.558 -18.141  85.358  1.00 53.44           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3761  C7  BCL A  57      55.936 -19.441  84.853  1.00 68.44           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3762  C8  BCL A  57      56.257 -20.680  85.707  1.00 77.54           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3763  C9  BCL A  57      56.354 -20.389  87.215  1.00 80.67           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3764  C10 BCL A  57      57.406 -21.544  85.167  1.00 82.13           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3765  C11 BCL A  57      57.697 -22.831  85.989  1.00 84.38           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3766  C12 BCL A  57      58.077 -24.021  85.083  1.00 81.20           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3767  C13 BCL A  57      58.677 -25.217  85.818  1.00 75.86           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3768  C14 BCL A  57      60.125 -24.929  86.061  1.00 75.81           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3769  C15 BCL A  57      58.522 -26.515  85.037  1.00 77.38           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3770  C16 BCL A  57      57.078 -26.992  84.961  1.00 88.64           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3771  C17 BCL A  57      56.581 -27.163  83.510  1.00 96.20           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3772  C18 BCL A  57      57.264 -28.284  82.713  1.00 99.46           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3773  C19 BCL A  57      57.100 -29.642  83.388  1.00 97.17           C  "
+        bcl::util::ShPtr<bcl::pdb::Line>
+          12345678
+          bcl::pdb::Line
+            bcl::pdb::LineTypes::Enum
+              "HETATM"
+            "HETATM 3774  C20 BCL A  57      56.724 -28.328  81.280  1.00101.74           C  "
+
+      "BACTERIOCHLOROPHYLL A"
+      "12(C55 H74 MG N4 O6)                               "
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        66
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3709
+          bcl::storage::Set<size_t,std::less<size_t>>
+            4
+            3714
+            3725
+            3734
+            3742
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3710
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3715
+            3746
+            3750
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3711
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3718
+            3726
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3712
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3729
+            3735
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3713
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3738
+            3743
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3714
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3709
+            3715
+            3718
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3715
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3710
+            3714
+            3716
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3716
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3715
+            3717
+            3720
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3717
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3716
+            3718
+            3719
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3718
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3711
+            3714
+            3717
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3719
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3717
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3720
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3716
+            3721
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3721
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3720
+            3722
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3722
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3721
+            3723
+            3724
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3723
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3722
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3724
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3722
+            3755
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3725
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3709
+            3726
+            3729
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3726
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3711
+            3725
+            3727
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3727
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3726
+            3728
+            3730
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3728
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3727
+            3729
+            3731
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3729
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3712
+            3725
+            3728
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3730
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3727
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3731
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3728
+            3732
+            3733
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3732
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3731
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3733
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3731
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3734
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3709
+            3735
+            3738
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3735
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3712
+            3734
+            3736
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3736
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3735
+            3737
+            3739
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3737
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3736
+            3738
+            3740
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3738
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3713
+            3734
+            3737
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3739
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3736
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3740
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3737
+            3741
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3741
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3740
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3742
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3709
+            3743
+            3746
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3743
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3713
+            3742
+            3744
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3744
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3743
+            3745
+            3747
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3745
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3744
+            3746
+            3748
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3746
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3710
+            3742
+            3745
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3747
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3744
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3748
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3745
+            3749
+            3750
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3749
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3748
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3750
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3710
+            3748
+            3751
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3751
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3750
+            3752
+            3753
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3752
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3751
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3753
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3751
+            3754
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3754
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3753
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3755
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3724
+            3756
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3756
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3755
+            3757
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3757
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3756
+            3758
+            3759
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3758
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3757
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3759
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3757
+            3760
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3760
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3759
+            3761
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3761
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3760
+            3762
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3762
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3761
+            3763
+            3764
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3763
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3762
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3764
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3762
+            3765
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3765
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3764
+            3766
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3766
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3765
+            3767
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3767
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3766
+            3768
+            3769
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3768
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3767
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3769
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3767
+            3770
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3770
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3769
+            3771
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3771
+          bcl::storage::Set<size_t,std::less<size_t>>
+            2
+            3770
+            3772
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3772
+          bcl::storage::Set<size_t,std::less<size_t>>
+            3
+            3771
+            3773
+            3774
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3773
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3772
+
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3774
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            3772
+
+
+      bcl::storage::Map<size_t,bcl::storage::Set<size_t,std::less<size_t>>,std::less<size_t>>
+        1
+        std::pair<size_t,bcl::storage::Set<size_t,std::less<size_t>>>
+          3709
+          bcl::storage::Set<size_t,std::less<size_t>>
+            1
+            324
+

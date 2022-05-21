@@ -1,0 +1,100 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec AssembleCollectorSheet 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AssembleCollectorSheet
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AssembleCollectorSheet ====================
+=std=bcl=> Testing copy constructor
+=std=bcl=> Testing clone function
+=std=bcl=> successful example check:
+               collector.GetClassIdentifier() == GetStaticClassName( collector) ==
+              bcl::assemble::CollectorSheet
+=std=bcl=> Collecting sheets
+=std=bcl=> number of collected sheets 2
+=std=bcl=> Collector sheet count test succeeded:  sheets.GetSize() == expected_nr_sheets == 2
+=std=bcl=> Following sheets were found:
+=std=bcl=> The sheet # 1
+number elements 2	type: beta-sheet
+STRAND A   10 PHE <==>   14 CYS
+STRAND A    1 LEU <==>    5 LYS	 GEO_1: STRAND A   11 TYR <==>   13 THR	GEO_2: STRAND A    2 LYS <==>    4 ASN	co: STRAND_STRAND	dist: 3.69458	ortho: 1	int_weight: 1	str_weight: 0.709419	twist:2.43441	orient:ANTIPARALLEL	rel_pos:2.36659	rel_weight:0.0163453	int_length:4
+
+=std=bcl=> The sheet # 2
+number elements 3	type: beta-sheet
+STRAND A   34 VAL <==>   39 ILE
+STRAND A   20 LEU <==>   26 MET	 GEO_1: STRAND A   36 ARG <==>   38 CYS	GEO_2: STRAND A   21 CYS <==>   23 LYS	co: STRAND_STRAND	dist: 4.06463	ortho: 1	int_weight: 1	str_weight: 0.671345	twist:2.47868	orient:ANTIPARALLEL	rel_pos:2.31478	rel_weight:0.0202024	int_length:4
+STRAND A   50 LYS <==>   55 ASN	 GEO_1: STRAND A   22 TYR <==>   24 MET	GEO_2: STRAND A   51 TYR <==>   53 CYS	co: STRAND_STRAND	dist: 3.95988	ortho: 1	int_weight: 1	str_weight: 0.716126	twist:2.83861	orient:ANTIPARALLEL	rel_pos:2.349	rel_weight:0.0208046	int_length:4
+
+=std=bcl=> Checking the SSEs in the first sheet:
+=std=bcl=> Collect test succeeded:  sp_first_sheet->DoesContain( sse_1_5) && sp_first_sheet->DoesContain( sse_10_14) == 1
+=std=bcl=> Checking the order of SSEs in the first sheet:
+=std=bcl=> Collect test succeeded:
+               sp_first_sheet->GetTopology()->GetElements() ==
+              util::SiPtrVector< const assemble::SSEGeometryInterface>::Create( sse_10_14, sse_1_5)
+              output of result suppressed (result was 18377 bytes), set message verbosity to Detail to override
+=std=bcl=> Checking the SSEs in the second sheet:
+=std=bcl=> Collect test succeeded:
+              sp_second_sheet->DoesContain( sse_20_26) && sp_second_sheet->DoesContain( sse_34_39) && sp_second_sheet->DoesContain( sse_50_55)
+              == 1
+=std=bcl=> Checking the order of SSEs in the second sheet:
+=std=bcl=> The second sheet's order vector should be 34-39, 20-26 and 50-55 test succeeded:
+              sp_second_sheet->GetTopology()->GetElements() ==
+              util::SiPtrVector< const assemble::SSEGeometryInterface>::Create( sse_34_39, sse_20_26, sse_50_55)
+              output of result suppressed (result was 35432 bytes), set message verbosity to Detail to override
+=std=bcl::app=> BCL Example | END  : AssembleCollectorSheet ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AssembleCollectorSheet_total              6          0              
+total                                     6          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 65 MB

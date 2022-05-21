@@ -1,0 +1,235 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ModelApproximatorNeuralNetwork 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ModelApproximatorNeuralNetwork
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ModelApproximatorNeuralNetwork ====================
+=std=bcl=> FeatureResultDataSet xor: bcl::util::ShPtr<bcl::descriptor::Dataset>
+  12345678
+  bcl::descriptor::Dataset
+    bcl::util::ShPtr<bcl::model::FeatureDataSet<float>>
+      12345678
+      bcl::model::FeatureDataSet<float>
+        bcl::linal::Matrix<float>
+          10	          16
+          0	1	-0.965502	-0.0314343	-0.885752	0.777796	0.124802	0.698385	-0.441349	-0.27558	-0.484308	0.0139033	0.471109	0.286685	0.416482	-0.685261	
+          0.841471	0.540302	-0.302547	-0.858039	-0.869151	0.949124	-0.767461	-0.22492	0.51662	-0.957784	-0.997874	0.848902	-0.4877	-0.651254	0.990044	-0.983089	
+          0.909297	-0.416147	0.638568	-0.895767	-0.0534565	0.247832	-0.954124	-0.941435	0.999611	-0.759406	-0.593999	0.903424	-0.998119	-0.990433	0.653364	-0.377069	
+          0.14112	-0.989992	0.992587	-0.109931	0.811385	-0.681316	-0.26357	-0.792399	0.563565	0.137166	0.355995	0.127342	-0.590873	-0.419012	-0.284016	0.575626	
+          -0.756802	-0.653644	0.434026	0.776975	0.930243	-0.984065	0.669309	0.0851652	-0.39062	0.907629	0.978689	-0.765817	0.359619	0.537646	-0.960273	0.999094	
+          -0.958924	0.283662	-0.523577	0.949534	0.19384	-0.382069	0.986829	0.884429	-0.985671	0.843622	0.701581	-0.954888	0.979479	0.999995	-0.75366	0.503999	
+          -0.279415	0.96017	-0.999805	0.249095	-0.720779	0.571199	0.397063	0.870553	-0.6745	0.00399278	-0.220558	-0.266039	0.69881	0.542953	0.145865	-0.45447	
+          0.656987	0.753902	-0.556817	-0.68036	-0.972717	0.999309	-0.557761	0.0562944	0.256803	-0.839307	-0.939917	0.667405	-0.224342	-0.413277	0.911282	-0.995102	
+          0.989358	-0.1455	0.398106	-0.984296	-0.330343	0.508659	-0.999782	-0.809721	0.952002	-0.910952	-0.79512	0.98724	-0.941235	-0.989543	0.838871	-0.620841	
+          0.412118	-0.91113	0.987012	-0.383274	0.615746	-0.44965	-0.522608	-0.931282	0.771935	-0.145072	0.0807059	0.399411	-0.792761	-0.656027	-0.00479466	0.324218	
+        bcl::util::ShPtr<bcl::model::RescaleFeatureDataSet>
+          0
+
+        bcl::util::ShPtr<bcl::model::FeatureLabelSet>
+          0
+
+    bcl::util::ShPtr<bcl::model::FeatureDataSet<float>>
+      12345678
+      bcl::model::FeatureDataSet<float>
+        bcl::linal::Matrix<float>
+          10	          1
+          0.0789846	
+          0.5707	
+          0.731214	
+          0.0972879	
+          -0.572897	
+          -0.791366	
+          -0.129753	
+          0.231682	
+          0.658562	
+          0.290963	
+        bcl::util::ShPtr<bcl::model::RescaleFeatureDataSet>
+          0
+
+        bcl::util::ShPtr<bcl::model::FeatureLabelSet>
+          0
+
+    bcl::util::ShPtr<bcl::model::FeatureDataSet<char>>
+      12345678
+      bcl::model::FeatureDataSet<char>
+        bcl::linal::Matrix<char>
+          0	          0
+
+        bcl::util::ShPtr<bcl::model::RescaleFeatureDataSet>
+          0
+
+        bcl::util::ShPtr<bcl::model::FeatureLabelSet>
+          0
+
+=std=bcl::model=> Setting up training data with 10 points
+=std=bcl::model=> Set up data set ranges with # threads: 1
+=std=bcl::model=> Set up data set ranges with # ranges: 1
+=std=bcl::model=> Set up data set ranges for updating every nth feature: 10
+=std=bcl::model=> std: 0.25
+=std=bcl::model=> std: 0.25
+=std=bcl::model=> std: 0.707107
+=std=bcl::model=> std: 1
+=std=bcl=> Initially, the RMSD was 
+0.533228
+=std=bcl::model=> Training relative RMSD for iteration 0: 0.199659
+=std=bcl::model=> Training relative RMSD for iteration 1: 0.199648
+=std=bcl=> After 1 step, RMSD is 
+0.532314
+=std=bcl=> After 2 steps, RMSD is 
+0.531238
+=std=bcl::model=> Training relative RMSD for iteration 2: 0.199631
+=std=bcl::model=> Training relative RMSD for iteration 3: 0.199604
+=std=bcl::model=> Training relative RMSD for iteration 4: 0.199571
+=std=bcl::model=> Training relative RMSD for iteration 5: 0.199531
+=std=bcl::model=> Training relative RMSD for iteration 6: 0.199482
+=std=bcl::model=> Training relative RMSD for iteration 7: 0.199422
+=std=bcl::model=> Training relative RMSD for iteration 8: 0.199349
+=std=bcl::model=> Training relative RMSD for iteration 9: 0.199261
+=std=bcl::model=> Training relative RMSD for iteration 10: 0.199149
+=std=bcl::model=> Training relative RMSD for iteration 11: 0.199008
+=std=bcl::model=> Training relative RMSD for iteration 12: 0.19883
+=std=bcl::model=> Training relative RMSD for iteration 13: 0.198603
+=std=bcl::model=> Training relative RMSD for iteration 14: 0.198309
+=std=bcl::model=> Training relative RMSD for iteration 15: 0.197927
+=std=bcl::model=> Training relative RMSD for iteration 16: 0.197427
+=std=bcl::model=> Training relative RMSD for iteration 17: 0.196771
+=std=bcl::model=> Training relative RMSD for iteration 18: 0.195918
+=std=bcl::model=> Training relative RMSD for iteration 19: 0.194819
+=std=bcl::model=> Training relative RMSD for iteration 20: 0.193423
+=std=bcl::model=> Training relative RMSD for iteration 21: 0.191682
+=std=bcl::model=> Training relative RMSD for iteration 22: 0.189566
+=std=bcl::model=> Training relative RMSD for iteration 23: 0.187021
+=std=bcl::model=> Training relative RMSD for iteration 24: 0.183946
+=std=bcl::model=> Training relative RMSD for iteration 25: 0.180322
+=std=bcl::model=> Training relative RMSD for iteration 26: 0.177386
+=std=bcl::model=> Training relative RMSD for iteration 27: 0.173531
+=std=bcl::model=> Training relative RMSD for iteration 28: 0.170447
+=std=bcl::model=> Training relative RMSD for iteration 29: 0.165534
+=std=bcl::model=> Training relative RMSD for iteration 30: 0.162092
+=std=bcl::model=> Training relative RMSD for iteration 31: 0.156248
+=std=bcl::model=> Training relative RMSD for iteration 32: 0.146649
+=std=bcl::model=> Training relative RMSD for iteration 33: 0.14398
+=std=bcl::model=> Training relative RMSD for iteration 34: 0.137402
+=std=bcl::model=> Training relative RMSD for iteration 35: 0.130201
+=std=bcl::model=> Training relative RMSD for iteration 36: 0.127898
+=std=bcl::model=> Training relative RMSD for iteration 37: 0.12596
+=std=bcl::model=> Training relative RMSD for iteration 38: 0.123992
+=std=bcl::model=> Training relative RMSD for iteration 39: 0.125442
+=std=bcl::model=> Training relative RMSD for iteration 40: 0.120801
+=std=bcl::model=> Training relative RMSD for iteration 41: 0.122796
+=std=bcl::model=> Training relative RMSD for iteration 42: 0.121192
+=std=bcl::model=> Training relative RMSD for iteration 43: 0.122027
+=std=bcl::model=> Training relative RMSD for iteration 44: 0.121096
+=std=bcl::model=> Training relative RMSD for iteration 45: 0.118202
+=std=bcl::model=> Training relative RMSD for iteration 46: 0.118863
+=std=bcl::model=> Training relative RMSD for iteration 47: 0.120592
+=std=bcl::model=> Training relative RMSD for iteration 48: 0.120742
+=std=bcl::model=> Training relative RMSD for iteration 49: 0.119642
+=std=bcl::model=> Training relative RMSD for iteration 50: 0.119709
+=std=bcl::model=> Training relative RMSD for iteration 51: 0.120328
+=std=bcl=> After 52 steps, RMSD is 
+0.506783
+=std=bcl::model=> Setting up training data with 4 points
+=std=bcl::model=> Set up data set ranges with # threads: 1
+=std=bcl::model=> Set up data set ranges with # ranges: 1
+=std=bcl::model=> Set up data set ranges for updating every nth feature: 4
+=std=bcl::model=> std: 0.707107
+=std=bcl::model=> std: 0.57735
+=std=bcl::model=> Training relative RMSD for iteration 0: 0.283042
+=std=bcl=> NN predicts 
+bcl::model::FeatureReference<float>
+  2
+  0.15634	0.784498	 for 
+bcl::model::FeatureReference<float>
+  2
+  0.1	0.9	 before training!
+=std=bcl::model=> Training relative RMSD for iteration 1000: 0.161508
+=std=bcl::model=> Training relative RMSD for iteration 2000: 0.00748859
+=std=bcl::model=> Training relative RMSD for iteration 3000: 0.0012553
+=std=bcl::model=> Training relative RMSD for iteration 4000: 0.000236846
+=std=bcl::model=> Training relative RMSD for iteration 5000: 5.01274e-05
+=std=bcl::model=> Training relative RMSD for iteration 6000: 2.02971e-05
+=std=bcl::model=> Training relative RMSD for iteration 7000: 1.76585e-05
+=std=bcl::model=> Training relative RMSD for iteration 8000: 1.73543e-05
+=std=bcl::model=> Training relative RMSD for iteration 9000: 1.70574e-05
+=std=bcl::model=> Training relative RMSD for iteration 10000: 1.67883e-05
+=std=bcl::model=> Training relative RMSD for iteration 11000: 1.65403e-05
+=std=bcl::model=> Training relative RMSD for iteration 12000: 1.63291e-05
+=std=bcl::model=> Training relative RMSD for iteration 13000: 1.61393e-05
+=std=bcl::model=> Training relative RMSD for iteration 14000: 1.59511e-05
+=std=bcl::model=> Training relative RMSD for iteration 15000: 1.57556e-05
+=std=bcl::model=> Training relative RMSD for iteration 16000: 1.56085e-05
+=std=bcl::model=> Training relative RMSD for iteration 17000: 1.54803e-05
+=std=bcl::model=> Training relative RMSD for iteration 18000: 1.53512e-05
+=std=bcl::model=> Training relative RMSD for iteration 19000: 1.52348e-05
+=std=bcl::model=> Training relative RMSD for iteration 20000: 1.51341e-05
+=std=bcl::model=> Training relative RMSD for iteration 21000: 1.50405e-05
+=std=bcl::model=> Training relative RMSD for iteration 22000: 1.49467e-05
+=std=bcl::model=> Training relative RMSD for iteration 23000: 1.4904e-05
+=std=bcl::model=> Training relative RMSD for iteration 24000: 1.4869e-05
+=std=bcl::model=> Training relative RMSD for iteration 25000: 1.48321e-05
+=std=bcl=> NN predicts 
+bcl::linal::Vector<float>
+  2
+  -0.999996	1.99998	 for 
+bcl::linal::Vector<float>
+  2
+  0.1	0.9	
+=std=bcl::app=> BCL Example | END  : ModelApproximatorNeuralNetwork ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>        success      error error_string 
+ModelApproximatorNeuralNetwork_total          3          0              
+total                                         3          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

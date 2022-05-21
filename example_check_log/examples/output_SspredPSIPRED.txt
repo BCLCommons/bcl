@@ -1,0 +1,97 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec SspredPSIPRED 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> SspredPSIPRED
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: SspredPSIPRED ====================
+=std=bcl=> test default constructor
+=std=bcl=> successful example check:
+               def_construct.GetThreeStatePrediction() == def_prediction ==
+              bcl::linal::Vector3D
+                0	0	1
+               (+/- 0.001%)
+=std=bcl=> test constructor from prediction
+=std=bcl=> successful example check:  def_construct.GetFileExtension() == extenstion == .psipred_ss2
+=std=bcl=> test GetThreeStatePrediction
+=std=bcl=> successful example check:
+               pred_construct.GetThreeStatePrediction() == helix ==
+              bcl::linal::Vector3D
+                0.1	0.8	0.1
+               (+/- 0.001%)
+=std=bcl=> test GetNineStatePrediction
+=std=bcl=> successful example check:
+               pred_construct.GetNineStatePrediction().GetRow( 2) == helix_math ==
+              bcl::linal::VectorReference<double>
+                3
+                0.1	0.8	0.1	
+               (+/- 0.001%)
+=std=bcl=> test ReadPredictionsForAASequence
+=std=bcl=> successful example check:
+              seq.GetAA( 6)->GetSSPrediction( sspred::GetMethods().e_PSIPRED)->GetThreeStatePrediction() == correct_pred ==
+              bcl::linal::Vector3D
+                0.53839	0.00655431	0.455056
+               (+/- 0.001%)
+=std=bcl=> test read and write
+=std=bcl=> successful example check:
+               def_construct.GetThreeStatePrediction() == helix ==
+              bcl::linal::Vector3D
+                0.1	0.8	0.1
+               (+/- 0.001%)
+=std=bcl::app=> BCL Example | END  : SspredPSIPRED ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+SspredPSIPRED_total                       6          0              
+total                                     6          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

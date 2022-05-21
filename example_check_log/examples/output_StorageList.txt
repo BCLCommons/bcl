@@ -1,0 +1,505 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec StorageList 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> StorageList
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: StorageList ====================
+=std=bcl=> list_A: should be empty 
+=std=bcl=> list_B: should be all 0 and have size 4
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: 0
+=std=bcl=> list_C: should be all 3.1415
+=std=bcl=> list_C: 3.1415
+=std=bcl=> list_C: 3.1415
+=std=bcl=> list_C: 3.1415
+=std=bcl=> list_C: 3.1415
+=std=bcl=> list_D: should be copy of list_B
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_E: should be copy of c1
+=std=bcl=> list_E: 0
+=std=bcl=> list_E: -1
+=std=bcl=> list_E: 2
+=std=bcl=> list_E: -3
+=std=bcl=> list_E: 4
+=std=bcl=> list_E: -5
+=std=bcl=> list_E: 6
+=std=bcl=> list_E: -7
+=std=bcl=> list_E: 8
+=std=bcl=> list_E: -9
+=std=bcl=> list_E: 10
+=std=bcl=> list_E: -11
+=std=bcl=> list_E: 12
+=std=bcl=> list_E: -13
+=std=bcl=> list_E: 14
+=std=bcl=> list_F: should be range of list_E
+=std=bcl=> list_F: -1
+=std=bcl=> list_F: 2
+=std=bcl=> list_F: -3
+=std=bcl=> list_F: 4
+=std=bcl=> list_F: -5
+=std=bcl=> list_F: 6
+=std=bcl=> list_F: -7
+=std=bcl=> list_F: 8
+=std=bcl=> list_F: -9
+=std=bcl=> list_F: 10
+=std=bcl=> list_F: -11
+=std=bcl=> list_F: 12
+=std=bcl=> list_A: should be clone of list_C now
+=std=bcl=> list_A: 3.1415
+=std=bcl=> list_A: 3.1415
+=std=bcl=> list_A: 3.1415
+=std=bcl=> list_A: 3.1415
+=std=bcl=> list_A: GetClassIdentifier: bcl::storage::List<double>
+=std=bcl=> list_A: Size: 4
+=std=bcl=> list_B: Size: 4
+=std=bcl=> list_A: MaxSize: 768614336404564650
+=std=bcl=> list_B: MaxSize: 768614336404564650
+=std=bcl=> list_B: stdlist = InternalData: 
+=std=bcl=> stdlist: 0
+=std=bcl=> stdlist: 0
+=std=bcl=> stdlist: 0
+=std=bcl=> stdlist: 0
+=std=bcl=> stdlist: set first element
+=std=bcl=> stdlist: 1.41421
+=std=bcl=> stdlist: 0
+=std=bcl=> stdlist: 0
+=std=bcl=> stdlist: 0
+=std=bcl=> list_B: set InternalData of list_B equal to stdlist : 
+=std=bcl=> list_B: 1.41421
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: reverse iteration: 
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: 1.41421
+=std=bcl=> list_B: get FirstElement: 1.41421
+=std=bcl=> list_B: set FirstElement: 
+=std=bcl=> list_B: 0.707106
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: get LastElement: 0
+=std=bcl=> list_B: set LastElement: 
+=std=bcl=> list_B: 0.707106
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: 0
+=std=bcl=> list_B: 0.707106
+=std=bcl=> list_B: IsEmpty: 0
+=std=bcl=> list_B: Reset: 
+=std=bcl=> list_B: IsEmpty: 1
+=std=bcl=> list_D: InsertElement 2.71828
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 2.71828
+=std=bcl=> list_D: InsertElement 0.707106 as first element
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 2.71828
+=std=bcl=> list_D: InsertElements list_C
+=std=bcl=> list_C: 3.1415
+=std=bcl=> list_C: 3.1415
+=std=bcl=> list_C: 3.1415
+=std=bcl=> list_C: 3.1415
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 2.71828
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> test InsertElements with a position and two iterators
+=std=bcl=> list_D: RemoveElement first element
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 2.71828
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: Append element 0.707106
+=std=bcl=> list_D: bcl::storage::List<double>
+  10
+  0
+  0
+  0
+  0
+  2.71828
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+
+=std=bcl=> list_D: Append list_C
+=std=bcl=> list_C: bcl::storage::List<double>
+  4
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+
+=std=bcl=> list_D: bcl::storage::List<double>
+  14
+  0
+  0
+  0
+  0
+  2.71828
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+
+=std=bcl=> list_D: PushBack 0.707106
+=std=bcl=> list_D: bcl::storage::List<double>
+  15
+  0
+  0
+  0
+  0
+  2.71828
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+
+=std=bcl=> list_D: PushBack default element
+=std=bcl=> list_D: bcl::storage::List<double>
+  16
+  0
+  0
+  0
+  0
+  2.71828
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+  0
+
+=std=bcl=> list_D: PushFront 0.707106
+=std=bcl=> list_D: bcl::storage::List<double>
+  17
+  0.707106
+  0
+  0
+  0
+  0
+  2.71828
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+  0
+
+=std=bcl=> list_D: PushFront default element
+=std=bcl=> list_D: bcl::storage::List<double>
+  18
+  0
+  0.707106
+  0
+  0
+  0
+  0
+  2.71828
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+  0
+
+=std=bcl=> list_D: PopBack
+=std=bcl=> list_D: bcl::storage::List<double>
+  17
+  0
+  0.707106
+  0
+  0
+  0
+  0
+  2.71828
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+
+=std=bcl=> list_D: PopFront
+=std=bcl=> list_D: bcl::storage::List<double>
+  16
+  0.707106
+  0
+  0
+  0
+  0
+  2.71828
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+  3.1415
+  3.1415
+  3.1415
+  3.1415
+  0.707106
+
+=std=bcl=> list_D: Resize to length 2 with default element
+=std=bcl=> list_D: bcl::storage::List<double>
+  2
+  0.707106
+  0
+
+=std=bcl=> list_D: Resize to length 4 with element 0.707106
+=std=bcl=> list_D: bcl::storage::List<double>
+  4
+  0.707106
+  0
+  0.707106
+  0.707106
+
+=std=bcl=> list_D: Resize to length 6 with default element
+=std=bcl=> list_D: bcl::storage::List<double>
+  6
+  0.707106
+  0
+  0.707106
+  0.707106
+  0
+  0
+
+=std=bcl=> list_D: Swap first and second element
+=std=bcl=> list_D: bcl::storage::List<double>
+  6
+  0
+  0.707106
+  0.707106
+  0.707106
+  0
+  0
+
+=std=bcl=> list_D: Splice list_C list
+=std=bcl=> list_C: 3.1415
+=std=bcl=> list_C: 3.1415
+=std=bcl=> list_C: 3.1415
+=std=bcl=> list_C: 3.1415
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: Sort
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: Sort with predicate
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: Reverse
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: Unique
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: Unique with predicate
+=std=bcl=> list_D: 0
+=std=bcl=> test Merge: prepare list_D: pushback + sort
+=std=bcl=> list_D: bcl::storage::List<double>
+  3
+  0
+  0.707106
+  3.1415
+
+=std=bcl=> test Merge: prepare list_G: construct + pushback + sort
+=std=bcl=> list_G: 1.41421
+=std=bcl=> list_G: 2.71828
+=std=bcl=> test Merge: list_D: Merge list_G
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 1.41421
+=std=bcl=> list_D: 2.71828
+=std=bcl=> list_D: 3.1415
+=std=bcl=> test Merge with predicate: prepare list_G: pushback + sort with predicate
+=std=bcl=> list_G: 2.71828
+=std=bcl=> list_G: 1.41421
+=std=bcl=> test Merge with predicate: prepare list_D: empty + pushback + sort with predicate
+=std=bcl=> list_D: bcl::storage::List<double>
+  3
+  3.1415
+  0.707106
+  0
+
+=std=bcl=> test Merge with predicate: list_D: Merge list_G
+=std=bcl=> list_D: 3.1415
+=std=bcl=> list_D: 2.71828
+=std=bcl=> list_D: 1.41421
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: set all elements to 2.71828
+=std=bcl=> list_D: 2.71828
+=std=bcl=> list_D: 2.71828
+=std=bcl=> list_D: 2.71828
+=std=bcl=> list_D: 2.71828
+=std=bcl=> list_D: 2.71828
+=std=bcl=> list_D: SetAllElements to 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> list_D: 0
+=std=bcl=> test operator==: list_B == list_D (should be no): 0
+=std=bcl=> test operator==: list_B == list_D (should be yes): first make the lists the same
+=std=bcl=> list_B: 0.707106
+=std=bcl=> list_B: 0.707106
+=std=bcl=> list_B: 0.707106
+=std=bcl=> list_B: 0.707106
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0.707106
+=std=bcl=> list_D: 0.707106
+=std=bcl=> test operator==: list_B == list_D (should be yes): 1
+=std=bcl=> I/O test succeeded:
+               list_D == list_read ==
+              bcl::storage::List<double>
+                4
+                0.707106
+                0.707106
+                0.707106
+                0.707106
+=std=bcl::app=> BCL Example | END  : StorageList ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+StorageList_total                       128          0              
+total                                   128          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

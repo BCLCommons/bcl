@@ -1,0 +1,11 @@
+bcl::find::LocatorCoordinatesAverage<bcl::assemble::ProteinModel>
+  (
+    LocatorAtom(
+      locator_aa=LocatorAA(locator_chain=A,seq_id=14,aa type=Undefined,use_pdb_id=0),
+      atom_type=CB
+    ),
+    LocatorAtom(
+      locator_aa=LocatorAA(locator_chain=A,seq_id=20,aa type=Undefined,use_pdb_id=0),
+      atom_type=CA
+    )
+  )

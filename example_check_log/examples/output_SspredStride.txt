@@ -1,0 +1,170 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec SspredStride 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> SspredStride
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: SspredStride ====================
+=std=bcl=> successful example check:
+               strand_construct.GetThreeStatePrediction() == strand ==
+              bcl::linal::Vector3D
+                0	1	0
+               (+/- 0.001%)
+=std=bcl=> successful example check:
+               helix_construct.GetThreeStatePrediction() == helix == bcl::linal::Vector3D
+                1	0	0
+               (+/- 0.001%)
+=std=bcl=> successful example check:  strand_construct.GetFileExtension() == extension == .stride
+=std=bcl=> successful example check:
+              seq.GetAA( 12)->GetSSPrediction( sspred::GetMethods().e_Stride)->GetThreeStatePrediction() == strand ==
+              bcl::linal::Vector3D
+                0	1	0
+               (+/- 0.001%)
+=std=bcl=> successful example check:
+              seq.GetAA( 22)->GetSSPrediction( sspred::GetMethods().e_Stride)->GetThreeStatePrediction() == helix ==
+              bcl::linal::Vector3D
+                1	0	0
+               (+/- 0.001%)
+=std=bcl=> successful example check:
+              seq.GetAA( 33)->GetSSPrediction( sspred::GetMethods().e_Stride)->GetThreeStatePrediction() == helix ==
+              bcl::linal::Vector3D
+                1	0	0
+               (+/- 0.001%)
+=std=bcl=>     1 M MET U: COIL
+=std=bcl=>     2 Q GLN U: STRAND
+=std=bcl=>     3 I ILE U: STRAND
+=std=bcl=>     4 F PHE U: STRAND
+=std=bcl=>     5 V VAL U: STRAND
+=std=bcl=>     6 K LYS U: STRAND
+=std=bcl=>     7 T THR U: COIL
+=std=bcl=>     8 L LEU U: COIL
+=std=bcl=>     9 T THR U: COIL
+=std=bcl=>    10 G GLY U: COIL
+=std=bcl=>    11 K LYS U: COIL
+=std=bcl=>    12 T THR U: STRAND
+=std=bcl=>    13 I ILE U: STRAND
+=std=bcl=>    14 T THR U: STRAND
+=std=bcl=>    15 L LEU U: STRAND
+=std=bcl=>    16 E GLU U: STRAND
+=std=bcl=>    17 V VAL U: COIL
+=std=bcl=>    18 E GLU U: COIL
+=std=bcl=>    19 P PRO U: COIL
+=std=bcl=>    20 S SER U: COIL
+=std=bcl=>    21 D ASP U: COIL
+=std=bcl=>    22 T THR U: COIL
+=std=bcl=>    23 I ILE U: HELIX
+=std=bcl=>    24 E GLU U: HELIX
+=std=bcl=>    25 N ASN U: HELIX
+=std=bcl=>    26 V VAL U: HELIX
+=std=bcl=>    27 K LYS U: HELIX
+=std=bcl=>    28 A ALA U: HELIX
+=std=bcl=>    29 K LYS U: HELIX
+=std=bcl=>    30 I ILE U: HELIX
+=std=bcl=>    31 Q GLN U: HELIX
+=std=bcl=>    32 D ASP U: HELIX
+=std=bcl=>    33 K LYS U: HELIX
+=std=bcl=>    34 E GLU U: HELIX
+=std=bcl=>    35 G GLY U: COIL
+=std=bcl=>    36 I ILE U: COIL
+=std=bcl=>    37 P PRO U: COIL
+=std=bcl=>    38 P PRO U: HELIX
+=std=bcl=>    39 D ASP U: HELIX
+=std=bcl=>    40 Q GLN U: HELIX
+=std=bcl=>    41 Q GLN U: STRAND
+=std=bcl=>    42 R ARG U: STRAND
+=std=bcl=>    43 L LEU U: STRAND
+=std=bcl=>    44 I ILE U: STRAND
+=std=bcl=>    45 F PHE U: STRAND
+=std=bcl=>    46 A ALA U: COIL
+=std=bcl=>    47 G GLY U: COIL
+=std=bcl=>    48 K LYS U: STRAND
+=std=bcl=>    49 Q GLN U: STRAND
+=std=bcl=>    50 L LEU U: COIL
+=std=bcl=>    51 E GLU U: COIL
+=std=bcl=>    52 D ASP U: COIL
+=std=bcl=>    53 G GLY U: COIL
+=std=bcl=>    54 R ARG U: COIL
+=std=bcl=>    55 T THR U: COIL
+=std=bcl=>    56 L LEU U: HELIX
+=std=bcl=>    57 S SER U: HELIX
+=std=bcl=>    58 D ASP U: HELIX
+=std=bcl=>    59 Y TYR U: HELIX
+=std=bcl=>    60 N ASN U: COIL
+=std=bcl=>    61 I ILE U: COIL
+=std=bcl=>    62 Q GLN U: COIL
+=std=bcl=>    63 K LYS U: COIL
+=std=bcl=>    64 E GLU U: COIL
+=std=bcl=>    65 S SER U: COIL
+=std=bcl=>    66 T THR U: STRAND
+=std=bcl=>    67 L LEU U: STRAND
+=std=bcl=>    68 H HIS U: STRAND
+=std=bcl=>    69 L LEU U: STRAND
+=std=bcl=>    70 V VAL U: STRAND
+=std=bcl=>    71 L LEU U: STRAND
+=std=bcl=>    72 R ARG U: COIL
+=std=bcl=>    73 L LEU U: COIL
+=std=bcl=>    74 R ARG U: COIL
+=std=bcl=>    75 G GLY U: COIL
+=std=bcl=>    76 G GLY U: COIL
+=std=bcl=> successful example check:
+               def_construct.GetThreeStatePrediction() ==
+              helix_construct.GetThreeStatePrediction() == bcl::linal::Vector3D
+                1	0	0
+               (+/- 0.001%)
+=std=bcl::app=> BCL Example | END  : SspredStride ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+SspredStride_total                        7          0              
+total                                     7          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

@@ -1,0 +1,11 @@
+bcl::assemble::SSEPool
+HELIX    1   1 SER A    8  TYR A   26  1                                  19    
+HELIX    2   2 SER A   48  LEU A   56  1                                   9    
+HELIX    3   3 MET A   58  MET A   79  1                                  22    
+HELIX    4   4 THR A   87  SER A  107  1                                  21    
+HELIX    5   5 SER A  138  LYS A  154  1                                  17    
+HELIX    6   6 HIS A  158  VAL A  171  1                                  14    
+HELIX    7   7 ASP A  180  HIS A  203  1                                  24    
+HELIX    8   8 LEU A  210  SER A  237  1                                  28    
+HELIX    9   9 THR A  247  GLY A  255  1                                   9    
+END                                                                             

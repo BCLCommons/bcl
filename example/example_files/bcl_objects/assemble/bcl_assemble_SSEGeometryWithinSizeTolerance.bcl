@@ -1,0 +1,11 @@
+bcl::assemble::SSEGeometryWithinSizeTolerance
+  bcl::storage::Map<bcl::biol::SSTypes::Enum,size_t,std::less<bcl::biol::SSTypes::Enum>>
+    2
+    std::pair<bcl::biol::SSTypes::Enum,size_t>
+      bcl::biol::SSTypes::Enum
+        "HELIX"
+      4
+    std::pair<bcl::biol::SSTypes::Enum,size_t>
+      bcl::biol::SSTypes::Enum
+        "STRAND"
+      4

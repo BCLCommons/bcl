@@ -1,0 +1,137 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec RestraintHandlerAtomDistanceAssigned 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> RestraintHandlerAtomDistanceAssigned
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: RestraintHandlerAtomDistanceAssigned ====================
+=std=bcl=> test default constructor
+=std=bcl=> test CreateRestraints function
+=std=bcl=> The restraints in example/example_files/input/biology/atom_distance_restraint_file.txt : 
+bcl::util::ShPtrVector<bcl::restraint::AtomDistance>
+  2
+  bcl::util::ShPtr<bcl::restraint::AtomDistance>
+    12345678
+    bcl::restraint::AtomDistance
+      bcl::restraint::DataPairwise
+        bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+          12345678
+          bcl::assemble::LocatorAtom
+            LocatorAtom(
+              locator_aa=LocatorAA(locator_chain=A,seq_id=49,aa type=Undefined,use_pdb_id=0),
+              atom_type=CB
+            )
+        bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+          12345678
+          bcl::assemble::LocatorAtom
+            LocatorAtom(
+              locator_aa=LocatorAA(locator_chain=B,seq_id=15,aa type=Undefined,use_pdb_id=0),
+              atom_type=CB
+            )
+
+      bcl::util::ShPtr<bcl::restraint::Distance>
+        12345678
+        bcl::restraint::Distance
+          5          6          4.5
+
+  bcl::util::ShPtr<bcl::restraint::AtomDistance>
+    12345678
+    bcl::restraint::AtomDistance
+      bcl::restraint::DataPairwise
+        bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+          12345678
+          bcl::assemble::LocatorAtom
+            LocatorAtom(
+              locator_aa=LocatorAA(locator_chain=B,seq_id=29,aa type=Undefined,use_pdb_id=0),
+              atom_type=CB
+            )
+        bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+          12345678
+          bcl::assemble::LocatorAtom
+            LocatorAtom(
+              locator_aa=LocatorAA(locator_chain=B,seq_id=98,aa type=Undefined,use_pdb_id=0),
+              atom_type=CA
+            )
+
+      bcl::util::ShPtr<bcl::restraint::Distance>
+        12345678
+        bcl::restraint::Distance
+          3.2          9.8          1.4
+
+
+=std=bcl=> building models from pdb chains and sse information
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> make sure created restraints are correct
+=std=bcl=> test WriteRestraints
+=std=bcl=> test WriteRestraints output filename is example/example_files/output/restraint/HandlerAtomDistanceAssigned_WriteRestraints.txt
+=std=bcl=> test WriteRestraints writing restraints
+=std=bcl=> successful example check:  io::File::FilesMatch( output_restraint_filename, correct_filename) == 1
+=std=bcl=> Inference of file format test succeeded:  contacts.GetSize() == nr_restraints == 4
+=std=bcl::app=> BCL Example | END  : RestraintHandlerAtomDistanceAssigned ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>              success      error error_string 
+RestraintHandlerAtomDistanceAssigned_total          3          0              
+total                                               3          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 136 MB, peak physical RAM used: 68 MB

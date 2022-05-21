@@ -1,0 +1,267 @@
+bcl::storage::Map<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram,std::less<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>>>
+  24
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		56482459.000	16552251.000	19436508.000	22547612.000	25845496.000	29421894.000	33247158.000	37257314.000	41492737.000	45976986.000	50726191.000	55685717.000	60859330.000	63545864.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		10271176.000	3322187.000	3969081.000	4659503.000	5399650.000	6199238.000	7049531.000	7945082.000	8889472.000	9897867.000	10970329.000	12088153.000	13242984.000	14460888.000	15731347.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_1"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		1681614.000	464274.000	525931.000	592221.000	655411.000	721616.000	791381.000	860153.000	935104.000	1010891.000	1096547.000	1183107.000	1272537.000	1362610.000	368993.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_-1"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		41374.000	13271.000	16011.000	18809.000	22284.000	25306.000	28870.000	32555.000	37125.000	42034.000	46427.000	52214.000	57148.000	63617.000	51739.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		15284730.000	4785622.000	5682059.000	6629246.000	7636295.000	8691278.000	9819585.000	11002510.000	12215522.000	13510118.000	14872756.000	16254471.000	17732605.000	19263241.000	13997818.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Sulfur_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		297105.000	103019.000	124186.000	147510.000	171262.000	196498.000	223324.000	250492.000	278397.000	306407.000	336317.000	365808.000	397326.000	424785.000	455135.000	75773.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		2115734.000	701357.000	839894.000	997918.000	1161434.000	1336694.000	1532828.000	1738020.000	1957623.000	2184822.000	2423545.000	2676101.000	2942644.000	3220484.000	3512114.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		363733.000	135348.000	166298.000	200349.000	234125.000	275266.000	318571.000	362970.000	415978.000	467934.000	525093.000	583501.000	640484.000	703723.000	765957.000	833223.000	34967.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_1"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		43257.000	14838.000	18765.000	22588.000	27088.000	31579.000	36085.000	40581.000	44510.000	49188.000	55181.000	61189.000	66808.000	73072.000	79389.000	24515.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_-1"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		1662.000	 569.000	 737.000	 781.000	 978.000	1175.000	1232.000	1426.000	1512.000	1796.000	2177.000	2431.000	2725.000	3195.000	3364.000	2925.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		540101.000	196836.000	238938.000	283925.000	331642.000	386106.000	441666.000	499519.000	562404.000	627206.000	700055.000	770782.000	845066.000	927258.000	1014314.000	784333.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Sulfur_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		12234.000	4595.000	5848.000	6670.000	7536.000	8474.000	10286.000	11209.000	12180.000	13278.000	14659.000	15749.000	16981.000	18569.000	20410.000	22269.000	4608.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		14064140.000	4521602.000	5403271.000	6359340.000	7394016.000	8487783.000	9650147.000	10871154.000	12158430.000	13524586.000	14965880.000	16447906.000	18023352.000	19656126.000	14329436.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		2449251.000	900328.000	1092218.000	1303023.000	1530287.000	1776118.000	2036477.000	2310610.000	2604353.000	2901794.000	3219305.000	3555803.000	3914947.000	4284568.000	4667442.000	3607844.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_1"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		345073.000	113133.000	135323.000	157711.000	182137.000	206681.000	234274.000	262730.000	290814.000	316119.000	340560.000	367657.000	395316.000	426961.000	432997.000	12570.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_-1"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		11091.000	3587.000	4305.000	5268.000	5912.000	7209.000	7906.000	9079.000	10404.000	11865.000	12904.000	14270.000	16080.000	17879.000	19801.000	10292.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		3803889.000	1272194.000	1524917.000	1802003.000	2102651.000	2425052.000	2766015.000	3123426.000	3513399.000	3927040.000	4361378.000	4814307.000	5285518.000	5772235.000	6278135.000	2650259.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Sulfur_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		84077.000	28928.000	34435.000	40609.000	46966.000	53937.000	60987.000	68031.000	75312.000	83134.000	91263.000	99029.000	108737.000	118492.000	129777.000	123509.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Sulfur_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Carbon_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		3938549.000	1037956.000	1199623.000	1370195.000	1552758.000	1747661.000	1950391.000	2164406.000	2387173.000	2629423.000	2884461.000	3147391.000	3435013.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Sulfur_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		746302.000	213975.000	251990.000	292391.000	332784.000	377016.000	421864.000	466622.000	515190.000	568324.000	619002.000	679022.000	743121.000	808665.000	33951.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Sulfur_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Nitrogen_1"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		153197.000	34758.000	37408.000	39174.000	41234.000	41449.000	43134.000	46518.000	49867.000	53265.000	56838.000	60199.000	63841.000	20145.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Sulfur_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_-1"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		2483.000	 800.000	1006.000	1180.000	1261.000	1627.000	1728.000	2026.000	2316.000	2701.000	2887.000	3061.000	3279.000	2587.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Sulfur_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Oxygen_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		1119879.000	308880.000	355331.000	408059.000	467940.000	525041.000	589626.000	660487.000	727221.000	794502.000	866987.000	935047.000	1012678.000	776659.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+  std::pair<bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>,bcl::math::Histogram>
+    bcl::storage::Pair<bcl::chemistry::AtomTypes::Enum,bcl::chemistry::AtomTypes::Enum>
+      bcl::chemistry::AtomTypes::Enum
+        "Sulfur_0"
+      bcl::chemistry::AtomTypes::Enum
+        "Sulfur_0"
+    bcl::math::Histogram
+      		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+      center		   0.000	   0.125	   0.375	   0.625	   0.875	   1.125	   1.375	   1.625	   1.875	   2.125	   2.375	   2.625	   2.875	   3.125	   3.375	   3.625	   3.875	   4.125	   4.375	   4.625	   4.875	   5.000
+      counts		18218.000	6570.000	7878.000	9666.000	11049.000	12294.000	14027.000	16039.000	18171.000	19520.000	21395.000	23177.000	24250.000	26189.000	5333.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000	   0.000
+
+

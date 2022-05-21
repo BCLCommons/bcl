@@ -1,0 +1,84 @@
+Merged Stride / DSSP Predictions
+Script written by Jeff Mendenhall, August 20, 2013
+Predictions from DSSP and Stride have been merged in this file according to the following mapping
+              | DSSP Helix | DSSP Strand | DSSP Coil |
+Stride Helix  | Helix      | Coil        | Helix     |
+Stride Strand | Coil       | Strand      | Strand    |
+Stride Coil   | Helix      | Strand      | Coil      |
+  #  RESIDUE AA STRUCTURE
+    1    1 A     
+    2    2 A    E
+    3    3 A    E
+    4    4 A    E
+    5    5 A    E
+    6    6 A    E
+    7    7 A    E
+    8    8 A     
+    9    9 A     
+   10   10 A     
+   11   11 A     
+   12   12 A    E
+   13   13 A    E
+   14   14 A    E
+   15   15 A    E
+   16   16 A    E
+   17   17 A     
+   18   18 A     
+   19   19 A     
+   20   20 A     
+   21   21 A     
+   22   22 A     
+   23   23 A    H
+   24   24 A    H
+   25   25 A    H
+   26   26 A    H
+   27   27 A    H
+   28   28 A    H
+   29   29 A    H
+   30   30 A    H
+   31   31 A    H
+   32   32 A    H
+   33   33 A    H
+   34   34 A    H
+   35   35 A     
+   36   36 A     
+   37   37 A     
+   38   38 A    H
+   39   39 A    H
+   40   40 A    H
+   41   41 A    E
+   42   42 A    E
+   43   43 A    E
+   44   44 A    E
+   45   45 A    E
+   46   46 A     
+   47   47 A     
+   48   48 A    E
+   49   49 A    E
+   50   50 A     
+   51   51 A     
+   52   52 A     
+   53   53 A     
+   54   54 A     
+   55   55 A     
+   56   56 A    H
+   57   57 A    H
+   58   58 A    H
+   59   59 A    H
+   60   60 A     
+   61   61 A     
+   62   62 A     
+   63   63 A     
+   64   64 A     
+   65   65 A     
+   66   66 A    E
+   67   67 A    E
+   68   68 A    E
+   69   69 A    E
+   70   70 A    E
+   71   71 A    E
+   72   72 A     
+   73   73 A     
+   74   74 A     
+   75   75 A     
+   76   76 A     

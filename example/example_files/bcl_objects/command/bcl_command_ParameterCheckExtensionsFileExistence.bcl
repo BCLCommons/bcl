@@ -1,0 +1,6 @@
+bcl::command::ParameterCheckExtensionsFileExistence
+  bcl::storage::Vector<std::string>
+    3
+    ".pdb"
+    "A.fasta"
+    "A.ascii"

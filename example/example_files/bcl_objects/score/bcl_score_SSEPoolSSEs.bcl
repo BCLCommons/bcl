@@ -1,0 +1,10 @@
+bcl::score::SSEPoolSSEs
+  bcl::util::ShPtr<bcl::math::BinaryFunctionInterfaceSerializable<bcl::assemble::SSE,bcl::biol::Membrane,bcl::storage::Pair<double,size_t>>>
+    12345678
+    bcl::score::PhiPsi
+      "phi_psi"
+      "phi_psi_angles_by_sstype.histogram2D"
+      bcl::storage::Set<bcl::biol::SSTypes::Enum,std::less<bcl::biol::SSTypes::Enum>>
+        0
+
+  0	0

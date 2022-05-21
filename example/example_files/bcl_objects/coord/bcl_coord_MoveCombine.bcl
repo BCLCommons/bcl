@@ -1,0 +1,5 @@
+bcl::coord::MoveCombine
+  (
+    MoveTranslateDefined(translation(0,5,0),internal=1),
+    MoveTranslateDefined(translation(-5,5,2),internal=1)
+  )

@@ -1,0 +1,75 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec UtilShPtr 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> UtilShPtr
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: UtilShPtr ====================
+=std=bcl=> empty constructor test succeeded:  sp_empty.IsDefined() == 0
+=std=bcl=> successful example check:  sp_vec4.GetSharedCommunitySize() == 0
+=std=bcl=> number of sh_ptr pointing to Vector3D in sp_vec1 ring 2
+=std=bcl=> pointer pointing to Vector3D in sp_vec1 0x903f0e0
+=std=bcl=> this is the output when writing sp_vec5: bcl::util::ShPtr<bcl::util::ObjectInterface>
+  12345678
+  bcl::linal::Vector3D
+    2	1	1
+=std=bcl=> number of sh_ptr pointing to Vector3D in sp_vec6 ring 1
+=std=bcl=> reading empty shared pointer test succeeded:  sp_empty_read.IsDefined() == sp_empty.IsDefined() == 0
+=std=bcl=> HardCopy on pointer to non-bcl type test succeeded:  *sh_ptr_double == *cp_sh_ptr_double == 5
+=std=bcl::app=> BCL Example | END  : UtilShPtr ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+UtilShPtr_total                          18          0              
+total                                    18          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

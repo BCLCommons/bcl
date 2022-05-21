@@ -1,0 +1,6 @@
+bcl::fold::MutateMembrane
+  bcl::util::ShPtr<bcl::coord::MoveInterface>
+    12345678
+    bcl::coord::MoveTranslateRandom
+      MoveTranslateRandom(min translation(0,0,2),max translation(0,0,10),internal=0)
+  "membrane_mutate_example"

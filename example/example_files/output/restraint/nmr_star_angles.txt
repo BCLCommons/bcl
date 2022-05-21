@@ -1,0 +1,19 @@
+loop_
+	_RDC_constraint.ID
+	_RDC_constraint.RDC_val
+	_RDC_constraint.RDC_lower_bound
+	_RDC_constraint.RDC_upper_bound
+	_RDC_constraint.Auth_asym_ID_1
+	_RDC_constraint.Auth_seq_ID_1
+	_RDC_constraint.Auth_atom_ID_1
+	_RDC_constraint.Auth_asym_ID_2
+	_RDC_constraint.Auth_seq_ID_2
+	_RDC_constraint.Auth_atom_ID_2
+
+1 0.8 -0.2 1.8 A 27 N A 27 HN
+2 1.6 0.6 2.6 B 28 N B 28 HN
+3 0.8 -0.2 1.8 A 30 N A 30 HN
+4 2.4 1.4 3.4 A 31 N A 31 HN
+5 1.6 0.6 2.6 B 32 N B 32 HN
+	stop_
+save_

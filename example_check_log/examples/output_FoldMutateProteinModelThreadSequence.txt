@@ -1,0 +1,636 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec FoldMutateProteinModelThreadSequence 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> FoldMutateProteinModelThreadSequence
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: FoldMutateProteinModelThreadSequence ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6  H6 GLU A  108  GLY A  113  5                                   6    
+    5 V VAL U to     5 V VAL U
+   10 G GLY U to    10 G GLY U
+   13 I ILE U to    14 T THR U
+   17 V VAL U to    17 V VAL U
+   20 S SER U to    20 S SER U
+   29 K LYS U to    30 I ILE U
+   35 G GLY U to    35 G GLY U
+   40 Q GLN U to    40 Q GLN U
+   44 I ILE U to    44 I ILE U
+   47 G GLY U to    47 G GLY U
+   53 G GLY U to    54 R ARG U
+   64 E GLU U to    64 E GLU U
+   71 L LEU U to    71 L LEU U
+   73 L LEU U to    73 L LEU U
+   75 G GLY U to    76 G GLY U
+
+=std=bcl=> successful example check:  mutate_result.GetArgument().IsDefined() == 1
+=std=bcl=> successful example check:  io::File::FilesMatch( outpdb_filename, correct_pdb) == 1
+    5 V VAL U to     5 V VAL U
+   10 G GLY U to    10 G GLY U
+   13 I ILE U to    14 T THR U
+   17 V VAL U to    17 V VAL U
+   20 S SER U to    20 S SER U
+   29 K LYS U to    30 I ILE U
+   35 G GLY U to    35 G GLY U
+   40 Q GLN U to    40 Q GLN U
+   44 I ILE U to    44 I ILE U
+   47 G GLY U to    47 G GLY U
+   53 G GLY U to    54 R ARG U
+   64 E GLU U to    64 E GLU U
+   71 L LEU U to    71 L LEU U
+   73 L LEU U to    73 L LEU U
+   75 G GLY U to    76 G GLY U
+
+=std=bcl=> successful example check:  mutate_result.GetArgument().IsDefined() == 1
+=std=bcl=> successful example check:  io::File::FilesMatch( outpdb_filename, correct_pdb) == 1
+=std=bcl=> successful example check:  scheme_constr.GetScheme() == new_scheme
+    5 V VAL U to     5 V VAL U
+   10 G GLY U to    10 G GLY U
+   13 I ILE U to    14 T THR U
+   17 V VAL U to    17 V VAL U
+   20 S SER U to    20 S SER U
+   29 K LYS U to    30 I ILE U
+   35 G GLY U to    35 G GLY U
+   40 Q GLN U to    40 Q GLN U
+   44 I ILE U to    44 I ILE U
+   47 G GLY U to    47 G GLY U
+   53 G GLY U to    54 R ARG U
+   64 E GLU U to    64 E GLU U
+   71 L LEU U to    71 L LEU U
+   73 L LEU U to    73 L LEU U
+   75 G GLY U to    76 G GLY U
+
+=std=bcl=> successful example check:  mutate_result.GetArgument().IsDefined() == 1
+=std=bcl=> successful example check:  io::File::FilesMatch( outpdb_filename, correct_pdb) == 1
+=crt=bcl::util=> entry with name: "bcl::align::AlignmentLeaf<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::AlignmentLeaf<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::align::Assignment<bcl::biol::AABase>" does not exist => reading from ShPtr will be impossible
+=std=bcl::app=> BCL Example | END  : FoldMutateProteinModelThreadSequence ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>              success      error error_string 
+FoldMutateProteinModelThreadSequence_total          7          0              
+total                                               7          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 133 MB, peak physical RAM used: 65 MB

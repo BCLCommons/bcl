@@ -1,0 +1,15 @@
+bcl::fold::MutateProteinModelMultipleGeometries
+  bcl::assemble::FoldTemplate
+    bcl::util::ShPtrVector<bcl::assemble::SSEGeometryPhiPsi>
+      0
+
+    "DFLT"
+    bcl::util::ShPtr<bcl::assemble::CollectorTopologyInterface>
+      0
+
+    1
+  bcl::storage::VectorND<3,double>
+    0
+    1
+    0
+  "bcl::fold::MutateProteinModelMultipleGeometries"

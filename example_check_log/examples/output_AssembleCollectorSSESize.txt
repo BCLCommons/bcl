@@ -1,0 +1,94 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec AssembleCollectorSSESize 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AssembleCollectorSSESize
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AssembleCollectorSSESize ====================
+=std=bcl=> building models from pdb chains and sse information
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> successful example check:
+               collector.GetClassIdentifier() == GetStaticClassName< assemble::CollectorSSESize>()
+              == bcl::assemble::CollectorSSESize
+=std=bcl=> successful example check:
+               collector.GetRanges() == range_map_a
+              output of result suppressed (result was 562 bytes), set message verbosity to Detail to override
+=std=bcl=> successful example check:
+               collector_a.GetRanges() == range_map_a
+              output of result suppressed (result was 562 bytes), set message verbosity to Detail to override
+=std=bcl=> successful example check:
+               collector_b.GetRanges() == range_map_b ==
+              bcl::storage::Map<bcl::biol::SSTypes::Enum,bcl::math::Range<size_t>,std::less<bcl::biol::SSTypes::Enum>>
+                2
+                std::pair<bcl::biol::SSTypes::Enum,bcl::math::Range<size_t>>
+                  bcl::biol::SSTypes::Enum
+                    "HELIX"
+                  bcl::math::Range<size_t>
+                    [ 2 , 6 ]
+                std::pair<bcl::biol::SSTypes::Enum,bcl::math::Range<size_t>>
+                  bcl::biol::SSTypes::Enum
+                    "STRAND"
+                  bcl::math::Range<size_t>
+                    [ 3 , 8 ]
+=std=bcl=> collect check if number of sses matches test succeeded:  collected_sses.GetSize() == 5
+=std=bcl=> write and read of bcl object test succeeded:
+               collector_read.GetRanges() == range_map_a
+              output of result suppressed (result was 562 bytes), set message verbosity to Detail to override
+=std=bcl::app=> BCL Example | END  : AssembleCollectorSSESize ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AssembleCollectorSSESize_total            6          0              
+total                                     6          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 65 MB

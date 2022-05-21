@@ -1,0 +1,230 @@
+Benzene
+automatically built MDL file
+written by SmallMoleculeFactory::WriteToMDLFile method
+  6  6  0  0  0  0  0  0  0  0999 V2000
+    1.8870   -1.0340   -0.1050 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8180   -0.4380    0.5640 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9370   -1.5970    0.6200 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7990   -0.4060    1.9590 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9180   -1.5650    2.0140 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8500   -0.9690    2.6840 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  3  5  2  0  0  0  0
+  4  6  2  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond
+M  BCL DBI - - -
+M  END
+> <Dipole>
+0.00106934
+
+> <HAcc>
+0
+
+> <HDon>
+0
+
+> <LogS>
+-1.78116
+
+> <NRotBond>
+0
+
+> <PEOE_PC+>
+0.370549
+
+> <PEOE_PC->
+-0.370549
+
+> <PEOE_VSA+0>
+0
+
+> <PEOE_VSA+1>
+25.5923
+
+> <PEOE_VSA+2>
+0
+
+> <PEOE_VSA+3>
+0
+
+> <PEOE_VSA+4>
+0
+
+> <PEOE_VSA+5>
+0
+
+> <PEOE_VSA+6>
+0
+
+> <PEOE_VSA-0>
+0
+
+> <PEOE_VSA-1>
+73.5294
+
+> <PEOE_VSA-2>
+0
+
+> <PEOE_VSA-3>
+0
+
+> <PEOE_VSA-4>
+0
+
+> <PEOE_VSA-5>
+0
+
+> <PEOE_VSA-6>
+0
+
+> <Polariz>
+10.434
+
+> <TPSA>
+0
+
+> <VSA>
+112.142
+
+> <Weight>
+78.1118
+
+> <XlogP>
+2.01934
+
+> <bcl_EffectiveAtomPolarizability>
+nan nan nan nan nan nan nan nan nan nan nan nan 
+
+> <bcl_Identity>
+1 1 1 1 1 1 1 1 1 1 1 1 
+
+> <bcl_LonePairEN>
+0 0 0 0 0 0 0 0 0 0 0 0 
+
+> <bcl_PiCharge>
+-4.44089e-16 -2.22045e-16 -6.66134e-16 -6.66134e-16 -2.22045e-16 0 0 0 0 0 0 0 
+
+> <bcl_PiEN>
+5.6 5.6 5.6 5.6 5.6 5.6 0 0 0 0 0 0 
+
+> <bcl_SigmaCharge>
+-0.0626491 -0.0626491 -0.0626491 -0.0626491 -0.0626491 -0.0626491 0.0626491 0.0626491 0.0626491 0.0626491 0.0626491 0.0626491 
+
+> <bcl_SigmaEN>
+8.21165 8.21165 8.21165 8.21165 8.21165 8.21165 7.55875 7.55875 7.55875 7.55875 7.55875 7.55875 
+
+> <bcl_TotalCharge>
+-0.0626491 -0.0626491 -0.0626491 -0.0626491 -0.0626491 -0.0626491 0.0626491 0.0626491 0.0626491 0.0626491 0.0626491 0.0626491 
+
+> <vdw_area>
+99.1217
+
+$$$$
+
+
+
+ 11 11  0  0  0  0  0  0  0  0999 V2000
+    1.8870   -1.0340   -0.1050 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8180   -0.4380    0.5640 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.9370   -1.5970    0.6200 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7990   -0.4060    1.9590 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9180   -1.5650    2.0140 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8500   -0.9690    2.6840 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.2807    0.1522   -0.1950 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -1.5925   -0.5618   -0.2069 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0553    1.3049   -0.8423 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2184    1.9855   -0.8222 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.4482    3.1353   -1.4663 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  2  7  1  0  0  0  0
+  3  5  2  0  0  0  0
+  4  6  2  0  0  0  0
+  5  6  1  0  0  0  0
+  7  8  1  0  0  0  0
+  7  9  2  0  0  0  0
+  9 10  1  0  0  0  0
+ 10 11  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticDoubleBond AromaticSingleBond AromaticSingleBond ConjugatedSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedDoubleBond
+M  BCL DBI - - - E -
+M  END
+$$$$
+
+
+
+  9  9  0  0  0  0  0  0  0  0999 V2000
+    1.8870   -1.0340   -0.1050 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.8180   -0.4380    0.5640 C   0  0  0  1  0  0  0  0  0  0  0  0
+    2.9370   -1.5970    0.6200 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.7990   -0.4060    1.9590 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.9180   -1.5650    2.0140 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.8500   -0.9690    2.6840 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.1984    0.1079   -0.1381 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0067    0.8226   -1.3784 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -1.0101    1.3649   -2.0775 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  2  7  2  0  0  0  0
+  3  5  2  0  0  0  0
+  4  6  2  0  0  0  0
+  5  6  1  0  0  0  0
+  7  8  1  0  0  0  0
+  8  9  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticDoubleBond AromaticSingleBond AromaticSingleBond ConjugatedDoubleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond ConjugatedSingleBond ConjugatedDoubleBond
+M  BCL DBI - - - - -
+M  END
+$$$$
+
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+   -1.1769   -0.4059   -0.0001 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.5154    0.2568    0.0001 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0151    0.2640   -0.0001 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2729   -0.3894    0.0001 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4344    0.2744    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.2136   -0.1423    1.0774 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  2  0  0  0  0
+  2  6  2  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND NonConjugatedSingleBond ConjugatedDoubleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedDoubleBond
+M  BCL DBI E - -
+M  END
+$$$$
+
+
+
+  9  8  0  0  0  0  0  0  0  0999 V2000
+   -1.1769   -0.4059   -0.0001 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.5154    0.2568    0.0001 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0151    0.2640   -0.0001 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2729   -0.3894    0.0001 C   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4344    0.2744    0.0000 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -2.3371    1.7354    0.0440 C   0  0  0  1  0  0  0  0  0  0  0  0
+   -0.9848    2.3119    0.1009 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -3.3995    2.5333    0.0318 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.0775    1.5140    0.1132 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  2  0  0  0  0
+  2  6  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+  6  7  1  0  0  0  0
+  6  8  2  0  0  0  0
+  7  9  2  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND NonConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedSingleBond ConjugatedDoubleBond ConjugatedSingleBond ConjugatedDoubleBond ConjugatedDoubleBond
+M  BCL DBI E - - -
+M  END
+$$$$

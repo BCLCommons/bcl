@@ -1,0 +1,3 @@
+Atom Distance Assigned
+'A' 49 CB 'B' 15 CB 5.0 6.0 4.5
+'B' 29 CB 'B' 98 CA 3.2 9.8 1.4

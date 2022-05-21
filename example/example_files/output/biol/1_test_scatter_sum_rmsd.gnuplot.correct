@@ -1,0 +1,19 @@
+# BCL generated linear plot from histogram
+set terminal png transparent enhanced size 600,400
+set output "example/example_files/output/biol/1_test_scatter_sum_rmsd.gnuplot.png"
+set encoding iso
+set view map
+set title "scatter plot test"
+set xlabel "RMSD"
+set ylabel "sum"
+set xrange [0:20]
+set yrange [-60000:-40000]
+set xtics 1
+set ytics 2
+set style data points
+plot  '-' title "RMSD"
+14.5912 -51924.4
+13.1225 -52188
+13.8209 -50485.5
+16.8974 -43919.1
+e

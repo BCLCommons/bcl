@@ -1,0 +1,26 @@
+bcl::util::Colors
+  8
+  "White"
+  bcl::linal::Vector3D
+    1	1	1
+  "Black"
+  bcl::linal::Vector3D
+    0	0	0
+  "Red"
+  bcl::linal::Vector3D
+    1	0	0
+  "Green"
+  bcl::linal::Vector3D
+    0	1	0
+  "Blue"
+  bcl::linal::Vector3D
+    0	0	1
+  "Yellow"
+  bcl::linal::Vector3D
+    1	1	0
+  "Cyan"
+  bcl::linal::Vector3D
+    0	1	1
+  "Magenta"
+  bcl::linal::Vector3D
+    1	0	1

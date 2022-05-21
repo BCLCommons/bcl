@@ -1,0 +1,10 @@
+bcl::util::ShPtr<bcl::model::Interface>
+  12345678
+  bcl::model::MultipleLinearRegression
+    bcl::linal::Matrix<float>
+      5	      1
+      1.01666	
+      1.01665	
+      0.0188017	
+      -0.0521774	
+      1.07545	

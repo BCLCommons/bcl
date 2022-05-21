@@ -1,0 +1,81 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec PdbPrinterScore 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> PdbPrinterScore
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: PdbPrinterScore ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl::score=> Weight is equal to 0, therefore not adding the following score aaclash
+=std=bcl::score=> Weight is equal to 0, therefore not adding the following score aadist
+=std=bcl::score=> Weight is equal to 0, therefore not adding the following score aa_pair_interaction
+=std=bcl::score=> Weight is equal to 0, therefore not adding the following score loop_angle
+=std=bcl::score=> Weight is equal to 0, therefore not adding the following score co_score
+=std=bcl::score=> Weight is equal to 0, therefore not adding the following score sse_completeness
+=std=bcl::score=> Weight is equal to 0, therefore not adding the following score all_sse_chirality_aa
+=std=bcl::score=> Weight is equal to 0, therefore not adding the following score all_sse_chirality_contact_aa
+=std=bcl::score=> Weight is equal to 0, therefore not adding the following score sse_contact_type
+=std=bcl::score=> Weight is equal to 0, therefore not adding the following score sse_contact_adjacency
+=std=bcl::score=> Weight is equal to 0, therefore not adding the following score sse_orientation
+=std=bcl::score=> Weight is equal to 0, therefore not adding the following score sse_interaction_angle_overlap
+=std=bcl::assemble=> Pruned alignment from 76 to 0 assignments by removing undefined coordinates.
+=std=bcl::assemble=> Calculating RMSD100=0 from RMSD=0 and amino_acid_count=76
+=std=bcl=> successful example check:  lines.IsEmpty() == 0
+=std=bcl::app=> BCL Example | END  : PdbPrinterScore ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+PdbPrinterScore_total                     1          0              
+total                                     1          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:02, peak virtual memory used: 139 MB, peak physical RAM used: 72 MB

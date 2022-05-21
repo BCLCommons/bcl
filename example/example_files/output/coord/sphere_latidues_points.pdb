@@ -1,0 +1,14 @@
+ATOM      1   CA GLY A   1       3.621   1.500   3.621                          
+ATOM      2   CA GLY A   2       2.561   3.337   3.621                          
+ATOM      3   CA GLY A   3       0.439   3.337   3.621                          
+ATOM      4   CA GLY A   4      -0.621   1.500   3.621                          
+ATOM      5   CA GLY A   5       0.439  -0.337   3.621                          
+ATOM      6   CA GLY A   6       2.561  -0.337   3.621                          
+ATOM      7   CA GLY A   7       3.621   1.500  -0.621                          
+ATOM      8   CA GLY A   8       2.561   3.337  -0.621                          
+ATOM      9   CA GLY A   9       0.439   3.337  -0.621                          
+ATOM     10   CA GLY A  10      -0.621   1.500  -0.621                          
+ATOM     11   CA GLY A  11       0.439  -0.337  -0.621                          
+ATOM     12   CA GLY A  12       2.561  -0.337  -0.621                          
+MASTER        0    0    0    0    0    0    0    0   12    0    0    0          
+END                                                                             

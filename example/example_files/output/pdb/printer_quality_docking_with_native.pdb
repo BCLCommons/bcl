@@ -1,0 +1,21 @@
+REMARK  10                                                                      
+REMARK  10 Scores                        weight         value  weighted_val     
+REMARK  10 RMSD_NoSuperimposition        1.0000           nan           nan     
+REMARK  10 Scores                           weight         value  weighted_val  
+REMARK  10 co                               1.0000       56.1160       56.1160  
+REMARK  10 rco_seq                          1.0000        0.2660        0.2660  
+REMARK  10 rco_aas                          1.0000        0.2660        0.2660  
+REMARK  10 cr6                              1.0000      100.0000      100.0000  
+REMARK  10 cr12                             1.0000      100.0000      100.0000  
+REMARK  10 cr24                             1.0000      100.0000      100.0000  
+REMARK  10 cr6_mcc                          1.0000        1.0000        1.0000  
+REMARK  10 cr12_mcc                         1.0000        1.0000        1.0000  
+REMARK  10 cr24_mcc                         1.0000        1.0000        1.0000  
+REMARK  10 topology_f                       1.0000        0.0000        0.0000  
+REMARK  10 topology_tpr                     1.0000        0.0000        0.0000  
+REMARK  10 topology_ppv                     1.0000        0.0000        0.0000  
+REMARK  10 completeness                     1.0000        1.0000        1.0000  
+REMARK  10 RMSD_NoSuperimposition           1.0000       12.7324       12.7324  
+REMARK  10 RMSD_NoSuperimposition100        1.0000        9.2711        9.2711  
+MASTER       19    0    0    0    0    0    0    0    0    0    0    0          
+END                                                                             

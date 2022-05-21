@@ -1,0 +1,38 @@
+bcl::assemble::SSEFactoryMC
+  bcl::sspred::Methods::Enum
+    "PSIPRED"
+  0.5
+  bcl::util::ShPtr<bcl::math::BinaryFunctionInterface<bcl::assemble::SSEPool,bcl::biol::Membrane,double>>
+    12345678
+    bcl::math::BinarySumFunction<bcl::assemble::SSEPool,bcl::biol::Membrane,double,double>
+      0
+      bcl::storage::Vector<bcl::storage::Pair<double,bcl::util::ShPtr<bcl::math::BinaryFunctionInterface<bcl::assemble::SSEPool,bcl::biol::Membrane,double>>>>
+        1
+        bcl::storage::Pair<double,bcl::util::ShPtr<bcl::math::BinaryFunctionInterface<bcl::assemble::SSEPool,bcl::biol::Membrane,double>>>
+          1
+          bcl::util::ShPtr<bcl::math::BinaryFunctionInterface<bcl::assemble::SSEPool,bcl::biol::Membrane,double>>
+            12345678
+            bcl::score::SSEPoolSSEs
+              bcl::util::ShPtr<bcl::math::BinaryFunctionInterfaceSerializable<bcl::assemble::SSE,bcl::biol::Membrane,bcl::storage::Pair<double,size_t>>>
+                12345678
+                bcl::score::SSEPredictions
+                  bcl::sspred::Methods::Enum
+                    "PSIPRED"
+                  0
+                  "ssepred"
+              0	0
+
+  bcl::util::ShPtr<bcl::math::MutateInterface<bcl::assemble::SSEPool>>
+    12345678
+    bcl::math::MutateDecisionNode<bcl::assemble::SSEPool>
+      (
+        (probability=1,pool_move_aa),
+        (probability=1,pool_split_sse),
+        (probability=1,pool_split_sse),
+        (probability=1,sse_type),
+        (probability=1,pool_join_sses),
+        (probability=0.6,pool_insert_coil_into_sse),
+        (probability=0.4,pool_insert_coil_into_sse)
+      )
+  750
+  2

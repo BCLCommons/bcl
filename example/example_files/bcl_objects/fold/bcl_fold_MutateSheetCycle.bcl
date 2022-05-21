@@ -1,0 +1,8 @@
+bcl::fold::MutateSheetCycle
+  1
+  1
+  0
+  bcl::math::Range<size_t>
+    [ 1 , 1 ]
+  bcl::math::Range<size_t>
+    [ 2 , 3 ]

@@ -1,0 +1,248 @@
+Written by BCL::WriteToMDL,
+
+
+ 11 12  0  0  0  0  0  0  0  0999 V2000
+   10.1004    1.2412   -0.6769 N   0  0  0  0  0  0  0  0  0  0  0  0
+   11.0173    1.9462    1.2425 N   0  0  0  1  0  0  0  0  0  0  0  0
+   10.7313    2.2559   -0.0183 C   0  0  0  1  0  0  0  0  0  0  0  0
+   10.6173   -0.1799    2.5080 C   0  0  0  0  0  0  0  0  0  0  0  0
+   10.1132   -1.4521    2.3982 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.5329   -1.8885    1.1968 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.4621   -1.0725    0.1082 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.9687    0.2009    0.2165 C   0  0  0  1  0  0  0  0  0  0  0  0
+   10.5332    0.6517    1.4118 C   0  0  0  1  0  0  0  0  0  0  0  0
+   11.0664    3.5937   -0.5931 C   0  0  0  0  0  0  0  0  0  0  0  0
+    9.8957    4.5529   -0.5458 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  3  1  0  0  0  0
+  1  8  1  0  0  0  0
+  2  3  2  0  0  0  0
+  2  9  1  0  0  0  0
+  3 10  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  9  2  0  0  0  0
+  5  6  2  0  0  0  0
+  6  7  1  0  0  0  0
+  7  8  2  0  0  0  0
+  8  9  1  0  0  0  0
+ 10 11  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_Tr2TrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi
+M  BCL BND AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond NonConjugatedSingleBond
+M  BCL DBI - - - -
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+22
+
+> <MatchIndices>
+0 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+359.58  360.33  360.15  359.82  360.03  179.50  181.07  180.73  179.10  359.86  299.69  
+
+> <Rotamer1Bins>
+12      12      12      12      12      6       6       6       6       12      10      
+
+> <Rotamer1Count>
+5 
+
+> <Rotamer1Std>
+0.849   0.516   0.320   0.461   0.428   2.390   1.498   1.459   2.003   0.523   6.832   
+
+> <ScaffoldCount>
+5 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  9 10  0  0  0  0  0  0  0  0999 V2000
+    3.2593   10.8857   13.5839 N   0  0  0  1  0  0  0  0  0  0  0  0
+    3.0900    9.0744   12.2520 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.7908    9.6502   13.4582 C   0  0  0  0  0  0  0  0  0  0  0  0
+    3.8072   10.0223   11.5336 C   0  0  0  1  0  0  0  0  0  0  0  0
+    3.9024   11.1353   12.3762 C   0  0  0  1  0  0  0  0  0  0  0  0
+    4.5834   12.2781   11.9362 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.1483   12.2455   10.6672 C   0  0  0  0  0  0  0  0  0  0  0  0
+    5.0201   11.1131    9.8411 C   0  0  0  0  0  0  0  0  0  0  0  0
+    4.3577    9.9828   10.2601 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  3  2  0  0  0  0
+  1  5  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+  4  9  1  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  8  9  2  0  0  0  0
+M  BCL ATM N_Tr2TrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond
+M  BCL DBI - - - -
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+29
+
+> <MatchIndices>
+2 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+359.86  360.12  179.69  180.55  359.96  179.77  360.00  359.69  180.21  360.34  
+
+> <Rotamer1Bins>
+12      12      6       6       12      6       12      12      6       12      
+
+> <Rotamer1Count>
+30 
+
+> <Rotamer1Std>
+0.874   0.997   2.308   2.022   0.749   1.879   0.927   1.034   1.851   0.699   
+
+> <ScaffoldCount>
+30 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  9 10  0  0  0  0  0  0  0  0999 V2000
+    2.3252    6.1940    8.5529 N   0  0  0  1  0  0  0  0  0  0  0  0
+    1.8541    6.7318    6.4190 N   0  0  0  0  0  0  0  0  0  0  0  0
+    2.4917    7.0779    7.5933 C   0  0  0  0  0  0  0  0  0  0  0  0
+    1.2386    5.5156    6.6642 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.5433    5.2020    7.9929 C   0  0  0  1  0  0  0  0  0  0  0  0
+    1.0695    4.0258    8.5559 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.2843    3.1999    7.7747 C   0  0  0  0  0  0  0  0  0  0  0  0
+   -0.0338    3.5540    6.4478 C   0  0  0  0  0  0  0  0  0  0  0  0
+    0.4356    4.7069    5.8717 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  3  2  0  0  0  0
+  1  5  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  9  2  0  0  0  0
+  5  6  2  0  0  0  0
+  6  7  1  0  0  0  0
+  7  8  2  0  0  0  0
+  8  9  1  0  0  0  0
+M  BCL ATM N_Tr2TrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  BCL DBI - - - -
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+689
+
+> <MatchIndices>
+3 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+360.00  360.01  179.91  180.05  360.02  179.89  360.02  360.01  180.08  359.98  
+
+> <Rotamer1Bins>
+12      12      6       6       12      6       12      12      6       12      
+
+> <Rotamer1Count>
+714 
+
+> <Rotamer1Std>
+0.835   0.952   1.884   1.737   0.795   1.823   0.893   0.953   1.847   0.894   
+
+> <ScaffoldCount>
+714 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  9 10  0  0  0  0  0  0  0  0999 V2000
+   13.7817   -0.1295    3.2057 C   0  0  0  0  0  0  0  0  0  0  0  0
+   14.9368    0.1471    3.7453 N   0  0  0  1  0  0  0  0  0  0  0  0
+   15.0228    1.5382    3.7492 C   0  0  0  1  0  0  0  0  0  0  0  0
+   13.8492    2.0761    3.1939 C   0  0  0  1  0  0  0  0  0  0  0  0
+   13.0778    0.9933    2.8592 N   0  0  0  0  0  0  0  0  0  0  0  0
+   13.6640    3.4401    3.0679 C   0  0  0  0  0  0  0  0  0  0  0  0
+   14.6633    4.2557    3.5050 C   0  0  0  0  0  0  0  0  0  0  0  0
+   15.8347    3.7508    4.0741 C   0  0  0  0  0  0  0  0  0  0  0  0
+   16.0329    2.3809    4.1942 C   0  0  0  0  0  0  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  5  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  9  2  0  0  0  0
+  4  5  1  0  0  0  0
+  4  6  2  0  0  0  0
+  6  7  1  0  0  0  0
+  7  8  2  0  0  0  0
+  8  9  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi N_Tr2TrTrPi C_TrTrTrPi C_TrTrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  BCL BND AromaticDoubleBond AromaticSingleBond AromaticSingleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond AromaticDoubleBond AromaticSingleBond
+M  BCL DBI - - - -
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+164
+
+> <MatchIndices>
+1 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+359.98  180.14  360.04  360.05  179.95  180.15  359.89  360.01  179.83  360.05  
+
+> <Rotamer1Bins>
+12      6       12      12      6       6       12      12      6       12      
+
+> <Rotamer1Count>
+175 
+
+> <Rotamer1Std>
+0.864   1.750   0.852   1.063   1.963   1.990   0.957   0.992   1.894   0.847   
+
+> <ScaffoldCount>
+175 
+
+$$$$

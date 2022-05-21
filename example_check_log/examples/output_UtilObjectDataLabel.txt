@@ -1,0 +1,116 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec UtilObjectDataLabel 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> UtilObjectDataLabel
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: UtilObjectDataLabel ====================
+=std=bcl=> successful example check:  empty.GetValue().size() == 0
+=std=bcl=> successful example check:  nameless.GetValue().size() == 0
+=std=bcl=> successful example check:  nameless2.GetValue().size() == 0
+=std=bcl=> successful example check:  empty.GetNumberArguments() == 0
+=std=bcl=> successful example check:  value.GetValue() == 0.1
+=std=bcl=> successful example check:  value.GetNumberArguments() == 0
+=std=bcl=> successful example check:  call_square.GetValue() == square
+=std=bcl=> successful example check:  call_square.GetNumberArguments() == 1
+=std=bcl=> successful example check:  call_square.GetArgument( 0).GetValue() == 0.1
+=std=bcl=> successful example check:  call_equal.GetNumberArguments() == 2
+=std=bcl=> successful example check:  call_equal.GetArgument( 0).GetValue() == apples
+=std=bcl=> successful example check:  call_equal.GetArgument( 1).GetValue() == oranges
+=std=bcl=> successful example check:  nameless.GetNumberArguments() == 1
+=std=bcl=> successful example check:
+               nameless.GetArgument( 0).ToString() == call_equal.ToString() ==
+              equal(apples,oranges)
+=std=bcl=> successful example check:  nameless2.GetNumberArguments() == 1
+=std=bcl=> successful example check:  nameless2.GetArgument( 0).ToString() == 2
+=std=bcl=> successful example check:  nameless2_with_quotes.GetNumberArguments() == 1
+=std=bcl=> successful example check:  nameless2_with_quotes.GetArgument( 0).ToString() == 2
+=std=bcl=> successful example check:  label_from_stream.GetNumberArguments() == 1
+=std=bcl=> successful example check:
+               label_from_stream.ToString() ==
+              Combine(2DA(steps=11,property=Atom_Identity,normalized=1))
+=std=bcl=> successful example check:
+              util::ObjectDataLabel( "sequence(2DA(property=Atom_Identity,normalized=1,steps=11),1DA(alpha,omega))") ==
+              util::ObjectDataLabel( "sequence(2DA(steps=11,property=Atom_Identity,normalized=1),1DA(alpha,omega))") ==
+              bcl::util::ObjectDataLabel
+                sequence(2DA(property=Atom_Identity,normalized=1,steps=11),1DA(alpha,omega))
+=std=bcl=> Sequence order should be considered test succeeded:
+              util::ObjectDataLabel( "1DA(alpha,omega)") == util::ObjectDataLabel( "1DA(omega,alpha)") == 0
+=std=bcl=> Key order in maps is irrelevant test succeeded:
+               util::ObjectDataLabel( "1DA(alpha=5,omega=10)") ==
+              util::ObjectDataLabel( "1DA(omega=10,alpha=5)") == bcl::util::ObjectDataLabel
+                1DA(alpha=5,omega=10)
+=std=bcl=> successful example check:  quoted_stuff.GetNumberArguments() == 0
+=std=bcl=> successful example check:  quoted_stuff.GetValue() == stuff(2)
+=std=bcl=> successful example check:  data_label.GetNumberArguments() == 2
+=std=bcl=> successful example check:  data_label.GetName() ==
+=std=bcl=> successful example check:  data_label.GetValue() == ResilientPropagation
+=std=bcl=> successful example check:  data_label.GetArgument( 0).GetName() ==
+=std=bcl=> successful example check:  data_label.GetArgument( 0).GetValue() == hidden architecture
+=std=bcl=> successful example check:  data_label.GetArgument( 0).GetNumberArguments() == 1
+=std=bcl=> successful example check:  data_label.GetArgument( 0).GetArgument( 0).ToString() == 16
+=std=bcl=> successful example check:  data_label.GetArgument( 1).GetName() == objective function
+=std=bcl=> successful example check:  data_label.GetArgument( 1).GetValue() == RMSD
+=std=bcl=> successful example check:  data_label.GetArgument( 1).GetNumberArguments() == 0
+=std=bcl=> successful example check:
+              util::ObjectDataLabel( "\"C=C-O-H,B\"=\"BondType=Aromatic\"(Single)").ToNamedString() ==
+              "\"C=C-O-H,B\"=\"BondType=Aromatic\"(Single)" == "C=C-O-H,B"="BondType=Aromatic"(Single)
+=std=bcl=> successful example check:  name_with_delimiter.GetName() == C=O
+=std=bcl=> successful example check:  name_with_delimiter.GetValue() == BondType=Aromatic
+=std=bcl::app=> BCL Example | END  : UtilObjectDataLabel ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+UtilObjectDataLabel_total                38          0              
+total                                    38          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

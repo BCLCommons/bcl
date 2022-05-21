@@ -1,0 +1,131 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec BiolAATypes 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> BiolAATypes
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: BiolAATypes ====================
+=std=bcl=> name of the first amino acid = ARGININE
+=std=bcl=> one letter code of the second amino acid = N
+=std=bcl=> three letter code of the third amino acid = ASP
+=std=bcl=> AAType as enum of the 4th amino acid = bcl::biol::AATypes::Enum
+  "CYSTEINE"
+=std=bcl=> helix probability of th 6th amino acid = 0.36
+=std=bcl=> hydrophobicity of the 7th amino acid = -0.64
+=std=bcl=> Isoelectric point of the 8th amino acid = 6.07
+=std=bcl=> polarizebility of the 9th amino acid = 0.23
+=std=bcl=> Sterical parameter of the 10th amino acid = 4.19
+=std=bcl=> strand probability of the 11th amino acid = 0.31
+=std=bcl=> volume of the 12th amino acid = 4.77
+=std=bcl=> mass of the 13th amino acid = 131.22
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=std=bcl::app=> BCL Example | END  : BiolAATypes ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+BiolAATypes_total                         0          0              
+total                                     0          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

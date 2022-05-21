@@ -1,0 +1,553 @@
+./build/linux64_release/bin/bcl-example-apps-static.exe Examples -exec AppBuildRotamerLibrary 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AppBuildRotamerLibrary
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AppBuildRotamerLibrary ====================
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+molecule:BuildRotamerLibrary -fragments_filenames example/example_files/input/chemistry/mGluR5_fragments.sdf -output example/example_files/output/chemistry/mGluR5_rotamers.sdf -structure_database example/example_files/input/chemistry/csd_first_1115_simple.sdf 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  build_rotamer_library_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: molecule:BuildRotamerLibrary -fragments_filenames example/example_files/input/chemistry/mGluR5_fragments.sdf -output example/example_files/output/chemistry/mGluR5_rotamers.sdf -structure_database example/example_files/input/chemistry/csd_first_1115_simple.sdf 
+
+ Status: Counting molecules for fragments Status: Found 473 molecules               Status: [                    ] 0% 0/473 molecules read Status: [****                ] 21% 100/473 molecules read Status: [********            ] 42% 200/473 molecules read  Status: [************        ] 63% 300/473 molecules read  Status: [****************    ] 84% 400/473 molecules read  Status: [********************] 100% 473/473 molecules read
+=std=bcl::app=> Molecule number : 0
+=std=bcl::app=> Molecule number : 1
+=std=bcl::app=> Molecule number : 2
+=std=bcl::app=> Molecule number : 3
+=std=bcl::app=> Molecule number : 4
+=std=bcl::app=> Molecule number : 5
+=std=bcl::app=> Molecule number : 6
+=std=bcl::app=> Molecule number : 7
+=std=bcl::app=> Molecule number : 8
+=std=bcl::app=> Molecule number : 9
+=std=bcl::app=> Molecule number : 10
+=std=bcl::app=> Molecule number : 11
+=std=bcl::app=> Molecule number : 12
+=std=bcl::app=> Molecule number : 13
+=std=bcl::app=> Molecule number : 14
+=std=bcl::app=> Molecule number : 15
+=std=bcl::app=> Molecule number : 16
+=std=bcl::app=> Molecule number : 17
+=std=bcl::app=> Molecule number : 18
+=std=bcl::app=> Molecule number : 19
+=std=bcl::app=> Molecule number : 20
+=std=bcl::app=> Molecule number : 21
+=std=bcl::app=> Molecule number : 22
+=std=bcl::app=> Molecule number : 23
+=std=bcl::app=> Molecule number : 24
+=std=bcl::app=> Molecule number : 25
+=std=bcl::app=> Molecule number : 26
+=std=bcl::app=> Molecule number : 27
+=std=bcl::app=> Molecule number : 28
+=std=bcl::app=> Molecule number : 29
+=std=bcl::app=> Molecule number : 30
+=std=bcl::app=> Molecule number : 31
+=std=bcl::app=> Molecule number : 32
+=std=bcl::app=> Molecule number : 33
+=std=bcl::app=> Molecule number : 34
+=std=bcl::app=> Molecule number : 35
+=std=bcl::app=> Molecule number : 36
+=std=bcl::app=> Molecule number : 37
+=std=bcl::app=> Molecule number : 38
+=std=bcl::app=> Molecule number : 39
+=std=bcl::app=> Molecule number : 40
+=std=bcl::app=> Molecule number : 41
+=std=bcl::app=> Molecule number : 42
+=std=bcl::app=> Molecule number : 43
+=std=bcl::app=> Molecule number : 44
+=std=bcl::app=> Molecule number : 45
+=std=bcl::app=> Molecule number : 46
+=std=bcl::app=> Molecule number : 47
+=std=bcl::app=> Molecule number : 48
+=std=bcl::app=> Molecule number : 49
+=std=bcl::app=> Molecule number : 50
+=std=bcl::app=> Molecule number : 51
+=std=bcl::app=> Molecule number : 52
+=std=bcl::app=> Molecule number : 53
+=std=bcl::app=> Molecule number : 54
+=std=bcl::app=> Molecule number : 55
+=std=bcl::app=> Molecule number : 56
+=std=bcl::app=> Molecule number : 57
+=std=bcl::app=> Molecule number : 58
+=std=bcl::app=> Molecule number : 59
+=std=bcl::app=> Molecule number : 60
+=std=bcl::app=> Molecule number : 61
+=std=bcl::app=> Molecule number : 62
+=std=bcl::app=> Molecule number : 63
+=std=bcl::app=> Molecule number : 64
+=std=bcl::app=> Molecule number : 65
+=std=bcl::app=> Molecule number : 66
+=std=bcl::app=> Molecule number : 67
+=std=bcl::app=> Molecule number : 68
+=std=bcl::app=> Molecule number : 69
+=std=bcl::app=> Molecule number : 70
+=std=bcl::app=> Molecule number : 71
+=std=bcl::app=> Molecule number : 72
+=std=bcl::app=> Molecule number : 73
+=std=bcl::app=> Molecule number : 74
+=std=bcl::app=> Molecule number : 75
+=std=bcl::app=> Molecule number : 76
+=std=bcl::app=> Molecule number : 77
+=std=bcl::app=> Molecule number : 78
+=std=bcl::app=> Molecule number : 79
+=std=bcl::app=> Molecule number : 80
+=std=bcl::app=> Molecule number : 81
+=std=bcl::app=> Molecule number : 82
+=std=bcl::app=> Molecule number : 83
+=std=bcl::app=> Molecule number : 84
+=std=bcl::app=> Molecule number : 85
+=std=bcl::app=> Molecule number : 86
+=std=bcl::app=> Molecule number : 87
+=std=bcl::app=> Molecule number : 88
+=std=bcl::app=> Molecule number : 89
+=std=bcl::app=> Molecule number : 90
+=std=bcl::app=> Molecule number : 91
+=std=bcl::app=> Molecule number : 92
+=std=bcl::app=> Molecule number : 93
+=std=bcl::app=> Molecule number : 94
+=std=bcl::app=> Molecule number : 95
+=std=bcl::app=> Molecule number : 96
+=std=bcl::app=> Molecule number : 97
+=std=bcl::app=> Molecule number : 98
+=std=bcl::app=> Molecule number : 99
+=std=bcl::app=> Molecule number : 100
+=std=bcl::app=> Molecule number : 101
+=std=bcl::app=> Molecule number : 102
+=std=bcl::app=> Molecule number : 103
+=std=bcl::app=> Molecule number : 104
+=std=bcl::app=> Molecule number : 105
+=std=bcl::app=> Molecule number : 106
+=std=bcl::app=> Molecule number : 107
+=std=bcl::app=> Molecule number : 108
+=std=bcl::app=> Molecule number : 109
+=std=bcl::app=> Molecule number : 110
+=std=bcl::app=> Molecule number : 111
+=std=bcl::app=> Molecule number : 112
+=std=bcl::app=> Molecule number : 113
+=std=bcl::app=> Molecule number : 114
+=std=bcl::app=> Molecule number : 115
+=std=bcl::app=> Molecule number : 116
+=std=bcl::app=> Molecule number : 117
+=std=bcl::app=> Molecule number : 118
+=std=bcl::app=> Molecule number : 119
+=std=bcl::app=> Molecule number : 120
+=std=bcl::app=> Molecule number : 121
+=std=bcl::app=> Molecule number : 122
+=std=bcl::app=> Molecule number : 123
+=std=bcl::app=> Molecule number : 124
+=std=bcl::app=> Molecule number : 125
+=std=bcl::app=> Molecule number : 126
+=std=bcl::app=> Molecule number : 127
+=std=bcl::app=> Molecule number : 128
+=std=bcl::app=> Molecule number : 129
+=std=bcl::app=> Molecule number : 130
+=std=bcl::app=> Molecule number : 131
+=std=bcl::app=> Molecule number : 132
+=std=bcl::app=> Molecule number : 133
+=std=bcl::app=> Molecule number : 134
+=std=bcl::app=> Molecule number : 135
+=std=bcl::app=> Molecule number : 136
+=std=bcl::app=> Molecule number : 137
+=std=bcl::app=> Molecule number : 138
+=std=bcl::app=> Molecule number : 139
+=std=bcl::app=> Molecule number : 140
+=std=bcl::app=> Molecule number : 141
+=std=bcl::app=> Molecule number : 142
+=std=bcl::app=> Molecule number : 143
+=std=bcl::app=> Molecule number : 144
+=std=bcl::app=> Molecule number : 145
+=std=bcl::app=> Molecule number : 146
+=std=bcl::app=> Molecule number : 147
+=std=bcl::app=> Molecule number : 148
+=std=bcl::app=> Molecule number : 149
+=std=bcl::app=> Molecule number : 150
+=std=bcl::app=> Molecule number : 151
+=std=bcl::app=> Molecule number : 152
+=std=bcl::app=> Molecule number : 153
+=std=bcl::app=> Molecule number : 154
+=std=bcl::app=> Molecule number : 155
+=std=bcl::app=> Molecule number : 156
+=std=bcl::app=> Molecule number : 157
+=std=bcl::app=> Molecule number : 158
+=std=bcl::app=> Molecule number : 159
+=std=bcl::app=> Molecule number : 160
+=std=bcl::app=> Molecule number : 161
+=std=bcl::app=> Molecule number : 162
+=std=bcl::app=> Molecule number : 163
+=std=bcl::app=> Molecule number : 164
+=std=bcl::app=> Molecule number : 165
+=std=bcl::app=> Molecule number : 166
+=std=bcl::app=> Molecule number : 167
+=std=bcl::app=> Molecule number : 168
+=std=bcl::app=> Molecule number : 169
+=std=bcl::app=> Molecule number : 170
+=std=bcl::app=> Molecule number : 171
+=std=bcl::app=> Molecule number : 172
+=std=bcl::app=> Molecule number : 173
+=std=bcl::app=> Molecule number : 174
+=std=bcl::app=> Molecule number : 175
+=std=bcl::app=> Molecule number : 176
+=std=bcl::app=> Molecule number : 177
+=std=bcl::app=> Molecule number : 178
+=std=bcl::app=> Molecule number : 179
+=std=bcl::app=> Molecule number : 180
+=std=bcl::app=> Molecule number : 181
+=std=bcl::app=> Molecule number : 182
+=std=bcl::app=> Molecule number : 183
+=std=bcl::app=> Molecule number : 184
+=std=bcl::app=> Molecule number : 185
+=std=bcl::app=> Molecule number : 186
+=std=bcl::app=> Molecule number : 187
+=std=bcl::app=> Molecule number : 188
+=std=bcl::app=> Molecule number : 189
+=std=bcl::app=> Molecule number : 190
+=std=bcl::app=> Molecule number : 191
+=std=bcl::app=> Molecule number : 192
+=std=bcl::app=> Molecule number : 193
+=std=bcl::app=> Molecule number : 194
+=std=bcl::app=> Molecule number : 195
+=std=bcl::app=> Molecule number : 196
+=std=bcl::app=> Molecule number : 197
+=std=bcl::app=> Molecule number : 198
+=std=bcl::app=> Molecule number : 199
+=std=bcl::app=> Molecule number : 200
+=std=bcl::app=> Molecule number : 201
+=std=bcl::app=> Molecule number : 202
+=std=bcl::app=> Molecule number : 203
+=std=bcl::app=> Molecule number : 204
+=std=bcl::app=> Molecule number : 205
+=std=bcl::app=> Molecule number : 206
+=std=bcl::app=> Molecule number : 207
+=std=bcl::app=> Molecule number : 208
+=std=bcl::app=> Molecule number : 209
+=std=bcl::app=> Molecule number : 210
+=std=bcl::app=> Molecule number : 211
+=std=bcl::app=> Molecule number : 212
+=std=bcl::app=> Molecule number : 213
+=std=bcl::app=> Molecule number : 214
+=std=bcl::app=> Molecule number : 215
+=std=bcl::app=> Molecule number : 216
+=std=bcl::app=> Molecule number : 217
+=std=bcl::app=> Molecule number : 218
+=std=bcl::app=> Molecule number : 219
+=std=bcl::app=> Molecule number : 220
+=std=bcl::app=> Molecule number : 221
+=std=bcl::app=> Molecule number : 222
+=std=bcl::app=> Molecule number : 223
+=std=bcl::app=> Molecule number : 224
+=std=bcl::app=> Molecule number : 225
+=std=bcl::app=> Molecule number : 226
+=std=bcl::app=> Molecule number : 227
+=std=bcl::app=> Molecule number : 228
+=std=bcl::app=> Molecule number : 229
+=std=bcl::app=> Molecule number : 230
+=std=bcl::app=> Molecule number : 231
+=std=bcl::app=> Molecule number : 232
+=std=bcl::app=> Molecule number : 233
+=std=bcl::app=> Molecule number : 234
+=std=bcl::app=> Molecule number : 235
+=std=bcl::app=> Molecule number : 236
+=std=bcl::app=> Molecule number : 237
+=std=bcl::app=> Molecule number : 238
+=std=bcl::app=> Molecule number : 239
+=std=bcl::app=> Molecule number : 240
+=std=bcl::app=> Molecule number : 241
+=std=bcl::app=> Molecule number : 242
+=std=bcl::app=> Molecule number : 243
+=std=bcl::app=> Molecule number : 244
+=std=bcl::app=> Molecule number : 245
+=std=bcl::app=> Molecule number : 246
+=std=bcl::app=> Molecule number : 247
+=std=bcl::app=> Molecule number : 248
+=std=bcl::app=> Molecule number : 249
+=std=bcl::app=> Molecule number : 250
+=std=bcl::app=> Molecule number : 251
+=std=bcl::app=> Molecule number : 252
+=std=bcl::app=> Molecule number : 253
+=std=bcl::app=> Molecule number : 254
+=std=bcl::app=> Molecule number : 255
+=std=bcl::app=> Molecule number : 256
+=std=bcl::app=> Molecule number : 257
+=std=bcl::app=> Molecule number : 258
+=std=bcl::app=> Molecule number : 259
+=std=bcl::app=> Molecule number : 260
+=std=bcl::app=> Molecule number : 261
+=std=bcl::app=> Molecule number : 262
+=std=bcl::app=> Molecule number : 263
+=std=bcl::app=> Molecule number : 264
+=std=bcl::app=> Molecule number : 265
+=std=bcl::app=> Molecule number : 266
+=std=bcl::app=> Molecule number : 267
+=std=bcl::app=> Molecule number : 268
+=std=bcl::app=> Molecule number : 269
+=std=bcl::app=> Molecule number : 270
+=std=bcl::app=> Molecule number : 271
+=std=bcl::app=> Molecule number : 272
+=std=bcl::app=> Molecule number : 273
+=std=bcl::app=> Molecule number : 274
+=std=bcl::app=> Molecule number : 275
+=std=bcl::app=> Molecule number : 276
+=std=bcl::app=> Molecule number : 277
+=std=bcl::app=> Molecule number : 278
+=std=bcl::app=> Molecule number : 279
+=std=bcl::app=> Molecule number : 280
+=std=bcl::app=> Molecule number : 281
+=std=bcl::app=> Molecule number : 282
+=std=bcl::app=> Molecule number : 283
+=std=bcl::app=> Molecule number : 284
+=std=bcl::app=> Molecule number : 285
+=std=bcl::app=> Molecule number : 286
+=std=bcl::app=> Molecule number : 287
+=std=bcl::app=> Molecule number : 288
+=std=bcl::app=> Molecule number : 289
+=std=bcl::app=> Molecule number : 290
+=std=bcl::app=> Molecule number : 291
+=std=bcl::app=> Molecule number : 292
+=std=bcl::app=> Molecule number : 293
+=std=bcl::app=> Molecule number : 294
+=std=bcl::app=> Molecule number : 295
+=std=bcl::app=> Molecule number : 296
+=std=bcl::app=> Molecule number : 297
+=std=bcl::app=> Molecule number : 298
+=std=bcl::app=> Molecule number : 299
+=std=bcl::app=> Molecule number : 300
+=std=bcl::app=> Molecule number : 301
+=std=bcl::app=> Molecule number : 302
+=std=bcl::app=> Molecule number : 303
+=std=bcl::app=> Molecule number : 304
+=std=bcl::app=> Molecule number : 305
+=std=bcl::app=> Molecule number : 306
+=std=bcl::app=> Molecule number : 307
+=std=bcl::app=> Molecule number : 308
+=std=bcl::app=> Molecule number : 309
+=std=bcl::app=> Molecule number : 310
+=std=bcl::app=> Molecule number : 311
+=std=bcl::app=> Molecule number : 312
+=std=bcl::app=> Molecule number : 313
+=std=bcl::app=> Molecule number : 314
+=std=bcl::app=> Molecule number : 315
+=std=bcl::app=> Molecule number : 316
+=std=bcl::app=> Molecule number : 317
+=std=bcl::app=> Molecule number : 318
+=std=bcl::app=> Molecule number : 319
+=std=bcl::app=> Molecule number : 320
+=std=bcl::app=> Molecule number : 321
+=std=bcl::app=> Molecule number : 322
+=std=bcl::app=> Molecule number : 323
+=std=bcl::app=> Molecule number : 324
+=std=bcl::app=> Molecule number : 325
+=std=bcl::app=> Molecule number : 326
+=std=bcl::app=> Molecule number : 327
+=std=bcl::app=> Molecule number : 328
+=std=bcl::app=> Molecule number : 329
+=std=bcl::app=> Molecule number : 330
+=std=bcl::app=> Molecule number : 331
+=std=bcl::app=> Molecule number : 332
+=std=bcl::app=> Molecule number : 333
+=std=bcl::app=> Molecule number : 334
+=std=bcl::app=> Molecule number : 335
+=std=bcl::app=> Molecule number : 336
+=std=bcl::app=> Molecule number : 337
+=std=bcl::app=> Molecule number : 338
+=std=bcl::app=> Molecule number : 339
+=std=bcl::app=> Molecule number : 340
+=std=bcl::app=> Molecule number : 341
+=std=bcl::app=> Molecule number : 342
+=std=bcl::app=> Molecule number : 343
+=std=bcl::app=> Molecule number : 344
+=std=bcl::app=> Molecule number : 345
+=std=bcl::app=> Molecule number : 346
+=std=bcl::app=> Molecule number : 347
+=std=bcl::app=> Molecule number : 348
+=std=bcl::app=> Molecule number : 349
+=std=bcl::app=> Molecule number : 350
+=std=bcl::app=> Molecule number : 351
+=std=bcl::app=> Molecule number : 352
+=std=bcl::app=> Molecule number : 353
+=std=bcl::app=> Molecule number : 354
+=std=bcl::app=> Molecule number : 355
+=std=bcl::app=> Molecule number : 356
+=std=bcl::app=> Molecule number : 357
+=std=bcl::app=> Molecule number : 358
+=std=bcl::app=> Molecule number : 359
+=std=bcl::app=> Molecule number : 360
+=std=bcl::app=> Molecule number : 361
+=std=bcl::app=> Molecule number : 362
+=std=bcl::app=> Molecule number : 363
+=std=bcl::app=> Molecule number : 364
+=std=bcl::app=> Molecule number : 365
+=std=bcl::app=> Molecule number : 366
+=std=bcl::app=> Molecule number : 367
+=std=bcl::app=> Molecule number : 368
+=std=bcl::app=> Molecule number : 369
+=std=bcl::app=> Molecule number : 370
+=std=bcl::app=> Molecule number : 371
+=std=bcl::app=> Molecule number : 372
+=std=bcl::app=> Molecule number : 373
+=std=bcl::app=> Molecule number : 374
+=std=bcl::app=> Molecule number : 375
+=std=bcl::app=> Molecule number : 376
+=std=bcl::app=> Molecule number : 377
+=std=bcl::app=> Molecule number : 378
+=std=bcl::app=> Molecule number : 379
+=std=bcl::app=> Molecule number : 380
+=std=bcl::app=> Molecule number : 381
+=std=bcl::app=> Molecule number : 382
+=std=bcl::app=> Molecule number : 383
+=std=bcl::app=> Molecule number : 384
+=std=bcl::app=> Molecule number : 385
+=std=bcl::app=> Molecule number : 386
+=std=bcl::app=> Molecule number : 387
+=std=bcl::app=> Molecule number : 388
+=std=bcl::app=> Molecule number : 389
+=std=bcl::app=> Molecule number : 390
+=std=bcl::app=> Molecule number : 391
+=std=bcl::app=> Molecule number : 392
+=std=bcl::app=> Molecule number : 393
+=std=bcl::app=> Molecule number : 394
+=std=bcl::app=> Molecule number : 395
+=std=bcl::app=> Molecule number : 396
+=std=bcl::app=> Molecule number : 397
+=std=bcl::app=> Molecule number : 398
+=std=bcl::app=> Molecule number : 399
+=std=bcl::app=> Molecule number : 400
+=std=bcl::app=> Molecule number : 401
+=std=bcl::app=> Molecule number : 402
+=std=bcl::app=> Molecule number : 403
+=std=bcl::app=> Molecule number : 404
+=std=bcl::app=> Molecule number : 405
+=std=bcl::app=> Molecule number : 406
+=std=bcl::app=> Molecule number : 407
+=std=bcl::app=> Molecule number : 408
+=std=bcl::app=> Molecule number : 409
+=std=bcl::app=> Molecule number : 410
+=std=bcl::app=> Molecule number : 411
+=std=bcl::app=> Molecule number : 412
+=std=bcl::app=> Molecule number : 413
+=std=bcl::app=> Molecule number : 414
+=std=bcl::app=> Molecule number : 415
+=std=bcl::app=> Molecule number : 416
+=std=bcl::app=> Molecule number : 417
+=std=bcl::app=> Molecule number : 418
+=std=bcl::app=> Molecule number : 419
+=std=bcl::app=> Molecule number : 420
+=std=bcl::app=> Molecule number : 421
+=std=bcl::app=> Molecule number : 422
+=std=bcl::app=> Molecule number : 423
+=std=bcl::app=> Molecule number : 424
+=std=bcl::app=> Molecule number : 425
+=std=bcl::app=> Molecule number : 426
+=std=bcl::app=> Molecule number : 427
+=std=bcl::app=> Molecule number : 428
+=std=bcl::app=> Molecule number : 429
+=std=bcl::app=> Molecule number : 430
+=std=bcl::app=> Molecule number : 431
+=std=bcl::app=> Molecule number : 432
+=std=bcl::app=> Molecule number : 433
+=std=bcl::app=> Molecule number : 434
+=std=bcl::app=> Molecule number : 435
+=std=bcl::app=> Molecule number : 436
+=std=bcl::app=> Molecule number : 437
+=std=bcl::app=> Molecule number : 438
+=std=bcl::app=> Molecule number : 439
+=std=bcl::app=> Molecule number : 440
+=std=bcl::app=> Molecule number : 441
+=std=bcl::app=> Molecule number : 442
+=std=bcl::app=> Molecule number : 443
+=std=bcl::app=> Molecule number : 444
+=std=bcl::app=> Molecule number : 445
+=std=bcl::app=> Molecule number : 446
+=std=bcl::app=> Molecule number : 447
+=std=bcl::app=> Molecule number : 448
+=std=bcl::app=> Molecule number : 449
+=std=bcl::app=> Molecule number : 450
+=std=bcl::app=> Molecule number : 451
+=std=bcl::app=> Molecule number : 452
+=std=bcl::app=> Molecule number : 453
+=std=bcl::app=> Molecule number : 454
+=std=bcl::app=> Molecule number : 455
+=std=bcl::app=> Molecule number : 456
+=std=bcl::app=> Molecule number : 457
+=std=bcl::app=> Molecule number : 458
+=std=bcl::app=> Molecule number : 459
+=std=bcl::app=> Molecule number : 460
+=std=bcl::app=> Molecule number : 461
+=std=bcl::app=> Molecule number : 462
+=std=bcl::app=> Molecule number : 463
+=std=bcl::app=> Molecule number : 464
+=std=bcl::app=> Molecule number : 465
+=std=bcl::app=> Molecule number : 466
+=std=bcl::app=> Molecule number : 467
+=std=bcl::app=> Molecule number : 468
+=std=bcl::app=> Molecule number : 469
+=std=bcl::app=> Molecule number : 470
+=std=bcl::app=> Molecule number : 471
+=std=bcl::app=> Molecule number : 472
+=std=bcl=> Run completed of molecule:BuildRotamerLibrary -fragments_filenames example/example_files/input/chemistry/mGluR5_fragments.sdf -output example/example_files/output/chemistry/mGluR5_rotamers.sdf -structure_database example/example_files/input/chemistry/csd_first_1115_simple.sdf 
+, return status was: 0
+Command line took 1.54405 sec to run
+=std=bcl=> successful example check:  build_rotamer_library_helper.RunCommand() == 0
+=std=bcl=> AppBuildRotamerLibrary test succeeded:  io::File::FilesMatch( output_filename, correct_output) == 1
+=std=bcl::app=> BCL Example | END  : AppBuildRotamerLibrary ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AppBuildRotamerLibrary_total              3          0              
+total                                     3          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:01, peak virtual memory used: 140 MB, peak physical RAM used: 80 MB

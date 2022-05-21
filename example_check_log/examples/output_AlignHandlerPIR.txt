@@ -1,0 +1,91 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec AlignHandlerPIR 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AlignHandlerPIR
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AlignHandlerPIR ====================
+=std=bcl=> 1: GetClassIdentifier()
+=std=bcl=> successful example check:  pir_handler.GetClassIdentifier() == bcl::align::HandlerPIR<bcl::biol::AABase>
+=std=bcl=> 2: GetBlockSize()
+=std=bcl=> successful example check:  pir_handler_block_size.GetBlockSize() == block_size == 30
+=std=bcl=> 3: SetBlockSize()
+=std=bcl=> 3: SetBlockSize()==31!=31==block_size test succeeded:  returned_block_size == block_size + 1 == 31
+=std=bcl=> 4: WriteAlignment() with empty alignment
+>1fms_
+
+*
+>1f5mA
+
+*
+=std=bcl=> 5: WriteAlignment(), ReadAlignment()
+=std=bcl=> 5: output of read in alignment is differs from written alignment test succeeded:
+              result_alignment_stream.str() == read_alignment_stream.str() ==
+              >1fms_
+              GSHMSDMTRDGLANKALAVARTLADSPEIRQGLQKKPQESGIQAIAEAVRKRNDLLFIVVTDMQSLRYSH
+              PEAQRIGQPFKGDDILKALNGEENVAINRGFLAQALRVFTPIYDENHKQIGVVAIGLELSRVTQQINDSR
+              ------------------------------------*
+              >1f5mA
+              STGFHHADHVNYSSNLNKEEILEQLLLSYEGLSDGQVNWVCNLSNASSLIWHAYKSLAVDINWAGFYVTQ
+              ASEENTLILGPFQGKVACQMIQFGKGVCGTAASTKETQIVPDVNKYPGHIACDGETKSEIVVPIISNDGK
+              TLGVIDIDCLDYEGFDHVDKEFLEKLAKLINKSCVF*
+=std=bcl=> 6: Write(), Read()
+=std=bcl=> pir_handler differs from pir_handler_read test succeeded:
+              pir_handler.GetBlockSize() == pir_handler_read.GetBlockSize() == 1
+=std=bcl::app=> BCL Example | END  : AlignHandlerPIR ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AlignHandlerPIR_total                     5          0              
+total                                     5          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

@@ -1,0 +1,45 @@
+bcl::restraint::RDC
+  bcl::storage::Vector<bcl::storage::Triplet<bcl::restraint::DataPairwise,double,double>>
+    2
+    bcl::storage::Triplet<bcl::restraint::DataPairwise,double,double>
+      bcl::restraint::DataPairwise
+        bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+          12345678
+          bcl::restraint::LocatorCoordinatesHydrogen
+            A
+            12
+            "CA"
+            bcl::biol::AtomTypes::Enum
+              "CA"
+        bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+          12345678
+          bcl::restraint::LocatorCoordinatesHydrogen
+            A
+            12
+            "HA"
+            bcl::biol::AtomTypes::Enum
+              "HA"
+
+      1.09
+      -2.5
+    bcl::storage::Triplet<bcl::restraint::DataPairwise,double,double>
+      bcl::restraint::DataPairwise
+        bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+          12345678
+          bcl::restraint::LocatorCoordinatesHydrogen
+            A
+            12
+            "N"
+            bcl::biol::AtomTypes::Enum
+              "N"
+        bcl::util::ShPtr<bcl::assemble::LocatorAtomCoordinatesInterface>
+          12345678
+          bcl::restraint::LocatorCoordinatesHydrogen
+            A
+            12
+            "H"
+            bcl::biol::AtomTypes::Enum
+              "H"
+
+      1.03
+      1

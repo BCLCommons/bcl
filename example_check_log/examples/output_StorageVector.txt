@@ -1,0 +1,322 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec StorageVector 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> StorageVector
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: StorageVector ====================
+=std=bcl=> size of sv3: 15
+=std=bcl=> is sv3 empty?: 0
+=std=bcl=> is sv1 empty?: 1
+=std=bcl=> test output of all elements of sv3
+=std=bcl=> bcl::storage::Vector<double>
+  15
+  0
+  -1
+  2
+  -3
+  4
+  -5
+  6
+  -7
+  8
+  -9
+  10
+  -11
+  12
+  -13
+  14
+
+=std=bcl=> element 2 of sv3: -1
+=std=bcl=> element 2 of sv3 gets new value: 
+=std=bcl=> 4
+=std=bcl=> 1st element of sv3: 0
+=std=bcl=> last element of sv3: 14
+=std=bcl=> all elements of sv2 get value 1.1 
+=std=bcl=> Deletion of all elements of sv2
+=std=bcl=> test RemoveElements function: 
+=std=bcl=> all elements of sv3: bcl::storage::Vector<double>
+  15
+  0
+  4
+  2
+  -3
+  4
+  -5
+  6
+  -7
+  8
+  -9
+  10
+  -11
+  12
+  -13
+  14
+
+=std=bcl=> erase five elements of sv3 starting with 5th element (count from 0)
+=std=bcl=> output of all elements of sv3 after erasing
+=std=bcl=> bcl::storage::Vector<double>
+  10
+  0
+  4
+  2
+  -3
+  4
+  10
+  -11
+  12
+  -13
+  14
+
+=std=bcl=> test copy constructor: new storagevector v5 constructed from sv3
+=std=bcl=> bcl::storage::Vector<double>
+  10
+  0
+  4
+  2
+  -3
+  4
+  10
+  -11
+  12
+  -13
+  14
+
+=std=bcl=> test PushBack: add element to the last position of sv5
+=std=bcl=> bcl::storage::Vector<double>
+  11
+  0
+  4
+  2
+  -3
+  4
+  10
+  -11
+  12
+  -13
+  14
+  2
+
+=std=bcl=> test PopBack: remove element from the last position of sv5
+=std=bcl=> bcl::storage::Vector<double>
+  10
+  0
+  4
+  2
+  -3
+  4
+  10
+  -11
+  12
+  -13
+  14
+
+=std=bcl=> test Resize: size of sv5: 10
+=std=bcl=> resize sv5 -> add 2 elements
+=std=bcl=> size of sv5: 12
+=std=bcl=> bcl::storage::Vector<double>
+  12
+  0
+  4
+  2
+  -3
+  4
+  10
+  -11
+  12
+  -13
+  14
+  2
+  2
+
+=std=bcl=> test: construct sv6 from five elements of sv5 starting at POS 4: 
+=std=bcl=> size of sv6: 5
+=std=bcl=> bcl::storage::Vector<double>
+  5
+  -3
+  4
+  10
+  -11
+  12
+
+=std=bcl=> test InsertElements: insert elements of sv5 to sv4 before POS 3 
+=std=bcl=> new vector: sv4: bcl::storage::Vector<double>
+  15
+  0
+  -1
+  2
+  -3
+  4
+  -5
+  6
+  -7
+  8
+  -9
+  10
+  -11
+  12
+  -13
+  14
+
+=std=bcl=> insert sv5 into sv4 before position 3
+=std=bcl=> sv4: bcl::storage::Vector<double>
+  27
+  0
+  -1
+  0
+  4
+  2
+  -3
+  4
+  10
+  -11
+  12
+  -13
+  14
+  2
+  2
+  2
+  -3
+  4
+  -5
+  6
+  -7
+  8
+  -9
+  10
+  -11
+  12
+  -13
+  14
+
+=std=bcl=> test InsertElements: insert 5.0 three times into sv5 before POS 1 
+=std=bcl=> size of sv4: 27
+=std=bcl=> size of sv4: 30
+=std=bcl=> bcl::storage::Vector<double>
+  30
+  0
+  5
+  5
+  5
+  -1
+  0
+  4
+  2
+  -3
+  4
+  10
+  -11
+  12
+  -13
+  14
+  2
+  2
+  2
+  -3
+  4
+  -5
+  6
+  -7
+  8
+  -9
+  10
+  -11
+  12
+  -13
+  14
+
+=std=bcl=> write storage::Vector sv6 to file
+=std=bcl=> read storage::Vector sv7 from file
+=std=bcl=> bcl::storage::Vector<double>
+  5
+  -3
+  4
+  10
+  -11
+  12
+
+=std=bcl=> test Swap function
+=std=bcl=> bcl::storage::Vector<double>
+  5
+  -3
+  10
+  4
+  -11
+  12
+
+=std=bcl=> test SetAllElements function: set sv7 to hold all zeros
+=std=bcl=> bcl::storage::Vector<double>
+  5
+  0
+  0
+  0
+  0
+  0
+
+=std=bcl=> test construction from size and pointer to data
+=std=bcl=> bcl::storage::Vector<std::string>
+  2
+  "C"
+  "CB"
+
+=std=bcl=> test Reset function
+=std=bcl=> clear storagevector - is empty? : 1
+=std=bcl=> clear storagevector: Size : 0
+=std=bcl=> test shuffle function: set sv9 to hold all integers between 0 and 64
+=std=bcl::app=> BCL Example | END  : StorageVector ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+StorageVector_total                      42          0              
+total                                    42          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

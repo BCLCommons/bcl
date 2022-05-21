@@ -1,0 +1,305 @@
+./build/linux64_release/bin/bcl-example-apps-static.exe Examples -exec AppMoleculeUnique 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AppMoleculeUnique
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AppMoleculeUnique ====================
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+molecule:Unique -compare Constitutions -input_filenames /dors/meilerlab/apps/bcl/app_example_files/molecule:Unique/csd_1000mols.sdf.bz2 -output example/example_files/output/chemistry/csd_1000mols_unique.sdf.bz2 -output_dupes example/example_files/output/chemistry/csd_1000mols_duplicate.sdf.bz2 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  molecule_unique_helper.CheckCommandString( true) == 1
+=std=bcl=> Running command line: molecule:Unique -compare Constitutions -input_filenames /dors/meilerlab/apps/bcl/app_example_files/molecule:Unique/csd_1000mols.sdf.bz2 -output example/example_files/output/chemistry/csd_1000mols_unique.sdf.bz2 -output_dupes example/example_files/output/chemistry/csd_1000mols_duplicate.sdf.bz2 
+
+ Status: Counting molecules for input Status: Found 1000 molecules         
+=std=bcl::chemistry=> Changed nominal type: N_TrTrTrPi2 into N_TrTrTrPi to fix aromaticity
+ Status: [                    ] 0% 0/1000 molecules read
+=std=bcl::chemistry=> Changed nominal type: N_TrTrTrPi2 into N_TrTrTrPi to fix aromaticity
+=std=bcl::chemistry=> Changed nominal type: N_TrTrTrPi2 into N_TrTrTrPi to fix aromaticity
+ Status: [**                  ] 10% 100/1000 molecules read
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  5  4  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 20  4  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+ Status: [****                ] 20% 200/1000 molecules read
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  4  6  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  4  7  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  5 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  6 57  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 23  3  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 57  4  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 25  5  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 56  6  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  7 25  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  8 56  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+ Status: [******              ] 30% 300/1000 molecules read Status: [********            ] 40% 400/1000 molecules read 
+=std=bcl::chemistry=> Changed nominal type: N_TrTrTrPi2 into N_TrTrTrPi to fix aromaticity
+ Status: [**********          ] 50% 500/1000 molecules read Status: [************        ] 60% 600/1000 molecules read 
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 23 66  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 67 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 69 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 71 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 73 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 75 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+ Status: [**************      ] 70% 700/1000 molecules read
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  1  2  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  2  3  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  3  4  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  4  5  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  5  1  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+ Status: [****************    ] 80% 800/1000 molecules read
+=std=bcl::chemistry=> Warning: Interpreting isotope D as elemental Hydrogen, properties such as atom/molecular masses and gyromagnetic ratio will be incorrect
+=std=bcl::chemistry=> Changed nominal type: N_Tr2TrTrPi into N_Tr2TrTrPi2 to fix aromaticity
+ Status: [******************  ] 90% 900/1000 molecules read Status: [********************] 100% 1000/1000 molecules read
+=std=bcl::app=> Loaded 1000 molecules in 00:00:01
+=std=bcl::app=> Found 134 duplicates (Level: Constitutions) in 00:00:00
+=std=bcl::app=> Total time writing molecules: 00:00:01
+=std=bcl::app=> Wrote ensemble of 866 unique molecules to example/example_files/output/chemistry/csd_1000mols_unique.sdf.bz2
+=std=bcl::app=> Wrote ensemble of 134 duplicate molecules to example/example_files/output/chemistry/csd_1000mols_duplicate.sdf.bz2
+=std=bcl=> Run completed of molecule:Unique -compare Constitutions -input_filenames /dors/meilerlab/apps/bcl/app_example_files/molecule:Unique/csd_1000mols.sdf.bz2 -output example/example_files/output/chemistry/csd_1000mols_unique.sdf.bz2 -output_dupes example/example_files/output/chemistry/csd_1000mols_duplicate.sdf.bz2 
+, return status was: 0
+Command line took 2.8117 sec to run
+=std=bcl=> successful example check:  molecule_unique_helper.RunCommand() == 0
+=std=bcl=> All molecules were put in one of the two files test succeeded:
+              number_mols_unique_test + number_mols_duplicates_test == total_csd_size == 1000
+=std=bcl=> number molecules with good atom types test succeeded:  number_mols_unique_test == 866
+=std=bcl=> Checking command line:
+molecule:Unique -compare Exact -input_filenames /dors/meilerlab/apps/bcl/app_example_files/molecule:Unique/csd_1000mols.sdf.bz2 -output example/example_files/output/chemistry/csd_1000mols_unique.sdf.bz2 -output_dupes example/example_files/output/chemistry/csd_1000mols_duplicate.sdf.bz2 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  molecule_unique_helper.CheckCommandString( true) == 1
+=std=bcl=> Running command line: molecule:Unique -compare Exact -input_filenames /dors/meilerlab/apps/bcl/app_example_files/molecule:Unique/csd_1000mols.sdf.bz2 -output example/example_files/output/chemistry/csd_1000mols_unique.sdf.bz2 -output_dupes example/example_files/output/chemistry/csd_1000mols_duplicate.sdf.bz2 
+
+ Status: Counting molecules for input Status: Found 1000 molecules         
+=std=bcl::chemistry=> Changed nominal type: N_TrTrTrPi2 into N_TrTrTrPi to fix aromaticity
+ Status: [                    ] 0% 0/1000 molecules read
+=std=bcl::chemistry=> Changed nominal type: N_TrTrTrPi2 into N_TrTrTrPi to fix aromaticity
+=std=bcl::chemistry=> Changed nominal type: N_TrTrTrPi2 into N_TrTrTrPi to fix aromaticity
+ Status: [**                  ] 10% 100/1000 molecules read
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  5  4  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 20  4  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+ Status: [****                ] 20% 200/1000 molecules read
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  4  6  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  4  7  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  5 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  6 57  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 23  3  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 57  4  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 25  5  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 56  6  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  7 25  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  8 56  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+ Status: [******              ] 30% 300/1000 molecules read Status: [********            ] 40% 400/1000 molecules read 
+=std=bcl::chemistry=> Changed nominal type: N_TrTrTrPi2 into N_TrTrTrPi to fix aromaticity
+ Status: [**********          ] 50% 500/1000 molecules read Status: [************        ] 60% 600/1000 molecules read 
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 23 66  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 67 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 69 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 71 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 73 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 75 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+ Status: [**************      ] 70% 700/1000 molecules read
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  1  2  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  2  3  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  3  4  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  4  5  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  5  1  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+ Status: [****************    ] 80% 800/1000 molecules read
+=std=bcl::chemistry=> Warning: Interpreting isotope D as elemental Hydrogen, properties such as atom/molecular masses and gyromagnetic ratio will be incorrect
+=std=bcl::chemistry=> Changed nominal type: N_Tr2TrTrPi into N_Tr2TrTrPi2 to fix aromaticity
+ Status: [******************  ] 90% 900/1000 molecules read Status: [********************] 100% 1000/1000 molecules read
+=std=bcl::app=> Loaded 1000 molecules in 00:00:01
+=std=bcl::app=> Found 86 duplicates (Level: Exact) in 00:00:00
+=std=bcl::app=> Total time writing molecules: 00:00:01
+=std=bcl::app=> Wrote ensemble of 914 unique molecules to example/example_files/output/chemistry/csd_1000mols_unique.sdf.bz2
+=std=bcl::app=> Wrote ensemble of 86 duplicate molecules to example/example_files/output/chemistry/csd_1000mols_duplicate.sdf.bz2
+=std=bcl=> Run completed of molecule:Unique -compare Exact -input_filenames /dors/meilerlab/apps/bcl/app_example_files/molecule:Unique/csd_1000mols.sdf.bz2 -output example/example_files/output/chemistry/csd_1000mols_unique.sdf.bz2 -output_dupes example/example_files/output/chemistry/csd_1000mols_duplicate.sdf.bz2 
+, return status was: 0
+Command line took 2.54618 sec to run
+=std=bcl=> successful example check:  molecule_unique_helper.RunCommand() == 0
+=std=bcl=> All molecules were put in one of the two files test succeeded:
+              number_mols_unique_test_two + number_mols_duplicates_test_two == total_csd_size == 1000
+=std=bcl=> number molecules with good atom types test succeeded:  number_mols_unique_test_two == 914
+=std=bcl=> Checking command line:
+molecule:Unique -compare Exact -input_filenames /dors/meilerlab/apps/bcl/app_example_files/molecule:Unique/csd_1000mols.sdf.bz2 -output example/example_files/output/chemistry/csd_1000mols_unique.sdf.bz2 -output_dupes example/example_files/output/chemistry/csd_1000mols_duplicate.sdf.bz2 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  molecule_unique_helper.CheckCommandString( true) == 1
+=std=bcl=> Running command line: molecule:Unique -compare Exact -input_filenames /dors/meilerlab/apps/bcl/app_example_files/molecule:Unique/csd_1000mols.sdf.bz2 -output example/example_files/output/chemistry/csd_1000mols_unique.sdf.bz2 -output_dupes example/example_files/output/chemistry/csd_1000mols_duplicate.sdf.bz2 
+
+ Status: Counting molecules for input Status: Found 1000 molecules         
+=std=bcl::chemistry=> Changed nominal type: N_TrTrTrPi2 into N_TrTrTrPi to fix aromaticity
+ Status: [                    ] 0% 0/1000 molecules read
+=std=bcl::chemistry=> Changed nominal type: N_TrTrTrPi2 into N_TrTrTrPi to fix aromaticity
+=std=bcl::chemistry=> Changed nominal type: N_TrTrTrPi2 into N_TrTrTrPi to fix aromaticity
+ Status: [**                  ] 10% 100/1000 molecules read
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  5  4  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 20  4  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+ Status: [****                ] 20% 200/1000 molecules read
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  4  6  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  4  7  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  5 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  6 57  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 23  3  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 57  4  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 25  5  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 56  6  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  7 25  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  8 56  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+ Status: [******              ] 30% 300/1000 molecules read Status: [********            ] 40% 400/1000 molecules read 
+=std=bcl::chemistry=> Changed nominal type: N_TrTrTrPi2 into N_TrTrTrPi to fix aromaticity
+ Status: [**********          ] 50% 500/1000 molecules read Status: [************        ] 60% 600/1000 molecules read 
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 23 66  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 67 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 69 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 71 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 73 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line " 75 23  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+ Status: [**************      ] 70% 700/1000 molecules read
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  1  2  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  2  3  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  3  4  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  4  5  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+=crt=bcl::chemistry=> Warning: Found bond line containing invalid bond type = 8. Bond will be omitted
+=crt=bcl::sdf=> Warning: bond line "  5  1  8  0  0  0  0" contains an unrecognized bond order; skipping this bond
+ Status: [****************    ] 80% 800/1000 molecules read
+=std=bcl::chemistry=> Warning: Interpreting isotope D as elemental Hydrogen, properties such as atom/molecular masses and gyromagnetic ratio will be incorrect
+=std=bcl::chemistry=> Changed nominal type: N_Tr2TrTrPi into N_Tr2TrTrPi2 to fix aromaticity
+ Status: [******************  ] 90% 900/1000 molecules read Status: [********************] 100% 1000/1000 molecules read
+=std=bcl::app=> Loaded 1000 molecules in 00:00:01
+=std=bcl::app=> Found 86 duplicates (Level: Exact) in 00:00:00
+=std=bcl::app=> Total time writing molecules: 00:00:01
+=std=bcl::app=> Wrote ensemble of 914 unique molecules to example/example_files/output/chemistry/csd_1000mols_unique.sdf.bz2
+=std=bcl::app=> Wrote ensemble of 86 duplicate molecules to example/example_files/output/chemistry/csd_1000mols_duplicate.sdf.bz2
+=std=bcl=> Run completed of molecule:Unique -compare Exact -input_filenames /dors/meilerlab/apps/bcl/app_example_files/molecule:Unique/csd_1000mols.sdf.bz2 -output example/example_files/output/chemistry/csd_1000mols_unique.sdf.bz2 -output_dupes example/example_files/output/chemistry/csd_1000mols_duplicate.sdf.bz2 
+, return status was: 0
+Command line took 2.56296 sec to run
+=std=bcl=> successful example check:  molecule_unique_helper.RunCommand() == 0
+=std=bcl=> All molecules were put in one of the two files test succeeded:
+              number_mols_unique_test_two + number_mols_duplicates_test_two == total_csd_size == 1000
+=std=bcl=> number molecules with good atom types test succeeded:  number_mols_unique_test_two == 914
+=std=bcl::app=> BCL Example | END  : AppMoleculeUnique ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AppMoleculeUnique_total                  12          0              
+total                                    12          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:09, peak virtual memory used: 141 MB, peak physical RAM used: 76 MB

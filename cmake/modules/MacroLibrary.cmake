@@ -1,0 +1,8 @@
+INCLUDE( MacroAddExecutable)
+INCLUDE( MacroAddLibrary)
+INCLUDE( MacroAddCustomTarget)
+INCLUDE( MacroSetExecutableName)
+INCLUDE( MacroGetAppName)
+INCLUDE( MacroGetSoName)
+INCLUDE( MacroCheckCMakeDirectoryList)
+INCLUDE( MacroAddSubdirectory)

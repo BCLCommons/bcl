@@ -1,0 +1,127 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec MathHistogram2D 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> MathHistogram2D
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: MathHistogram2D ====================
+=std=bcl=> filling a storage::Vector of Pairs of double with random valuepairs
+=std=bcl=> building and calculating histogram
+=std=bcl=> these are the binning values - middlepoint of each bin in x and y direction as pair
+=std=bcl=> bcl::storage::VectorND<2,bcl::linal::Vector<double>>
+  bcl::linal::Vector<double>
+    6
+    0.25	0.75	1.25	1.75	2.25	2.75	
+  bcl::linal::Vector<double>
+    12
+    0.125	0.375	0.625	0.875	1.125	1.375	1.625	1.875	2.125	2.375	2.625	2.875	
+=std=bcl=> this is just the core  - every count in the bins without the boundaries
+=std=bcl=> bcl::linal::Matrix<double>
+  12	  6
+  31	23	26	21	33	21	
+  22	24	31	25	34	24	
+  22	38	22	20	28	26	
+  22	33	23	20	26	21	
+  23	29	17	29	20	23	
+  36	31	25	19	22	27	
+  34	24	23	27	28	29	
+  23	22	16	20	25	20	
+  25	21	35	28	23	26	
+  20	30	29	28	24	29	
+  30	19	26	27	21	33	
+  24	26	30	27	31	27	
+=std=bcl=> this is the test for the read and write function of the Histogram2D class
+=std=bcl=> bcl::math::Histogram2D
+center	...<	<..>	<..>	<..>	<..>	<..>	<..>	>...
+	center	counts	   0.000	   0.250	   0.750	   1.250	   1.750	   2.250	   2.750	   3.000
+	...<	   0.000	 830.000	 191.000	 210.000	 203.000	 220.000	 205.000	 181.000	 806.000	
+	<..>	   0.125	 101.000	  31.000	  23.000	  26.000	  21.000	  33.000	  21.000	  96.000	
+	<..>	   0.375	  95.000	  22.000	  24.000	  31.000	  25.000	  34.000	  24.000	  73.000	
+	<..>	   0.625	  92.000	  22.000	  38.000	  22.000	  20.000	  28.000	  26.000	  97.000	
+	<..>	   0.875	 102.000	  22.000	  33.000	  23.000	  20.000	  26.000	  21.000	 102.000	
+	<..>	   1.125	  86.000	  23.000	  29.000	  17.000	  29.000	  20.000	  23.000	 106.000	
+	<..>	   1.375	  94.000	  36.000	  31.000	  25.000	  19.000	  22.000	  27.000	  88.000	
+	<..>	   1.625	 108.000	  34.000	  24.000	  23.000	  27.000	  28.000	  29.000	 137.000	
+	<..>	   1.875	 112.000	  23.000	  22.000	  16.000	  20.000	  25.000	  20.000	  97.000	
+	<..>	   2.125	 101.000	  25.000	  21.000	  35.000	  28.000	  23.000	  26.000	  96.000	
+	<..>	   2.375	 109.000	  20.000	  30.000	  29.000	  28.000	  24.000	  29.000	  93.000	
+	<..>	   2.625	 108.000	  30.000	  19.000	  26.000	  27.000	  21.000	  33.000	 115.000	
+	<..>	   2.875	  90.000	  24.000	  26.000	  30.000	  27.000	  31.000	  27.000	  95.000	
+	>...	   3.000	 855.000	 170.000	 204.000	 210.000	 219.000	 229.000	 208.000	 819.000	
+
+=std=bcl=> push back valuepairs 0, 0 and 2, 2 to the histogram
+=std=bcl=> bcl::math::Histogram2D
+center	...<	<..>	<..>	<..>	<..>	<..>	<..>	>...
+	center	counts	   0.000	   0.250	   0.750	   1.250	   1.750	   2.250	   2.750	   3.000
+	...<	   0.000	 830.000	 191.000	 210.000	 203.000	 220.000	 205.000	 181.000	 806.000	
+	<..>	   0.125	 101.000	  32.000	  23.000	  26.000	  21.000	  33.000	  21.000	  96.000	
+	<..>	   0.375	  95.000	  22.000	  24.000	  31.000	  25.000	  34.000	  24.000	  73.000	
+	<..>	   0.625	  92.000	  22.000	  38.000	  22.000	  20.000	  28.000	  26.000	  97.000	
+	<..>	   0.875	 102.000	  22.000	  33.000	  23.000	  20.000	  26.000	  21.000	 102.000	
+	<..>	   1.125	  86.000	  23.000	  29.000	  17.000	  29.000	  20.000	  23.000	 106.000	
+	<..>	   1.375	  94.000	  36.000	  31.000	  25.000	  19.000	  22.000	  27.000	  88.000	
+	<..>	   1.625	 108.000	  34.000	  24.000	  23.000	  27.000	  28.000	  29.000	 137.000	
+	<..>	   1.875	 112.000	  23.000	  22.000	  16.000	  20.000	  25.000	  20.000	  97.000	
+	<..>	   2.125	 101.000	  25.000	  21.000	  35.000	  28.000	  24.000	  26.000	  96.000	
+	<..>	   2.375	 109.000	  20.000	  30.000	  29.000	  28.000	  24.000	  29.000	  93.000	
+	<..>	   2.625	 108.000	  30.000	  19.000	  26.000	  27.000	  21.000	  33.000	 115.000	
+	<..>	   2.875	  90.000	  24.000	  26.000	  30.000	  27.000	  31.000	  27.000	  95.000	
+	>...	   3.000	 855.000	 170.000	 204.000	 210.000	 219.000	 229.000	 208.000	 819.000	
+
+=std=bcl::app=> BCL Example | END  : MathHistogram2D ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+MathHistogram2D_total                     1          0              
+total                                     1          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

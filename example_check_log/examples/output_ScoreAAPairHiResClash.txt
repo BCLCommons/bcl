@@ -1,0 +1,93 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ScoreAAPairHiResClash 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ScoreAAPairHiResClash
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ScoreAAPairHiResClash ====================
+=std=bcl=> successful example check:  score.GetHistograms().GetSize() == 20
+=std=bcl=> successful example check:  score.GetHistograms()( 0).GetSize() == 20
+=std=bcl=> successful example check:  clone_constr->GetHistograms().GetSize() == 20
+=std=bcl=> successful example check:  clone_constr->GetHistograms()( 0).GetSize() == 20
+=std=bcl=> moving one aminoacid in 0.9 Angstrom steps in z direction and score the distance
+=std=bcl=> distance of: LYS and ARG and its score:
+=std=bcl=> 0.9 1
+=std=bcl=> 1.8 1
+=std=bcl=> successful example check:  score( ca_cb_aa_a, ca_cb_aa_b) == 1.0 == 1  (+/- 1e-05%)
+=std=bcl=> 2.7 0.8
+=std=bcl=> successful example check:  score( ca_cb_aa_a, ca_cb_aa_b) == 0.8  (+/- 1e-05%)
+=std=bcl=> 3.6 0
+=std=bcl=> successful example check:  score( ca_cb_aa_a, ca_cb_aa_b) == 0.0 == 0  (+/- 1e-05%)
+=std=bcl=> 4.5 0
+=std=bcl=> 5.4 0
+=std=bcl=> 6.3 0
+=std=bcl=> 7.2 0
+=std=bcl=> 8.1 0
+=std=bcl=> 9 0
+=std=bcl=> 9.9 0
+=std=bcl=> 10.8 0
+=std=bcl=> 11.7 0
+=std=bcl=> 12.6 0
+=std=bcl=> testing read and write functionalities for score::AAPairHiResClash
+=std=bcl=> successful example check:  read_obj.GetHistograms().GetSize() == 20
+=std=bcl=> successful example check:  read_obj.GetHistograms()( 0).GetSize() == 20
+=std=bcl=> WriteDetailedSchemeAndValues test succeeded:
+               str_stream.str() == "1\tLYS\t2\tARG\t12.6\t1\t1\t0\n" ==
+              1	LYS	2	ARG	12.6	1	1	0
+=std=bcl::app=> BCL Example | END  : ScoreAAPairHiResClash ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+ScoreAAPairHiResClash_total              12          0              
+total                                    12          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 133 MB, peak physical RAM used: 65 MB

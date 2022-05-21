@@ -1,0 +1,9 @@
+bcl::score::AlignmentQuality
+  bcl::util::ShPtr<bcl::quality::MeasureInterface>
+    12345678
+    bcl::quality::DME
+
+  bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+    1
+    bcl::biol::AtomTypes::Enum
+      "CA"

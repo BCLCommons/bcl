@@ -1,0 +1,101 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec LinalMatrixInversionCholesky 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> LinalMatrixInversionCholesky
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: LinalMatrixInversionCholesky ====================
+=std=bcl=>  this is a random 8x8 symmetric matrix ma
+       bcl::linal::Matrix<double>
+  8	  8
+  231.105	159.550	162.987	183.678	213.498	181.821	150.426	168.260	
+  159.550	210.218	157.267	154.764	161.968	216.785	209.699	207.150	
+  162.987	157.267	205.756	165.096	193.810	189.027	179.415	158.185	
+  183.678	154.764	165.096	242.506	183.147	185.239	155.511	131.797	
+  213.498	161.968	193.810	183.147	249.484	165.379	181.024	182.528	
+  181.821	216.785	189.027	185.239	165.379	294.330	195.153	221.630	
+  150.426	209.699	179.415	155.511	181.024	195.153	244.092	209.769	
+  168.260	207.150	158.185	131.797	182.528	221.630	209.769	239.484	
+=std=bcl=> mai is the inverse of matrix ma
+=std=bcl=> successful example check:  linal::MatrixInversionCholesky< double>( ma).IsDefined() == 1
+=std=bcl=> successful example check:
+               ( mai.ComputeInverse() * ma).AsVector().SquareNorm() == double( ma.GetNumberRows())
+              == 8  (+/- 1e-05)
+=std=bcl=>        bcl::linal::Matrix<double>
+  8	  8
+  0.044	-0.022	0.029	0.005	-0.058	-0.026	0.006	0.030	
+  -0.022	0.141	0.043	0.000	-0.000	-0.052	-0.093	-0.005	
+  0.029	0.043	0.150	0.049	-0.145	-0.131	-0.103	0.139	
+  0.005	0.000	0.049	0.039	-0.061	-0.055	-0.037	0.072	
+  -0.058	-0.000	-0.145	-0.061	0.186	0.136	0.074	-0.162	
+  -0.026	-0.052	-0.131	-0.055	0.136	0.139	0.101	-0.140	
+  0.006	-0.093	-0.103	-0.037	0.074	0.101	0.127	-0.096	
+  0.030	-0.005	0.139	0.072	-0.162	-0.140	-0.096	0.194	
+=std=bcl=> as we can easily prove: ma * mai = unity matrix
+=std=bcl=>        bcl::linal::Matrix<double>
+  8	  8
+  1.000	-0.000	0.000	0.000	-0.000	0.000	0.000	0.000	
+  0.000	1.000	0.000	-0.000	0.000	0.000	0.000	0.000	
+  0.000	-0.000	1.000	-0.000	0.000	0.000	0.000	-0.000	
+  0.000	-0.000	0.000	1.000	-0.000	-0.000	0.000	0.000	
+  0.000	-0.000	0.000	0.000	1.000	-0.000	0.000	0.000	
+  0.000	-0.000	0.000	0.000	-0.000	1.000	0.000	0.000	
+  0.000	-0.000	0.000	0.000	-0.000	0.000	1.000	0.000	
+  0.000	-0.000	0.000	0.000	0.000	0.000	-0.000	1.000	
+=std=bcl::app=> BCL Example | END  : LinalMatrixInversionCholesky ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>      success      error error_string 
+LinalMatrixInversionCholesky_total          2          0              
+total                                       2          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

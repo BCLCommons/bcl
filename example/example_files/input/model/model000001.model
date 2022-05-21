@@ -1,0 +1,58 @@
+bcl::util::ShPtr<bcl::model::Interface>
+  12345678
+  bcl::model::NeuralNetwork
+    Sigmoid
+    bcl::util::ShPtr<bcl::model::RescaleFeatureDataSet>
+      12345678
+      bcl::model::RescaleFeatureDataSet
+        bcl::storage::Vector<bcl::math::Range<float>>
+          2
+          bcl::math::Range<float>
+            [ -0.0338786 , 1.26179 ]
+          bcl::math::Range<float>
+            [ -0.494649 , 2.04814 ]
+
+        bcl::math::Range<float>
+          [ -1 , 1 ]
+    bcl::util::ShPtr<bcl::model::RescaleFeatureDataSet>
+      12345678
+      bcl::model::RescaleFeatureDataSet
+        bcl::storage::Vector<bcl::math::Range<float>>
+          1
+          bcl::math::Range<float>
+            [ -6 , 6 ]
+
+        bcl::math::Range<float>
+          [ 0.1 , 0.9 ]
+    bcl::storage::Vector<bcl::linal::Vector<float>>
+      2
+      bcl::linal::Vector<float>
+        16
+        0.0912598	-0.074493	0.00430959	0.0149868	-0.177589	-0.00754811	0.0165767	-0.216586	-0.167998	0.193677	-0.118297	0.0119724	-0.00815109	0.112254	0.0175601	-0.275817	
+      bcl::linal::Vector<float>
+        1
+        0.0642489	
+
+    bcl::storage::Vector<bcl::linal::Matrix<float>>
+      2
+      bcl::linal::Matrix<float>
+        16	        2
+        -0.581438	-0.843923	
+        -0.608323	-0.317532	
+        -0.440836	-0.108979	
+        -0.0801224	-0.169136	
+        -1.1627	0.953177	
+        0.324764	0.393031	
+        -0.0763146	-1.37512	
+        0.185676	0.163965	
+        1.36791	0.117943	
+        0.0303523	-1.04566	
+        -0.706173	-0.0734573	
+        -1.30604	-0.19946	
+        0.258061	0.530452	
+        0.940627	0.690132	
+        0.707189	-0.542392	
+        -0.0452558	-0.148097	
+      bcl::linal::Matrix<float>
+        1	        16
+        0.22476	-0.349703	0.370034	-0.0645633	-0.411519	0.0471063	0.00912337	-0.365771	0.10191	0.503993	-0.222774	0.0694615	-0.239969	-0.0798233	0.153829	-0.150482	

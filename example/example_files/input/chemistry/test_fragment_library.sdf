@@ -1,0 +1,9571 @@
+Written by BCL::WriteToMDL,
+
+
+  6  6  0  0  0  0  0  0  0  0999 V2000
+   -4.9221   -0.0932    1.5295 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -5.8427    0.6390    2.2700 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -6.8148   -0.0156    2.9721 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -6.8736   -1.3979    2.9483 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -5.9622   -2.1155    2.1845 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -4.9452   -1.4911    1.4460 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  6  2  0  0  0  0
+  2  3  2  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+true
+
+> <ContainsRings>
+true
+
+> <Counts>
+127578
+
+> <MatchIndices>
+27 
+
+> <NRotamers>
+12 
+
+> <Rotamer10Ave>
+361.54  359.40  332.30  86.40   30.55   273.57  
+
+> <Rotamer10Bins>
+12      12      11      3       1       9       
+
+> <Rotamer10Coordinates>
+   16.8383    1.8492    2.9505 C   0  0  0  0  0  3  0  0  0  0  0  0
+   15.5687    2.3499    2.6523 C   0  0  0  0  0  3  0  0  0  0  0  0
+   14.4587    1.7231    3.2322 C   0  0  0  0  0  3  0  0  0  0  0  0
+   14.6218    0.6359    4.0823 C   0  0  0  0  0  3  0  0  0  0  0  0
+   15.8896    0.1626    3.3755 C   0  0  0  0  0  3  0  0  0  0  0  0
+   16.9961    0.7748    3.7907 C   0  0  0  0  0  3  0  0  0  0  0  0
+
+> <Rotamer10Count>
+9 
+
+> <Rotamer10Std>
+3.178   1.154   7.704   4.387   9.130   4.424   
+
+> <Rotamer11Ave>
+369.85  369.04  337.34  17.12   343.47  363.06  
+
+> <Rotamer11Bins>
+12      12      11      1       11      12      
+
+> <Rotamer11Coordinates>
+   -0.1256    1.6496    4.8687 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.8046    2.6827    4.8287 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.9453    2.6950    3.9759 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.9297    1.7450    2.9401 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.2112    0.5802    3.0540 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.2148    0.5181    4.0873 C   0  0  0  0  0  3  0  0  0  0  0  0
+
+> <Rotamer11Count>
+7 
+
+> <Rotamer11Std>
+2.953   4.976   3.899   2.172   0.706   3.115   
+
+> <Rotamer12Ave>
+355.77  18.14   333.76  20.75   359.37  353.25  
+
+> <Rotamer12Bins>
+12      1       11      1       12      12      
+
+> <Rotamer12Coordinates>
+    3.8905   -0.0361   24.8354 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.2451   -0.2679   26.1687 C   0  0  0  0  0  3  0  0  0  0  0  0
+    3.4465   -1.0729   26.9942 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.6458   -1.9081   26.3951 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.0918   -1.6518   25.0619 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.8096   -0.7187   24.2948 C   0  0  0  0  0  3  0  0  0  0  0  0
+
+> <Rotamer12Count>
+18 
+
+> <Rotamer12Std>
+5.040   2.390   3.150   4.159   6.288   5.423   
+
+> <Rotamer1Ave>
+360.00  359.99  360.01  360.00  360.00  359.99  
+
+> <Rotamer1Bins>
+12      12      12      12      12      12      
+
+> <Rotamer1Coordinates>
+   -4.9221   -0.0932    1.5295 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -5.8427    0.6390    2.2700 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -6.8148   -0.0156    2.9721 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -6.8736   -1.3979    2.9483 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -5.9622   -2.1155    2.1845 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -4.9452   -1.4911    1.4460 C   0  0  0  0  0  3  0  0  0  0  0  0
+
+> <Rotamer1Count>
+155887 
+
+> <Rotamer1Std>
+1.681   1.352   1.505   1.499   1.686   1.353   
+
+> <Rotamer2Ave>
+343.83  369.43  360.81  355.68  372.58  357.65  
+
+> <Rotamer2Bins>
+11      12      12      12      12      12      
+
+> <Rotamer2Coordinates>
+    4.3641    1.4540   -1.4671 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.6577    0.1509   -1.9586 C   0  0  0  0  0  3  0  0  0  0  0  0
+    3.5889   -0.7068   -2.1762 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.2606   -0.3286   -2.0561 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.0232    1.0076   -1.7879 C   0  0  0  0  0  3  0  0  0  0  0  0
+    3.0366    1.9356   -1.5234 C   0  0  0  0  0  3  0  0  0  0  0  0
+
+> <Rotamer2Count>
+54 
+
+> <Rotamer2Std>
+1.326   3.741   6.193   6.271   2.348   4.091   
+
+> <Rotamer3Ave>
+327.70  17.54   357.43  362.82  33.20   341.80  
+
+> <Rotamer3Bins>
+11      1       12      12      1       11      
+
+> <Rotamer3Coordinates>
+   -5.5052    3.6219    1.7166 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -5.8889    3.8121    3.0558 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -4.9253    4.0960    4.0073 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -3.6511    4.5655    3.5259 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -3.4215    4.7072    2.1853 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -4.4368    4.3911    1.2799 C   0  0  0  0  0  3  0  0  0  0  0  0
+
+> <Rotamer3Count>
+13 
+
+> <Rotamer3Std>
+6.740   2.170   4.940   5.006   5.159   2.309   
+
+> <Rotamer4Ave>
+347.41  361.71  365.00  359.07  16.66   350.10  
+
+> <Rotamer4Bins>
+12      12      12      12      1       12      
+
+> <Rotamer4Coordinates>
+    3.0341   -0.3649    5.8547 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.7487    0.1589    7.1425 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.4158    0.3698    7.4670 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.3693    0.0985    6.5909 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.6913   -0.5531    5.4312 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.9898   -0.8909    5.0725 C   0  0  0  0  0  3  0  0  0  0  0  0
+
+> <Rotamer4Count>
+64 
+
+> <Rotamer4Std>
+2.683   4.594   5.354   4.866   1.632   3.210   
+
+> <Rotamer5Ave>
+18.85   353.38  355.17  364.83  341.11  366.65  
+
+> <Rotamer5Bins>
+1       12      12      12      11      12      
+
+> <Rotamer5Coordinates>
+    6.8380   15.7998    8.9732 C   0  0  0  0  0  3  0  0  0  0  0  0
+    8.1865   15.5799    9.3442 C   0  0  0  0  0  3  0  0  0  0  0  0
+    8.8013   16.5061   10.1840 C   0  0  0  0  0  3  0  0  0  0  0  0
+    8.1696   17.6688   10.6130 C   0  0  0  0  0  3  0  0  0  0  0  0
+    6.9459   17.9630   10.0255 C   0  0  0  0  0  3  0  0  0  0  0  0
+    6.2835   17.0946    9.1701 C   0  0  0  0  0  3  0  0  0  0  0  0
+
+> <Rotamer5Count>
+210 
+
+> <Rotamer5Std>
+4.230   3.685   5.176   4.926   4.035   3.283   
+
+> <Rotamer6Ave>
+331.87  358.93  30.22   330.80  29.51   358.78  
+
+> <Rotamer6Bins>
+11      12      1       11      1       12      
+
+> <Rotamer6Coordinates>
+    8.7003    5.9000    1.9838 C   0  0  0  0  0  3  0  0  0  0  0  0
+    9.4110    6.2641    3.1108 C   0  0  0  0  0  3  0  0  0  0  0  0
+   10.5127    5.5707    3.5432 C   0  0  0  0  0  3  0  0  0  0  0  0
+   10.9639    4.4962    2.8214 C   0  0  0  0  0  3  0  0  0  0  0  0
+   10.5922    4.5635    1.5064 C   0  0  0  0  0  3  0  0  0  0  0  0
+    9.4712    5.2463    1.0514 C   0  0  0  0  0  3  0  0  0  0  0  0
+
+> <Rotamer6Count>
+33 
+
+> <Rotamer6Std>
+10.113  5.242   8.442   8.585   9.461   4.654   
+
+> <Rotamer7Ave>
+19.46   341.61  19.85   338.05  339.27  21.60   
+
+> <Rotamer7Bins>
+1       11      1       11      11      1       
+
+> <Rotamer7Coordinates>
+    5.5807  -10.8045    0.4254 C   0  0  0  0  0  3  0  0  0  0  0  0
+    6.7892  -11.3657    0.8160 C   0  0  0  0  0  3  0  0  0  0  0  0
+    7.2186  -11.2429    2.1330 C   0  0  0  0  0  3  0  0  0  0  0  0
+    6.5751  -10.2812    2.8845 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.3609   -9.7168    2.4930 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.9583   -9.8300    1.1616 C   0  0  0  0  0  3  0  0  0  0  0  0
+
+> <Rotamer7Count>
+6 
+
+> <Rotamer7Std>
+2.449   2.896   4.689   5.963   3.965   5.703   
+
+> <Rotamer8Ave>
+366.29  337.76  29.97   338.17  360.62  366.19  
+
+> <Rotamer8Bins>
+12      11      1       11      12      12      
+
+> <Rotamer8Coordinates>
+   22.9549   -0.9283    0.5151 C   0  0  0  0  0  3  0  0  0  0  0  0
+   23.9533   -0.8620    1.4513 C   0  0  0  0  0  3  0  0  0  0  0  0
+   25.1466   -0.0988    1.0739 C   0  0  0  0  0  3  0  0  0  0  0  0
+   25.3925    0.0887   -0.2383 C   0  0  0  0  0  3  0  0  0  0  0  0
+   24.3778    0.1752   -1.1639 C   0  0  0  0  0  3  0  0  0  0  0  0
+   23.1348   -0.4175   -0.7720 C   0  0  0  0  0  3  0  0  0  0  0  0
+
+> <Rotamer8Count>
+21 
+
+> <Rotamer8Std>
+6.898   6.554   8.137   7.175   7.045   5.959   
+
+> <Rotamer9Ave>
+334.43  55.17   304.77  25.72   358.72  361.66  
+
+> <Rotamer9Bins>
+11      2       10      1       12      12      
+
+> <Rotamer9Coordinates>
+    4.8960    4.1889    0.1749 C   0  0  0  0  0  3  0  0  0  0  0  0
+    3.7794    3.4443    0.5419 C   0  0  0  0  0  3  0  0  0  0  0  0
+    3.9699    2.0930    0.0961 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.1125    1.4663    0.7089 C   0  0  0  0  0  3  0  0  0  0  0  0
+    6.2225    2.1965    0.3548 C   0  0  0  0  0  3  0  0  0  0  0  0
+    6.1267    3.5506    0.0832 C   0  0  0  0  0  3  0  0  0  0  0  0
+
+> <Rotamer9Count>
+8 
+
+> <Rotamer9Std>
+3.436   7.332   7.528   6.857   2.435   4.000   
+
+> <ScaffoldCount>
+156330 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  7  7  0  0  0  0  0  0  0  0999 V2000
+   -0.8040   12.9840    0.1033 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -1.4659   13.4836   -1.0051 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.4307   14.4640   -0.8631 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.7362   14.9710    0.3769 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.0554   14.5030    1.4766 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.0990   13.5016    1.3458 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.1690   11.8579   -0.0878 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  6  2  0  0  0  0
+  1  7  1  0  0  0  0
+  2  3  2  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+true
+
+> <ContainsRings>
+true
+
+> <Counts>
+60740
+
+> <MatchIndices>
+15 
+
+> <NRotamers>
+15 
+
+> <Rotamer10Ave>
+342.32  17.65   355.38  351.89  364.84  367.99  
+
+> <Rotamer10Bins>
+11      1       12      12      12      12      
+
+> <Rotamer10Coordinates>
+   11.4089   12.7831   -3.4638 C   0  0  0  1  0  3  0  0  0  0  0  0
+   10.0603   12.5911   -3.0671 C   0  0  0  0  0  3  0  0  0  0  0  0
+    9.4950   13.4906   -2.1219 C   0  0  0  0  0  3  0  0  0  0  0  0
+   10.1481   14.6989   -1.8960 C   0  0  0  0  0  3  0  0  0  0  0  0
+   11.3589   15.0283   -2.4880 C   0  0  0  0  0  3  0  0  0  0  0  0
+   11.9966   14.0122   -3.1960 C   0  0  0  0  0  3  0  0  0  0  0  0
+   12.3280   11.7023   -4.0793 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer10Count>
+114 
+
+> <Rotamer10Std>
+2.310   2.732   2.199   2.447   1.644   2.442   
+
+> <Rotamer11Ave>
+359.18  368.19  338.96  28.66   366.29  338.21  
+
+> <Rotamer11Bins>
+12      12      11      1       12      11      
+
+> <Rotamer11Coordinates>
+   23.1348   -0.4175   -0.7720 C   0  0  0  1  0  3  0  0  0  0  0  0
+   22.9549   -0.9283    0.5151 C   0  0  0  0  0  3  0  0  0  0  0  0
+   23.9533   -0.8620    1.4513 C   0  0  0  0  0  3  0  0  0  0  0  0
+   25.1466   -0.0988    1.0739 C   0  0  0  0  0  3  0  0  0  0  0  0
+   25.3925    0.0887   -0.2383 C   0  0  0  0  0  3  0  0  0  0  0  0
+   24.3778    0.1752   -1.1639 C   0  0  0  0  0  3  0  0  0  0  0  0
+   22.0319   -0.4885   -1.8154 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer11Count>
+5 
+
+> <Rotamer11Std>
+2.931   3.542   5.376   5.995   4.582   4.685   
+
+> <Rotamer12Ave>
+359.61  360.55  371.40  335.98  348.25  25.15   
+
+> <Rotamer12Bins>
+12      12      12      11      12      1       
+
+> <Rotamer12Coordinates>
+   -5.2919    0.6752    5.1257 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -4.4138    0.8825    6.1838 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -4.8186    1.0386    7.4920 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -6.1738    0.9877    7.7703 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -6.9594    0.5008    6.7638 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -6.6390    0.6007    5.4737 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -4.8034    0.5683    3.6912 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer12Count>
+6 
+
+> <Rotamer12Std>
+1.888   3.626   2.220   2.529   1.660   3.044   
+
+> <Rotamer13Ave>
+19.33   352.39  356.03  364.02  340.72  367.30  
+
+> <Rotamer13Bins>
+1       12      12      12      11      12      
+
+> <Rotamer13Coordinates>
+  -10.1808   -4.2595   16.6877 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -9.2070   -3.7252   17.4954 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -8.0394   -3.2737   16.9153 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -7.7687   -3.5076   15.5607 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -8.6456   -4.2665   14.8474 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -9.8402   -4.7036   15.4219 C   0  0  0  0  0  3  0  0  0  0  0  0
+  -11.5311   -4.6312   17.2511 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer13Count>
+14 
+
+> <Rotamer13Std>
+5.277   3.764   4.733   4.287   4.347   2.357   
+
+> <Rotamer14Ave>
+25.21   359.22  335.08  25.31   334.91  359.87  
+
+> <Rotamer14Bins>
+1       12      11      1       11      12      
+
+> <Rotamer14Coordinates>
+    8.6296    0.0000    2.9011 C   0  0  0  1  0  3  0  0  0  0  0  0
+    7.8813    1.1387    2.8575 C   0  0  0  0  0  3  0  0  0  0  0  0
+    6.5385    1.1338    3.1878 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.8809    0.0000    3.5596 C   0  0  0  0  0  3  0  0  0  0  0  0
+    6.5385   -1.1338    3.1878 C   0  0  0  0  0  3  0  0  0  0  0  0
+    7.8813   -1.1387    2.8575 C   0  0  0  0  0  3  0  0  0  0  0  0
+   10.1343    0.0000    2.6449 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer14Count>
+14 
+
+> <Rotamer14Std>
+7.988   4.478   8.384   8.126   8.687   4.859   
+
+> <Rotamer15Ave>
+359.51  361.92  349.11  20.30   368.31  340.76  
+
+> <Rotamer15Bins>
+12      12      12      1       12      11      
+
+> <Rotamer15Coordinates>
+    4.5855    2.0568    0.4683 C   0  0  0  1  0  3  0  0  0  0  0  0
+    3.5272    1.2452    0.3622 C   0  0  0  0  0  3  0  0  0  0  0  0
+    3.2893    0.4622   -0.8078 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.1732    0.4748   -1.7843 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.1341    1.3706   -1.7008 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.4743    2.0281   -0.5139 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.7625    2.9597    1.7331 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer15Count>
+7 
+
+> <Rotamer15Std>
+3.388   2.903   1.923   1.571   3.876   2.595   
+
+> <Rotamer1Ave>
+360.01  359.99  360.00  360.01  360.00  359.99  
+
+> <Rotamer1Bins>
+12      12      12      12      12      12      
+
+> <Rotamer1Coordinates>
+   -0.8040   12.9840    0.1033 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -1.4659   13.4836   -1.0051 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.4307   14.4640   -0.8631 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.7362   14.9710    0.3769 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.0554   14.5030    1.4766 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.0990   13.5016    1.3458 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.1690   11.8579   -0.0878 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer1Count>
+83852 
+
+> <Rotamer1Std>
+2.052   1.906   1.778   1.859   1.633   1.544   
+
+> <Rotamer2Ave>
+344.27  373.10  359.14  351.78  366.53  365.25  
+
+> <Rotamer2Bins>
+11      12      12      12      12      12      
+
+> <Rotamer2Coordinates>
+   -4.6350   15.4612    2.7140 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -5.8116   15.7861    3.4262 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -7.0816   15.3858    2.9157 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -7.1117   14.4519    1.8837 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -5.9534   13.9096    1.3325 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -4.7492   14.4581    1.7324 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -3.2605   16.1659    2.8240 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer2Count>
+25 
+
+> <Rotamer2Std>
+0.666   2.694   3.410   2.379   2.818   3.169   
+
+> <Rotamer3Ave>
+362.54  367.93  344.15  373.32  354.59  357.57  
+
+> <Rotamer3Bins>
+12      12      11      12      12      12      
+
+> <Rotamer3Coordinates>
+   -0.3432    2.4759    4.6260 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.8728    1.9501    4.2175 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.9833    0.9874    3.2085 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.1745    0.6621    2.4854 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.4553    1.0432    2.9959 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.4833    1.9370    4.0650 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.3999    3.5618    5.7191 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer3Count>
+33 
+
+> <Rotamer3Std>
+5.728   3.679   0.840   1.525   4.915   2.599   
+
+> <Rotamer4Ave>
+373.32  344.18  367.07  364.08  358.07  353.31  
+
+> <Rotamer4Bins>
+12      11      12      12      12      12      
+
+> <Rotamer4Coordinates>
+   -7.0816   15.3858    2.9157 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -5.8116   15.7861    3.4262 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -4.6350   15.4612    2.7140 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -4.7492   14.4581    1.7324 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -5.9534   13.9096    1.3325 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -7.1117   14.4519    1.8837 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -8.4201   16.0234    3.3469 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer4Count>
+28 
+
+> <Rotamer4Std>
+1.748   0.811   3.134   4.483   2.283   3.876   
+
+> <Rotamer5Ave>
+346.53  16.02   352.35  356.68  362.57  365.84  
+
+> <Rotamer5Bins>
+12      1       12      12      12      12      
+
+> <Rotamer5Coordinates>
+   -4.1992   17.5222    9.0006 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -5.4693   17.1219    8.4901 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -6.6459   17.4468    9.2022 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -6.5316   18.4499   10.1839 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -5.3275   18.9984   10.5838 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -4.1692   18.4561   10.0325 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.8608   16.8846    8.5693 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer5Count>
+27 
+
+> <Rotamer5Std>
+1.634   0.902   3.053   4.791   2.950   4.607   
+
+> <Rotamer6Ave>
+366.18  361.71  346.86  16.23   357.11  351.85  
+
+> <Rotamer6Bins>
+12      12      12      1       12      12      
+
+> <Rotamer6Coordinates>
+    0.3432   -2.4759   -4.6260 C   0  0  0  1  0  3  0  0  0  0  0  0
+    1.4833   -1.9370   -4.0650 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.4553   -1.0432   -2.9959 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.1745   -0.6621   -2.4854 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.9833   -0.9874   -3.2085 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.8728   -1.9501   -4.2175 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.3999   -3.5618   -5.7191 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer6Count>
+29 
+
+> <Rotamer6Std>
+3.246   2.499   2.059   1.122   4.281   3.231   
+
+> <Rotamer7Ave>
+16.29   346.75  361.56  366.90  352.22  356.28  
+
+> <Rotamer7Bins>
+1       12      12      12      12      12      
+
+> <Rotamer7Coordinates>
+   11.3557    0.6858    9.4190 C   0  0  0  1  0  3  0  0  0  0  0  0
+   10.0792    0.0733    9.2460 C   0  0  0  0  0  3  0  0  0  0  0  0
+   10.0355   -1.3011    8.9001 C   0  0  0  0  0  3  0  0  0  0  0  0
+   11.2043   -1.9070    8.4413 C   0  0  0  0  0  3  0  0  0  0  0  0
+   12.4151   -1.2428    8.3742 C   0  0  0  0  0  3  0  0  0  0  0  0
+   12.4625    0.0113    8.9248 C   0  0  0  0  0  3  0  0  0  0  0  0
+   11.6364    1.9868   10.2096 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer7Count>
+28 
+
+> <Rotamer7Std>
+1.178   1.815   2.169   2.918   3.390   4.099   
+
+> <Rotamer8Ave>
+17.60   342.19  365.07  367.54  355.30  352.30  
+
+> <Rotamer8Bins>
+1       11      12      12      12      12      
+
+> <Rotamer8Coordinates>
+    8.1865   15.5799    9.3442 C   0  0  0  1  0  3  0  0  0  0  0  0
+    6.8380   15.7998    8.9732 C   0  0  0  0  0  3  0  0  0  0  0  0
+    6.2835   17.0946    9.1701 C   0  0  0  0  0  3  0  0  0  0  0  0
+    6.9459   17.9630   10.0255 C   0  0  0  0  0  3  0  0  0  0  0  0
+    8.1696   17.6688   10.6130 C   0  0  0  0  0  3  0  0  0  0  0  0
+    8.8013   16.5061   10.1840 C   0  0  0  0  0  3  0  0  0  0  0  0
+    9.0889   14.4543    8.7712 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer8Count>
+117 
+
+> <Rotamer8Std>
+2.524   2.462   2.175   3.211   2.142   3.207   
+
+> <Rotamer9Ave>
+352.35  355.24  17.68   342.20  367.51  365.02  
+
+> <Rotamer9Bins>
+12      12      1       11      12      12      
+
+> <Rotamer9Coordinates>
+   -0.9334    0.0400    3.6809 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -0.2784    0.5628    4.7735 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.0459    1.9083    4.8929 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.2264    2.7531    3.8003 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.1450    2.3081    2.7942 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.4209    0.9415    2.7435 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.1834   -1.4644    3.5226 C   0  0  0  0  0  4  0  0  0  0  0  0
+
+> <Rotamer9Count>
+118 
+
+> <Rotamer9Std>
+3.072   2.368   2.404   2.288   2.825   1.931   
+
+> <ScaffoldCount>
+84417 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+   -2.0138    8.9209    5.0379 S   0  0  0  1  0  4  0  0  0  0  0  0
+   -3.1943    8.2613    5.4993 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -0.7957    8.1940    4.9412 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -2.3598    9.4870    3.5882 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.7286   10.2676    6.1119 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  1  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+419
+
+> <MatchIndices>
+42 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Count>
+633 
+
+> <ScaffoldCount>
+633 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 10 11  0  0  0  0  0  0  0  0999 V2000
+    3.2593   10.8857   13.5839 N   0  0  0  1  0  2  0  0  0  0  0  0
+    3.0900    9.0744   12.2520 N   0  0  0  0  0  3  0  0  0  0  0  0
+    2.7908    9.6502   13.4582 C   0  0  0  0  0  3  0  0  0  0  0  0
+    3.8072   10.0223   11.5336 C   0  0  0  1  0  3  0  0  0  0  0  0
+    3.9024   11.1353   12.3762 C   0  0  0  1  0  3  0  0  0  0  0  0
+    4.5834   12.2781   11.9362 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.1483   12.2455   10.6672 C   0  0  0  1  0  3  0  0  0  0  0  0
+    5.0201   11.1131    9.8411 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.3577    9.9828   10.2601 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.8726   13.4548   10.1987 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  3  2  0  0  0  0
+  1  5  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+  4  9  1  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  7 10  1  0  0  0  0
+  8  9  2  0  0  0  0
+M  BCL ATM N_Tr2TrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+29
+
+> <MatchIndices>
+2 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+359.86  360.12  179.69  180.55  359.96  179.77  360.00  359.69  180.21  360.34  
+
+> <Rotamer1Bins>
+12      12      6       6       12      6       12      12      6       12      
+
+> <Rotamer1Count>
+30 
+
+> <Rotamer1Std>
+0.874   0.997   2.308   2.022   0.749   1.879   0.927   1.034   1.851   0.699   
+
+> <ScaffoldCount>
+30 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  9 10  0  0  0  0  0  0  0  0999 V2000
+    2.3252    6.1940    8.5529 N   0  0  0  1  0  2  0  0  0  0  0  0
+    1.8541    6.7318    6.4190 N   0  0  0  0  0  3  0  0  0  0  0  0
+    2.4917    7.0779    7.5933 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.2386    5.5156    6.6642 C   0  0  0  1  0  3  0  0  0  0  0  0
+    1.5433    5.2020    7.9929 C   0  0  0  1  0  3  0  0  0  0  0  0
+    1.0695    4.0258    8.5559 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.2843    3.1999    7.7747 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.0338    3.5540    6.4478 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.4356    4.7069    5.8717 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  3  2  0  0  0  0
+  1  5  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  9  2  0  0  0  0
+  5  6  2  0  0  0  0
+  6  7  1  0  0  0  0
+  7  8  2  0  0  0  0
+  8  9  1  0  0  0  0
+M  BCL ATM N_Tr2TrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+689
+
+> <MatchIndices>
+3 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+360.00  360.01  179.91  180.05  360.02  179.89  360.02  360.01  180.08  359.98  
+
+> <Rotamer1Bins>
+12      12      6       6       12      6       12      12      6       12      
+
+> <Rotamer1Count>
+714 
+
+> <Rotamer1Std>
+0.835   0.952   1.884   1.737   0.795   1.823   0.893   0.953   1.847   0.894   
+
+> <ScaffoldCount>
+714 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 10 11  0  0  0  0  0  0  0  0999 V2000
+   13.2530   -1.5076    2.9911 C   0  0  0  0  0  4  0  0  0  0  0  0
+   13.7817   -0.1295    3.2057 C   0  0  0  1  0  3  0  0  0  0  0  0
+   14.9368    0.1471    3.7453 N   0  0  0  1  0  2  0  0  0  0  0  0
+   15.0228    1.5382    3.7492 C   0  0  0  1  0  3  0  0  0  0  0  0
+   13.8492    2.0761    3.1939 C   0  0  0  1  0  3  0  0  0  0  0  0
+   13.0778    0.9933    2.8592 N   0  0  0  0  0  3  0  0  0  0  0  0
+   13.6640    3.4401    3.0679 C   0  0  0  0  0  3  0  0  0  0  0  0
+   14.6633    4.2557    3.5050 C   0  0  0  0  0  3  0  0  0  0  0  0
+   15.8347    3.7508    4.0741 C   0  0  0  0  0  3  0  0  0  0  0  0
+   16.0329    2.3809    4.1942 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  2  0  0  0  0
+  2  6  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4 10  2  0  0  0  0
+  5  6  1  0  0  0  0
+  5  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  8  9  2  0  0  0  0
+  9 10  1  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TrTrTrPi N_Tr2TrTrPi C_TrTrTrPi C_TrTrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+164
+
+> <MatchIndices>
+1 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+359.98  180.14  360.04  360.05  179.95  180.15  359.89  360.01  179.83  360.05  
+
+> <Rotamer1Bins>
+12      6       12      12      6       6       12      12      6       12      
+
+> <Rotamer1Count>
+175 
+
+> <Rotamer1Std>
+0.864   1.750   0.852   1.063   1.963   1.990   0.957   0.992   1.894   0.847   
+
+> <ScaffoldCount>
+175 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    5.2100    6.4634    2.3671 N   0  0  0  0  0  3  0  0  0  0  0  0
+    6.4783    6.8952    2.4928 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.1038    7.4195    2.1471 C   0  0  0  0  0  4  0  0  0  0  0  0
+    3.1069    7.3836    3.2741 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+7184
+
+> <MatchIndices>
+52 
+
+> <NRotamers>
+12 
+
+> <Rotamer10Ave>
+35.49   
+
+> <Rotamer10Bins>
+1       
+
+> <Rotamer10Count>
+70 
+
+> <Rotamer10Std>
+7.524   
+
+> <Rotamer11Ave>
+325.05  
+
+> <Rotamer11Bins>
+11      
+
+> <Rotamer11Count>
+77 
+
+> <Rotamer11Std>
+8.615   
+
+> <Rotamer12Ave>
+360.10  
+
+> <Rotamer12Bins>
+12      
+
+> <Rotamer12Count>
+56 
+
+> <Rotamer12Std>
+9.630   
+
+> <Rotamer1Ave>
+241.99  
+
+> <Rotamer1Bins>
+8       
+
+> <Rotamer1Count>
+1446 
+
+> <Rotamer1Std>
+8.042   
+
+> <Rotamer2Ave>
+119.02  
+
+> <Rotamer2Bins>
+4       
+
+> <Rotamer2Count>
+1806 
+
+> <Rotamer2Std>
+8.201   
+
+> <Rotamer3Ave>
+89.08   
+
+> <Rotamer3Bins>
+3       
+
+> <Rotamer3Count>
+2451 
+
+> <Rotamer3Std>
+8.229   
+
+> <Rotamer4Ave>
+271.01  
+
+> <Rotamer4Bins>
+9       
+
+> <Rotamer4Count>
+2292 
+
+> <Rotamer4Std>
+7.973   
+
+> <Rotamer5Ave>
+179.87  
+
+> <Rotamer5Bins>
+6       
+
+> <Rotamer5Count>
+3102 
+
+> <Rotamer5Std>
+8.083   
+
+> <Rotamer6Ave>
+151.72  
+
+> <Rotamer6Bins>
+5       
+
+> <Rotamer6Count>
+1435 
+
+> <Rotamer6Std>
+8.943   
+
+> <Rotamer7Ave>
+208.79  
+
+> <Rotamer7Bins>
+7       
+
+> <Rotamer7Count>
+867 
+
+> <Rotamer7Std>
+9.173   
+
+> <Rotamer8Ave>
+295.65  
+
+> <Rotamer8Bins>
+10      
+
+> <Rotamer8Count>
+1805 
+
+> <Rotamer8Std>
+5.996   
+
+> <Rotamer9Ave>
+64.72   
+
+> <Rotamer9Bins>
+2       
+
+> <Rotamer9Count>
+2045 
+
+> <Rotamer9Std>
+5.891   
+
+> <ScaffoldCount>
+17452 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    0.7508    1.8914    4.3686 S   0  0  0  0  0  4  0  0  0  0  0  0
+   -0.4046    2.1043    3.5213 O   0  0  0  1  0  1  0  0  0  0  0  0
+    1.6306    0.4955    3.7039 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.8678    0.1590    4.4767 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+516
+
+> <MatchIndices>
+51 
+
+> <NRotamers>
+9 
+
+> <Rotamer1Ave>
+180.09  
+
+> <Rotamer1Bins>
+6       
+
+> <Rotamer1Count>
+200 
+
+> <Rotamer1Std>
+6.824   
+
+> <Rotamer2Ave>
+300.81  
+
+> <Rotamer2Bins>
+10      
+
+> <Rotamer2Count>
+203 
+
+> <Rotamer2Std>
+7.842   
+
+> <Rotamer3Ave>
+59.46   
+
+> <Rotamer3Bins>
+2       
+
+> <Rotamer3Count>
+195 
+
+> <Rotamer3Std>
+7.611   
+
+> <Rotamer4Ave>
+321.03  
+
+> <Rotamer4Bins>
+11      
+
+> <Rotamer4Count>
+32 
+
+> <Rotamer4Std>
+5.412   
+
+> <Rotamer5Ave>
+82.54   
+
+> <Rotamer5Bins>
+3       
+
+> <Rotamer5Count>
+33 
+
+> <Rotamer5Std>
+7.237   
+
+> <Rotamer6Ave>
+157.71  
+
+> <Rotamer6Bins>
+5       
+
+> <Rotamer6Count>
+28 
+
+> <Rotamer6Std>
+6.723   
+
+> <Rotamer7Ave>
+278.67  
+
+> <Rotamer7Bins>
+9       
+
+> <Rotamer7Count>
+29 
+
+> <Rotamer7Std>
+4.761   
+
+> <Rotamer8Ave>
+202.94  
+
+> <Rotamer8Bins>
+7       
+
+> <Rotamer8Count>
+22 
+
+> <Rotamer8Std>
+7.607   
+
+> <Rotamer9Ave>
+38.97   
+
+> <Rotamer9Bins>
+1       
+
+> <Rotamer9Count>
+29 
+
+> <Rotamer9Std>
+5.723   
+
+> <ScaffoldCount>
+771 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+   -0.0248   -0.6263   -0.3977 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.1942   -0.3894   -1.8079 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.7849   -0.2032   -2.6825 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.3720    0.0079   -4.0983 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+M  BCL ATM C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+2845
+
+> <MatchIndices>
+50 
+
+> <NRotamers>
+8 
+
+> <Rotamer1Ave>
+179.88  
+
+> <Rotamer1Bins>
+6       
+
+> <Rotamer1Count>
+6211 
+
+> <Rotamer1Std>
+5.598   
+
+> <Rotamer2Ave>
+20.66   
+
+> <Rotamer2Bins>
+1       
+
+> <Rotamer2Count>
+33 
+
+> <Rotamer2Std>
+6.865   
+
+> <Rotamer3Ave>
+161.34  
+
+> <Rotamer3Bins>
+5       
+
+> <Rotamer3Count>
+100 
+
+> <Rotamer3Std>
+4.412   
+
+> <Rotamer4Ave>
+199.39  
+
+> <Rotamer4Bins>
+7       
+
+> <Rotamer4Count>
+75 
+
+> <Rotamer4Std>
+4.731   
+
+> <Rotamer5Ave>
+360.16  
+
+> <Rotamer5Bins>
+12      
+
+> <Rotamer5Count>
+763 
+
+> <Rotamer5Std>
+6.035   
+
+> <Rotamer6Ave>
+339.16  
+
+> <Rotamer6Bins>
+11      
+
+> <Rotamer6Count>
+22 
+
+> <Rotamer6Std>
+4.802   
+
+> <Rotamer7Ave>
+300.15  
+
+> <Rotamer7Bins>
+10      
+
+> <Rotamer7Count>
+8 
+
+> <Rotamer7Std>
+8.808   
+
+> <Rotamer8Ave>
+56.83   
+
+> <Rotamer8Bins>
+2       
+
+> <Rotamer8Count>
+5 
+
+> <Rotamer8Std>
+7.495   
+
+> <ScaffoldCount>
+7217 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    7.2276    5.7170   20.2797 O   0  0  0  1  0  1  0  0  0  0  0  0
+    7.3974    7.5904   21.5175 N   0  0  0  0  0  3  0  0  0  0  0  0
+    6.7077    6.7222   20.7728 C   0  0  0  0  0  3  0  0  0  0  0  0
+    8.8196    7.4699   21.8219 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  3  2  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+M  BCL ATM O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+6380
+
+> <MatchIndices>
+49 
+
+> <NRotamers>
+8 
+
+> <Rotamer1Ave>
+359.91  
+
+> <Rotamer1Bins>
+12      
+
+> <Rotamer1Count>
+12203 
+
+> <Rotamer1Std>
+5.400   
+
+> <Rotamer2Ave>
+180.13  
+
+> <Rotamer2Bins>
+6       
+
+> <Rotamer2Count>
+1515 
+
+> <Rotamer2Std>
+6.197   
+
+> <Rotamer3Ave>
+339.35  
+
+> <Rotamer3Bins>
+11      
+
+> <Rotamer3Count>
+209 
+
+> <Rotamer3Std>
+6.331   
+
+> <Rotamer4Ave>
+157.34  
+
+> <Rotamer4Bins>
+5       
+
+> <Rotamer4Count>
+77 
+
+> <Rotamer4Std>
+7.908   
+
+> <Rotamer5Ave>
+202.88  
+
+> <Rotamer5Bins>
+7       
+
+> <Rotamer5Count>
+79 
+
+> <Rotamer5Std>
+8.055   
+
+> <Rotamer6Ave>
+19.62   
+
+> <Rotamer6Bins>
+1       
+
+> <Rotamer6Count>
+214 
+
+> <Rotamer6Std>
+4.530   
+
+> <Rotamer7Ave>
+298.94  
+
+> <Rotamer7Bins>
+10      
+
+> <Rotamer7Count>
+18 
+
+> <Rotamer7Std>
+8.159   
+
+> <Rotamer8Ave>
+57.09   
+
+> <Rotamer8Bins>
+2       
+
+> <Rotamer8Count>
+13 
+
+> <Rotamer8Std>
+6.978   
+
+> <ScaffoldCount>
+14328 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    6.5817   11.9439    4.1569 C   0  0  0  0  0  4  0  0  0  0  0  0
+    6.6037   10.6045    3.5088 N   0  0  0  0  0  3  0  0  0  0  0  0
+    7.7870   10.1293    3.0814 C   0  0  0  1  0  3  0  0  0  0  0  0
+    7.8662    8.8556    2.2911 C   0  0  0  0  0  4  0  0  0  0  0  0
+    8.8285   10.7338    3.3309 O   0  0  0  1  0  1  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  5  2  0  0  0  0
+M  BCL ATM C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+2630
+
+> <MatchIndices>
+41 
+
+> <NRotamers>
+6 
+
+> <Rotamer1Ave>
+359.83  
+
+> <Rotamer1Bins>
+12      
+
+> <Rotamer1Count>
+6160 
+
+> <Rotamer1Std>
+4.988   
+
+> <Rotamer2Ave>
+180.35  
+
+> <Rotamer2Bins>
+6       
+
+> <Rotamer2Count>
+561 
+
+> <Rotamer2Std>
+5.561   
+
+> <Rotamer3Ave>
+341.46  
+
+> <Rotamer3Bins>
+11      
+
+> <Rotamer3Count>
+54 
+
+> <Rotamer3Std>
+4.896   
+
+> <Rotamer4Ave>
+200.19  
+
+> <Rotamer4Bins>
+7       
+
+> <Rotamer4Count>
+19 
+
+> <Rotamer4Std>
+6.472   
+
+> <Rotamer5Ave>
+19.88   
+
+> <Rotamer5Bins>
+1       
+
+> <Rotamer5Count>
+35 
+
+> <Rotamer5Std>
+5.137   
+
+> <Rotamer6Ave>
+161.92  
+
+> <Rotamer6Bins>
+5       
+
+> <Rotamer6Count>
+12 
+
+> <Rotamer6Std>
+2.940   
+
+> <ScaffoldCount>
+6841 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+   31.6408   -0.0351    7.4095 N   0  0  0  0  0  3  0  0  0  0  0  0
+   32.6011   -0.5803    8.3531 C   0  0  0  0  0  4  0  0  0  0  0  0
+   32.4041   -2.0856    8.5567 C   0  0  0  0  0  4  0  0  0  0  0  0
+   32.5437   -2.8703    7.3275 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+3011
+
+> <MatchIndices>
+48 
+
+> <NRotamers>
+12 
+
+> <Rotamer10Ave>
+242.56  
+
+> <Rotamer10Bins>
+8       
+
+> <Rotamer10Count>
+9 
+
+> <Rotamer10Std>
+9.412   
+
+> <Rotamer11Ave>
+122.42  
+
+> <Rotamer11Bins>
+4       
+
+> <Rotamer11Count>
+6 
+
+> <Rotamer11Std>
+7.487   
+
+> <Rotamer12Ave>
+364.84  
+
+> <Rotamer12Bins>
+12      
+
+> <Rotamer12Count>
+10 
+
+> <Rotamer12Std>
+7.633   
+
+> <Rotamer1Ave>
+61.30   
+
+> <Rotamer1Bins>
+2       
+
+> <Rotamer1Count>
+1720 
+
+> <Rotamer1Std>
+6.263   
+
+> <Rotamer2Ave>
+180.09  
+
+> <Rotamer2Bins>
+6       
+
+> <Rotamer2Count>
+3227 
+
+> <Rotamer2Std>
+6.247   
+
+> <Rotamer3Ave>
+298.93  
+
+> <Rotamer3Bins>
+10      
+
+> <Rotamer3Count>
+2172 
+
+> <Rotamer3Std>
+6.361   
+
+> <Rotamer4Ave>
+201.32  
+
+> <Rotamer4Bins>
+7       
+
+> <Rotamer4Count>
+143 
+
+> <Rotamer4Std>
+5.965   
+
+> <Rotamer5Ave>
+158.31  
+
+> <Rotamer5Bins>
+5       
+
+> <Rotamer5Count>
+137 
+
+> <Rotamer5Std>
+5.781   
+
+> <Rotamer6Ave>
+320.94  
+
+> <Rotamer6Bins>
+11      
+
+> <Rotamer6Count>
+74 
+
+> <Rotamer6Std>
+6.693   
+
+> <Rotamer7Ave>
+278.54  
+
+> <Rotamer7Bins>
+9       
+
+> <Rotamer7Count>
+99 
+
+> <Rotamer7Std>
+6.326   
+
+> <Rotamer8Ave>
+36.43   
+
+> <Rotamer8Bins>
+1       
+
+> <Rotamer8Count>
+54 
+
+> <Rotamer8Std>
+7.357   
+
+> <Rotamer9Ave>
+80.32   
+
+> <Rotamer9Bins>
+3       
+
+> <Rotamer9Count>
+90 
+
+> <Rotamer9Std>
+5.214   
+
+> <ScaffoldCount>
+7741 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    0.9100    0.8924    4.7896 S   0  0  0  0  0  4  0  0  0  0  0  0
+    2.0762    0.0333    5.4684 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.6583    1.8844    3.5023 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.9165    0.5322    6.5567 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+120
+
+> <MatchIndices>
+47 
+
+> <NRotamers>
+6 
+
+> <Rotamer1Ave>
+87.45   
+
+> <Rotamer1Bins>
+3       
+
+> <Rotamer1Count>
+86 
+
+> <Rotamer1Std>
+7.553   
+
+> <Rotamer2Ave>
+273.15  
+
+> <Rotamer2Bins>
+9       
+
+> <Rotamer2Count>
+87 
+
+> <Rotamer2Std>
+7.623   
+
+> <Rotamer3Ave>
+69.54   
+
+> <Rotamer3Bins>
+2       
+
+> <Rotamer3Count>
+29 
+
+> <Rotamer3Std>
+3.972   
+
+> <Rotamer4Ave>
+292.82  
+
+> <Rotamer4Bins>
+10      
+
+> <Rotamer4Count>
+36 
+
+> <Rotamer4Std>
+5.294   
+
+> <Rotamer5Ave>
+248.57  
+
+> <Rotamer5Bins>
+8       
+
+> <Rotamer5Count>
+14 
+
+> <Rotamer5Std>
+6.000   
+
+> <Rotamer6Ave>
+113.03  
+
+> <Rotamer6Bins>
+4       
+
+> <Rotamer6Count>
+10 
+
+> <Rotamer6Std>
+7.725   
+
+> <ScaffoldCount>
+262 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    0.1811    8.0194    4.0881 N   0  0  0  0  0  3  0  0  0  0  0  0
+    0.6428    6.1314    5.3221 N   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5207    5.2516    6.4772 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -0.0846    7.2273    5.1454 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  4  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+1611
+
+> <MatchIndices>
+46 
+
+> <NRotamers>
+10 
+
+> <Rotamer10Ave>
+236.94  
+
+> <Rotamer10Bins>
+8       
+
+> <Rotamer10Count>
+14 
+
+> <Rotamer10Std>
+6.272   
+
+> <Rotamer1Ave>
+180.03  
+
+> <Rotamer1Bins>
+6       
+
+> <Rotamer1Count>
+1737 
+
+> <Rotamer1Std>
+6.252   
+
+> <Rotamer2Ave>
+359.96  
+
+> <Rotamer2Bins>
+12      
+
+> <Rotamer2Count>
+274 
+
+> <Rotamer2Std>
+7.317   
+
+> <Rotamer3Ave>
+50.97   
+
+> <Rotamer3Bins>
+2       
+
+> <Rotamer3Count>
+48 
+
+> <Rotamer3Std>
+6.437   
+
+> <Rotamer4Ave>
+328.43  
+
+> <Rotamer4Bins>
+11      
+
+> <Rotamer4Count>
+143 
+
+> <Rotamer4Std>
+8.343   
+
+> <Rotamer5Ave>
+155.42  
+
+> <Rotamer5Bins>
+5       
+
+> <Rotamer5Count>
+136 
+
+> <Rotamer5Std>
+7.074   
+
+> <Rotamer6Ave>
+119.91  
+
+> <Rotamer6Bins>
+4       
+
+> <Rotamer6Count>
+21 
+
+> <Rotamer6Std>
+7.335   
+
+> <Rotamer7Ave>
+204.50  
+
+> <Rotamer7Bins>
+7       
+
+> <Rotamer7Count>
+157 
+
+> <Rotamer7Std>
+7.531   
+
+> <Rotamer8Ave>
+32.67   
+
+> <Rotamer8Bins>
+1       
+
+> <Rotamer8Count>
+131 
+
+> <Rotamer8Std>
+8.044   
+
+> <Rotamer9Ave>
+307.67  
+
+> <Rotamer9Bins>
+10      
+
+> <Rotamer9Count>
+32 
+
+> <Rotamer9Std>
+6.713   
+
+> <ScaffoldCount>
+2693 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    8.2326    8.9735    8.2164 C   0  0  0  0  0  4  0  0  0  0  0  0
+    7.4357    7.9863    8.8780 N   0  0  0  0  0  3  0  0  0  0  0  0
+    5.3839    6.7715    9.4138 O   0  0  0  1  0  1  0  0  0  0  0  0
+    5.5517    8.0411    7.3324 O   0  0  0  1  0  1  0  0  0  0  0  0
+    6.1777    7.2102    8.3022 S   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  5  1  0  0  0  0
+  3  5  2  0  0  0  0
+  4  5  2  0  0  0  0
+M  BCL ATM C_TeTeTeTe N_TrTrTrPi2 O_Tr2Tr2TrPi O_Tr2Tr2TrPi S_TeTeTeTePiPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+1009
+
+> <MatchIndices>
+40 
+
+> <NRotamers>
+8 
+
+> <Rotamer1Ave>
+204.91  
+
+> <Rotamer1Bins>
+7       
+
+> <Rotamer1Count>
+234 
+
+> <Rotamer1Std>
+7.794   
+
+> <Rotamer2Ave>
+34.50   
+
+> <Rotamer2Bins>
+1       
+
+> <Rotamer2Count>
+486 
+
+> <Rotamer2Std>
+7.464   
+
+> <Rotamer3Ave>
+184.37  
+
+> <Rotamer3Bins>
+6       
+
+> <Rotamer3Count>
+582 
+
+> <Rotamer3Std>
+6.090   
+
+> <Rotamer4Ave>
+51.34   
+
+> <Rotamer4Bins>
+2       
+
+> <Rotamer4Count>
+327 
+
+> <Rotamer4Std>
+4.809   
+
+> <Rotamer5Ave>
+233.08  
+
+> <Rotamer5Bins>
+8       
+
+> <Rotamer5Count>
+29 
+
+> <Rotamer5Std>
+5.947   
+
+> <Rotamer6Ave>
+125.41  
+
+> <Rotamer6Bins>
+4       
+
+> <Rotamer6Count>
+38 
+
+> <Rotamer6Std>
+7.451   
+
+> <Rotamer7Ave>
+141.49  
+
+> <Rotamer7Bins>
+5       
+
+> <Rotamer7Count>
+36 
+
+> <Rotamer7Std>
+5.277   
+
+> <Rotamer8Ave>
+94.49   
+
+> <Rotamer8Bins>
+3       
+
+> <Rotamer8Count>
+11 
+
+> <Rotamer8Std>
+4.583   
+
+> <ScaffoldCount>
+1743 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    8.7878    5.2676    3.2458 S   0  0  0  1  0  4  0  0  0  0  0  0
+    9.2847    4.1504    3.9803 O   0  0  0  1  0  1  0  0  0  0  0  0
+    9.5769    5.8253    2.1980 O   0  0  0  1  0  1  0  0  0  0  0  0
+    7.3741    4.8347    2.5960 N   0  0  0  0  0  3  0  0  0  0  0  0
+    8.3900    6.5586    4.4154 C   0  0  0  0  0  4  0  0  0  0  0  0
+    6.8506    5.5332    1.4019 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  1  5  1  0  0  0  0
+  4  6  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+119
+
+> <MatchIndices>
+26 
+
+> <NRotamers>
+6 
+
+> <Rotamer1Ave>
+87.51   
+
+> <Rotamer1Bins>
+3       
+
+> <Rotamer1Count>
+85 
+
+> <Rotamer1Std>
+7.577   
+
+> <Rotamer2Ave>
+273.22  
+
+> <Rotamer2Bins>
+9       
+
+> <Rotamer2Count>
+84 
+
+> <Rotamer2Std>
+7.705   
+
+> <Rotamer3Ave>
+69.54   
+
+> <Rotamer3Bins>
+2       
+
+> <Rotamer3Count>
+29 
+
+> <Rotamer3Std>
+3.972   
+
+> <Rotamer4Ave>
+292.82  
+
+> <Rotamer4Bins>
+10      
+
+> <Rotamer4Count>
+36 
+
+> <Rotamer4Std>
+5.294   
+
+> <Rotamer5Ave>
+248.57  
+
+> <Rotamer5Bins>
+8       
+
+> <Rotamer5Count>
+14 
+
+> <Rotamer5Std>
+6.000   
+
+> <Rotamer6Ave>
+113.03  
+
+> <Rotamer6Bins>
+4       
+
+> <Rotamer6Count>
+10 
+
+> <Rotamer6Std>
+7.725   
+
+> <ScaffoldCount>
+258 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    8.1540   -4.5871    6.1840 S   0  0  0  0  0  4  0  0  0  0  0  0
+    7.1788   -4.9778    7.1754 O   0  0  0  1  0  1  0  0  0  0  0  0
+    8.4193   -2.9904    6.3922 N   0  0  0  0  0  3  0  0  0  0  0  0
+    7.3797   -4.7956    4.5703 C   0  0  0  0  0  4  0  0  0  0  0  0
+    7.3612   -2.1170    6.9147 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  1  0  0  0  0
+  3  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+119
+
+> <MatchIndices>
+39 
+
+> <NRotamers>
+12 
+
+> <Rotamer10Ave>
+365.59  
+
+> <Rotamer10Bins>
+12      
+
+> <Rotamer10Count>
+22 
+
+> <Rotamer10Std>
+6.747   
+
+> <Rotamer11Ave>
+129.41  
+
+> <Rotamer11Bins>
+4       
+
+> <Rotamer11Count>
+7 
+
+> <Rotamer11Std>
+2.735   
+
+> <Rotamer12Ave>
+239.40  
+
+> <Rotamer12Bins>
+8       
+
+> <Rotamer12Count>
+9 
+
+> <Rotamer12Std>
+9.723   
+
+> <Rotamer1Ave>
+328.74  
+
+> <Rotamer1Bins>
+11      
+
+> <Rotamer1Count>
+94 
+
+> <Rotamer1Std>
+7.955   
+
+> <Rotamer2Ave>
+32.07   
+
+> <Rotamer2Bins>
+1       
+
+> <Rotamer2Count>
+90 
+
+> <Rotamer2Std>
+7.212   
+
+> <Rotamer3Ave>
+154.68  
+
+> <Rotamer3Bins>
+5       
+
+> <Rotamer3Count>
+74 
+
+> <Rotamer3Std>
+8.181   
+
+> <Rotamer4Ave>
+187.95  
+
+> <Rotamer4Bins>
+6       
+
+> <Rotamer4Count>
+43 
+
+> <Rotamer4Std>
+4.345   
+
+> <Rotamer5Ave>
+311.08  
+
+> <Rotamer5Bins>
+10      
+
+> <Rotamer5Count>
+13 
+
+> <Rotamer5Std>
+2.813   
+
+> <Rotamer6Ave>
+173.60  
+
+> <Rotamer6Bins>
+6       
+
+> <Rotamer6Count>
+53 
+
+> <Rotamer6Std>
+5.905   
+
+> <Rotamer7Ave>
+51.03   
+
+> <Rotamer7Bins>
+2       
+
+> <Rotamer7Count>
+22 
+
+> <Rotamer7Std>
+3.910   
+
+> <Rotamer8Ave>
+205.26  
+
+> <Rotamer8Bins>
+7       
+
+> <Rotamer8Count>
+75 
+
+> <Rotamer8Std>
+7.579   
+
+> <Rotamer9Ave>
+353.99  
+
+> <Rotamer9Bins>
+12      
+
+> <Rotamer9Count>
+17 
+
+> <Rotamer9Std>
+7.300   
+
+> <ScaffoldCount>
+519 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    0.6627    1.9198    0.7512 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.3780    2.8593    2.9540 C   0  0  0  0  0  4  0  0  0  0  0  0
+    1.0622    1.9543    2.0582 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.3847    2.5977    0.4476 N   0  0  0  0  0  2  0  0  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  2  0  0  0  0
+  2  3  1  0  0  0  0
+M  BCL ATM C_TrTrTrPi C_TeTeTeTe N_TrTrTrPi2 N_Tr2TrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+464
+
+> <MatchIndices>
+45 
+
+> <NRotamers>
+8 
+
+> <Rotamer1Ave>
+359.77  
+
+> <Rotamer1Bins>
+12      
+
+> <Rotamer1Count>
+367 
+
+> <Rotamer1Std>
+7.343   
+
+> <Rotamer2Ave>
+213.30  
+
+> <Rotamer2Bins>
+7       
+
+> <Rotamer2Count>
+67 
+
+> <Rotamer2Std>
+8.634   
+
+> <Rotamer3Ave>
+335.21  
+
+> <Rotamer3Bins>
+11      
+
+> <Rotamer3Count>
+58 
+
+> <Rotamer3Std>
+7.674   
+
+> <Rotamer4Ave>
+24.92   
+
+> <Rotamer4Bins>
+1       
+
+> <Rotamer4Count>
+64 
+
+> <Rotamer4Std>
+7.778   
+
+> <Rotamer5Ave>
+180.12  
+
+> <Rotamer5Bins>
+6       
+
+> <Rotamer5Count>
+162 
+
+> <Rotamer5Std>
+5.875   
+
+> <Rotamer6Ave>
+147.66  
+
+> <Rotamer6Bins>
+5       
+
+> <Rotamer6Count>
+67 
+
+> <Rotamer6Std>
+7.179   
+
+> <Rotamer7Ave>
+232.28  
+
+> <Rotamer7Bins>
+8       
+
+> <Rotamer7Count>
+26 
+
+> <Rotamer7Std>
+6.531   
+
+> <Rotamer8Ave>
+128.29  
+
+> <Rotamer8Bins>
+4       
+
+> <Rotamer8Count>
+27 
+
+> <Rotamer8Std>
+5.638   
+
+> <ScaffoldCount>
+838 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    5.7618    7.5762    4.0425 S   0  0  0  0  0  4  0  0  0  0  0  0
+    5.0073    7.9918    2.9057 O   0  0  0  1  0  1  0  0  0  0  0  0
+    5.2612    6.0799    4.4273 N   0  0  0  0  0  3  0  0  0  0  0  0
+    7.4653    7.4376    3.5817 C   0  0  0  0  0  4  0  0  0  0  0  0
+    5.7167    5.4680    5.6910 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  1  0  0  0  0
+  3  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+120
+
+> <MatchIndices>
+38 
+
+> <NRotamers>
+12 
+
+> <Rotamer10Ave>
+365.59  
+
+> <Rotamer10Bins>
+12      
+
+> <Rotamer10Count>
+22 
+
+> <Rotamer10Std>
+6.747   
+
+> <Rotamer11Ave>
+129.41  
+
+> <Rotamer11Bins>
+4       
+
+> <Rotamer11Count>
+7 
+
+> <Rotamer11Std>
+2.735   
+
+> <Rotamer12Ave>
+239.40  
+
+> <Rotamer12Bins>
+8       
+
+> <Rotamer12Count>
+9 
+
+> <Rotamer12Std>
+9.723   
+
+> <Rotamer1Ave>
+188.04  
+
+> <Rotamer1Bins>
+6       
+
+> <Rotamer1Count>
+44 
+
+> <Rotamer1Std>
+4.342   
+
+> <Rotamer2Ave>
+32.07   
+
+> <Rotamer2Bins>
+1       
+
+> <Rotamer2Count>
+90 
+
+> <Rotamer2Std>
+7.212   
+
+> <Rotamer3Ave>
+154.68  
+
+> <Rotamer3Bins>
+5       
+
+> <Rotamer3Count>
+74 
+
+> <Rotamer3Std>
+8.181   
+
+> <Rotamer4Ave>
+328.82  
+
+> <Rotamer4Bins>
+11      
+
+> <Rotamer4Count>
+93 
+
+> <Rotamer4Std>
+7.955   
+
+> <Rotamer5Ave>
+311.08  
+
+> <Rotamer5Bins>
+10      
+
+> <Rotamer5Count>
+13 
+
+> <Rotamer5Std>
+2.813   
+
+> <Rotamer6Ave>
+173.60  
+
+> <Rotamer6Bins>
+6       
+
+> <Rotamer6Count>
+53 
+
+> <Rotamer6Std>
+5.905   
+
+> <Rotamer7Ave>
+51.03   
+
+> <Rotamer7Bins>
+2       
+
+> <Rotamer7Count>
+22 
+
+> <Rotamer7Std>
+3.910   
+
+> <Rotamer8Ave>
+205.26  
+
+> <Rotamer8Bins>
+7       
+
+> <Rotamer8Count>
+75 
+
+> <Rotamer8Std>
+7.579   
+
+> <Rotamer9Ave>
+353.99  
+
+> <Rotamer9Bins>
+12      
+
+> <Rotamer9Count>
+17 
+
+> <Rotamer9Std>
+7.300   
+
+> <ScaffoldCount>
+519 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  8  8  0  0  0  0  0  0  0  0999 V2000
+   -5.8214    4.6650    7.3964 S   0  0  0  0  0  4  0  0  0  0  0  0
+   -5.3538    4.4083    5.6803 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -6.5430    4.6344    4.7846 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -6.8037    5.8709    4.2326 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -7.8812    6.0475    3.3808 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -8.7107    4.9815    3.0899 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -8.4656    3.7483    3.6463 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -7.3839    3.5673    4.4827 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  8  2  0  0  0  0
+  4  5  2  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+109
+
+> <MatchIndices>
+11 
+
+> <NRotamers>
+3 
+
+> <Rotamer1Ave>
+89.51   360.05  359.96  359.90  360.24  360.09  359.76  
+
+> <Rotamer1Bins>
+3       12      12      12      12      12      12      
+
+> <Rotamer1Count>
+83 
+
+> <Rotamer1Std>
+8.021   1.100   0.918   1.084   1.133   1.093   0.956   
+
+> <Rotamer2Ave>
+66.54   359.85  359.78  360.29  360.03  360.45  359.60  
+
+> <Rotamer2Bins>
+2       12      12      12      12      12      12      
+
+> <Rotamer2Count>
+30 
+
+> <Rotamer2Std>
+6.250   1.517   0.879   0.906   1.105   1.427   0.943   
+
+> <Rotamer3Ave>
+112.42  359.74  360.40  359.93  359.60  359.80  360.53  
+
+> <Rotamer3Bins>
+4       12      12      12      12      12      12      
+
+> <Rotamer3Count>
+25 
+
+> <Rotamer3Std>
+4.717   0.920   0.993   1.385   1.284   1.017   0.964   
+
+> <ScaffoldCount>
+138 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    8.8159    4.0948    0.9725 C   0  0  0  0  0  4  0  0  0  0  0  0
+    7.9634    4.2385    2.1537 N   0  0  0  0  0  3  0  0  0  0  0  0
+    6.7771    3.2637    4.0676 O   0  0  0  1  0  1  0  0  0  0  0  0
+    8.0280    3.1835    3.3928 S   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  4  1  0  0  0  0
+  3  4  2  0  0  0  0
+M  BCL ATM C_TeTeTeTe N_TrTrTrPi2 O_Tr2Tr2TrPi S_TeTeTeTePiPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+2020
+
+> <MatchIndices>
+44 
+
+> <NRotamers>
+12 
+
+> <Rotamer10Ave>
+265.69  
+
+> <Rotamer10Bins>
+9       
+
+> <Rotamer10Count>
+8 
+
+> <Rotamer10Std>
+7.969   
+
+> <Rotamer11Ave>
+125.41  
+
+> <Rotamer11Bins>
+4       
+
+> <Rotamer11Count>
+38 
+
+> <Rotamer11Std>
+7.451   
+
+> <Rotamer12Ave>
+94.49   
+
+> <Rotamer12Bins>
+3       
+
+> <Rotamer12Count>
+11 
+
+> <Rotamer12Std>
+4.583   
+
+> <Rotamer1Ave>
+204.82  
+
+> <Rotamer1Bins>
+7       
+
+> <Rotamer1Count>
+237 
+
+> <Rotamer1Std>
+7.788   
+
+> <Rotamer2Ave>
+34.42   
+
+> <Rotamer2Bins>
+1       
+
+> <Rotamer2Count>
+489 
+
+> <Rotamer2Std>
+7.518   
+
+> <Rotamer3Ave>
+155.68  
+
+> <Rotamer3Bins>
+5       
+
+> <Rotamer3Count>
+246 
+
+> <Rotamer3Std>
+7.962   
+
+> <Rotamer4Ave>
+324.98  
+
+> <Rotamer4Bins>
+11      
+
+> <Rotamer4Count>
+490 
+
+> <Rotamer4Std>
+7.780   
+
+> <Rotamer5Ave>
+180.01  
+
+> <Rotamer5Bins>
+6       
+
+> <Rotamer5Count>
+1171 
+
+> <Rotamer5Std>
+7.590   
+
+> <Rotamer6Ave>
+51.34   
+
+> <Rotamer6Bins>
+2       
+
+> <Rotamer6Count>
+327 
+
+> <Rotamer6Std>
+4.809   
+
+> <Rotamer7Ave>
+359.42  
+
+> <Rotamer7Bins>
+12      
+
+> <Rotamer7Count>
+134 
+
+> <Rotamer7Std>
+8.929   
+
+> <Rotamer8Ave>
+308.60  
+
+> <Rotamer8Bins>
+10      
+
+> <Rotamer8Count>
+309 
+
+> <Rotamer8Std>
+4.462   
+
+> <Rotamer9Ave>
+236.25  
+
+> <Rotamer9Bins>
+8       
+
+> <Rotamer9Count>
+36 
+
+> <Rotamer9Std>
+8.518   
+
+> <ScaffoldCount>
+3496 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    5.4952    4.8200   -5.5140 S   0  0  0  0  0  4  0  0  0  0  0  0
+    5.1963    3.4224   -5.5341 O   0  0  0  1  0  1  0  0  0  0  0  0
+    6.0188    5.4374   -6.6995 O   0  0  0  1  0  1  0  0  0  0  0  0
+    4.0081    5.7282   -5.1051 C   0  0  0  0  0  4  0  0  0  0  0  0
+    3.5436    5.5323   -3.7066 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+251
+
+> <MatchIndices>
+37 
+
+> <NRotamers>
+6 
+
+> <Rotamer1Ave>
+59.68   
+
+> <Rotamer1Bins>
+2       
+
+> <Rotamer1Count>
+191 
+
+> <Rotamer1Std>
+7.528   
+
+> <Rotamer2Ave>
+178.53  
+
+> <Rotamer2Bins>
+6       
+
+> <Rotamer2Count>
+98 
+
+> <Rotamer2Std>
+6.625   
+
+> <Rotamer3Ave>
+82.54   
+
+> <Rotamer3Bins>
+3       
+
+> <Rotamer3Count>
+33 
+
+> <Rotamer3Std>
+7.237   
+
+> <Rotamer4Ave>
+156.88  
+
+> <Rotamer4Bins>
+5       
+
+> <Rotamer4Count>
+23 
+
+> <Rotamer4Std>
+6.808   
+
+> <Rotamer5Ave>
+39.67   
+
+> <Rotamer5Bins>
+1       
+
+> <Rotamer5Count>
+27 
+
+> <Rotamer5Std>
+4.494   
+
+> <Rotamer6Ave>
+202.64  
+
+> <Rotamer6Bins>
+7       
+
+> <Rotamer6Count>
+7 
+
+> <Rotamer6Std>
+10.016  
+
+> <ScaffoldCount>
+379 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    5.0397    5.4537    2.2091 N   0  0  0  0  0  3  0  0  0  0  0  0
+    6.9575    4.1430    1.9617 N   0  0  0  0  0  3  0  0  0  0  0  0
+    6.2773    5.4554    0.1883 N   0  0  0  0  0  2  0  0  0  0  0  0
+    6.1030    5.0560    1.4235 C   0  0  0  1  0  3  0  0  0  0  0  0
+    8.2541    3.8258    1.3672 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  4  1  0  0  0  0
+  2  4  1  0  0  0  0
+  2  5  1  0  0  0  0
+  3  4  2  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_TrTrTrPi2 N_Tr2TrTrPi C_TrTrTrPi C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+183
+
+> <MatchIndices>
+36 
+
+> <NRotamers>
+8 
+
+> <Rotamer1Ave>
+179.95  
+
+> <Rotamer1Bins>
+6       
+
+> <Rotamer1Count>
+126 
+
+> <Rotamer1Std>
+8.696   
+
+> <Rotamer2Ave>
+50.76   
+
+> <Rotamer2Bins>
+2       
+
+> <Rotamer2Count>
+27 
+
+> <Rotamer2Std>
+5.078   
+
+> <Rotamer3Ave>
+359.18  
+
+> <Rotamer3Bins>
+12      
+
+> <Rotamer3Count>
+36 
+
+> <Rotamer3Std>
+6.550   
+
+> <Rotamer4Ave>
+308.75  
+
+> <Rotamer4Bins>
+10      
+
+> <Rotamer4Count>
+24 
+
+> <Rotamer4Std>
+5.236   
+
+> <Rotamer5Ave>
+35.10   
+
+> <Rotamer5Bins>
+1       
+
+> <Rotamer5Count>
+43 
+
+> <Rotamer5Std>
+7.681   
+
+> <Rotamer6Ave>
+153.42  
+
+> <Rotamer6Bins>
+5       
+
+> <Rotamer6Count>
+46 
+
+> <Rotamer6Std>
+7.124   
+
+> <Rotamer7Ave>
+326.00  
+
+> <Rotamer7Bins>
+11      
+
+> <Rotamer7Count>
+48 
+
+> <Rotamer7Std>
+6.753   
+
+> <Rotamer8Ave>
+206.95  
+
+> <Rotamer8Bins>
+7       
+
+> <Rotamer8Count>
+38 
+
+> <Rotamer8Std>
+6.640   
+
+> <ScaffoldCount>
+388 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+   -2.1476   10.5376    3.3389 S   0  0  0  1  0  4  0  0  0  0  0  0
+   -1.7308    9.2233    3.6993 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -1.2656   11.3540    2.5806 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -3.5040   10.4291    2.5119 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.5052   11.3951    4.8641 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.2844   11.5623    5.7255 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  1  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+20
+
+> <MatchIndices>
+25 
+
+> <NRotamers>
+2 
+
+> <Rotamer1Ave>
+179.05  
+
+> <Rotamer1Bins>
+6       
+
+> <Rotamer1Count>
+17 
+
+> <Rotamer1Std>
+7.265   
+
+> <Rotamer2Ave>
+301.26  
+
+> <Rotamer2Bins>
+10      
+
+> <Rotamer2Count>
+7 
+
+> <Rotamer2Std>
+3.832   
+
+> <ScaffoldCount>
+24 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    3.5961    2.7483    9.3576 S   0  0  0  0  0  4  0  0  0  0  0  0
+    4.2249    1.5276    9.7620 O   0  0  0  1  0  1  0  0  0  0  0  0
+    3.8945    2.9118    7.7553 N   0  0  0  0  0  3  0  0  0  0  0  0
+    4.4051    4.1081   10.1712 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.2060    4.0663   11.6556 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+20
+
+> <MatchIndices>
+35 
+
+> <NRotamers>
+4 
+
+> <Rotamer1Ave>
+295.89  
+
+> <Rotamer1Bins>
+10      
+
+> <Rotamer1Count>
+16 
+
+> <Rotamer1Std>
+6.855   
+
+> <Rotamer2Ave>
+62.37   
+
+> <Rotamer2Bins>
+2       
+
+> <Rotamer2Count>
+15 
+
+> <Rotamer2Std>
+6.273   
+
+> <Rotamer3Ave>
+185.40  
+
+> <Rotamer3Bins>
+6       
+
+> <Rotamer3Count>
+7 
+
+> <Rotamer3Std>
+4.569   
+
+> <Rotamer4Ave>
+56.43   
+
+> <Rotamer4Bins>
+2       
+
+> <Rotamer4Count>
+7 
+
+> <Rotamer4Std>
+4.217   
+
+> <ScaffoldCount>
+45 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 11 12  0  0  0  0  0  0  0  0999 V2000
+   10.1004    1.2412   -0.6769 N   0  0  0  0  0  3  0  0  0  0  0  0
+   11.0173    1.9462    1.2425 N   0  0  0  1  0  2  0  0  0  0  0  0
+   10.7313    2.2559   -0.0183 C   0  0  0  1  0  3  0  0  0  0  0  0
+   10.6173   -0.1799    2.5080 C   0  0  0  0  0  3  0  0  0  0  0  0
+   10.1132   -1.4521    2.3982 C   0  0  0  0  0  3  0  0  0  0  0  0
+    9.5329   -1.8885    1.1968 C   0  0  0  0  0  3  0  0  0  0  0  0
+    9.4621   -1.0725    0.1082 C   0  0  0  0  0  3  0  0  0  0  0  0
+    9.9687    0.2009    0.2165 C   0  0  0  1  0  3  0  0  0  0  0  0
+   10.5332    0.6517    1.4118 C   0  0  0  1  0  3  0  0  0  0  0  0
+   11.0664    3.5937   -0.5931 C   0  0  0  0  0  4  0  0  0  0  0  0
+    9.8957    4.5529   -0.5458 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  3  1  0  0  0  0
+  1  8  1  0  0  0  0
+  2  3  2  0  0  0  0
+  2  9  1  0  0  0  0
+  3 10  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  9  2  0  0  0  0
+  5  6  2  0  0  0  0
+  6  7  1  0  0  0  0
+  7  8  2  0  0  0  0
+  8  9  1  0  0  0  0
+ 10 11  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_Tr2TrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+22
+
+> <MatchIndices>
+0 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+359.58  360.33  360.15  359.82  360.03  179.50  181.07  180.73  179.10  359.86  299.69  
+
+> <Rotamer1Bins>
+12      12      12      12      12      6       6       6       6       12      10      
+
+> <Rotamer1Count>
+5 
+
+> <Rotamer1Std>
+0.849   0.516   0.320   0.461   0.428   2.390   1.498   1.459   2.003   0.523   6.832   
+
+> <ScaffoldCount>
+5 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+   -2.1476   10.5376    3.3389 S   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.7308    9.2233    3.6993 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -3.5040   10.4291    2.5119 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.5052   11.3951    4.8641 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.2844   11.5623    5.7255 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+20
+
+> <MatchIndices>
+34 
+
+> <NRotamers>
+4 
+
+> <Rotamer1Ave>
+62.00   
+
+> <Rotamer1Bins>
+2       
+
+> <Rotamer1Count>
+16 
+
+> <Rotamer1Std>
+6.238   
+
+> <Rotamer2Ave>
+296.48  
+
+> <Rotamer2Bins>
+10      
+
+> <Rotamer2Count>
+15 
+
+> <Rotamer2Std>
+6.675   
+
+> <Rotamer3Ave>
+185.40  
+
+> <Rotamer3Bins>
+6       
+
+> <Rotamer3Count>
+7 
+
+> <Rotamer3Std>
+4.569   
+
+> <Rotamer4Ave>
+56.43   
+
+> <Rotamer4Bins>
+2       
+
+> <Rotamer4Count>
+7 
+
+> <Rotamer4Std>
+4.217   
+
+> <ScaffoldCount>
+45 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  4  3  0  0  0  0  0  0  0  0999 V2000
+    3.5961    2.7483    9.3576 S   0  0  0  0  0  4  0  0  0  0  0  0
+    3.8945    2.9118    7.7553 N   0  0  0  0  0  3  0  0  0  0  0  0
+    4.4051    4.1081   10.1712 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.2060    4.0663   11.6556 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi N_TrTrTrPi2 C_TeTeTeTe C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+20
+
+> <MatchIndices>
+43 
+
+> <NRotamers>
+2 
+
+> <Rotamer1Ave>
+179.05  
+
+> <Rotamer1Bins>
+6       
+
+> <Rotamer1Count>
+17 
+
+> <Rotamer1Std>
+7.265   
+
+> <Rotamer2Ave>
+301.26  
+
+> <Rotamer2Bins>
+10      
+
+> <Rotamer2Count>
+7 
+
+> <Rotamer2Std>
+3.832   
+
+> <ScaffoldCount>
+24 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    1.8169   15.1250    3.1709 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.4632   15.2256    1.8099 C   0  0  0  0  0  4  0  0  0  0  0  0
+    3.5459   16.2057    1.7840 N   0  0  0  0  0  3  0  0  0  0  0  0
+    3.3252   17.4916    1.5377 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.2048   17.9440    1.2736 O   0  0  0  1  0  1  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  2  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi O_Tr2Tr2TrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+3626
+
+> <MatchIndices>
+33 
+
+> <NRotamers>
+42 
+
+> <Rotamer10Ave>
+117.25  178.80  
+
+> <Rotamer10Bins>
+4       6       
+
+> <Rotamer10Count>
+368 
+
+> <Rotamer10Std>
+6.315   5.794   
+
+> <Rotamer11Ave>
+266.20  179.73  
+
+> <Rotamer11Bins>
+9       6       
+
+> <Rotamer11Count>
+143 
+
+> <Rotamer11Std>
+7.921   5.997   
+
+> <Rotamer12Ave>
+93.47   181.41  
+
+> <Rotamer12Bins>
+3       6       
+
+> <Rotamer12Count>
+122 
+
+> <Rotamer12Std>
+8.758   5.800   
+
+> <Rotamer13Ave>
+209.07  361.95  
+
+> <Rotamer13Bins>
+7       12      
+
+> <Rotamer13Count>
+542 
+
+> <Rotamer13Std>
+9.317   5.245   
+
+> <Rotamer14Ave>
+275.61  339.00  
+
+> <Rotamer14Bins>
+9       11      
+
+> <Rotamer14Count>
+14 
+
+> <Rotamer14Std>
+8.126   7.337   
+
+> <Rotamer15Ave>
+38.15   359.34  
+
+> <Rotamer15Bins>
+1       12      
+
+> <Rotamer15Count>
+12 
+
+> <Rotamer15Std>
+7.583   7.522   
+
+> <Rotamer16Ave>
+61.07   18.22   
+
+> <Rotamer16Bins>
+2       1       
+
+> <Rotamer16Count>
+27 
+
+> <Rotamer16Std>
+4.512   2.434   
+
+> <Rotamer17Ave>
+180.38  17.51   
+
+> <Rotamer17Bins>
+6       1       
+
+> <Rotamer17Count>
+31 
+
+> <Rotamer17Std>
+6.973   1.822   
+
+> <Rotamer18Ave>
+176.51  342.14  
+
+> <Rotamer18Bins>
+6       11      
+
+> <Rotamer18Count>
+39 
+
+> <Rotamer18Std>
+6.641   3.033   
+
+> <Rotamer19Ave>
+291.08  18.42   
+
+> <Rotamer19Bins>
+10      1       
+
+> <Rotamer19Count>
+6 
+
+> <Rotamer19Std>
+4.119   2.229   
+
+> <Rotamer1Ave>
+270.61  359.45  
+
+> <Rotamer1Bins>
+9       12      
+
+> <Rotamer1Count>
+877 
+
+> <Rotamer1Std>
+8.610   5.164   
+
+> <Rotamer20Ave>
+296.87  342.17  
+
+> <Rotamer20Bins>
+10      11      
+
+> <Rotamer20Count>
+26 
+
+> <Rotamer20Std>
+5.178   3.325   
+
+> <Rotamer21Ave>
+65.52   181.78  
+
+> <Rotamer21Bins>
+2       6       
+
+> <Rotamer21Count>
+60 
+
+> <Rotamer21Std>
+5.094   5.959   
+
+> <Rotamer22Ave>
+86.36   204.96  
+
+> <Rotamer22Bins>
+3       7       
+
+> <Rotamer22Count>
+10 
+
+> <Rotamer22Std>
+4.693   10.916  
+
+> <Rotamer23Ave>
+115.59  17.74   
+
+> <Rotamer23Bins>
+4       1       
+
+> <Rotamer23Count>
+21 
+
+> <Rotamer23Std>
+8.276   3.720   
+
+> <Rotamer24Ave>
+241.28  19.14   
+
+> <Rotamer24Bins>
+8       1       
+
+> <Rotamer24Count>
+16 
+
+> <Rotamer24Std>
+9.099   5.116   
+
+> <Rotamer25Ave>
+245.36  339.27  
+
+> <Rotamer25Bins>
+8       11      
+
+> <Rotamer25Count>
+7 
+
+> <Rotamer25Std>
+10.200  4.488   
+
+> <Rotamer26Ave>
+118.62  340.04  
+
+> <Rotamer26Bins>
+4       11      
+
+> <Rotamer26Count>
+12 
+
+> <Rotamer26Std>
+7.198   5.249   
+
+> <Rotamer27Ave>
+324.43  330.89  
+
+> <Rotamer27Bins>
+11      11      
+
+> <Rotamer27Count>
+10 
+
+> <Rotamer27Std>
+5.904   9.102   
+
+> <Rotamer28Ave>
+151.76  341.91  
+
+> <Rotamer28Bins>
+5       11      
+
+> <Rotamer28Count>
+23 
+
+> <Rotamer28Std>
+8.546   4.711   
+
+> <Rotamer29Ave>
+211.25  19.18   
+
+> <Rotamer29Bins>
+7       1       
+
+> <Rotamer29Count>
+12 
+
+> <Rotamer29Std>
+8.571   3.894   
+
+> <Rotamer2Ave>
+90.08   360.52  
+
+> <Rotamer2Bins>
+3       12      
+
+> <Rotamer2Count>
+1009 
+
+> <Rotamer2Std>
+8.811   5.315   
+
+> <Rotamer30Ave>
+268.48  198.09  
+
+> <Rotamer30Bins>
+9       7       
+
+> <Rotamer30Count>
+5 
+
+> <Rotamer30Std>
+5.828   2.520   
+
+> <Rotamer31Ave>
+293.93  178.75  
+
+> <Rotamer31Bins>
+10      6       
+
+> <Rotamer31Count>
+50 
+
+> <Rotamer31Std>
+4.513   5.650   
+
+> <Rotamer32Ave>
+119.85  161.68  
+
+> <Rotamer32Bins>
+4       5       
+
+> <Rotamer32Count>
+15 
+
+> <Rotamer32Std>
+6.320   3.985   
+
+> <Rotamer33Ave>
+213.73  182.36  
+
+> <Rotamer33Bins>
+7       6       
+
+> <Rotamer33Count>
+11 
+
+> <Rotamer33Std>
+9.451   7.818   
+
+> <Rotamer34Ave>
+319.70  359.31  
+
+> <Rotamer34Bins>
+11      12      
+
+> <Rotamer34Count>
+11 
+
+> <Rotamer34Std>
+4.351   8.071   
+
+> <Rotamer35Ave>
+91.05   335.71  
+
+> <Rotamer35Bins>
+3       11      
+
+> <Rotamer35Count>
+24 
+
+> <Rotamer35Std>
+9.017   8.264   
+
+> <Rotamer36Ave>
+151.33  176.58  
+
+> <Rotamer36Bins>
+5       6       
+
+> <Rotamer36Count>
+12 
+
+> <Rotamer36Std>
+9.211   8.367   
+
+> <Rotamer37Ave>
+241.80  203.54  
+
+> <Rotamer37Bins>
+8       7       
+
+> <Rotamer37Count>
+13 
+
+> <Rotamer37Std>
+5.215   9.323   
+
+> <Rotamer38Ave>
+178.31  178.72  
+
+> <Rotamer38Bins>
+6       6       
+
+> <Rotamer38Count>
+23 
+
+> <Rotamer38Std>
+8.255   6.362   
+
+> <Rotamer39Ave>
+91.97   20.14   
+
+> <Rotamer39Bins>
+3       1       
+
+> <Rotamer39Count>
+23 
+
+> <Rotamer39Std>
+8.307   4.027   
+
+> <Rotamer3Ave>
+180.05  359.83  
+
+> <Rotamer3Bins>
+6       12      
+
+> <Rotamer3Count>
+2227 
+
+> <Rotamer3Std>
+8.209   5.791   
+
+> <Rotamer40Ave>
+273.46  158.45  
+
+> <Rotamer40Bins>
+9       5       
+
+> <Rotamer40Count>
+11 
+
+> <Rotamer40Std>
+7.801   8.048   
+
+> <Rotamer41Ave>
+272.30  23.00   
+
+> <Rotamer41Bins>
+9       1       
+
+> <Rotamer41Count>
+13 
+
+> <Rotamer41Std>
+9.191   7.001   
+
+> <Rotamer42Ave>
+208.47  342.72  
+
+> <Rotamer42Bins>
+7       11      
+
+> <Rotamer42Count>
+6 
+
+> <Rotamer42Std>
+5.837   1.215   
+
+> <Rotamer4Ave>
+119.97  360.17  
+
+> <Rotamer4Bins>
+4       12      
+
+> <Rotamer4Count>
+1026 
+
+> <Rotamer4Std>
+8.507   5.559   
+
+> <Rotamer5Ave>
+241.18  360.06  
+
+> <Rotamer5Bins>
+8       12      
+
+> <Rotamer5Count>
+656 
+
+> <Rotamer5Std>
+8.691   5.176   
+
+> <Rotamer6Ave>
+151.38  358.34  
+
+> <Rotamer6Bins>
+5       12      
+
+> <Rotamer6Count>
+1076 
+
+> <Rotamer6Std>
+9.074   5.325   
+
+> <Rotamer7Ave>
+295.64  358.33  
+
+> <Rotamer7Bins>
+10      12      
+
+> <Rotamer7Count>
+1253 
+
+> <Rotamer7Std>
+5.504   5.517   
+
+> <Rotamer8Ave>
+65.01   361.46  
+
+> <Rotamer8Bins>
+2       12      
+
+> <Rotamer8Count>
+1453 
+
+> <Rotamer8Std>
+5.152   5.450   
+
+> <Rotamer9Ave>
+243.61  180.93  
+
+> <Rotamer9Bins>
+8       6       
+
+> <Rotamer9Count>
+363 
+
+> <Rotamer9Std>
+6.292   5.913   
+
+> <ScaffoldCount>
+11658 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    0.6139   11.6389    5.2149 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.7962   10.2234    4.7420 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.8232   10.1597    3.2820 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.2804   10.0260    2.5785 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.1032    9.9961    1.0441 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+1515
+
+> <MatchIndices>
+32 
+
+> <NRotamers>
+34 
+
+> <Rotamer10Ave>
+295.28  178.33  
+
+> <Rotamer10Bins>
+10      6       
+
+> <Rotamer10Count>
+691 
+
+> <Rotamer10Std>
+5.855   5.841   
+
+> <Rotamer11Ave>
+36.03   178.54  
+
+> <Rotamer11Bins>
+1       6       
+
+> <Rotamer11Count>
+6 
+
+> <Rotamer11Std>
+9.592   7.743   
+
+> <Rotamer12Ave>
+61.89   197.86  
+
+> <Rotamer12Bins>
+2       7       
+
+> <Rotamer12Count>
+16 
+
+> <Rotamer12Std>
+6.418   2.233   
+
+> <Rotamer13Ave>
+179.27  197.39  
+
+> <Rotamer13Bins>
+6       7       
+
+> <Rotamer13Count>
+20 
+
+> <Rotamer13Std>
+8.988   1.911   
+
+> <Rotamer14Ave>
+208.04  180.56  
+
+> <Rotamer14Bins>
+7       6       
+
+> <Rotamer14Count>
+277 
+
+> <Rotamer14Std>
+9.346   5.418   
+
+> <Rotamer15Ave>
+177.29  161.77  
+
+> <Rotamer15Bins>
+6       5       
+
+> <Rotamer15Count>
+29 
+
+> <Rotamer15Std>
+7.526   2.432   
+
+> <Rotamer16Ave>
+243.84  360.85  
+
+> <Rotamer16Bins>
+8       12      
+
+> <Rotamer16Count>
+90 
+
+> <Rotamer16Std>
+6.337   5.816   
+
+> <Rotamer17Ave>
+117.08  358.78  
+
+> <Rotamer17Bins>
+4       12      
+
+> <Rotamer17Count>
+101 
+
+> <Rotamer17Std>
+7.214   6.030   
+
+> <Rotamer18Ave>
+155.38  197.47  
+
+> <Rotamer18Bins>
+5       7       
+
+> <Rotamer18Count>
+7 
+
+> <Rotamer18Std>
+5.082   1.994   
+
+> <Rotamer19Ave>
+152.18  161.78  
+
+> <Rotamer19Bins>
+5       5       
+
+> <Rotamer19Count>
+10 
+
+> <Rotamer19Std>
+9.936   2.186   
+
+> <Rotamer1Ave>
+271.79  179.79  
+
+> <Rotamer1Bins>
+9       6       
+
+> <Rotamer1Count>
+373 
+
+> <Rotamer1Std>
+8.731   5.586   
+
+> <Rotamer20Ave>
+271.12  340.43  
+
+> <Rotamer20Bins>
+9       11      
+
+> <Rotamer20Count>
+5 
+
+> <Rotamer20Std>
+8.130   2.430   
+
+> <Rotamer21Ave>
+69.40   163.24  
+
+> <Rotamer21Bins>
+2       5       
+
+> <Rotamer21Count>
+6 
+
+> <Rotamer21Std>
+3.164   1.303   
+
+> <Rotamer22Ave>
+89.35   158.47  
+
+> <Rotamer22Bins>
+3       5       
+
+> <Rotamer22Count>
+12 
+
+> <Rotamer22Std>
+10.731  8.151   
+
+> <Rotamer23Ave>
+87.32   200.38  
+
+> <Rotamer23Bins>
+3       7       
+
+> <Rotamer23Count>
+8 
+
+> <Rotamer23Std>
+7.889   4.658   
+
+> <Rotamer24Ave>
+118.10  196.94  
+
+> <Rotamer24Bins>
+4       7       
+
+> <Rotamer24Count>
+9 
+
+> <Rotamer24Std>
+8.495   1.049   
+
+> <Rotamer25Ave>
+241.13  23.76   
+
+> <Rotamer25Bins>
+8       1       
+
+> <Rotamer25Count>
+5 
+
+> <Rotamer25Std>
+2.898   9.225   
+
+> <Rotamer26Ave>
+121.19  162.25  
+
+> <Rotamer26Bins>
+4       5       
+
+> <Rotamer26Count>
+11 
+
+> <Rotamer26Std>
+9.546   2.496   
+
+> <Rotamer27Ave>
+178.10  360.39  
+
+> <Rotamer27Bins>
+6       12      
+
+> <Rotamer27Count>
+41 
+
+> <Rotamer27Std>
+7.190   3.540   
+
+> <Rotamer28Ave>
+154.27  358.89  
+
+> <Rotamer28Bins>
+5       12      
+
+> <Rotamer28Count>
+18 
+
+> <Rotamer28Std>
+8.622   3.530   
+
+> <Rotamer29Ave>
+269.16  200.56  
+
+> <Rotamer29Bins>
+9       7       
+
+> <Rotamer29Count>
+5 
+
+> <Rotamer29Std>
+10.402  2.484   
+
+> <Rotamer2Ave>
+89.90   180.04  
+
+> <Rotamer2Bins>
+3       6       
+
+> <Rotamer2Count>
+464 
+
+> <Rotamer2Std>
+8.905   5.402   
+
+> <Rotamer30Ave>
+62.83   363.14  
+
+> <Rotamer30Bins>
+2       12      
+
+> <Rotamer30Count>
+5 
+
+> <Rotamer30Std>
+6.360   2.173   
+
+> <Rotamer31Ave>
+292.17  357.92  
+
+> <Rotamer31Bins>
+10      12      
+
+> <Rotamer31Count>
+5 
+
+> <Rotamer31Std>
+5.267   5.856   
+
+> <Rotamer32Ave>
+289.87  197.67  
+
+> <Rotamer32Bins>
+10      7       
+
+> <Rotamer32Count>
+8 
+
+> <Rotamer32Std>
+3.283   2.419   
+
+> <Rotamer33Ave>
+295.66  162.09  
+
+> <Rotamer33Bins>
+10      5       
+
+> <Rotamer33Count>
+14 
+
+> <Rotamer33Std>
+5.511   2.196   
+
+> <Rotamer34Ave>
+204.93  163.21  
+
+> <Rotamer34Bins>
+7       5       
+
+> <Rotamer34Count>
+6 
+
+> <Rotamer34Std>
+9.611   2.080   
+
+> <Rotamer3Ave>
+180.09  179.77  
+
+> <Rotamer3Bins>
+6       6       
+
+> <Rotamer3Count>
+1342 
+
+> <Rotamer3Std>
+8.552   5.997   
+
+> <Rotamer4Ave>
+119.98  180.04  
+
+> <Rotamer4Bins>
+4       6       
+
+> <Rotamer4Count>
+523 
+
+> <Rotamer4Std>
+8.510   5.829   
+
+> <Rotamer5Ave>
+241.05  179.65  
+
+> <Rotamer5Bins>
+8       6       
+
+> <Rotamer5Count>
+283 
+
+> <Rotamer5Std>
+8.856   5.427   
+
+> <Rotamer6Ave>
+151.80  179.61  
+
+> <Rotamer6Bins>
+5       6       
+
+> <Rotamer6Count>
+614 
+
+> <Rotamer6Std>
+9.079   5.923   
+
+> <Rotamer7Ave>
+267.07  356.84  
+
+> <Rotamer7Bins>
+9       12      
+
+> <Rotamer7Count>
+55 
+
+> <Rotamer7Std>
+6.573   6.109   
+
+> <Rotamer8Ave>
+93.75   361.71  
+
+> <Rotamer8Bins>
+3       12      
+
+> <Rotamer8Count>
+59 
+
+> <Rotamer8Std>
+6.348   7.542   
+
+> <Rotamer9Ave>
+65.52   181.74  
+
+> <Rotamer9Bins>
+2       6       
+
+> <Rotamer9Count>
+819 
+
+> <Rotamer9Std>
+5.197   5.597   
+
+> <ScaffoldCount>
+5937 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    4.9086    1.3116    1.5830 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.8180    2.8210    1.3343 C   0  0  0  0  0  4  0  0  0  0  0  0
+    6.1292    3.4170    1.2460 N   0  0  0  0  0  3  0  0  0  0  0  0
+    6.7900    3.8754    2.2936 C   0  0  0  1  0  3  0  0  0  0  0  0
+    8.1506    4.5212    2.0033 C   0  0  0  0  0  4  0  0  0  0  0  0
+    6.3698    3.8082    3.4358 O   0  0  0  1  0  1  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  6  2  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe O_Tr2Tr2TrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+1405
+
+> <MatchIndices>
+24 
+
+> <NRotamers>
+20 
+
+> <Rotamer10Ave>
+65.54   361.36  
+
+> <Rotamer10Bins>
+2       12      
+
+> <Rotamer10Count>
+818 
+
+> <Rotamer10Std>
+5.248   5.138   
+
+> <Rotamer11Ave>
+295.21  358.35  
+
+> <Rotamer11Bins>
+10      12      
+
+> <Rotamer11Count>
+683 
+
+> <Rotamer11Std>
+5.901   5.274   
+
+> <Rotamer12Ave>
+37.27   358.31  
+
+> <Rotamer12Bins>
+1       12      
+
+> <Rotamer12Count>
+7 
+
+> <Rotamer12Std>
+9.383   7.279   
+
+> <Rotamer13Ave>
+244.04  181.48  
+
+> <Rotamer13Bins>
+8       6       
+
+> <Rotamer13Count>
+77 
+
+> <Rotamer13Std>
+6.216   5.500   
+
+> <Rotamer14Ave>
+117.03  179.36  
+
+> <Rotamer14Bins>
+4       6       
+
+> <Rotamer14Count>
+89 
+
+> <Rotamer14Std>
+6.909   5.537   
+
+> <Rotamer15Ave>
+182.26  16.85   
+
+> <Rotamer15Bins>
+6       1       
+
+> <Rotamer15Count>
+5 
+
+> <Rotamer15Std>
+6.734   1.401   
+
+> <Rotamer16Ave>
+153.96  343.37  
+
+> <Rotamer16Bins>
+5       11      
+
+> <Rotamer16Count>
+8 
+
+> <Rotamer16Std>
+9.892   1.314   
+
+> <Rotamer17Ave>
+173.25  342.91  
+
+> <Rotamer17Bins>
+6       11      
+
+> <Rotamer17Count>
+16 
+
+> <Rotamer17Std>
+3.692   1.592   
+
+> <Rotamer18Ave>
+294.34  343.64  
+
+> <Rotamer18Bins>
+10      11      
+
+> <Rotamer18Count>
+10 
+
+> <Rotamer18Std>
+3.429   1.040   
+
+> <Rotamer19Ave>
+91.87   337.21  
+
+> <Rotamer19Bins>
+3       11      
+
+> <Rotamer19Count>
+8 
+
+> <Rotamer19Std>
+9.517   6.063   
+
+> <Rotamer1Ave>
+271.92  359.49  
+
+> <Rotamer1Bins>
+9       12      
+
+> <Rotamer1Count>
+366 
+
+> <Rotamer1Std>
+8.727   4.933   
+
+> <Rotamer20Ave>
+121.43  343.03  
+
+> <Rotamer20Bins>
+4       11      
+
+> <Rotamer20Count>
+5 
+
+> <Rotamer20Std>
+8.416   0.744   
+
+> <Rotamer2Ave>
+90.06   360.55  
+
+> <Rotamer2Bins>
+3       12      
+
+> <Rotamer2Count>
+457 
+
+> <Rotamer2Std>
+8.978   4.940   
+
+> <Rotamer3Ave>
+180.11  359.64  
+
+> <Rotamer3Bins>
+6       12      
+
+> <Rotamer3Count>
+1346 
+
+> <Rotamer3Std>
+8.586   5.435   
+
+> <Rotamer4Ave>
+120.02  359.96  
+
+> <Rotamer4Bins>
+4       12      
+
+> <Rotamer4Count>
+532 
+
+> <Rotamer4Std>
+8.512   5.189   
+
+> <Rotamer5Ave>
+240.96  359.70  
+
+> <Rotamer5Bins>
+8       12      
+
+> <Rotamer5Count>
+281 
+
+> <Rotamer5Std>
+8.861   4.759   
+
+> <Rotamer6Ave>
+151.78  358.58  
+
+> <Rotamer6Bins>
+5       12      
+
+> <Rotamer6Count>
+614 
+
+> <Rotamer6Std>
+9.076   5.087   
+
+> <Rotamer7Ave>
+266.29  178.36  
+
+> <Rotamer7Bins>
+9       6       
+
+> <Rotamer7Count>
+34 
+
+> <Rotamer7Std>
+7.080   6.150   
+
+> <Rotamer8Ave>
+93.55   180.79  
+
+> <Rotamer8Bins>
+3       6       
+
+> <Rotamer8Count>
+39 
+
+> <Rotamer8Std>
+7.179   6.901   
+
+> <Rotamer9Ave>
+207.96  361.33  
+
+> <Rotamer9Bins>
+7       12      
+
+> <Rotamer9Count>
+278 
+
+> <Rotamer9Std>
+9.397   4.927   
+
+> <ScaffoldCount>
+5673 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    3.0817    4.1177    5.8791 N   0  0  0  0  0  3  0  0  0  0  0  0
+    4.3390    4.5444    6.0305 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.2356    3.7673    7.0096 C   0  0  0  0  0  4  0  0  0  0  0  0
+    1.7806    2.2983    6.9029 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.9644    1.3310    6.9302 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+1301
+
+> <MatchIndices>
+31 
+
+> <NRotamers>
+50 
+
+> <Rotamer10Ave>
+206.54  179.35  
+
+> <Rotamer10Bins>
+7       6       
+
+> <Rotamer10Count>
+110 
+
+> <Rotamer10Std>
+8.568   5.812   
+
+> <Rotamer11Ave>
+150.92  64.55   
+
+> <Rotamer11Bins>
+5       2       
+
+> <Rotamer11Count>
+75 
+
+> <Rotamer11Std>
+8.222   5.252   
+
+> <Rotamer12Ave>
+152.53  180.55  
+
+> <Rotamer12Bins>
+5       6       
+
+> <Rotamer12Count>
+192 
+
+> <Rotamer12Std>
+8.796   6.084   
+
+> <Rotamer13Ave>
+150.44  298.96  
+
+> <Rotamer13Bins>
+5       10      
+
+> <Rotamer13Count>
+306 
+
+> <Rotamer13Std>
+9.159   5.997   
+
+> <Rotamer14Ave>
+89.72   61.50   
+
+> <Rotamer14Bins>
+3       2       
+
+> <Rotamer14Count>
+187 
+
+> <Rotamer14Std>
+8.960   6.222   
+
+> <Rotamer15Ave>
+88.09   202.27  
+
+> <Rotamer15Bins>
+3       7       
+
+> <Rotamer15Count>
+23 
+
+> <Rotamer15Std>
+7.679   6.302   
+
+> <Rotamer16Ave>
+292.15  180.93  
+
+> <Rotamer16Bins>
+10      6       
+
+> <Rotamer16Count>
+35 
+
+> <Rotamer16Std>
+5.778   7.336   
+
+> <Rotamer17Ave>
+270.49  179.72  
+
+> <Rotamer17Bins>
+9       6       
+
+> <Rotamer17Count>
+294 
+
+> <Rotamer17Std>
+7.629   5.775   
+
+> <Rotamer18Ave>
+89.42   181.02  
+
+> <Rotamer18Bins>
+3       6       
+
+> <Rotamer18Count>
+336 
+
+> <Rotamer18Std>
+8.094   6.060   
+
+> <Rotamer19Ave>
+176.87  295.64  
+
+> <Rotamer19Bins>
+6       10      
+
+> <Rotamer19Count>
+239 
+
+> <Rotamer19Std>
+7.611   5.537   
+
+> <Rotamer1Ave>
+242.44  60.56   
+
+> <Rotamer1Bins>
+8       2       
+
+> <Rotamer1Count>
+223 
+
+> <Rotamer1Std>
+8.267   5.973   
+
+> <Rotamer20Ave>
+99.57   299.19  
+
+> <Rotamer20Bins>
+3       10      
+
+> <Rotamer20Count>
+133 
+
+> <Rotamer20Std>
+3.930   6.407   
+
+> <Rotamer21Ave>
+64.43   59.11   
+
+> <Rotamer21Bins>
+2       2       
+
+> <Rotamer21Count>
+165 
+
+> <Rotamer21Std>
+5.971   5.829   
+
+> <Rotamer22Ave>
+295.16  302.12  
+
+> <Rotamer22Bins>
+10      10      
+
+> <Rotamer22Count>
+168 
+
+> <Rotamer22Std>
+6.188   5.865   
+
+> <Rotamer23Ave>
+211.34  60.91   
+
+> <Rotamer23Bins>
+7       2       
+
+> <Rotamer23Count>
+107 
+
+> <Rotamer23Std>
+8.427   5.702   
+
+> <Rotamer24Ave>
+261.60  62.00   
+
+> <Rotamer24Bins>
+9       2       
+
+> <Rotamer24Count>
+84 
+
+> <Rotamer24Std>
+4.977   6.262   
+
+> <Rotamer25Ave>
+273.41  323.49  
+
+> <Rotamer25Bins>
+9       11      
+
+> <Rotamer25Count>
+12 
+
+> <Rotamer25Std>
+9.917   7.131   
+
+> <Rotamer26Ave>
+121.26  279.06  
+
+> <Rotamer26Bins>
+4       9       
+
+> <Rotamer26Count>
+15 
+
+> <Rotamer26Std>
+7.493   4.601   
+
+> <Rotamer27Ave>
+84.56   38.03   
+
+> <Rotamer27Bins>
+3       1       
+
+> <Rotamer27Count>
+7 
+
+> <Rotamer27Std>
+8.933   6.441   
+
+> <Rotamer28Ave>
+84.32   155.52  
+
+> <Rotamer28Bins>
+3       5       
+
+> <Rotamer28Count>
+8 
+
+> <Rotamer28Std>
+7.670   8.155   
+
+> <Rotamer29Ave>
+205.05  296.92  
+
+> <Rotamer29Bins>
+7       10      
+
+> <Rotamer29Count>
+34 
+
+> <Rotamer29Std>
+8.893   6.821   
+
+> <Rotamer2Ave>
+116.55  61.86   
+
+> <Rotamer2Bins>
+4       2       
+
+> <Rotamer2Count>
+94 
+
+> <Rotamer2Std>
+8.388   5.691   
+
+> <Rotamer30Ave>
+174.61  201.37  
+
+> <Rotamer30Bins>
+6       7       
+
+> <Rotamer30Count>
+17 
+
+> <Rotamer30Std>
+6.303   7.284   
+
+> <Rotamer31Ave>
+240.50  78.59   
+
+> <Rotamer31Bins>
+8       3       
+
+> <Rotamer31Count>
+7 
+
+> <Rotamer31Std>
+7.571   3.443   
+
+> <Rotamer32Ave>
+116.35  79.49   
+
+> <Rotamer32Bins>
+4       3       
+
+> <Rotamer32Count>
+6 
+
+> <Rotamer32Std>
+7.499   3.153   
+
+> <Rotamer33Ave>
+115.87  203.32  
+
+> <Rotamer33Bins>
+4       7       
+
+> <Rotamer33Count>
+8 
+
+> <Rotamer33Std>
+8.481   4.937   
+
+> <Rotamer34Ave>
+185.27  159.96  
+
+> <Rotamer34Bins>
+6       5       
+
+> <Rotamer34Count>
+16 
+
+> <Rotamer34Std>
+5.280   5.075   
+
+> <Rotamer35Ave>
+245.80  159.05  
+
+> <Rotamer35Bins>
+8       5       
+
+> <Rotamer35Count>
+12 
+
+> <Rotamer35Std>
+6.409   5.723   
+
+> <Rotamer36Ave>
+113.54  320.31  
+
+> <Rotamer36Bins>
+4       11      
+
+> <Rotamer36Count>
+9 
+
+> <Rotamer36Std>
+7.505   6.247   
+
+> <Rotamer37Ave>
+265.41  158.72  
+
+> <Rotamer37Bins>
+9       5       
+
+> <Rotamer37Count>
+14 
+
+> <Rotamer37Std>
+9.095   5.125   
+
+> <Rotamer38Ave>
+319.99  304.03  
+
+> <Rotamer38Bins>
+11      10      
+
+> <Rotamer38Count>
+5 
+
+> <Rotamer38Std>
+5.040   5.549   
+
+> <Rotamer39Ave>
+299.65  320.67  
+
+> <Rotamer39Bins>
+10      11      
+
+> <Rotamer39Count>
+11 
+
+> <Rotamer39Std>
+6.870   6.706   
+
+> <Rotamer3Ave>
+118.19  179.77  
+
+> <Rotamer3Bins>
+4       6       
+
+> <Rotamer3Count>
+213 
+
+> <Rotamer3Std>
+7.968   5.808   
+
+> <Rotamer40Ave>
+175.95  81.99   
+
+> <Rotamer40Bins>
+6       3       
+
+> <Rotamer40Count>
+11 
+
+> <Rotamer40Std>
+8.754   6.007   
+
+> <Rotamer41Ave>
+96.79   322.56  
+
+> <Rotamer41Bins>
+3       11      
+
+> <Rotamer41Count>
+6 
+
+> <Rotamer41Std>
+5.457   6.942   
+
+> <Rotamer42Ave>
+278.27  199.94  
+
+> <Rotamer42Bins>
+9       7       
+
+> <Rotamer42Count>
+11 
+
+> <Rotamer42Std>
+6.269   4.315   
+
+> <Rotamer43Ave>
+176.01  279.91  
+
+> <Rotamer43Bins>
+6       9       
+
+> <Rotamer43Count>
+20 
+
+> <Rotamer43Std>
+8.150   4.146   
+
+> <Rotamer44Ave>
+260.10  29.05   
+
+> <Rotamer44Bins>
+9       1       
+
+> <Rotamer44Count>
+5 
+
+> <Rotamer44Std>
+2.531   8.146   
+
+> <Rotamer45Ave>
+153.71  78.53   
+
+> <Rotamer45Bins>
+5       3       
+
+> <Rotamer45Count>
+7 
+
+> <Rotamer45Std>
+7.328   2.855   
+
+> <Rotamer46Ave>
+68.78   180.69  
+
+> <Rotamer46Bins>
+2       6       
+
+> <Rotamer46Count>
+29 
+
+> <Rotamer46Std>
+6.933   6.780   
+
+> <Rotamer47Ave>
+149.60  276.59  
+
+> <Rotamer47Bins>
+5       9       
+
+> <Rotamer47Count>
+11 
+
+> <Rotamer47Std>
+11.509  5.422   
+
+> <Rotamer48Ave>
+155.94  200.07  
+
+> <Rotamer48Bins>
+5       7       
+
+> <Rotamer48Count>
+8 
+
+> <Rotamer48Std>
+7.715   4.285   
+
+> <Rotamer49Ave>
+87.14   78.88   
+
+> <Rotamer49Bins>
+3       3       
+
+> <Rotamer49Count>
+7 
+
+> <Rotamer49Std>
+8.535   3.665   
+
+> <Rotamer4Ave>
+119.96  299.41  
+
+> <Rotamer4Bins>
+4       10      
+
+> <Rotamer4Count>
+405 
+
+> <Rotamer4Std>
+8.332   6.157   
+
+> <Rotamer50Ave>
+210.26  77.23   
+
+> <Rotamer50Bins>
+7       3       
+
+> <Rotamer50Count>
+7 
+
+> <Rotamer50Std>
+8.110   2.374   
+
+> <Rotamer5Ave>
+243.68  180.18  
+
+> <Rotamer5Bins>
+8       6       
+
+> <Rotamer5Count>
+114 
+
+> <Rotamer5Std>
+8.476   5.829   
+
+> <Rotamer6Ave>
+245.62  297.66  
+
+> <Rotamer6Bins>
+8       10      
+
+> <Rotamer6Count>
+53 
+
+> <Rotamer6Std>
+7.560   5.633   
+
+> <Rotamer7Ave>
+179.75  180.03  
+
+> <Rotamer7Bins>
+6       6       
+
+> <Rotamer7Count>
+505 
+
+> <Rotamer7Std>
+8.150   5.574   
+
+> <Rotamer8Ave>
+271.96  298.79  
+
+> <Rotamer8Bins>
+9       10      
+
+> <Rotamer8Count>
+118 
+
+> <Rotamer8Std>
+9.361   6.642   
+
+> <Rotamer9Ave>
+180.48  63.39   
+
+> <Rotamer9Bins>
+6       2       
+
+> <Rotamer9Count>
+173 
+
+> <Rotamer9Std>
+8.034   5.838   
+
+> <ScaffoldCount>
+4655 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+   11.9574   18.9186    3.3742 N   0  0  0  0  0  3  0  0  0  0  0  0
+   10.8171   18.0340    3.3121 C   0  0  0  0  0  4  0  0  0  0  0  0
+    9.6264   18.6502    2.5726 C   0  0  0  0  0  4  0  0  0  0  0  0
+    8.4294   17.6770    2.5912 C   0  0  0  0  0  4  0  0  0  0  0  0
+    8.7523   16.4167    1.9251 N   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+106
+
+> <MatchIndices>
+30 
+
+> <NRotamers>
+5 
+
+> <Rotamer1Ave>
+178.43  297.33  
+
+> <Rotamer1Bins>
+6       10      
+
+> <Rotamer1Count>
+44 
+
+> <Rotamer1Std>
+7.623   8.639   
+
+> <Rotamer2Ave>
+62.99   182.65  
+
+> <Rotamer2Bins>
+2       6       
+
+> <Rotamer2Count>
+30 
+
+> <Rotamer2Std>
+7.249   6.874   
+
+> <Rotamer3Ave>
+180.68  179.73  
+
+> <Rotamer3Bins>
+6       6       
+
+> <Rotamer3Count>
+34 
+
+> <Rotamer3Std>
+6.592   6.099   
+
+> <Rotamer4Ave>
+300.85  302.66  
+
+> <Rotamer4Bins>
+10      10      
+
+> <Rotamer4Count>
+42 
+
+> <Rotamer4Std>
+8.414   7.331   
+
+> <Rotamer5Ave>
+59.02   58.15   
+
+> <Rotamer5Bins>
+2       2       
+
+> <Rotamer5Count>
+32 
+
+> <Rotamer5Std>
+7.326   7.579   
+
+> <ScaffoldCount>
+182 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  9  9  0  0  0  0  0  0  0  0999 V2000
+    5.9670    6.0014    3.7163 S   0  0  0  0  0  4  0  0  0  0  0  0
+    6.0642    5.2351    4.9236 O   0  0  0  1  0  1  0  0  0  0  0  0
+    4.7739    7.2856    4.0115 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.5422    8.1847    2.8382 C   0  0  0  1  0  3  0  0  0  0  0  0
+    3.4379    8.0098    2.0256 C   0  0  0  0  0  3  0  0  0  0  0  0
+    3.2307    8.8605    0.9566 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.1000    9.8671    0.7029 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.2027   10.0342    1.4746 C   0  0  0  0  0  3  0  0  0  0  0  0
+    5.4296    9.2084    2.5435 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  9  2  0  0  0  0
+  5  6  2  0  0  0  0
+  6  7  1  0  0  0  0
+  7  8  2  0  0  0  0
+  8  9  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+212
+
+> <MatchIndices>
+10 
+
+> <NRotamers>
+14 
+
+> <Rotamer10Ave>
+159.71  69.69   359.68  359.69  360.57  359.81  360.71  359.55  
+
+> <Rotamer10Bins>
+5       2       12      12      12      12      12      12      
+
+> <Rotamer10Count>
+6 
+
+> <Rotamer10Std>
+4.259   2.093   1.139   0.690   1.088   1.427   1.021   1.036   
+
+> <Rotamer11Ave>
+275.68  66.84   359.75  359.74  360.38  360.01  360.62  359.49  
+
+> <Rotamer11Bins>
+9       2       12      12      12      12      12      12      
+
+> <Rotamer11Count>
+7 
+
+> <Rotamer11Std>
+5.966   6.562   0.639   0.856   0.642   0.688   0.746   0.974   
+
+> <Rotamer12Ave>
+280.90  85.01   360.03  359.79  359.91  360.52  360.39  359.34  
+
+> <Rotamer12Bins>
+9       3       12      12      12      12      12      12      
+
+> <Rotamer12Count>
+10 
+
+> <Rotamer12Std>
+2.817   6.580   1.105   1.225   1.437   1.617   0.951   1.305   
+
+> <Rotamer13Ave>
+79.35   92.61   359.87  360.08  359.90  360.18  360.21  359.76  
+
+> <Rotamer13Bins>
+3       3       12      12      12      12      12      12      
+
+> <Rotamer13Count>
+9 
+
+> <Rotamer13Std>
+4.303   6.024   1.207   0.853   0.575   0.741   0.830   0.415   
+
+> <Rotamer14Ave>
+55.12   68.39   360.51  359.48  359.79  360.94  360.21  359.06  
+
+> <Rotamer14Bins>
+2       2       12      12      12      12      12      12      
+
+> <Rotamer14Count>
+5 
+
+> <Rotamer14Std>
+7.265   4.620   0.804   0.597   0.480   0.806   0.865   0.946   
+
+> <Rotamer1Ave>
+179.84  91.87   359.92  359.85  360.15  360.10  360.33  359.65  
+
+> <Rotamer1Bins>
+6       3       12      12      12      12      12      12      
+
+> <Rotamer1Count>
+30 
+
+> <Rotamer1Std>
+7.168   8.961   1.159   0.811   1.196   1.217   1.297   1.010   
+
+> <Rotamer2Ave>
+299.50  86.91   359.97  360.00  359.96  360.11  360.10  359.86  
+
+> <Rotamer2Bins>
+10      3       12      12      12      12      12      12      
+
+> <Rotamer2Count>
+50 
+
+> <Rotamer2Std>
+6.989   6.572   1.067   0.877   0.889   0.895   1.021   0.815   
+
+> <Rotamer3Ave>
+60.25   89.80   360.06  359.99  359.86  360.24  360.03  359.82  
+
+> <Rotamer3Bins>
+2       3       12      12      12      12      12      12      
+
+> <Rotamer3Count>
+49 
+
+> <Rotamer3Std>
+6.573   7.877   0.988   0.907   1.192   1.257   1.042   1.036   
+
+> <Rotamer4Ave>
+298.96  66.17   359.87  359.84  360.24  359.98  360.35  359.73  
+
+> <Rotamer4Bins>
+10      2       12      12      12      12      12      12      
+
+> <Rotamer4Count>
+21 
+
+> <Rotamer4Std>
+7.626   6.264   1.715   0.887   0.998   1.213   1.600   0.923   
+
+> <Rotamer5Ave>
+174.89  66.11   359.55  360.01  360.30  359.85  360.60  359.70  
+
+> <Rotamer5Bins>
+6       2       12      12      12      12      12      12      
+
+> <Rotamer5Count>
+15 
+
+> <Rotamer5Std>
+7.950   4.907   1.523   0.849   0.846   1.026   1.372   0.792   
+
+> <Rotamer6Ave>
+85.71   113.70  359.15  360.42  360.34  359.35  360.56  360.19  
+
+> <Rotamer6Bins>
+3       4       12      12      12      12      12      12      
+
+> <Rotamer6Count>
+5 
+
+> <Rotamer6Std>
+8.012   6.914   0.690   0.558   0.381   0.566   0.834   0.857   
+
+> <Rotamer7Ave>
+184.26  113.30  359.72  360.63  359.50  360.03  359.82  360.31  
+
+> <Rotamer7Bins>
+6       4       12      12      12      12      12      12      
+
+> <Rotamer7Count>
+13 
+
+> <Rotamer7Std>
+5.569   3.854   0.918   0.965   1.492   1.193   1.097   0.709   
+
+> <Rotamer8Ave>
+62.22   112.25  359.89  360.47  359.76  359.68  359.54  360.68  
+
+> <Rotamer8Bins>
+2       4       12      12      12      12      12      12      
+
+> <Rotamer8Count>
+19 
+
+> <Rotamer8Std>
+8.748   3.960   0.934   1.058   1.519   1.435   0.942   0.955   
+
+> <Rotamer9Ave>
+303.07  109.29  360.02  360.06  360.41  359.05  359.44  361.03  
+
+> <Rotamer9Bins>
+10      4       12      12      12      12      12      12      
+
+> <Rotamer9Count>
+9 
+
+> <Rotamer9Std>
+5.561   2.804   0.856   1.058   1.207   1.374   0.576   1.082   
+
+> <ScaffoldCount>
+248 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 10 10  0  0  0  0  0  0  0  0999 V2000
+    2.0993    5.2491    9.2353 S   0  0  0  0  0  4  0  0  0  0  0  0
+    3.3700    5.2835    8.6036 O   0  0  0  1  0  1  0  0  0  0  0  0
+    1.1367    4.3080    8.7914 O   0  0  0  1  0  1  0  0  0  0  0  0
+    1.3990    6.8840    9.2403 C   0  0  0  0  0  4  0  0  0  0  0  0
+    1.4387    7.5075    7.8750 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.4280    7.2953    6.9700 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5057    7.8699    5.7099 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.5722    8.6501    5.3745 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5716    8.8783    6.2703 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5092    8.3091    7.5344 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+  5 10  2  0  0  0  0
+  6  7  2  0  0  0  0
+  7  8  1  0  0  0  0
+  8  9  2  0  0  0  0
+  9 10  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+104
+
+> <MatchIndices>
+8 
+
+> <NRotamers>
+8 
+
+> <Rotamer1Ave>
+60.17   89.96   360.10  360.00  359.81  360.28  359.99  359.82  
+
+> <Rotamer1Bins>
+2       3       12      12      12      12      12      12      
+
+> <Rotamer1Count>
+50 
+
+> <Rotamer1Std>
+6.531   7.876   1.005   0.900   1.219   1.272   1.067   1.025   
+
+> <Rotamer2Ave>
+176.62  84.07   359.73  359.79  360.42  359.86  360.56  359.63  
+
+> <Rotamer2Bins>
+6       3       12      12      12      12      12      12      
+
+> <Rotamer2Count>
+14 
+
+> <Rotamer2Std>
+5.524   6.078   1.321   0.948   0.870   0.906   1.229   0.829   
+
+> <Rotamer3Ave>
+173.66  65.62   359.41  360.11  360.33  359.73  360.65  359.77  
+
+> <Rotamer3Bins>
+6       2       12      12      12      12      12      12      
+
+> <Rotamer3Count>
+14 
+
+> <Rotamer3Std>
+6.714   4.704   1.476   0.784   0.867   0.956   1.405   0.764   
+
+> <Rotamer4Ave>
+85.71   113.70  359.15  360.42  360.34  359.35  360.56  360.19  
+
+> <Rotamer4Bins>
+3       4       12      12      12      12      12      12      
+
+> <Rotamer4Count>
+5 
+
+> <Rotamer4Std>
+8.012   6.914   0.690   0.558   0.381   0.566   0.834   0.857   
+
+> <Rotamer5Ave>
+62.22   112.25  359.89  360.47  359.76  359.68  359.54  360.68  
+
+> <Rotamer5Bins>
+2       4       12      12      12      12      12      12      
+
+> <Rotamer5Count>
+19 
+
+> <Rotamer5Std>
+8.748   3.960   0.934   1.058   1.519   1.435   0.942   0.955   
+
+> <Rotamer6Ave>
+159.71  69.69   359.68  359.69  360.57  359.81  360.71  359.55  
+
+> <Rotamer6Bins>
+5       2       12      12      12      12      12      12      
+
+> <Rotamer6Count>
+6 
+
+> <Rotamer6Std>
+4.259   2.093   1.139   0.690   1.088   1.427   1.021   1.036   
+
+> <Rotamer7Ave>
+79.35   92.61   359.87  360.08  359.90  360.18  360.21  359.76  
+
+> <Rotamer7Bins>
+3       3       12      12      12      12      12      12      
+
+> <Rotamer7Count>
+9 
+
+> <Rotamer7Std>
+4.303   6.024   1.207   0.853   0.575   0.741   0.830   0.415   
+
+> <Rotamer8Ave>
+55.12   68.39   360.51  359.48  359.79  360.94  360.21  359.06  
+
+> <Rotamer8Bins>
+2       2       12      12      12      12      12      12      
+
+> <Rotamer8Count>
+5 
+
+> <Rotamer8Std>
+7.265   4.620   0.804   0.597   0.480   0.806   0.865   0.946   
+
+> <ScaffoldCount>
+122 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+    0.8946    7.0690    7.7494 N   0  0  0  0  0  3  0  0  0  0  0  0
+    2.8903    8.0785    8.1684 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.7726    7.5156    8.6549 C   0  0  0  0  0  3  0  0  0  0  0  0
+    3.9253    8.6377    9.0120 C   0  0  0  0  0  4  0  0  0  0  0  0
+    5.0287    9.2315    8.1813 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  3  1  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+744
+
+> <MatchIndices>
+29 
+
+> <NRotamers>
+31 
+
+> <Rotamer10Ave>
+360.06  181.67  
+
+> <Rotamer10Bins>
+12      6       
+
+> <Rotamer10Count>
+22 
+
+> <Rotamer10Std>
+6.265   7.768   
+
+> <Rotamer11Ave>
+356.63  241.01  
+
+> <Rotamer11Bins>
+12      8       
+
+> <Rotamer11Count>
+9 
+
+> <Rotamer11Std>
+10.799  5.530   
+
+> <Rotamer12Ave>
+353.70  114.25  
+
+> <Rotamer12Bins>
+12      4       
+
+> <Rotamer12Count>
+13 
+
+> <Rotamer12Std>
+8.539   6.440   
+
+> <Rotamer13Ave>
+202.29  203.85  
+
+> <Rotamer13Bins>
+7       7       
+
+> <Rotamer13Count>
+6 
+
+> <Rotamer13Std>
+6.151   8.565   
+
+> <Rotamer14Ave>
+357.19  293.65  
+
+> <Rotamer14Bins>
+12      10      
+
+> <Rotamer14Count>
+13 
+
+> <Rotamer14Std>
+6.724   5.732   
+
+> <Rotamer15Ave>
+179.89  243.56  
+
+> <Rotamer15Bins>
+6       8       
+
+> <Rotamer15Count>
+69 
+
+> <Rotamer15Std>
+6.361   7.475   
+
+> <Rotamer16Ave>
+177.74  151.45  
+
+> <Rotamer16Bins>
+6       5       
+
+> <Rotamer16Count>
+83 
+
+> <Rotamer16Std>
+6.156   8.517   
+
+> <Rotamer17Ave>
+203.73  266.29  
+
+> <Rotamer17Bins>
+7       9       
+
+> <Rotamer17Count>
+8 
+
+> <Rotamer17Std>
+5.832   7.287   
+
+> <Rotamer18Ave>
+32.95   235.45  
+
+> <Rotamer18Bins>
+1       8       
+
+> <Rotamer18Count>
+9 
+
+> <Rotamer18Std>
+8.878   7.831   
+
+> <Rotamer19Ave>
+150.32  85.13   
+
+> <Rotamer19Bins>
+5       3       
+
+> <Rotamer19Count>
+6 
+
+> <Rotamer19Std>
+9.603   9.385   
+
+> <Rotamer1Ave>
+179.63  179.95  
+
+> <Rotamer1Bins>
+6       6       
+
+> <Rotamer1Count>
+245 
+
+> <Rotamer1Std>
+4.926   6.709   
+
+> <Rotamer20Ave>
+334.46  244.82  
+
+> <Rotamer20Bins>
+11      8       
+
+> <Rotamer20Count>
+6 
+
+> <Rotamer20Std>
+8.654   4.846   
+
+> <Rotamer21Ave>
+361.64  68.15   
+
+> <Rotamer21Bins>
+12      2       
+
+> <Rotamer21Count>
+14 
+
+> <Rotamer21Std>
+7.127   5.408   
+
+> <Rotamer22Ave>
+148.94  300.73  
+
+> <Rotamer22Bins>
+5       10      
+
+> <Rotamer22Count>
+6 
+
+> <Rotamer22Std>
+7.792   9.996   
+
+> <Rotamer23Ave>
+154.13  181.77  
+
+> <Rotamer23Bins>
+5       6       
+
+> <Rotamer23Count>
+5 
+
+> <Rotamer23Std>
+6.769   5.256   
+
+> <Rotamer24Ave>
+206.43  120.82  
+
+> <Rotamer24Bins>
+7       4       
+
+> <Rotamer24Count>
+11 
+
+> <Rotamer24Std>
+8.468   8.887   
+
+> <Rotamer25Ave>
+48.02   86.06   
+
+> <Rotamer25Bins>
+2       3       
+
+> <Rotamer25Count>
+8 
+
+> <Rotamer25Std>
+3.474   6.432   
+
+> <Rotamer26Ave>
+21.77   151.68  
+
+> <Rotamer26Bins>
+1       5       
+
+> <Rotamer26Count>
+5 
+
+> <Rotamer26Std>
+5.852   8.613   
+
+> <Rotamer27Ave>
+358.77  154.21  
+
+> <Rotamer27Bins>
+12      5       
+
+> <Rotamer27Count>
+8 
+
+> <Rotamer27Std>
+5.615   6.713   
+
+> <Rotamer28Ave>
+156.90  279.45  
+
+> <Rotamer28Bins>
+5       9       
+
+> <Rotamer28Count>
+5 
+
+> <Rotamer28Std>
+5.208   3.289   
+
+> <Rotamer29Ave>
+209.88  61.85   
+
+> <Rotamer29Bins>
+7       2       
+
+> <Rotamer29Count>
+6 
+
+> <Rotamer29Std>
+8.322   9.728   
+
+> <Rotamer2Ave>
+180.15  63.79   
+
+> <Rotamer2Bins>
+6       2       
+
+> <Rotamer2Count>
+101 
+
+> <Rotamer2Std>
+5.959   5.889   
+
+> <Rotamer30Ave>
+212.53  180.79  
+
+> <Rotamer30Bins>
+7       6       
+
+> <Rotamer30Count>
+5 
+
+> <Rotamer30Std>
+6.403   11.022  
+
+> <Rotamer31Ave>
+208.57  89.23   
+
+> <Rotamer31Bins>
+7       3       
+
+> <Rotamer31Count>
+11 
+
+> <Rotamer31Std>
+10.102  8.061   
+
+> <Rotamer3Ave>
+178.59  297.29  
+
+> <Rotamer3Bins>
+6       10      
+
+> <Rotamer3Count>
+94 
+
+> <Rotamer3Std>
+5.560   5.276   
+
+> <Rotamer4Ave>
+180.49  87.88   
+
+> <Rotamer4Bins>
+6       3       
+
+> <Rotamer4Count>
+187 
+
+> <Rotamer4Std>
+6.227   7.275   
+
+> <Rotamer5Ave>
+180.02  270.66  
+
+> <Rotamer5Bins>
+6       9       
+
+> <Rotamer5Count>
+169 
+
+> <Rotamer5Std>
+5.934   7.063   
+
+> <Rotamer6Ave>
+179.28  117.53  
+
+> <Rotamer6Bins>
+6       4       
+
+> <Rotamer6Count>
+72 
+
+> <Rotamer6Std>
+6.454   8.552   
+
+> <Rotamer7Ave>
+359.54  86.35   
+
+> <Rotamer7Bins>
+12      3       
+
+> <Rotamer7Count>
+39 
+
+> <Rotamer7Std>
+7.137   5.934   
+
+> <Rotamer8Ave>
+181.89  207.48  
+
+> <Rotamer8Bins>
+6       7       
+
+> <Rotamer8Count>
+64 
+
+> <Rotamer8Std>
+5.802   8.445   
+
+> <Rotamer9Ave>
+359.51  273.75  
+
+> <Rotamer9Bins>
+12      9       
+
+> <Rotamer9Count>
+43 
+
+> <Rotamer9Std>
+6.222   6.159   
+
+> <ScaffoldCount>
+1342 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  5  4  0  0  0  0  0  0  0  0999 V2000
+   -0.9361    9.5856    3.0658 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.3560    9.7291    3.7290 N   0  0  0  0  0  2  0  0  0  0  0  0
+    0.1828    9.1540    3.7147 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -0.9387   10.3280    1.8016 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -2.3713   10.7161    1.4898 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  3  1  0  0  0  0
+  1  4  1  0  0  0  0
+  2  3  2  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_Tr2TrTrPi C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+224
+
+> <MatchIndices>
+28 
+
+> <NRotamers>
+22 
+
+> <Rotamer10Ave>
+361.44  84.51   
+
+> <Rotamer10Bins>
+12      3       
+
+> <Rotamer10Count>
+30 
+
+> <Rotamer10Std>
+5.634   6.616   
+
+> <Rotamer11Ave>
+363.63  203.99  
+
+> <Rotamer11Bins>
+12      7       
+
+> <Rotamer11Count>
+16 
+
+> <Rotamer11Std>
+5.095   6.999   
+
+> <Rotamer12Ave>
+359.76  273.37  
+
+> <Rotamer12Bins>
+12      9       
+
+> <Rotamer12Count>
+29 
+
+> <Rotamer12Std>
+6.101   8.565   
+
+> <Rotamer13Ave>
+361.17  119.11  
+
+> <Rotamer13Bins>
+12      4       
+
+> <Rotamer13Count>
+11 
+
+> <Rotamer13Std>
+5.812   8.850   
+
+> <Rotamer14Ave>
+177.71  271.73  
+
+> <Rotamer14Bins>
+6       9       
+
+> <Rotamer14Count>
+15 
+
+> <Rotamer14Std>
+4.872   7.177   
+
+> <Rotamer15Ave>
+201.26  240.02  
+
+> <Rotamer15Bins>
+7       8       
+
+> <Rotamer15Count>
+5 
+
+> <Rotamer15Std>
+7.919   5.674   
+
+> <Rotamer16Ave>
+359.32  157.61  
+
+> <Rotamer16Bins>
+12      5       
+
+> <Rotamer16Count>
+16 
+
+> <Rotamer16Std>
+7.024   6.269   
+
+> <Rotamer17Ave>
+182.25  241.93  
+
+> <Rotamer17Bins>
+6       8       
+
+> <Rotamer17Count>
+14 
+
+> <Rotamer17Std>
+8.060   8.329   
+
+> <Rotamer18Ave>
+179.52  116.46  
+
+> <Rotamer18Bins>
+6       4       
+
+> <Rotamer18Count>
+11 
+
+> <Rotamer18Std>
+8.194   8.101   
+
+> <Rotamer19Ave>
+176.60  152.51  
+
+> <Rotamer19Bins>
+6       5       
+
+> <Rotamer19Count>
+6 
+
+> <Rotamer19Std>
+3.466   7.743   
+
+> <Rotamer1Ave>
+26.33   184.80  
+
+> <Rotamer1Bins>
+1       6       
+
+> <Rotamer1Count>
+9 
+
+> <Rotamer1Std>
+9.581   10.529  
+
+> <Rotamer20Ave>
+328.79  302.70  
+
+> <Rotamer20Bins>
+11      10      
+
+> <Rotamer20Count>
+7 
+
+> <Rotamer20Std>
+9.746   11.078  
+
+> <Rotamer21Ave>
+28.38   82.82   
+
+> <Rotamer21Bins>
+1       3       
+
+> <Rotamer21Count>
+5 
+
+> <Rotamer21Std>
+6.034   10.116  
+
+> <Rotamer22Ave>
+362.92  242.79  
+
+> <Rotamer22Bins>
+12      8       
+
+> <Rotamer22Count>
+9 
+
+> <Rotamer22Std>
+4.780   7.008   
+
+> <Rotamer2Ave>
+180.08  183.35  
+
+> <Rotamer2Bins>
+6       6       
+
+> <Rotamer2Count>
+9 
+
+> <Rotamer2Std>
+5.067   5.864   
+
+> <Rotamer3Ave>
+211.82  65.07   
+
+> <Rotamer3Bins>
+7       2       
+
+> <Rotamer3Count>
+5 
+
+> <Rotamer3Std>
+8.297   4.501   
+
+> <Rotamer4Ave>
+26.64   65.45   
+
+> <Rotamer4Bins>
+1       2       
+
+> <Rotamer4Count>
+9 
+
+> <Rotamer4Std>
+9.277   7.654   
+
+> <Rotamer5Ave>
+361.51  180.13  
+
+> <Rotamer5Bins>
+12      6       
+
+> <Rotamer5Count>
+38 
+
+> <Rotamer5Std>
+7.098   7.322   
+
+> <Rotamer6Ave>
+181.25  90.57   
+
+> <Rotamer6Bins>
+6       3       
+
+> <Rotamer6Count>
+15 
+
+> <Rotamer6Std>
+5.789   7.961   
+
+> <Rotamer7Ave>
+180.85  215.43  
+
+> <Rotamer7Bins>
+6       7       
+
+> <Rotamer7Count>
+9 
+
+> <Rotamer7Std>
+3.849   6.485   
+
+> <Rotamer8Ave>
+358.84  295.55  
+
+> <Rotamer8Bins>
+12      10      
+
+> <Rotamer8Count>
+30 
+
+> <Rotamer8Std>
+7.596   5.435   
+
+> <Rotamer9Ave>
+361.20  64.83   
+
+> <Rotamer9Bins>
+12      2       
+
+> <Rotamer9Count>
+38 
+
+> <Rotamer9Std>
+7.268   6.405   
+
+> <ScaffoldCount>
+336 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    5.1617    1.0560    1.3788 N   0  0  0  0  0  3  0  0  0  0  0  0
+    5.0119    1.2331    3.7033 N   0  0  0  0  0  3  0  0  0  0  0  0
+    7.0774    0.9329    2.7500 N   0  0  0  0  0  2  0  0  0  0  0  0
+    5.7649    1.0787    2.6082 C   0  0  0  1  0  3  0  0  0  0  0  0
+    5.5252    1.4699    5.0754 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.2922    1.7123    5.9496 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  4  1  0  0  0  0
+  2  4  1  0  0  0  0
+  2  5  1  0  0  0  0
+  3  4  2  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_TrTrTrPi2 N_Tr2TrTrPi C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+112
+
+> <MatchIndices>
+23 
+
+> <NRotamers>
+9 
+
+> <Rotamer1Ave>
+182.59  182.53  
+
+> <Rotamer1Bins>
+6       6       
+
+> <Rotamer1Count>
+14 
+
+> <Rotamer1Std>
+7.832   9.159   
+
+> <Rotamer2Ave>
+181.10  64.76   
+
+> <Rotamer2Bins>
+6       2       
+
+> <Rotamer2Count>
+11 
+
+> <Rotamer2Std>
+9.347   7.257   
+
+> <Rotamer3Ave>
+181.88  118.11  
+
+> <Rotamer3Bins>
+6       4       
+
+> <Rotamer3Count>
+7 
+
+> <Rotamer3Std>
+7.534   9.010   
+
+> <Rotamer4Ave>
+178.16  295.45  
+
+> <Rotamer4Bins>
+6       10      
+
+> <Rotamer4Count>
+8 
+
+> <Rotamer4Std>
+9.076   4.845   
+
+> <Rotamer5Ave>
+180.84  274.13  
+
+> <Rotamer5Bins>
+6       9       
+
+> <Rotamer5Count>
+11 
+
+> <Rotamer5Std>
+7.519   8.365   
+
+> <Rotamer6Ave>
+359.51  274.85  
+
+> <Rotamer6Bins>
+12      9       
+
+> <Rotamer6Count>
+5 
+
+> <Rotamer6Std>
+4.422   9.558   
+
+> <Rotamer7Ave>
+179.60  91.90   
+
+> <Rotamer7Bins>
+6       3       
+
+> <Rotamer7Count>
+6 
+
+> <Rotamer7Std>
+7.433   6.274   
+
+> <Rotamer8Ave>
+185.80  245.01  
+
+> <Rotamer8Bins>
+6       8       
+
+> <Rotamer8Count>
+5 
+
+> <Rotamer8Std>
+4.655   8.390   
+
+> <Rotamer9Ave>
+211.85  64.25   
+
+> <Rotamer9Bins>
+7       2       
+
+> <Rotamer9Count>
+5 
+
+> <Rotamer9Std>
+7.734   8.882   
+
+> <ScaffoldCount>
+72 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 11 11  0  0  0  0  0  0  0  0999 V2000
+    2.0993    5.2491    9.2353 S   0  0  0  1  0  4  0  0  0  0  0  0
+    3.3700    5.2835    8.6036 O   0  0  0  1  0  1  0  0  0  0  0  0
+    1.1367    4.3080    8.7914 O   0  0  0  1  0  1  0  0  0  0  0  0
+    2.3112    4.9061   10.8275 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.4387    7.5075    7.8750 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.4280    7.2953    6.9700 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5092    8.3091    7.5344 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.3990    6.8840    9.2403 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.5716    8.8783    6.2703 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5057    7.8699    5.7099 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.5722    8.6501    5.3745 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  2  0  0  0  0
+  1  4  1  0  0  0  0
+  1  8  1  0  0  0  0
+  5  6  1  0  0  0  0
+  5  7  2  0  0  0  0
+  5  8  1  0  0  0  0
+  6 10  2  0  0  0  0
+  7  9  1  0  0  0  0
+  9 11  2  0  0  0  0
+ 10 11  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+12
+
+> <MatchIndices>
+5 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+360.74  359.23  176.82  87.36   360.22  359.83  360.36  359.61  
+
+> <Rotamer1Bins>
+12      12      6       3       12      12      12      12      
+
+> <Rotamer1Count>
+7 
+
+> <Rotamer1Std>
+0.688   0.719   8.560   6.848   0.735   0.561   0.604   0.437   
+
+> <ScaffoldCount>
+7 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  9  9  0  0  0  0  0  0  0  0999 V2000
+    2.0993    5.2491    9.2353 S   0  0  0  0  0  4  0  0  0  0  0  0
+    2.3112    4.9061   10.8275 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.4387    7.5075    7.8750 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.4280    7.2953    6.9700 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5092    8.3091    7.5344 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.3990    6.8840    9.2403 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.5716    8.8783    6.2703 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5057    7.8699    5.7099 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.5722    8.6501    5.3745 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  1  6  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  5  2  0  0  0  0
+  3  6  1  0  0  0  0
+  4  8  2  0  0  0  0
+  5  7  1  0  0  0  0
+  7  9  2  0  0  0  0
+  8  9  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+12
+
+> <MatchIndices>
+9 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+360.74  359.23  176.82  87.36   360.22  359.83  360.36  359.61  
+
+> <Rotamer1Bins>
+12      12      6       3       12      12      12      12      
+
+> <Rotamer1Count>
+7 
+
+> <Rotamer1Std>
+0.688   0.719   8.560   6.848   0.735   0.561   0.604   0.437   
+
+> <ScaffoldCount>
+7 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+   -2.1476   10.5376    3.3389 S   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.7308    9.2233    3.6993 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -3.5040   10.4291    2.5119 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.2844   11.5623    5.7255 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.5052   11.3951    4.8641 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -4.6046    9.5932    2.9745 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  5  1  0  0  0  0
+  3  6  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+12
+
+> <MatchIndices>
+22 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+174.01  58.08   
+
+> <Rotamer1Bins>
+6       2       
+
+> <Rotamer1Count>
+5 
+
+> <Rotamer1Std>
+4.415   3.081   
+
+> <ScaffoldCount>
+5 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 10 10  0  0  0  0  0  0  0  0999 V2000
+    2.0993    5.2491    9.2353 S   0  0  0  0  0  4  0  0  0  0  0  0
+    3.3700    5.2835    8.6036 O   0  0  0  1  0  1  0  0  0  0  0  0
+    2.3112    4.9061   10.8275 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.4387    7.5075    7.8750 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.4280    7.2953    6.9700 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5092    8.3091    7.5344 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.3990    6.8840    9.2403 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.5716    8.8783    6.2703 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5057    7.8699    5.7099 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.5722    8.6501    5.3745 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  7  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  6  2  0  0  0  0
+  4  7  1  0  0  0  0
+  5  9  2  0  0  0  0
+  6  8  1  0  0  0  0
+  8 10  2  0  0  0  0
+  9 10  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+12
+
+> <MatchIndices>
+7 
+
+> <NRotamers>
+2 
+
+> <Rotamer1Ave>
+360.74  359.23  60.58   87.36   360.22  359.83  360.36  359.61  
+
+> <Rotamer1Bins>
+12      12      2       3       12      12      12      12      
+
+> <Rotamer1Count>
+7 
+
+> <Rotamer1Std>
+0.688   0.719   8.025   6.848   0.735   0.561   0.604   0.437   
+
+> <Rotamer2Ave>
+360.44  359.49  297.10  87.27   360.09  360.04  360.41  359.53  
+
+> <Rotamer2Bins>
+12      12      10      3       12      12      12      12      
+
+> <Rotamer2Count>
+6 
+
+> <Rotamer2Std>
+0.709   0.777   5.834   7.418   0.795   0.549   0.648   0.448   
+
+> <ScaffoldCount>
+13 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+ 10 10  0  0  0  0  0  0  0  0999 V2000
+    2.0993    5.2491    9.2353 S   0  0  0  0  0  4  0  0  0  0  0  0
+    1.1367    4.3080    8.7914 O   0  0  0  1  0  1  0  0  0  0  0  0
+    2.3112    4.9061   10.8275 N   0  0  0  0  0  3  0  0  0  0  0  0
+    1.4387    7.5075    7.8750 C   0  0  0  1  0  3  0  0  0  0  0  0
+    0.4280    7.2953    6.9700 C   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5092    8.3091    7.5344 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.3990    6.8840    9.2403 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.5716    8.8783    6.2703 C   0  0  0  0  0  3  0  0  0  0  0  0
+    0.5057    7.8699    5.7099 C   0  0  0  0  0  3  0  0  0  0  0  0
+    1.5722    8.6501    5.3745 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  7  1  0  0  0  0
+  4  5  1  0  0  0  0
+  4  6  2  0  0  0  0
+  4  7  1  0  0  0  0
+  5  9  2  0  0  0  0
+  6  8  1  0  0  0  0
+  8 10  2  0  0  0  0
+  9 10  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi C_TeTeTeTe C_TrTrTrPi C_TrTrTrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+true
+
+> <Counts>
+12
+
+> <MatchIndices>
+6 
+
+> <NRotamers>
+2 
+
+> <Rotamer1Ave>
+360.66  359.29  62.29   87.45   360.19  359.90  360.38  359.57  
+
+> <Rotamer1Bins>
+12      12      2       3       12      12      12      12      
+
+> <Rotamer1Count>
+6 
+
+> <Rotamer1Std>
+0.712   0.759   7.380   7.393   0.789   0.579   0.651   0.462   
+
+> <Rotamer2Ave>
+360.44  359.49  297.10  87.27   360.09  360.04  360.41  359.53  
+
+> <Rotamer2Bins>
+12      12      10      3       12      12      12      12      
+
+> <Rotamer2Count>
+6 
+
+> <Rotamer2Std>
+0.709   0.777   5.834   7.418   0.795   0.549   0.648   0.448   
+
+> <ScaffoldCount>
+12 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+   -2.1476   10.5376    3.3389 S   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.2656   11.3540    2.5806 O   0  0  0  1  0  1  0  0  0  0  0  0
+   -3.5040   10.4291    2.5119 N   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.2844   11.5623    5.7255 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -2.5052   11.3951    4.8641 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -4.6046    9.5932    2.9745 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  2  0  0  0  0
+  1  3  1  0  0  0  0
+  1  5  1  0  0  0  0
+  3  6  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM S_TeTeTeTePiPi O_Tr2Tr2TrPi N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+12
+
+> <MatchIndices>
+21 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+174.01  58.08   
+
+> <Rotamer1Bins>
+6       2       
+
+> <Rotamer1Count>
+5 
+
+> <Rotamer1Std>
+4.415   3.081   
+
+> <ScaffoldCount>
+5 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    1.3969    1.9998    7.5516 N   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5460    1.1496    7.3106 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.4409    0.4124    5.9948 C   0  0  0  0  0  4  0  0  0  0  0  0
+    3.7136   -0.3427    5.6527 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.7811    0.5359    5.2130 N   0  0  0  0  0  3  0  0  0  0  0  0
+    5.0139    0.7940    3.9308 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+36
+
+> <MatchIndices>
+20 
+
+> <NRotamers>
+9 
+
+> <Rotamer1Ave>
+177.30  175.70  174.27  
+
+> <Rotamer1Bins>
+6       6       6       
+
+> <Rotamer1Count>
+7 
+
+> <Rotamer1Std>
+3.834   0.599   7.496   
+
+> <Rotamer2Ave>
+298.69  301.72  266.57  
+
+> <Rotamer2Bins>
+10      10      9       
+
+> <Rotamer2Count>
+7 
+
+> <Rotamer2Std>
+4.632   4.193   4.198   
+
+> <Rotamer3Ave>
+303.52  303.66  153.68  
+
+> <Rotamer3Bins>
+10      10      5       
+
+> <Rotamer3Count>
+9 
+
+> <Rotamer3Std>
+6.745   6.789   6.689   
+
+> <Rotamer4Ave>
+299.90  302.59  97.09   
+
+> <Rotamer4Bins>
+10      10      3       
+
+> <Rotamer4Count>
+5 
+
+> <Rotamer4Std>
+3.543   6.817   3.889   
+
+> <Rotamer5Ave>
+176.64  181.94  90.89   
+
+> <Rotamer5Bins>
+6       6       3       
+
+> <Rotamer5Count>
+6 
+
+> <Rotamer5Std>
+4.451   7.392   5.985   
+
+> <Rotamer6Ave>
+56.16   61.55   260.28  
+
+> <Rotamer6Bins>
+2       2       9       
+
+> <Rotamer6Count>
+6 
+
+> <Rotamer6Std>
+5.303   5.053   3.226   
+
+> <Rotamer7Ave>
+59.69   57.24   94.13   
+
+> <Rotamer7Bins>
+2       2       3       
+
+> <Rotamer7Count>
+6 
+
+> <Rotamer7Std>
+5.251   4.730   9.350   
+
+> <Rotamer8Ave>
+305.15  304.58  122.65  
+
+> <Rotamer8Bins>
+10      10      4       
+
+> <Rotamer8Count>
+8 
+
+> <Rotamer8Std>
+6.242   8.262   11.456  
+
+> <Rotamer9Ave>
+57.55   58.44   241.93  
+
+> <Rotamer9Bins>
+2       2       8       
+
+> <Rotamer9Count>
+6 
+
+> <Rotamer9Std>
+6.088   2.261   5.269   
+
+> <ScaffoldCount>
+60 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  7  6  0  0  0  0  0  0  0  0999 V2000
+    1.9675    6.8036   22.7601 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.8981    7.1195   21.7168 C   0  0  0  0  0  4  0  0  0  0  0  0
+    1.4441    7.4812   20.3400 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.1923    8.7355   20.3546 N   0  0  0  0  0  3  0  0  0  0  0  0
+    0.3570   10.0580   20.2720 O   0  0  0  1  0  1  0  0  0  0  0  0
+    1.5768    9.9256   20.3440 C   0  0  0  1  0  3  0  0  0  0  0  0
+    2.4605   11.1509   20.4825 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  6  1  0  0  0  0
+  5  6  2  0  0  0  0
+  6  7  1  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 O_Tr2Tr2TrPi C_TrTrTrPi C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+307
+
+> <MatchIndices>
+14 
+
+> <NRotamers>
+38 
+
+> <Rotamer10Ave>
+302.55  294.87  358.77  
+
+> <Rotamer10Bins>
+10      10      12      
+
+> <Rotamer10Count>
+110 
+
+> <Rotamer10Std>
+5.114   5.552   4.800   
+
+> <Rotamer11Ave>
+179.45  243.53  360.23  
+
+> <Rotamer11Bins>
+6       8       12      
+
+> <Rotamer11Count>
+30 
+
+> <Rotamer11Std>
+5.727   8.499   3.088   
+
+> <Rotamer12Ave>
+60.03   210.55  361.14  
+
+> <Rotamer12Bins>
+2       7       12      
+
+> <Rotamer12Count>
+42 
+
+> <Rotamer12Std>
+5.247   8.499   4.342   
+
+> <Rotamer13Ave>
+61.78   90.47   358.91  
+
+> <Rotamer13Bins>
+2       3       12      
+
+> <Rotamer13Count>
+62 
+
+> <Rotamer13Std>
+6.863   8.612   4.895   
+
+> <Rotamer14Ave>
+61.41   261.57  361.72  
+
+> <Rotamer14Bins>
+2       9       12      
+
+> <Rotamer14Count>
+26 
+
+> <Rotamer14Std>
+6.953   5.027   5.404   
+
+> <Rotamer15Ave>
+297.16  247.17  362.45  
+
+> <Rotamer15Bins>
+10      8       12      
+
+> <Rotamer15Count>
+19 
+
+> <Rotamer15Std>
+4.117   7.319   5.343   
+
+> <Rotamer16Ave>
+295.97  201.80  359.64  
+
+> <Rotamer16Bins>
+10      7       12      
+
+> <Rotamer16Count>
+10 
+
+> <Rotamer16Std>
+7.512   8.350   5.216   
+
+> <Rotamer17Ave>
+185.07  290.64  359.06  
+
+> <Rotamer17Bins>
+6       10      12      
+
+> <Rotamer17Count>
+8 
+
+> <Rotamer17Std>
+6.749   2.725   5.226   
+
+> <Rotamer18Ave>
+200.31  174.50  360.87  
+
+> <Rotamer18Bins>
+7       6       12      
+
+> <Rotamer18Count>
+7 
+
+> <Rotamer18Std>
+4.616   5.613   4.629   
+
+> <Rotamer19Ave>
+299.35  120.15  359.08  
+
+> <Rotamer19Bins>
+10      4       12      
+
+> <Rotamer19Count>
+201 
+
+> <Rotamer19Std>
+5.262   8.404   5.102   
+
+> <Rotamer1Ave>
+299.45  274.21  359.68  
+
+> <Rotamer1Bins>
+10      9       12      
+
+> <Rotamer1Count>
+41 
+
+> <Rotamer1Std>
+8.037   9.263   4.844   
+
+> <Rotamer20Ave>
+179.40  117.50  359.03  
+
+> <Rotamer20Bins>
+6       4       12      
+
+> <Rotamer20Count>
+103 
+
+> <Rotamer20Std>
+5.308   8.196   5.404   
+
+> <Rotamer21Ave>
+60.92   115.05  357.43  
+
+> <Rotamer21Bins>
+2       4       12      
+
+> <Rotamer21Count>
+45 
+
+> <Rotamer21Std>
+5.252   7.878   4.479   
+
+> <Rotamer22Ave>
+78.74   242.43  362.07  
+
+> <Rotamer22Bins>
+3       8       12      
+
+> <Rotamer22Count>
+6 
+
+> <Rotamer22Std>
+3.697   6.384   1.870   
+
+> <Rotamer23Ave>
+298.89  150.28  358.42  
+
+> <Rotamer23Bins>
+10      5       12      
+
+> <Rotamer23Count>
+156 
+
+> <Rotamer23Std>
+5.663   9.024   4.458   
+
+> <Rotamer24Ave>
+298.99  149.22  343.43  
+
+> <Rotamer24Bins>
+10      5       11      
+
+> <Rotamer24Count>
+5 
+
+> <Rotamer24Std>
+3.533   9.822   1.517   
+
+> <Rotamer25Ave>
+66.17   150.50  358.11  
+
+> <Rotamer25Bins>
+2       5       12      
+
+> <Rotamer25Count>
+30 
+
+> <Rotamer25Std>
+4.504   7.536   4.079   
+
+> <Rotamer26Ave>
+159.71  186.94  356.77  
+
+> <Rotamer26Bins>
+5       6       12      
+
+> <Rotamer26Count>
+10 
+
+> <Rotamer26Std>
+3.500   4.700   3.743   
+
+> <Rotamer27Ave>
+179.78  205.38  361.61  
+
+> <Rotamer27Bins>
+6       7       12      
+
+> <Rotamer27Count>
+38 
+
+> <Rotamer27Std>
+6.003   8.439   5.681   
+
+> <Rotamer28Ave>
+179.36  264.65  177.86  
+
+> <Rotamer28Bins>
+6       9       6       
+
+> <Rotamer28Count>
+9 
+
+> <Rotamer28Std>
+5.342   7.450   8.270   
+
+> <Rotamer29Ave>
+180.68  88.54   181.53  
+
+> <Rotamer29Bins>
+6       3       6       
+
+> <Rotamer29Count>
+10 
+
+> <Rotamer29Std>
+4.656   7.799   6.528   
+
+> <Rotamer2Ave>
+180.09  181.09  360.60  
+
+> <Rotamer2Bins>
+6       6       12      
+
+> <Rotamer2Count>
+164 
+
+> <Rotamer2Std>
+6.499   9.140   5.419   
+
+> <Rotamer30Ave>
+180.59  268.52  360.84  
+
+> <Rotamer30Bins>
+6       9       12      
+
+> <Rotamer30Count>
+33 
+
+> <Rotamer30Std>
+6.329   8.504   5.038   
+
+> <Rotamer31Ave>
+201.26  89.46   356.89  
+
+> <Rotamer31Bins>
+7       3       12      
+
+> <Rotamer31Count>
+9 
+
+> <Rotamer31Std>
+3.638   7.862   4.212   
+
+> <Rotamer32Ave>
+279.33  178.67  360.09  
+
+> <Rotamer32Bins>
+9       6       12      
+
+> <Rotamer32Count>
+14 
+
+> <Rotamer32Std>
+4.694   8.114   3.670   
+
+> <Rotamer33Ave>
+79.73   178.91  361.73  
+
+> <Rotamer33Bins>
+3       6       12      
+
+> <Rotamer33Count>
+5 
+
+> <Rotamer33Std>
+3.952   8.535   2.873   
+
+> <Rotamer34Ave>
+176.62  64.74   364.64  
+
+> <Rotamer34Bins>
+6       2       12      
+
+> <Rotamer34Count>
+5 
+
+> <Rotamer34Std>
+5.757   8.548   4.102   
+
+> <Rotamer35Ave>
+278.43  116.82  356.42  
+
+> <Rotamer35Bins>
+9       4       12      
+
+> <Rotamer35Count>
+5 
+
+> <Rotamer35Std>
+4.941   4.812   4.020   
+
+> <Rotamer36Ave>
+276.33  151.82  356.21  
+
+> <Rotamer36Bins>
+9       5       12      
+
+> <Rotamer36Count>
+6 
+
+> <Rotamer36Std>
+5.008   9.425   4.931   
+
+> <Rotamer37Ave>
+78.56   154.11  358.50  
+
+> <Rotamer37Bins>
+3       5       12      
+
+> <Rotamer37Count>
+5 
+
+> <Rotamer37Std>
+2.697   5.791   4.431   
+
+> <Rotamer38Ave>
+199.39  153.35  361.44  
+
+> <Rotamer38Bins>
+7       5       12      
+
+> <Rotamer38Count>
+5 
+
+> <Rotamer38Std>
+4.794   8.355   1.480   
+
+> <Rotamer3Ave>
+64.02   181.13  361.35  
+
+> <Rotamer3Bins>
+2       6       12      
+
+> <Rotamer3Count>
+90 
+
+> <Rotamer3Std>
+5.731   7.983   4.099   
+
+> <Rotamer4Ave>
+179.80  151.40  359.06  
+
+> <Rotamer4Bins>
+6       5       12      
+
+> <Rotamer4Count>
+88 
+
+> <Rotamer4Std>
+5.485   9.330   4.422   
+
+> <Rotamer5Ave>
+61.07   242.85  361.36  
+
+> <Rotamer5Bins>
+2       8       12      
+
+> <Rotamer5Count>
+81 
+
+> <Rotamer5Std>
+5.741   8.594   5.101   
+
+> <Rotamer6Ave>
+181.83  93.66   360.48  
+
+> <Rotamer6Bins>
+6       3       12      
+
+> <Rotamer6Count>
+62 
+
+> <Rotamer6Std>
+6.625   8.230   5.146   
+
+> <Rotamer7Ave>
+294.86  176.67  358.08  
+
+> <Rotamer7Bins>
+10      6       12      
+
+> <Rotamer7Count>
+110 
+
+> <Rotamer7Std>
+4.876   8.102   5.071   
+
+> <Rotamer8Ave>
+299.12  99.60   360.54  
+
+> <Rotamer8Bins>
+10      3       12      
+
+> <Rotamer8Count>
+50 
+
+> <Rotamer8Std>
+6.466   3.374   4.939   
+
+> <Rotamer9Ave>
+58.69   64.14   361.38  
+
+> <Rotamer9Bins>
+2       2       12      
+
+> <Rotamer9Count>
+103 
+
+> <Rotamer9Std>
+5.398   5.859   5.212   
+
+> <ScaffoldCount>
+1803 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+   -0.1191    8.2564    0.5510 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.1191    7.2472   -0.5510 C   0  0  0  0  0  4  0  0  0  0  0  0
+    0.3125    5.8216   -0.0423 C   0  0  0  0  0  4  0  0  0  0  0  0
+    1.4672    5.6642    0.8120 N   0  0  0  0  0  3  0  0  0  0  0  0
+    2.9132    5.1991   -0.8499 O   0  0  0  1  0  1  0  0  0  0  0  0
+    2.6675    5.3627    0.3465 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  6  1  0  0  0  0
+  5  6  2  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 O_Tr2Tr2TrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+719
+
+> <MatchIndices>
+19 
+
+> <NRotamers>
+62 
+
+> <Rotamer10Ave>
+60.70   242.32  361.00  
+
+> <Rotamer10Bins>
+2       8       12      
+
+> <Rotamer10Count>
+168 
+
+> <Rotamer10Std>
+6.055   8.377   5.525   
+
+> <Rotamer11Ave>
+181.44  92.29   360.05  
+
+> <Rotamer11Bins>
+6       3       12      
+
+> <Rotamer11Count>
+146 
+
+> <Rotamer11Std>
+5.915   8.674   5.041   
+
+> <Rotamer12Ave>
+295.28  176.95  358.47  
+
+> <Rotamer12Bins>
+10      6       12      
+
+> <Rotamer12Count>
+187 
+
+> <Rotamer12Std>
+5.258   7.594   5.816   
+
+> <Rotamer13Ave>
+61.67   115.82  357.57  
+
+> <Rotamer13Bins>
+2       4       12      
+
+> <Rotamer13Count>
+83 
+
+> <Rotamer13Std>
+5.686   8.245   4.775   
+
+> <Rotamer14Ave>
+298.79  99.68   359.69  
+
+> <Rotamer14Bins>
+10      3       12      
+
+> <Rotamer14Count>
+108 
+
+> <Rotamer14Std>
+6.326   3.868   5.334   
+
+> <Rotamer15Ave>
+58.66   64.23   361.18  
+
+> <Rotamer15Bins>
+2       2       12      
+
+> <Rotamer15Count>
+139 
+
+> <Rotamer15Std>
+5.499   5.738   5.799   
+
+> <Rotamer16Ave>
+302.60  295.20  358.79  
+
+> <Rotamer16Bins>
+10      10      12      
+
+> <Rotamer16Count>
+134 
+
+> <Rotamer16Std>
+5.440   5.736   5.294   
+
+> <Rotamer17Ave>
+60.73   211.41  361.54  
+
+> <Rotamer17Bins>
+2       7       12      
+
+> <Rotamer17Count>
+82 
+
+> <Rotamer17Std>
+5.966   8.354   4.998   
+
+> <Rotamer18Ave>
+62.25   261.64  361.21  
+
+> <Rotamer18Bins>
+2       9       12      
+
+> <Rotamer18Count>
+58 
+
+> <Rotamer18Std>
+6.377   4.847   5.983   
+
+> <Rotamer19Ave>
+322.74  271.81  361.57  
+
+> <Rotamer19Bins>
+11      9       12      
+
+> <Rotamer19Count>
+7 
+
+> <Rotamer19Std>
+7.706   10.244  5.366   
+
+> <Rotamer1Ave>
+298.94  271.49  360.29  
+
+> <Rotamer1Bins>
+10      9       12      
+
+> <Rotamer1Count>
+81 
+
+> <Rotamer1Std>
+7.275   9.555   5.208   
+
+> <Rotamer20Ave>
+179.66  118.20  359.30  
+
+> <Rotamer20Bins>
+6       4       12      
+
+> <Rotamer20Count>
+174 
+
+> <Rotamer20Std>
+5.605   7.965   5.250   
+
+> <Rotamer21Ave>
+279.01  121.32  356.34  
+
+> <Rotamer21Bins>
+9       4       12      
+
+> <Rotamer21Count>
+14 
+
+> <Rotamer21Std>
+4.759   7.752   5.837   
+
+> <Rotamer22Ave>
+297.67  245.80  362.08  
+
+> <Rotamer22Bins>
+10      8       12      
+
+> <Rotamer22Count>
+38 
+
+> <Rotamer22Std>
+5.396   7.728   5.577   
+
+> <Rotamer23Ave>
+37.43   85.31   361.10  
+
+> <Rotamer23Bins>
+1       3       12      
+
+> <Rotamer23Count>
+6 
+
+> <Rotamer23Std>
+6.776   9.444   3.778   
+
+> <Rotamer24Ave>
+154.11  79.95   358.87  
+
+> <Rotamer24Bins>
+5       3       12      
+
+> <Rotamer24Count>
+5 
+
+> <Rotamer24Std>
+7.941   4.450   4.853   
+
+> <Rotamer25Ave>
+295.39  203.89  360.41  
+
+> <Rotamer25Bins>
+10      7       12      
+
+> <Rotamer25Count>
+16 
+
+> <Rotamer25Std>
+6.422   10.106  5.370   
+
+> <Rotamer26Ave>
+181.89  291.62  356.92  
+
+> <Rotamer26Bins>
+6       10      12      
+
+> <Rotamer26Count>
+12 
+
+> <Rotamer26Std>
+8.701   4.183   5.677   
+
+> <Rotamer27Ave>
+296.17  173.48  342.70  
+
+> <Rotamer27Bins>
+10      6       11      
+
+> <Rotamer27Count>
+8 
+
+> <Rotamer27Std>
+5.753   4.531   1.105   
+
+> <Rotamer28Ave>
+201.98  173.74  361.68  
+
+> <Rotamer28Bins>
+7       6       12      
+
+> <Rotamer28Count>
+15 
+
+> <Rotamer28Std>
+7.529   6.113   5.962   
+
+> <Rotamer29Ave>
+62.10   86.64   182.58  
+
+> <Rotamer29Bins>
+2       3       6       
+
+> <Rotamer29Count>
+6 
+
+> <Rotamer29Std>
+4.068   10.037  1.850   
+
+> <Rotamer2Ave>
+180.18  180.00  360.24  
+
+> <Rotamer2Bins>
+6       6       12      
+
+> <Rotamer2Count>
+373 
+
+> <Rotamer2Std>
+5.730   8.360   5.301   
+
+> <Rotamer30Ave>
+185.57  172.86  17.91   
+
+> <Rotamer30Bins>
+6       6       1       
+
+> <Rotamer30Count>
+5 
+
+> <Rotamer30Std>
+7.280   5.676   2.218   
+
+> <Rotamer31Ave>
+78.59   240.50  363.75  
+
+> <Rotamer31Bins>
+3       8       12      
+
+> <Rotamer31Count>
+7 
+
+> <Rotamer31Std>
+3.443   7.571   4.464   
+
+> <Rotamer32Ave>
+178.33  264.47  178.67  
+
+> <Rotamer32Bins>
+6       9       6       
+
+> <Rotamer32Count>
+13 
+
+> <Rotamer32Std>
+6.253   6.571   7.146   
+
+> <Rotamer33Ave>
+60.67   243.95  183.02  
+
+> <Rotamer33Bins>
+2       8       6       
+
+> <Rotamer33Count>
+5 
+
+> <Rotamer33Std>
+5.177   11.830  4.603   
+
+> <Rotamer34Ave>
+179.59  269.12  360.01  
+
+> <Rotamer34Bins>
+6       9       12      
+
+> <Rotamer34Count>
+104 
+
+> <Rotamer34Std>
+5.639   7.723   4.814   
+
+> <Rotamer35Ave>
+179.29  206.86  362.76  
+
+> <Rotamer35Bins>
+6       7       12      
+
+> <Rotamer35Count>
+80 
+
+> <Rotamer35Std>
+5.827   8.664   5.126   
+
+> <Rotamer36Ave>
+298.76  147.84  342.66  
+
+> <Rotamer36Bins>
+10      5       11      
+
+> <Rotamer36Count>
+10 
+
+> <Rotamer36Std>
+5.586   8.052   2.169   
+
+> <Rotamer37Ave>
+204.34  117.72  360.80  
+
+> <Rotamer37Bins>
+7       4       12      
+
+> <Rotamer37Count>
+6 
+
+> <Rotamer37Std>
+5.065   9.056   4.509   
+
+> <Rotamer38Ave>
+65.53   150.48  358.28  
+
+> <Rotamer38Bins>
+2       5       12      
+
+> <Rotamer38Count>
+54 
+
+> <Rotamer38Std>
+4.411   8.228   4.714   
+
+> <Rotamer39Ave>
+159.96  185.27  359.37  
+
+> <Rotamer39Bins>
+5       6       12      
+
+> <Rotamer39Count>
+16 
+
+> <Rotamer39Std>
+5.075   5.280   4.908   
+
+> <Rotamer3Ave>
+63.93   180.83  361.30  
+
+> <Rotamer3Bins>
+2       6       12      
+
+> <Rotamer3Count>
+130 
+
+> <Rotamer3Std>
+5.704   8.019   4.848   
+
+> <Rotamer40Ave>
+160.05  245.85  358.62  
+
+> <Rotamer40Bins>
+5       8       12      
+
+> <Rotamer40Count>
+7 
+
+> <Rotamer40Std>
+4.628   6.060   3.755   
+
+> <Rotamer41Ave>
+181.81  90.19   181.66  
+
+> <Rotamer41Bins>
+6       3       6       
+
+> <Rotamer41Count>
+12 
+
+> <Rotamer41Std>
+4.968   8.041   5.976   
+
+> <Rotamer42Ave>
+182.20  248.73  184.08  
+
+> <Rotamer42Bins>
+6       8       6       
+
+> <Rotamer42Count>
+8 
+
+> <Rotamer42Std>
+5.198   3.992   6.813   
+
+> <Rotamer43Ave>
+157.23  262.44  358.82  
+
+> <Rotamer43Bins>
+5       9       12      
+
+> <Rotamer43Count>
+10 
+
+> <Rotamer43Std>
+5.324   7.164   7.957   
+
+> <Rotamer44Ave>
+304.03  319.99  360.29  
+
+> <Rotamer44Bins>
+10      11      12      
+
+> <Rotamer44Count>
+5 
+
+> <Rotamer44Std>
+5.549   5.040   6.416   
+
+> <Rotamer45Ave>
+319.64  301.19  360.04  
+
+> <Rotamer45Bins>
+11      10      12      
+
+> <Rotamer45Count>
+9 
+
+> <Rotamer45Std>
+5.461   6.680   7.759   
+
+> <Rotamer46Ave>
+83.13   174.99  359.77  
+
+> <Rotamer46Bins>
+3       6       12      
+
+> <Rotamer46Count>
+9 
+
+> <Rotamer46Std>
+6.084   8.273   4.145   
+
+> <Rotamer47Ave>
+297.25  169.28  175.66  
+
+> <Rotamer47Bins>
+10      6       6       
+
+> <Rotamer47Count>
+5 
+
+> <Rotamer47Std>
+3.920   1.983   2.961   
+
+> <Rotamer48Ave>
+320.98  98.78   360.24  
+
+> <Rotamer48Bins>
+11      3       12      
+
+> <Rotamer48Count>
+5 
+
+> <Rotamer48Std>
+6.538   3.455   4.213   
+
+> <Rotamer49Ave>
+199.31  281.92  360.11  
+
+> <Rotamer49Bins>
+7       9       12      
+
+> <Rotamer49Count>
+5 
+
+> <Rotamer49Std>
+4.562   3.277   6.340   
+
+> <Rotamer4Ave>
+180.44  151.93  358.45  
+
+> <Rotamer4Bins>
+6       5       12      
+
+> <Rotamer4Count>
+158 
+
+> <Rotamer4Std>
+6.038   9.003   4.847   
+
+> <Rotamer50Ave>
+279.70  176.06  359.66  
+
+> <Rotamer50Bins>
+9       6       12      
+
+> <Rotamer50Count>
+19 
+
+> <Rotamer50Std>
+4.153   8.358   4.457   
+
+> <Rotamer51Ave>
+297.55  119.76  179.37  
+
+> <Rotamer51Bins>
+10      4       6       
+
+> <Rotamer51Count>
+10 
+
+> <Rotamer51Std>
+6.226   9.612   8.717   
+
+> <Rotamer52Ave>
+61.39   241.88  17.51   
+
+> <Rotamer52Bins>
+2       8       1       
+
+> <Rotamer52Count>
+7 
+
+> <Rotamer52Std>
+7.628   9.980   1.529   
+
+> <Rotamer53Ave>
+78.01   152.19  358.37  
+
+> <Rotamer53Bins>
+3       5       12      
+
+> <Rotamer53Count>
+6 
+
+> <Rotamer53Std>
+2.755   6.812   4.054   
+
+> <Rotamer54Ave>
+307.31  114.11  16.51   
+
+> <Rotamer54Bins>
+10      4       1       
+
+> <Rotamer54Count>
+5 
+
+> <Rotamer54Std>
+5.105   6.553   1.274   
+
+> <Rotamer55Ave>
+178.18  68.23   363.56  
+
+> <Rotamer55Bins>
+6       2       12      
+
+> <Rotamer55Count>
+10 
+
+> <Rotamer55Std>
+5.874   7.612   3.690   
+
+> <Rotamer56Ave>
+179.98  117.04  176.09  
+
+> <Rotamer56Bins>
+6       4       6       
+
+> <Rotamer56Count>
+6 
+
+> <Rotamer56Std>
+6.142   6.446   9.402   
+
+> <Rotamer57Ave>
+320.71  112.22  360.65  
+
+> <Rotamer57Bins>
+11      4       12      
+
+> <Rotamer57Count>
+5 
+
+> <Rotamer57Std>
+5.410   4.602   2.029   
+
+> <Rotamer58Ave>
+276.59  149.60  355.13  
+
+> <Rotamer58Bins>
+9       5       12      
+
+> <Rotamer58Count>
+11 
+
+> <Rotamer58Std>
+5.422   11.509  5.633   
+
+> <Rotamer59Ave>
+200.42  155.28  361.59  
+
+> <Rotamer59Bins>
+7       5       12      
+
+> <Rotamer59Count>
+7 
+
+> <Rotamer59Std>
+4.471   8.036   1.921   
+
+> <Rotamer5Ave>
+298.70  150.10  358.53  
+
+> <Rotamer5Bins>
+10      5       12      
+
+> <Rotamer5Count>
+256 
+
+> <Rotamer5Std>
+5.715   9.245   4.940   
+
+> <Rotamer60Ave>
+184.11  87.79   21.31   
+
+> <Rotamer60Bins>
+6       3       1       
+
+> <Rotamer60Count>
+6 
+
+> <Rotamer60Std>
+5.682   4.774   3.618   
+
+> <Rotamer61Ave>
+300.37  116.28  343.39  
+
+> <Rotamer61Bins>
+10      4       11      
+
+> <Rotamer61Count>
+5 
+
+> <Rotamer61Std>
+4.774   5.183   0.729   
+
+> <Rotamer62Ave>
+79.76   90.01   358.25  
+
+> <Rotamer62Bins>
+3       3       12      
+
+> <Rotamer62Count>
+5 
+
+> <Rotamer62Std>
+4.010   8.551   3.100   
+
+> <Rotamer6Ave>
+61.20   91.07   359.70  
+
+> <Rotamer6Bins>
+2       3       12      
+
+> <Rotamer6Count>
+133 
+
+> <Rotamer6Std>
+6.250   9.103   4.899   
+
+> <Rotamer7Ave>
+203.12  89.84   358.38  
+
+> <Rotamer7Bins>
+7       3       12      
+
+> <Rotamer7Count>
+13 
+
+> <Rotamer7Std>
+6.807   7.252   4.762   
+
+> <Rotamer8Ave>
+180.28  242.40  360.43  
+
+> <Rotamer8Bins>
+6       8       12      
+
+> <Rotamer8Count>
+72 
+
+> <Rotamer8Std>
+6.011   8.968   4.958   
+
+> <Rotamer9Ave>
+299.34  120.17  359.08  
+
+> <Rotamer9Bins>
+10      4       12      
+
+> <Rotamer9Count>
+345 
+
+> <Rotamer9Std>
+6.047   8.222   5.425   
+
+> <ScaffoldCount>
+3444 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    0.7917    3.8837    5.2878 C   0  0  0  0  0  4  0  0  0  0  0  0
+    1.9299    4.4424    6.1235 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.2761    5.8713    5.6980 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.7340    5.9665    4.3165 N   0  0  0  0  0  3  0  0  0  0  0  0
+    3.9863    5.7566    3.9026 C   0  0  0  0  0  3  0  0  0  0  0  0
+    4.1580    5.9064    2.4023 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+317
+
+> <MatchIndices>
+18 
+
+> <NRotamers>
+41 
+
+> <Rotamer10Ave>
+302.45  294.93  179.05  
+
+> <Rotamer10Bins>
+10      10      6       
+
+> <Rotamer10Count>
+107 
+
+> <Rotamer10Std>
+5.102   5.544   5.629   
+
+> <Rotamer11Ave>
+179.82  243.85  179.07  
+
+> <Rotamer11Bins>
+6       8       6       
+
+> <Rotamer11Count>
+31 
+
+> <Rotamer11Std>
+5.988   8.549   4.698   
+
+> <Rotamer12Ave>
+60.12   210.77  180.10  
+
+> <Rotamer12Bins>
+2       7       6       
+
+> <Rotamer12Count>
+43 
+
+> <Rotamer12Std>
+5.219   8.517   5.257   
+
+> <Rotamer13Ave>
+61.65   90.31   178.62  
+
+> <Rotamer13Bins>
+2       3       6       
+
+> <Rotamer13Count>
+63 
+
+> <Rotamer13Std>
+6.893   8.400   5.534   
+
+> <Rotamer14Ave>
+61.41   261.57  180.79  
+
+> <Rotamer14Bins>
+2       9       6       
+
+> <Rotamer14Count>
+26 
+
+> <Rotamer14Std>
+6.953   5.027   6.091   
+
+> <Rotamer15Ave>
+297.22  247.24  182.51  
+
+> <Rotamer15Bins>
+10      8       6       
+
+> <Rotamer15Count>
+20 
+
+> <Rotamer15Std>
+4.021   7.142   5.278   
+
+> <Rotamer16Ave>
+295.97  201.80  180.73  
+
+> <Rotamer16Bins>
+10      7       6       
+
+> <Rotamer16Count>
+10 
+
+> <Rotamer16Std>
+7.512   8.350   3.899   
+
+> <Rotamer17Ave>
+185.07  290.64  179.70  
+
+> <Rotamer17Bins>
+6       10      6       
+
+> <Rotamer17Count>
+8 
+
+> <Rotamer17Std>
+6.749   2.725   6.807   
+
+> <Rotamer18Ave>
+200.31  174.50  177.73  
+
+> <Rotamer18Bins>
+7       6       6       
+
+> <Rotamer18Count>
+7 
+
+> <Rotamer18Std>
+4.616   5.613   5.814   
+
+> <Rotamer19Ave>
+299.31  120.09  179.20  
+
+> <Rotamer19Bins>
+10      4       6       
+
+> <Rotamer19Count>
+197 
+
+> <Rotamer19Std>
+5.224   8.406   5.737   
+
+> <Rotamer1Ave>
+299.14  274.22  180.48  
+
+> <Rotamer1Bins>
+10      9       6       
+
+> <Rotamer1Count>
+40 
+
+> <Rotamer1Std>
+7.880   9.378   5.510   
+
+> <Rotamer20Ave>
+179.26  117.58  178.73  
+
+> <Rotamer20Bins>
+6       4       6       
+
+> <Rotamer20Count>
+98 
+
+> <Rotamer20Std>
+5.264   8.263   5.600   
+
+> <Rotamer21Ave>
+60.98   115.16  177.30  
+
+> <Rotamer21Bins>
+2       4       6       
+
+> <Rotamer21Count>
+44 
+
+> <Rotamer21Std>
+5.293   7.933   5.047   
+
+> <Rotamer22Ave>
+78.74   242.43  183.01  
+
+> <Rotamer22Bins>
+3       8       6       
+
+> <Rotamer22Count>
+6 
+
+> <Rotamer22Std>
+3.697   6.384   1.420   
+
+> <Rotamer23Ave>
+298.82  150.32  179.40  
+
+> <Rotamer23Bins>
+10      5       6       
+
+> <Rotamer23Count>
+158 
+
+> <Rotamer23Std>
+5.608   9.007   6.097   
+
+> <Rotamer24Ave>
+300.55  151.86  160.83  
+
+> <Rotamer24Bins>
+10      5       5       
+
+> <Rotamer24Count>
+6 
+
+> <Rotamer24Std>
+4.340   9.640   2.156   
+
+> <Rotamer25Ave>
+178.70  89.42   361.50  
+
+> <Rotamer25Bins>
+6       3       12      
+
+> <Rotamer25Count>
+13 
+
+> <Rotamer25Std>
+5.883   8.013   7.133   
+
+> <Rotamer26Ave>
+66.17   150.50  178.36  
+
+> <Rotamer26Bins>
+2       5       6       
+
+> <Rotamer26Count>
+30 
+
+> <Rotamer26Std>
+4.504   7.536   5.621   
+
+> <Rotamer27Ave>
+159.71  186.94  176.76  
+
+> <Rotamer27Bins>
+5       6       6       
+
+> <Rotamer27Count>
+10 
+
+> <Rotamer27Std>
+3.500   4.700   3.654   
+
+> <Rotamer28Ave>
+179.58  205.76  180.74  
+
+> <Rotamer28Bins>
+6       7       6       
+
+> <Rotamer28Count>
+39 
+
+> <Rotamer28Std>
+6.050   8.640   5.091   
+
+> <Rotamer29Ave>
+178.67  267.16  356.38  
+
+> <Rotamer29Bins>
+6       9       12      
+
+> <Rotamer29Count>
+7 
+
+> <Rotamer29Std>
+5.697   6.552   6.749   
+
+> <Rotamer2Ave>
+180.14  181.00  180.72  
+
+> <Rotamer2Bins>
+6       6       6       
+
+> <Rotamer2Count>
+163 
+
+> <Rotamer2Std>
+6.582   9.168   6.025   
+
+> <Rotamer30Ave>
+180.43  268.35  181.78  
+
+> <Rotamer30Bins>
+6       9       6       
+
+> <Rotamer30Count>
+32 
+
+> <Rotamer30Std>
+6.365   8.581   5.802   
+
+> <Rotamer31Ave>
+201.26  89.46   177.54  
+
+> <Rotamer31Bins>
+7       3       6       
+
+> <Rotamer31Count>
+9 
+
+> <Rotamer31Std>
+3.638   7.862   4.974   
+
+> <Rotamer32Ave>
+177.96  178.75  360.95  
+
+> <Rotamer32Bins>
+6       6       12      
+
+> <Rotamer32Count>
+13 
+
+> <Rotamer32Std>
+4.525   6.439   1.737   
+
+> <Rotamer33Ave>
+279.33  178.67  179.97  
+
+> <Rotamer33Bins>
+9       6       6       
+
+> <Rotamer33Count>
+14 
+
+> <Rotamer33Std>
+4.694   8.114   5.852   
+
+> <Rotamer34Ave>
+79.73   178.91  180.81  
+
+> <Rotamer34Bins>
+3       6       6       
+
+> <Rotamer34Count>
+5 
+
+> <Rotamer34Std>
+3.952   8.535   3.502   
+
+> <Rotamer35Ave>
+176.62  64.74   185.79  
+
+> <Rotamer35Bins>
+6       2       6       
+
+> <Rotamer35Count>
+5 
+
+> <Rotamer35Std>
+5.757   8.548   5.928   
+
+> <Rotamer36Ave>
+278.43  116.82  177.05  
+
+> <Rotamer36Bins>
+9       4       6       
+
+> <Rotamer36Count>
+5 
+
+> <Rotamer36Std>
+4.941   4.812   5.056   
+
+> <Rotamer37Ave>
+276.33  151.82  177.40  
+
+> <Rotamer37Bins>
+9       5       6       
+
+> <Rotamer37Count>
+6 
+
+> <Rotamer37Std>
+5.008   9.425   6.943   
+
+> <Rotamer38Ave>
+78.56   154.11  180.43  
+
+> <Rotamer38Bins>
+3       5       6       
+
+> <Rotamer38Count>
+5 
+
+> <Rotamer38Std>
+2.697   5.791   8.833   
+
+> <Rotamer39Ave>
+199.39  153.35  183.01  
+
+> <Rotamer39Bins>
+7       5       6       
+
+> <Rotamer39Count>
+5 
+
+> <Rotamer39Std>
+4.794   8.355   5.778   
+
+> <Rotamer3Ave>
+64.05   181.03  181.43  
+
+> <Rotamer3Bins>
+2       6       6       
+
+> <Rotamer3Count>
+91 
+
+> <Rotamer3Std>
+5.704   8.001   5.618   
+
+> <Rotamer40Ave>
+297.36  120.28  161.65  
+
+> <Rotamer40Bins>
+10      4       5       
+
+> <Rotamer40Count>
+5 
+
+> <Rotamer40Std>
+2.457   8.326   1.762   
+
+> <Rotamer41Ave>
+180.83  246.10  360.34  
+
+> <Rotamer41Bins>
+6       8       12      
+
+> <Rotamer41Count>
+6 
+
+> <Rotamer41Std>
+2.745   6.467   4.542   
+
+> <Rotamer4Ave>
+179.71  151.44  179.51  
+
+> <Rotamer4Bins>
+6       5       6       
+
+> <Rotamer4Count>
+89 
+
+> <Rotamer4Std>
+5.511   9.285   5.455   
+
+> <Rotamer5Ave>
+61.08   242.92  181.58  
+
+> <Rotamer5Bins>
+2       8       6       
+
+> <Rotamer5Count>
+82 
+
+> <Rotamer5Std>
+5.706   8.566   5.822   
+
+> <Rotamer6Ave>
+181.51  93.43   179.44  
+
+> <Rotamer6Bins>
+6       3       6       
+
+> <Rotamer6Count>
+63 
+
+> <Rotamer6Std>
+6.561   8.066   6.005   
+
+> <Rotamer7Ave>
+294.87  176.73  178.42  
+
+> <Rotamer7Bins>
+10      6       6       
+
+> <Rotamer7Count>
+109 
+
+> <Rotamer7Std>
+4.897   8.115   6.236   
+
+> <Rotamer8Ave>
+299.25  99.52   180.44  
+
+> <Rotamer8Bins>
+10      3       6       
+
+> <Rotamer8Count>
+49 
+
+> <Rotamer8Std>
+6.468   3.358   5.527   
+
+> <Rotamer9Ave>
+58.78   64.20   182.02  
+
+> <Rotamer9Bins>
+2       2       6       
+
+> <Rotamer9Count>
+102 
+
+> <Rotamer9Std>
+5.409   5.890   6.117   
+
+> <ScaffoldCount>
+1821 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    6.8419    0.9501    5.2637 N   0  0  0  0  0  3  0  0  0  0  0  0
+    7.7822   -1.0457    5.8563 N   0  0  0  0  0  3  0  0  0  0  0  0
+    5.2927    4.1902    4.0477 C   0  0  0  0  0  4  0  0  0  0  0  0
+    5.6550    3.0568    4.9894 C   0  0  0  0  0  4  0  0  0  0  0  0
+    6.5175    2.0125    4.3333 C   0  0  0  0  0  4  0  0  0  0  0  0
+    7.5318   -0.1442    4.9009 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  5  1  0  0  0  0
+  1  6  1  0  0  0  0
+  2  6  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+171
+
+> <MatchIndices>
+17 
+
+> <NRotamers>
+19 
+
+> <Rotamer10Ave>
+154.94  180.00  176.42  
+
+> <Rotamer10Bins>
+5       6       6       
+
+> <Rotamer10Count>
+12 
+
+> <Rotamer10Std>
+9.130   6.579   5.803   
+
+> <Rotamer11Ave>
+241.40  184.90  176.82  
+
+> <Rotamer11Bins>
+8       6       6       
+
+> <Rotamer11Count>
+6 
+
+> <Rotamer11Std>
+9.478   4.043   5.412   
+
+> <Rotamer12Ave>
+116.07  298.08  179.09  
+
+> <Rotamer12Bins>
+4       10      6       
+
+> <Rotamer12Count>
+21 
+
+> <Rotamer12Std>
+7.157   6.571   6.699   
+
+> <Rotamer13Ave>
+270.64  180.03  177.90  
+
+> <Rotamer13Bins>
+9       6       6       
+
+> <Rotamer13Count>
+27 
+
+> <Rotamer13Std>
+6.634   5.815   4.554   
+
+> <Rotamer14Ave>
+63.94   60.43   178.58  
+
+> <Rotamer14Bins>
+2       2       6       
+
+> <Rotamer14Count>
+13 
+
+> <Rotamer14Std>
+5.344   7.256   5.516   
+
+> <Rotamer15Ave>
+116.82  181.23  178.87  
+
+> <Rotamer15Bins>
+4       6       6       
+
+> <Rotamer15Count>
+11 
+
+> <Rotamer15Std>
+7.228   7.002   4.717   
+
+> <Rotamer16Ave>
+272.59  183.63  353.56  
+
+> <Rotamer16Bins>
+9       6       12      
+
+> <Rotamer16Count>
+8 
+
+> <Rotamer16Std>
+6.733   3.513   4.882   
+
+> <Rotamer17Ave>
+151.60  300.17  176.06  
+
+> <Rotamer17Bins>
+5       10      6       
+
+> <Rotamer17Count>
+6 
+
+> <Rotamer17Std>
+10.813  7.118   6.010   
+
+> <Rotamer18Ave>
+180.65  180.11  359.24  
+
+> <Rotamer18Bins>
+6       6       12      
+
+> <Rotamer18Count>
+10 
+
+> <Rotamer18Std>
+6.971   3.290   4.016   
+
+> <Rotamer19Ave>
+299.84  304.33  181.64  
+
+> <Rotamer19Bins>
+10      10      6       
+
+> <Rotamer19Count>
+9 
+
+> <Rotamer19Std>
+5.291   5.135   5.837   
+
+> <Rotamer1Ave>
+179.00  179.81  179.32  
+
+> <Rotamer1Bins>
+6       6       6       
+
+> <Rotamer1Count>
+70 
+
+> <Rotamer1Std>
+6.158   3.648   4.368   
+
+> <Rotamer2Ave>
+85.73   62.80   181.81  
+
+> <Rotamer2Bins>
+3       2       6       
+
+> <Rotamer2Count>
+19 
+
+> <Rotamer2Std>
+7.443   4.717   5.934   
+
+> <Rotamer3Ave>
+87.82   179.34  181.42  
+
+> <Rotamer3Bins>
+3       6       6       
+
+> <Rotamer3Count>
+38 
+
+> <Rotamer3Std>
+7.309   5.139   6.864   
+
+> <Rotamer4Ave>
+204.95  177.98  182.87  
+
+> <Rotamer4Bins>
+7       6       6       
+
+> <Rotamer4Count>
+11 
+
+> <Rotamer4Std>
+7.941   3.911   4.909   
+
+> <Rotamer5Ave>
+242.21  61.10   178.40  
+
+> <Rotamer5Bins>
+8       2       6       
+
+> <Rotamer5Count>
+20 
+
+> <Rotamer5Std>
+5.528   5.489   6.075   
+
+> <Rotamer6Ave>
+243.32  296.58  179.89  
+
+> <Rotamer6Bins>
+8       10      6       
+
+> <Rotamer6Count>
+7 
+
+> <Rotamer6Std>
+4.151   7.283   3.902   
+
+> <Rotamer7Ave>
+178.70  299.02  179.26  
+
+> <Rotamer7Bins>
+6       10      6       
+
+> <Rotamer7Count>
+10 
+
+> <Rotamer7Std>
+8.591   4.736   4.137   
+
+> <Rotamer8Ave>
+270.44  297.94  178.41  
+
+> <Rotamer8Bins>
+9       10      6       
+
+> <Rotamer8Count>
+17 
+
+> <Rotamer8Std>
+8.286   3.343   5.296   
+
+> <Rotamer9Ave>
+177.52  60.72   178.13  
+
+> <Rotamer9Bins>
+6       2       6       
+
+> <Rotamer9Count>
+9 
+
+> <Rotamer9Std>
+8.030   5.070   3.389   
+
+> <ScaffoldCount>
+324 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  6  5  0  0  0  0  0  0  0  0999 V2000
+    0.2019    1.8252    1.9121 N   0  0  0  0  0  2  0  0  0  0  0  0
+    0.0969    0.6024   -0.0190 N   0  0  0  0  0  3  0  0  0  0  0  0
+    0.7306    1.5212    0.7657 C   0  0  0  0  0  3  0  0  0  0  0  0
+   -1.1226   -0.0527    0.4303 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.6757   -0.9771   -0.5636 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -0.9051   -2.1696   -0.9576 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  3  2  0  0  0  0
+  2  3  1  0  0  0  0
+  2  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+M  BCL ATM N_Tr2TrTrPi N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+27
+
+> <MatchIndices>
+16 
+
+> <NRotamers>
+2 
+
+> <Rotamer1Ave>
+358.31  85.96   180.11  
+
+> <Rotamer1Bins>
+12      3       6       
+
+> <Rotamer1Count>
+5 
+
+> <Rotamer1Std>
+3.580   1.855   3.823   
+
+> <Rotamer2Ave>
+361.26  268.82  181.31  
+
+> <Rotamer2Bins>
+12      9       6       
+
+> <Rotamer2Count>
+7 
+
+> <Rotamer2Std>
+6.368   10.174  4.883   
+
+> <ScaffoldCount>
+12 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  7  6  0  0  0  0  0  0  0  0999 V2000
+    0.2019    1.8252    1.9121 N   0  0  0  0  0  2  0  0  0  0  0  0
+    1.8879    2.0181    0.2836 N   0  0  0  0  0  3  0  0  0  0  0  0
+    0.0969    0.6024   -0.0190 N   0  0  0  0  0  3  0  0  0  0  0  0
+    0.7306    1.5212    0.7657 C   0  0  0  1  0  3  0  0  0  0  0  0
+   -1.1226   -0.0527    0.4303 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -1.6757   -0.9771   -0.5636 C   0  0  0  0  0  4  0  0  0  0  0  0
+   -0.9051   -2.1696   -0.9576 C   0  0  0  0  0  4  0  0  0  0  0  0
+  1  4  2  0  0  0  0
+  2  4  1  0  0  0  0
+  3  4  1  0  0  0  0
+  3  5  1  0  0  0  0
+  5  6  1  0  0  0  0
+  6  7  1  0  0  0  0
+M  BCL ATM N_Tr2TrTrPi N_TrTrTrPi2 N_TrTrTrPi2 C_TrTrTrPi C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+15
+
+> <MatchIndices>
+13 
+
+> <NRotamers>
+1 
+
+> <Rotamer1Ave>
+176.77  272.56  180.03  
+
+> <Rotamer1Bins>
+6       9       6       
+
+> <Rotamer1Count>
+5 
+
+> <Rotamer1Std>
+5.327   9.799   5.259   
+
+> <ScaffoldCount>
+5 
+
+$$$$
+Written by BCL::WriteToMDL,
+
+
+  7  6  0  0  0  0  0  0  0  0999 V2000
+    1.3969    1.9998    7.5516 N   0  0  0  0  0  3  0  0  0  0  0  0
+    2.5460    1.1496    7.3106 C   0  0  0  0  0  4  0  0  0  0  0  0
+    2.4409    0.4124    5.9948 C   0  0  0  0  0  4  0  0  0  0  0  0
+    3.7136   -0.3427    5.6527 C   0  0  0  0  0  4  0  0  0  0  0  0
+    4.7811    0.5359    5.2130 N   0  0  0  0  0  3  0  0  0  0  0  0
+    4.4125    0.2278    3.0294 O   0  0  0  1  0  1  0  0  0  0  0  0
+    5.0139    0.7940    3.9308 C   0  0  0  0  0  3  0  0  0  0  0  0
+  1  2  1  0  0  0  0
+  2  3  1  0  0  0  0
+  3  4  1  0  0  0  0
+  4  5  1  0  0  0  0
+  5  7  1  0  0  0  0
+  6  7  2  0  0  0  0
+M  BCL ATM N_TrTrTrPi2 C_TeTeTeTe C_TeTeTeTe C_TeTeTeTe N_TrTrTrPi2 O_Tr2Tr2TrPi C_TrTrTrPi
+M  END
+> <BinSize>
+30 
+
+> <ContainsRingConformations>
+false
+
+> <ContainsRings>
+false
+
+> <Counts>
+9
+
+> <MatchIndices>
+12 
+
+> <NRotamers>
+2 
+
+> <Rotamer1Ave>
+54.91   61.06   261.01  364.51  
+
+> <Rotamer1Bins>
+2       2       9       12      
+
+> <Rotamer1Count>
+5 
+
+> <Rotamer1Std>
+4.934   5.406   3.045   5.089   
+
+> <Rotamer2Ave>
+59.69   57.24   94.13   359.91  
+
+> <Rotamer2Bins>
+2       2       3       12      
+
+> <Rotamer2Count>
+6 
+
+> <Rotamer2Std>
+5.251   4.730   9.350   4.068   
+
+> <ScaffoldCount>
+11 
+
+$$$$

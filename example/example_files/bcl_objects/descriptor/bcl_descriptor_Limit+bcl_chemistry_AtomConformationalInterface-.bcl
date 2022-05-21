@@ -1,0 +1,2 @@
+bcl::descriptor::Limit<bcl::chemistry::AtomConformationalInterface>
+  Limit(Combine(Atom_Mass,Constant(5),Constant(0)),max=3.40282e+38,min=-3.40282e+38)

@@ -1,0 +1,45 @@
+bcl::biol::AABackBone
+  bcl::util::ShPtr<bcl::biol::AAData>
+    12345678
+    bcl::biol::AAData
+      bcl::biol::AATypes::Enum
+        "GLUTAMINE"
+      2
+      2
+      X
+      A
+  bcl::biol::Atom
+    bcl::linal::Vector3D
+      26.41	27.694	3.332
+    bcl::biol::AtomTypes::Enum
+      "N"
+    nan
+    nan
+  bcl::biol::Atom
+    bcl::linal::Vector3D
+      26.865	28.934	3.898
+    bcl::biol::AtomTypes::Enum
+      "CA"
+    nan
+    nan
+  bcl::biol::Atom
+    bcl::linal::Vector3D
+      26.136	29.272	5.204
+    bcl::biol::AtomTypes::Enum
+      "C"
+    nan
+    nan
+  bcl::biol::Atom
+    bcl::linal::Vector3D
+      24.911	29.191	5.289
+    bcl::biol::AtomTypes::Enum
+      "O"
+    nan
+    nan
+  bcl::biol::Atom
+    bcl::linal::Vector3D
+      26.705	30.075	2.869
+    bcl::biol::AtomTypes::Enum
+      "CB"
+    nan
+    nan

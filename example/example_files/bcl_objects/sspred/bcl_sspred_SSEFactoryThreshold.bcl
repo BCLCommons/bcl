@@ -1,0 +1,19 @@
+bcl::sspred::SSEFactoryThreshold
+  bcl::sspred::Methods::Enum
+    "JUFO"
+  bcl::storage::Map<bcl::biol::SSTypes::Enum,double,std::less<bcl::biol::SSTypes::Enum>>
+    3
+    std::pair<bcl::biol::SSTypes::Enum,double>
+      bcl::biol::SSTypes::Enum
+        "HELIX"
+      0.5
+    std::pair<bcl::biol::SSTypes::Enum,double>
+      bcl::biol::SSTypes::Enum
+        "STRAND"
+      0.5
+    std::pair<bcl::biol::SSTypes::Enum,double>
+      bcl::biol::SSTypes::Enum
+        "COIL"
+      0.5
+
+  0

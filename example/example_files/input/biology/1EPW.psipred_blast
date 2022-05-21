@@ -1,0 +1,482 @@
+BLASTP 2.2.12 [Aug-07-2005]
+
+
+Reference: Altschul, Stephen F., Thomas L. Madden, Alejandro A. Schaffer, 
+Jinghui Zhang, Zheng Zhang, Webb Miller, and David J. Lipman (1997), 
+"Gapped BLAST and PSI-BLAST: a new generation of protein database search
+programs",  Nucleic Acids Res. 25:3389-3402.
+
+
+Reference for composition-based statistics:
+Schaffer, Alejandro A., L. Aravaind, Thomas L. Madden,
+Sergei Shavirin, John L. Spouge, Yuri I. Wolf,  
+Eugene V. Koonin, and Stephen F. Altschul (2001), 
+"Improving the accuracy of PSI-BLAST protein database searches with 
+composition-based statistics and other refinements",  Nucleic Acids Res. 29:2994-3005.
+
+Query= 1EPW:A|PDBID|CHAIN|SEQUENCE
+         (1290 letters)
+
+Database: filtnr 
+           802,091 sequences; 254,886,205 total letters
+
+Searching..................................................done
+
+
+Results from round 1
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+
+sp|P10844|BXB_CLOBO BOTULINUM NEUROTOXIN TYPE B PRECURSOR (BONT/...  2385   0.0  
+pdb|1EPW|A Chain A, Crystal Structure Of Clostridium Neurotoxin ...  2384   0.0  
+gb|AAL11498.1| (AF300465) type B cryptic neurotoxin [Clostridium...  2301   0.0  
+emb|CAA73968.1| (Y13630) bonT [Clostridium botulinum]                2297   0.0  
+gb|AAK97132.1| (AF295926) neurotoxin type B [Clostridium botulinum]  2294   0.0  
+pir||I40631 non-proteolytic botulinum neurotoxin type B precurso...  2216   0.0  
+pir||S39791 neurotoxin - Clostridium botulinum                       1406   0.0  
+sp|Q60393|BXG_CLOBO BOTULINUM NEUROTOXIN TYPE G PRECURSOR (BONT/...  1404   0.0  
+sp|P04958|TETX_CLOTE TETANUS TOXIN PRECURSOR (TENTOXYLYSIN) >gi|...   869   0.0  
+pir||A42871 botulinum neurotoxin B light chain - Clostridium bot...   866   0.0  
+gb|AAK72964.2| (AF389424) tetanus toxin [Clostridium tetani]          851   0.0  
+pdb|1F83|A Chain A, Botulinum Neurotoxin Type B Catalytic Domain...   812   0.0  
+pdb|1F82|A Chain A, Botulinum Neurotoxin Type B Catalytic Domain...   810   0.0  
+pir||S33411 botulinum neurotoxin type F - Clostridium barati >gi...   777   0.0  
+gb|AAA23210.1| (L35496) neurotoxin type F [Clostridium botulinum...   769   0.0  
+emb|CAA73972.1| (Y13631) bonT [Clostridium botulinum]                 767   0.0  
+sp|P30996|BXF_CLOBO BOTULINUM NEUROTOXIN TYPE F PRECURSOR (BONT/...   746   0.0  
+emb|CAB43706.1| (AJ242628) botulinum neurotoxin type B [Clostrid...   734   0.0  
+pir||BTCLAB bontoxilysin (EC 3.4.24.69) A precursor - Clostridiu...   733   0.0  
+sp|P10845|BXA_CLOBO BOTULINUM NEUROTOXIN TYPE A PRECURSOR (BONT/...   732   0.0  
+pdb|3BTA|A Chain A, Crystal Structure Of Botulinum Neurotoxin Se...   731   0.0  
+pir||S09492 botulinum neurotoxin type A - Clostridium botulinum ...   730   0.0  
+pir||I40645 botulinum neurotoxin type A - Clostridium botulinum ...   722   0.0  
+pir||S21178 botulinum neurotoxin type E precursor - Clostridium ...   706   0.0  
+dbj|BAB03512.1| (AB037704) type E botulinum toxin [Clostridium b...   702   0.0  
+sp|Q00496|BXE_CLOBO BOTULINUM NEUROTOXIN TYPE E PRECURSOR (BONT/...   700   0.0  
+sp|P30995|BXE_CLOBU BOTULINUM NEUROTOXIN TYPE E PRECURSOR (BONT/...   682   0.0  
+dbj|BAB12249.1| (AB039264) type E botulinum toxin [Clostridium b...   682   0.0  
+gb|AAB24244.1| (S49407) type D neurotoxin [Bacteriophage d-16 phi]    678   0.0  
+sp|P19321|BXD_CLOBO BOTULINUM NEUROTOXIN TYPE D PRECURSOR (BONT/...   677   0.0  
+dbj|BAA75084.1| (AB012112) NTX [Clostridium botulinum D phage]        677   0.0  
+pir||S70582 botulinum neurotoxin type Dsa precursor - Clostridiu...   647   0.0  
+dbj|BAA90661.1| (AB037920) neurotoxin [Clostridium botulinum]         645   0.0  
+emb|CAA50148.1| (X70817) botulinum neurotoxin type B [Clostridiu...   645   0.0  
+dbj|BAA89713.1| (AB037166) neurotoxin [Clostridium botulinum]         639   0.0  
+dbj|BAA08418.1| (D49440) neurotoxin [Clostridium botulinum]           636   0.0  
+pir||A49777 botulinum neurotoxin type C1 precursor - Clostridium...   603   e-171
+sp|P18640|BXC1_CLOBO BOTULINUM NEUROTOXIN TYPE C1 PRECURSOR (BON...   602   e-171
+pir||S48103 neurotoxin type B - Clostridium botulinum (fragment)...   586   e-166
+pir||S48104 neurotoxin type B - Clostridium botulinum (fragment)...   584   e-165
+gb|AAC37720.1| (L19522) tetanus toxin light chain [synthetic con...   437   e-121
+pir||S21575 botulinum neurotoxin type B - Clostridium botulinum ...   418   e-115
+gb|AAA80610.1| (U22962) botulinum neurotoxin serotype A Hc fragm...   278   3e-73
+pir||S48110 neurotoxin type F - Clostridium botulinum (fragment)...   268   2e-70
+pir||S48108 neurotoxin type E - Clostridium botulinum (fragment)...   264   4e-69
+emb|CAA50146.1| (X70815) botulinum neurotoxin type E [Clostridiu...   256   1e-66
+pir||S48106 neurotoxin type E - Clostridium botulinum (fragment)...   254   3e-66
+prf||1906297B type E toxin:SUBUNIT=light chain [Clostridium botu...   246   1e-63
+prf||1906297A type E toxin:SUBUNIT=light chain [Clostridium buty...   244   4e-63
+gb|AAG01403.1| (AF251281) recombinant botulinum toxin F HC fragm...   242   2e-62
+gb|AAA23282.1| (M12739) tetanus toxin [Clostridium tetani]            237   7e-61
+pir||A49928 neurotoxin C1, BoNT/C1 - Clostridium botulinum phage CN   229   1e-58
+pdb|1FV2|A Chain A, The Hc Fragment Of Tetanus Toxin Complexed W...   197   5e-49
+pdb|1D0H|A Chain A, The Hc Fragment Of Tetanus Toxin Complexed W...   196   1e-48
+pdb|1DLL|A Chain A, The Hc Fragement Of Tetanus Toxin Complexed ...   196   2e-48
+pdb|1A8D|   Tetanus Toxin C Fragment >gi|3212428|pdb|1AF9|  Teta...   196   2e-48
+pdb|1DFQ|A Chain A, The Hc Fragment Of Tetanus Toxin Complexed W...   195   2e-48
+pdb|1DIW|A Chain A, The Hc Fragment Of Tetanus Toxin Complexed W...   195   2e-48
+gb|AAF73267.1| (AF154828) tetanus toxin [Clostridium tetani]          194   4e-48
+prf||1905284A type B toxin:SUBUNIT=heavy chain [Clostridium botu...   181   4e-44
+prf||1717342A toxin E [Clostridium botulinum]                         152   2e-35
+emb|CAA55073.1| (X78229) nontoxic-hemagglutinin [Clostridium bot...   150   7e-35
+pir||S16145 botulinum neurotoxin type E - Clostridium butyricum ...   150   1e-34
+emb|CAA72807.1| (Y12091) NTNH protein [Clostridium baratii]           146   1e-33
+emb|CAA73967.1| (Y13630) ntnh [Clostridium botulinum]                 140   1e-31
+emb|CAA55074.1| (X78230) nontoxic-nonhemagglutinin [Clostridium ...   139   1e-31
+gb|AAB64350.1| (U63808) nontoxic-nonhemagglutinin component [Clo...   139   1e-31
+sp|Q06366|BXEN_CLOBU BOTULINUM NEUROTOXIN TYPE E, NONTOXIC COMPO...   130   9e-29
+pir||A47708 progenitor toxin nontoxic component - Clostridium bo...   130   1e-28
+sp|P46082|BXEN_CLOBO BOTULINUM NEUROTOXIN TYPE E, NONTOXIC COMPO...   128   3e-28
+dbj|BAA90660.1| (AB037920) NTNHA [Clostridium botulinum]              127   8e-28
+emb|CAA74634.1| (Y14239) nontoxic-nonhaemagglutinin [Clostridium...   126   2e-27
+emb|CAA61125.1| (X87849) NTNH protein [Clostridium botulinum]         125   2e-27
+dbj|BAB07885.2| (AB040123) botulinum neurotoxin type E [Clostrid...   125   4e-27
+dbj|BAB07890.2| (AB040128) botulinum neurotoxin type E [Clostrid...   124   7e-27
+pir||S68218 botulinum neurotoxin type A, nontoxic/nonhemagglutin...   123   1e-26
+dbj|BAB07888.2| (AB040126) botulinum neurotoxin type E [Clostrid...   123   1e-26
+dbj|BAB07887.2| (AB040125) botulinum neurotoxin type E [Clostrid...   123   1e-26
+emb|CAA63550.1| (X92973) ntnh [Clostridium botulinum A]               123   1e-26
+dbj|BAA89712.1| (AB037166) NTNHA [Clostridium botulinum]              120   9e-26
+gb|AAB42191.1| (L42537) putative [Clostridium botulinum]              119   2e-25
+emb|CAA73971.1| (Y13631) ntnh [Clostridium botulinum]                 118   3e-25
+gb|AAC60474.1| (S73676) neurotoxin complex M nontoxic-nonhemaggl...   117   6e-25
+emb|CAA61124.1| (X87848) BoNT/A protein [Clostridium botulinum]       115   2e-24
+pir||I40644 botulinum neurotoxin type F nontoxic-nonhemaglutinin...   115   3e-24
+emb|CAA74630.1| (Y14238) nontoxic-nonhaemagglutinin [Clostridium...   114   7e-24
+emb|CAA61123.1| (X87848) NTNH protein [Clostridium botulinum]         112   2e-23
+pir||S07155 botulinum neurotoxin type B light chain - Clostridiu...    90   2e-16
+emb|CAA61228.1| (X87972) NTNH [Clostridium botulinum]                  84   7e-15
+emb|CAA61233.1| (X87974) nontoxic-nonhemagglutinin [Clostridium ...    81   6e-14
+emb|CAA67511.1| (X99064) ntnh [Clostridium botulinum]                  80   1e-13
+sp|P46081|BXCN_CLOBO BOTULINUM NEUROTOXIN TYPE C1, NONTOXIC COMP...    77   1e-12
+pir||S49106 BoNT associated protein 138K - Clostridium botulinum...    77   1e-12
+dbj|BAB71748.1| (AB061780) NTNHA [Clostridium botulinum]               77   2e-12
+dbj|BAA75083.1| (AB012112) NTNH [Clostridium botulinum D phage]        77   2e-12
+gb|AAB36016.2| (S80809) progenitor toxin L nontoxic-nonhemagglut...    77   2e-12
+dbj|BAA12299.1| (D84289) nontoxic-nonhemagglutinin component [Cl...    76   2e-12
+pir||JC4901 nontoxic-nonhemaggulutinin protein - Clostridium bot...    76   2e-12
+emb|CAA61229.1| (X87972) BoNT [Clostridium botulinum]                  74   1e-11
+gb|AAC60475.1| (S73676) neurotoxin complex M BoNT component [Clo...    70   2e-10
+emb|CAA72808.1| (Y12091) BoNT protein [Clostridium baratii]            62   5e-08
+pir||S08562 botulinum neurotoxin type B heavy chain - Clostridiu...    54   1e-05
+dbj|BAA75078.1| (AB012111) NTNH [Clostridium botulinum D phage]        54   1e-05
+emb|CAA63551.1| (X92973) bont [Clostridium botulinum A] >gi|1619...    44   0.009
+emb|CAA71744.1| (Y10770) NTNH [Clostridium botulinum]                  42   0.030
+emb|CAA65352.1| (X96494) ntnh [Clostridium botulinum]                  38   0.54 
+emb|CAA65348.1| (X96493) ntnh [Clostridium botulinum]                  37   1.00 
+sp|Q92262|PEX3_PICPA PEROXISOMAL MEMBRANE PROTEIN PAS2 (PEROXIN-...    36   1.9  
+gb|AAD09563.1| (U70780) neurotoxin binding protein [Clostridium ...    35   6.8  
+ref|NP_439532.1| (NC_000907) phosphate transport system, ATPase ...    34   9.7  
+
+Searching..................................................done
+
+
+Results from round 2
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+Sequences used in model and found again:
+
+sp|P10844|BXB_CLOBO BOTULINUM NEUROTOXIN TYPE B PRECURSOR (BONT/...  1612   0.0  
+pdb|1EPW|A Chain A, Crystal Structure Of Clostridium Neurotoxin ...  1612   0.0  
+gb|AAL11498.1| (AF300465) type B cryptic neurotoxin [Clostridium...  1606   0.0  
+emb|CAA73968.1| (Y13630) bonT [Clostridium botulinum]                1606   0.0  
+gb|AAK97132.1| (AF295926) neurotoxin type B [Clostridium botulinum]  1601   0.0  
+pir||I40631 non-proteolytic botulinum neurotoxin type B precurso...  1599   0.0  
+pir||S39791 neurotoxin - Clostridium botulinum                       1397   0.0  
+sp|Q60393|BXG_CLOBO BOTULINUM NEUROTOXIN TYPE G PRECURSOR (BONT/...  1396   0.0  
+gb|AAA23210.1| (L35496) neurotoxin type F [Clostridium botulinum...  1349   0.0  
+emb|CAA73972.1| (Y13631) bonT [Clostridium botulinum]                1342   0.0  
+sp|P04958|TETX_CLOTE TETANUS TOXIN PRECURSOR (TENTOXYLYSIN) >gi|...  1322   0.0  
+sp|P30996|BXF_CLOBO BOTULINUM NEUROTOXIN TYPE F PRECURSOR (BONT/...  1310   0.0  
+gb|AAK72964.2| (AF389424) tetanus toxin [Clostridium tetani]         1300   0.0  
+pir||I40645 botulinum neurotoxin type A - Clostridium botulinum ...  1260   0.0  
+pir||BTCLAB bontoxilysin (EC 3.4.24.69) A precursor - Clostridiu...  1253   0.0  
+sp|P10845|BXA_CLOBO BOTULINUM NEUROTOXIN TYPE A PRECURSOR (BONT/...  1252   0.0  
+pdb|3BTA|A Chain A, Crystal Structure Of Botulinum Neurotoxin Se...  1251   0.0  
+pir||S09492 botulinum neurotoxin type A - Clostridium botulinum ...  1249   0.0  
+pir||S21178 botulinum neurotoxin type E precursor - Clostridium ...  1240   0.0  
+dbj|BAA90661.1| (AB037920) neurotoxin [Clostridium botulinum]        1237   0.0  
+pir||S70582 botulinum neurotoxin type Dsa precursor - Clostridiu...  1237   0.0  
+pir||S33411 botulinum neurotoxin type F - Clostridium barati >gi...  1235   0.0  
+sp|Q00496|BXE_CLOBO BOTULINUM NEUROTOXIN TYPE E PRECURSOR (BONT/...  1225   0.0  
+dbj|BAB03512.1| (AB037704) type E botulinum toxin [Clostridium b...  1221   0.0  
+dbj|BAB12249.1| (AB039264) type E botulinum toxin [Clostridium b...  1193   0.0  
+sp|P30995|BXE_CLOBU BOTULINUM NEUROTOXIN TYPE E PRECURSOR (BONT/...  1188   0.0  
+gb|AAB24244.1| (S49407) type D neurotoxin [Bacteriophage d-16 phi]   1162   0.0  
+sp|P19321|BXD_CLOBO BOTULINUM NEUROTOXIN TYPE D PRECURSOR (BONT/...  1156   0.0  
+dbj|BAA75084.1| (AB012112) NTX [Clostridium botulinum D phage]       1155   0.0  
+pir||A49777 botulinum neurotoxin type C1 precursor - Clostridium...  1148   0.0  
+sp|P18640|BXC1_CLOBO BOTULINUM NEUROTOXIN TYPE C1 PRECURSOR (BON...  1147   0.0  
+dbj|BAA89713.1| (AB037166) neurotoxin [Clostridium botulinum]        1123   0.0  
+dbj|BAA08418.1| (D49440) neurotoxin [Clostridium botulinum]          1117   0.0  
+pir||S68218 botulinum neurotoxin type A, nontoxic/nonhemagglutin...   905   0.0  
+emb|CAA63550.1| (X92973) ntnh [Clostridium botulinum A]               905   0.0  
+emb|CAA74634.1| (Y14239) nontoxic-nonhaemagglutinin [Clostridium...   901   0.0  
+emb|CAA61125.1| (X87849) NTNH protein [Clostridium botulinum]         899   0.0  
+emb|CAA73967.1| (Y13630) ntnh [Clostridium botulinum]                 899   0.0  
+gb|AAB42191.1| (L42537) putative [Clostridium botulinum]              891   0.0  
+emb|CAA55074.1| (X78230) nontoxic-nonhemagglutinin [Clostridium ...   889   0.0  
+gb|AAB64350.1| (U63808) nontoxic-nonhemagglutinin component [Clo...   889   0.0  
+emb|CAA55073.1| (X78229) nontoxic-hemagglutinin [Clostridium bot...   886   0.0  
+dbj|BAA12299.1| (D84289) nontoxic-nonhemagglutinin component [Cl...   857   0.0  
+pir||JC4901 nontoxic-nonhemaggulutinin protein - Clostridium bot...   855   0.0  
+dbj|BAA90660.1| (AB037920) NTNHA [Clostridium botulinum]              855   0.0  
+dbj|BAA89712.1| (AB037166) NTNHA [Clostridium botulinum]              854   0.0  
+emb|CAA74630.1| (Y14238) nontoxic-nonhaemagglutinin [Clostridium...   852   0.0  
+emb|CAA61233.1| (X87974) nontoxic-nonhemagglutinin [Clostridium ...   849   0.0  
+emb|CAA61123.1| (X87848) NTNH protein [Clostridium botulinum]         848   0.0  
+dbj|BAA75083.1| (AB012112) NTNH [Clostridium botulinum D phage]       831   0.0  
+pir||S49106 BoNT associated protein 138K - Clostridium botulinum...   831   0.0  
+dbj|BAB71748.1| (AB061780) NTNHA [Clostridium botulinum]              831   0.0  
+emb|CAA73971.1| (Y13631) ntnh [Clostridium botulinum]                 830   0.0  
+sp|P46081|BXCN_CLOBO BOTULINUM NEUROTOXIN TYPE C1, NONTOXIC COMP...   830   0.0  
+emb|CAA67511.1| (X99064) ntnh [Clostridium botulinum]                 830   0.0  
+gb|AAB36016.2| (S80809) progenitor toxin L nontoxic-nonhemagglut...   829   0.0  
+emb|CAA72807.1| (Y12091) NTNH protein [Clostridium baratii]           820   0.0  
+gb|AAC60474.1| (S73676) neurotoxin complex M nontoxic-nonhemaggl...   806   0.0  
+pir||I40644 botulinum neurotoxin type F nontoxic-nonhemaglutinin...   805   0.0  
+emb|CAA61228.1| (X87972) NTNH [Clostridium botulinum]                 798   0.0  
+sp|Q06366|BXEN_CLOBU BOTULINUM NEUROTOXIN TYPE E, NONTOXIC COMPO...   789   0.0  
+sp|P46082|BXEN_CLOBO BOTULINUM NEUROTOXIN TYPE E, NONTOXIC COMPO...   787   0.0  
+pir||A47708 progenitor toxin nontoxic component - Clostridium bo...   785   0.0  
+pir||A42871 botulinum neurotoxin B light chain - Clostridium bot...   606   e-172
+pdb|1F83|A Chain A, Botulinum Neurotoxin Type B Catalytic Domain...   569   e-161
+pdb|1F82|A Chain A, Botulinum Neurotoxin Type B Catalytic Domain...   569   e-160
+gb|AAA23282.1| (M12739) tetanus toxin [Clostridium tetani]            522   e-147
+gb|AAC37720.1| (L19522) tetanus toxin light chain [synthetic con...   522   e-146
+emb|CAB43706.1| (AJ242628) botulinum neurotoxin type B [Clostrid...   513   e-144
+pir||A49928 neurotoxin C1, BoNT/C1 - Clostridium botulinum phage CN   507   e-142
+prf||1906297B type E toxin:SUBUNIT=light chain [Clostridium botu...   459   e-128
+prf||1906297A type E toxin:SUBUNIT=light chain [Clostridium buty...   455   e-126
+pdb|1FV2|A Chain A, The Hc Fragment Of Tetanus Toxin Complexed W...   450   e-125
+gb|AAA80610.1| (U22962) botulinum neurotoxin serotype A Hc fragm...   443   e-123
+pdb|1A8D|   Tetanus Toxin C Fragment >gi|3212428|pdb|1AF9|  Teta...   443   e-123
+pdb|1D0H|A Chain A, The Hc Fragment Of Tetanus Toxin Complexed W...   441   e-122
+gb|AAF73267.1| (AF154828) tetanus toxin [Clostridium tetani]          437   e-121
+pdb|1DLL|A Chain A, The Hc Fragement Of Tetanus Toxin Complexed ...   436   e-121
+pdb|1DFQ|A Chain A, The Hc Fragment Of Tetanus Toxin Complexed W...   436   e-121
+pdb|1DIW|A Chain A, The Hc Fragment Of Tetanus Toxin Complexed W...   436   e-121
+gb|AAG01403.1| (AF251281) recombinant botulinum toxin F HC fragm...   425   e-117
+pir||S48103 neurotoxin type B - Clostridium botulinum (fragment)...   424   e-117
+pir||S48104 neurotoxin type B - Clostridium botulinum (fragment)...   423   e-117
+emb|CAA50148.1| (X70817) botulinum neurotoxin type B [Clostridiu...   422   e-116
+pir||S48108 neurotoxin type E - Clostridium botulinum (fragment)...   389   e-106
+pir||S48110 neurotoxin type F - Clostridium botulinum (fragment)...   389   e-106
+emb|CAA50146.1| (X70815) botulinum neurotoxin type E [Clostridiu...   369   e-100
+pir||S48106 neurotoxin type E - Clostridium botulinum (fragment)...   366   e-100
+pir||S21575 botulinum neurotoxin type B - Clostridium botulinum ...   304   4e-81
+emb|CAA61124.1| (X87848) BoNT/A protein [Clostridium botulinum]       282   2e-74
+prf||1717342A toxin E [Clostridium botulinum]                         281   4e-74
+pir||S16145 botulinum neurotoxin type E - Clostridium butyricum ...   277   7e-73
+dbj|BAB07885.2| (AB040123) botulinum neurotoxin type E [Clostrid...   199   1e-49
+dbj|BAB07890.2| (AB040128) botulinum neurotoxin type E [Clostrid...   198   2e-49
+dbj|BAB07887.2| (AB040125) botulinum neurotoxin type E [Clostrid...   196   8e-49
+dbj|BAB07888.2| (AB040126) botulinum neurotoxin type E [Clostrid...   194   5e-48
+prf||1905284A type B toxin:SUBUNIT=heavy chain [Clostridium botu...   109   2e-22
+dbj|BAA75078.1| (AB012111) NTNH [Clostridium botulinum D phage]        98   6e-19
+gb|AAC60475.1| (S73676) neurotoxin complex M BoNT component [Clo...    93   2e-17
+emb|CAA61229.1| (X87972) BoNT [Clostridium botulinum]                  71   9e-11
+pir||S07155 botulinum neurotoxin type B light chain - Clostridiu...    68   6e-10
+emb|CAA72808.1| (Y12091) BoNT protein [Clostridium baratii]            64   9e-09
+
+Sequences not found previously or not previously below threshold:
+
+emb|CAA63551.1| (X92973) bont [Clostridium botulinum A] >gi|1619...    79   4e-13
+gb|AAB28353.1| type A NT=neurotoxin heavy chain 18 kda fragment ...    74   1e-11
+pir||A53884 neurotoxin, type A - Clostridium botulinum (fragments)     69   3e-10
+emb|CAA65352.1| (X96494) ntnh [Clostridium botulinum]                  62   4e-08
+emb|CAA65348.1| (X96493) ntnh [Clostridium botulinum]                  60   2e-07
+emb|CAA71744.1| (Y10770) NTNH [Clostridium botulinum]                  59   2e-07
+gb|AAB23587.1| type E neurotoxin, type E NT=16 kda fragment [Clo...    54   1e-05
+gb|AAD09563.1| (U70780) neurotoxin binding protein [Clostridium ...    51   6e-05
+pir||A53878 type E neurotoxin - Clostridium botulinum (fragments)      50   2e-04
+gb|AAA48635.1| (J05137) alpha-1 type XII collagen [Gallus gallus]      46   0.003
+sp|P13944|CA1C_CHICK COLLAGEN ALPHA 1(XII) CHAIN PRECURSOR (FIBR...    45   0.005
+gb|AAB23586.1| type E neurotoxin, type E NT=46 kda fragment [Clo...    44   0.007
+gb|AAC55681.1| (U16764) envelope glycoprotein gp120 [Human immun...    43   0.016
+gb|AAA23269.1| (M27892) botulinum neurotoxin [Clostridium botuli...    43   0.019
+ref|NP_247767.1| (NC_000909) transcription initiation factor IIB...    41   0.089
+emb|CAA67512.1| (X99064) boNT/F [Clostridium botulinum]                39   0.22 
+pir||S08562 botulinum neurotoxin type B heavy chain - Clostridiu...    39   0.47 
+ref|NP_013781.1| (NC_001145) appears to be required for the comp...    37   1.3  
+ref|NP_473199.1| (NC_000521) predicted using hexExon; MAL3P3.3 (...    35   4.2  
+ref|NP_247517.1| (NC_000909) M. jannaschii predicted coding regi...    34   8.8  
+
+Searching..................................................done
+
+
+Results from round 3
+
+
+                                                                 Score    E
+Sequences producing significant alignments:                      (bits) Value
+Sequences used in model and found again:
+
+sp|P10844|BXB_CLOBO BOTULINUM NEUROTOXIN TYPE B PRECURSOR (BONT/...  1566   0.0  
+pdb|1EPW|A Chain A, Crystal Structure Of Clostridium Neurotoxin ...  1565   0.0  
+emb|CAA73968.1| (Y13630) bonT [Clostridium botulinum]                1564   0.0  
+gb|AAL11498.1| (AF300465) type B cryptic neurotoxin [Clostridium...  1564   0.0  
+pir||I40631 non-proteolytic botulinum neurotoxin type B precurso...  1562   0.0  
+gb|AAK97132.1| (AF295926) neurotoxin type B [Clostridium botulinum]  1559   0.0  
+pir||S39791 neurotoxin - Clostridium botulinum                       1383   0.0  
+sp|Q60393|BXG_CLOBO BOTULINUM NEUROTOXIN TYPE G PRECURSOR (BONT/...  1383   0.0  
+gb|AAA23210.1| (L35496) neurotoxin type F [Clostridium botulinum...  1364   0.0  
+emb|CAA73972.1| (Y13631) bonT [Clostridium botulinum]                1356   0.0  
+sp|P30996|BXF_CLOBO BOTULINUM NEUROTOXIN TYPE F PRECURSOR (BONT/...  1325   0.0  
+sp|P04958|TETX_CLOTE TETANUS TOXIN PRECURSOR (TENTOXYLYSIN) >gi|...  1320   0.0  
+gb|AAK72964.2| (AF389424) tetanus toxin [Clostridium tetani]         1300   0.0  
+pir||I40645 botulinum neurotoxin type A - Clostridium botulinum ...  1268   0.0  
+pir||BTCLAB bontoxilysin (EC 3.4.24.69) A precursor - Clostridiu...  1260   0.0  
+dbj|BAA90661.1| (AB037920) neurotoxin [Clostridium botulinum]        1260   0.0  
+sp|P10845|BXA_CLOBO BOTULINUM NEUROTOXIN TYPE A PRECURSOR (BONT/...  1258   0.0  
+pdb|3BTA|A Chain A, Crystal Structure Of Botulinum Neurotoxin Se...  1258   0.0  
+pir||S70582 botulinum neurotoxin type Dsa precursor - Clostridiu...  1258   0.0  
+pir||S09492 botulinum neurotoxin type A - Clostridium botulinum ...  1255   0.0  
+gb|AAB24244.1| (S49407) type D neurotoxin [Bacteriophage d-16 phi]   1252   0.0  
+pir||S33411 botulinum neurotoxin type F - Clostridium barati >gi...  1250   0.0  
+sp|P19321|BXD_CLOBO BOTULINUM NEUROTOXIN TYPE D PRECURSOR (BONT/...  1248   0.0  
+dbj|BAA75084.1| (AB012112) NTX [Clostridium botulinum D phage]       1246   0.0  
+pir||S21178 botulinum neurotoxin type E precursor - Clostridium ...  1240   0.0  
+sp|Q00496|BXE_CLOBO BOTULINUM NEUROTOXIN TYPE E PRECURSOR (BONT/...  1224   0.0  
+dbj|BAB03512.1| (AB037704) type E botulinum toxin [Clostridium b...  1221   0.0  
+pir||A49777 botulinum neurotoxin type C1 precursor - Clostridium...  1220   0.0  
+sp|P18640|BXC1_CLOBO BOTULINUM NEUROTOXIN TYPE C1 PRECURSOR (BON...  1219   0.0  
+dbj|BAA89713.1| (AB037166) neurotoxin [Clostridium botulinum]        1216   0.0  
+dbj|BAA08418.1| (D49440) neurotoxin [Clostridium botulinum]          1210   0.0  
+dbj|BAB12249.1| (AB039264) type E botulinum toxin [Clostridium b...  1189   0.0  
+sp|P30995|BXE_CLOBU BOTULINUM NEUROTOXIN TYPE E PRECURSOR (BONT/...  1184   0.0  
+emb|CAA74634.1| (Y14239) nontoxic-nonhaemagglutinin [Clostridium...  1011   0.0  
+emb|CAA61125.1| (X87849) NTNH protein [Clostridium botulinum]        1010   0.0  
+emb|CAA73967.1| (Y13630) ntnh [Clostridium botulinum]                1008   0.0  
+pir||S68218 botulinum neurotoxin type A, nontoxic/nonhemagglutin...  1003   0.0  
+emb|CAA63550.1| (X92973) ntnh [Clostridium botulinum A]              1003   0.0  
+emb|CAA55074.1| (X78230) nontoxic-nonhemagglutinin [Clostridium ...   997   0.0  
+gb|AAB64350.1| (U63808) nontoxic-nonhemagglutinin component [Clo...   997   0.0  
+emb|CAA55073.1| (X78229) nontoxic-hemagglutinin [Clostridium bot...   993   0.0  
+gb|AAB42191.1| (L42537) putative [Clostridium botulinum]              992   0.0  
+emb|CAA61233.1| (X87974) nontoxic-nonhemagglutinin [Clostridium ...   991   0.0  
+dbj|BAA12299.1| (D84289) nontoxic-nonhemagglutinin component [Cl...   974   0.0  
+pir||JC4901 nontoxic-nonhemaggulutinin protein - Clostridium bot...   973   0.0  
+emb|CAA74630.1| (Y14238) nontoxic-nonhaemagglutinin [Clostridium...   968   0.0  
+emb|CAA67511.1| (X99064) ntnh [Clostridium botulinum]                 967   0.0  
+emb|CAA61123.1| (X87848) NTNH protein [Clostridium botulinum]         964   0.0  
+dbj|BAA89712.1| (AB037166) NTNHA [Clostridium botulinum]              961   0.0  
+dbj|BAA90660.1| (AB037920) NTNHA [Clostridium botulinum]              960   0.0  
+emb|CAA61228.1| (X87972) NTNH [Clostridium botulinum]                 949   0.0  
+emb|CAA73971.1| (Y13631) ntnh [Clostridium botulinum]                 942   0.0  
+pir||S49106 BoNT associated protein 138K - Clostridium botulinum...   940   0.0  
+dbj|BAB71748.1| (AB061780) NTNHA [Clostridium botulinum]              940   0.0  
+sp|P46081|BXCN_CLOBO BOTULINUM NEUROTOXIN TYPE C1, NONTOXIC COMP...   939   0.0  
+dbj|BAA75083.1| (AB012112) NTNH [Clostridium botulinum D phage]       939   0.0  
+gb|AAB36016.2| (S80809) progenitor toxin L nontoxic-nonhemagglut...   939   0.0  
+emb|CAA72807.1| (Y12091) NTNH protein [Clostridium baratii]           926   0.0  
+gb|AAC60474.1| (S73676) neurotoxin complex M nontoxic-nonhemaggl...   904   0.0  
+pir||I40644 botulinum neurotoxin type F nontoxic-nonhemaglutinin...   902   0.0  
+sp|P46082|BXEN_CLOBO BOTULINUM NEUROTOXIN TYPE E, NONTOXIC COMPO...   882   0.0  
+pir||A47708 progenitor toxin nontoxic component - Clostridium bo...   881   0.0  
+sp|Q06366|BXEN_CLOBU BOTULINUM NEUROTOXIN TYPE E, NONTOXIC COMPO...   876   0.0  
+pir||A42871 botulinum neurotoxin B light chain - Clostridium bot...   586   e-166
+pdb|1F83|A Chain A, Botulinum Neurotoxin Type B Catalytic Domain...   550   e-155
+pdb|1F82|A Chain A, Botulinum Neurotoxin Type B Catalytic Domain...   550   e-155
+pir||A49928 neurotoxin C1, BoNT/C1 - Clostridium botulinum phage CN   522   e-147
+gb|AAA23282.1| (M12739) tetanus toxin [Clostridium tetani]            520   e-146
+gb|AAC37720.1| (L19522) tetanus toxin light chain [synthetic con...   517   e-145
+emb|CAB43706.1| (AJ242628) botulinum neurotoxin type B [Clostrid...   498   e-139
+prf||1906297B type E toxin:SUBUNIT=light chain [Clostridium botu...   449   e-125
+pdb|1FV2|A Chain A, The Hc Fragment Of Tetanus Toxin Complexed W...   446   e-123
+prf||1906297A type E toxin:SUBUNIT=light chain [Clostridium buty...   443   e-123
+gb|AAA80610.1| (U22962) botulinum neurotoxin serotype A Hc fragm...   441   e-122
+pdb|1A8D|   Tetanus Toxin C Fragment >gi|3212428|pdb|1AF9|  Teta...   437   e-121
+gb|AAF73267.1| (AF154828) tetanus toxin [Clostridium tetani]          434   e-120
+pdb|1D0H|A Chain A, The Hc Fragment Of Tetanus Toxin Complexed W...   433   e-120
+pdb|1DFQ|A Chain A, The Hc Fragment Of Tetanus Toxin Complexed W...   429   e-119
+pdb|1DLL|A Chain A, The Hc Fragement Of Tetanus Toxin Complexed ...   429   e-118
+pdb|1DIW|A Chain A, The Hc Fragment Of Tetanus Toxin Complexed W...   428   e-118
+gb|AAG01403.1| (AF251281) recombinant botulinum toxin F HC fragm...   428   e-118
+pir||S48103 neurotoxin type B - Clostridium botulinum (fragment)...   425   e-117
+pir||S48104 neurotoxin type B - Clostridium botulinum (fragment)...   424   e-117
+emb|CAA50148.1| (X70817) botulinum neurotoxin type B [Clostridiu...   420   e-116
+pir||S48108 neurotoxin type E - Clostridium botulinum (fragment)...   399   e-110
+pir||S48110 neurotoxin type F - Clostridium botulinum (fragment)...   397   e-109
+emb|CAA50146.1| (X70815) botulinum neurotoxin type E [Clostridiu...   371   e-101
+pir||S48106 neurotoxin type E - Clostridium botulinum (fragment)...   368   e-100
+pir||S21575 botulinum neurotoxin type B - Clostridium botulinum ...   299   2e-79
+emb|CAA61124.1| (X87848) BoNT/A protein [Clostridium botulinum]       286   1e-75
+prf||1717342A toxin E [Clostridium botulinum]                         278   3e-73
+pir||S16145 botulinum neurotoxin type E - Clostridium butyricum ...   271   4e-71
+dbj|BAB07885.2| (AB040123) botulinum neurotoxin type E [Clostrid...   202   2e-50
+dbj|BAB07890.2| (AB040128) botulinum neurotoxin type E [Clostrid...   201   4e-50
+dbj|BAB07887.2| (AB040125) botulinum neurotoxin type E [Clostrid...   199   1e-49
+dbj|BAB07888.2| (AB040126) botulinum neurotoxin type E [Clostrid...   197   6e-49
+prf||1905284A type B toxin:SUBUNIT=heavy chain [Clostridium botu...   104   4e-21
+dbj|BAA75078.1| (AB012111) NTNH [Clostridium botulinum D phage]       100   1e-19
+gb|AAC60475.1| (S73676) neurotoxin complex M BoNT component [Clo...    92   4e-17
+pir||A53878 type E neurotoxin - Clostridium botulinum (fragments)      88   5e-16
+emb|CAA63551.1| (X92973) bont [Clostridium botulinum A] >gi|1619...    82   4e-14
+gb|AAB28353.1| type A NT=neurotoxin heavy chain 18 kda fragment ...    72   3e-11
+pir||A53884 neurotoxin, type A - Clostridium botulinum (fragments)     72   4e-11
+emb|CAA61229.1| (X87972) BoNT [Clostridium botulinum]                  69   2e-10
+pir||S07155 botulinum neurotoxin type B light chain - Clostridiu...    66   2e-09
+emb|CAA65352.1| (X96494) ntnh [Clostridium botulinum]                  66   3e-09
+emb|CAA65348.1| (X96493) ntnh [Clostridium botulinum]                  63   2e-08
+emb|CAA72808.1| (Y12091) BoNT protein [Clostridium baratii]            63   2e-08
+emb|CAA71744.1| (Y10770) NTNH [Clostridium botulinum]                  61   6e-08
+gb|AAB23587.1| type E neurotoxin, type E NT=16 kda fragment [Clo...    57   1e-06
+gb|AAD09563.1| (U70780) neurotoxin binding protein [Clostridium ...    54   1e-05
+
+Sequences not found previously or not previously below threshold:
+
+gb|AAC55681.1| (U16764) envelope glycoprotein gp120 [Human immun...    46   0.002
+gb|AAA48635.1| (J05137) alpha-1 type XII collagen [Gallus gallus]      46   0.002
+gb|AAA23269.1| (M27892) botulinum neurotoxin [Clostridium botuli...    45   0.004
+sp|P13944|CA1C_CHICK COLLAGEN ALPHA 1(XII) CHAIN PRECURSOR (FIBR...    45   0.005
+gb|AAB23586.1| type E neurotoxin, type E NT=46 kda fragment [Clo...    45   0.006
+gb|AAC58911.1| (U84866) envelope glycoprotein [Human immunodefic...    44   0.007
+emb|CAB86145.1| (AJ286333) gp160 [Human immunodeficiency virus t...    44   0.014
+ref|NP_347649.1| (NC_003030) FTSA related protein, predicted ATP...    40   0.10 
+gb|AAG37008.1| (AF310130) envelope glycoprotein [Human immunodef...    40   0.10 
+gb|AAA80626.1| (U23127) envelope glycoprotein [Human immunodefic...    40   0.14 
+gb|AAF27378.1| (AF200868) envelope glycoprotein [Human immunodef...    40   0.14 
+gb|AAF27381.1| (AF200871) envelope glycoprotein [Human immunodef...    39   0.30 
+emb|CAA67512.1| (X99064) boNT/F [Clostridium botulinum]                39   0.37 
+gb|AAD27449.1| (AF105875) envelope glycoprotein [Human immunodef...    39   0.44 
+gb|AAC21464.1| (AF065489) envelope glycoprotein; gp120 [Human im...    38   0.53 
+pir||S08562 botulinum neurotoxin type B heavy chain - Clostridiu...    38   0.54 
+pir||S60538 envelope polyprotein gp41 - human immunodeficiency v...    37   0.90 
+gb|AAC21540.1| (AF065582) envelope glycoprotein; gp120 [Human im...    37   0.92 
+gb|AAG15954.1| (AF256293) envelope glycoprotein [Human immunodef...    37   1.1  
+gb|AAA86063.1| (U16057) envelope glycoprotein [Human immunodefic...    37   1.2  
+gb|AAA86073.1| (U16067) envelope glycoprotein, V1-V5 region [Hum...    37   1.6  
+gb|AAF51891.2| (AE003600) CG10314 gene product [Drosophila melan...    37   1.6  
+gb|AAG15953.1| (AF256292) envelope glycoprotein [Human immunodef...    36   2.0  
+gb|AAG15956.1| (AF256295) envelope glycoprotein [Human immunodef...    36   2.1  
+gb|AAG15951.1| (AF256290) envelope glycoprotein [Human immunodef...    36   2.1  
+gb|AAG15949.1| (AF256288) envelope glycoprotein [Human immunodef...    36   2.2  
+gb|AAC82243.1| (U81909) envelope glycoprotein [Human immunodefic...    36   2.4  
+gb|AAG15948.1| (AF256287) envelope glycoprotein [Human immunodef...    36   2.4  
+pir||S14557 finger protein zfpA - garden pea chloroplast >gi|121...    36   2.5  
+emb|CAA39755.1| (X56315) alternative [Pisum sativum]                   36   2.6  
+ref|NP_013781.1| (NC_001145) appears to be required for the comp...    36   2.6  
+sp|P18823|ACCD_PEA ACETYL-COENZYME A CARBOXYLASE CARBOXYL TRANSF...    36   2.9  
+gb|AAF31955.1|AF137963_1 (AF137963) envelope glycoprotein [Human...    35   3.5  
+gb|AAC82241.1| (U81907) envelope glycoprotein [Human immunodefic...    35   3.8  
+gb|AAC82239.1| (U81905) envelope glycoprotein [Human immunodefic...    35   4.1  
+gb|AAG15957.1| (AF256296) envelope glycoprotein [Human immunodef...    35   4.6  
+gb|AAC82242.1| (U81908) envelope glycoprotein [Human immunodefic...    35   5.8  
+gb|AAC82244.1| (U81910) envelope glycoprotein [Human immunodefic...    34   7.7  
+gb|AAC82267.1| (U81933) envelope glycoprotein [Human immunodefic...    34   8.4  
+gb|AAA97705.1| (U36010) envelope glycoprotein [Human immunodefic...    34   8.6  
+
+
+CONVERGED!
+  Database: filtnr
+    Posted date:  Nov 29, 2001  2:57 PM
+  Number of letters in database: 254,886,205
+  Number of sequences in database:  802,091
+  
+Lambda     K      H
+   0.315    0.168    0.481 
+
+Lambda     K      H
+   0.267   0.0514    0.140 
+
+
+Matrix: BLOSUM62
+Gap Penalties: Existence: 11, Extension: 1
+Number of Hits to DB: 2,271,176,793
+Number of Sequences: 802091
+Number of extensions: 126875255
+Number of successful extensions: 519277
+Number of sequences better than 10.0: 500
+Number of HSP's better than 10.0 without gapping: 870
+Number of HSP's successfully gapped in prelim test: 7779
+Number of HSP's that attempted gapping in prelim test: 388183
+Number of HSP's gapped (non-prelim): 55651
+length of query: 1290
+length of database: 254,886,205
+effective HSP length: 131
+effective length of query: 1159
+effective length of database: 149,812,284
+effective search space: 173632437156
+effective search space used: 173632437156
+T: 11
+A: 40
+X1: 16 ( 7.3 bits)
+X2: 38 (14.6 bits)
+X3: 64 (24.7 bits)
+S1: 41 (21.2 bits)
+S2: 78 (34.3 bits)

@@ -1,0 +1,64 @@
+bcl::cluster::Node<std::string,double>
+  bcl::util::ShPtrList<bcl::cluster::Node<std::string,double>>
+    2
+    bcl::util::ShPtr<bcl::cluster::Node<std::string,double>>
+      12345678
+      bcl::cluster::Node<std::string,double>
+        bcl::util::ShPtrList<bcl::cluster::Node<std::string,double>>
+          2
+          bcl::util::ShPtr<bcl::cluster::Node<std::string,double>>
+            12345678
+            bcl::cluster::Node<std::string,double>
+              bcl::util::ShPtrList<bcl::cluster::Node<std::string,double>>
+                0
+
+              bcl::util::SiPtrList<std::string>
+                1
+                bcl::util::SiPtr<std::string>
+                  "second"
+
+              nan
+          bcl::util::ShPtr<bcl::cluster::Node<std::string,double>>
+            12345678
+            bcl::cluster::Node<std::string,double>
+              bcl::util::ShPtrList<bcl::cluster::Node<std::string,double>>
+                0
+
+              bcl::util::SiPtrList<std::string>
+                1
+                bcl::util::SiPtr<std::string>
+                  "third"
+
+              nan
+
+        bcl::util::SiPtrList<std::string>
+          2
+          bcl::util::SiPtr<std::string>
+            "second"
+          bcl::util::SiPtr<std::string>
+            "third"
+
+        1
+    bcl::util::ShPtr<bcl::cluster::Node<std::string,double>>
+      12345678
+      bcl::cluster::Node<std::string,double>
+        bcl::util::ShPtrList<bcl::cluster::Node<std::string,double>>
+          0
+
+        bcl::util::SiPtrList<std::string>
+          1
+          bcl::util::SiPtr<std::string>
+            "fourth"
+
+        nan
+
+  bcl::util::SiPtrList<std::string>
+    3
+    bcl::util::SiPtr<std::string>
+      "second"
+    bcl::util::SiPtr<std::string>
+      "third"
+    bcl::util::SiPtr<std::string>
+      "fourth"
+
+  2

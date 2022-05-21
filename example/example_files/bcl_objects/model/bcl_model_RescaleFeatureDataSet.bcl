@@ -1,0 +1,12 @@
+bcl::model::RescaleFeatureDataSet
+  bcl::storage::Vector<bcl::math::Range<float>>
+    3
+    bcl::math::Range<float>
+      [ 1 , 3 ]
+    bcl::math::Range<float>
+      [ 1 , 3 ]
+    bcl::math::Range<float>
+      [ 1 , 3 ]
+
+  bcl::math::Range<float>
+    [ 0 , 1 ]

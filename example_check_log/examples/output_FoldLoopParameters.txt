@@ -1,0 +1,136 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec FoldLoopParameters 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> FoldLoopParameters
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: FoldLoopParameters ====================
+=std=bcl=> successful example check:
+               sp_param->GetSequenceDistance() == anchor_2.GetSeqID() - anchor_1.GetSeqID() - 1 ==
+              8
+=std=bcl=> successful example check:  linal::EqualWithinTolerance( trans, exp_trans, 0.05) == 1
+=std=bcl=> successful example check:
+               param.GetClassIdentifier() == ( GetStaticClassName< fold::LoopParameters>()) ==
+              bcl::fold::LoopParameters
+=std=bcl=> successful example check:
+               param.GetTranslation() == translation == bcl::linal::Vector3D
+                1	2	3
+=std=bcl=> successful example check:
+               param.GetRotation() == euler_angles == bcl::linal::Vector3D
+                4	5	6
+=std=bcl=> successful example check:
+               param.GetAnchors() == anchors == bcl::storage::Vector<int>
+                2
+                5
+                8
+=std=bcl=> successful example check:  param.GetChainID() == anchor_1.GetChainID() == A
+=std=bcl=> successful example check:  param.GetSequenceDistance() == sequence_distance == 2
+=std=bcl=> successful example check:  param.GetSequenceDirection() == biol::AASequenceFlexibility::e_CTerminal == 1
+=std=bcl=> successful example check:
+               param.GetAngles() == dihedral_angles ==
+              bcl::storage::Vector<double>
+                6
+                7
+                8
+                9
+                10
+                11
+                12
+=std=bcl=> successful example check:
+              linal::EqualWithinTolerance( coord_system.First(), correct_coord_system.First(), 0.05) == 1
+=std=bcl=> successful example check:
+              linal::EqualWithinTolerance( coord_system.Second(), correct_coord_system.Second(), 0.05) == 1
+=std=bcl=> successful example check:
+              linal::EqualWithinTolerance( coord_system.Third(), correct_coord_system.Third(), 0.05) == 1
+=std=bcl=> successful example check:  euler_a_b( 0) == 0.0 == -0  (+/- 0.05)
+=std=bcl=> successful example check:  euler_a_b( 1) == 0.0 == 0  (+/- 0.05)
+=std=bcl=> successful example check:  euler_a_b( 2) == 1.5 * math::g_Pi == 4.71239  (+/- 0.05)
+=std=bcl=> successful example check:  euler_a_c( 0) == 1.5 * math::g_Pi == 4.71239  (+/- 0.05)
+=std=bcl=> successful example check:  euler_a_c( 1) == 0.0 == 0  (+/- 0.05)
+=std=bcl=> successful example check:  euler_a_c( 2) == 0.0 == -0  (+/- 0.05)
+=std=bcl=> successful example check:  euler_a_d( 0) == 1.5 * math::g_Pi == 4.71239  (+/- 0.05)
+=std=bcl=> successful example check:  euler_a_d( 1) == 0.0 == 0  (+/- 0.05)
+=std=bcl=> successful example check:  euler_a_d( 2) == 1.5 * math::g_Pi == 4.71239  (+/- 0.05)
+=std=bcl=> successful example check:
+               param.GetTranslation() == param_read.GetTranslation() ==
+              bcl::linal::Vector3D
+                1	2	3
+=std=bcl=> successful example check:
+               param.GetRotation() == param_read.GetRotation() == bcl::linal::Vector3D
+                4	5	6
+=std=bcl=> successful example check:
+               param.GetAnchors() == param_read.GetAnchors() ==
+              bcl::storage::Vector<int>
+                2
+                5
+                8
+=std=bcl=> successful example check:  param.GetChainID() == param_read.GetChainID() == A
+=std=bcl=> successful example check:  param.GetSequenceDistance() == param_read.GetSequenceDistance() == 2
+=std=bcl=> successful example check:  param.GetSequenceDirection() == param_read.GetSequenceDirection() == 1
+=std=bcl=> successful example check:
+               param.GetAngles() == param_read.GetAngles() ==
+              bcl::storage::Vector<double>
+                6
+                7
+                8
+                9
+                10
+                11
+                12
+=std=bcl::app=> BCL Example | END  : FoldLoopParameters ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+FoldLoopParameters_total                 29          0              
+total                                    29          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 133 MB, peak physical RAM used: 65 MB

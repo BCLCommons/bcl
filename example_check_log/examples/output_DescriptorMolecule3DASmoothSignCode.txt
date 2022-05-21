@@ -1,0 +1,80 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec DescriptorMolecule3DASmoothSignCode 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> DescriptorMolecule3DASmoothSignCode
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: DescriptorMolecule3DASmoothSignCode ====================
+=std=bcl=> successful example check:  copy_rdf_code.GetAtomProperty().GetString() == Atom_Vcharge
+=std=bcl=> successful example check:
+               rdf_code.GetAtomProperty().GetAlias() == descriptor::AtomVcharge().GetAlias() ==
+              Atom_Vcharge
+=std=bcl=> successful example check:  rdf_code.GetNumberSteps() == 48
+=std=bcl=> successful example check:  rdf_code.GetStepSize() == float( 0.25) == 0.25
+=std=bcl=> successful example check:  rdf_code.GetTemperature() == 100.0 == 100
+=std=bcl=> successful example check:  vector_vdw_rdf_code.GetSize() == 144
+=std=bcl=> successful example check:
+               vector_vdw_rdf_code == expected_vector
+              output of result suppressed (result was 1258 bytes), set message verbosity to Detail to override  (+/- 0.001)
+=std=bcl=> vector: bcl::linal::Vector<float>
+  144
+  2.20409	1.90631	5.82135e-28	0.0042549	0.00368004	2.17133e-14	3.06103e-11	8.76898e-08	3.01821e-06	7.875e-13	0.000148239	0.00384681	0.000109464	0.0532669	1.18716	0.0569446	0.000970815	2.26568	0.124826	0.41032	2.90415	0.000652868	0.088114	0.0598109	0.00310012	0.870877	0.528153	1.60753	0.432763	0.731848	1.29513	1.65335	2.97355	1.06318	1.07789	2.39382	1.49988	0.716546	1.83774	1.10215	0.812232	1.46968	0.251004	0.686746	1.64051	0.942419	1.61213	2.47361	1.00619	1.25213	1.95793	1.36967	1.6411	2.06257	1.23846	1.75564	2.81203	1.31748	1.36852	3.04949	1.12343	1.39878	3.87069	1.22876	0.834661	3.18182	1.71993	1.4801	3.26965	1.62962	1.48951	2.7757	2.09884	1.57746	2.68985	1.46109	2.48374	2.27964	2.11092	1.42978	4.72589	1.65906	1.77006	3.5284	1.6299	1.21721	3.99162	1.1503	1.35671	2.75748	1.269	1.98873	2.78251	1.57121	1.07963	2.52724	1.96458	1.13978	1.52269	1.46104	1.66206	3.03516	1.11531	0.947067	2.24839	0.769896	0.688474	1.91421	0.658805	1.1309	2.87706	1.15995	0.595443	2.16547	1.12039	0.861634	1.7122	1.13394	1.74964	1.91447	0.98431	1.32069	2.21149	0.926004	1.09811	1.44337	1.01091	0.489723	2.11088	1.00033	0.853371	1.49083	1.09888	0.862122	2.20216	0.293676	0.277373	1.5041	0.342873	0.696823	1.32455	0.698578	0.870644	0.87035	
+=std=bcl=> Molecule3DASmoothSignCode I/O test succeeded:
+              TestBCLObjectIOForSymmetry( rdf_code, descriptor::Molecule3DASmoothSignCode( atom_property)) == 1
+=std=bcl::app=> BCL Example | END  : DescriptorMolecule3DASmoothSignCode ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>             success      error error_string 
+DescriptorMolecule3DASmoothSignCode_total          8          0              
+total                                              8          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

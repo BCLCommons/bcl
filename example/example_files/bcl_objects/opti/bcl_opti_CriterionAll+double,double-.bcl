@@ -1,0 +1,5 @@
+bcl::opti::CriterionAll<double,double>
+  bcl::storage::List<bcl::util::Implementation<bcl::opti::CriterionInterface<double,double>>>
+    2
+    Iterations(5)
+    ConvergenceResult(repeats=3,tolerance=0.25,current repetitions=3,last result=3)

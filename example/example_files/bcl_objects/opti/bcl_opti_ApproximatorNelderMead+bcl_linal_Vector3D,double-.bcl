@@ -1,0 +1,80 @@
+bcl::opti::ApproximatorNelderMead<bcl::linal::Vector3D,double>
+  bcl::util::ShPtr<bcl::opti::PrintInterface<bcl::linal::Vector3D,double>>
+    0
+
+  bcl::util::ShPtr<bcl::opti::CriterionInterface<bcl::linal::Vector3D,double>>
+    12345678
+    bcl::opti::CriterionNumberIterations<bcl::linal::Vector3D,double>
+      100
+  bcl::opti::Tracker<bcl::linal::Vector3D,double>
+    68
+    68
+    SmallerIsBetter
+    End
+    bcl::storage::Vector<size_t>
+      4
+      40
+      28
+      0
+      0
+
+    bcl::storage::Vector<size_t>
+      4
+      64
+      63
+      0
+      0
+
+    bcl::storage::Vector<size_t>
+      4
+      67
+      63
+      0
+      0
+
+    improved
+    bcl::util::ShPtr<bcl::storage::Pair<bcl::linal::Vector3D,double>>
+      12345678
+      bcl::storage::Pair<bcl::linal::Vector3D,double>
+        bcl::linal::Vector3D
+          4.47786e-06	2.48496e-06	8.7653e-07
+        2.69945e-11
+    bcl::util::ShPtr<bcl::storage::Pair<bcl::linal::Vector3D,double>>
+      12345678
+      bcl::storage::Pair<bcl::linal::Vector3D,double>
+        bcl::linal::Vector3D
+          4.47786e-06	2.48496e-06	8.7653e-07
+        2.69945e-11
+    ""
+  bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<bcl::linal::Vector3D,double>>
+    12345678
+    bcl::ExampleOptiApproximatorNelderMead::SquareExampleFunction
+
+  bcl::util::ShPtrList<bcl::storage::Pair<bcl::linal::Vector3D,double>>
+    4
+    bcl::util::ShPtr<bcl::storage::Pair<bcl::linal::Vector3D,double>>
+      12345678
+      bcl::storage::Pair<bcl::linal::Vector3D,double>
+        bcl::linal::Vector3D
+          4.47786e-06	2.48496e-06	8.7653e-07
+        2.69945e-11
+    bcl::util::ShPtr<bcl::storage::Pair<bcl::linal::Vector3D,double>>
+      12345678
+      bcl::storage::Pair<bcl::linal::Vector3D,double>
+        bcl::linal::Vector3D
+          1.3851e-06	-3.61746e-06	3.53892e-06
+        2.75285e-11
+    bcl::util::ShPtr<bcl::storage::Pair<bcl::linal::Vector3D,double>>
+      12345678
+      bcl::storage::Pair<bcl::linal::Vector3D,double>
+        bcl::linal::Vector3D
+          -4.72934e-06	6.98894e-06	-3.91992e-07
+        7.13656e-11
+    bcl::util::ShPtr<bcl::storage::Pair<bcl::linal::Vector3D,double>>
+      12345678
+      bcl::storage::Pair<bcl::linal::Vector3D,double>
+        bcl::linal::Vector3D
+          -1.63969e-06	1.35985e-06	-8.98436e-06
+        8.52564e-11
+
+  1e-10

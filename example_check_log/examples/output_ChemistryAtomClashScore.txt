@@ -1,0 +1,113 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ChemistryAtomClashScore 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ChemistryAtomClashScore
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ChemistryAtomClashScore ====================
+=std=bcl::chemistry=> Type: O_Tr2Tr2TrPi H_S Dist: 1.97592 Vdw: 2 Score: 0.0240776 A/B 20/80
+=std=bcl::chemistry=> Type: H_S C_TeTeTeTe Dist: 2.26148 Vdw: 2.27 Score: 0.00851546 A/B 28/77
+=std=bcl::chemistry=> Type: H_S H_S Dist: 1.65515 Vdw: 1.7 Score: 0.0448511 A/B 77/84
+=std=bcl::chemistry=> Type: H_S C_TeTeTeTe Dist: 2.14988 Vdw: 2.27 Score: 0.120122 A/B 29/88
+=std=bcl::chemistry=> Type: O_Te2Te2TeTe O_Tr2Tr2TrPi Dist: 2.25081 Vdw: 2.3 Score: 0.0491879 A/B 54/59
+=std=bcl=> successful example check:  score_h_medium_tol( *itr) == double( 0.0) == 0.00218367  (+/- 0.01)
+=std=bcl::chemistry=> Type: O_Te2Te2TeTe O_Tr2Tr2TrPi Dist: 2.25081 Vdw: 2.3 Score: 0.0491879 A/B 54/59
+=std=bcl=> successful example check:  score_h_low_tol( *itr) == double( 0) == 0.000435291  (+/- 0.01)
+=std=bcl=> successful example check:  score_h_medium_tol( *itr) == double( 0) == 0  (+/- 0.01)
+=std=bcl=> successful example check:  score_h_low_tol( *itr) == double( 0) == 0  (+/- 0.01)
+=std=bcl=> successful example check:  score_h_medium_tol( *itr) == double( 0.0) == 0  (+/- 0.01)
+=std=bcl=> successful example check:  score_h_low_tol( *itr) == double( 0.0) == 0  (+/- 0.01)
+=std=bcl::chemistry=> Type: O_Tr2TrTrPi2 C_TeTeTeTe Dist: 2.52187 Vdw: 2.57 Score: 0.0481296 A/B 17/29
+=std=bcl::chemistry=> Type: C_TeTeTeTe H_S Dist: 1.9901 Vdw: 2.27 Score: 0.279898 A/B 21/109
+=std=bcl::chemistry=> Type: C_TrTrTrPi H_S Dist: 0.81885 Vdw: 2.27 Score: 1.45115 A/B 22/109
+=std=bcl::chemistry=> Type: C_TrTrTrPi H_S Dist: 2.09292 Vdw: 2.27 Score: 0.177076 A/B 22/111
+=std=bcl::chemistry=> Type: C_TrTrTrPi C_TeTeTeTe Dist: 1.73727 Vdw: 2.84 Score: 1.10273 A/B 22/60
+=std=bcl::chemistry=> Type: C_TeTeTeTe H_S Dist: 1.7421 Vdw: 2.27 Score: 0.527895 A/B 27/109
+=std=bcl::chemistry=> Type: C_TeTeTeTe H_S Dist: 1.69477 Vdw: 2.27 Score: 0.575229 A/B 27/111
+=std=bcl::chemistry=> Type: C_TeTeTeTe C_TeTeTeTe Dist: 1.80577 Vdw: 2.84 Score: 1.03423 A/B 27/60
+=std=bcl::chemistry=> Type: C_TeTeTeTe H_S Dist: 1.86091 Vdw: 2.27 Score: 0.409086 A/B 27/110
+=std=bcl::chemistry=> Type: C_TrTrTrPi C_TeTeTeTe Dist: 1.85134 Vdw: 2.84 Score: 0.988661 A/B 26/60
+=std=bcl::chemistry=> Type: C_TeTeTeTe C_TrTrTrPi Dist: 2.7022 Vdw: 2.84 Score: 0.1378 A/B 28/31
+=std=bcl::chemistry=> Type: O_Tr2TrTrPi2 C_TeTeTeTe Dist: 2.53987 Vdw: 2.57 Score: 0.0301264 A/B 39/60
+=std=bcl::chemistry=> Type: O_Te2Te2TeTe C_TrTrTrPi Dist: 2.4821 Vdw: 2.57 Score: 0.0878979 A/B 44/46
+=std=bcl::chemistry=> Type: H_S C_TeTeTeTe Dist: 1.37573 Vdw: 2.27 Score: 0.894273 A/B 60/81
+=std=bcl::chemistry=> Type: H_S H_S Dist: 1.03801 Vdw: 1.7 Score: 0.661989 A/B 81/110
+=std=bcl::chemistry=> Type: H_S H_S Dist: 1.61706 Vdw: 1.7 Score: 0.0829401 A/B 82/88
+=std=bcl::chemistry=> Type: H_S C_TrTrTrPi Dist: 1.20648 Vdw: 2.27 Score: 1.06352 A/B 26/109
+=std=bcl::chemistry=> Type: H_S C_TeTeTeTe Dist: 2.08502 Vdw: 2.27 Score: 0.184984 A/B 30/109
+=std=bcl::chemistry=> Type: H_S H_S Dist: 1.66477 Vdw: 1.7 Score: 0.0352335 A/B 89/109
+=std=bcl::chemistry=> Type: H_S C_TrTrTrPi Dist: 2.06972 Vdw: 2.27 Score: 0.200282 A/B 26/111
+=std=bcl::chemistry=> Type: H_S C_TeTeTeTe Dist: 1.54833 Vdw: 2.27 Score: 0.721675 A/B 30/111
+=std=bcl::chemistry=> Type: H_S O_Tr2TrTrPi2 Dist: 1.6086 Vdw: 2 Score: 0.391401 A/B 39/111
+=std=bcl::chemistry=> Type: H_S H_S Dist: 1.38707 Vdw: 1.7 Score: 0.312926 A/B 81/111
+=std=bcl::chemistry=> Type: H_S H_S Dist: 1.68541 Vdw: 1.7 Score: 0.0145872 A/B 83/90
+=std=bcl::chemistry=> Type: H_S O_Te2Te2TeTe Dist: 1.37412 Vdw: 2 Score: 0.625884 A/B 61/110
+=std=bcl::chemistry=> Type: C_TeTeTeTe O_Tr2Tr2TrPi Dist: 2.5615 Vdw: 2.57 Score: 0.00849842 A/B 37/59
+=std=bcl=> successful example check:  score_h_medium_tol( *itr) == double( 0.107) == 0.10662  (+/- 0.01)
+=std=bcl::chemistry=> Type: O_Tr2TrTrPi2 C_TeTeTeTe Dist: 2.52187 Vdw: 2.57 Score: 0.0481296 A/B 17/29
+=std=bcl::chemistry=> Type: C_TrTrTrPi C_TeTeTeTe Dist: 1.73727 Vdw: 2.84 Score: 1.10273 A/B 22/60
+=std=bcl::chemistry=> Type: C_TeTeTeTe C_TeTeTeTe Dist: 1.80577 Vdw: 2.84 Score: 1.03423 A/B 27/60
+=std=bcl::chemistry=> Type: C_TrTrTrPi C_TeTeTeTe Dist: 1.85134 Vdw: 2.84 Score: 0.988661 A/B 26/60
+=std=bcl::chemistry=> Type: C_TeTeTeTe C_TrTrTrPi Dist: 2.7022 Vdw: 2.84 Score: 0.1378 A/B 28/31
+=std=bcl::chemistry=> Type: O_Tr2TrTrPi2 C_TeTeTeTe Dist: 2.53987 Vdw: 2.57 Score: 0.0301264 A/B 39/60
+=std=bcl::chemistry=> Type: O_Te2Te2TeTe C_TrTrTrPi Dist: 2.4821 Vdw: 2.57 Score: 0.0878979 A/B 44/46
+=std=bcl::chemistry=> Type: C_TeTeTeTe O_Tr2Tr2TrPi Dist: 2.5615 Vdw: 2.57 Score: 0.00849842 A/B 37/59
+=std=bcl=> successful example check:  score_h_low_tol( *itr) == double( 0.030) == 0.0304254  (+/- 0.01)
+=std=bcl::app=> BCL Example | END  : ChemistryAtomClashScore ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+ChemistryAtomClashScore_total             8          0              
+total                                     8          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB
+=std=bcl::util=>   AtomClashScore ClashComputation has run for 0.00248 seconds

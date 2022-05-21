@@ -1,0 +1,171 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec CoordGeometricHashing 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> CoordGeometricHashing
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: CoordGeometricHashing ====================
+=std=bcl=> processing screening with following arguments
+=std=bcl=> -pdb example/example_files/input/biology/1ubi.pdb
+-mrc example/example_files/input/biology/1ubi_res_6.6voxelsize_2.200Gaussian.mrc
+-resolution 12
+-points 47
+-mindistance 3.8
+-minthreshold 7.6
+-maxthreshold 22.9495
+-feature_radius 17.2122
+-savebest 5
+-trials 200
+-diffrot 0
+-difftrans 0
+-matching following atoms bcl::storage::Set<bcl::biol::AtomTypes::Enum,std::less<bcl::biol::AtomTypes::Enum>>
+  1
+  bcl::biol::AtomTypes::Enum
+    "CA"
+
+=std=bcl=> read DensityMap from mrc file
+=std=bcl=> read DensityMap from mrc file done
+=std=bcl=> this is the distribution of distances within the pointcloud: bcl::math::Histogram
+  		...<	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	<..>	>...
+  center		   7.600	   7.984	   8.751	   9.519	  10.286	  11.054	  11.821	  12.589	  13.356	  14.124	  14.891	  15.658	  16.426	  17.193	  17.961	  18.728	  19.496	  20.263	  21.031	  21.798	  22.566	  22.950
+  counts		 124.000	  47.000	  22.000	  39.000	  37.000	  72.000	  56.000	  43.000	  76.000	  68.000	  50.000	  85.000	  52.000	  43.000	  63.000	  43.000	  28.000	  27.000	  19.000	  23.000	  17.000	  47.000
+
+=std=bcl=> thresholds that contain equal amounts of distances: bcl::storage::VectorND<4,double>
+  7.6
+  12.9723
+  16.8097
+  22.9495
+=std=bcl=> write point cloud coordinates in file example/example_files/output/coord/points_both11_47_threshold_3.8A.pointcloud
+=std=bcl=> building hash with threshold range: 7.6 ... 22.9495 and resolution factor: 12 - can take a little time
+=std=bcl::coord=> CalculatePointPairs( COORDINATES) calculate pairwise distance has finshed
+number of pairs of points within lower distance: 316
+number of pairs of points within middle distance: 331
+number of pairs of points within higher distance: 263
+=std=bcl::coord=> building hash with nr long distances: 47
+=std=bcl::coord=> building hash 10% done
+=std=bcl::coord=> building hash 20% done
+=std=bcl::coord=> building hash 30% done
+=std=bcl::coord=> building hash 40% done
+=std=bcl::coord=> building hash 50% done
+=std=bcl::coord=> building hash 60% done
+=std=bcl::coord=> building hash 70% done
+=std=bcl::coord=> building hash 80% done
+=std=bcl::coord=> building hash 90% done
+=std=bcl::coord=> building hash 100% done
+=std=bcl::coord=> building hash 110% done
+=std=bcl::coord=> building hash has finished
+Number of Hash keys: 905	Number of TransformationMatrices: 514
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> matching: example/example_files/input/biology/1ubi.pdb
+=std=bcl=> number of atoms to match: 45
+=std=bcl::coord=> start of fitting with threshold of bcl::storage::VectorND<4,double>
+  7.6
+  12.9723
+  16.8097
+  22.9495
+=std=bcl::coord=> CalculatePointPairs( COORDINATES) calculate pairwise distance has finshed
+number of pairs of points within lower distance: 323
+number of pairs of points within middle distance: 320
+number of pairs of points within higher distance: 169
+=std=bcl::coord=> determine all transformations and centers for all possible bases!
+=std=bcl::coord=> number of possible bases: 1588
+=std=bcl::coord=> associate all transformations with points on a grid
+=std=bcl::coord=> number of occupied grid elements: 54
+=std=bcl::coord=> list containing equally distributed bases contains 216 bases
+=std=bcl::coord=> There are 200 possible bases to be searched!
+=std=bcl::coord=> starting to process base 1 of 200 bases for fitting!
+=std=bcl::coord=> starting to process base 21 of 200 bases for fitting!
+=std=bcl::coord=> starting to process base 41 of 200 bases for fitting!
+=std=bcl::coord=> starting to process base 61 of 200 bases for fitting!
+=std=bcl::coord=> starting to process base 81 of 200 bases for fitting!
+=std=bcl::coord=> starting to process base 101 of 200 bases for fitting!
+=std=bcl::coord=> starting to process base 121 of 200 bases for fitting!
+=std=bcl::coord=> starting to process base 141 of 200 bases for fitting!
+=std=bcl::coord=> starting to process base 161 of 200 bases for fitting!
+=std=bcl::coord=> starting to process base 181 of 200 bases for fitting!
+=crt=bcl::assemble=> No native model given!
+=crt=bcl::assemble=> 3 coordinates are needed at least for quality calculation
+=std=bcl=> hash score: 14
+=std=bcl=> write transformed coordinates in file example/example_files/output/coord/transformed0.pdb
+=crt=bcl::assemble=> No native model given!
+=crt=bcl::assemble=> 3 coordinates are needed at least for quality calculation
+=std=bcl=> hash score: 13
+=std=bcl=> write transformed coordinates in file example/example_files/output/coord/transformed1.pdb
+=crt=bcl::assemble=> No native model given!
+=crt=bcl::assemble=> 3 coordinates are needed at least for quality calculation
+=std=bcl=> hash score: 13
+=std=bcl=> write transformed coordinates in file example/example_files/output/coord/transformed2.pdb
+=crt=bcl::assemble=> No native model given!
+=crt=bcl::assemble=> 3 coordinates are needed at least for quality calculation
+=std=bcl=> hash score: 13
+=std=bcl=> write transformed coordinates in file example/example_files/output/coord/transformed3.pdb
+=crt=bcl::assemble=> No native model given!
+=crt=bcl::assemble=> 3 coordinates are needed at least for quality calculation
+=std=bcl=> hash score: 13
+=std=bcl=> write transformed coordinates in file example/example_files/output/coord/transformed4.pdb
+=std=bcl=> CorrelationFactors
+            bcl::linal::Vector<double>
+  5
+  0.752363736	0.694400119	0.806467639	0.719506198	0.762568210	
+=std=bcl=> RMSD
+       bcl::linal::Vector<double>
+  5
+  nan	nan	nan	nan	nan	
+=std=bcl::app=> BCL Example | END  : CoordGeometricHashing ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+CoordGeometricHashing_total               0          0              
+total                                     0          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 135 MB, peak physical RAM used: 67 MB

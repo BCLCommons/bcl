@@ -1,0 +1,6 @@
+bcl::coord::MoveRotateRandomExternalReference
+  MoveRotateRandomExternalReference(
+    min rotation(0,0,0),
+    max rotation(0.523599,0.523599,0),
+    method=INTERNAL_TRANSLATE
+  )

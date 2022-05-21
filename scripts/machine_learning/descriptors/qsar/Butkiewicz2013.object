@@ -1,0 +1,56 @@
+# Descriptor file for 
+# Butkiewicz, et. al. "Benchmarking Ligand-Based High-Throughput Screening with the PubChem Database." Molecules 2013
+# Adapted to use ForEach descriptor Feb 2, 2014 by mendenjl
+Combine(
+  
+  # define basic atom properties
+  Define(
+    BaseAtomProperties=Combine(
+      Atom_Identity,
+      Atom_SigmaCharge,
+      Atom_PiCharge,
+      Atom_TotalCharge,
+      Atom_LonePairEN,
+      Atom_PiEN,
+      Atom_SigmaEN,
+      Atom_EffectivePolarizability,
+      Atom_Vcharge
+    )
+  ),
+  # Define van-der-waals weighted atom properties
+  Define(
+    VDWAtomProperties=
+      ForEach(
+        template=Multiply(AtomProperty,Atom_VDWSurfaceArea),
+        variable=AtomProperty,
+        descriptors(BaseAtomProperties)
+      )
+  ),
+  
+  # Scalar descriptors
+  Weight,
+  HbondDonor,
+  HbondAcceptor,
+  LogP,
+  TotalCharge,
+  TopologicalPolarSurfaceArea,
+  
+  # 2D-Autocorrelations (topological), 12 steps each
+  ForEach( 
+    template= 2DA(property=AtomProperty,steps=11,normalized=0),
+    variable=AtomProperty,
+    descriptors( BaseAtomProperties, VDWAtomProperties)
+  ),
+  # 3D-Autocorrelations (conformational); use 1A bins, 12 steps (12A max)
+  ForEach( 
+    template= 3DA(property=AtomProperty,steps=12,step size=1,normalized=0),
+    variable=AtomProperty,
+    descriptors( BaseAtomProperties, VDWAtomProperties)
+  ),
+  # RDFs; use 0.25A bins, 48 steps (12A max), temperature factor (inverse smoothing) of 100
+  ForEach( 
+    template= RDF(property=AtomProperty,steps=48,temperature=100,step size=0.25,normalized=0),
+    variable=AtomProperty,
+    descriptors( BaseAtomProperties, VDWAtomProperties)
+  )
+)

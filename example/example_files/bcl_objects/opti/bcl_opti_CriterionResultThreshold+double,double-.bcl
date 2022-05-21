@@ -1,0 +1,2 @@
+bcl::opti::CriterionResultThreshold<double,double>
+  0.5

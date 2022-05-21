@@ -1,0 +1,145 @@
+bcl::command::Command
+  bcl::util::ShPtr<bcl::command::FlagInterface>
+    12345678
+    bcl::command::FlagStatic
+      ""
+      ""
+      1
+      bcl::util::ShPtrVector<bcl::command::ParameterInterface>
+        2
+        bcl::util::ShPtr<bcl::command::ParameterInterface>
+          12345678
+          bcl::command::Parameter
+            "input_filename"
+            "filename for input"
+            bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+              12345678
+              bcl::command::ParameterCheckExtension
+                ".pdb"
+            ""
+            0
+            0
+            ""
+        bcl::util::ShPtr<bcl::command::ParameterInterface>
+          12345678
+          bcl::command::Parameter
+            "output_filename"
+            "filename for output"
+            bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+              12345678
+              bcl::command::ParameterCheckExtension
+                ".bcl"
+            ""
+            0
+            0
+            ""
+
+  bcl::util::ShPtrVector<bcl::command::FlagInterface>
+    6
+    bcl::util::ShPtr<bcl::command::FlagInterface>
+      12345678
+      bcl::command::FlagStatic
+        "switch_off"
+        "use this to switch something off"
+        0
+        bcl::util::ShPtrVector<bcl::command::ParameterInterface>
+          0
+
+    bcl::util::ShPtr<bcl::command::FlagInterface>
+      12345678
+      bcl::command::FlagStatic
+        "switch_on"
+        "use this to switch something on"
+        0
+        bcl::util::ShPtrVector<bcl::command::ParameterInterface>
+          0
+
+    bcl::util::ShPtr<bcl::command::FlagInterface>
+      12345678
+      bcl::command::FlagStatic
+        "read_write_command_object"
+        "use this to write and read command object"
+        1
+        bcl::util::ShPtrVector<bcl::command::ParameterInterface>
+          0
+
+    bcl::util::ShPtr<bcl::command::FlagInterface>
+      12345678
+      bcl::command::FlagStatic
+        "blosum"
+        "this is a choice for the blosum matrix"
+        0
+        bcl::util::ShPtrVector<bcl::command::ParameterInterface>
+          1
+          bcl::util::ShPtr<bcl::command::ParameterInterface>
+            12345678
+            bcl::command::Parameter
+              "blosum_matrix"
+              "a choice of possible matrices"
+              bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+                12345678
+                bcl::command::ParameterCheckAllowed
+                  bcl::storage::Vector<std::string>
+                    3
+                    "BLOSUM45"
+                    "BLOSUM90"
+                    "BLOSUM120"
+
+              ""
+              0
+              0
+              ""
+
+    bcl::util::ShPtr<bcl::command::FlagInterface>
+      12345678
+      bcl::command::FlagStatic
+        "blosum_weight"
+        "this is weight for the blosum matrix score"
+        0
+        bcl::util::ShPtrVector<bcl::command::ParameterInterface>
+          1
+          bcl::util::ShPtr<bcl::command::ParameterInterface>
+            12345678
+            bcl::command::Parameter
+              "blosum_score_weight"
+              "weight for blosum score"
+              bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+                12345678
+                bcl::command::ParameterCheckRanged<double>
+                  bcl::math::Range<double>
+                    [ 0 , 1 ]
+              ""
+              0
+              0
+              ""
+
+    bcl::util::ShPtr<bcl::command::FlagInterface>
+      12345678
+      bcl::command::FlagDynamic
+        "filelist"
+        "this is list of input .fasta file"
+        0
+        bcl::util::ShPtrVector<bcl::command::ParameterInterface>
+          0
+
+        2
+        2
+        bcl::util::ShPtrVector<bcl::command::ParameterInterface>
+          1
+          bcl::util::ShPtr<bcl::command::ParameterInterface>
+            12345678
+            bcl::command::Parameter
+              "fasta-file"
+              "any fasta file"
+              bcl::util::ShPtr<bcl::command::ParameterCheckInterface>
+                12345678
+                bcl::command::ParameterCheckExtension
+                  ".fasta"
+              ""
+              0
+              0
+              ""
+
+
+  bcl::util::ShPtrVector<bcl::command::FlagInterface>
+    0

@@ -1,0 +1,4 @@
+bcl::fold::MutateProteinModelSSEMove
+  "bcl::find::LocatorCriteriaWrapper<bcl::util::SiPtr<const-bcl::assemble::SSE>,bcl::assemble::DomainInterface,bcl::assemble::DomainInterface>"
+  PickCriteriaInterface
+  "mutate_helix_next"

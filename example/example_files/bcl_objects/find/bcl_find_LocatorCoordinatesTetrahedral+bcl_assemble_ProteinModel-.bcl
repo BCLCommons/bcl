@@ -1,0 +1,30 @@
+bcl::find::LocatorCoordinatesTetrahedral<bcl::assemble::ProteinModel>
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::linal::Vector3D,bcl::assemble::ProteinModel>>
+    12345678
+    bcl::assemble::LocatorAtom
+      LocatorAtom(
+        locator_aa=LocatorAA(locator_chain=A,seq_id=14,aa type=Undefined,use_pdb_id=0),
+        atom_type=CA
+      )
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::linal::Vector3D,bcl::assemble::ProteinModel>>
+    12345678
+    bcl::assemble::LocatorAtom
+      LocatorAtom(
+        locator_aa=LocatorAA(locator_chain=A,seq_id=14,aa type=Undefined,use_pdb_id=0),
+        atom_type=C
+      )
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::linal::Vector3D,bcl::assemble::ProteinModel>>
+    12345678
+    bcl::assemble::LocatorAtom
+      LocatorAtom(
+        locator_aa=LocatorAA(locator_chain=A,seq_id=14,aa type=Undefined,use_pdb_id=0),
+        atom_type=CB
+      )
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::linal::Vector3D,bcl::assemble::ProteinModel>>
+    12345678
+    bcl::assemble::LocatorAtom
+      LocatorAtom(
+        locator_aa=LocatorAA(locator_chain=A,seq_id=14,aa type=Undefined,use_pdb_id=0),
+        atom_type=N
+      )
+  0.98

@@ -1,0 +1,9 @@
+bcl::cluster::InputPairwiseList<double>
+  bcl::util::ShPtr<bcl::storage::List<std::string>>
+    12345678
+    bcl::storage::List<std::string>
+      3
+      "two"
+      "one"
+      "three"
+

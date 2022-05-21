@@ -1,0 +1,10 @@
+bcl::fold::MutateDomainSSEPairTrim
+  "scheme"
+  bcl::storage::Map<bcl::biol::SSTypes::Enum,size_t,std::less<bcl::biol::SSTypes::Enum>>
+    1
+    std::pair<bcl::biol::SSTypes::Enum,size_t>
+      bcl::biol::SSTypes::Enum
+        "HELIX"
+      5
+
+  4

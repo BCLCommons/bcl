@@ -1,0 +1,6 @@
+bcl::score::SSEPredictionAverage
+  bcl::sspred::Methods::Enum
+    "JUFO"
+  0.5
+  0
+  "ssepredavg"

@@ -1,0 +1,7 @@
+bcl::fold::MutateSSEBendRandom
+  bcl::math::Range<double>
+    [ -0.523599 , 0.523599 ]
+  bcl::math::Range<double>
+    [ -0.523599 , 0.523599 ]
+  bidirectional
+  "bend"

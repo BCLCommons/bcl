@@ -1,0 +1,20 @@
+bcl::math::MutateTerminateDependent<bcl::linal::Vector<double>,double>
+  bcl::storage::List<bcl::storage::Pair<bcl::util::ShPtr<bcl::opti::CriterionInterface<bcl::linal::Vector<double>,double>>,bcl::util::ShPtr<bcl::math::MutateInterface<bcl::linal::Vector<double>>>>>
+    1
+    bcl::storage::Pair<bcl::util::ShPtr<bcl::opti::CriterionInterface<bcl::linal::Vector<double>,double>>,bcl::util::ShPtr<bcl::math::MutateInterface<bcl::linal::Vector<double>>>>
+      bcl::util::ShPtr<bcl::opti::CriterionInterface<bcl::linal::Vector<double>,double>>
+        12345678
+        bcl::opti::CriterionNumberIterations<bcl::linal::Vector<double>,double>
+          10
+      bcl::util::ShPtr<bcl::math::MutateInterface<bcl::linal::Vector<double>>>
+        12345678
+        bcl::math::MutateVector
+          bcl::linal::Vector<double>
+            1
+            1	
+          1
+          0
+          0
+          nan
+
+  "scheme"

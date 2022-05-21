@@ -1,0 +1,152 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec AssembleSSECompare 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AssembleSSECompare
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AssembleSSECompare ====================
+=std=bcl=> building sequences from pdb chains
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> sequences are built
+=std=bcl=> Creating sses
+=std=bcl=> testing SSELessThan, inserting sses
+=std=bcl=> The inserted sses are:
+=std=bcl=> 15 to 24
+=std=bcl=> 17 to 29
+=std=bcl=> 30 to 35
+=std=bcl=> 40 to 45
+=std=bcl=> 40 to 48
+=std=bcl=> Set Insert using sse_less_than test succeeded:  set_sse_less_than.GetSize() == 5
+=std=bcl=> all sses have been inserted
+=std=bcl=> testing SSELessThanNoOverlap, inserting sses
+=std=bcl=> The inserted sses are:
+=std=bcl=> 15 to 24
+=std=bcl=> 30 to 35
+=std=bcl=> 40 to 45
+=std=bcl=> Set Insert using sse_less_than_no_overlap test succeeded:  set_sse_less_than_no_overlap.GetSize() == 3
+=std=bcl=> all sses have been inserted
+=std=bcl=> testing SSELessThanBySize, inserting sses
+=std=bcl=> The inserted sses are:
+=std=bcl=> 30 to 35
+=std=bcl=> 40 to 45
+=std=bcl=> 40 to 48
+=std=bcl=> 15 to 24
+=std=bcl=> 17 to 29
+=std=bcl=> Set Insert using SSELessThanBySize test succeeded:  set_sse_less_than_by_size.GetSize() == 5
+=std=bcl=> all sses have been inserted
+=std=bcl=> testing SSECompare
+=std=bcl=> searching for existing sse
+=std=bcl=> Find with SSECompare test succeeded:  itr_compare != set_sse_less_than.End() == 1
+=std=bcl=> Find with SSECompare test succeeded:
+               **itr_compare == *sse_40_48
+              output of result suppressed (result was 13742 bytes), set message verbosity to Detail to override
+=std=bcl=> counting matches to existing sse
+=std=bcl=> successful example check:
+              std::count_if( set_sse_less_than.Begin(), set_sse_less_than.End(), assemble::SSECompare( *sse_40_48)) == 1
+=std=bcl=> searching for not-inserted sse
+=std=bcl=> successful example check:
+              std::find_if( set_sse_less_than.Begin(), set_sse_less_than.End(), assemble::SSECompare( *sse_14_29)) == set_sse_less_than.End()
+              == 1
+=std=bcl=> counting machtes to not-inserted sse
+=std=bcl=> successful example check:
+              std::count_if( set_sse_less_than.Begin(), set_sse_less_than.End(), assemble::SSECompare( *sse_14_29)) == 0
+=std=bcl=> testing SSECompareOverlap
+=std=bcl=> searching for existing sse, should find 40_45 first
+=std=bcl=> Find with SSECompareOverlap test succeeded:  itr_compare_overlap != set_sse_less_than.End() == 1
+=std=bcl=> Find with SSECompareOverlap test succeeded:
+               **itr_compare_overlap == *sse_40_45
+              output of result suppressed (result was 8544 bytes), set message verbosity to Detail to override
+=std=bcl=> continuing search from the previous match, should find 40_48 now
+=std=bcl=> Find with SSECompareOverlap test succeeded:  itr_compare_overlap_2 != set_sse_less_than.End() == 1
+=std=bcl=> Find with SSECompareOverlap test succeeded:
+               **itr_compare_overlap_2 == *sse_40_48
+              output of result suppressed (result was 13742 bytes), set message verbosity to Detail to override
+=std=bcl=> counting overlapping sses with 40_45
+=std=bcl=> successful example check:
+              std::count_if( set_sse_less_than.Begin(), set_sse_less_than.End(), assemble::SSECompareOverlap( *sse_40_45))
+              == 2
+=std=bcl=> searching for non-inserted but overlapping sse, 
+=std=bcl=> find with SSECompareOverlap test succeeded:  itr_compare_overlap_3 != set_sse_less_than_no_overlap.End() == 1
+=std=bcl=> Find with SSECompareOverlap test succeeded:
+               **itr_compare_overlap_3 == *sse_40_45
+              output of result suppressed (result was 8544 bytes), set message verbosity to Detail to override
+=std=bcl=> counting matches to non-inserted but overlapping sse
+=std=bcl=> successful example check:
+              std::count_if ( set_sse_less_than_no_overlap.Begin(), set_sse_less_than_no_overlap.End(), assemble::SSECompareOverlap( *sse_40_48) )
+              == 1
+=std=bcl=> searching for not-inserted non-overlapping sse
+=std=bcl=> successful example check:
+              std::find_if( set_sse_less_than.Begin(), set_sse_less_than.End(), assemble::SSECompareOverlap( *sse_60_70)) == set_sse_less_than.End()
+              == 1
+=std=bcl=> counting matches to not-inserted non-overlapping sse
+=std=bcl=> successful example check:
+              std::count_if( set_sse_less_than.Begin(), set_sse_less_than.End(), assemble::SSECompareOverlap( *sse_60_70))
+              == 0
+=std=bcl::app=> BCL Example | END  : AssembleSSECompare ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AssembleSSECompare_total                 18          0              
+total                                    18          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 136 MB, peak physical RAM used: 68 MB

@@ -1,0 +1,45 @@
+REMARK  BCL Handler FILE                                                                                                        
+REMARK  THIS ONLY CONTAINS INFORMATION ABOUT SECONDARY STRUCTURE ELEMENTS                                                       
+REMARK  THIS IS ORDERED BY DECLARATION IN HELIX AND SHEET SECTION RESPECTIVELY                                                  
+SEQRES   1 A   76  MET GLN ILE PHE VAL LYS THR LEU THR GLY LYS THR ILE                                                          
+SEQRES   2 A   76  THR LEU GLU VAL GLU PRO SER ASP THR ILE GLU ASN VAL                                                          
+SEQRES   3 A   76  LYS ALA LYS ILE GLN ASP LYS GLU GLY ILE PRO PRO ASP                                                          
+SEQRES   4 A   76  GLN GLN ARG LEU ILE PHE ALA GLY LYS GLN LEU GLU ASP                                                          
+SEQRES   5 A   76  GLY ARG THR LEU SER ASP TYR ASN ILE GLN LYS GLU SER                                                          
+SEQRES   6 A   76  THR LEU HIS LEU VAL LEU ARG LEU ARG GLY GLY                                                                  
+SHEET    1       MET A   1  THR A   7                                                                                           
+ATOM      1  N   MET A   1      26.286  24.743   1.191  1.00 14.70           N                                                  
+ATOM      2  CA  MET A   1      26.291  25.039   2.662  1.00  9.58           C                                                  
+ATOM      3  C   MET A   1      26.756  26.453   2.921  1.00  6.78           C                                                  
+ATOM      4  O   MET A   1      27.729  26.935   2.363  1.00 11.04           O                                                  
+ATOM      5  CB  MET A   1      27.266  24.084   3.375  1.00 15.53           C                                                  
+ATOM      6  N   GLN A   2      25.984  27.068   3.808  1.00 10.15           N                                                  
+ATOM      7  CA  GLN A   2      26.327  28.479   4.183  1.00  8.89           C                                                  
+ATOM      8  C   GLN A   2      26.193  28.684   5.673  1.00 30.66           C                                                  
+ATOM      9  O   GLN A   2      25.234  28.272   6.307  1.00  9.27           O                                                  
+ATOM     10  CB  GLN A   2      25.355  29.448   3.484  1.00 16.48           C                                                  
+ATOM     11  N   ILE A   3      27.226  29.350   6.172  1.00  7.03           N                                                  
+ATOM     12  CA  ILE A   3      27.231  29.646   7.643  1.00  3.72           C                                                  
+ATOM     13  C   ILE A   3      27.696  31.060   7.902  1.00  5.33           C                                                  
+ATOM     14  O   ILE A   3      28.669  31.542   7.344  1.00  7.59           O                                                  
+ATOM     15  CB  ILE A   3      28.206  28.691   8.356  1.00 11.37           C                                                  
+ATOM     16  N   PHE A   4      26.924  31.675   8.789  1.00  3.74           N                                                  
+ATOM     17  CA  PHE A   4      27.267  33.086   9.164  1.00  1.62           C                                                  
+ATOM     18  C   PHE A   4      27.133  33.291  10.654  1.00  2.92           C                                                  
+ATOM     19  O   PHE A   4      26.174  32.879  11.288  1.00  6.43           O                                                  
+ATOM     20  CB  PHE A   4      26.295  34.055   8.465  1.00  1.63           C                                                  
+ATOM     21  N   VAL A   5      28.166  33.957  11.154  1.00  0.42           N                                                  
+ATOM     22  CA  VAL A   5      28.171  34.253  12.624  1.00  1.46           C                                                  
+ATOM     23  C   VAL A   5      28.636  35.667  12.884  1.00  7.46           C                                                  
+ATOM     24  O   VAL A   5      29.609  36.149  12.326  1.00 14.04           O                                                  
+ATOM     25  CB  VAL A   5      29.146  33.298  13.337  1.00  5.46           C                                                  
+ATOM     26  N   LYS A   6      27.864  36.282  13.770  1.00  8.09           N                                                  
+ATOM     27  CA  LYS A   6      28.207  37.694  14.145  1.00 11.94           C                                                  
+ATOM     28  C   LYS A   6      28.073  37.898  15.636  1.00  7.96           C                                                  
+ATOM     29  O   LYS A   6      27.114  37.486  16.269  1.00  8.83           O                                                  
+ATOM     30  CB  LYS A   6      27.236  38.662  13.447  1.00  4.45           C                                                  
+ATOM     31  N   THR A   7      29.106  38.565  16.135  1.00  6.82           N                                                  
+ATOM     32  CA  THR A   7      29.111  38.860  17.606  1.00  7.25           C                                                  
+ATOM     33  C   THR A   7      29.576  40.274  17.865  1.00  8.47           C                                                  
+ATOM     34  O   THR A   7      30.549  40.756  17.307  1.00 14.07           O                                                  
+ATOM     35  CB  THR A   7      30.086  37.905  18.319  1.00 12.32           C                                                  

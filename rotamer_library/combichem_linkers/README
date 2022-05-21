@@ -1,0 +1,12 @@
+######################################
+#
+# Combichem linker files
+# Generated for bcl::LinkFragments
+#
+# Benjamin P. Brown
+# 03-31-2020
+#
+######################################
+
+Notes:
+(1) Do NOT edit the contents of these SDF files. The atom indices are critical to correct linkage formation in the bcl::LinkFragments application.

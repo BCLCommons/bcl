@@ -1,0 +1,18 @@
+bcl::model::RestrictedBoltzmannMachineLayer
+  bcl::linal::Vector<float>
+    8
+    1	1	1	1	1	1	1	1	
+  bcl::linal::Vector<float>
+    2
+    1	1	
+  bcl::linal::Vector<float>
+    8
+    0	0	0	0	0	0	0	0	
+  bcl::linal::Vector<float>
+    2
+    0	0	
+  bcl::linal::Matrix<float>
+    2	    8
+    0.0789846	-0.0687126	0.00948613	0.0201126	-0.0278236	-0.00550408	0.0283815	-0.213557	
+    -0.168281	0.0454843	-0.112525	0.0137096	0.00708898	0.115502	-0.000756045	-0.270164	
+  StochasticSigmoid

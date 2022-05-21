@@ -1,0 +1,168 @@
+Largest isolated from Written by BCL::WriteToMDL,11548
+JMcorina  04231413373D 1   1.00000     0.00000 
+CORINA 3.49 0026  01.06.2011
+ 28 27  0  0  0  0  0  0  0  0999 V2000
+    7.2240    8.6899    7.2587 O   0  0  0  1  0  2  0  0  0  0  0  0
+    9.3465    8.9102    6.6492 O   0  0  0  1  0  1  0  0  0  0  0  0
+    6.8584    6.8491    9.4906 N   0  3  0  1  0  4  0  0  0  0  0  0
+    8.2381   10.7840    7.0860 N   0  0  0  1  0  3  0  0  0  0  0  0
+    6.4330    6.5523    8.1162 C   0  0  0  1  0  4  0  0  0  0  0  0
+    7.3709    7.2511    7.1299 C   0  0  0  1  0  4  0  0  0  0  0  0
+    6.6715    8.2805    9.7627 C   0  0  0  1  0  4  0  0  0  0  0  0
+    6.0524    6.0621   10.4334 C   0  0  0  1  0  4  0  0  0  0  0  0
+    8.2768    6.5015    9.6500 C   0  0  0  1  0  4  0  0  0  0  0  0
+    7.0171    6.8281    5.7027 C   0  0  0  1  0  4  0  0  0  0  0  0
+    8.3070    9.4418    6.9858 C   0  0  0  1  0  3  0  0  0  0  0  0
+    6.4673    5.4757    7.9497 H   0  0  0  1  0  1  0  0  0  0  0  0
+    5.4147    6.9110    7.9656 H   0  0  0  1  0  1  0  0  0  0  0  0
+    8.4014    6.9702    7.3472 H   0  0  0  1  0  1  0  0  0  0  0  0
+    5.6485    8.5664    9.5181 H   0  0  0  1  0  1  0  0  0  0  0  0
+    6.8614    8.4776   10.8178 H   0  0  0  1  0  1  0  0  0  0  0  0
+    7.3660    8.8598    9.1542 H   0  0  0  1  0  1  0  0  0  0  0  0
+    6.1911    5.0000   10.2315 H   0  0  0  1  0  1  0  0  0  0  0  0
+    6.3681    6.2823   11.4532 H   0  0  0  1  0  1  0  0  0  0  0  0
+    5.0000    6.3201   10.3152 H   0  0  0  1  0  1  0  0  0  0  0  0
+    8.8748    7.0854    8.9504 H   0  0  0  1  0  1  0  0  0  0  0  0
+    8.5925    6.7217   10.6697 H   0  0  0  1  0  1  0  0  0  0  0  0
+    8.4154    5.4393    9.4480 H   0  0  0  1  0  1  0  0  0  0  0  0
+    5.9866    7.1090    5.4854 H   0  0  0  1  0  1  0  0  0  0  0  0
+    7.6853    7.3259    5.0000 H   0  0  0  1  0  1  0  0  0  0  0  0
+    7.1274    5.7480    5.6060 H   0  0  0  1  0  1  0  0  0  0  0  0
+    7.4083   11.2084    7.3547 H   0  0  0  1  0  1  0  0  0  0  0  0
+    9.0184   11.3257    6.8894 H   0  0  0  1  0  1  0  0  0  0  0  0
+  1  6  1  0  0  0  0
+  1 11  1  0  0  0  0
+  2 11  2  0  0  0  0
+  3  5  1  0  0  0  0
+  3  7  1  0  0  0  0
+  3  8  1  0  0  0  0
+  3  9  1  0  0  0  0
+  4 11  1  0  0  0  0
+  4 27  1  0  0  0  0
+  4 28  1  0  0  0  0
+  5  6  1  0  0  0  0
+  5 12  1  0  0  0  0
+  5 13  1  0  0  0  0
+  6 10  1  0  0  0  0
+  6 14  1  0  0  0  0
+  7 15  1  0  0  0  0
+  7 16  1  0  0  0  0
+  7 17  1  0  0  0  0
+  8 18  1  0  0  0  0
+  8 19  1  0  0  0  0
+  8 20  1  0  0  0  0
+  9 21  1  0  0  0  0
+  9 22  1  0  0  0  0
+  9 23  1  0  0  0  0
+ 10 24  1  0  0  0  0
+ 10 25  1  0  0  0  0
+ 10 26  1  0  0  0  0
+M  END
+> <Activity>
+11.8688
+
+> <Mapped(file=1488.csv.activities,property=Cached(PUBCHEM_COMPOUND_CID))>
+11.8688
+
+> <PUBCHEM_ATOM_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_ATOM_UDEF_STEREO_COUNT>
+1
+
+> <PUBCHEM_BONDANNOTATIONS>
+7  15  3
+
+> <PUBCHEM_BOND_DEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_BOND_UDEF_STEREO_COUNT>
+0
+
+> <PUBCHEM_CACTVS_COMPLEXITY>
+140
+
+> <PUBCHEM_CACTVS_HBOND_ACCEPTOR>
+3
+
+> <PUBCHEM_CACTVS_HBOND_DONOR>
+1
+
+> <PUBCHEM_CACTVS_ROTATABLE_BOND>
+4
+
+> <PUBCHEM_CACTVS_SUBSKEYS>
+AAADceBjMAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHgAQAAAACBThgAYCCANABAAIAAAAGAAAAAAAAAAAAAAIAAECAAAAAAANAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==
+
+> <PUBCHEM_CACTVS_TAUTO_COUNT>
+2
+
+> <PUBCHEM_CACTVS_TPSA>
+52.3
+
+> <PUBCHEM_COMPONENT_COUNT>
+2
+
+> <PUBCHEM_COMPOUND_CANONICALIZED>
+1
+
+> <PUBCHEM_COMPOUND_CID>
+11548
+
+> <PUBCHEM_COORDINATE_TYPE>
+1
+5
+255
+
+> <PUBCHEM_EXACT_MASS>
+196.097855
+
+> <PUBCHEM_HEAVY_ATOM_COUNT>
+12
+
+> <PUBCHEM_ISOTOPIC_ATOM_COUNT>
+0
+
+> <PUBCHEM_IUPAC_CAS_NAME>
+2-carbamoyloxypropyl(trimethyl)ammonium chloride
+
+> <PUBCHEM_IUPAC_INCHI>
+InChI=1S/C7H16N2O2.ClH/c1-6(11-7(8)10)5-9(2,3)4;/h6H,5H2,1-4H3,(H-,8,10);1H
+
+> <PUBCHEM_IUPAC_INCHIKEY>
+XXRMYXBSBOVVBH-UHFFFAOYSA-N
+
+> <PUBCHEM_IUPAC_NAME>
+2-carbamoyloxypropyl(trimethyl)azanium chloride
+
+> <PUBCHEM_IUPAC_OPENEYE_NAME>
+2-carbamoyloxypropyl(trimethyl)ammonium chloride
+
+> <PUBCHEM_IUPAC_SYSTEMATIC_NAME>
+2-aminocarbonyloxypropyl(trimethyl)azanium chloride
+
+> <PUBCHEM_IUPAC_TRADITIONAL_NAME>
+2-carbamoyloxypropyl(trimethyl)ammonium chloride
+
+> <PUBCHEM_MOLECULAR_FORMULA>
+C7H17ClN2O2
+
+> <PUBCHEM_MOLECULAR_WEIGHT>
+196.67508
+
+> <PUBCHEM_MONOISOTOPIC_WEIGHT>
+196.097855
+
+> <PUBCHEM_OPENEYE_CAN_SMILES>
+CC(C[N+](C)(C)C)OC(=O)N.[Cl-]
+
+> <PUBCHEM_OPENEYE_ISO_SMILES>
+CC(C[N+](C)(C)C)OC(=O)N.[Cl-]
+
+> <PUBCHEM_TOTAL_CHARGE>
+0
+
+> <pred>
+0.0257153
+
+$$$$

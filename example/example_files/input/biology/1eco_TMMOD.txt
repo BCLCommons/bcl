@@ -1,0 +1,16 @@
+# Name 	     e.coli
+# Annotation 	     TM PROTEIN 	
+# Length 	     122 	
+# Number of predicted TMHs 	     3 	
+# Exp number of AAs in TMHs 	     55.190861 	
+# Exp number, first 60 AAs 	     18.569288 	
+# Total prob of N-in 	     0.711405 	
+     inside 	     1 	35
+     TMhelix 	     36 	55
+     outside 	     56 	56
+     TMhelix 	     57 	80
+     inside 	     81 	99
+     TMhelix 	     100 	120
+     outside 	     121 	122
+show posterior probabilities
+	               

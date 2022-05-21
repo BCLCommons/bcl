@@ -1,0 +1,8 @@
+bcl::descriptor::MoleculeAsymmetry
+  MolecularAsymmetry(
+    property=Constant(1),
+    step size=0.1,
+    temperature=100,
+    steps=24,
+    sum properties=0
+  )

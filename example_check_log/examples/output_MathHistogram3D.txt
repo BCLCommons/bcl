@@ -1,0 +1,180 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec MathHistogram3D 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> MathHistogram3D
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: MathHistogram3D ====================
+=std=bcl=> building and calculating histogram
+=std=bcl=> these are the binning values - middlepoint of each bin in x and y direction as pair
+=std=bcl=> bcl::storage::VectorND<3,bcl::linal::Vector<double>>
+  bcl::linal::Vector<double>
+    6
+    0.25	0.75	1.25	1.75	2.25	2.75	
+  bcl::linal::Vector<double>
+    12
+    0.125	0.375	0.625	0.875	1.125	1.375	1.625	1.875	2.125	2.375	2.625	2.875	
+  bcl::linal::Vector<double>
+    18
+    1	3	5	7	9	11	13	15	17	19	21	23	25	27	29	31	33	35	
+=std=bcl=> this is just the core  - every count in the bins without the boundaries
+=std=bcl=> 6	12	18
+218	98	98	94	129	99	101	127	96	102	0	0	0	0	0	0	0	0	
+27	10	11	7	9	6	12	9	10	13	0	0	0	0	0	0	0	0	
+20	11	7	14	12	6	16	12	11	12	0	0	0	0	0	0	0	0	
+21	14	15	8	16	15	12	6	8	10	0	0	0	0	0	0	0	0	
+19	7	9	14	14	14	13	10	11	17	0	0	0	0	0	0	0	0	
+34	14	8	8	12	16	8	17	10	12	0	0	0	0	0	0	0	0	
+24	15	17	11	12	10	3	13	11	15	0	0	0	0	0	0	0	0	
+35	13	6	9	10	14	14	12	15	8	0	0	0	0	0	0	0	0	
+16	10	13	11	12	19	10	12	11	13	0	0	0	0	0	0	0	0	
+16	13	11	16	16	9	13	13	14	12	0	0	0	0	0	0	0	0	
+20	9	14	10	12	11	13	16	14	8	0	0	0	0	0	0	0	0	
+207	95	90	118	112	101	88	106	94	85	0	0	0	0	0	0	0	0	
+
+53	26	25	22	18	20	17	24	31	18	0	0	0	0	0	0	0	0	
+6	3	6	1	1	2	5	4	2	4	0	0	0	0	0	0	0	0	
+5	2	1	2	6	2	2	6	3	4	0	0	0	0	0	0	0	0	
+7	0	2	0	3	1	6	6	2	5	0	0	0	0	0	0	0	0	
+4	4	2	4	2	0	1	3	2	6	0	0	0	0	0	0	0	0	
+5	2	1	3	0	7	3	4	3	0	0	0	0	0	0	0	0	0	
+5	1	2	1	5	3	0	3	3	0	0	0	0	0	0	0	0	0	
+4	4	5	1	1	0	3	2	2	2	0	0	0	0	0	0	0	0	
+5	1	3	2	2	4	2	3	0	4	0	0	0	0	0	0	0	0	
+4	1	2	1	2	6	1	4	1	2	0	0	0	0	0	0	0	0	
+4	1	0	4	3	0	3	2	4	3	0	0	0	0	0	0	0	0	
+35	12	22	20	22	16	26	22	26	25	0	0	0	0	0	0	0	0	
+
+43	26	18	19	22	22	23	22	23	14	0	0	0	0	0	0	0	0	
+3	4	1	2	2	4	1	3	2	2	0	0	0	0	0	0	0	0	
+6	3	1	3	1	1	1	2	5	3	0	0	0	0	0	0	0	0	
+3	3	2	3	1	2	2	1	6	4	0	0	0	0	0	0	0	0	
+6	0	5	1	1	2	3	0	2	2	0	0	0	0	0	0	0	0	
+4	2	2	3	3	3	2	1	1	2	0	0	0	0	0	0	0	0	
+2	1	5	4	2	1	1	1	1	2	0	0	0	0	0	0	0	0	
+1	3	3	2	1	3	3	2	0	1	0	0	0	0	0	0	0	0	
+3	3	0	2	1	1	3	2	4	2	0	0	0	0	0	0	0	0	
+8	0	4	3	1	2	2	3	3	2	0	0	0	0	0	0	0	0	
+10	4	0	0	3	1	5	3	0	3	0	0	0	0	0	0	0	0	
+42	22	15	21	19	20	16	24	17	14	0	0	0	0	0	0	0	0	
+
+43	20	23	19	27	21	23	19	23	24	0	0	0	0	0	0	0	0	
+5	5	1	4	2	1	3	0	1	0	0	0	0	0	0	0	0	0	
+4	1	0	2	1	2	3	5	2	4	0	0	0	0	0	0	0	0	
+1	1	3	3	0	1	1	2	1	0	0	0	0	0	0	0	0	0	
+3	2	1	3	3	2	4	4	2	2	0	0	0	0	0	0	0	0	
+2	0	0	3	1	4	4	0	3	1	0	0	0	0	0	0	0	0	
+6	5	1	3	3	2	1	3	3	2	0	0	0	0	0	0	0	0	
+5	2	2	1	1	0	1	6	2	2	0	0	0	0	0	0	0	0	
+3	4	2	3	3	4	3	4	3	3	0	0	0	0	0	0	0	0	
+4	3	1	2	1	3	1	1	1	2	0	0	0	0	0	0	0	0	
+3	1	4	2	3	4	2	1	1	0	0	0	0	0	0	0	0	0	
+48	20	13	30	25	25	28	23	28	21	0	0	0	0	0	0	0	0	
+
+38	28	17	24	20	18	24	20	23	26	0	0	0	0	0	0	0	0	
+8	2	3	0	2	7	2	2	1	4	0	0	0	0	0	0	0	0	
+4	0	2	1	1	2	1	1	3	3	0	0	0	0	0	0	0	0	
+3	4	2	2	2	3	3	2	2	4	0	0	0	0	0	0	0	0	
+4	4	4	1	4	2	0	4	3	2	0	0	0	0	0	0	0	0	
+3	3	2	2	2	2	2	3	0	0	0	0	0	0	0	0	0	0	
+9	2	0	0	6	4	3	1	3	2	0	0	0	0	0	0	0	0	
+4	4	2	3	3	1	6	2	1	1	0	0	0	0	0	0	0	0	
+3	3	3	6	3	2	1	5	2	2	0	0	0	0	0	0	0	0	
+3	1	1	2	2	2	2	2	0	2	0	0	0	0	0	0	0	0	
+5	2	4	4	2	4	3	0	6	3	0	0	0	0	0	0	0	0	
+43	29	21	27	27	21	27	30	14	18	0	0	0	0	0	0	0	0	
+
+199	87	117	86	88	117	93	104	112	108	0	0	0	0	0	0	0	0	
+18	13	14	10	9	6	8	11	10	9	0	0	0	0	0	0	0	0	
+20	12	16	7	13	14	11	11	14	11	0	0	0	0	0	0	0	0	
+11	13	8	12	18	5	11	13	8	6	0	0	0	0	0	0	0	0	
+27	6	11	12	11	11	11	13	19	14	0	0	0	0	0	0	0	0	
+16	11	8	5	11	16	11	13	11	6	0	0	0	0	0	0	0	0	
+32	13	10	14	21	18	6	11	10	9	0	0	0	0	0	0	0	0	
+16	9	11	10	13	13	7	20	8	15	0	0	0	0	0	0	0	0	
+25	14	15	11	14	10	12	13	11	16	0	0	0	0	0	0	0	0	
+24	15	12	6	8	12	12	10	7	14	0	0	0	0	0	0	0	0	
+27	11	15	15	16	10	10	12	15	11	0	0	0	0	0	0	0	0	
+222	117	115	97	110	95	104	98	114	103	0	0	0	0	0	0	0	0	
+
+
+=std=bcl=> PushBack test succeeded:
+               histogram_b.GetHistogram() == expected_histogram_b == 2	2	2
+              4	5	
+              6	7	
+              8	9	
+              10	11	
+=std=bcl=> successful example check:  histogram_b.Interpolate( 0, 0, 0) == 4
+=std=bcl=> successful example check:  histogram_b.Interpolate( 0, 0, 1) == 5
+=std=bcl=> successful example check:  histogram_b.Interpolate( 1, 1, 1) == 11
+=std=bcl=> successful example check:  histogram_b.Interpolate( 2, 2, 2) == 18
+=std=bcl=> successful example check:  histogram_b.Interpolate( -1, -1, -1) == -3
+=std=bcl=> successful example check:  histogram_b.Interpolate( 0.5, 0.5, 0.5) == 7.5
+=std=bcl=> successful example check:  histogram_b.Interpolate( 0.0, 0.5, 0.5) == 5.5
+=std=bcl=> successful example check:  histogram_b.Interpolate( 0.25, 0.0, 0.0) == 5
+=std=bcl=> successful example check:  histogram_b.Value( 0, 0, 0) == 4
+=std=bcl=> successful example check:  histogram_b.Value( 0, 0, 1) == 5
+=std=bcl=> successful example check:  histogram_b.Value( 1, 1, 1) == 11
+=std=bcl=> successful example check:  histogram_b.Value( 2, 2, 2) == 11
+=std=bcl=> successful example check:  histogram_b.Value( -1, -1, -1) == 4
+=std=bcl=> successful example check:  histogram_b.Value( 0.5, 0.5, 0.5) == 11
+=std=bcl=> successful example check:  histogram_b.Value( 0.0, 0.5, 0.5) == 7
+=std=bcl=> successful example check:  histogram_b.Value( 0.25, 0.0, 0.0) == 4
+=std=bcl=> I/O test succeeded:  ExampleInterface::TestBCLObjectIOForSymmetry( histogram, math::Histogram3D()) == 1
+=std=bcl::app=> BCL Example | END  : MathHistogram3D ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+MathHistogram3D_total                    19          0              
+total                                    19          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

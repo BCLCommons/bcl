@@ -1,0 +1,130 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec RestraintHandlerAccessibilityAA 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> RestraintHandlerAccessibilityAA
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: RestraintHandlerAccessibilityAA ====================
+=std=bcl=> test default constructor
+=std=bcl=> test CreateRestraints function
+=crt=bcl::util=> entry with name: "bcl::assemble::AANeighborVector" does not exist => reading from ShPtr will be impossible
+=crt=bcl::util=> entry with name: "bcl::assemble::AANeighborVector" does not exist => reading from ShPtr will be impossible
+=std=bcl=> The restraints in example/example_files/input/biology/restraint_handler_accessibility_aa_restraint_file.txt : 
+bcl::restraint::AccessibilityProfile
+  bcl::storage::List<bcl::restraint::AccessibilityAA>
+    2
+    bcl::restraint::AccessibilityAA
+      bcl::storage::Map<bcl::util::WrapperEnum<bcl::restraint::AccessibilityAA::EnvironmentType,bcl::restraint::AccessibilityAA::GetEnvironmentName,2>,double,std::less<bcl::util::WrapperEnum<bcl::restraint::AccessibilityAA::EnvironmentType,bcl::restraint::AccessibilityAA::GetEnvironmentName,2>>>
+        2
+        std::pair<bcl::util::WrapperEnum<bcl::restraint::AccessibilityAA::EnvironmentType,bcl::restraint::AccessibilityAA::GetEnvironmentName,2>,double>
+          Oxygen
+          0.43
+        std::pair<bcl::util::WrapperEnum<bcl::restraint::AccessibilityAA::EnvironmentType,bcl::restraint::AccessibilityAA::GetEnvironmentName,2>,double>
+          NiEDDA
+          0.98
+
+      bcl::util::ShPtr<bcl::assemble::LocatorAA>
+        12345678
+        bcl::assemble::LocatorAA
+          LocatorAA(locator_chain=A,seq_id=49,aa type=Undefined,use_pdb_id=0)
+      bcl::util::ShPtr<bcl::assemble::AAExposureInterface>
+        12345678
+        bcl::assemble::AANeighborVector
+          "aaneighvector"
+          bcl::math::Range<double>
+            [ 3.3 , 11.1 ]
+    bcl::restraint::AccessibilityAA
+      bcl::storage::Map<bcl::util::WrapperEnum<bcl::restraint::AccessibilityAA::EnvironmentType,bcl::restraint::AccessibilityAA::GetEnvironmentName,2>,double,std::less<bcl::util::WrapperEnum<bcl::restraint::AccessibilityAA::EnvironmentType,bcl::restraint::AccessibilityAA::GetEnvironmentName,2>>>
+        2
+        std::pair<bcl::util::WrapperEnum<bcl::restraint::AccessibilityAA::EnvironmentType,bcl::restraint::AccessibilityAA::GetEnvironmentName,2>,double>
+          Oxygen
+          0.12
+        std::pair<bcl::util::WrapperEnum<bcl::restraint::AccessibilityAA::EnvironmentType,bcl::restraint::AccessibilityAA::GetEnvironmentName,2>,double>
+          NiEDDA
+          0.54
+
+      bcl::util::ShPtr<bcl::assemble::LocatorAA>
+        12345678
+        bcl::assemble::LocatorAA
+          LocatorAA(locator_chain=B,seq_id=29,aa type=Undefined,use_pdb_id=0)
+      bcl::util::ShPtr<bcl::assemble::AAExposureInterface>
+        12345678
+        bcl::assemble::AANeighborVector
+          "aaneighvector"
+          bcl::math::Range<double>
+            [ 3.3 , 11.1 ]
+
+=std=bcl=> make sure created restraints are correct
+=std=bcl=> successful example check:  restraints.GetAccessibilities().GetSize() == correct_number_of_restraints == 2
+=std=bcl=> successful example check:  restraint.IsDefined() == 1
+=std=bcl=> successful example check:  restraint->GetLocatorChain().GetChainID() == A
+=std=bcl=> successful example check:  restraint->GetAAID() == 49
+=std=bcl=> successful example check:  restraint.IsDefined() == 1
+=std=bcl=> successful example check:  restraint->GetLocatorChain().GetChainID() == B
+=std=bcl=> successful example check:  restraint->GetAAID() == 29
+=std=bcl=> successful example check:  access_type.First() == 1
+=std=bcl=> successful example check:  restraint_accessibility == correct_accessibility == 0.98
+=std=bcl=> successful example check:  access_type.First() == 1
+=std=bcl=> successful example check:  restraint_accessibility == correct_accessibility == 0.43
+=std=bcl=> successful example check:  access_type.First() == 1
+=std=bcl=> successful example check:  restraint_accessibility == correct_accessibility == 0.12
+=std=bcl=> successful example check:  access_type.First() == 1
+=std=bcl=> successful example check:  restraint_accessibility == correct_accessibility == 0.54
+=std=bcl=> successful example check:  io::File::FilesMatch( output_file, restraint_filename) == 1
+=std=bcl::app=> BCL Example | END  : RestraintHandlerAccessibilityAA ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>         success      error error_string 
+RestraintHandlerAccessibilityAA_total         16          0              
+total                                         16          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

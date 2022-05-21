@@ -1,0 +1,112 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec MathQuaternion 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> MathQuaternion
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: MathQuaternion ====================
+=std=bcl=> Rotation of point x about a UNIT axis.
+=std=bcl=> The axis: bcl::linal::Vector3D
+  -1	-1	0
+=std=bcl=> The normalized axis: bcl::linal::Vector3D
+  -0.707107	-0.707107	0
+=std=bcl=> The angle alpha in degree: 32
+=std=bcl=> ===== The point x:
+=std=bcl=> bcl::linal::Vector3D
+  1.7	1.2	1.8
+=std=bcl=> Test: norm of the vector x:  2.75136
+=std=bcl=> Test: distance of x from axis
+=std=bcl=> 1.83439
+=std=bcl=> The rotation is described by the quaternion q = ( cos(alpha/2) , sin(alpha/2) * a ):
+=std=bcl=> bcl::math::Quaternion
+  0.961262	-0.194905	-0.194905	0	
+=std=bcl=> Test: norm of Quaternion q: 1
+=std=bcl=> Write vector x to Quaternion p: 
+=std=bcl=> bcl::math::Quaternion
+  0	1.7	1.2	1.8	
+=std=bcl=> Test: norm of Quaternion p:   2.75136
+=std=bcl=> Just another test: the normalized Quaternion p:  
+=std=bcl=> bcl::math::Quaternion
+  0	0.617876	0.436147	0.654221	
+=std=bcl=> To rotate x we need also the conjugate of q, here written as q*:
+=std=bcl=> bcl::math::Quaternion
+  0.961262	0.194905	0.194905	-0	
+=std=bcl=> The rotated point p' is given by: p' = q p q*:
+=std=bcl=> bcl::math::Quaternion
+  -1.11022e-16	0.987535	1.91247	1.71384	
+=std=bcl=> Test: norm of rotated point p':   2.75136
+=std=bcl=> Test: distance of p' to axis a:  1.83439
+=std=bcl=> Comparison to Rotation using Matrix
+=std=bcl=> bcl::linal::Vector3D
+  1.7	1.2	1.8
+=std=bcl=> Test: distance from axis:
+=std=bcl=> 1.83439
+=std=bcl=> 7.57
+=std=bcl=> A hidden usage of Quaternions in Constructor RotationMatrix3D( Vector3D , double ) for building a rotation matrix for Rotation around arbitrary axes
+=std=bcl=> Before Rotation:
+Point to rotate: bcl::linal::Vector3D
+  1	0	0
+=std=bcl=> Test1: distance from axis: 0.816497
+=std=bcl=> Test2: angle: 54.7356
+=std=bcl=> After Rotation:
+ Rotated point:bcl::linal::Vector3D
+  0.333333	-0.244017	0.910684
+=std=bcl=> Test1: distance from axis: 0.816497
+=std=bcl=> Test2: angle:  54.7356
+=std=bcl::app=> BCL Example | END  : MathQuaternion ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+MathQuaternion_total                      0          0              
+total                                     0          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

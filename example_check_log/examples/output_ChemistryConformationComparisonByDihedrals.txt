@@ -1,0 +1,84 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ChemistryConformationComparisonByDihedrals 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ChemistryConformationComparisonByDihedrals
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ChemistryConformationComparisonByDihedrals ====================
+=std=bcl=> successful example check:  input_a.is_open() == 1
+=std=bcl=> successful example check:  input_b.is_open() == 1
+=std=bcl=> successful example check:  input_c.is_open() == 1
+=std=bcl=> successful example check:  input_d.is_open() == 1
+=std=bcl=> Read in the ensemble of 10 molecules
+=std=bcl::sdf=> Warning: molfile description contains a non-standard number of lines (2, standard is 3); proceeding anyway.
+=std=bcl=> Read in naphthalene
+=std=bcl=> Read in taxol
+=std=bcl=> Read in diazepam
+=std=bcl=> All input streams closed
+=std=bcl=> The max difference in dihedral angles between the first elements in the set and the second is: 128.645
+=std=bcl=> dihedral_max_difference_self 1
+=std=bcl=> The max difference in dihedral angles between the first elements in the set and itself is: 0
+=std=bcl=>  difference between identical conformations should always be zero test succeeded:
+              dihedral_max_difference_self == 0.0 == 0  (+/- 0.001%)
+=crt=bcl::chemistry=> Non-equal # of atoms! 113 vs 18
+=std=bcl=> ConformationComparisonByDihedrals should not be able to compare constitutional-non-isomorphic molecules test succeeded:
+              util::IsDefined ( chemistry::ConformationComparisonByDihedrals() ( taxol.GetMolecules().FirstElement(), napthalene.GetMolecules().FirstElement() ) )
+              == 0
+=std=bcl=> Symmetry of MatchAndRMSD test succeeded:  rmsd_1_0 == rmsd_0_1 == 128.645  (+/- 0.001%)
+=std=bcl::app=> BCL Example | END  : ChemistryConformationComparisonByDihedrals ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>                    success      error error_string 
+ChemistryConformationComparisonByDihedrals_total          7          0              
+total                                                     7          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

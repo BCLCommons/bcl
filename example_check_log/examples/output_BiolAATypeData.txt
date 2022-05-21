@@ -1,0 +1,76 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec BiolAATypeData 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> BiolAATypeData
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: BiolAATypeData ====================
+=std=bcl=> incorrect result for glycine with scattering angle of 0 9.96896 test succeeded:
+              math::EqualWithinTolerance( calculated_value, expected_value) == 1
+=std=bcl=>  incorrect result for glycine with scattering angle of 1.0 15.79023 test succeeded:
+              math::EqualWithinTolerance( calculated_value, expected_value) == 1
+=std=bcl=>  incorrect result for glycine with scattering angle of 3.0 16.14269 test succeeded:
+              math::EqualWithinTolerance( calculated_value, expected_value) == 1
+=std=bcl=>  incorrect result for glycine with scattering angle of 4.0 12.47393 test succeeded:
+              math::EqualWithinTolerance( calculated_value, expected_value) == 1
+=crt=bcl::biol=> AAProperty writing not implemented yet
+=crt=bcl::biol=> AAProperty reading not implemented yet
+=std=bcl=> write and read aa type data test succeeded:
+              aatypedata_constr.GetAllowedAtomTypes() == aatypedata_read.GetAllowedAtomTypes() == 1
+=std=bcl::app=> BCL Example | END  : BiolAATypeData ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+BiolAATypeData_total                      5          0              
+total                                     5          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

@@ -1,0 +1,191 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ModelDataSetMultiplied 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ModelDataSetMultiplied
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ModelDataSetMultiplied ====================
+=std=bcl=> operator() test succeeded:
+               data_set_multiplied( features_results)->GetSize() == features.GetNumberRows() ==
+              36
+=std=bcl=> successful example check:
+               data_set_multiplied( features_results)->GetFeatures().GetMatrix() ==
+              features_scaled ==
+              bcl::linal::MatrixReference<float>
+                36	  1
+                0	
+                0	
+                0	
+                0	
+                0	
+                0	
+                0.4	
+                0.4	
+                0.4	
+                0.4	
+                0.4	
+                0.4	
+                0.8	
+                0.8	
+                0.8	
+                0.8	
+                0.8	
+                0.8	
+                1.2	
+                1.2	
+                1.2	
+                1.2	
+                1.2	
+                1.2	
+                1.6	
+                1.6	
+                1.6	
+                1.6	
+                1.6	
+                1.6	
+                2	
+                2	
+                2	
+                2	
+                2	
+                2	
+               (+/- 0.0001)
+=std=bcl=> successful example check:
+               data_set_multiplied( features_results)->GetResults().GetMatrix() == results_scaled
+              ==
+              bcl::linal::MatrixReference<float>
+                36	  1
+                1.5	
+                3	
+                4.5	
+                6	
+                7.5	
+                9	
+                0.75	
+                1.5	
+                2.25	
+                3	
+                3.75	
+                4.5	
+                0.5	
+                1	
+                1.5	
+                2	
+                2.5	
+                3	
+                0.375	
+                0.75	
+                1.125	
+                1.5	
+                1.875	
+                2.25	
+                0.3	
+                0.6	
+                0.9	
+                1.2	
+                1.5	
+                1.8	
+                0.25	
+                0.5	
+                0.75	
+                1	
+                1.25	
+                1.5	
+               (+/- 0.0001)
+=std=bcl=> successful example check:
+               data_set_multiplied( features_results)->GetIds().GetMatrix() == ids_scaled ==
+              bcl::linal::MatrixReference<char>
+                36	  1
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+                M	
+=std=bcl::app=> BCL Example | END  : ModelDataSetMultiplied ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+ModelDataSetMultiplied_total              4          0              
+total                                     4          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

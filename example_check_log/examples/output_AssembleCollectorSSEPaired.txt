@@ -1,0 +1,81 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec AssembleCollectorSSEPaired 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AssembleCollectorSSEPaired
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AssembleCollectorSSEPaired ====================
+=std=bcl=> Testing default constructor
+=std=bcl=> Testing constructor
+=std=bcl=> Testing copy constructor
+=std=bcl=> Testing GetContactTypes()
+=std=bcl=> Testing SetContactTypes()
+=std=bcl=> Testing GetMaxDistance()
+=std=bcl=> Testing SetMaxDistance()
+=std=bcl=> Testing GetOrthogonalConnection()
+=std=bcl=> Testing SetOrthogonalConnection()
+=std=bcl=> building models from pdb chains and sse information
+=crt=bcl::pdb=> found line with atom type, that is not compatible with the residue type: ATOM     40  CB  GLY A  10       8.895  16.143  12.116         nan              
+=std=bcl=> test Collect function for Helix-Strand, Strand-Helix
+=std=bcl=> test Collect function for Strand-Strand, Sheet-Sheet
+=std=bcl=> Testing assignment operator
+=std=bcl=> Testing the write function
+=std=bcl=> Testing the read function
+=std=bcl=> Checking the written and read objects are the same
+=std=bcl::app=> BCL Example | END  : AssembleCollectorSSEPaired ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AssembleCollectorSSEPaired_total         11          0              
+total                                    11          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 65 MB

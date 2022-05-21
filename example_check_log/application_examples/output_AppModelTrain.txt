@@ -1,0 +1,348 @@
+./build/linux64_release/bin/bcl-example-apps-static.exe Examples -exec AppModelTrain 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AppModelTrain
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AppModelTrain ====================
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+model:Train 'SupportVectorMachine(  objective function=EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1), kernel = RBF( gamma=0.4 ), iterations=100, cost=0.1, gap_threshold=0.1)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  train_model.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: model:Train 'SupportVectorMachine(  objective function=EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1), kernel = RBF( gamma=0.4 ), iterations=100, cost=0.1, gap_threshold=0.1)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::app=> Created independent data set with 883 points
+Created monitoring data set with 883 points
+Created training data set with 7049 points
+=std=bcl::app=> 
+Number of descriptor values: 1284
+Number of result values:  1
+=std=bcl::app=> constructing datasets finished total: 0 [sec]
+=std=bcl::model=> before InitializeMemberVectorsForTraining
+=std=bcl::model=> InitializeMemberVectorsForTraining
+=std=bcl::model=>  #SV: 200 gap: 0.761309 threshold: 0.1 time: 00:00:03.928
+=crt=bcl::opti=> Iteration: 1 improved Result: 1.28349 Best: 1.28349
+=std=bcl::model=>  #SV: 400 gap: 0.619293 threshold: 0.1 time: 00:00:03.400
+=crt=bcl::opti=> Iteration: 2 improved Result: 2.54915 Best: 2.54915
+=std=bcl::model=>  #SV: 600 gap: 0.515345 threshold: 0.1 time: 00:00:03.446
+=crt=bcl::opti=> Iteration: 3 improved Result: 3.25972 Best: 3.25972
+=std=bcl::app=> approximator training total: 10 [sec]
+=std=bcl::app=> monitoring dataset score:3.25972
+=std=bcl::app=> independent data: final score (EnrichmentAverage): 4.98007 time: 0 [sec]
+=std=bcl=> Run completed of model:Train 'SupportVectorMachine(  objective function=EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1), kernel = RBF( gamma=0.4 ), iterations=100, cost=0.1, gap_threshold=0.1)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+, return status was: 0
+Command line took 12.0883 sec to run
+=std=bcl=> successful example check:  train_model.RunCommand() == 0
+=std=bcl=> Checking command line:
+model:Train 'NeuralNetwork( transfer function = Sigmoid, weight update = Simple(eta=0.1,alpha=0.5), objective function = RMSD, steps per update=1, hidden architecture(8))' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  train_model.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: model:Train 'NeuralNetwork( transfer function = Sigmoid, weight update = Simple(eta=0.1,alpha=0.5), objective function = RMSD, steps per update=1, hidden architecture(8))' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::app=> Created independent data set with 883 points
+Created monitoring data set with 883 points
+Created training data set with 7049 points
+=std=bcl::app=> 
+Number of descriptor values: 1284
+Number of result values:  1
+=std=bcl::app=> constructing datasets finished total: 0 [sec]
+=std=bcl::model=> Setting up training data with 7049 points
+=std=bcl::model=> Set up data set ranges with # threads: 1
+=std=bcl::model=> Set up data set ranges with # ranges: 7049
+=std=bcl::model=> Set up data set ranges for updating every nth feature: 1
+=std=bcl::model=> std: 0.0279073
+=std=bcl::model=> std: 0.353553
+=std=bcl::model=> Training relative RMSD for iteration 0: 0.0219736
+=crt=bcl::opti=> Iteration: 1 improved Result: 1.07924 Best: 1.07924
+=std=bcl::model=> Training relative RMSD for iteration 1: 0.0226441
+=crt=bcl::opti=> Iteration: 2 improved Result: 1.07734 Best: 1.07734
+=std=bcl::model=> Training relative RMSD for iteration 2: 0.022456
+=crt=bcl::opti=> Iteration: 3 improved Result: 1.07602 Best: 1.07602
+=std=bcl::app=> approximator training total: 1 [sec]
+=std=bcl::app=> monitoring dataset score:1.07602
+=std=bcl::app=> independent data: final score (EnrichmentAverage): 2.25379 time: 0 [sec]
+=std=bcl=> Run completed of model:Train 'NeuralNetwork( transfer function = Sigmoid, weight update = Simple(eta=0.1,alpha=0.5), objective function = RMSD, steps per update=1, hidden architecture(8))' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+, return status was: 0
+Command line took 1.44395 sec to run
+=std=bcl=> successful example check:  train_model.RunCommand() == 0
+=std=bcl=> Checking command line:
+model:Train 'KappaNearestNeighbor( objective function=RMSD, min kappa=1, max kappa=25)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  train_model.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: model:Train 'KappaNearestNeighbor( objective function=RMSD, min kappa=1, max kappa=25)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::app=> Created independent data set with 883 points
+Created monitoring data set with 883 points
+Created training data set with 7049 points
+=std=bcl::app=> 
+Number of descriptor values: 1284
+Number of result values:  1
+=std=bcl::app=> constructing datasets finished total: 0 [sec]
+=std=bcl::model=> Setting up training data with 7049 points
+=std=bcl::model=> Kappa: 1 ObjFunction: 1.13225
+=crt=bcl::opti=> Iteration: 1 improved Result: 1.13225 Best: 1.13225
+=std=bcl::model=> Kappa: 2 ObjFunction: 1.00629
+=crt=bcl::opti=> Iteration: 2 improved Result: 1.00629 Best: 1.00629
+=std=bcl::model=> Kappa: 3 ObjFunction: 0.97067
+=crt=bcl::opti=> Iteration: 3 improved Result: 0.97067 Best: 0.97067
+=std=bcl::app=> approximator training total: 22 [sec]
+=std=bcl::app=> monitoring dataset score:0.97067
+=std=bcl::app=> independent data: final score (EnrichmentAverage): 5.47486 time: 4 [sec]
+=std=bcl=> Run completed of model:Train 'KappaNearestNeighbor( objective function=RMSD, min kappa=1, max kappa=25)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+, return status was: 0
+Command line took 26.899 sec to run
+=std=bcl=> successful example check:  train_model.RunCommand() == 0
+=std=bcl=> Checking command line:
+model:Train 'Kohonen(  objective function=EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1),  map dimensions(10.0,10.0), steps per update=0, length=10, radius=4, neighbor kernel = Gaussian)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  train_model.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: model:Train 'Kohonen(  objective function=EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1),  map dimensions(10.0,10.0), steps per update=0, length=10, radius=4, neighbor kernel = Gaussian)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::app=> Created independent data set with 883 points
+Created monitoring data set with 883 points
+Created training data set with 7049 points
+=std=bcl::app=> 
+Number of descriptor values: 1284
+Number of result values:  1
+=std=bcl::app=> constructing datasets finished total: 0 [sec]
+=std=bcl::model=> Setting up training data with 7049 points
+=std=bcl::model=> Found 1 classes of training points. Counts per class: 7049 .  Class Binary IDs: 1 
+=std=bcl::model=> Set up node ranges with # threads: 6
+=crt=bcl::opti=> Iteration: 1 improved Result: 2.72737 Best: 2.72737
+=crt=bcl::opti=> Iteration: 2 accepted Result: 1.59807 Best: 2.72737
+=crt=bcl::opti=> Iteration: 3 accepted Result: 1.91727 Best: 2.72737
+=std=bcl::app=> approximator training total: 1 [sec]
+=std=bcl::app=> monitoring dataset score:2.72737
+=std=bcl::app=> independent data: final score (EnrichmentAverage): 1.65124 time: 0 [sec]
+=std=bcl=> Run completed of model:Train 'Kohonen(  objective function=EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1),  map dimensions(10.0,10.0), steps per update=0, length=10, radius=4, neighbor kernel = Gaussian)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+, return status was: 0
+Command line took 1.83255 sec to run
+=std=bcl=> successful example check:  train_model.RunCommand() == 0
+=std=bcl=> Checking command line:
+model:Train 'KappaNearestNeighbor(   objective function=EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1),   min kappa=1,  max kappa=5)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  train_model.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: model:Train 'KappaNearestNeighbor(   objective function=EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1),   min kappa=1,  max kappa=5)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::app=> Created independent data set with 883 points
+Created monitoring data set with 883 points
+Created training data set with 7049 points
+=std=bcl::app=> 
+Number of descriptor values: 1284
+Number of result values:  1
+=std=bcl::app=> constructing datasets finished total: 0 [sec]
+=std=bcl::model=> Setting up training data with 7049 points
+=std=bcl::model=> Kappa: 1 ObjFunction: 2.72353
+=crt=bcl::opti=> Iteration: 1 improved Result: 2.72353 Best: 2.72353
+=std=bcl::model=> Kappa: 2 ObjFunction: 3.13582
+=crt=bcl::opti=> Iteration: 2 improved Result: 3.13582 Best: 3.13582
+=std=bcl::model=> Kappa: 3 ObjFunction: 3.47784
+=crt=bcl::opti=> Iteration: 3 improved Result: 3.47784 Best: 3.47784
+=std=bcl::app=> approximator training total: 22 [sec]
+=std=bcl::app=> monitoring dataset score:3.47784
+=std=bcl::app=> independent data: final score (EnrichmentAverage): 5.47486 time: 4 [sec]
+=std=bcl=> Run completed of model:Train 'KappaNearestNeighbor(   objective function=EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1),   min kappa=1,  max kappa=5)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+, return status was: 0
+Command line took 27.0786 sec to run
+=std=bcl=> successful example check:  train_model.RunCommand() == 0
+=std=bcl=> Checking command line:
+model:Train 'DecisionTree( objective function=RMSD, partitioner=InformationGain, activity cutoff = 4)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  train_model.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: model:Train 'DecisionTree( objective function=RMSD, partitioner=InformationGain, activity cutoff = 4)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::app=> Created independent data set with 883 points
+Created monitoring data set with 883 points
+Created training data set with 7049 points
+=std=bcl::app=> 
+Number of descriptor values: 1284
+Number of result values:  1
+=std=bcl::app=> constructing datasets finished total: 0 [sec]
+=crt=bcl::opti=> Iteration: 1 improved Result: 0.962115 Best: 0.962115
+=crt=bcl::opti=> Iteration: 2 improved Result: 0.948486 Best: 0.948486
+=crt=bcl::opti=> Iteration: 3 improved Result: 0.940649 Best: 0.940649
+=std=bcl::app=> approximator training total: 4 [sec]
+=std=bcl::app=> monitoring dataset score:0.940649
+=std=bcl::app=> independent data: final score (EnrichmentAverage): 2.72342 time: 0 [sec]
+=std=bcl=> Run completed of model:Train 'DecisionTree( objective function=RMSD, partitioner=InformationGain, activity cutoff = 4)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+, return status was: 0
+Command line took 4.94597 sec to run
+=std=bcl=> successful example check:  train_model.RunCommand() == 0
+=std=bcl=> Checking command line:
+model:Train 'DecisionTree( objective function=RMSD, partitioner=InformationGain, activity cutoff = 4)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -storage_model 'File(directory="example/example_files/output/apps/",prefix="",write_descriptors=1)' -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  train_model.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: model:Train 'DecisionTree( objective function=RMSD, partitioner=InformationGain, activity cutoff = 4)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -storage_model 'File(directory="example/example_files/output/apps/",prefix="",write_descriptors=1)' -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 1513 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::model=> # features: 7302 feature size: 1284 result size: 1 feature result size of data superset: 1285
+=std=bcl::app=> Created independent data set with 883 points
+Created monitoring data set with 883 points
+Created training data set with 7049 points
+=std=bcl::app=> 
+Number of descriptor values: 1284
+Number of result values:  1
+=std=bcl::app=> constructing datasets finished total: 0 [sec]
+=crt=bcl::opti=> Iteration: 1 improved Result: 0.962115 Best: 0.962115
+=crt=bcl::opti=> Iteration: 2 improved Result: 0.948486 Best: 0.948486
+=crt=bcl::opti=> Iteration: 3 improved Result: 0.940649 Best: 0.940649
+=std=bcl::app=> approximator training total: 4 [sec]
+=std=bcl::app=> monitoring dataset score:0.940649
+=std=bcl::app=> independent data: final score (EnrichmentAverage): 2.72342 time: 0 [sec]
+=std=bcl::app=> Final model written (key = 000000) ... done
+=std=bcl=> Run completed of model:Train 'DecisionTree( objective function=RMSD, partitioner=InformationGain, activity cutoff = 4)' -feature_labels /dors/meilerlab/apps/bcl/app_example_files/model:Train/code_input.object -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[0]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[0]))' -max_iterations 3 -monitoring 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks=[1]), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks=[1]))' -scheduler PThread 6 -storage_model 'File(directory="example/example_files/output/apps/",prefix="",write_descriptors=1)' -training 'Combined(  Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_actives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"), Subset( filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/aid891_inactives.bin,number chunks=10,chunks="[0,10)-[1]-[0]"))' 
+, return status was: 0
+Command line took 4.95326 sec to run
+=std=bcl=> successful example check:  train_model.RunCommand() == 0
+=std=bcl=> Checking command line:
+model:Train 'NeuralNetwork( transfer function = Sigmoid, weight update = Simple(eta=0.1,alpha=0.5), objective function = RMSD, steps per update=1, hidden architecture(8))' -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'File(   filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/descriptors_10.dat,number chunks=10,chunks=[0])' -max_iterations 3 -monitoring 'File(   filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/descriptors_10.dat,number chunks=10,chunks=[1])' -scheduler PThread 6 -training 'File(   filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/descriptors_10.dat,number chunks=10,chunks="[0,10)-[1]-[0]")' 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  train_model.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: model:Train 'NeuralNetwork( transfer function = Sigmoid, weight update = Simple(eta=0.1,alpha=0.5), objective function = RMSD, steps per update=1, hidden architecture(8))' -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'File(   filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/descriptors_10.dat,number chunks=10,chunks=[0])' -max_iterations 3 -monitoring 'File(   filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/descriptors_10.dat,number chunks=10,chunks=[1])' -scheduler PThread 6 -training 'File(   filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/descriptors_10.dat,number chunks=10,chunks="[0,10)-[1]-[0]")' 
+
+=std=bcl::app=> Created independent data set with 15 points
+Created monitoring data set with 15 points
+Created training data set with 120 points
+=std=bcl::app=> 
+Number of descriptor values: 1282
+Number of result values:  16
+=std=bcl::app=> constructing datasets finished total: 0 [sec]
+=std=bcl::model=> Setting up training data with 120 points
+=std=bcl::model=> Set up data set ranges with # threads: 1
+=std=bcl::model=> Set up data set ranges with # ranges: 120
+=std=bcl::model=> Set up data set ranges for updating every nth feature: 1
+=std=bcl::model=> std: 0.027929
+=std=bcl::model=> std: 0.353553
+=std=bcl::model=> Training relative RMSD for iteration 0: 0.0618907
+=crt=bcl::opti=> Iteration: 1 improved Result: 0.263653 Best: 0.263653
+=std=bcl::model=> Training relative RMSD for iteration 1: 0.0496701
+=crt=bcl::opti=> Iteration: 2 improved Result: 0.25973 Best: 0.25973
+=std=bcl::model=> Training relative RMSD for iteration 2: 0.0469723
+=crt=bcl::opti=> Iteration: 3 improved Result: 0.257364 Best: 0.257364
+=std=bcl::app=> approximator training total: 0 [sec]
+=std=bcl::app=> monitoring dataset score:0.257364
+=std=bcl::app=> independent data: final score (EnrichmentAverage): 0 time: 0 [sec]
+=std=bcl=> Run completed of model:Train 'NeuralNetwork( transfer function = Sigmoid, weight update = Simple(eta=0.1,alpha=0.5), objective function = RMSD, steps per update=1, hidden architecture(8))' -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'File(   filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/descriptors_10.dat,number chunks=10,chunks=[0])' -max_iterations 3 -monitoring 'File(   filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/descriptors_10.dat,number chunks=10,chunks=[1])' -scheduler PThread 6 -training 'File(   filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/descriptors_10.dat,number chunks=10,chunks="[0,10)-[1]-[0]")' 
+, return status was: 0
+Command line took 0.338096 sec to run
+=std=bcl=> successful example check:  train_model.RunCommand() == 0
+=std=bcl=> Checking command line:
+model:Train 'NeuralNetwork( transfer function = Sigmoid, weight update = Simple(eta=0.1,alpha=0.5), objective function = RMSD, steps per update=1, hidden architecture(8))' -final_objective_function 'EnrichmentAverage( cutoff = 4, enrichment max = 0.05, step size = 0.005, parity = 1)' -independent 'File(   filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/descriptors_10.dat,number chunks=10,chunks=[0])' -max_iterations 3 -monitoring 'File(   filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/descriptors_10.dat,number chunks=10,chunks=[1])' -scheduler PThread 6 -training 'File(   filename=/dors/meilerlab/apps/bcl/app_example_files/model:Train/descriptors_10.dat,number chunks=10,chunks="[0,10)-[1]-[0]")' 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  train_model.CheckCommandString( true) == 1
+=std=bcl::app=> BCL Example | END  : AppModelTrain ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AppModelTrain_total                      17          0              
+total                                    17          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:01:19, peak virtual memory used: 679 MB, peak physical RAM used: 125 MB

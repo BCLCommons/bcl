@@ -1,0 +1,167 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec AssembleSSEPool 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AssembleSSEPool
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AssembleSSEPool ====================
+=std=bcl=> building models from pdb chains and sse information
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 ASP A  149  PHE A  153  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 GLY A  250  LEU A  254  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    7   7 ASN A  290  ASP A  292  5                                   3    
+=std=bcl=> Creating the SSEPool
+=std=bcl=> Printing the SSEPool
+bcl::assemble::SSEPool
+HELIX    1   1 SER A    8  TYR A   26  1                                  19    
+HELIX    2   2 SER A   48  LEU A   56  1                                   9    
+HELIX    3   3 MET A   58  MET A   79  1                                  22    
+HELIX    4   4 THR A   87  SER A  107  1                                  21    
+HELIX    5   5 ARG A  128  LYS A  134  1                                   7    
+HELIX    6   6 SER A  138  LYS A  154  1                                  17    
+HELIX    7   7 HIS A  158  VAL A  171  1                                  14    
+HELIX    8   8 ASP A  180  HIS A  203  1                                  24    
+HELIX    9   9 LEU A  210  SER A  237  1                                  28    
+HELIX   10  10 GLU A  241  LEU A  246  1                                   6    
+HELIX   11  11 THR A  247  GLY A  255  1                                   9    
+END                                                                             
+=std=bcl=> write 1IE9.pool
+=std=bcl=> read 1IE9.pool
+=std=bcl=> test write and read 
+=std=bcl=> iterating over both pools to ensure read functions correctly
+=std=bcl=> I/O test succeeded:  sse_pool.GetSize() == sse_pool_from_file.GetSize() == 11
+=std=bcl=> I/O test succeeded:  sse_pool.GetSize() == sse_pool_from_bcl_file.GetSize() == 11
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_read
+              output of result suppressed (result was 31428 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_bcl_read
+              output of result suppressed (result was 31428 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_read
+              output of result suppressed (result was 13853 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_bcl_read
+              output of result suppressed (result was 13853 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_read
+              output of result suppressed (result was 36651 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_bcl_read
+              output of result suppressed (result was 36651 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_read
+              output of result suppressed (result was 34917 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_bcl_read
+              output of result suppressed (result was 34917 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_read
+              output of result suppressed (result was 10395 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_bcl_read
+              output of result suppressed (result was 10395 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_read
+              output of result suppressed (result was 28049 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_bcl_read
+              output of result suppressed (result was 28049 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_read
+              output of result suppressed (result was 22698 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_bcl_read
+              output of result suppressed (result was 22698 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_read
+              output of result suppressed (result was 40367 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_bcl_read
+              output of result suppressed (result was 40367 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_read
+              output of result suppressed (result was 47432 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_bcl_read
+              output of result suppressed (result was 47432 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_read
+              output of result suppressed (result was 8610 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_bcl_read
+              output of result suppressed (result was 8610 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_read
+              output of result suppressed (result was 13912 bytes), set message verbosity to Detail to override
+=std=bcl=> I/O test succeeded:
+               **sse_itr_orig == **sse_itr_bcl_read
+              output of result suppressed (result was 13912 bytes), set message verbosity to Detail to override
+=std=bcl=> test ReadSSEPoolInformation function
+=std=bcl=> sse_pool.ReadSSEPoolInformation( out_filename) test succeeded:  pool_info.GetSize() == 12
+=std=bcl=> test GetChainsRepresented function
+=std=bcl=> The chains are : 
+bcl::storage::Set<char,std::less<char>>
+  2
+  A
+  B
+
+=std=bcl::app=> BCL Example | END  : AssembleSSEPool ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AssembleSSEPool_total                    28          0              
+total                                    28          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 134 MB, peak physical RAM used: 66 MB

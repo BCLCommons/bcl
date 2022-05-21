@@ -1,0 +1,9 @@
+bcl::descriptor::Molecule3DASmoothSignCode
+  3daSmoothSign(
+    property=Atom_Vcharge,
+    step size=0.25,
+    temperature=100,
+    steps=48,
+    gaussian=1,
+    interpolate=1
+  )

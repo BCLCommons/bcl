@@ -1,0 +1,62 @@
+bcl::opti::ApproximatorRootNewton<double>
+  bcl::util::ShPtr<bcl::opti::PrintInterface<double,double>>
+    0
+
+  bcl::util::ShPtr<bcl::opti::CriterionInterface<double,double>>
+    12345678
+    bcl::opti::CriterionCombine<double,double>
+      bcl::storage::List<bcl::util::Implementation<bcl::opti::CriterionInterface<double,double>>>
+        2
+        ConvergenceArgument(
+          repeats=1,
+          tolerance=0.0001,
+          current repetitions=1,
+          last argument=3.15191e-16
+        )
+        DivergenceArgument(repeats=1,tolerance=1000,current repetitions=0,last argument=4.72787e-16)
+
+  bcl::opti::Tracker<double,double>
+    93
+    93
+    SmallerAbsIsBetter
+    End
+    bcl::storage::Vector<size_t>
+      4
+      93
+      0
+      0
+      0
+
+    bcl::storage::Vector<size_t>
+      4
+      0
+      0
+      0
+      0
+
+    bcl::storage::Vector<size_t>
+      4
+      92
+      0
+      0
+      0
+
+    improved
+    bcl::util::ShPtr<bcl::storage::Pair<double,double>>
+      12345678
+      bcl::storage::Pair<double,double>
+        3.15191e-16
+        3.13128e-47
+    bcl::util::ShPtr<bcl::storage::Pair<double,double>>
+      12345678
+      bcl::storage::Pair<double,double>
+        3.15191e-16
+        3.13128e-47
+    ""
+  bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+    12345678
+    bcl::ExampleOptiApproximatorRootNewton::CubeExampleFunction
+
+  bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+    12345678
+    bcl::ExampleOptiApproximatorRootNewton::QuadraticFunction

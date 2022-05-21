@@ -1,0 +1,196 @@
+./build/linux64_release/bin/bcl-example-apps-static.exe Examples -exec AppAlignment 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AppAlignment
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AppAlignment ====================
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+sequence:Alignment -blast 1.0 -blosum62 1.0 -extend_boundary_gap 0.0 -extend_gap -0.5 -fastas example/example_files/input/biology/1IE9A.fasta example/example_files/input/biology/1IE9A.fasta -hydrophobicity 1.0 -isoelectric 1.0 -open_boundary_gap 0.0 -open_gap -1.0 -outputformat pir -outputprefix example/example_files/output/align/1IE9A -pam250 1.0 -polarizability 1.0 -psipred 1.0 -tfe_white 1.0 -volume 1.0 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  alignment_app.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: sequence:Alignment -blast 1.0 -blosum62 1.0 -extend_boundary_gap 0.0 -extend_gap -0.5 -fastas example/example_files/input/biology/1IE9A.fasta example/example_files/input/biology/1IE9A.fasta -hydrophobicity 1.0 -isoelectric 1.0 -open_boundary_gap 0.0 -open_gap -1.0 -outputformat pir -outputprefix example/example_files/output/align/1IE9A -pam250 1.0 -polarizability 1.0 -psipred 1.0 -tfe_white 1.0 -volume 1.0 
+
+=std=bcl::app=> Detect scores to be used:
+
+Weight for option pam250 is set to   1.00
+Weight for option blosum62 is set to   1.00
+Weight for option blast is set to   1.00
+Weight for option psipred is set to   1.00
+Weight for option polarizability is set to   1.00
+Weight for option volume is set to   1.00
+Weight for option hydrophobicity is set to   1.00
+Weight for option isoelectric is set to   1.00
+Weight for option tfe_white is set to   1.00
+=std=bcl::app=> Normalize score weights from   9.00 to 1.00
+=std=bcl::app=> Current gap penalties:
+=std=bcl::app=> open_gap penalty :  -1.00
+=std=bcl::app=> extend_gap penalty :  -0.50
+=std=bcl::app=> open_boundary_gap penalty :   0.00
+=std=bcl::app=> extend_boundary_gap penalty :   0.00
+=std=bcl::app=> Read sequence data:
+=std=bcl::app=> jufo will be calculated since blast was given for that sequence: example/example_files/input/biology/1IE9A
+>1IE9:A|PDBID|CHAIN|SEQUENCE
+DSLRPKLSEEQQRIIAILLDAHHKTYDPTYSDFCQFRPPVRVNDGGGSVTLELSQLSMLPHLADLVSYSIQKVIGFAKMIPGFRDLTSEDQIVLLKSSAI
+EVIMLRSNESFTMDDMSWTCGNQDYKYRVSDVTKAGHSLELIEPLIKFQVGLKKLNLHEEEHVLLMAICIVSPDRPGVQDAALIEAIQDRLSNTLQTYIR
+CRHPPPGSHLLYAKMIQKLADLRSLNEEHSKQYRCLSFQPECSMKLTPLVLEVFGNEIS
+=std=bcl::app=> jufo will be calculated since blast was given for that sequence: example/example_files/input/biology/1IE9A
+>1IE9:A|PDBID|CHAIN|SEQUENCE
+DSLRPKLSEEQQRIIAILLDAHHKTYDPTYSDFCQFRPPVRVNDGGGSVTLELSQLSMLPHLADLVSYSIQKVIGFAKMIPGFRDLTSEDQIVLLKSSAI
+EVIMLRSNESFTMDDMSWTCGNQDYKYRVSDVTKAGHSLELIEPLIKFQVGLKKLNLHEEEHVLLMAICIVSPDRPGVQDAALIEAIQDRLSNTLQTYIR
+CRHPPPGSHLLYAKMIQKLADLRSLNEEHSKQYRCLSFQPECSMKLTPLVLEVFGNEIS
+=std=bcl::align=> Start multiple sequence alignment
+=std=bcl::align=> Current   alignment :   1
+=std=bcl::align=> Remaining alignments:   1
+=std=bcl::app=> Shortest Sequence:	259
+=std=bcl::app=> Normalized Score:	1.60971
+=std=bcl::app=> Score:	416.915
+=std=bcl::app=> output in format: pir
+=std=bcl=> Run completed of sequence:Alignment -blast 1.0 -blosum62 1.0 -extend_boundary_gap 0.0 -extend_gap -0.5 -fastas example/example_files/input/biology/1IE9A.fasta example/example_files/input/biology/1IE9A.fasta -hydrophobicity 1.0 -isoelectric 1.0 -open_boundary_gap 0.0 -open_gap -1.0 -outputformat pir -outputprefix example/example_files/output/align/1IE9A -pam250 1.0 -polarizability 1.0 -psipred 1.0 -tfe_white 1.0 -volume 1.0 
+, return status was: 0
+Command line took 0.150563 sec to run
+=std=bcl=> successful example check:  alignment_app.RunCommand() == 0
+=std=bcl=> Compare generated alignment and correct alignment test succeeded:
+              io::File::FilesMatch( correct_alignment_file, calculated_alignment_file) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+sequence:Alignment -blast 1.0 -blosum62 1.0 -extend_boundary_gap 0.0 -extend_gap -0.5 -fastas example/example_files/input/biology/1fms_.fasta example/example_files/input/biology/1f5mA.fasta -hydrophobicity 1.0 -isoelectric 1.0 -jufo 1.0 -open_boundary_gap 0.0 -open_gap -1.0 -outputformat standard -outputprefix example/example_files/output/align/align_1fms_1fm5 -pam250 1.0 -polarizability 1.0 -psipred 1.0 -tfe_white 1.0 -volume 1.0 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  alignment_app.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: sequence:Alignment -blast 1.0 -blosum62 1.0 -extend_boundary_gap 0.0 -extend_gap -0.5 -fastas example/example_files/input/biology/1fms_.fasta example/example_files/input/biology/1f5mA.fasta -hydrophobicity 1.0 -isoelectric 1.0 -jufo 1.0 -open_boundary_gap 0.0 -open_gap -1.0 -outputformat standard -outputprefix example/example_files/output/align/align_1fms_1fm5 -pam250 1.0 -polarizability 1.0 -psipred 1.0 -tfe_white 1.0 -volume 1.0 
+
+=std=bcl::app=> Detect scores to be used:
+
+Weight for option pam250 is set to   1.00
+Weight for option blosum62 is set to   1.00
+Weight for option blast is set to   1.00
+Weight for option psipred is set to   1.00
+Weight for option jufo is set to   1.00
+Weight for option polarizability is set to   1.00
+Weight for option volume is set to   1.00
+Weight for option hydrophobicity is set to   1.00
+Weight for option isoelectric is set to   1.00
+Weight for option tfe_white is set to   1.00
+=std=bcl::app=> Normalize score weights from  10.00 to 1.00
+=std=bcl::app=> Current gap penalties:
+=std=bcl::app=> open_gap penalty :  -1.00
+=std=bcl::app=> extend_gap penalty :  -0.50
+=std=bcl::app=> open_boundary_gap penalty :   0.00
+=std=bcl::app=> extend_boundary_gap penalty :   0.00
+=std=bcl::app=> Read sequence data:
+>1fms_
+GSHMSDMTRDGLANKALAVARTLADSPEIRQGLQKKPQESGIQAIAEAVRKRNDLLFIVVTDMQSLRYSHPEAQRIGQPFKGDDILKALNGEENVAINRG
+FLAQALRVFTPIYDENHKQIGVVAIGLELSRVTQQINDSR
+>1f5mA
+STGFHHADHVNYSSNLNKEEILEQLLLSYEGLSDGQVNWVCNLSNASSLIWHAYKSLAVDINWAGFYVTQASEENTLILGPFQGKVACQMIQFGKGVCGT
+AASTKETQIVPDVNKYPGHIACDGETKSEIVVPIISNDGKTLGVIDIDCLDYEGFDHVDKEFLEKLAKLINKSCVF
+=std=bcl::align=> Start multiple sequence alignment
+=std=bcl::align=> Current   alignment :   1
+=std=bcl::align=> Remaining alignments:   1
+=std=bcl::app=> Shortest Sequence:	140
+=std=bcl::app=> Normalized Score:	0.401832
+=std=bcl::app=> Score:	56.2565
+=std=bcl::app=> output in format: standard
+=std=bcl=> Run completed of sequence:Alignment -blast 1.0 -blosum62 1.0 -extend_boundary_gap 0.0 -extend_gap -0.5 -fastas example/example_files/input/biology/1fms_.fasta example/example_files/input/biology/1f5mA.fasta -hydrophobicity 1.0 -isoelectric 1.0 -jufo 1.0 -open_boundary_gap 0.0 -open_gap -1.0 -outputformat standard -outputprefix example/example_files/output/align/align_1fms_1fm5 -pam250 1.0 -polarizability 1.0 -psipred 1.0 -tfe_white 1.0 -volume 1.0 
+, return status was: 0
+Command line took 0.027921 sec to run
+=std=bcl=> successful example check:  alignment_app.RunCommand() == 0
+=std=bcl=> Compare generated alignment and correct alignment test succeeded:
+              io::File::FilesMatch( correct_alignment_file, calculated_alignment_file) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+sequence:Alignment -blosum62 1.0 -extend_boundary_gap 0.0 -extend_gap -0.5 -hydrophobicity 1.0 -isoelectric 1.0 -open_boundary_gap 0.0 -open_gap -1.0 -outputformat standard -outputprefix example/example_files/output/align/score_1fms_1fm5 -pam250 1.0 -polarizability 1.0 -score_alignment example/example_files/output/align/align_1fms_1fm5.standard -tfe_white 1.0 -volume 1.0 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  alignment_app.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: sequence:Alignment -blosum62 1.0 -extend_boundary_gap 0.0 -extend_gap -0.5 -hydrophobicity 1.0 -isoelectric 1.0 -open_boundary_gap 0.0 -open_gap -1.0 -outputformat standard -outputprefix example/example_files/output/align/score_1fms_1fm5 -pam250 1.0 -polarizability 1.0 -score_alignment example/example_files/output/align/align_1fms_1fm5.standard -tfe_white 1.0 -volume 1.0 
+
+=std=bcl::app=> Detect scores to be used:
+
+Weight for option pam250 is set to   1.00
+Weight for option blosum62 is set to   1.00
+Weight for option polarizability is set to   1.00
+Weight for option volume is set to   1.00
+Weight for option hydrophobicity is set to   1.00
+Weight for option isoelectric is set to   1.00
+Weight for option tfe_white is set to   1.00
+=std=bcl::app=> Normalize score weights from   7.00 to 1.00
+=std=bcl::app=> Current gap penalties:
+=std=bcl::app=> open_gap penalty :  -1.00
+=std=bcl::app=> extend_gap penalty :  -0.50
+=std=bcl::app=> open_boundary_gap penalty :   0.00
+=std=bcl::app=> extend_boundary_gap penalty :   0.00
+=std=bcl::app=> Score:	57.235
+=std=bcl::app=> output in format: standard
+=std=bcl=> Run completed of sequence:Alignment -blosum62 1.0 -extend_boundary_gap 0.0 -extend_gap -0.5 -hydrophobicity 1.0 -isoelectric 1.0 -open_boundary_gap 0.0 -open_gap -1.0 -outputformat standard -outputprefix example/example_files/output/align/score_1fms_1fm5 -pam250 1.0 -polarizability 1.0 -score_alignment example/example_files/output/align/align_1fms_1fm5.standard -tfe_white 1.0 -volume 1.0 
+, return status was: 0
+Command line took 0.001695 sec to run
+=std=bcl=> successful example check:  alignment_app.RunCommand() == 0
+=std=bcl=> Compare generated alignment and correct alignment test succeeded:
+              io::File::FilesMatch( correct_alignment_file, calculated_alignment_file) == 1
+=std=bcl::app=> BCL Example | END  : AppAlignment ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AppAlignment_total                        9          0              
+total                                     9          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 118 MB, peak physical RAM used: 58 MB

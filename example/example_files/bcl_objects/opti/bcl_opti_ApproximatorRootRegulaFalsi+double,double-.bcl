@@ -1,0 +1,59 @@
+bcl::opti::ApproximatorRootRegulaFalsi<double,double>
+  bcl::util::ShPtr<bcl::opti::PrintInterface<double,double>>
+    0
+
+  bcl::util::ShPtr<bcl::opti::CriterionInterface<double,double>>
+    12345678
+    bcl::opti::CriterionCombine<double,double>
+      bcl::storage::List<bcl::util::Implementation<bcl::opti::CriterionInterface<double,double>>>
+        2
+        ConvergenceArgument(
+          repeats=1,
+          tolerance=0.0001,
+          current repetitions=1,
+          last argument=-1.73152e-13
+        )
+        Iterations(100)
+
+  bcl::opti::Tracker<double,double>
+    58
+    58
+    SmallerAbsIsBetter
+    End
+    bcl::storage::Vector<size_t>
+      4
+      58
+      0
+      0
+      0
+
+    bcl::storage::Vector<size_t>
+      4
+      0
+      0
+      0
+      0
+
+    bcl::storage::Vector<size_t>
+      4
+      57
+      0
+      0
+      0
+
+    improved
+    bcl::util::ShPtr<bcl::storage::Pair<double,double>>
+      12345678
+      bcl::storage::Pair<double,double>
+        -1.73152e-13
+        -5.19136e-39
+    bcl::util::ShPtr<bcl::storage::Pair<double,double>>
+      12345678
+      bcl::storage::Pair<double,double>
+        -1.73152e-13
+        -5.19136e-39
+    ""
+  bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+    12345678
+    bcl::ExampleOptiApproximatorRootRegulaFalsi::CubeExampleFunction
+

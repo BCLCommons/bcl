@@ -1,0 +1,97 @@
+bcl::coord::PointCloud
+  bcl::storage::Vector<bcl::linal::Vector3D>
+    47
+    bcl::linal::Vector3D
+      34.1	23.1	12.1
+    bcl::linal::Vector3D
+      38.5	29.7	12.1
+    bcl::linal::Vector3D
+      38.5	29.7	18.7
+    bcl::linal::Vector3D
+      23.1	18.7	12.1
+    bcl::linal::Vector3D
+      31.9	20.9	14.3
+    bcl::linal::Vector3D
+      27.5	18.7	7.7
+    bcl::linal::Vector3D
+      36.3	27.5	9.9
+    bcl::linal::Vector3D
+      36.3	25.3	14.3
+    bcl::linal::Vector3D
+      29.7	34.1	7.7
+    bcl::linal::Vector3D
+      36.3	29.7	23.1
+    bcl::linal::Vector3D
+      29.7	18.7	18.7
+    bcl::linal::Vector3D
+      18.7	20.9	12.1
+    bcl::linal::Vector3D
+      18.7	27.5	18.7
+    bcl::linal::Vector3D
+      25.3	31.9	7.7
+    bcl::linal::Vector3D
+      27.5	16.5	16.5
+    bcl::linal::Vector3D
+      29.7	40.7	16.5
+    bcl::linal::Vector3D
+      20.9	16.5	14.3
+    bcl::linal::Vector3D
+      27.5	36.3	14.3
+    bcl::linal::Vector3D
+      25.3	31.9	16.5
+    bcl::linal::Vector3D
+      34.1	31.9	25.3
+    bcl::linal::Vector3D
+      38.5	34.1	9.9
+    bcl::linal::Vector3D
+      29.7	18.7	12.1
+    bcl::linal::Vector3D
+      20.9	27.5	5.5
+    bcl::linal::Vector3D
+      31.9	29.7	20.9
+    bcl::linal::Vector3D
+      25.3	25.3	20.9
+    bcl::linal::Vector3D
+      29.7	34.1	20.9
+    bcl::linal::Vector3D
+      29.7	40.7	12.1
+    bcl::linal::Vector3D
+      40.7	31.9	16.5
+    bcl::linal::Vector3D
+      25.3	31.9	12.1
+    bcl::linal::Vector3D
+      25.3	16.5	9.9
+    bcl::linal::Vector3D
+      29.7	29.7	5.5
+    bcl::linal::Vector3D
+      23.1	29.7	18.7
+    bcl::linal::Vector3D
+      27.5	25.3	3.3
+    bcl::linal::Vector3D
+      27.5	20.9	20.9
+    bcl::linal::Vector3D
+      25.3	27.5	5.5
+    bcl::linal::Vector3D
+      27.5	29.7	18.7
+    bcl::linal::Vector3D
+      20.9	25.3	20.9
+    bcl::linal::Vector3D
+      20.9	23.1	9.9
+    bcl::linal::Vector3D
+      27.5	36.3	9.9
+    bcl::linal::Vector3D
+      40.7	27.5	9.9
+    bcl::linal::Vector3D
+      34.1	18.7	16.5
+    bcl::linal::Vector3D
+      29.7	23.1	5.5
+    bcl::linal::Vector3D
+      27.5	20.9	3.3
+    bcl::linal::Vector3D
+      20.9	20.9	16.5
+    bcl::linal::Vector3D
+      38.5	34.1	27.5
+    bcl::linal::Vector3D
+      34.1	29.7	12.1
+    bcl::linal::Vector3D
+      20.9	29.7	9.9

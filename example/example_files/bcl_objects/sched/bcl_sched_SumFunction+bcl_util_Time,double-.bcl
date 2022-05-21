@@ -1,0 +1,10 @@
+bcl::sched::SumFunction<bcl::util::Time,double>
+  WeightedSum(
+    offset=0,
+    terms(
+      (weight=-1,Sleeper(1)),
+      (weight=1,Sleeper(2)),
+      (weight=-1,Sleeper(3)),
+      (weight=1,Sleeper(4))
+    )
+  )

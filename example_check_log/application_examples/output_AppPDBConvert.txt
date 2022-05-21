@@ -1,0 +1,516 @@
+./build/linux64_release/bin/bcl-example-apps-static.exe Examples -exec AppPDBConvert 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AppPDBConvert
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AppPDBConvert ====================
+=std=bcl=> successful example check:  app_enum_pdb_convert.IsDefined() == 1
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( false) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1C1D.pdb -chains A -fasta -output_prefix example/example_files/output/pdb/1C1D 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1C1D.pdb -chains A -fasta -output_prefix example/example_files/output/pdb/1C1D 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1C1D.pdb -chains A -fasta -output_prefix example/example_files/output/pdb/1C1D 
+, return status was: 0
+Command line took 0.054242 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=std=bcl=> successful example check:  seq.GetSize() == 355
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1C1D.pdb -chains B -fasta -output_prefix example/example_files/output/pdb/1C1D 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1C1D.pdb -chains B -fasta -output_prefix example/example_files/output/pdb/1C1D 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1C1D.pdb -chains B -fasta -output_prefix example/example_files/output/pdb/1C1D 
+, return status was: 0
+Command line took 0.053199 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=std=bcl=> successful example check:  seq.GetSize() == 355
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1C1D.pdb -chains A B -fasta -output_prefix example/example_files/output/pdb/1C1D 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1C1D.pdb -chains A B -fasta -output_prefix example/example_files/output/pdb/1C1D 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1C1D.pdb -chains A B -fasta -output_prefix example/example_files/output/pdb/1C1D 
+, return status was: 0
+Command line took 0.053498 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert -output_prefix example/example_files/output/pdb/1C1D -pdb_from_fasta example/example_files/output/pdb/1C1DA.fasta example/example_files/output/pdb/1C1DB.fasta -protein_params 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert -output_prefix example/example_files/output/pdb/1C1D -pdb_from_fasta example/example_files/output/pdb/1C1DA.fasta example/example_files/output/pdb/1C1DB.fasta -protein_params 
+
+=std=bcl=> Run completed of PDBConvert -output_prefix example/example_files/output/pdb/1C1D -pdb_from_fasta example/example_files/output/pdb/1C1DA.fasta example/example_files/output/pdb/1C1DB.fasta -protein_params 
+, return status was: 0
+Command line took 0.002509 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=crt=bcl::pdb=> there are no alignable atom lines for that chain in the pdb: A
+=crt=bcl::pdb=> there are no alignable atom lines for that chain in the pdb: B
+=std=bcl=> successful example check:  model.GetChain( 'A').IsDefined() == 1
+=std=bcl=> successful example check:  model.GetChain( 'A')->GetSequence()->GetSize() == 355
+=std=bcl=> successful example check:  model.GetChain( 'B').IsDefined() == 1
+=std=bcl=> successful example check:  model.GetChain( 'B')->GetSequence()->GetSize() == 355
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1IE9.pdb -aaclass AABackBone -bcl_pdb Split -chains A -output_prefix example/example_files/output/pdb/1IE9 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1IE9.pdb -aaclass AABackBone -bcl_pdb Split -chains A -output_prefix example/example_files/output/pdb/1IE9 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 ASP A  149  PHE A  153  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 GLY A  250  LEU A  254  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    7   7 ASN A  290  ASP A  292  5                                   3    
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1IE9.pdb -aaclass AABackBone -bcl_pdb Split -chains A -output_prefix example/example_files/output/pdb/1IE9 
+, return status was: 0
+Command line took 0.033785 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=std=bcl=> successful example check:  locate_by_seqid.Locate( model)->GetSeqID() == 10
+=std=bcl=> successful example check:  locate_by_pdbid.Locate( model)->GetPdbID() == 10
+=std=bcl=> successful example check:
+              locate_by_pdbid.Locate( model)->GetSeqID() == locate_by_seqid.Locate( model)->GetSeqID() == 1
+=std=bcl=> successful example check:  locate_by_seqid.Locate( model)->GetCA().GetPdbID() == 47
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1IE9.pdb -aaclass AABackBone -bcl_pdb Split -chains A -output_prefix example/example_files/output/pdb/1IE9_no_renumber -write_pdb_atom_ids -write_pdb_res_ids 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1IE9.pdb -aaclass AABackBone -bcl_pdb Split -chains A -output_prefix example/example_files/output/pdb/1IE9_no_renumber -write_pdb_atom_ids -write_pdb_res_ids 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 ASP A  149  PHE A  153  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    5   5 GLY A  250  LEU A  254  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    7   7 ASN A  290  ASP A  292  5                                   3    
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1IE9.pdb -aaclass AABackBone -bcl_pdb Split -chains A -output_prefix example/example_files/output/pdb/1IE9_no_renumber -write_pdb_atom_ids -write_pdb_res_ids 
+, return status was: 0
+Command line took 0.035348 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=std=bcl=> successful example check:  locate_by_seqid.Locate( model)->GetSeqID() == 10
+=std=bcl=> successful example check:  locate_by_seqid.Locate( model)->GetCA().GetPdbID() == 74
+=std=bcl=> successful example check:  locate_by_pdbid.Locate( model).IsDefined() == 0
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1ubi.pdb -bcl_pdb Split -chains A -min_sse_size 5 5 999 -output_prefix example/example_files/output/pdb/1ubi_select 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1ubi.pdb -bcl_pdb Split -chains A -min_sse_size 5 5 999 -output_prefix example/example_files/output/pdb/1ubi_select 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1ubi.pdb -bcl_pdb Split -chains A -min_sse_size 5 5 999 -output_prefix example/example_files/output/pdb/1ubi_select 
+, return status was: 0
+Command line took 0.010446 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=std=bcl=> successful example check:  model.GetNumberSSEs() == 10
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1C1D.pdb -bcl_pdb Full -output_prefix example/example_files/output/pdb/1C1D -rename_chain_id A, B,C 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1C1D.pdb -bcl_pdb Full -output_prefix example/example_files/output/pdb/1C1D -rename_chain_id A, B,C 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1C1D.pdb -bcl_pdb Full -output_prefix example/example_files/output/pdb/1C1D -rename_chain_id A, B,C 
+, return status was: 0
+Command line took 0.12662 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=std=bcl=> successful example check:  model.GetChain( ' ').IsDefined() == 1
+=std=bcl=> successful example check:  model.GetChain( 'C').IsDefined() == 1
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1ubi.pdb -bcl_pdb Full -output_prefix example/example_files/output/pdb/1ubi_selectsuperimposed -superimpose example/example_files/input/biology/1ubi_ideal_model.pdb RMSD CA 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1ubi.pdb -bcl_pdb Full -output_prefix example/example_files/output/pdb/1ubi_selectsuperimposed -superimpose example/example_files/input/biology/1ubi_ideal_model.pdb RMSD CA 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1ubi.pdb -bcl_pdb Full -output_prefix example/example_files/output/pdb/1ubi_selectsuperimposed -superimpose example/example_files/input/biology/1ubi_ideal_model.pdb RMSD CA 
+, return status was: 0
+Command line took 0.017305 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> successful example check:  rmsd_before > rmsd_after == 1
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1lgh.pdb -bcl_pdb Full -biomolecule 1 -output_prefix example/example_files/output/pdb/1lgh 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1lgh.pdb -bcl_pdb Full -biomolecule 1 -output_prefix example/example_files/output/pdb/1lgh 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    1   1 LYS A    4  VAL A   12  5                                   9    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   41  PHE A   43  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 LYS D    4  VAL D   12  5                                   9    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    8   8 PRO D   41  PHE D   43  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   11  11 LYS G    4  VAL G   12  5                                   9    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   13  13 PRO G   41  PHE G   43  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   16  16 LYS J    4  VAL J   12  5                                   9    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   18  18 PRO J   41  PHE J   43  5                                   3    
+=std=bcl::pdb=> found BIOMOLECULE: 1
+=crt=bcl::pdb=> Chains to apply transformations to:
+ABDE
+=std=bcl::pdb=> found BIOMOLECULE: 2
+=crt=bcl::pdb=> Chains to apply transformations to:
+GHJK
+=std=bcl::app=> mapping of chain ids after applying biomolecule multiplier:
+bcl::storage::Table<char>       orig        new 
+0                                  A          A 
+1                                  A          L 
+2                                  A          P 
+3                                  A          T 
+4                                  B          B 
+5                                  B          M 
+6                                  B          Q 
+7                                  B          U 
+8                                  D          D 
+9                                  D          N 
+10                                 D          R 
+11                                 D          V 
+12                                 E          E 
+13                                 E          O 
+14                                 E          S 
+15                                 E          W 
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1lgh.pdb -bcl_pdb Full -biomolecule 1 -output_prefix example/example_files/output/pdb/1lgh 
+, return status was: 0
+Command line took 0.137728 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=std=bcl=> successful example check:  model.GetChains().GetSize() == 16
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1lgh.pdb -bcl_pdb Full -biomolecule 1 -output_prefix example/example_files/output/pdb/1lghpdbtm -pdbtm_xml example/example_files/input/biology/1lgh.xml 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1lgh.pdb -bcl_pdb Full -biomolecule 1 -output_prefix example/example_files/output/pdb/1lghpdbtm -pdbtm_xml example/example_files/input/biology/1lgh.xml 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    1   1 LYS A    4  VAL A   12  5                                   9    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   41  PHE A   43  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 LYS D    4  VAL D   12  5                                   9    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    8   8 PRO D   41  PHE D   43  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   11  11 LYS G    4  VAL G   12  5                                   9    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   13  13 PRO G   41  PHE G   43  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   16  16 LYS J    4  VAL J   12  5                                   9    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   18  18 PRO J   41  PHE J   43  5                                   3    
+=std=bcl::pdb=> found BIOMOLECULE: 1
+=crt=bcl::pdb=> Chains to apply transformations to:
+ABDE
+=std=bcl::pdb=> found BIOMOLECULE: 2
+=crt=bcl::pdb=> Chains to apply transformations to:
+GHJK
+=std=bcl::app=> biomatrices in xml given
+=std=bcl::app=> mapping of chain ids after applying biomolecule multiplier:
+bcl::storage::Table<char>       orig        new 
+0                                  A          A 
+1                                  A          M 
+2                                  A          R 
+3                                  A          V 
+4                                  B          B 
+5                                  B          N 
+6                                  B          S 
+7                                  B          W 
+8                                  D          D 
+9                                  D          P 
+10                                 D          T 
+11                                 D          Y 
+12                                 E          E 
+13                                 E          Q 
+14                                 E          U 
+15                                 E          X 
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1lgh.pdb -bcl_pdb Full -biomolecule 1 -output_prefix example/example_files/output/pdb/1lghpdbtm -pdbtm_xml example/example_files/input/biology/1lgh.xml 
+, return status was: 0
+Command line took 0.141157 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=std=bcl=> successful example check:  model.GetChains().GetSize() == 16
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/2yv8.pdb -bcl_pdb Full -convert_to_natural_aa_type -output_prefix example/example_files/output/pdb/2yv8 -write_pdb_res_ids 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/2yv8.pdb -bcl_pdb Full -convert_to_natural_aa_type -output_prefix example/example_files/output/pdb/2yv8 -write_pdb_res_ids 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    1   1 GLY A  138  ILE A  142  5                                   5    
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/2yv8.pdb -bcl_pdb Full -convert_to_natural_aa_type -output_prefix example/example_files/output/pdb/2yv8 -write_pdb_res_ids 
+, return status was: 0
+Command line took 0.030418 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    1   1 GLY A  138  ILE A  142  5                                   5    
+=std=bcl=> successful example check:
+               loc_aa.Locate( orig_model)->GetType() == biol::GetAATypes().MSE ==
+              bcl::biol::AATypes::Enum
+                "SELENO_METHIONINE"
+=std=bcl=> successful example check:
+               loc_aa.Locate( orig_model)->GetType()->GetParentType() == biol::GetAATypes().MET ==
+              bcl::biol::AATypes::Enum
+                "METHIONINE"
+=std=bcl=> successful example check:
+               loc_aa.Locate( model)->GetType() == biol::GetAATypes().MET ==
+              bcl::biol::AATypes::Enum
+                "METHIONINE"
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1ubi.pdb -bcl_pdb Split -loop_file_rosetta KIC -min_sse_size 0 0 999 -output_prefix example/example_files/output/pdb/1ubi_noloop -write_zero_coordinates 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1ubi.pdb -bcl_pdb Split -loop_file_rosetta KIC -min_sse_size 0 0 999 -output_prefix example/example_files/output/pdb/1ubi_noloop -write_zero_coordinates 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=crt=bcl::app=> loop at the C or N terminus. Rosetta KIC cannot build coordinates for those - use loop file at your own risk or consider using CCD!
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1ubi.pdb -bcl_pdb Split -loop_file_rosetta KIC -min_sse_size 0 0 999 -output_prefix example/example_files/output/pdb/1ubi_noloop -write_zero_coordinates 
+, return status was: 0
+Command line took 0.013671 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM    252  N   GLY A  35       0.000   0.000   0.000 -1.00  0.00           N  
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM    337  N   GLY A  47       0.000   0.000   0.000 -1.00  0.00           N  
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM    377  N   GLY A  53       0.000   0.000   0.000 -1.00  0.00           N  
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM    515  N   GLY A  75       0.000   0.000   0.000 -1.00  0.00           N  
+=crt=bcl::pdb=> Insufficient data to construct first side chain atom for residue with leading Line:
+ATOM    519  N   GLY A  76       0.000   0.000   0.000 -1.00  0.00           N  
+=std=bcl=> successful example check:  loc_aa.Locate( model)->GetCA().GetCoordinates().Sum() == 0.0 == 0
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1ubi.pdb -output_prefix example/example_files/output/pdb/1ubi -topology 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1ubi.pdb -output_prefix example/example_files/output/pdb/1ubi -topology 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=crt=bcl::util=> -2.96433 is not within range [-1,1] returning min color
+=crt=bcl::util=> -3.95858 is not within range [-1,1] returning min color
+=crt=bcl::util=> -2.93869 is not within range [-1,1] returning min color
+=crt=bcl::util=> -3.40571 is not within range [-1,1] returning min color
+=crt=bcl::util=> -1.4061 is not within range [-1,1] returning min color
+=crt=bcl::util=> -1.45926 is not within range [-1,1] returning min color
+=std=bcl::app=> create topology graph with the following commandline:
+neato -Tpng example/example_files/output/pdb/1ubi.viz -o example/example_files/output/pdb/1ubi.png
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1ubi.pdb -output_prefix example/example_files/output/pdb/1ubi -topology 
+, return status was: 0
+Command line took 0.042736 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/1ubi.pdb -bcl_pdb -dssp -output_prefix example/example_files/output/pdb/1ubi_dssp 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/1ubi.pdb -bcl_pdb -dssp -output_prefix example/example_files/output/pdb/1ubi_dssp 
+
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2  H2 LEU A   56  TYR A   59  5                                   4    
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/1ubi.pdb -bcl_pdb -dssp -output_prefix example/example_files/output/pdb/1ubi_dssp 
+, return status was: 0
+Command line took 0.022633 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    2   2 PRO A   38  GLN A   40  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 SER A   57  TYR A   59  5                                   3    
+=std=bcl=> successful example check:  model.GetNumberSSE( biol::GetSSTypes().STRAND) == 5
+=std=bcl=> successful example check:  model.GetNumberSSE( biol::GetSSTypes().HELIX) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Checking command line:
+PDBConvert example/example_files/input/biology/all_aas_connected.corina.pdb -output_prefix example/example_files/output/biol/testallaas -sdf 
+
+=std=bcl=> Command line was valid
+=std=bcl=> successful example check:  pdb_convert_helper.CheckCommandString( true) == 1
+=crt=bcl::random=> Seed was set to 5489!
+=std=bcl=> Running command line: PDBConvert example/example_files/input/biology/all_aas_connected.corina.pdb -output_prefix example/example_files/output/biol/testallaas -sdf 
+
+=std=bcl::pdb=> no SEQRES information given, try to retrieve sequence from ATOM section, which requires that every residue is given in there!
+=std=bcl=> Run completed of PDBConvert example/example_files/input/biology/all_aas_connected.corina.pdb -output_prefix example/example_files/output/biol/testallaas -sdf 
+, return status was: 0
+Command line took 0.015337 sec to run
+=std=bcl=> successful example check:  pdb_convert_helper.RunCommand() == 0
+=std=bcl=> successful example check:
+              io::File::FilesMatchWithinAbsoluteTolerance( sdf_file_name_out, sdf_file_name_out_correct, 0.0001) == 1
+=std=bcl::app=> BCL Example | END  : AppPDBConvert ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+AppPDBConvert_total                      60          0              
+total                                    60          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 123 MB, peak physical RAM used: 64 MB

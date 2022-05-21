@@ -1,0 +1,4 @@
+bcl::math::FunctionCached<bcl::ExampleMathFunctionCached::Student,int>
+  bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<bcl::ExampleMathFunctionCached::Student,int>>
+    12345678
+    bcl::ExampleMathFunctionCached::TimeToGraduation

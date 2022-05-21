@@ -1,0 +1,2 @@
+bcl::descriptor::Molecule3DDistribution
+  3dDistribution(property=Atom_Vcharge,center property=Abs(Atom_Vcharge),step size=0.25,steps=48)

@@ -1,0 +1,111 @@
+// (c) Copyright BCL @ Vanderbilt University 2014
+// (c) BCL Homepage: http://www.meilerlab.org/bclcommons
+// (c) The BCL software is developed by the contributing members of the BCL @ Vanderbilt University
+// (c) This file is part of the BCL software suite and is made available under license.
+// (c) To view or modify this file, you must enter into one of the following agreements if you have not done so already:
+// (c) For academic and non-profit users: 
+// (c)   the BCL Academic Single-User License, available at http://www.meilerlab.org/bclcommons/license
+// (c) For commercial users: 
+// (c)   The BCL Commercial Site License, available upon request from bcl-support-commercial@meilerlab.org
+// (c) For BCL developers at Vanderbilt University: 
+// (c)   The BCL Developer Agreement, available at http://www.meilerlab.org/bclcommons/developer_agreement
+// (c)
+// (c)   As part of all such agreements, this copyright notice must appear, verbatim and without addition, at the 
+// (c) top of all source files of the BCL project and may not be modified by any party except the BCL developers at
+// (c) Vanderbilt University. 
+// (c)   The BCL copyright and license yields to non-BCL copyrights and licenses where indicated by code comments.
+// (c)   Questions about this copyright notice or license agreement may be emailed to bcl-support-academic@meilerlab.org 
+// (c) (for academic users) or bcl-support-commercial@meilerlab.org (for commercial users)
+
+// initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "util/bcl_util_static_initialization_fiasco_finder.h"
+BCL_StaticInitializationFiascoFinder
+
+// include header of this class
+#include "bcl_version.h"
+
+// includes from bcl - sorted alphabetically
+#include "util/bcl_util_format.h"
+#include "util/bcl_util_time.h"
+
+// external includes - sorted alphabetically
+
+namespace bcl
+{
+
+  /////////////////////////////////////////////////////////////
+  // ATTENTION!!
+  // changes to bcl_version.cpp has no effect when using cmake!
+  // only change version.cpp.in
+  /////////////////////////////////////////////////////////////
+  
+  //! @brief reference to static instance of class Version
+  const Version &GetVersion()
+  {
+    static const Version s_version;
+    return s_version;
+  }
+
+//////////////////////////////////
+// construction and destruction //
+//////////////////////////////////
+
+  //! @brief default constructor
+  Version::Version() :
+    m_Major(           @BCL_VERSION_MAJOR@),
+    m_Minor(           @BCL_VERSION_MINOR@),
+    m_Patch(           @BCL_VERSION_PATCH@),
+    m_Revision(        "@BCL_SVN_REVISION@"),
+    m_IsRelease(       @BCL_RELEASE@),
+    m_IsLicense(       @BCL_LICENSE@),
+    m_InstallPrefix(   "@BCL_INSTALL_PREFIX@"),
+    m_Architecture(    "@CMAKE_SYSTEM_PROCESSOR@"),
+    m_OperatingSystem( "@CMAKE_SYSTEM_NAME@")
+  {
+  }
+
+/////////////////
+// data access //
+/////////////////
+
+  //! @brief the version string
+  //! @brief @return the version string of the form major.minor.patch
+  const std::string Version::GetString() const
+  {
+    return util::Format()( m_Major) + '.' + util::Format()( m_Minor) + '.' + util::Format()( m_Patch);
+  }
+  
+  //! @brief get the complete version string
+  //! @return the version string of the form major.minor.patch_svnrevision
+  const std::string Version::GetCompleteString() const
+  {
+    return GetString() + "_r" + m_Revision;
+  }
+
+  //! @brief return compilation time
+  //! @return date and time of compilation
+  const util::Time &Version::GetCompilationTime()
+  {
+    // statically initialized time of compilation
+    static const util::Time s_compilation_time( util::Time::CreateTimeFromCompilerMacro( __DATE__, __TIME__));
+
+    // end
+    return s_compilation_time;
+  }
+  
+  //! @brief get all version / build info as a string
+  //! @return BCL v{major}.{minor}, r_{revision}, built {Compilation Date & Time}
+  //! For releases, svn revision is omitted
+  const std::string &Version::GetDetailedInfoString() const
+  {
+    static const std::string s_detailed_info
+    (
+      "BCL v" + GetString()
+      + ( m_IsRelease ? std::string() : ", r" + m_Revision)
+      + ", compiled on " + GetVersion().GetCompilationTime().GetTimeAsDate()
+    );
+    
+    return s_detailed_info;
+  }
+
+} // namespace bcl

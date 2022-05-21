@@ -1,0 +1,476 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec AssembleProteinModelMomentOfInertia 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> AssembleProteinModelMomentOfInertia
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: AssembleProteinModelMomentOfInertia ====================
+=std=bcl=> processing: 1lgh
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    1   1 LYS A    4  VAL A   12  5                                   9    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   41  PHE A   43  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 LYS D    4  VAL D   12  5                                   9    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    8   8 PRO D   41  PHE D   43  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   11  11 LYS G    4  VAL G   12  5                                   9    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   13  13 PRO G   41  PHE G   43  5                                   3    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   16  16 LYS J    4  VAL J   12  5                                   9    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   18  18 PRO J   41  PHE J   43  5                                   3    
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyEisenberg_alsopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.98819	-0.153231	0.000253965	0	
+    -0.15323	-0.988188	-0.00225968	0	
+    0.000597218	0.00219408	-0.999997	0	
+    -68.0352	6.91855	52.9004	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyEisenberg_alsopositive_no	bcl::linal::Vector3D
+  -165020	-153108	-21178.4
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyEisenberg_alsopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.148935	1.12334	0.0306241	0	
+    -0.971552	-0.171999	0.207003	0	
+    0.184132	0.00107699	1.117	0	
+    -2.93236	-71.0286	-60.446	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyEisenberg_alsopositive_nv	bcl::linal::Vector3D
+  -4991.58	6590.14	16283.6
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyEisenberg_nopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.98819	-0.153231	0.000253965	0	
+    -0.15323	-0.988188	-0.00225968	0	
+    0.000597218	0.00219408	-0.999997	0	
+    -68.0352	6.91855	52.9004	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyEisenberg_nopositive_no	bcl::linal::Vector3D
+  -165020	-153108	-21178.4
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyEisenberg_nopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988166	-0.153369	-0.00239909	0	
+    -0.153385	-0.987949	-0.0207236	0	
+    0.000808167	0.0208463	-0.999782	0	
+    -67.5767	5.94473	52.9488	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyEisenberg_nopositive_nv	bcl::linal::Vector3D
+  -90356.4	-83728.8	-11753.8
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyEngelmanSeitzGoldman_alsopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988245	-0.15175	0.0185665	0	
+    -0.15288	-0.981449	0.115696	0	
+    0.000665237	-0.117175	-0.993111	0	
+    -64.5981	13.1528	51.6977	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyEngelmanSeitzGoldman_alsopositive_no	bcl::linal::Vector3D
+  -687443	-641358	-107349
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyEngelmanSeitzGoldman_alsopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0145565	-0.152154	0.98825	0	
+    0.0989447	-0.983284	-0.152846	0	
+    0.994986	0.100007	0.000741609	0	
+    -53.2355	1.72356	-94.2205	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyEngelmanSeitzGoldman_alsopositive_nv	bcl::linal::Vector3D
+  -10548.2	280519	320599
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyEngelmanSeitzGoldman_nopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988245	-0.15175	0.0185665	0	
+    -0.15288	-0.981449	0.115696	0	
+    0.000665237	-0.117175	-0.993111	0	
+    -64.5981	13.1528	51.6977	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyEngelmanSeitzGoldman_nopositive_no	bcl::linal::Vector3D
+  -687443	-641358	-107349
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyEngelmanSeitzGoldman_nopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988279	-0.151352	0.0199167	0	
+    -0.152656	-0.980365	0.124826	0	
+    0.000632984	-0.126403	-0.991979	0	
+    -64.9539	13.6173	51.5227	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyEngelmanSeitzGoldman_nopositive_nv	bcl::linal::Vector3D
+  -271614	-249959	-51005.3
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyGuy_alsopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988245	-0.151828	0.0178771	0	
+    -0.152875	-0.981976	0.111139	0	
+    0.000680987	-0.112565	-0.993644	0	
+    -65.4811	12.9139	51.7565	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyGuy_alsopositive_no	bcl::linal::Vector3D
+  -227163	-212635	-32543.1
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyGuy_alsopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.088976	-1.01948	-0.122799	0	
+    0.592627	0.153277	-0.816127	0	
+    0.800547	-0.000158571	0.617809	0	
+    -46.3562	66.1618	-27.0891	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyGuy_alsopositive_nv	bcl::linal::Vector3D
+  -4473.89	13089.3	16692.7
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyGuy_nopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988245	-0.151828	0.0178771	0	
+    -0.152875	-0.981976	0.111139	0	
+    0.000680987	-0.112565	-0.993644	0	
+    -65.4811	12.9139	51.7565	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyGuy_nopositive_no	bcl::linal::Vector3D
+  -227163	-212635	-32543.1
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyGuy_nopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988273	-0.151542	0.0187281	0	
+    -0.152694	-0.981206	0.11798	0	
+    0.000497196	-0.119456	-0.992839	0	
+    -66.122	13.263	51.624	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyGuy_nopositive_nv	bcl::linal::Vector3D
+  -84741.3	-78060.7	-14868.8
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyHoppWoods_alsopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988213	-0.153086	0.000650747	0	
+    -0.153087	-0.988213	0.000519727	0	
+    0.000563513	-0.000613221	-1	0	
+    -69.4114	7.05972	52.8823	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyHoppWoods_alsopositive_no	bcl::linal::Vector3D
+  -334405	-309358	-39643.3
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyHoppWoods_alsopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.139383	0.98841	0.0601434	0	
+    -0.906718	-0.151805	0.393469	0	
+    0.398039	0.000309899	0.917368	0	
+    -14.6648	-61.6912	-51.2419	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyHoppWoods_alsopositive_nv	bcl::linal::Vector3D
+  -30607.7	-19483.9	14512.9
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyHoppWoods_nopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988213	-0.153086	0.000650747	0	
+    -0.153087	-0.988213	0.000519727	0	
+    0.000563513	-0.000613221	-1	0	
+    -69.4114	7.05972	52.8823	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyHoppWoods_nopositive_no	bcl::linal::Vector3D
+  -334405	-309358	-39643.3
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyHoppWoods_nopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988204	-0.153144	-0.000402687	0	
+    -0.153143	-0.988181	-0.00679108	0	
+    0.000642083	0.00677264	-0.999977	0	
+    -68.8471	6.67391	52.8865	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyHoppWoods_nopositive_nv	bcl::linal::Vector3D
+  -179344	-165807	-22455
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyJanin_alsopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988242	-0.151766	0.0185758	0	
+    -0.152897	-0.981458	0.115596	0	
+    0.000687785	-0.117077	-0.993123	0	
+    -64.3733	13.1483	51.6977	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyJanin_alsopositive_no	bcl::linal::Vector3D
+  -121081	-112803	-19639.7
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyJanin_alsopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.0244373	0.988576	0.148731	0	
+    0.167947	-0.150721	0.974206	0	
+    0.985493	0.00117188	-0.169711	0	
+    -53.2965	-10.7475	2.13113	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyJanin_alsopositive_nv	bcl::linal::Vector3D
+  9912.79	31758.3	37893.6
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyJanin_nopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988242	-0.151766	0.0185758	0	
+    -0.152897	-0.981458	0.115596	0	
+    0.000687785	-0.117077	-0.993123	0	
+    -64.3733	13.1483	51.6977	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyJanin_nopositive_no	bcl::linal::Vector3D
+  -121081	-112803	-19639.7
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyJanin_nopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988276	-0.151378	0.0199029	0	
+    -0.15268	-0.980339	0.125	0	
+    0.000589349	-0.126573	-0.991957	0	
+    -64.7065	13.6281	51.5229	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyJanin_nopositive_nv	bcl::linal::Vector3D
+  -47181.8	-43297.7	-9294.4
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyKyteDoolittle_alsopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988182	-0.153202	0.00511145	0	
+    -0.153286	-0.987751	0.0291927	0	
+    0.000576456	-0.0296312	-0.999561	0	
+    -67.6739	8.60174	52.655	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyKyteDoolittle_alsopositive_no	bcl::linal::Vector3D
+  -661999	-618083	-83406.3
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyKyteDoolittle_alsopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    -0.140801	0.98878	0.0498911	0	
+    -0.930669	-0.149378	0.333978	0	
+    0.337683	0.000592313	0.94126	0	
+    -11.4495	-59.5436	-52.0292	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyKyteDoolittle_alsopositive_nv	bcl::linal::Vector3D
+  -48168.4	-34314.4	18688.5
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyKyteDoolittle_nopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988182	-0.153202	0.00511145	0	
+    -0.153286	-0.987751	0.0291927	0	
+    0.000576456	-0.0296312	-0.999561	0	
+    -67.6739	8.60174	52.655	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyKyteDoolittle_nopositive_no	bcl::linal::Vector3D
+  -661999	-618083	-83406.3
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyKyteDoolittle_nopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988182	-0.153257	0.00304335	0	
+    -0.153286	-0.988077	0.0143701	0	
+    0.000804743	-0.0146668	-0.999892	0	
+    -67.697	7.81515	52.7011	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyKyteDoolittle_nopositive_nv	bcl::linal::Vector3D
+  -318518	-294935	-43433.1
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyPuntaMaritan1D_alsopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988244	-0.15164	0.0194836	0	
+    -0.152885	-0.980737	0.121579	0	
+    0.00067201	-0.123129	-0.99239	0	
+    -64.7031	13.4631	51.6174	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyPuntaMaritan1D_alsopositive_no	bcl::linal::Vector3D
+  -55760.4	-51817.6	-9039.71
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyPuntaMaritan1D_alsopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.149277	-1.75468	0.000207517	0	
+    0.988657	0.264868	0.0296509	0	
+    -0.016539	-0.00422103	1.77432	0	
+    -5.90606	109.657	-93.7915	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyPuntaMaritan1D_alsopositive_nv	bcl::linal::Vector3D
+  -2931.18	-607.29	1669.48
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyPuntaMaritan1D_nopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988244	-0.15164	0.0194836	0	
+    -0.152885	-0.980737	0.121579	0	
+    0.00067201	-0.123129	-0.99239	0	
+    -64.7031	13.4631	51.6174	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyPuntaMaritan1D_nopositive_no	bcl::linal::Vector3D
+  -55760.4	-51817.6	-9039.71
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyPuntaMaritan1D_nopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988275	-0.15113	0.0217205	0	
+    -0.152682	-0.978779	0.136678	0	
+    0.000603438	-0.138391	-0.990377	0	
+    -65.0348	14.2421	51.362	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyPuntaMaritan1D_nopositive_nv	bcl::linal::Vector3D
+  -21123.2	-19301	-4232.07
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyPuntaMaritan3D_alsopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.98825	-0.151745	0.0183197	0	
+    -0.152845	-0.981646	0.114055	0	
+    0.000676188	-0.115515	-0.993305	0	
+    -64.5169	13.064	51.7193	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyPuntaMaritan3D_alsopositive_no	bcl::linal::Vector3D
+  -64252	-59867.2	-10037.1
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyPuntaMaritan3D_alsopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.150972	-1.86805	-0.0120454	0	
+    0.987867	0.285548	-0.0677826	0	
+    0.0364199	-0.00166596	1.88849	0	
+    -8.81356	115.35	-99.251	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyPuntaMaritan3D_alsopositive_nv	bcl::linal::Vector3D
+  -2946.12	224.431	2615.09
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyPuntaMaritan3D_nopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.98825	-0.151745	0.0183197	0	
+    -0.152845	-0.981646	0.114055	0	
+    0.000676188	-0.115515	-0.993305	0	
+    -64.5169	13.064	51.7193	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyPuntaMaritan3D_nopositive_no	bcl::linal::Vector3D
+  -64252	-59867.2	-10037.1
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyPuntaMaritan3D_nopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988295	-0.151168	0.0205138	0	
+    -0.152552	-0.979866	0.128806	0	
+    0.000629477	-0.130427	-0.991458	0	
+    -64.8457	13.8191	51.4675	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyPuntaMaritan3D_nopositive_nv	bcl::linal::Vector3D
+  -24362.1	-22323.7	-4687.88
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyWhimleyWhite_alsopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988246	-0.151917	0.017064	0	
+    -0.152871	-0.982548	0.105975	0	
+    0.000666784	-0.107338	-0.994222	0	
+    -65.543	12.6414	51.8246	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyWhimleyWhite_alsopositive_no	bcl::linal::Vector3D
+  -225714	-210153	-31898.5
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyWhimleyWhite_alsopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.00461483	-0.153815	0.988089	0	
+    0.0350766	-0.987466	-0.153882	0	
+    0.999374	0.035369	0.000838323	0	
+    -53.0389	5.20664	-70.6558	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyWhimleyWhite_alsopositive_nv	bcl::linal::Vector3D
+  14597.3	127228	136245
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyWhimleyWhite_nopositive_no	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.988246	-0.151917	0.017064	0	
+    -0.152871	-0.982548	0.105975	0	
+    0.000666784	-0.107338	-0.994222	0	
+    -65.543	12.6414	51.8246	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyWhimleyWhite_nopositive_no	bcl::linal::Vector3D
+  -225714	-210153	-31898.5
+=std=bcl=> processing: 1lgh
+=std=bcl=> transformation:	1lghAA_TransferFreeEnergyWhimleyWhite_nopositive_nv	bcl::math::TransformationMatrix3D
+  bcl::linal::Matrix<double>
+    4	    4
+    0.98828	-0.151417	0.0193901	0	
+    -0.152653	-0.9807	0.122165	0	
+    0.000518011	-0.123693	-0.99232	0	
+    -66.085	13.4814	51.5695	1	
+
+=std=bcl=> moments:	1lghAA_TransferFreeEnergyWhimleyWhite_nopositive_nv	bcl::linal::Vector3D
+  -80244.2	-73340.2	-14126.7
+=std=bcl::app=> BCL Example | END  : AssembleProteinModelMomentOfInertia ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>             success      error error_string 
+AssembleProteinModelMomentOfInertia_total          0          0              
+total                                              0          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 135 MB, peak physical RAM used: 67 MB

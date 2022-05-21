@@ -1,0 +1,7 @@
+bcl::quality::DMF
+  bcl::storage::Set<double,std::less<double>>
+    4
+    1
+    2
+    4
+    8

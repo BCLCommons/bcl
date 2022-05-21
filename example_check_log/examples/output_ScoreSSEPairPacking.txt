@@ -1,0 +1,103 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec ScoreSSEPairPacking 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> ScoreSSEPairPacking
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: ScoreSSEPairPacking ====================
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    3   3 PRO A   86  ILE A   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX    6   6 SER A  140  GLY A  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   10  10 ALA A  223  THR A  230  5                                   8    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   20  20 PRO B   86  ILE B   90  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   23  23 SER B  140  GLY B  144  5                                   5    
+=std=bcl::pdb=> HELIX line is ignored, since helix class is not considered:
+HELIX   27  27 ALA B  223  THR B  230  5                                   8    
+=std=bcl=> test default constructor
+=std=bcl=> test constructor from nr_excluded and width and scheme
+=std=bcl=> test copy constructor
+=std=bcl=> test clone
+=std=bcl=> successful example check:
+               sse_packing.GetClassIdentifier() == GetStaticClassName< score::SSEPairPacking>() ==
+              bcl::score::SSEPairPacking
+=std=bcl=> successful example check:  sse_packing.GetMinimalInterfaceLength() == 4.0 == 4
+=std=bcl=> successful example check:  sse_packing.GetScheme() == ssepack_fr
+=std=bcl=> test GetDistanceRangeMap()
+=std=bcl=> test GetEnergyFunctions()
+=std=bcl=> test AreValidSSEs( arg)
+=std=bcl=> mean and sd for helix        sse_packing: -1.9758 1.9838
+=std=bcl=> mean and sd for helix strand sse_packing: -2.2474 3.2738
+=std=bcl=> mean and sd for strand       sse_packing: -0.3228 0.7447
+=std=bcl=> min and max for helix        sse_packing: -7.4520 0.8705
+=std=bcl=> min and max for helix strand sse_packing: -10.4553 4.0886
+=std=bcl=> min and max for strand       sse_packing: -6.1820 0.4263
+=std=bcl=> testing read write
+=std=bcl=> read in 
+=std=bcl=> I/O test succeeded:  sse_packing_read.GetScheme() == sse_packing.GetScheme() == ssepack_fr
+=std=bcl=> I/O test succeeded:
+               sse_packing_read.GetMinimalInterfaceLength() == sse_packing.GetMinimalInterfaceLength()
+              == 4
+=std=bcl=> I/O test succeeded:
+               sse_packing_read.GetHistogramFilename() == sse_packing.GetHistogramFilename() ==
+              sse_fragment_angle_distance.histograms2D
+=std=bcl::app=> BCL Example | END  : ScoreSSEPairPacking ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+ScoreSSEPairPacking_total                16          0              
+total                                    16          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 136 MB, peak physical RAM used: 68 MB

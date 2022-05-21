@@ -1,0 +1,105 @@
+./build/linux64_release/bin/bcl-example-static.exe Examples -exec DescriptorMoleculeRings 
+BCL v4.0.0, r5417, compiled on Mon Nov  2 10:35:50 2020
+=std=bcl=> executing application: Examples
+=crt=bcl::random=> Seed was set to 5489!
+=crt=bcl::random=> Seed was set to 5489!
+
+==================================================================================================================================================
+
+BCL FLAGS
+
+-message_level not set
+   <level> Standard (default)
+   <verbosity> Summary (default)
+-logger not set
+   <> Default (default)
+   <identifier>  (default)
+-help not set
+-readme not set
+-file_compressed_alternatives not set
+-file_compression not set
+   <compression_type> Uncompressed (default)
+-enums_files not set
+-random_seed not set
+   <seed> 5489 (default)
+-model_path not set
+   <model_path_name> model/ (default)
+-histogram_path not set
+   <path> histogram/ (default)
+-opencl not set
+   <platform> Disable (default)
+-scheduler not set
+   <scheduler> Serial (default)
+   <number_cpus> 1 (default)
+
+==================================================================================================================================================
+
+APPLICATION FLAGS
+
+-help not set
+-readme not set
+-namespace not set
+-exclude_namespace not set
+-exec set
+   <example> DescriptorMoleculeRings
+-all not set
+-example_path not set
+   <path> example/example_files/ (default)
+-application_example_path not set
+   <path> /dors/meilerlab/apps/bcl/app_example_files/ (default)
+
+==================================================================================================================================================
+
+=crt=bcl=> WARNING: Examples is a deprecated name for this application.  Use bcl:Examples instead!
+=crt=bcl::app=> BCL Example | BEGIN: All Examples ====================
+=crt=bcl::app=> BCL Example | BEGIN: DescriptorMoleculeRings ====================
+=std=bcl=> successful example check:  nrings_default.GetAlias() == NRings
+=std=bcl=> successful example check:  nrings_aromatic.GetAlias() == NAromaticRings
+=std=bcl=> successful example check:  nrings_macrocycle.GetAlias() == NMacrocyclicRings
+=std=bcl=> successful example check:  nrings_default.GetString() == NRings
+=std=bcl=> Counting rings in cyclododecane.sdf test succeeded:
+               nrings_default( mol).First() ==
+              float( itr_files->second( 0)) == 1
+=std=bcl=> Counting aromatic rings in cyclododecane.sdf test succeeded:
+               nrings_aromatic( mol).First() ==
+              float( itr_files->second( 1)) == 0
+=std=bcl=> Counting macrocyclic rings in cyclododecane.sdf test succeeded:
+               nrings_macrocycle( mol).First() ==
+              float( itr_files->second( 2)) == 1
+=std=bcl=> Counting rings in diazepam.sdf test succeeded:
+               nrings_default( mol).First() == float( itr_files->second( 0))
+              == 3
+=std=bcl=> Counting aromatic rings in diazepam.sdf test succeeded:
+               nrings_aromatic( mol).First() ==
+              float( itr_files->second( 1)) == 2
+=std=bcl=> Counting macrocyclic rings in diazepam.sdf test succeeded:
+               nrings_macrocycle( mol).First() ==
+              float( itr_files->second( 2)) == 0
+=std=bcl=> Counting rings in hexane.sdf test succeeded:
+               nrings_default( mol).First() == float( itr_files->second( 0)) ==
+              0
+=std=bcl=> Counting aromatic rings in hexane.sdf test succeeded:
+               nrings_aromatic( mol).First() ==
+              float( itr_files->second( 1)) == 0
+=std=bcl=> Counting macrocyclic rings in hexane.sdf test succeeded:
+               nrings_macrocycle( mol).First() ==
+              float( itr_files->second( 2)) == 0
+=std=bcl=> Counting rings in taxol.sdf test succeeded:
+               nrings_default( mol).First() == float( itr_files->second( 0)) ==
+              7
+=std=bcl=> Counting aromatic rings in taxol.sdf test succeeded:
+               nrings_aromatic( mol).First() ==
+              float( itr_files->second( 1)) == 3
+=std=bcl=> Counting macrocyclic rings in taxol.sdf test succeeded:
+               nrings_macrocycle( mol).First() ==
+              float( itr_files->second( 2)) == 0
+=std=bcl=> NRings I/O test succeeded:  TestBCLObjectIOForSymmetry( nrings_default, descriptor::MoleculeRings()) == 1
+=std=bcl::app=> BCL Example | END  : DescriptorMoleculeRings ====================
+=crt=bcl::app=> BCL Example | END  : All Examples ====================
+=std=bcl::app=> The results table
+bcl::storage::Table<std::string>    success      error error_string 
+DescriptorMoleculeRings_total            17          0              
+total                                    17          0              
+
+==================================================================================================================================================
+=slt=bcl=> bcl has run for 00:00:00, peak virtual memory used: 132 MB, peak physical RAM used: 64 MB

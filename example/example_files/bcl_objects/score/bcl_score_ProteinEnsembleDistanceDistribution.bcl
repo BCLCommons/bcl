@@ -1,0 +1,29 @@
+bcl::score::ProteinEnsembleDistanceDistribution
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::linal::Vector3D,bcl::assemble::ProteinModel>>
+    12345678
+    bcl::assemble::LocatorAtom
+      LocatorAtom(
+        locator_aa=LocatorAA(locator_chain=A,seq_id=20,aa type=Undefined,use_pdb_id=0),
+        atom_type=CA
+      )
+  bcl::util::ShPtr<bcl::find::LocatorInterface<bcl::linal::Vector3D,bcl::assemble::ProteinModel>>
+    12345678
+    bcl::assemble::LocatorAtom
+      LocatorAtom(
+        locator_aa=LocatorAA(locator_chain=A,seq_id=14,aa type=Undefined,use_pdb_id=0),
+        atom_type=CB
+      )
+  bcl::math::Histogram
+    		...<	<..>	<..>	<..>	<..>	<..>	>...
+    center		   5.000	   7.500	  12.500	  17.500	  22.500	  27.500	  30.000
+    counts		   0.000	   0.333	   0.333	   0.333	   0.000	   0.000	   0.000
+
+  bcl::math::Histogram
+    		...<	<..>	<..>	<..>	<..>	<..>	>...
+    center		   5.000	   7.500	  12.500	  17.500	  22.500	  27.500	  30.000
+    counts		   0.000	   0.333	   0.333	   0.333	   0.000	   0.000	   0.000
+
+  5
+  5
+  5
+  "bcl::score::ProteinEnsembleDistanceDistribution"

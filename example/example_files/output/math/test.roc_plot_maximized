@@ -1,0 +1,24 @@
+bcl::storage::List<bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>>
+  1
+  bcl::storage::Pair<bcl::math::Range<double>,bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>>
+    bcl::math::Range<double>
+      [ -1.79769e+308 , 1.79769e+308 ]
+    bcl::util::ShPtr<bcl::math::FunctionInterfaceSerializable<double,double>>
+      12345678
+      bcl::math::CubicSplineDamped
+        bcl::linal::Vector<double>
+          9
+          0	0.05	0.2	0.445	0.67	0.81	0.85	0.9	0.99	
+        bcl::linal::Vector<double>
+          9
+          0	0	0.333333	0.333333	0.666667	0.666667	1	1	1	
+        bcl::linal::Vector<double>
+          9
+          0	0	0	0	0	0	0	0	0	
+        bcl::linal::Vector<double>
+          8
+          0	-197.531	0	-58.5277	0	-10416.7	0	0	
+        bcl::linal::Vector<double>
+          8
+          0	44.4444	0	19.7531	0	625	0	0	
+
