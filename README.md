@@ -47,7 +47,7 @@ Trainees in the Meiler Lab have contributed to BCL development since the mid-200
 on a large shared software project, especially as each cohort encountered unique challenges in solving their respective problems. Moreover, there 
 have been dozens of smaller contributions over the years from high school students, undergraduate research assistants, rotation students, and of 
 course graduate students, post-docs, programmers, and research faculty. Nonetheless, we would like to highlight our core development team. See
-below for tallied contributions from those who have written more than 25 public functions and more than 1 class in the BCL.
+below for tallied contributions from those who have written more than 50 public functions and more than 1 class in the BCL.
 
 ![DeveloperStats](https://raw.githubusercontent.com/BCLCommons/bcl/master/documentation/image/DeveloperStats.2022-05-21.png)
 
