@@ -35,10 +35,22 @@ interface (GUI) and accessibility of the BCL through a Python API. The most impo
 defined by the developers working on it, as well as ongoing changes to needs in the broader computer-aided drug discovery community.
 
 The BCL is comprised of over one thousand classes organized in 42 namespaces with approximately 600,000 lines of code that form a collection of C++ 
-algorithms developed since 2005. The original code that formed the foundation of the BCL was written by one of the original co-creators of the 
-Rosetta macromolecular modeling software suite, Jens Meiler, and since then has been an academic project in the Meiler Lab at Vanderbilt University 
-for graduate students, post-doctoral fellows, and scientific programmers. We are excited to take the next step and make the BCL openly available. 
-It is our hope that this will both expand the user-base and contributor-based, as well as inject new ideas into the community. 
+algorithms developed since 2005. The original code that formed the foundation of the BCL was written in the 1990's and early 2000's by one of the 
+original co-creators of the Rosetta macromolecular modeling software suite, Jens Meiler, and since then has been an academic project in the Meiler 
+Lab at Vanderbilt University for graduate students, post-doctoral fellows, and scientific programmers. We are excited to take the next step and 
+make the BCL openly available. It is our hope that this will both expand the user-base and contributor-based, as well as inject new ideas into 
+the community. 
+
+Developer Contributions
+------------
+Trainees in the Meiler Lab have contributed to BCL development since the mid-2000's. It is difficult to measure the impact of individual developers 
+on a large shared software project, especially as each cohort encountered unique challenges in solving their respective problems. Moreover, there 
+have been dozens of smaller contributions over the years from high school students, undergraduate research assistants, rotation students, and of 
+course graduate students, post-docs, programmers, and research faculty. Nonetheless, we would like to highlight our core development team. See
+below for tallied contributions from those who have written more than 25 public functions and more than 1 class in the BCL.
+
+![DeveloperStats](https://raw.githubusercontent.com/BCLCommons/bcl/master/documentation/image/DeveloperStats.2022-05-21.png)
+
 
 More Information
 ------------
