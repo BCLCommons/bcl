@@ -12,11 +12,14 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
+// (c)   The BCL copyright and license yields to non-BCL copyrights and licenses where indicated by code comments.
+// (c) (for academic users) or bcl-support-commercial@meilerlab.org (for commercial users)
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 #include <descriptor/bcl_descriptor_atom_is_sp3.h>
 #include <descriptor/bcl_descriptor_atom_relative_property_score.h>
 #include <descriptor/bcl_descriptor_molecule_similarity.h>
+#include <descriptor/bcl_descriptor_molecule_total_toxic_fragments.h>
 #include <descriptor/bcl_descriptor_pair_convolution_correlation_dnn.h>
 BCL_StaticInitializationFiascoFinder
 
@@ -754,6 +757,7 @@ namespace bcl
         )
       ),
       calc_MolLipinskiViolationsVeber( AddEnum( new MoleculeLipinskiViolations( MoleculeLipinskiViolations::e_Veber))),
+      calc_MoleculeTotalToxicFragments( AddEnum( new MoleculeTotalToxicFragments)),
       calc_MolAromaticRingHalogensTotal( AddEnum( new MoleculeHalogenatedAromaticRings( MoleculeHalogenatedAromaticRings::e_Total))),
       calc_MolAromaticRingHalogensMax( AddEnum( new MoleculeHalogenatedAromaticRings( MoleculeHalogenatedAromaticRings::e_Max))),
       calc_MolEntropyQHA( AddEnum( new MoleculeEntropyQHA)),
