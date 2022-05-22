@@ -51,6 +51,9 @@ below for tallied contributions from those who have written more than 50 public 
 
 ![DeveloperStats](https://raw.githubusercontent.com/BCLCommons/bcl/master/documentation/image/DeveloperStats.2022-05-21.png)
 
+We can also plot developer contributions in lines of code (excluding comments).
+
+![DeveloperStatsLines](https://raw.githubusercontent.com/BCLCommons/bcl/master/documentation/image/DeveloperLines.2022-05-21.png)
 
 More Information
 ------------
