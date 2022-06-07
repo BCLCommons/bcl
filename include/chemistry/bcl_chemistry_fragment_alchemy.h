@@ -82,6 +82,9 @@ namespace bcl
       //! only mutate hydrogen atoms; if heavy atoms are made mutable, only consider their hydrogen(s)
       bool m_RestrictToBondedH;
 
+      //! the element type chosen during the mutate; updated internally
+      mutable ElementType m_ChosenElementType;
+
     public:
 
     //////////
@@ -187,6 +190,13 @@ namespace bcl
       //! @return the name used for this class in an object data label
       const std::string &GetAlias() const;
 
+      //! @brief returns the element type chosen during the mutate
+      //! @return the element type chosen during the mutate; if the
+      //! mutate has not yet been run, this will return an undefined
+      //! element type object, which is different than the element
+      //! type notated 'X' for undefined.
+      const ElementType &GetChosenElementType() const;
+
     ///////////////
     // operators //
     ///////////////
@@ -209,6 +219,11 @@ namespace bcl
     //////////////////////
     // helper functions //
     //////////////////////
+
+    private:
+
+      //! @brief set the chosen element type to which we are mutating
+      void SetChosenElement( const ElementType &ELEMENT_TYPE) const;
 
     protected:
 
