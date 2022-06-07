@@ -103,17 +103,17 @@ namespace bcl
       FragmentDerivativeManager();
 
       //! @brief constructor from FragmentDerivativeManager
-      FragmentDerivativeManager( const FragmentDerivativeManager &MANAGER);
+//      FragmentDerivativeManager( const FragmentDerivativeManager &MANAGER);
 
       //! @brief constructor from data
-      FragmentDerivativeManager
-      (
-        const util::ShPtrVector< FragmentComplete> &MOLECULES,
-        const util::ShPtrVector< FragmentComplete> &FRAGMENT_DERIVATIVES,
-        const storage::Vector< storage::Vector< size_t>> &MASK,
-            const descriptor::CheminfoProperty &DESCRIPTORS,
-            const bool COMPLEMENT
-          );
+//      FragmentDerivativeManager
+//      (
+//        const util::ShPtrVector< FragmentComplete> &MOLECULES,
+//        const util::ShPtrVector< FragmentComplete> &FRAGMENT_DERIVATIVES,
+//        const storage::Vector< storage::Vector< size_t>> &MASK,
+//        const descriptor::CheminfoProperty &DESCRIPTORS,
+//        const bool COMPLEMENT
+//      );
 
       //! @brief Clone function
       //! @return pointer to new FragmentDerivativeManager

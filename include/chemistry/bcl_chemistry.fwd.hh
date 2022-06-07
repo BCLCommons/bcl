@@ -104,6 +104,7 @@ namespace bcl
     class FragmentConnector;
     class FragmentConstitutionShared;
     class FragmentCyclize;
+    class FragmentDerivativeManager;
     class FragmentDockEngine;
     class FragmentEnsemble;
     class FragmentEvolveBase;

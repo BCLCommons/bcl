@@ -87,6 +87,7 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_connector.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_constitution_shared.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_cyclize.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_derivative_manager.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_dock_engine.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_ensemble.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_evolve_base.cpp
