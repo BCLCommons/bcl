@@ -21,6 +21,7 @@ BCL_StaticInitializationFiascoFinder
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
+#include "chemistry/bcl_chemistry_element_types.h"
 #include "chemistry/bcl_chemistry_fragment_map_conformer.h"
 #include "chemistry/bcl_chemistry_fragment_track_mutable_atoms.h"
 #include "chemistry/bcl_chemistry_hydrogens_handler.h"
@@ -240,6 +241,35 @@ namespace bcl
       // mutate label
       BCL_MessageStd( "AddMedChem!");
 
+      // this will cause issues so it's banned
+      if( m_TargetMoleculeLinkElementType.empty() && !m_EnableDummyAtom)
+      {
+        BCL_MessageStd
+        (
+          "Invalid combination of target molecule atom selection options. "
+          "To obtain pseudo-reaction-style control over the reaction without "
+          "specifying specific atom indices, the following options are available: "
+          "1. Set 'mutable_elements=X', do not specify any other atom selectors. "
+          "2. Choose an element type that is unique in the target molecule, such as "
+          "Rb, set 'mutable_elements=Rb', 'target_molecule_link_element=Rb', and "
+          "'enable_target_dummy_atom=true'. "
+          "For either option 1 or 2, you are free to change the link/dummy element type "
+          "of the medchem fragments via the 'medchem_fragment_link_element' flag depending "
+          "on how your library is constructed."
+        );
+        return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
+      }
+
+      // get connecting element types
+      const ElementType medchem_fragment_link_element
+      (
+        m_MedChemFragmentLinkElementType.empty() ? GetElementTypes().e_Undefined : GetElementTypes().ElementTypeLookup( m_MedChemFragmentLinkElementType)
+      );
+      const ElementType target_molecule_link_element
+      (
+        m_TargetMoleculeLinkElementType.empty() ? GetElementTypes().e_Undefined : GetElementTypes().ElementTypeLookup( m_TargetMoleculeLinkElementType)
+      );
+
       // redo the whole thing n-max times; increment can also be made in an inner while-loop during atom index selection
       size_t try_index( 0);
       for( ; try_index < m_NumberMaxAttempts; ++try_index)
@@ -256,9 +286,10 @@ namespace bcl
         size_t undefined_index( util::GetUndefinedSize_t());
         for( size_t i( 0), end_i( medchem_atom_v.GetSize()); i < end_i; ++i)
         {
-          if( medchem_atom_v( i).GetElementType() == GetElementTypes().e_Undefined)
+          if( medchem_atom_v( i).GetElementType() == medchem_fragment_link_element)
           {
             undefined_index = i;
+            break;
           }
         }
         if( undefined_index == util::GetUndefinedSize_t())
@@ -278,7 +309,12 @@ namespace bcl
         storage::Vector< size_t> defined_indices;
         for( size_t i( 0), end_i( medchem_atom_v.GetSize()); i < end_i; ++i)
         {
-          if( medchem_atom_v( i).GetElementType() != GetElementTypes().e_Undefined)
+          if
+          (
+              // remove undefined elements anyway, even if we use a separate link element type
+              medchem_atom_v( i).GetElementType() != GetElementTypes().e_Undefined ||
+              medchem_atom_v( i).GetElementType() != medchem_fragment_link_element
+          )
           {
             defined_indices.PushBack( i);
           }
@@ -309,7 +345,11 @@ namespace bcl
         // if the chosen atom is undefined then just grab a bonded atom
         // this is biased to the lower index bonded atom, but should not generally matter
         size_t undefined_base_index( util::GetUndefinedSize_t());
-        if( picked_atom->GetElementType() == GetElementTypes().e_Undefined)
+        if
+        (
+            picked_atom->GetElementType() == GetElementTypes().e_Undefined ||
+            ( picked_atom->GetElementType() == target_molecule_link_element && m_EnableDummyAtom )
+        )
         {
           undefined_base_index = FRAGMENT.GetAtomVector().GetAtomIndex( *picked_atom);
           picked_atom = util::SiPtr< const AtomConformationalInterface>( picked_atom->GetBonds().Begin()->GetTargetAtom());
@@ -521,7 +561,19 @@ namespace bcl
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
       (
-        "Appends a classic medicinal chemistry functional group to the current molecule"
+        "Appends a classic medicinal chemistry functional group to the current molecule. "
+        "By default, fragments passed with the 'medchem_library' flag will be appended "
+        "to the input "
+        "molecule; "
+        "To obtain pseudo-reaction-style control over the reaction without "
+          "specifying specific atom indices, the following options are available: "
+          "1. Set 'mutable_elements=X', do not specify any other atom selectors. "
+          "2. Choose an element type that is unique in the target molecule, such as "
+          "Rb, set 'mutable_elements=Rb', 'target_molecule_link_element=Rb', and "
+          "'enable_target_dummy_atom=true'. "
+          "For either option 1 or 2, you are free to change the link/dummy element type "
+          "of the medchem fragments via the 'medchem_fragment_link_element' flag depending "
+          "on how your library is constructed."
       );
 
       parameters.AddInitializer
@@ -538,6 +590,36 @@ namespace bcl
         "only permit medchem additions if the base atom is part of an aromatic ring",
         io::Serialization::GetAgent( &m_RestrictAdditionsToAroRings),
         "false"
+      );
+
+      parameters.AddInitializer
+      (
+        "medchem_fragment_link_element",
+        "alternative link element type for the medchem fragments; if unspecified, defaults to "
+        "the undefined element type (X).",
+        io::Serialization::GetAgent( &m_MedChemFragmentLinkElementType)
+      );
+
+      parameters.AddInitializer
+      (
+        "target_molecule_link_element",
+        "alternative link element type for the input molecules; "
+        "if you are not using an undefined element (specific 'X' in SDF) to mark the attachment site "
+        "by specifying 'mutable_elements=X', then use this flag to change the element type; "
+        "requires that 'enable_target_dummy_atoms' is set; "
+        "be careful that this is applied appropriately with the mutable_elements atom selector",
+        io::Serialization::GetAgent( &m_TargetMoleculeLinkElementType)
+      );
+
+      parameters.AddInitializer
+      (
+        "enable_target_dummy_atom",
+        "allows users to specify dummy element types other than undefined (X) for directed "
+        "pseudo-reaction-style attachment of medchem fragments; "
+        "by default if 'mutable_elements' is set to X and no other atom selectors are specified "
+        "then only X elements will 'react' with the link element type in the medchem library "
+        "fragments (default is also X). ",
+        io::Serialization::GetAgent( &m_EnableDummyAtom)
       );
 
       return parameters;
