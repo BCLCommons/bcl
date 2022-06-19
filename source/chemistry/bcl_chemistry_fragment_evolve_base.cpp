@@ -272,8 +272,9 @@ namespace bcl
 
     //! @brief Finalizes a molecule by running it through the atom standardizer and getting a 3D conformation
     //! @param MOLECULE the molecule to finalize
+    //! @param CORINA generate a 3D conformer with corina (requires system call to external program)
     //! @return a new FragmentComplete that has been cleaned
-    util::ShPtr< FragmentComplete> FragmentEvolveBase::FinalizeMolecule( const FragmentComplete &MOLECULE)
+    util::ShPtr< FragmentComplete> FragmentEvolveBase::FinalizeMolecule( const FragmentComplete &MOLECULE, const bool CORINA)
     {
 
       if( !MOLECULE.GetNumberAtoms())
@@ -294,8 +295,9 @@ namespace bcl
       // Return the 3D conformer
       util::ShPtr< FragmentComplete> molecule_3D;
 
-      // Use SampleConformations instead of Corina
-//      molecule_3D = GetCorina3DCoordinates( new_fragment);
+      // Generate 3D conformer
+      CORINA ?
+      molecule_3D = GetCorina3DCoordinates( new_fragment) :
       molecule_3D = MakeBCLConformer( new_fragment);
 
       if( molecule_3D.IsDefined())

@@ -43,6 +43,7 @@ namespace bcl
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class BCL_API FragmentEvolveBase
     {
+
     public:
 
     //////////
@@ -72,8 +73,9 @@ namespace bcl
 
       //! @brief Finalizes a molecule by running it through the atom standardizer and getting a 3D conformation
       //! @param MOLECULE the molecule to finalize
+      //! @param CORINA generate a 3D conformer with corina (requires system call to external program)
       //! @return a new FragmentComplete that has been cleaned
-      static util::ShPtr< FragmentComplete> FinalizeMolecule( const FragmentComplete &MOLECULE);
+      static util::ShPtr< FragmentComplete> FinalizeMolecule( const FragmentComplete &MOLECULE, const bool CORINA=false);
 
 //      //! @brief return parameters for member data that are set up from the labels
 //      //! @return parameters for member data that are set up from the labels
