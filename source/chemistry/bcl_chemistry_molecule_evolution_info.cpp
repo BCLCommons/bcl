@@ -13,35 +13,11 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
-#include "chemistry/bcl_chemistry_configuration_set.h"
-#include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
-#include "chemistry/bcl_chemistry_conformation_graph_converter.h"
-#include "chemistry/bcl_chemistry_constitution_set.h"
-#include "chemistry/bcl_chemistry_fragment_configuration_shared.h"
-#include "chemistry/bcl_chemistry_fragment_constitution_shared.h"
-#include "chemistry/bcl_chemistry_fragment_graph_marker.h"
-#include "chemistry/bcl_chemistry_fragment_split_interface.h"
-#include "chemistry/bcl_chemistry_fragment_split_largest_component.h"
-#include "chemistry/bcl_chemistry_fragment_split_rings.h"
-#include "graph/bcl_graph_connectivity.h"
-#include "graph/bcl_graph_subgraph.h"
-#include "io/bcl_io_directory_entry.h"
-#include "io/bcl_io_ofstream.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
-// includes from bcl - sorted alphabetically
-#include "chemistry/bcl_chemistry_atom_conformational_interface.h"
-#include "chemistry/bcl_chemistry_bond_isometry_handler.h"
-#include "chemistry/bcl_chemistry_molecule_evolution_info.h"
-#include "descriptor/bcl_descriptor_cheminfo_properties.h"
-#include "graph/bcl_graph_subgraph_isomorphism.h"
-#include "io/bcl_io_file.h"
-#include "math/bcl_math_running_average.h"
-#include "sched/bcl_sched_scheduler_interface.h"
-#include "sched/bcl_sched_thunk_job.h"
-#include "util/bcl_util_sh_ptr_vector.h"
-#include "util/bcl_util_stopwatch.h"
+// unit header
+#include "bcl_chemistry_molecule_evolution_info.h"
 
 // external includes
 

@@ -15,21 +15,16 @@
 #ifndef BCL_CHEMISTRY_MOLECULE_EVOLUTION_INFO_H_
 #define BCL_CHEMISTRY_MOLECULE_EVOLUTION_INFO_H_
 
-// forward headers from bcl - sorted alphabetically
+// include the namespace header
+#include "bcl_chemistry.h"
+
+// include other forward headers - sorted alphabetically
 
 // headers from bcl - sorted alphabetically
-#include "bcl_chemistry_conformation_graph_converter.h"
-#include "bcl_chemistry_fragment_ensemble.h"
-#include "descriptor/bcl_descriptor_cheminfo_properties.h"
-#include "io/bcl_io_file.h"
 #include "io/bcl_io_serialization.h"
-#include "storage/bcl_storage_list.h"
-#include "storage/bcl_storage_map.h"
-#include "storage/bcl_storage_triplet.h"
 #include "storage/bcl_storage_vector.h"
 #include "util/bcl_util_object_data_label.h"
 #include "util/bcl_util_serializable_interface.h"
-#include "util/bcl_util_sh_ptr.h"
 
 namespace bcl
 {

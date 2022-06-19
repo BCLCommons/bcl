@@ -13,28 +13,30 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
-#include "chemistry/bcl_chemistry_configuration_set.h"
-#include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
-#include "chemistry/bcl_chemistry_conformation_graph_converter.h"
-#include "chemistry/bcl_chemistry_constitution_set.h"
-#include "chemistry/bcl_chemistry_fragment_configuration_shared.h"
-#include "chemistry/bcl_chemistry_fragment_constitution_shared.h"
-#include "chemistry/bcl_chemistry_fragment_evolve_implementations.h"
-#include "chemistry/bcl_chemistry_fragment_graph_marker.h"
-#include "chemistry/bcl_chemistry_fragment_split_interface.h"
-#include "chemistry/bcl_chemistry_fragment_split_largest_component.h"
-#include "chemistry/bcl_chemistry_fragment_split_rings.h"
+#include "util/bcl_util_static_initialization_fiasco_finder.h"
+BCL_StaticInitializationFiascoFinder
+
+// unit header
+#include "bcl_chemistry_molecule_evolutionary_optimizer.h"
+
+// includes from bcl - sorted alphabetically
+#include "bcl_chemistry_configuration_set.h"
+#include "bcl_chemistry_conformation_comparison_psi_field.h"
+#include "bcl_chemistry_conformation_graph_converter.h"
+#include "bcl_chemistry_constitution_set.h"
+#include "bcl_chemistry_fragment_configuration_shared.h"
+#include "bcl_chemistry_fragment_constitution_shared.h"
+#include "bcl_chemistry_fragment_evolve_implementations.h"
+#include "bcl_chemistry_fragment_graph_marker.h"
+#include "bcl_chemistry_fragment_split_interface.h"
+#include "bcl_chemistry_fragment_split_largest_component.h"
+#include "bcl_chemistry_fragment_split_rings.h"
 #include "graph/bcl_graph_connectivity.h"
 #include "graph/bcl_graph_subgraph.h"
 #include "io/bcl_io_directory_entry.h"
 #include "io/bcl_io_ofstream.h"
-#include "util/bcl_util_static_initialization_fiasco_finder.h"
-BCL_StaticInitializationFiascoFinder
-
-// includes from bcl - sorted alphabetically
-#include "chemistry/bcl_chemistry_atom_conformational_interface.h"
-#include "chemistry/bcl_chemistry_bond_isometry_handler.h"
-#include "chemistry/bcl_chemistry_molecule_evolutionary_optimizer.h"
+#include "bcl_chemistry_atom_conformational_interface.h"
+#include "bcl_chemistry_bond_isometry_handler.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "graph/bcl_graph_subgraph_isomorphism.h"
 #include "io/bcl_io_file.h"
@@ -138,24 +140,6 @@ namespace bcl
     void MoleculeEvolutionaryOptimizer::SetLogFile( const std::string &FILENAME)
     {
       m_LogFile = FILENAME;
-    }
-
-    //! @brief open log file for writing; continues if file cannot be opened
-    void MoleculeEvolutionaryOptimizer::StartLogging()
-    {
-      if( !io::File::TryOpenOFStream( m_LogStream, m_LogFile))
-      {
-        BCL_MessageStd( "Could not open " + m_LogFile + " for writing");
-      }
-    }
-
-    //! @brief close/flush logging file stream
-    void MoleculeEvolutionaryOptimizer::StopLogging()
-    {
-      if( m_LogStream.is_open())
-      {
-        io::File::CloseClearFStream( m_LogStream);
-      }
     }
 
     //! @brief set molecule selection type to keep highest-scoring molecules
@@ -434,73 +418,6 @@ namespace bcl
       for( ; test > accum && n < last_ptr; ++n, accum += accum * one_minus_p);
 
       return m_ptrs[ n].second;
-    }
-
-    //! @brief remove whitespace (via isspace) from a string
-    //! @param STR the string to remove whitespace from
-    //! @return STR without any whitespace
-    std::string MoleculeEvolutionaryOptimizer::RemoveWhitespace( const std::string &STR) const
-    {
-      std::string str;
-      str.reserve( STR.length());
-      for
-      (
-        std::string::const_iterator itr( STR.begin()), itr_end( STR.end());
-        itr != itr_end;
-        ++itr
-      )
-      {
-        if( !isspace( *itr))
-        {
-          str.push_back( *itr);
-        }
-      }
-      return str;
-    }
-
-    //! @brief prepare a string for writing to CSV by escaping quotes
-    std::string MoleculeEvolutionaryOptimizer::PrepareForCSV( const std::string &STR) const
-    {
-      std::string str( STR);
-      size_t p = 0;
-      bool needs_quotes( false);
-
-      while( ( p = str.find( "\"", p)) != std::string::npos)
-      {
-        needs_quotes = true;
-        str.insert( p, "\\");
-      }
-
-      // add quotes around
-      if( str.find( ",") != std::string::npos)
-      {
-        needs_quotes = true;
-      }
-
-      if( needs_quotes)
-      {
-        str.insert( 0, "\"");
-        str.append( "\"");
-      }
-      return str;
-    }
-
-    //! @brief escape quotes with '\' in a string
-    //! @param STR the string to escape
-    //! @return a copy of STR with escaped quotes
-    std::string MoleculeEvolutionaryOptimizer::EscapeQuotes( const std::string &STR) const
-    {
-      std::string str( STR);
-      size_t p = 0;
-      while( ( p = str.find( "\"")) != std::string::npos)
-      {
-        str.insert( p, "\\");
-      }
-      while( ( p = str.find( "'")) != std::string::npos)
-      {
-        str.insert( p, "\\");
-      }
-      return str;
     }
 
     //! @brief execute a reaction/addition operation to generate new molecules
@@ -917,16 +834,6 @@ namespace bcl
       }
     }
 
-    //! @brief write data to the json log file
-    //! @param STR the string to write
-    void MoleculeEvolutionaryOptimizer::WriteLog( const std::string &STR)
-    {
-      if( m_LogStream.is_open())
-      {
-        m_LogStream << STR;
-      }
-    }
-
     //! @brief execute an iteration of molecule generation/scoring/replacement
     //! @return 0 on success, negative value on error
     int MoleculeEvolutionaryOptimizer::Next()
@@ -1120,6 +1027,101 @@ namespace bcl
     //////////////////////
     // helper functions //
     //////////////////////
+
+    //! @brief open log file for writing; continues if file cannot be opened
+    void MoleculeEvolutionaryOptimizer::StartLogging()
+    {
+      if( !io::File::TryOpenOFStream( m_LogStream, m_LogFile))
+      {
+        BCL_MessageStd( "Could not open " + m_LogFile + " for writing");
+      }
+    }
+
+    //! @brief close/flush logging file stream
+    void MoleculeEvolutionaryOptimizer::StopLogging()
+    {
+      if( m_LogStream.is_open())
+      {
+        io::File::CloseClearFStream( m_LogStream);
+      }
+    }
+
+    //! @brief remove whitespace (via isspace) from a string
+    //! @param STR the string to remove whitespace from
+    //! @return STR without any whitespace
+    std::string MoleculeEvolutionaryOptimizer::RemoveWhitespace( const std::string &STR) const
+    {
+      std::string str;
+      str.reserve( STR.length());
+      for
+      (
+        std::string::const_iterator itr( STR.begin()), itr_end( STR.end());
+        itr != itr_end;
+        ++itr
+      )
+      {
+        if( !isspace( *itr))
+        {
+          str.push_back( *itr);
+        }
+      }
+      return str;
+    }
+
+    //! @brief prepare a string for writing to CSV by escaping quotes
+    std::string MoleculeEvolutionaryOptimizer::PrepareForCSV( const std::string &STR) const
+    {
+      std::string str( STR);
+      size_t p = 0;
+      bool needs_quotes( false);
+
+      while( ( p = str.find( "\"", p)) != std::string::npos)
+      {
+        needs_quotes = true;
+        str.insert( p, "\\");
+      }
+
+      // add quotes around
+      if( str.find( ",") != std::string::npos)
+      {
+        needs_quotes = true;
+      }
+
+      if( needs_quotes)
+      {
+        str.insert( 0, "\"");
+        str.append( "\"");
+      }
+      return str;
+    }
+
+    //! @brief escape quotes with '\' in a string
+    //! @param STR the string to escape
+    //! @return a copy of STR with escaped quotes
+    std::string MoleculeEvolutionaryOptimizer::EscapeQuotes( const std::string &STR) const
+    {
+      std::string str( STR);
+      size_t p = 0;
+      while( ( p = str.find( "\"")) != std::string::npos)
+      {
+        str.insert( p, "\\");
+      }
+      while( ( p = str.find( "'")) != std::string::npos)
+      {
+        str.insert( p, "\\");
+      }
+      return str;
+    }
+
+    //! @brief write data to the json log file
+    //! @param STR the string to write
+    void MoleculeEvolutionaryOptimizer::WriteLog( const std::string &STR)
+    {
+      if( m_LogStream.is_open())
+      {
+        m_LogStream << STR;
+      }
+    }
 
     //! @brief Set the members with LABEL
     //! @param LABEL the label to parse
