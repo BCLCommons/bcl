@@ -12,8 +12,8 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_CHEMISTRY_FRAGMENT_RING_SWAP_H_
-#define BCL_CHEMISTRY_FRAGMENT_RING_SWAP_H_
+#ifndef BCL_CHEMISTRY_FRAGMENT_MUTATE_RING_SWAP_H_
+#define BCL_CHEMISTRY_FRAGMENT_MUTATE_RING_SWAP_H_
 
 // include the namespace header
 #include "bcl_chemistry.h"
@@ -46,18 +46,18 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class FragmentRingSwap
+    //! @class FragmentMutateRingSwap
     //! @brief swaps a ring system from the fragment library for one in the library. At most one ring may have different
     //!        size between swapped systems (which allows for removing/adding rings to a ring system if the rest of the
     //!        rings have the same size
     //!
-    //! @see @link example_chemistry_fragment_ring_swap.cpp @endlink
-    //! @author mendenjl, brownbp1
-    //! @date Sep 10, 2019
+    //! @see @link example_chemistry_fragment_mutate_ring_swap.cpp @endlink
+    //! @author ben
+    //! @date Jun 20, 2022
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class BCL_API FragmentRingSwap :
+    class BCL_API FragmentMutateRingSwap :
       public FragmentMutateInterface
     {
 
@@ -129,10 +129,10 @@ namespace bcl
     //////////////////////////////////
 
       //! @brief default constructor
-      FragmentRingSwap();
+      FragmentMutateRingSwap();
 
       //! @brief pose-dependent constructor
-      explicit FragmentRingSwap
+      explicit FragmentMutateRingSwap
       (
         const util::ShPtr< SearchFragmentLibraryFromTree> &FRAGMENT_LIBRARY,
         const std::string &DRUG_LIKENESS_TYPE,
@@ -152,7 +152,7 @@ namespace bcl
       );
 
       //! @brief pose-independent constructor
-      explicit FragmentRingSwap
+      explicit FragmentMutateRingSwap
       (
         const util::ShPtr< SearchFragmentLibraryFromTree> &FRAGMENT_LIBRARY,
         const std::string &DRUG_LIKENESS_TYPE,
@@ -168,7 +168,7 @@ namespace bcl
       );
 
       //! @brief clone constructor
-      FragmentRingSwap *Clone() const;
+      FragmentMutateRingSwap *Clone() const;
 
     /////////////////
     // data access //
@@ -263,9 +263,9 @@ namespace bcl
       //! @param ERROR_STREAM the stream to write errors to
       bool ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM);
 
-    }; // class FragmentRingSwap
+    }; // class FragmentMutateRingSwap
 
   } // namespace chemistry
 } // namespace bcl
 
-#endif //BCL_CHEMISTRY_FRAGMENT_RING_SWAP_H_
+#endif //BCL_CHEMISTRY_FRAGMENT_MUTATE_RING_SWAP_H_

@@ -17,7 +17,7 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "chemistry/bcl_chemistry_fragment_extend_with_linker.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_extend_with_linker.h"
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
@@ -53,9 +53,9 @@ namespace bcl
   //////////
 
     // add the interface to the set of known implementations
-    const util::SiPtr< const util::ObjectInterface> FragmentExtendWithLinker::s_Instance
+    const util::SiPtr< const util::ObjectInterface> FragmentMutateExtendWithLinker::s_Instance
     (
-      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentExtendWithLinker())
+      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentMutateExtendWithLinker())
     );
 
   //////////////////////////////////
@@ -63,7 +63,7 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    FragmentExtendWithLinker::FragmentExtendWithLinker() :
+    FragmentMutateExtendWithLinker::FragmentMutateExtendWithLinker() :
         m_Rings( util::ShPtr< FragmentEnsemble>()),
         m_RingsFilename( std::string()),
         m_ExtendWithinProb( 0.50),
@@ -99,7 +99,7 @@ namespace bcl
     //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
     //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
     //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-    FragmentExtendWithLinker::FragmentExtendWithLinker
+    FragmentMutateExtendWithLinker::FragmentMutateExtendWithLinker
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -152,7 +152,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentExtendWithLinker::FragmentExtendWithLinker
+    FragmentMutateExtendWithLinker::FragmentMutateExtendWithLinker
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -213,7 +213,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentExtendWithLinker::FragmentExtendWithLinker
+    FragmentMutateExtendWithLinker::FragmentMutateExtendWithLinker
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -264,9 +264,9 @@ namespace bcl
     }
 
     //! @brief clone constructor
-    FragmentExtendWithLinker *FragmentExtendWithLinker::Clone() const
+    FragmentMutateExtendWithLinker *FragmentMutateExtendWithLinker::Clone() const
     {
-      return new FragmentExtendWithLinker( *this);
+      return new FragmentMutateExtendWithLinker( *this);
     }
 
   /////////////////
@@ -275,14 +275,14 @@ namespace bcl
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
-    const std::string &FragmentExtendWithLinker::GetClassIdentifier() const
+    const std::string &FragmentMutateExtendWithLinker::GetClassIdentifier() const
     {
       return GetStaticClassName( *this);
     }
 
     //! @brief get a short name for this class
     //! @return a short name for this class
-    const std::string &FragmentExtendWithLinker::GetAlias() const
+    const std::string &FragmentMutateExtendWithLinker::GetAlias() const
     {
       static const std::string s_name( "ExtendWithLinker");
       return s_name;
@@ -295,7 +295,7 @@ namespace bcl
     //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
     //! @param FRAGMENT small molecule of interest
     //! @return MutateResult with Constitution after the mutate
-    math::MutateResult< FragmentComplete> FragmentExtendWithLinker::operator()( const FragmentComplete &FRAGMENT) const
+    math::MutateResult< FragmentComplete> FragmentMutateExtendWithLinker::operator()( const FragmentComplete &FRAGMENT) const
     {
       BCL_MessageStd( "ExtendWithLinker!");
 
@@ -694,139 +694,139 @@ namespace bcl
   ////////////////
 
     //! @brief set the absolute probability of extending the fragment internally
-    void FragmentExtendWithLinker::SetExtendWithinProb( const float EXTEND_WITHIN_PROB)
+    void FragmentMutateExtendWithLinker::SetExtendWithinProb( const float EXTEND_WITHIN_PROB)
     {
       m_ExtendWithinProb = EXTEND_WITHIN_PROB;
     }
 
     //! @brief set the size of the smallest fragment to be is.olated
-    void FragmentExtendWithLinker::SetMinFragmentSize( const size_t MIN_FRAGMENT_SIZE)
+    void FragmentMutateExtendWithLinker::SetMinFragmentSize( const size_t MIN_FRAGMENT_SIZE)
     {
       m_FragmentMinSize = MIN_FRAGMENT_SIZE;
     }
 
     //! @brief set whether to allow duplicates if only one fragment meets min size requirement
-    void FragmentExtendWithLinker::SetAllowDuplicates( const bool ALLOW_DUPLICATES)
+    void FragmentMutateExtendWithLinker::SetAllowDuplicates( const bool ALLOW_DUPLICATES)
     {
       m_AllowFragmentDuplication = ALLOW_DUPLICATES;
     }
 
     //! @brief set the relative probability of extending with an amide linker
-    void FragmentExtendWithLinker::SetAmideLinkProb( const float AMIDE_LINK_PROB)
+    void FragmentMutateExtendWithLinker::SetAmideLinkProb( const float AMIDE_LINK_PROB)
     {
       m_AmideLinkProb = AMIDE_LINK_PROB;
     }
 
     //! @brief set the probability of orienting the amide N toward fragment A with the amide linker
-    void FragmentExtendWithLinker::SetAmideNToAProb( const float AMIDE_N_TO_A_PROB)
+    void FragmentMutateExtendWithLinker::SetAmideNToAProb( const float AMIDE_N_TO_A_PROB)
     {
       m_AmideNToAProb = AMIDE_N_TO_A_PROB;
     }
 
     //! @brief set the relative probability of extending with an ester linker
-    void FragmentExtendWithLinker::SetEsterLinkProb( const float ESTER_LINK_PROB)
+    void FragmentMutateExtendWithLinker::SetEsterLinkProb( const float ESTER_LINK_PROB)
     {
       m_EsterLinkProb = ESTER_LINK_PROB;
     }
 
     //! @brief set the probability of orienting the ester O toward fragment A with the ester linker
-    void FragmentExtendWithLinker::SetEsterOToAProb( const float ESTER_O_TO_A_PROB)
+    void FragmentMutateExtendWithLinker::SetEsterOToAProb( const float ESTER_O_TO_A_PROB)
     {
       m_EsterOToAProb = ESTER_O_TO_A_PROB;
     }
 
     //! @brief set the relative probability of extending with a methoxy linker
-    void FragmentExtendWithLinker::SetMethoxyLinkProb( const float METHOXY_LINK_PROB)
+    void FragmentMutateExtendWithLinker::SetMethoxyLinkProb( const float METHOXY_LINK_PROB)
     {
       m_MethoxyLinkProb = METHOXY_LINK_PROB;
     }
 
     //! @brief set the probability of orienting the methoxy O toward fragment A with the methoxy linker
-    void FragmentExtendWithLinker::SetMethoxyOToAProb( const float METHOXY_O_TO_A_PROB)
+    void FragmentMutateExtendWithLinker::SetMethoxyOToAProb( const float METHOXY_O_TO_A_PROB)
     {
       m_MethoxyOToAProb = METHOXY_O_TO_A_PROB;
     }
 
     //! @brief set the relative probability of extending with an ethoxy linker
-    void FragmentExtendWithLinker::SetEthoxyLinkProb( const float ETHOXY_LINK_PROB)
+    void FragmentMutateExtendWithLinker::SetEthoxyLinkProb( const float ETHOXY_LINK_PROB)
     {
       m_EthoxyLinkProb = ETHOXY_LINK_PROB;
     }
 
     //! @brief set the probability of orienting the ethoxy O toward fragment A with the ethoxy linker
-    void FragmentExtendWithLinker::SetEthoxyOToAProb( const float ETHOXY_O_TO_A_PROB)
+    void FragmentMutateExtendWithLinker::SetEthoxyOToAProb( const float ETHOXY_O_TO_A_PROB)
     {
       m_EthoxyOToAProb = ETHOXY_O_TO_A_PROB;
     }
 
     //! @brief set the relative probability of extending with a single element linker
-    void FragmentExtendWithLinker::SetSingleElementLinkProb( const float SINGLE_ELEMENT_LINK_PROB)
+    void FragmentMutateExtendWithLinker::SetSingleElementLinkProb( const float SINGLE_ELEMENT_LINK_PROB)
     {
       m_SingleElementLinkProb = SINGLE_ELEMENT_LINK_PROB;
     }
 
     //! @brief set the relative probability of linking with a single B
-    void FragmentExtendWithLinker::SetBProb( const float B_PROB)
+    void FragmentMutateExtendWithLinker::SetBProb( const float B_PROB)
     {
       m_B = B_PROB;
     }
 
     //! @brief set the relative probability of linking with a single C
-    void FragmentExtendWithLinker::SetCProb( const float C_PROB)
+    void FragmentMutateExtendWithLinker::SetCProb( const float C_PROB)
     {
       m_C = C_PROB;
     }
 
     //! @brief set the relative probability of linking with a single O
-    void FragmentExtendWithLinker::SetOProb( const float O_PROB)
+    void FragmentMutateExtendWithLinker::SetOProb( const float O_PROB)
     {
       m_O = O_PROB;
     }
 
     //! @brief set the relative probability of linking with a single N
-    void FragmentExtendWithLinker::SetNProb( const float N_PROB)
+    void FragmentMutateExtendWithLinker::SetNProb( const float N_PROB)
     {
       m_N = N_PROB;
     }
 
     //! @brief set the relative probability of linking with a single P
-    void FragmentExtendWithLinker::SetPProb( const float P_PROB)
+    void FragmentMutateExtendWithLinker::SetPProb( const float P_PROB)
     {
       m_P = P_PROB;
     }
 
     //! @brief set the relative probability of linking with a single S
-    void FragmentExtendWithLinker::SetSProb( const float S_PROB)
+    void FragmentMutateExtendWithLinker::SetSProb( const float S_PROB)
     {
       m_S = S_PROB;
     }
 
     //! @brief set the relative probability of linking with a single Se
-    void FragmentExtendWithLinker::SetSeProb( const float SE_PROB)
+    void FragmentMutateExtendWithLinker::SetSeProb( const float SE_PROB)
     {
       m_Se = SE_PROB;
     }
 
     //! @brief set the relative probability of extending with a direct link
-    void FragmentExtendWithLinker::SetDirectLinkProb( const float DIRECT_LINK_PROB)
+    void FragmentMutateExtendWithLinker::SetDirectLinkProb( const float DIRECT_LINK_PROB)
     {
       m_DirectLinkProb = DIRECT_LINK_PROB;
     }
 
     //! @brief set the relative probability of extending with an alkyl linker
-    void FragmentExtendWithLinker::SetAlkylLinkProb( const float ALKYL_LINK_PROB)
+    void FragmentMutateExtendWithLinker::SetAlkylLinkProb( const float ALKYL_LINK_PROB)
     {
       m_AlkylLinkProb = ALKYL_LINK_PROB;
     }
 
     //! @brief set the relative probability that the alkyl linker will contain a triple bond
-    void FragmentExtendWithLinker::SetAlkyneProb( const float ALKYNE_PROB)
+    void FragmentMutateExtendWithLinker::SetAlkyneProb( const float ALKYNE_PROB)
     {
       m_Alkyne = ALKYNE_PROB;
     }
 
     //! @brief set the relative probability of extending with a ring
-    void FragmentExtendWithLinker::SetRingLinkProb( const float RING_LINK_PROB)
+    void FragmentMutateExtendWithLinker::SetRingLinkProb( const float RING_LINK_PROB)
     {
       m_RingLinkProb = RING_LINK_PROB;
     }
@@ -839,7 +839,7 @@ namespace bcl
     //! @param RING_LIBRARY optional ring library if not provided through map
     //! @param RING_LINK_INDEX_A optional specific index by which to connect fragment A to the ring
     //! @param RING_LINK_INDEX_B optional specific index by which to connect fragment B to the ring
-     FragmentComplete FragmentExtendWithLinker::RingLink
+     FragmentComplete FragmentMutateExtendWithLinker::RingLink
      (
        const FragmentComplete &FRAGMENT_A,
        const FragmentComplete &FRAGMENT_B,
@@ -889,7 +889,7 @@ namespace bcl
      //! @param RING_LINK_INDEX_A optional specific index by which to connect fragment A to the ring
      //! @param RING_LINK_INDEX_B optional specific index by which to connect fragment B to the ring
      //! @return the newly generated molecules
-     FragmentComplete FragmentExtendWithLinker::RingLink
+     FragmentComplete FragmentMutateExtendWithLinker::RingLink
      (
        const FragmentComplete &FRAGMENT_A,
        const FragmentComplete &FRAGMENT_B,
@@ -948,7 +948,7 @@ namespace bcl
        // return null if there are undefined atom indices
        if( !util::IsDefined( rand_ring_pos_one) || !util::IsDefined( rand_ring_pos_two))
        {
-         BCL_MessageStd( "FragmentExtendWithLinker unable to identify two valid ring atom indices with which to link new ring from ring library");
+         BCL_MessageStd( "FragmentMutateExtendWithLinker unable to identify two valid ring atom indices with which to link new ring from ring library");
          BCL_MessageStd( "Atom index 1: " + util::Format()( rand_ring_pos_one));
          BCL_MessageStd( "Atom index 2: " + util::Format()( rand_ring_pos_two));
        }
@@ -1003,7 +1003,7 @@ namespace bcl
      //! @param LINK_INDEX_A link indices in first molecule
      //! @param LINK_INDEX_B link indices in second molecule
      //! @return the newly generated molecules
-     FragmentComplete FragmentExtendWithLinker::DirectLink
+     FragmentComplete FragmentMutateExtendWithLinker::DirectLink
      (
        const FragmentComplete &FRAGMENT_A,
        const FragmentComplete &FRAGMENT_B,
@@ -1062,7 +1062,7 @@ namespace bcl
      //! @param LINK_INDEX_B link indices in second molecule
      //! @param ELEMENT_TYPE element type serving as a link
      //! @return the newly generated molecules
-     FragmentComplete FragmentExtendWithLinker::SingleElementLink
+     FragmentComplete FragmentMutateExtendWithLinker::SingleElementLink
      (
        const FragmentComplete &FRAGMENT_A,
        const FragmentComplete &FRAGMENT_B,
@@ -1208,7 +1208,7 @@ namespace bcl
      //! @param LINK_INDEX_B link indices in second molecule
      //! @param REPEATS the number of linker repeats
      //! @return the newly generated molecules
-     FragmentComplete FragmentExtendWithLinker::AlkylLink
+     FragmentComplete FragmentMutateExtendWithLinker::AlkylLink
      (
        const FragmentComplete &FRAGMENT_A,
        const FragmentComplete &FRAGMENT_B,
@@ -1359,7 +1359,7 @@ namespace bcl
      //! @param LINK_INDEX_B link indices in second molecule
      //! @param REPEATS the number of linker repeats
      //! @return the newly generated molecules
-     FragmentComplete FragmentExtendWithLinker::MethoxyLink
+     FragmentComplete FragmentMutateExtendWithLinker::MethoxyLink
      (
        const FragmentComplete &FRAGMENT_A,
        const FragmentComplete &FRAGMENT_B,
@@ -1539,7 +1539,7 @@ namespace bcl
      //! @param LINK_INDEX_B link indices in second molecule
      //! @param REPEATS the number of linker repeats
      //! @return the newly generated molecules
-     FragmentComplete FragmentExtendWithLinker::EthoxyLink
+     FragmentComplete FragmentMutateExtendWithLinker::EthoxyLink
      (
        const FragmentComplete &FRAGMENT_A,
        const FragmentComplete &FRAGMENT_B,
@@ -1744,7 +1744,7 @@ namespace bcl
      //! @param LINK_INDEX_B link indices in second molecule
      //! @param REPEATS the number of linker repeats
      //! @return the newly generated molecules
-     FragmentComplete FragmentExtendWithLinker::AmideLink
+     FragmentComplete FragmentMutateExtendWithLinker::AmideLink
      (
        const FragmentComplete &FRAGMENT_A,
        const FragmentComplete &FRAGMENT_B,
@@ -1951,7 +1951,7 @@ namespace bcl
      //! @param LINK_INDEX_B link indices in second molecule
      //! @param REPEATS the number of linker repeats
      //! @return the newly generated molecules
-     FragmentComplete FragmentExtendWithLinker::EsterLink
+     FragmentComplete FragmentMutateExtendWithLinker::EsterLink
      (
        const FragmentComplete &FRAGMENT_A,
        const FragmentComplete &FRAGMENT_B,
@@ -2159,7 +2159,7 @@ namespace bcl
      //! @param REPEATS the number of linker repeats
      //! @return the newly generated molecules
      // TODO DEPRECATE this function; currently in use in apps/internal/chemistry/bcl_app_link_fragments.cpp
-     FragmentEnsemble FragmentExtendWithLinker::GenerateAmideLinker
+     FragmentEnsemble FragmentMutateExtendWithLinker::GenerateAmideLinker
      (
        const std::string &CONNECTION,
        const size_t &REPEATS
@@ -2197,7 +2197,7 @@ namespace bcl
      //! @param REPEATS the number of linker repeats
      //! @param ELEMENT_TYPE element type serving as a link of SingleElementLinker
      //! @return the newly generated molecules
-     FragmentComplete FragmentExtendWithLinker::RingExtension
+     FragmentComplete FragmentMutateExtendWithLinker::RingExtension
      (
        const FragmentComplete &FRAGMENT_A,
        const size_t &LINK_INDEX_A,
@@ -2314,7 +2314,7 @@ namespace bcl
 
      //! @brief selects an element to use with the SingleElementLink function
      //! @return string corresponding to chosen element
-     std::string FragmentExtendWithLinker::ChooseLinkMethod( const bool &EXTEND_WITHIN) const
+     std::string FragmentMutateExtendWithLinker::ChooseLinkMethod( const bool &EXTEND_WITHIN) const
      {
        // determine what type of linkage to perform
        float sum_probs( 0.0);
@@ -2373,7 +2373,7 @@ namespace bcl
 
      //! @brief selects an element to use with the SingleElementLink function
      //! @return string corresponding to chosen element
-     std::string FragmentExtendWithLinker::ChooseLinkElement() const
+     std::string FragmentMutateExtendWithLinker::ChooseLinkElement() const
      {
        // determine what type of SingleElementLink element to use
        float sum_probs( m_B + m_C + m_O + m_N + m_P + m_S + m_Se);
@@ -2425,7 +2425,7 @@ namespace bcl
      //! @param ATOM_INDEX_B second atom
      //! @param PARENT_MOL the fragment containing both atoms
      //! @return true if the atoms are in the same ring, false otherwise
-     bool FragmentExtendWithLinker::IfAtomsInSameRing
+     bool FragmentMutateExtendWithLinker::IfAtomsInSameRing
      (
        const size_t &ATOM_INDEX_A,
        const size_t &ATOM_INDEX_B,
@@ -2497,7 +2497,7 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    io::Serializer FragmentExtendWithLinker::GetSerializer() const
+    io::Serializer FragmentMutateExtendWithLinker::GetSerializer() const
     {
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
@@ -2758,7 +2758,7 @@ namespace bcl
     //! @brief Set the members of this property from the given LABEL
     //! @param LABEL the label to parse
     //! @param ERROR_STREAM the stream to write errors to
-    bool FragmentExtendWithLinker::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+    bool FragmentMutateExtendWithLinker::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
     {
       // static initialization check
       if( command::CommandState::IsInStaticInitialization())

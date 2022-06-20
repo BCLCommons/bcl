@@ -76,9 +76,94 @@ namespace bcl
       return s_name;
     }
 
+    //! @brief return the molecule identifier
+    //! @return the identifying string
+    const std::string &MoleculeEvolutionInfo::GetMoleculeIdentifier() const
+    {
+      return m_Identifier;
+    }
+
+    //! @brief get the stored molecule
+    //! @return the member fragment;
+    //! const because otherwise associated data do not
+    //! make much sense, so force folks to make a copy
+    FragmentComplete &MoleculeEvolutionInfo::GetMolecule() const
+    {
+      return m_Molecule;
+    }
+
+    //! @brief get the molecule fitness
+    //! @return fitness value
+    const float &MoleculeEvolutionInfo::GetMoleculeFitness() const
+    {
+      return m_Fitness;
+    }
+
+    //! @brief get the molecule evolution history
+    //! @return vector of strings dictating the history
+    const storage::Vector< std::string> &MoleculeEvolutionInfo::GetMoleculeHistory() const
+    {
+      return m_History;
+    }
+
+    //! @brief get the generational age of the molecule
+    //! @return molecule age
+    const size_t &MoleculeEvolutionInfo::GetMoleculeAge() const
+    {
+      return m_Age;
+    }
+
     ////////////////
     // operations //
     ////////////////
+
+
+    //! @brief set the molecule identifier
+    void MoleculeEvolutionInfo::SetMoleculeIdentifier( const std::string &IDENTIFIER)
+    {
+      m_Identifier = IDENTIFIER;
+    }
+
+    //! @brief set the stored molecule
+    void MoleculeEvolutionInfo::SetMolecule( const FragmentComplete &MOL)
+    {
+      m_Molecule = MOL;
+    }
+
+    //! @brief set the molecule fitness
+    void MoleculeEvolutionInfo::SetMoleculeFitness( const float FITNESS)
+    {
+      m_Fitness = FITNESS;
+    }
+
+    //! @brief set the molecule evolution history
+    void MoleculeEvolutionInfo::SetMoleculeHistory( const storage::Vector< std::string> &HISTORY)
+    {
+      m_History = HISTORY;
+    }
+
+    //! @brief set the generational age of the molecule
+    void MoleculeEvolutionInfo::SetMoleculeAge( const size_t AGE)
+    {
+      m_Age = AGE;
+    }
+
+    //! @brief increment the molecule age by one generation
+    void MoleculeEvolutionInfo::IncrementMoleculeAge()
+    {
+      ++m_Age;
+    }
+
+    //! @brief append to molecule history by one generation
+    void MoleculeEvolutionInfo::AppendToMoleculeHistory( const std::string &NEW_HISTORY_ENTRY)
+    {
+      m_History.PushBack( NEW_HISTORY_ENTRY);
+    }
+
+
+    ///////////////
+    // operators //
+    ///////////////
 
     //! @brief less-than operator for MolInfos
     //! @return true if fitness of left operand is less than fitness of right operand
@@ -93,10 +178,6 @@ namespace bcl
     {
       return m_Fitness > SECOND.m_Fitness;
     }
-
-    ///////////////
-    // operators //
-    ///////////////
 
     //////////////////////
     // helper functions //

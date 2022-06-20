@@ -12,8 +12,8 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_CHEMISTRY_FRAGMENT_ALCHEMY_H_
-#define BCL_CHEMISTRY_FRAGMENT_ALCHEMY_H_
+#ifndef BCL_CHEMISTRY_FRAGMENT_MUTATE_FLUORINATE_H_
+#define BCL_CHEMISTRY_FRAGMENT_MUTATE_FLUORINATE_H_
 
 // include the namespace header
 #include "bcl_chemistry.h"
@@ -33,7 +33,6 @@
 #include "find/bcl_find_pick_interface.h"
 #include "math/bcl_math_mutate_interface.h"
 #include "math/bcl_math_mutate_result.h"
-#include "sched/bcl_sched_mutex.h"
 #include "util/bcl_util_function_interface.h"
 #include "util/bcl_util_sh_ptr.h"
 #include "util/bcl_util_si_ptr_list.h"
@@ -46,16 +45,18 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class FragmentAlchemy
-    //! @brief Used to transform atom types inside a molecule
+    //! @class FragmentMutateFluorinate
+    //! @brief Used to add fluorine atoms to molecules; distinct from halogenate because
+    //! patterns of fluorine placement in organic molecules tend to differ from patterns of
+    //! bulkier halogens.
     //!
-    //! @see @link example_chemistry_fragment_alchemy.cpp @endlink
-    //! @author brownbp1
-    //! @date Sep 06, 2019
+    //! @see @link example_chemistry_fragment_mutate_fluorinate.cpp @endlink
+    //! @author ben
+    //! @date Jun 20, 2022
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class BCL_API FragmentAlchemy :
+    class BCL_API FragmentMutateFluorinate :
       public FragmentMutateInterface
     {
 
@@ -69,18 +70,20 @@ namespace bcl
     // data //
     //////////
 
-      //! atoms that are allowed
-      storage::Vector< ElementType> m_AllowedElements;
-      std::string m_AllowedElementsString;
+      //! enables removal of fluorines
+      bool m_Reversible;
 
-      //! desired formal charge
-      float m_FormalCharge;
+      //! minimum number of fluorine atoms that must be added or removed from a single heavy atom for the mutate to return a valid fragment
+      size_t m_MinF;
 
-      //! desired chirality
-      ChiralityEnum m_Chirality;
+      //! when counting the number of fluorine atoms added, include in that count fluorine atoms already attached to the chosen heavy atom
+      bool m_IncludeExistingFInMinCount;
 
-      //! only mutate hydrogen atoms; if heavy atoms are made mutable, only consider their hydrogen(s)
-      bool m_RestrictToBondedH;
+      //! minimum number of hydrogen atoms that must be replaced on a single heavy atom for the mutate to return a valid fragment
+      size_t m_MinH;
+
+      //! maximum number of hydrogen atoms that can be replaced on a single heavy atom for the mutate to return a valid fragment
+      size_t m_MaxH;
 
     public:
 
@@ -96,32 +99,22 @@ namespace bcl
     //////////////////////////////////
 
       //! @brief default constructor
-      FragmentAlchemy();
+      FragmentMutateFluorinate();
 
       //! @brief druglikeness constructor
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-      FragmentAlchemy
+      FragmentMutateFluorinate
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const bool &CORINA_CONFS
       );
 
-      //! @brief secondary constructor
-      //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-      //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
-      FragmentAlchemy
-      (
-        const std::string &DRUG_LIKENESS_TYPE,
-        const FragmentComplete &SCAFFOLD_FRAGMENT,
-        const bool &CORINA_CONFS
-      );
-
-      //! @brief local mutate constructor
+      //! @brief full constructor
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
       //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-      FragmentAlchemy
+      FragmentMutateFluorinate
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -139,7 +132,7 @@ namespace bcl
       //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentAlchemy
+      FragmentMutateFluorinate
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -160,7 +153,7 @@ namespace bcl
       //! @param MDL property label containing path to protein binding pocket PDB file
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentAlchemy
+      FragmentMutateFluorinate
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -173,7 +166,7 @@ namespace bcl
       );
 
       //! @brief clone constructor
-      FragmentAlchemy *Clone() const;
+      FragmentMutateFluorinate *Clone() const;
 
     /////////////////
     // data access //
@@ -186,6 +179,10 @@ namespace bcl
       //! @brief returns the name used for this class in an object data label
       //! @return the name used for this class in an object data label
       const std::string &GetAlias() const;
+
+      //! @brief returns whether fluorinate is reversible
+      //! @return reversibility of the fluorinate mutate
+      const bool GetReversibility() const;
 
     ///////////////
     // operators //
@@ -200,17 +197,14 @@ namespace bcl
     // operations //
     ////////////////
 
-      //! @brief set the fragment mutable atom indices
-      void SetAllowedElements( const storage::Vector< ElementType> &ALLOWED_ELEMENTS);
+      //! @brief set reversibility
+      void SetReverisibility( const bool REVERSIBLE);
 
-      //! @brief set the fragment mutable atom indices
-      void SetRestrictions( const bool RESTRICT_TO_BOND_H);
+    protected:
 
     //////////////////////
     // helper functions //
     //////////////////////
-
-    protected:
 
       //! @brief return parameters for member data that are set up from the labels
       //! @return parameters for member data that are set up from the labels
@@ -221,9 +215,9 @@ namespace bcl
       //! @param ERROR_STREAM the stream to write errors to
       bool ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM);
 
-    }; // class FragmentAlchemy
+    }; // class FragmentMutateFluorinate
 
   } // namespace chemistry
 } // namespace bcl
 
-#endif //BCL_CHEMISTRY_FRAGMENT_ALCHEMY_H_
+#endif //BCL_CHEMISTRY_FRAGMENT_MUTATE_FLUORINATE_H_

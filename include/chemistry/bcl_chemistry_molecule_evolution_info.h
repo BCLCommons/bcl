@@ -56,7 +56,7 @@ namespace bcl
       std::string m_Identifier;
 
       // Molecule whose evolutionary progress we are tracking
-      chemistry::FragmentComplete m_Molecule;
+      FragmentComplete m_Molecule;
 
       // Fitness function value
       float m_Fitness;
@@ -105,9 +105,56 @@ namespace bcl
       //! @return the name of this class
       const std::string &GetAlias() const;
 
+      //! @brief return the molecule identifier
+      //! @return the identifying string
+      const std::string &GetMoleculeIdentifier() const;
+
+      //! @brief get the stored molecule
+      //! @return the member fragment;
+      //! const because otherwise associated data do not
+      //! make much sense, so force folks to make a copy
+      const FragmentComplete &GetMolecule() const;
+
+      //! @brief get the molecule fitness
+      //! @return fitness value
+      const float &GetMoleculeFitness() const;
+
+      //! @brief get the molecule evolution history
+      //! @return vector of strings dictating the history
+      const storage::Vector< std::string> &GetMoleculeHistory() const;
+
+      //! @brief get the generational age of the molecule
+      //! @return molecule age
+      const size_t &GetMoleculeAge() const;
+
       ////////////////
       // operations //
       ////////////////
+
+      //! @brief set the molecule identifier
+      void SetMoleculeIdentifier( const std::string &IDENTIFIER);
+
+      //! @brief set the stored molecule
+      void SetMolecule( const FragmentComplete &MOL);
+
+      //! @brief set the molecule fitness
+      void SetMoleculeFitness( const float FITNESS);
+
+      //! @brief set the molecule evolution history
+      void SetMoleculeHistory( const storage::Vector< std::string> &HISTORY);
+
+      //! @brief set the generational age of the molecule
+      void SetMoleculeAge( const size_t AGE);
+
+      //! @brief increment the molecule age by one generation
+      void IncrementMoleculeAge();
+
+      //! @brief append to molecule history by one generation
+      void AppendToMoleculeHistory( const std::string &NEW_HISTORY_ENTRY);
+
+      ///////////////
+      // operators //
+      ///////////////
 
       //! @brief less-than operator for MolInfos
       //! @return true if fitness of left operand is less than fitness of right operand
@@ -116,10 +163,6 @@ namespace bcl
       //! @brief greater-than operator for MolInfos
       //! @return true if fitness of left operand is greater than fitness of right operand
       bool operator >( const MoleculeEvolutionInfo &SECOND) const;
-
-      ///////////////
-      // operators //
-      ///////////////
 
       //////////////////////
       // helper functions //

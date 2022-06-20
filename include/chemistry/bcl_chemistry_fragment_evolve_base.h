@@ -22,6 +22,7 @@
 
 // includes from bcl - sorted alphabetically
 #include "bcl_chemistry_fragment_ensemble.h"
+#include "descriptor/bcl_descriptor_molecule_druglike.h"
 #include "io/bcl_io_serialization.h"
 #include "util/bcl_util_sh_ptr.h"
 
@@ -44,11 +45,16 @@ namespace bcl
     class BCL_API FragmentEvolveBase
     {
 
-    public:
+    private:
+
+      //! detects bad bonds
+      descriptor::MoleculeDruglike m_Druglike;
 
     //////////
     // data //
     //////////
+
+    public:
 
     //////////////////////////////////
     // construction and destruction //
@@ -58,10 +64,10 @@ namespace bcl
     // helper functions //
     //////////////////////
 
-      //! @brief returns the number of heteroatom-heteroatom (same element) non-ring bonds in a molecule
+      //! @brief evaluates a molecule's topology to see if there are druglikeness violations
       //! @param MOLECULE the molecule to inspect
-      //! @return the number of bad bonds in MOLECULE
-      static size_t NumberBadBonds( const FragmentComplete &MOLECULE);
+      //! @return false if the molecule fails any of the druglikeness checks in MoleculeDruglike; true otherwise
+      static bool IsConstitutionDruglike( const FragmentComplete &MOLECULE);
 
       //! @brief gets a 3D conformation using corina
       //! @param MOLECULE the molecule to use

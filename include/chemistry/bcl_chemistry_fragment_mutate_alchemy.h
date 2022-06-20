@@ -12,12 +12,11 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_CHEMISTRY_FRAGMENT_HALOGENATE_H_
-#define BCL_CHEMISTRY_FRAGMENT_HALOGENATE_H_
+#ifndef BCL_CHEMISTRY_FRAGMENT_MUTATE_ALCHEMY_H_
+#define BCL_CHEMISTRY_FRAGMENT_MUTATE_ALCHEMY_H_
 
 // include the namespace header
 #include "bcl_chemistry.h"
-#include "descriptor/bcl_descriptor.fwd.hh"
 
 // include other forward headers - sorted alphabetically
 #include "find/bcl_find.fwd.hh"
@@ -29,10 +28,12 @@
 #include "bcl_chemistry_fragment_constitution_shared.h"
 #include "bcl_chemistry_fragment_ensemble.h"
 #include "bcl_chemistry_fragment_mutate_interface.h"
+#include "descriptor/bcl_descriptor.fwd.hh"
 #include "descriptor/bcl_descriptor_base.h"
 #include "find/bcl_find_pick_interface.h"
 #include "math/bcl_math_mutate_interface.h"
 #include "math/bcl_math_mutate_result.h"
+#include "sched/bcl_sched_mutex.h"
 #include "util/bcl_util_function_interface.h"
 #include "util/bcl_util_sh_ptr.h"
 #include "util/bcl_util_si_ptr_list.h"
@@ -45,16 +46,16 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class FragmentHalogenate
-    //! @brief Used to add halogens to ring fragments.
+    //! @class FragmentMutateAlchemy
+    //! @brief Used to transform atom types inside a molecule
     //!
-    //! @see @link example_chemistry_fragment_halogenate.cpp @endlink
-    //! @author brownbp1
-    //! @date Sep 12, 2019
+    //! @see @link example_chemistry_fragment_mutate_alchemy.cpp @endlink
+    //! @author ben
+    //! @date Jun 20, 2022
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class BCL_API FragmentHalogenate :
+    class BCL_API FragmentMutateAlchemy :
       public FragmentMutateInterface
     {
 
@@ -68,18 +69,18 @@ namespace bcl
     // data //
     //////////
 
-      //! halogens that are allowed
-      storage::Vector< AtomType> m_AllowedHalogens;
-      std::string m_AllowedHalogensString;
+      //! atoms that are allowed
+      storage::Vector< ElementType> m_AllowedElements;
+      std::string m_AllowedElementsString;
 
-      //! enables removal of halogens
-      bool m_Reversible;
+      //! desired formal charge
+      float m_FormalCharge;
 
-      //! restrict reversibility to allowed halogens
-      bool m_RestrictReversibility;
+      //! desired chirality
+      ChiralityEnum m_Chirality;
 
-      //! disable aromatic ring requirement
-      bool m_DisableAromaticRingReq;
+      //! only mutate hydrogen atoms; if heavy atoms are made mutable, only consider their hydrogen(s)
+      bool m_RestrictToBondedH;
 
     public:
 
@@ -95,22 +96,32 @@ namespace bcl
     //////////////////////////////////
 
       //! @brief default constructor
-      FragmentHalogenate();
+      FragmentMutateAlchemy();
 
       //! @brief druglikeness constructor
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-      FragmentHalogenate
+      FragmentMutateAlchemy
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const bool &CORINA_CONFS
       );
 
-      //! @brief full constructor
+      //! @brief secondary constructor
+      //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
+      //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
+      FragmentMutateAlchemy
+      (
+        const std::string &DRUG_LIKENESS_TYPE,
+        const FragmentComplete &SCAFFOLD_FRAGMENT,
+        const bool &CORINA_CONFS
+      );
+
+      //! @brief local mutate constructor
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
       //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-      FragmentHalogenate
+      FragmentMutateAlchemy
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -128,7 +139,7 @@ namespace bcl
       //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentHalogenate
+      FragmentMutateAlchemy
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -149,7 +160,7 @@ namespace bcl
       //! @param MDL property label containing path to protein binding pocket PDB file
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentHalogenate
+      FragmentMutateAlchemy
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -162,7 +173,7 @@ namespace bcl
       );
 
       //! @brief clone constructor
-      FragmentHalogenate *Clone() const;
+      FragmentMutateAlchemy *Clone() const;
 
     /////////////////
     // data access //
@@ -175,10 +186,6 @@ namespace bcl
       //! @brief returns the name used for this class in an object data label
       //! @return the name used for this class in an object data label
       const std::string &GetAlias() const;
-
-      //! @brief returns the mutable atoms
-      //! @return the mutable atoms
-      const storage::Vector< size_t> &GetMutableAtomIndices() const;
 
     ///////////////
     // operators //
@@ -194,10 +201,10 @@ namespace bcl
     ////////////////
 
       //! @brief set the fragment mutable atom indices
-      void SetAllowedHalogens( const storage::Vector< AtomType> &ALLOWED_HALOGENS);
+      void SetAllowedElements( const storage::Vector< ElementType> &ALLOWED_ELEMENTS);
 
-      //! @brief set reversibility
-      void SetReversibility( const bool REVERSIBLE);
+      //! @brief set the fragment mutable atom indices
+      void SetRestrictions( const bool RESTRICT_TO_BOND_H);
 
     //////////////////////
     // helper functions //
@@ -214,9 +221,9 @@ namespace bcl
       //! @param ERROR_STREAM the stream to write errors to
       bool ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM);
 
-    }; // class FragmentHalogenate
+    }; // class FragmentMutateAlchemy
 
   } // namespace chemistry
 } // namespace bcl
 
-#endif //BCL_CHEMISTRY_FRAGMENT_HALOGENATE_H_
+#endif //BCL_CHEMISTRY_FRAGMENT_MUTATE_ALCHEMY_H_

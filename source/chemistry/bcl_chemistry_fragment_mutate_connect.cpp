@@ -19,7 +19,7 @@ BCL_StaticInitializationFiascoFinder
 
 // include header of this class
 #include "../../include/chemistry/bcl_chemistry_mutate_bond_lengths.h"
-#include "chemistry/bcl_chemistry_fragment_connect.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_connect.h"
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atom_clash_score.h"
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
@@ -55,9 +55,9 @@ namespace bcl
   //////////
 
     // add the interface to the set of known implementations
-    const util::SiPtr< const util::ObjectInterface> FragmentConnect::s_Instance
+    const util::SiPtr< const util::ObjectInterface> FragmentMutateConnect::s_Instance
     (
-      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentConnect())
+      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentMutateConnect())
     );
 
   //////////////////////////////////
@@ -65,7 +65,7 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    FragmentConnect::FragmentConnect() :
+    FragmentMutateConnect::FragmentMutateConnect() :
 //        m_RotamerLibrarySearcher( util::ShPtr< SearchFragmentLibraryFromTree>()),
         m_RotamerLibrarySearcher( new SearchFragmentLibraryFromTree()),
         m_Linkers( storage::Vector< std::string>()),
@@ -80,7 +80,7 @@ namespace bcl
 
     //! @brief druglikeness constructor
     //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-    FragmentConnect::FragmentConnect
+    FragmentMutateConnect::FragmentMutateConnect
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const bool &CORINA_CONFS
@@ -105,7 +105,7 @@ namespace bcl
     //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
     //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
     //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-    FragmentConnect::FragmentConnect
+    FragmentMutateConnect::FragmentMutateConnect
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -140,7 +140,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentConnect::FragmentConnect
+    FragmentMutateConnect::FragmentMutateConnect
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -183,7 +183,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentConnect::FragmentConnect
+    FragmentMutateConnect::FragmentMutateConnect
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -216,9 +216,9 @@ namespace bcl
     }
 
     //! @brief clone constructor
-    FragmentConnect *FragmentConnect::Clone() const
+    FragmentMutateConnect *FragmentMutateConnect::Clone() const
     {
-      return new FragmentConnect( *this);
+      return new FragmentMutateConnect( *this);
     }
 
   /////////////////
@@ -227,14 +227,14 @@ namespace bcl
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
-    const std::string &FragmentConnect::GetClassIdentifier() const
+    const std::string &FragmentMutateConnect::GetClassIdentifier() const
     {
       return GetStaticClassName( *this);
     }
 
     //! @brief get a short name for this class
     //! @return a short name for this class
-    const std::string &FragmentConnect::GetAlias() const
+    const std::string &FragmentMutateConnect::GetAlias() const
     {
       static const std::string s_name( "Connect");
       return s_name;
@@ -247,7 +247,7 @@ namespace bcl
     //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
     //! @param FRAGMENT small molecule of interest
     //! @return MutateResult with Constitution after the mutate
-    math::MutateResult< FragmentComplete> FragmentConnect::operator()( const FragmentComplete &FRAGMENT) const
+    math::MutateResult< FragmentComplete> FragmentMutateConnect::operator()( const FragmentComplete &FRAGMENT) const
     {
       BCL_MessageStd( "Connect!");
 
@@ -350,7 +350,7 @@ namespace bcl
       // catch my fuckups from this stupid couple of do-while loops
       if( !util::IsDefined( first_atom_index) || !util::IsDefined( second_atom_index))
       {
-        BCL_MessageStd( "FragmentConnect failed to define indices for the chosen atoms! Returning NULL...");
+        BCL_MessageStd( "FragmentMutateConnect failed to define indices for the chosen atoms! Returning NULL...");
         return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
       }
 
@@ -408,7 +408,7 @@ namespace bcl
       {
         BCL_MessageStd
         (
-          "FragmentConnect could not generate conformers of the input fragment coupled with "
+          "FragmentMutateConnect could not generate conformers of the input fragment coupled with "
           "the half-linker. Returning NULL..."
         );
         return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
@@ -420,7 +420,7 @@ namespace bcl
       {
         BCL_MessageStd
         (
-          "FragmentConnect could not generate conformers of the terminal fragment coupled with "
+          "FragmentMutateConnect could not generate conformers of the terminal fragment coupled with "
           "the half-linker. Returning NULL..."
         );
         return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
@@ -445,7 +445,7 @@ namespace bcl
       {
         BCL_MessageStd
         (
-          "FragmentConnect could not generate any valid conformers of the fully linked "
+          "FragmentMutateConnect could not generate any valid conformers of the fully linked "
           "molecule. Consider changing your distance cutoff criteria and/or linker length. "
           "Returning NULL..."
         );
@@ -526,7 +526,7 @@ namespace bcl
   ////////////////
 
     //! @brief set options for the global conformational ensembles made of each fragment + half linker
-    void FragmentConnect::InitializeSampleConfsGlobal( SampleConformations &SAMPLER) const
+    void FragmentMutateConnect::InitializeSampleConfsGlobal( SampleConformations &SAMPLER) const
     {
       SAMPLER.SetSamplingPreferences( true, true, true, false);
       SAMPLER.SetConfComparer( m_ConfComparerGlobal);
@@ -539,7 +539,7 @@ namespace bcl
     }
 
     //! @brief set options for the local conformational ensembles made of the final joined molecule
-    void FragmentConnect::InitializeSampleConfsLocal( SampleConformations &SAMPLER) const
+    void FragmentMutateConnect::InitializeSampleConfsLocal( SampleConformations &SAMPLER) const
     {
       SAMPLER.SetSamplingPreferences( false, false, true, false);
       SAMPLER.SetConfComparer( m_ConfComparerLocal);
@@ -558,7 +558,7 @@ namespace bcl
     //! @return an ensemble of conformers for the first half of the extended linker (for odd numbers, half+1),
     //! the index of the link point to the next half of the molecule (in hydrogenated numbering), and
     //! the samplebyparts indices
-    storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t>> FragmentConnect::ExtendHalfLinkerForward
+    storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t>> FragmentMutateConnect::ExtendHalfLinkerForward
         (
           const FragmentComplete FRAGMENT_A,
           const storage::Vector< std::string> &LINKER_COMPOSITION,
@@ -674,7 +674,7 @@ namespace bcl
     //! @return an ensemble of conformers for the terminal half of the extended linker (for odd numbers, half-1)
     //! the index of the link point to the other half of the molecule (in hydrogenated numbering),
     //! and the samplebyparts indices
-    storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t>> FragmentConnect::ExtendHalfLinkerReverse
+    storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t>> FragmentMutateConnect::ExtendHalfLinkerReverse
         (
           const FragmentComplete &FRAGMENT_B,
           const storage::Vector< std::string> &LINKER_COMPOSITION,
@@ -788,7 +788,7 @@ namespace bcl
     //! @param REV_LINK_ATOM the atom at which this fragment will be joined
     //! @param REV_SBP_INDICES the atoms that compose conformationally flexible dihedrals
     //! @return a conformational ensemble of the fully linked molecule and the final linker indices
-    storage::Pair< FragmentEnsemble, storage::Vector< size_t>> FragmentConnect::JoinHalfExtendedFragments
+    storage::Pair< FragmentEnsemble, storage::Vector< size_t>> FragmentMutateConnect::JoinHalfExtendedFragments
         (
           const FragmentEnsemble &FWD_ENS,
           const size_t FWD_LINK_ATOM,
@@ -939,7 +939,7 @@ namespace bcl
     //! @brief select rings from the library and identify attachment atoms
     //! @params LINKER_COMPONENTS the components to check for rings
     //! @return a collection of rings and corresponding attachment indices
-    storage::Vector< storage::Triplet< FragmentComplete, size_t, size_t> > FragmentConnect::ChooseRings
+    storage::Vector< storage::Triplet< FragmentComplete, size_t, size_t> > FragmentMutateConnect::ChooseRings
     (
       const storage::Vector< std::string> &LINKER_COMPONENTS
     ) const
@@ -990,7 +990,7 @@ namespace bcl
     //! @param FRAGMENT the fragment to be modified
     //! @param INDEX the index of FRAGMENT to which the linker fragment will be appended
     //! @param LINK_TYPE the string indicating the link type
-    FragmentComplete FragmentConnect::AddLinkFragment
+    FragmentComplete FragmentMutateConnect::AddLinkFragment
     (
       const FragmentComplete FRAGMENT,
       const size_t INDEX,
@@ -1272,7 +1272,7 @@ namespace bcl
     }
 
     //! @brief create supermolecule of the two fragments without a linker
-    FragmentComplete FragmentConnect::CreateSuperMolecule
+    FragmentComplete FragmentMutateConnect::CreateSuperMolecule
     (
       const FragmentComplete &FRAGMENT_A,
       const FragmentComplete &FRAGMENT_B
@@ -1287,7 +1287,7 @@ namespace bcl
     }
 
     //! @brief compute RMSD of linked molecule to the unlinked supermolecule of the two fragments
-    double FragmentConnect::ComputeRMSDToSuperMolecule
+    double FragmentMutateConnect::ComputeRMSDToSuperMolecule
     (
       const FragmentComplete &MOLECULE,
       const storage::Vector< size_t> &COMMON_INDICES,
@@ -1314,7 +1314,7 @@ namespace bcl
     //! @param DIST_ATOM_B atom at which FRAGMENT_B will be linked to FRAGMENT_A
     //! @param DIST_THRESHOLD maximum allowed distance between DIST_ATOM_A and DIST_ATOM_B
     //! @return true if equal or below DIST_THRESHOLD, false otherwise
-    bool FragmentConnect::DistanceFilter
+    bool FragmentMutateConnect::DistanceFilter
     (
       const FragmentComplete &FRAGMENT_A,
       const size_t DIST_ATOM_A,
@@ -1339,7 +1339,7 @@ namespace bcl
       return true;
     }
 
-    void FragmentConnect::ResolveClashes
+    void FragmentMutateConnect::ResolveClashes
     (
       FragmentComplete &MOLECULE,
       const storage::Vector< size_t> &LINKER_ATOM_INDICES,
@@ -1391,7 +1391,7 @@ namespace bcl
       MOLECULE = *( fixed_mol.GetArgument());
     }
 
-    void FragmentConnect::CorrectBadBondLengths
+    void FragmentMutateConnect::CorrectBadBondLengths
     (
       FragmentComplete &MOLECULE,
       const storage::Vector< size_t> &LINKER_ATOM_INDICES
@@ -1418,7 +1418,7 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    io::Serializer FragmentConnect::GetSerializer() const
+    io::Serializer FragmentMutateConnect::GetSerializer() const
     {
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
@@ -1755,7 +1755,7 @@ namespace bcl
     //! @brief Set the members of this property from the given LABEL
     //! @param LABEL the label to parse
     //! @param ERROR_STREAM the stream to write errors to
-    bool FragmentConnect::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+    bool FragmentMutateConnect::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
     {
       // static initialization check
       if( command::CommandState::IsInStaticInitialization())

@@ -27,6 +27,7 @@
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "io/bcl_io_file.h"
 #include "io/bcl_io_serialization.h"
+#include "math/bcl_math_comparisons.h"
 #include "storage/bcl_storage_list.h"
 #include "storage/bcl_storage_map.h"
 #include "storage/bcl_storage_triplet.h"
@@ -105,6 +106,9 @@ namespace bcl
       //! the number of molecules to keep, per population
       size_t m_FinalPopSize;
 
+      //! the number of times to try to generate a molecule before terminating early
+      size_t m_MaxFailedAttempts;
+
       //! The reaction operation class, used for modifying structures
       chemistry::FragmentReact m_ReactOp;
 
@@ -150,6 +154,18 @@ namespace bcl
 
       //! vector of molecules for recombination operations
       mutable chemistry::FragmentEvolveImplementations m_RecombineOp;
+
+      //! components to filter druglikeness by comparing two descriptors
+      storage::Triplet
+      <
+      descriptor::CheminfoProperty,
+      math::Comparisons< float>::Comparison,
+      descriptor::CheminfoProperty
+      > m_DruglikenessFilter;
+      std::string m_DruglikenessFilterStr;
+//      descriptor::CheminfoProperty m_DruglikenessFilterLHS;
+//      descriptor::CheminfoProperty m_DruglikenessFilterRHS;
+//      math::Comparisons< float>::Comparison m_DruglikenessComparisonType;
 
       //! filename for where EvoGen activity should be logged
       std::string m_LogFile;
@@ -335,6 +351,10 @@ namespace bcl
         size_t TOURN_SIZE,
         const bool &REPLACEMENT = false
       ) const;
+
+      //! @brief evaluates a descriptor to determine whether a molecule
+      //! passes or fails the druglikeness filter
+      bool EvaluateDruglikeness() const;
 
       ///////////////
       // operators //

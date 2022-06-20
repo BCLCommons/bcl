@@ -56,125 +56,12 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    namespace
-    {
-      // helper struct to keept track of bad-bond info
-      struct BadBond
-      {
-        // Data
-        ElementType m_Element1;
-        ElementType m_Element2;
-        size_t m_BondOrder; // 0 is any, 1, 2, 3 do what you expect, 4 is aromatic
-        bool m_InRing;
-
-        //! @brief default constructor
-        BadBond() :
-          m_Element1(),
-          m_Element2(),
-          m_BondOrder(),
-          m_InRing()
-        {
-        }
-
-        //! @brief full constructor
-        BadBond
-        (
-          const ElementType &ELEMENT1,
-          const ElementType &ELEMENT2,
-          const int &BOND_ORDER,
-          const bool &IN_RING
-        ) :
-          m_Element1( ELEMENT1),
-          m_Element2( ELEMENT2),
-          m_BondOrder( BOND_ORDER),
-          m_InRing( IN_RING)
-        {
-        }
-      };
-    }
-
-    //! @brief returns the number of heteroatom-heteroatom (same element) non-ring bonds in a molecule
+    //! @brief evaluates a molecule's topology to see if there are druglikeness violations
     //! @param MOLECULE the molecule to inspect
-    //! @return the number of bad bonds in MOLECULE
-    size_t FragmentEvolveBase::NumberBadBonds( const FragmentComplete &MOLECULE)
+    //! @return false if the molecule fails any of the druglikeness checks in MoleculeDruglike; true otherwise
+    bool FragmentEvolveBase::IsConstitutionDruglike( const FragmentComplete &MOLECULE)
     {
-      static std::vector< BadBond> bad_bond_info;
-      if( bad_bond_info.empty())
-      {
-        // To oxygen
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Oxygen, GetElementTypes().e_Oxygen, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Oxygen, GetElementTypes().e_Nitrogen, 1, false));
-
-        // To sulfur
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Sulfur, 1, true));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Sulfur, 1, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Sulfur, 1, false));
-
-        // To nitrogen
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Nitrogen, GetElementTypes().e_Nitrogen, 2, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Nitrogen, GetElementTypes().e_Nitrogen, 1, false));
-
-        // To halogens
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Nitrogen, GetElementTypes().e_Fluorine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Nitrogen, GetElementTypes().e_Chlorine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Nitrogen, GetElementTypes().e_Bromine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Nitrogen, GetElementTypes().e_Iodine, 0, false));
-
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Oxygen, GetElementTypes().e_Fluorine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Oxygen, GetElementTypes().e_Chlorine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Oxygen, GetElementTypes().e_Bromine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Oxygen, GetElementTypes().e_Iodine, 0, false));
-
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Fluorine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Chlorine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Bromine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Iodine, 0, false));
-      }
-
-      size_t bad_bonds( 0);
-      iterate::Generic< const AtomConformationalInterface> itr_atom( MOLECULE.GetAtomsIterator());
-      for( ; itr_atom.NotAtEnd(); ++itr_atom)
-      {
-        const ElementType &element( itr_atom->GetElementType());
-        if
-        (
-          element == GetElementTypes().e_Carbon
-          || element == GetElementTypes().e_Hydrogen
-        )
-        {
-          continue;
-        }
-        const storage::Vector< BondConformational> &atom_bonds( itr_atom->GetBonds());
-        for( size_t i( 0); i < atom_bonds.GetSize(); ++i)
-        {
-          const ConfigurationalBondType &bond_type( atom_bonds( i).GetBondType());
-          const ElementType &neighbor_element( atom_bonds( i).GetTargetAtom().GetElementType());
-
-          // Iterate through each bad bond and see if the bond matches
-          for( size_t b = 0; b < bad_bond_info.size(); ++b)
-          {
-            const BadBond &bad_bond( bad_bond_info[ b]);
-            if
-            (
-              ( ( element == bad_bond.m_Element1 && neighbor_element == bad_bond.m_Element2)
-                || ( element == bad_bond.m_Element2 && neighbor_element == bad_bond.m_Element1))
-              && bond_type->IsBondInRing() == bad_bond.m_InRing
-            )
-            {
-              if
-              (
-                bad_bond.m_BondOrder == 0
-                || ( bond_type->GetConjugation() == ConstitutionalBondTypeData::e_Aromatic && bad_bond.m_BondOrder == 4)
-                || ( bond_type->GetNumberOfElectrons() == bad_bond.m_BondOrder * 2)
-              )
-              {
-                ++bad_bonds;
-              }
-            }
-          }
-        }
-      }
-      return bad_bonds;
+      return m_Druglike( MOLECULE);
     }
 
     //! @brief generates the 3d conformation from the 2d conformation by doing a system call to corina

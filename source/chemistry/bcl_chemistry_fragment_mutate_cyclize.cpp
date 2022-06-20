@@ -17,7 +17,7 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "chemistry/bcl_chemistry_fragment_cyclize.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_cyclize.h"
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atom_conformational_interface.h"
@@ -44,9 +44,9 @@ namespace bcl
   //////////
 
     // add the interface to the set of known implementations
-    const util::SiPtr< const util::ObjectInterface> FragmentCyclize::s_Instance
+    const util::SiPtr< const util::ObjectInterface> FragmentMutateCyclize::s_Instance
     (
-      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentCyclize())
+      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentMutateCyclize())
     );
 
   //////////////////////////////////
@@ -54,7 +54,7 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    FragmentCyclize::FragmentCyclize() :
+    FragmentMutateCyclize::FragmentMutateCyclize() :
         m_Rings( new ConstitutionSet()),
         m_RingsFilename( std::string())
     {
@@ -66,7 +66,7 @@ namespace bcl
     //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
     //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
     //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-    FragmentCyclize::FragmentCyclize
+    FragmentMutateCyclize::FragmentMutateCyclize
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -95,7 +95,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentCyclize::FragmentCyclize
+    FragmentMutateCyclize::FragmentMutateCyclize
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -132,7 +132,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentCyclize::FragmentCyclize
+    FragmentMutateCyclize::FragmentMutateCyclize
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -159,9 +159,9 @@ namespace bcl
     }
 
     //! @brief clone constructor
-    FragmentCyclize *FragmentCyclize::Clone() const
+    FragmentMutateCyclize *FragmentMutateCyclize::Clone() const
     {
-      return new FragmentCyclize( *this);
+      return new FragmentMutateCyclize( *this);
     }
 
   /////////////////
@@ -170,14 +170,14 @@ namespace bcl
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
-    const std::string &FragmentCyclize::GetClassIdentifier() const
+    const std::string &FragmentMutateCyclize::GetClassIdentifier() const
     {
       return GetStaticClassName( *this);
     }
 
     //! @brief get a short name for this class
     //! @return a short name for this class
-    const std::string &FragmentCyclize::GetAlias() const
+    const std::string &FragmentMutateCyclize::GetAlias() const
     {
       static const std::string s_name( "Cyclize");
       return s_name;
@@ -190,9 +190,9 @@ namespace bcl
     //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
     //! @param FRAGMENT small molecule of interest
     //! @return MutateResult with Constitution after the mutate
-    math::MutateResult< FragmentComplete> FragmentCyclize::operator()( const FragmentComplete &FRAGMENT) const
+    math::MutateResult< FragmentComplete> FragmentMutateCyclize::operator()( const FragmentComplete &FRAGMENT) const
     {
-      BCL_MessageStd( "FragmentCyclize!");
+      BCL_MessageStd( "FragmentMutateCyclize!");
 
       // get fragment graph
       ConformationGraphConverter graph_maker;
@@ -497,7 +497,7 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    io::Serializer FragmentCyclize::GetSerializer() const
+    io::Serializer FragmentMutateCyclize::GetSerializer() const
     {
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
@@ -520,7 +520,7 @@ namespace bcl
     //! @brief Set the members of this property from the given LABEL
     //! @param LABEL the label to parse
     //! @param ERROR_STREAM the stream to write errors to
-    bool FragmentCyclize::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+    bool FragmentMutateCyclize::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
     {
       // static initialization check
       if( command::CommandState::IsInStaticInitialization())

@@ -17,7 +17,7 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "chemistry/bcl_chemistry_fragment_add_med_chem.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_add_med_chem.h"
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
@@ -46,9 +46,9 @@ namespace bcl
   //////////
 
     // add the interface to the set of known implementations
-    const util::SiPtr< const util::ObjectInterface> FragmentAddMedChem::s_Instance
+    const util::SiPtr< const util::ObjectInterface> FragmentMutateAddMedChem::s_Instance
     (
-      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentAddMedChem())
+      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentMutateAddMedChem())
     );
 
   //////////////////////////////////
@@ -56,7 +56,7 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    FragmentAddMedChem::FragmentAddMedChem() :
+    FragmentMutateAddMedChem::FragmentMutateAddMedChem() :
       m_FragmentPool( util::ShPtr< FragmentEnsemble>()),
       m_MedChemFilename( std::string()),
       m_RestrictAdditionsToAroRings( false)
@@ -66,7 +66,7 @@ namespace bcl
 
     //! @brief construct with a pool of external fragments for fragment grow
     //! @param FRAGMENT_POOL external fragments to add to base fragment
-    FragmentAddMedChem::FragmentAddMedChem
+    FragmentMutateAddMedChem::FragmentMutateAddMedChem
     (
       const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const bool &CORINA_CONFS
@@ -83,7 +83,7 @@ namespace bcl
     //! @brief druglikeness constructor
     //! @param FRAGMENT_POOL external fragments to add to base fragment
     //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-    FragmentAddMedChem::FragmentAddMedChem
+    FragmentMutateAddMedChem::FragmentMutateAddMedChem
     (
       const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const std::string &DRUG_LIKENESS_TYPE,
@@ -105,7 +105,7 @@ namespace bcl
     //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
     //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
     //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-    FragmentAddMedChem::FragmentAddMedChem
+    FragmentMutateAddMedChem::FragmentMutateAddMedChem
     (
       const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const std::string &DRUG_LIKENESS_TYPE,
@@ -136,7 +136,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentAddMedChem::FragmentAddMedChem
+    FragmentMutateAddMedChem::FragmentMutateAddMedChem
     (
       const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const std::string &DRUG_LIKENESS_TYPE,
@@ -175,7 +175,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentAddMedChem::FragmentAddMedChem
+    FragmentMutateAddMedChem::FragmentMutateAddMedChem
     (
       const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const std::string &DRUG_LIKENESS_TYPE,
@@ -204,9 +204,9 @@ namespace bcl
     }
 
     //! @brief clone constructor
-    FragmentAddMedChem *FragmentAddMedChem::Clone() const
+    FragmentMutateAddMedChem *FragmentMutateAddMedChem::Clone() const
     {
-      return new FragmentAddMedChem( *this);
+      return new FragmentMutateAddMedChem( *this);
     }
 
   /////////////////
@@ -215,14 +215,14 @@ namespace bcl
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
-    const std::string &FragmentAddMedChem::GetClassIdentifier() const
+    const std::string &FragmentMutateAddMedChem::GetClassIdentifier() const
     {
       return GetStaticClassName( *this);
     }
 
     //! @brief get a short name for this class
     //! @return a short name for this class
-    const std::string &FragmentAddMedChem::GetAlias() const
+    const std::string &FragmentMutateAddMedChem::GetAlias() const
     {
       static const std::string s_name( "AddMedChem");
       return s_name;
@@ -235,7 +235,7 @@ namespace bcl
     //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
     //! @param FRAGMENT small molecule of interest
     //! @return MutateResult with Constitution after the mutate
-    math::MutateResult< FragmentComplete> FragmentAddMedChem::operator()( const FragmentComplete &FRAGMENT) const
+    math::MutateResult< FragmentComplete> FragmentMutateAddMedChem::operator()( const FragmentComplete &FRAGMENT) const
     {
       // mutate label
       BCL_MessageStd( "AddMedChem!");
@@ -500,7 +500,7 @@ namespace bcl
   ////////////////
 
     //! @brief set medchem fragment library from filename
-    void FragmentAddMedChem::SetFragmentLibraryFromFilename( const std::string &FRAGMENTS_FILENAME)
+    void FragmentMutateAddMedChem::SetFragmentLibraryFromFilename( const std::string &FRAGMENTS_FILENAME)
     {
       s_Mutex.Lock();
       io::IFStream input;
@@ -516,7 +516,7 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    io::Serializer FragmentAddMedChem::GetSerializer() const
+    io::Serializer FragmentMutateAddMedChem::GetSerializer() const
     {
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
@@ -546,7 +546,7 @@ namespace bcl
     //! @brief Set the members of this property from the given LABEL
     //! @param LABEL the label to parse
     //! @param ERROR_STREAM the stream to write errors to
-    bool FragmentAddMedChem::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+    bool FragmentMutateAddMedChem::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
     {
       // static initialization check
       if( command::CommandState::IsInStaticInitialization())
@@ -584,7 +584,7 @@ namespace bcl
     //! @brief read from std::istream
     //! @param ISTREAM input stream
     //! @return istream which was read from
-    std::istream &FragmentAddMedChem::Read( std::istream &ISTREAM)
+    std::istream &FragmentMutateAddMedChem::Read( std::istream &ISTREAM)
     {
       io::Serialize::Read( m_FragmentPool, ISTREAM);
       return ISTREAM;
@@ -594,7 +594,7 @@ namespace bcl
     //! @param OSTREAM output stream
     //! @param INDENT number of indentations
     //! @return ostream which was written to
-    std::ostream &FragmentAddMedChem::Write( std::ostream &OSTREAM, const size_t INDENT) const
+    std::ostream &FragmentMutateAddMedChem::Write( std::ostream &OSTREAM, const size_t INDENT) const
     {
       io::Serialize::Write( m_FragmentPool, OSTREAM, INDENT) << '\n';
       return OSTREAM;

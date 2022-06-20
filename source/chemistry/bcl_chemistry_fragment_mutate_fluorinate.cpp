@@ -17,7 +17,7 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "chemistry/bcl_chemistry_fragment_fluorinate.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_fluorinate.h"
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
@@ -41,9 +41,9 @@ namespace bcl
   //////////
 
     // add the interface to the set of known implementations
-    const util::SiPtr< const util::ObjectInterface> FragmentFluorinate::s_Instance
+    const util::SiPtr< const util::ObjectInterface> FragmentMutateFluorinate::s_Instance
     (
-      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentFluorinate())
+      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentMutateFluorinate())
     );
 
   //////////////////////////////////
@@ -51,7 +51,7 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    FragmentFluorinate::FragmentFluorinate() :
+    FragmentMutateFluorinate::FragmentMutateFluorinate() :
       m_Reversible( false)
     {
       this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
@@ -59,7 +59,7 @@ namespace bcl
 
     //! @brief druglikeness constructor
     //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-    FragmentFluorinate::FragmentFluorinate
+    FragmentMutateFluorinate::FragmentMutateFluorinate
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const bool &CORINA_CONFS
@@ -77,7 +77,7 @@ namespace bcl
     //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
     //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
     //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-    FragmentFluorinate::FragmentFluorinate
+    FragmentMutateFluorinate::FragmentMutateFluorinate
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -105,7 +105,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentFluorinate::FragmentFluorinate
+    FragmentMutateFluorinate::FragmentMutateFluorinate
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -141,7 +141,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentFluorinate::FragmentFluorinate
+    FragmentMutateFluorinate::FragmentMutateFluorinate
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -167,9 +167,9 @@ namespace bcl
     }
 
     //! @brief clone constructor
-    FragmentFluorinate *FragmentFluorinate::Clone() const
+    FragmentMutateFluorinate *FragmentMutateFluorinate::Clone() const
     {
-      return new FragmentFluorinate( *this);
+      return new FragmentMutateFluorinate( *this);
     }
 
   /////////////////
@@ -178,14 +178,14 @@ namespace bcl
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
-    const std::string &FragmentFluorinate::GetClassIdentifier() const
+    const std::string &FragmentMutateFluorinate::GetClassIdentifier() const
     {
       return GetStaticClassName( *this);
     }
 
     //! @brief get a short name for this class
     //! @return a short name for this class
-    const std::string &FragmentFluorinate::GetAlias() const
+    const std::string &FragmentMutateFluorinate::GetAlias() const
     {
       static const std::string s_name( "Fluorinate");
       return s_name;
@@ -193,7 +193,7 @@ namespace bcl
 
     //! @brief returns whether fluorinate is reversible
     //! @return reversibility of the fluorinate mutate
-    const bool FragmentFluorinate::GetReversibility() const
+    const bool FragmentMutateFluorinate::GetReversibility() const
     {
       return m_Reversible;
     }
@@ -205,7 +205,7 @@ namespace bcl
     //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
     //! @param FRAGMENT small molecule of interest
     //! @return MutateResult with Constitution after the mutate
-    math::MutateResult< FragmentComplete> FragmentFluorinate::operator()( const FragmentComplete &FRAGMENT) const
+    math::MutateResult< FragmentComplete> FragmentMutateFluorinate::operator()( const FragmentComplete &FRAGMENT) const
     {
       BCL_MessageStd( "Fluorinate!");
       AtomVector< AtomComplete> atom_vector( FRAGMENT.GetAtomVector());
@@ -392,7 +392,7 @@ namespace bcl
   ////////////////
 
     //! @brief set reversibility
-    void FragmentFluorinate::SetReverisibility( const bool REVERSIBLE)
+    void FragmentMutateFluorinate::SetReverisibility( const bool REVERSIBLE)
     {
       m_Reversible = REVERSIBLE;
     }
@@ -401,7 +401,7 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    io::Serializer FragmentFluorinate::GetSerializer() const
+    io::Serializer FragmentMutateFluorinate::GetSerializer() const
     {
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
@@ -466,7 +466,7 @@ namespace bcl
     //! @brief Set the members of this property from the given LABEL
     //! @param LABEL the label to parse
     //! @param ERROR_STREAM the stream to write errors to
-    bool FragmentFluorinate::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+    bool FragmentMutateFluorinate::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
     {
       // static initialization check
       if( command::CommandState::IsInStaticInitialization())

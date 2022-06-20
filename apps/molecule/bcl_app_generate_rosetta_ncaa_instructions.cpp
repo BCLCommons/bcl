@@ -27,7 +27,6 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_configurational_bond_types.h"
 #include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
 #include "chemistry/bcl_chemistry_conformation_graph_converter.h"
-#include "chemistry/bcl_chemistry_fragment_add_med_chem.h"
 #include "chemistry/bcl_chemistry_fragment_ensemble.h"
 #include "chemistry/bcl_chemistry_fragment_feed.h"
 #include "chemistry/bcl_chemistry_fragment_make_conformers.h"
@@ -379,8 +378,7 @@ namespace bcl
         chemistry::FragmentComplete ncaa_sc( ncaa_sc_v, "");
 
         // connect sidechain to backbone via AddMedChem
-        chemistry::FragmentAddMedChem add_med_chem;
-        add_med_chem.SetMutableAtomIndices( storage::Vector< size_t>( 1, new_mol_ca_index));
+        m_AddMedChem.SetMutableAtomIndices( storage::Vector< size_t>( 1, new_mol_ca_index));
         storage::Triplet< bool, size_t, chemistry::FragmentComplete> glycine_dipeptide
         (
           ReadDipeptideBackbone( "ALPHA_AA")
@@ -399,7 +397,7 @@ namespace bcl
           // open the 0-index hydrogen atom valence
           glycine_ov = storage::Triplet< chemistry::FragmentComplete, size_t, size_t>
           (
-            add_med_chem.OpenValence
+            m_AddMedChem.OpenValence
             (
               glycine_dipeptide.Third(),
               glycine_dipeptide.Second(),
@@ -413,7 +411,7 @@ namespace bcl
           // open the 1-index hydrogen atom valence
           glycine_ov = storage::Triplet< chemistry::FragmentComplete, size_t, size_t>
           (
-            add_med_chem.OpenValence
+            m_AddMedChem.OpenValence
             (
               glycine_dipeptide.Third(),
               glycine_dipeptide.Second(),

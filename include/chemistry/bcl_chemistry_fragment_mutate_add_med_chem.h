@@ -12,8 +12,8 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_CHEMISTRY_FRAGMENT_REMOVE_BOND_H_
-#define BCL_CHEMISTRY_FRAGMENT_REMOVE_BOND_H_
+#ifndef BCL_CHEMISTRY_FRAGMENT_MUTATE_ADD_MED_CHEM_H_
+#define BCL_CHEMISTRY_FRAGMENT_MUTATE_ADD_MED_CHEM_H_
 
 // include the namespace header
 #include "bcl_chemistry.h"
@@ -25,7 +25,6 @@
 // includes from bcl - sorted alphabetically
 #include "bcl_chemistry_atom_conformational_interface.h"
 #include "bcl_chemistry_collector_valence.h"
-#include "bcl_chemistry_configurational_bond_types.h"
 #include "bcl_chemistry_fragment_complete.h"
 #include "bcl_chemistry_fragment_constitution_shared.h"
 #include "bcl_chemistry_fragment_ensemble.h"
@@ -46,16 +45,16 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class FragmentRemoveBond
-    //! @brief Used to remove a bond from a fragment, add a bond, or change the bond type
+    //! @class FragmentMutateAddMedChem
+    //! @brief Used to add canonical medicinal chemistry functional groups directly to molecules
     //!
-    //! @see @link example_chemistry_fragment_remove_bond.cpp @endlink
-    //! @author brownbp1
-    //! @date Sep 17, 2019
+    //! @see @link example_chemistry_fragment_mutate_add_med_chem.cpp @endlink
+    //! @author ben
+    //! @date Jun 20, 2022
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class BCL_API FragmentRemoveBond :
+    class BCL_API FragmentMutateAddMedChem :
       public FragmentMutateInterface
     {
 
@@ -63,30 +62,18 @@ namespace bcl
     // friends //
     /////////////
 
-    public:
-
-        //! Count types
-        enum BondTreatment
-        {
-          e_AddBond,      //! add a bond between atoms
-          e_RemoveBond    //! remove a bond between atoms
-        };
-
     private:
 
+      //! pool of fragments to be picked from
+      util::ShPtr< FragmentEnsemble> m_FragmentPool;
+      std::string m_MedChemFilename;
+
+      //! restrict medchem additions to aromatic rings
+      bool m_RestrictAdditionsToAroRings;
+
     //////////
     // data //
     //////////
-
-      //! whether to add or remove a bond
-      BondTreatment m_BondChange;
-
-      //! bond type to add
-      ConfigurationalBondType m_BondType;
-
-      //! atom indices that can be mutated
-      storage::Vector< size_t> m_PairedAtomIndices;
-      std::string m_PairedAtoms;
 
     public:
 
@@ -94,38 +81,43 @@ namespace bcl
     // data //
     //////////
 
-      //! instance for adding bonds
-      static const util::SiPtr< const util::ObjectInterface> s_AddBondInstance;
-
-      //! instance for removing bonds
-      static const util::SiPtr< const util::ObjectInterface> s_RemoveBondInstance;
+      //! single instance of that class
+      static const util::SiPtr< const util::ObjectInterface> s_Instance;
 
     //////////////////////////////////
     // construction and destruction //
     //////////////////////////////////
 
       //! @brief default constructor
-      FragmentRemoveBond();
+      FragmentMutateAddMedChem();
 
-      //! @brief bond change constructor
-      //! @param BOND_CHANGE whether to add or remove bond
-      FragmentRemoveBond( const BondTreatment &BOND_CHANGE);
+      //! @brief construct with a pool of external fragments for fragment grow
+      //! @param FRAGMENT_POOL external fragments to add to base fragment
+      FragmentMutateAddMedChem
+      (
+        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
+        const bool &CORINA_CONFS
+      );
 
       //! @brief druglikeness constructor
+      //! @param FRAGMENT_POOL external fragments to add to base fragment
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-      FragmentRemoveBond
+      FragmentMutateAddMedChem
       (
+        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const bool &CORINA_CONFS
       );
 
-      //! @brief full constructor
+      //! @brief local mutate constructor
+      //! @param FRAGMENT_POOL external fragments to add to base fragment
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
       //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-      FragmentRemoveBond
+      FragmentMutateAddMedChem
       (
+        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -134,6 +126,7 @@ namespace bcl
       );
 
       //! @brief local mutate pose-sensitive constructor
+      //! @param FRAGMENT_POOL external fragments to add to base fragment
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
@@ -142,8 +135,9 @@ namespace bcl
       //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentRemoveBond
+      FragmentMutateAddMedChem
       (
+        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -156,6 +150,7 @@ namespace bcl
       );
 
       //! @brief local clash resolver constructor
+      //! @param FRAGMENT_POOL external fragments to add to base fragment
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
@@ -163,8 +158,9 @@ namespace bcl
       //! @param MDL property label containing path to protein binding pocket PDB file
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentRemoveBond
+      FragmentMutateAddMedChem
       (
+        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -176,7 +172,7 @@ namespace bcl
       );
 
       //! @brief clone constructor
-      FragmentRemoveBond *Clone() const;
+      FragmentMutateAddMedChem *Clone() const;
 
     /////////////////
     // data access //
@@ -203,26 +199,14 @@ namespace bcl
     // operations //
     ////////////////
 
-      //! @brief set the bond change type
-      void SetBondChange( const BondTreatment &BOND_CHANGE);
-
-      //! @brief a function that removes a bond between two atoms
-      //! @param FRAGMENT the small molecule of interest
-      //! @param BOND the bond to remove
-      //! @return atom vector after removal of the bond
-      AtomVector< AtomComplete> RemoveBond( const FragmentComplete &FRAGMENT, const sdf::BondInfo &BOND) const;
-
-      //! @brief a function that adds a bond between two atoms
-      //! @param FRAGMENT the small molecule of interest
-      //! @param BOND the bond to add
-      //! @return atom vector after addition of the bond
-      AtomVector< AtomComplete> AddBond( const FragmentComplete &FRAGMENT, const sdf::BondInfo &BOND) const;
-
-    protected:
+      //! @brief set medchem fragment library from filename
+      void SetFragmentLibraryFromFilename( const std::string &FRAGMENTS_FILENAME);
 
     //////////////////////
     // helper functions //
     //////////////////////
+
+    protected:
 
       //! @brief return parameters for member data that are set up from the labels
       //! @return parameters for member data that are set up from the labels
@@ -233,9 +217,24 @@ namespace bcl
       //! @param ERROR_STREAM the stream to write errors to
       bool ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM);
 
-    }; // class FragmentRemoveBond
+    //////////////////////
+    // input and output //
+    //////////////////////
+
+      //! @brief read from std::istream
+      //! @param ISTREAM input stream
+      //! @return istream which was read from
+      std::istream &Read( std::istream &ISTREAM);
+
+      //! @brief write to std::ostream
+      //! @param OSTREAM output stream
+      //! @param INDENT number of indentations
+      //! @return ostream which was written to
+      std::ostream &Write( std::ostream &OSTREAM, const size_t INDENT) const;
+
+    }; // class FragmentMutateAddMedChem
 
   } // namespace chemistry
 } // namespace bcl
 
-#endif //BCL_CHEMISTRY_FRAGMENT_REMOVE_BOND_H_
+#endif //BCL_CHEMISTRY_FRAGMENT_MUTATE_ADD_MED_CHEM_H_

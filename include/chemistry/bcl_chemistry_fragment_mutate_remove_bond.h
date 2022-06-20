@@ -12,25 +12,26 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_CHEMISTRY_FRAGMENT_CYCLIZE_H_
-#define BCL_CHEMISTRY_FRAGMENT_CYCLIZE_H_
+#ifndef BCL_CHEMISTRY_FRAGMENT_MUTATE_REMOVE_BOND_H_
+#define BCL_CHEMISTRY_FRAGMENT_MUTATE_REMOVE_BOND_H_
 
 // include the namespace header
 #include "bcl_chemistry.h"
 
 // include other forward headers - sorted alphabetically
+#include "descriptor/bcl_descriptor.fwd.hh"
 #include "find/bcl_find.fwd.hh"
 
 // includes from bcl - sorted alphabetically
 #include "bcl_chemistry_atom_conformational_interface.h"
 #include "bcl_chemistry_collector_valence.h"
-#include "bcl_chemistry_constitution_set.h"
+#include "bcl_chemistry_configurational_bond_types.h"
 #include "bcl_chemistry_fragment_complete.h"
 #include "bcl_chemistry_fragment_constitution_shared.h"
 #include "bcl_chemistry_fragment_ensemble.h"
 #include "bcl_chemistry_fragment_mutate_interface.h"
+#include "descriptor/bcl_descriptor_base.h"
 #include "find/bcl_find_pick_interface.h"
-#include "graph/bcl_graph_const_graph.h"
 #include "math/bcl_math_mutate_interface.h"
 #include "math/bcl_math_mutate_result.h"
 #include "util/bcl_util_function_interface.h"
@@ -45,16 +46,16 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class FragmentCyclize
-    //! @brief Used to form intramolecular bonds between two non-ring atoms or one ring and one non-ring atom
+    //! @class FragmentMutateRemoveBond
+    //! @brief Used to remove a bond from a fragment, add a bond, or change the bond type
     //!
-    //! @see @link example_chemistry_fragment_cyclize.cpp @endlink
-    //! @author brownbp1
-    //! @date Sep 14, 2019
+    //! @see @link example_chemistry_fragment_mutate_remove_bond.cpp @endlink
+    //! @author ben
+    //! @date Jun 20, 2022
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class BCL_API FragmentCyclize :
+    class BCL_API FragmentMutateRemoveBond :
       public FragmentMutateInterface
     {
 
@@ -62,15 +63,30 @@ namespace bcl
     // friends //
     /////////////
 
+    public:
+
+        //! Count types
+        enum BondTreatment
+        {
+          e_AddBond,      //! add a bond between atoms
+          e_RemoveBond    //! remove a bond between atoms
+        };
+
     private:
 
     //////////
     // data //
     //////////
 
-      //! rings from fragment database
-      util::ShPtr< ConstitutionSet> m_Rings;
-      std::string m_RingsFilename;
+      //! whether to add or remove a bond
+      BondTreatment m_BondChange;
+
+      //! bond type to add
+      ConfigurationalBondType m_BondType;
+
+      //! atom indices that can be mutated
+      storage::Vector< size_t> m_PairedAtomIndices;
+      std::string m_PairedAtoms;
 
     public:
 
@@ -78,22 +94,37 @@ namespace bcl
     // data //
     //////////
 
-      //! single instance of that class
-      static const util::SiPtr< const util::ObjectInterface> s_Instance;
+      //! instance for adding bonds
+      static const util::SiPtr< const util::ObjectInterface> s_AddBondInstance;
+
+      //! instance for removing bonds
+      static const util::SiPtr< const util::ObjectInterface> s_RemoveBondInstance;
 
     //////////////////////////////////
     // construction and destruction //
     //////////////////////////////////
 
       //! @brief default constructor
-      FragmentCyclize();
+      FragmentMutateRemoveBond();
 
-      //! @brief constructor
+      //! @brief bond change constructor
+      //! @param BOND_CHANGE whether to add or remove bond
+      FragmentMutateRemoveBond( const BondTreatment &BOND_CHANGE);
+
+      //! @brief druglikeness constructor
+      //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
+      FragmentMutateRemoveBond
+      (
+        const std::string &DRUG_LIKENESS_TYPE,
+        const bool &CORINA_CONFS
+      );
+
+      //! @brief full constructor
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
       //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-      FragmentCyclize
+      FragmentMutateRemoveBond
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -111,7 +142,7 @@ namespace bcl
       //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentCyclize
+      FragmentMutateRemoveBond
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -132,7 +163,7 @@ namespace bcl
       //! @param MDL property label containing path to protein binding pocket PDB file
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentCyclize
+      FragmentMutateRemoveBond
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -145,7 +176,7 @@ namespace bcl
       );
 
       //! @brief clone constructor
-      FragmentCyclize *Clone() const;
+      FragmentMutateRemoveBond *Clone() const;
 
     /////////////////
     // data access //
@@ -172,6 +203,21 @@ namespace bcl
     // operations //
     ////////////////
 
+      //! @brief set the bond change type
+      void SetBondChange( const BondTreatment &BOND_CHANGE);
+
+      //! @brief a function that removes a bond between two atoms
+      //! @param FRAGMENT the small molecule of interest
+      //! @param BOND the bond to remove
+      //! @return atom vector after removal of the bond
+      AtomVector< AtomComplete> RemoveBond( const FragmentComplete &FRAGMENT, const sdf::BondInfo &BOND) const;
+
+      //! @brief a function that adds a bond between two atoms
+      //! @param FRAGMENT the small molecule of interest
+      //! @param BOND the bond to add
+      //! @return atom vector after addition of the bond
+      AtomVector< AtomComplete> AddBond( const FragmentComplete &FRAGMENT, const sdf::BondInfo &BOND) const;
+
     protected:
 
     //////////////////////
@@ -187,9 +233,9 @@ namespace bcl
       //! @param ERROR_STREAM the stream to write errors to
       bool ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM);
 
-    }; // class FragmentCyclize
+    }; // class FragmentMutateRemoveBond
 
   } // namespace chemistry
 } // namespace bcl
 
-#endif //BCL_CHEMISTRY_FRAGMENT_CYCLIZE_H_
+#endif //BCL_CHEMISTRY_FRAGMENT_MUTATE_REMOVE_BOND_H_

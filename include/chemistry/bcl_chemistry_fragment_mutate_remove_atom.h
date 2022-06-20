@@ -12,8 +12,8 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_CHEMISTRY_FRAGMENT_REMOVE_ATOM_H_
-#define BCL_CHEMISTRY_FRAGMENT_REMOVE_ATOM_H_
+#ifndef BCL_CHEMISTRY_FRAGMENT_MUTATE_REMOVE_ATOM_H_
+#define BCL_CHEMISTRY_FRAGMENT_MUTATE_REMOVE_ATOM_H_
 
 // include the namespace header
 #include "bcl_chemistry.h"
@@ -45,16 +45,16 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class FragmentRemoveAtom
+    //! @class FragmentMutateRemoveAtom
     //! @brief Used to remove atoms from fragments
     //!
-    //! @see @link example_chemistry_fragment_remove_atom.cpp @endlink
-    //! @author brownbp1
-    //! @date Sep 12, 2019
+    //! @see @link example_chemistry_fragment_mutate_remove_atom.cpp @endlink
+    //! @author ben
+    //! @date Jun 20, 2022
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class BCL_API FragmentRemoveAtom :
+    class BCL_API FragmentMutateRemoveAtom :
       public FragmentMutateInterface
     {
 
@@ -82,11 +82,11 @@ namespace bcl
     //////////////////////////////////
 
       //! @brief default constructor
-      FragmentRemoveAtom();
+      FragmentMutateRemoveAtom();
 
       //! @brief druglikeness constructor
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-      FragmentRemoveAtom
+      FragmentMutateRemoveAtom
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const bool &CORINA_CONFS
@@ -97,7 +97,7 @@ namespace bcl
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
       //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-      FragmentRemoveAtom
+      FragmentMutateRemoveAtom
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -115,7 +115,7 @@ namespace bcl
       //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentRemoveAtom
+      FragmentMutateRemoveAtom
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -136,7 +136,7 @@ namespace bcl
       //! @param MDL property label containing path to protein binding pocket PDB file
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentRemoveAtom
+      FragmentMutateRemoveAtom
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -149,7 +149,7 @@ namespace bcl
       );
 
       //! @brief clone constructor
-      FragmentRemoveAtom *Clone() const;
+      FragmentMutateRemoveAtom *Clone() const;
 
     /////////////////
     // data access //
@@ -191,9 +191,9 @@ namespace bcl
       //! @param ERROR_STREAM the stream to write errors to
       bool ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM);
 
-    }; // class FragmentRemoveAtom
+    }; // class FragmentMutateRemoveAtom
 
   } // namespace chemistry
 } // namespace bcl
 
-#endif //BCL_CHEMISTRY_FRAGMENT_REMOVE_ATOM_H_
+#endif //BCL_CHEMISTRY_FRAGMENT_MUTATE_REMOVE_ATOM_H_

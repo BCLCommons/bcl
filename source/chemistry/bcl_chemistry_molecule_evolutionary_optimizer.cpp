@@ -94,9 +94,12 @@ namespace bcl
     // operations //
     ////////////////
 
-    ///////////////
-    // operators //
-    ///////////////
+    //! @brief set filename for EvoGen log file
+    //! @details this file is a json-formatted log file containing information about the generated molecules
+    void MoleculeEvolutionaryOptimizer::SetLogFile( const std::string &FILENAME)
+    {
+      m_LogFile = FILENAME;
+    }
 
     //! @brief set up the initial population from an ensemble of molecules
     //! @details molecules must have >= 1 atoms or they will be discarded.
@@ -135,11 +138,19 @@ namespace bcl
       std::sort( new_pop.begin(), new_pop.end());
     }
 
-    //! @brief set filename for EvoGen log file
-    //! @details this file is a json-formatted log file containing information about the generated molecules
-    void MoleculeEvolutionaryOptimizer::SetLogFile( const std::string &FILENAME)
+    //! @brief set the final size of each population.
+    //! @param POP_SIZE the final size of populations
+    void MoleculeEvolutionaryOptimizer::SetFinalPopSize( const size_t &POP_SIZE)
     {
-      m_LogFile = FILENAME;
+      m_FinalPopSize = POP_SIZE;
+    }
+
+    //! @brief set the maximum number of molecules to generate during each iteration.  This will be pruned to
+    //!  m_FinalPopSize afterwards
+    //! @param MAX maximum number of molecules to generate
+    void MoleculeEvolutionaryOptimizer::SetMaxToGenerate( const size_t &MAX)
+    {
+      m_GenerateMax = MAX;
     }
 
     //! @brief set molecule selection type to keep highest-scoring molecules
@@ -251,21 +262,6 @@ namespace bcl
     const std::vector< std::vector< MoleculeEvolutionInfo> > &MoleculeEvolutionaryOptimizer::GetMoleculeEvolutionInfos() const
     {
       return m_Populations;
-    }
-
-    //! @brief set the final size of each population.
-    //! @param POP_SIZE the final size of populations
-    void MoleculeEvolutionaryOptimizer::SetFinalPopSize( const size_t &POP_SIZE)
-    {
-      m_FinalPopSize = POP_SIZE;
-    }
-
-    //! @brief set the maximum number of molecules to generate during each iteration.  This will be pruned to
-    //!  m_FinalPopSize afterwards
-    //! @param MAX maximum number of molecules to generate
-    void MoleculeEvolutionaryOptimizer::SetMaxToGenerate( const size_t &MAX)
-    {
-      m_GenerateMax = MAX;
     }
 
     //! @brief initialize the reaction operation structure
@@ -420,204 +416,29 @@ namespace bcl
       return m_ptrs[ n].second;
     }
 
-    //! @brief execute a reaction/addition operation to generate new molecules
-    //! @brief MOLS the vector to add the new molecules to
-    //! @details this only generates structures and sets history values appropriately, but does nothing for ensuring
-    //!  molecules are suitable for scoring or that their
-    void MoleculeEvolutionaryOptimizer::GenerateMolecules( std::vector< MoleculeEvolutionInfo> &MOLS) const
+    //! @brief helper funciton to score a vector of MoleculeEvolutionInfos
+    //! @param MOL_INFOS the MoleculeEvolutionInfos containing molecules to score
+    //! @details this updates the MoleculeEvolutionInfo.m_Fitness function of all molecules
+    void MoleculeEvolutionaryOptimizer::ScoreMolecules( std::vector< MoleculeEvolutionInfo> &MOL_INFOS)
     {
-      if( m_Populations.empty())
+      switch( m_ModelType)
       {
-        return;
-      }
-
-      // reference to most recent population, should be sorted by score l->h
-      const std::vector< MoleculeEvolutionInfo> &last_pop( m_Populations.back());
-      if( last_pop.empty())
-      {
-        return;
-      }
-
-      //Select evolutionary process probabilities
-      bool alchemy( false);
-      float react( 0.0), recombine( 0.0);
-      switch( m_EvolutionBalanceType)
-      {
-        case e_AlchemicalMutate:
-        alchemy = true;
-        break;
-        case e_ReactionDominant:
-        react = 0.75;
-        recombine = 0.85;
-        break;
-        case e_ReactionInsertionOnly:
-        react = 0.75;
-        recombine = 0.75 + math::GetLowestBoundedValue< float>();
-        break;
-        case e_RecombinationDominant:
-        react = 0.10;
-        recombine = 0.85;
-        break;
-        case e_RecombinationInsertionOnly:
-        react = math::GetLowestBoundedValue< float>();
-        recombine = 0.85;
-        break;
-        case e_ReactionRecombinationBalanced:
-        react = 0.425;
-        recombine = 0.85;
-        break;
+        case e_Internal:
+          for
+          (
+            std::vector< MoleculeEvolutionInfo>::iterator itr_mi( MOL_INFOS.begin()), itr_mi_end( MOL_INFOS.end());
+            itr_mi != itr_mi_end;
+            ++itr_mi
+          )
+          {
+            itr_mi->m_Fitness = ScoreMoleculeInternal( itr_mi->m_Molecule);
+          }
+          break;
+        case e_External:
+          ScoreMoleculesExternal( MOL_INFOS);
+          break;
         default:
-        BCL_Exit( "No proper evolution balancing type was specified, exiting...", -1);
-      }
-
-      float op_test( random::GetGlobalRandom().Random< float>( 0, 1.0));
-      size_t tourn_size( std::max< size_t>( 1, std::min< size_t>( m_ModifyTournSizeFactor * last_pop.size(), last_pop.size())));
-
-      // one-shot reaction couplings using undefined atoms between two reagents via AddMedChem
-      if( alchemy)
-      {
-        // probably needs an operations count
-
-        // select molecule via tournament selection
-        size_t mol_no( SelectMoleculeTournament( last_pop, tourn_size));
-
-        // react the molecule with something random
-        const chemistry::FragmentComplete &picked_mol( last_pop[ mol_no].m_Molecule);
-//            m_Mutate->SetMutableElementsAtomIndices
-//            (
-//              picked_mol,
-//              storage::Vector< chemistry::ElementType>(1, chemistry::GetElementTypes().e_Undefined)
-//            );
-
-        // mutate
-        auto product( ( *m_Mutate)( picked_mol));
-
-        // update info
-        if( product.GetArgument().IsDefined())
-        {
-          std::stringstream hist;
-          hist << "AlchemicalMutate,";
-          hist << last_pop[ mol_no].m_Identifier;
-          MOLS.push_back( MoleculeEvolutionInfo( "", *( product.GetArgument()), 0, hist.str()));
-        }
-      }
-
-      // rxn-type reaction
-      else if( op_test < react)
-      {
-        ++m_Operations[ 0];
-
-        // select molecule via tournament selection
-        size_t mol_no( SelectMoleculeTournament( last_pop, tourn_size));
-
-        // react the molecule with something random
-        const chemistry::FragmentComplete &picked_mol( last_pop[ mol_no].m_Molecule);
-        storage::Pair< util::SiPtr< const chemistry::ReactionComplete>, chemistry::FragmentEnsemble> res
-        (
-          m_ReactOp.ReactRandom( picked_mol)
-        );
-
-        // a reaction may have generated more than one molecule, add each of them to the new population
-        for
-        (
-          chemistry::FragmentEnsemble::const_iterator itr_mol( res.Second().Begin()), itr_mol_end( res.Second().End());
-            itr_mol != itr_mol_end;
-            ++itr_mol
-        )
-        {
-          std::stringstream hist;
-          hist << "React,";
-          hist << RemoveWhitespace( res.First()->GetDescription());
-          hist << "," << last_pop[ mol_no].m_Identifier;
-          MOLS.push_back( MoleculeEvolutionInfo( "", *itr_mol, 0, hist.str()));
-        }
-      }
-      // recombination
-      else if( op_test < recombine)
-      {
-        ++m_Operations[ 1];
-
-        // select molecule from tournament selection
-        size_t mol_one( SelectMoleculeTournament( last_pop, tourn_size));
-        const chemistry::FragmentComplete &picked_mol_one( last_pop[ mol_one].m_Molecule);
-        util::ShPtrVector< chemistry::FragmentComplete> new_mols;
-
-        // select recombination type randomly
-        size_t recomb_type( random::GetGlobalRandom().Random< size_t>( 0, 2));
-        if( recomb_type == 0 || recomb_type == 1)
-        {
-          // combine selected molecule with random molecule from the inserted (or "migrant") mols population
-          m_RecombineOp = chemistry::FragmentEvolveImplementations( chemistry::FragmentEvolveImplementations::e_Combine, false);
-          size_t mol_two( random::GetGlobalRandom().Random< size_t>( 0, m_InsertMols.GetSize() - 1));
-          const chemistry::FragmentComplete &picked_mol_two( *m_InsertMols( mol_two));
-          new_mols = m_RecombineOp.Combine( picked_mol_one, picked_mol_two, 50);
-        }
-        else if( recomb_type == 3)
-        {
-          // split GADD fragments from a random inserted (or "migrant) molecule and
-          m_RecombineOp = chemistry::FragmentEvolveImplementations( chemistry::FragmentEvolveImplementations::e_FragAdd, false);
-//              size_t mol_two( random::GetGlobalRandom().Random< size_t>( 0, m_InsertMols.GetSize() - 1));
-//              const chemistry::FragmentComplete &picked_mol_two( *m_InsertMols( mol_two));
-
-          //List of component fragment indices
-          storage::List< storage::Vector< size_t> > gadd_fragment_indices;
-
-          // GADD fragment rings
-          if( random::GetGlobalRandom().Random< size_t>( 0, 1) == 0)
-          {
-            chemistry::FragmentSplitGADDFragments splitter;
-//                splitter.GetComponentVertices( picked_mol_two, picked_mol_two.)
-          }
-
-          // GADD fragment chains
-          else
-          {
-            chemistry::FragmentSplitGADDFragments splitter;
-          }
-
-//              new_mols = m_RecombineOp.MutateAdd()
-
-        }
-        else if( recomb_type == 2)
-        {
-          m_RecombineOp = chemistry::FragmentEvolveImplementations( chemistry::FragmentEvolveImplementations::e_FragDel, false);
-          new_mols = m_RecombineOp.MutateDel( picked_mol_one);
-        }
-
-        // now add the new compounds to the mix
-        for
-        (
-          util::ShPtrVector< chemistry::FragmentComplete>::iterator new_mols_itr( new_mols.Begin()), new_mols_itr_end( new_mols.End());
-            new_mols_itr != new_mols_itr_end;
-            ++new_mols_itr
-        )
-        {
-          std::stringstream hist;
-          hist << "Recombine,";
-          hist << last_pop[ mol_one].m_Identifier;
-//              hist << "," << m_InsertMols(mol_two)->GetName();
-          MOLS.push_back( MoleculeEvolutionInfo( "", **new_mols_itr, 0, hist.str()));
-        }
-      }
-
-      else
-      {
-        ++m_Operations[ 2];
-        if( m_InsertMols.GetSize() > 1)
-        {
-          size_t mol_no( random::GetGlobalRandom().Random< size_t>( 0, m_InsertMols.GetSize() - 1));
-          MOLS.push_back( MoleculeEvolutionInfo());
-          MoleculeEvolutionInfo &mol = MOLS.back();
-          mol.m_Molecule = *m_InsertMols( mol_no);
-          mol.m_History = "Insert,M" + util::Format()( mol_no);
-        }
-        else if( m_InsertMols.GetSize() == 1)
-        {
-          MOLS.push_back( MoleculeEvolutionInfo());
-          MoleculeEvolutionInfo &mol = MOLS.back();
-          mol.m_Molecule = *m_InsertMols( 0);
-          mol.m_History = "Insert,M" + util::Format()( 0);
-        } // else noop
+          BCL_Exit( "Neither internal nor external model was specified", -1);
       }
     }
 
@@ -625,7 +446,7 @@ namespace bcl
     //! @param MOL the molecule to score
     //! @return the score of the molecule
     //! @details does not do any preprocessing of the molecule, this is up to the caller
-    float MoleculeEvolutionaryOptimizer::ScoreMoleculeInternal( const chemistry::FragmentComplete &MOL) const
+    float MoleculeEvolutionaryOptimizer::ScoreMoleculeInternal( const FragmentComplete &MOL) const
     {
       BCL_Assert( m_Scorer.IsDefined(), "scorer was not defined");
       return m_Scorer->SumOverObject( MOL)( 0);
@@ -808,29 +629,217 @@ namespace bcl
       std::sort( TO.begin(), TO.end());
     }
 
-    //! @brief helper funciton to score a vector of MoleculeEvolutionInfos
-    //! @param MOL_INFOS the MoleculeEvolutionInfos containing molecules to score
-    //! @details this updates the MoleculeEvolutionInfo.m_Fitness function of all molecules
-    void MoleculeEvolutionaryOptimizer::ScoreMolecules( std::vector< MoleculeEvolutionInfo> &MOL_INFOS)
+    //! @brief evaluates a descriptor to determine whether a molecule
+    //! passes or fails the druglikeness filter
+    bool MoleculeEvolutionaryOptimizer::EvaluateDruglikeness( const MoleculeEvolutionInfo &MOL) const
     {
-      switch( m_ModelType)
+      // evaluate the properties across the molecule
+      const linal::Vector< float> lhs_property( m_DruglikenessFilter.First()->SumOverObject( MOL.GetMolecule()));
+      const linal::Vector< float> rhs_property( m_DruglikenessFilter.Third()->SumOverObject( MOL.GetMolecule()));
+
+      // TODO: add catch for if the property value cannot be evaluated or is size 0
+
+      // perform comparison
+      return m_DruglikenessFilter.Second()( lhs_property, rhs_property);
+    }
+
+    ///////////////
+    // operators //
+    ///////////////
+
+    //! @brief execute a reaction/addition operation to generate new molecules
+    //! @brief MOLS the vector to add the new molecules to
+    //! @details this only generates structures and sets history values appropriately, but does nothing for ensuring
+    //!  molecules are suitable for scoring or that their
+    void MoleculeEvolutionaryOptimizer::GenerateMolecules( std::vector< MoleculeEvolutionInfo> &MOLS) const
+    {
+      if( m_Populations.empty())
       {
-        case e_Internal:
-          for
-          (
-            std::vector< MoleculeEvolutionInfo>::iterator itr_mi( MOL_INFOS.begin()), itr_mi_end( MOL_INFOS.end());
-            itr_mi != itr_mi_end;
-            ++itr_mi
-          )
-          {
-            itr_mi->m_Fitness = ScoreMoleculeInternal( itr_mi->m_Molecule);
-          }
-          break;
-        case e_External:
-          ScoreMoleculesExternal( MOL_INFOS);
-          break;
+        return;
+      }
+
+      // reference to most recent population, should be sorted by score l->h
+      const std::vector< MoleculeEvolutionInfo> &last_pop( m_Populations.back());
+      if( last_pop.empty())
+      {
+        return;
+      }
+
+      //Select evolutionary process probabilities
+      bool alchemy( false);
+      float react( 0.0), recombine( 0.0);
+      switch( m_EvolutionBalanceType)
+      {
+        case e_AlchemicalMutate:
+        alchemy = true;
+        break;
+        case e_ReactionDominant:
+        react = 0.75;
+        recombine = 0.85;
+        break;
+        case e_ReactionInsertionOnly:
+        react = 0.75;
+        recombine = 0.75 + math::GetLowestBoundedValue< float>();
+        break;
+        case e_RecombinationDominant:
+        react = 0.10;
+        recombine = 0.85;
+        break;
+        case e_RecombinationInsertionOnly:
+        react = math::GetLowestBoundedValue< float>();
+        recombine = 0.85;
+        break;
+        case e_ReactionRecombinationBalanced:
+        react = 0.425;
+        recombine = 0.85;
+        break;
         default:
-          BCL_Exit( "Neither internal nor external model was specified", -1);
+        BCL_Exit( "No proper evolution balancing type was specified, exiting...", -1);
+      }
+
+      float op_test( random::GetGlobalRandom().Random< float>( 0, 1.0));
+      size_t tourn_size( std::max< size_t>( 1, std::min< size_t>( m_ModifyTournSizeFactor * last_pop.size(), last_pop.size())));
+
+      // one-shot reaction couplings using undefined atoms between two reagents via AddMedChem
+      if( alchemy)
+      {
+        // probably needs an operations count
+
+        // select molecule via tournament selection
+        size_t mol_no( SelectMoleculeTournament( last_pop, tourn_size));
+
+        // react the molecule with something random
+        const FragmentComplete &picked_mol( last_pop[ mol_no].m_Molecule);
+
+        // mutate
+        auto product( ( *m_Mutate)( picked_mol));
+
+        // update info
+        if( product.GetArgument().IsDefined())
+        {
+          std::stringstream hist;
+          hist << "AlchemicalMutate,";
+          hist << last_pop[ mol_no].m_Identifier;
+          MOLS.push_back( MoleculeEvolutionInfo( "", *( product.GetArgument()), 0, hist.str()));
+        }
+      }
+
+      // rxn-type reaction
+      else if( op_test < react)
+      {
+        ++m_Operations[ 0];
+
+        // select molecule via tournament selection
+        size_t mol_no( SelectMoleculeTournament( last_pop, tourn_size));
+
+        // react the molecule with something random
+        const FragmentComplete &picked_mol( last_pop[ mol_no].m_Molecule);
+        storage::Pair< util::SiPtr< const chemistry::ReactionComplete>, chemistry::FragmentEnsemble> res
+        (
+          m_ReactOp.ReactRandom( picked_mol)
+        );
+
+        // a reaction may have generated more than one molecule, add each of them to the new population
+        for
+        (
+          chemistry::FragmentEnsemble::const_iterator itr_mol( res.Second().Begin()), itr_mol_end( res.Second().End());
+            itr_mol != itr_mol_end;
+            ++itr_mol
+        )
+        {
+          std::stringstream hist;
+          hist << "React,";
+          hist << RemoveWhitespace( res.First()->GetDescription());
+          hist << "," << last_pop[ mol_no].m_Identifier;
+          MOLS.push_back( MoleculeEvolutionInfo( "", *itr_mol, 0, hist.str()));
+        }
+      }
+      // recombination
+      else if( op_test < recombine)
+      {
+        ++m_Operations[ 1];
+
+        // select molecule from tournament selection
+        size_t mol_one( SelectMoleculeTournament( last_pop, tourn_size));
+        const FragmentComplete &picked_mol_one( last_pop[ mol_one].m_Molecule);
+        util::ShPtrVector< FragmentComplete> new_mols;
+
+        // select recombination type randomly
+        size_t recomb_type( random::GetGlobalRandom().Random< size_t>( 0, 2));
+        if( recomb_type == 0 || recomb_type == 1)
+        {
+          // combine selected molecule with random molecule from the inserted (or "migrant") mols population
+          m_RecombineOp = chemistry::FragmentEvolveImplementations( chemistry::FragmentEvolveImplementations::e_Combine, false);
+          size_t mol_two( random::GetGlobalRandom().Random< size_t>( 0, m_InsertMols.GetSize() - 1));
+          const FragmentComplete &picked_mol_two( *m_InsertMols( mol_two));
+          new_mols = m_RecombineOp.Combine( picked_mol_one, picked_mol_two, 50);
+        }
+        else if( recomb_type == 3)
+        {
+          // split GADD fragments from a random inserted (or "migrant) molecule and
+          m_RecombineOp = chemistry::FragmentEvolveImplementations( chemistry::FragmentEvolveImplementations::e_FragAdd, false);
+//              size_t mol_two( random::GetGlobalRandom().Random< size_t>( 0, m_InsertMols.GetSize() - 1));
+//              const FragmentComplete &picked_mol_two( *m_InsertMols( mol_two));
+
+          //List of component fragment indices
+          storage::List< storage::Vector< size_t> > gadd_fragment_indices;
+
+          // GADD fragment rings
+          if( random::GetGlobalRandom().Random< size_t>( 0, 1) == 0)
+          {
+            chemistry::FragmentSplitGADDFragments splitter;
+//                splitter.GetComponentVertices( picked_mol_two, picked_mol_two.)
+          }
+
+          // GADD fragment chains
+          else
+          {
+            chemistry::FragmentSplitGADDFragments splitter;
+          }
+
+//              new_mols = m_RecombineOp.MutateAdd()
+
+        }
+        else if( recomb_type == 2)
+        {
+          m_RecombineOp = chemistry::FragmentEvolveImplementations( chemistry::FragmentEvolveImplementations::e_FragDel, false);
+          new_mols = m_RecombineOp.MutateDel( picked_mol_one);
+        }
+
+        // now add the new compounds to the mix
+        for
+        (
+          util::ShPtrVector< FragmentComplete>::iterator new_mols_itr( new_mols.Begin()), new_mols_itr_end( new_mols.End());
+            new_mols_itr != new_mols_itr_end;
+            ++new_mols_itr
+        )
+        {
+          std::stringstream hist;
+          hist << "Recombine,";
+          hist << last_pop[ mol_one].m_Identifier;
+//              hist << "," << m_InsertMols(mol_two)->GetName();
+          MOLS.push_back( MoleculeEvolutionInfo( "", **new_mols_itr, 0, hist.str()));
+        }
+      }
+
+      else
+      {
+        ++m_Operations[ 2];
+        if( m_InsertMols.GetSize() > 1)
+        {
+          size_t mol_no( random::GetGlobalRandom().Random< size_t>( 0, m_InsertMols.GetSize() - 1));
+          MOLS.push_back( MoleculeEvolutionInfo());
+          MoleculeEvolutionInfo &mol = MOLS.back();
+          mol.m_Molecule = *m_InsertMols( mol_no);
+          mol.m_History = "Insert,M" + util::Format()( mol_no);
+        }
+        else if( m_InsertMols.GetSize() == 1)
+        {
+          MOLS.push_back( MoleculeEvolutionInfo());
+          MoleculeEvolutionInfo &mol = MOLS.back();
+          mol.m_Molecule = *m_InsertMols( 0);
+          mol.m_History = "Insert,M" + util::Format()( 0);
+        } // else noop
       }
     }
 
@@ -838,15 +847,12 @@ namespace bcl
     //! @return 0 on success, negative value on error
     int MoleculeEvolutionaryOptimizer::Next()
     {
-      // druglikeness hack
-      static descriptor::MoleculeDruglike druglike( false);
-
       std::vector< size_t> prev_ops( m_Operations);
       std::vector< MoleculeEvolutionInfo> next_pop;
       next_pop.reserve( m_GenerateMax + ( m_Populations.empty() ? 0 : m_Populations.back().size()));
-      chemistry::ConstitutionSet unique_mols;
+      ConstitutionSet unique_mols;
 
-//          int tries = 0;
+      int tries = 0;
       int mol_no = 0;
 
       // do this until we reach the specified number of molecules
@@ -860,10 +866,10 @@ namespace bcl
         for( size_t i( 0); i < mols.size(); ++i)
         {
 
-          util::ShPtr< chemistry::FragmentComplete> final_mol;
+          util::ShPtr< FragmentComplete> final_mol;
           m_Mutate.IsDefined() ?
-          final_mol = util::ShPtr< chemistry::FragmentComplete> ( util::ShPtr< chemistry::FragmentComplete>( new chemistry::FragmentComplete( mols[i].m_Molecule))) :
-          final_mol = util::ShPtr< chemistry::FragmentComplete> ( chemistry::FragmentEvolveBase::FinalizeMolecule( mols[ i].m_Molecule));
+          final_mol = util::ShPtr< FragmentComplete> ( util::ShPtr< FragmentComplete>( new FragmentComplete( mols[i].m_Molecule))) :
+          final_mol = util::ShPtr< FragmentComplete> ( FragmentEvolveBase::FinalizeMolecule( mols[ i].m_Molecule));
           if( final_mol.IsDefined())
           {
             mols[ i].m_Molecule = *final_mol;
@@ -873,18 +879,18 @@ namespace bcl
             (
                 mols[ i].m_Molecule.GetNumberAtoms() &&
                 unique_mols.Insert( chemistry::FragmentConstitutionShared( mols[ i].m_Molecule)).second &&
-                druglike( mols[ i].m_Molecule)( 0)
+                EvaluateDruglikeness( mols[ i])
             )
             {
               mols[ i].m_Identifier = "P" + util::Format()( m_Populations.size()) + "M" + util::Format()( mol_no++);
               next_pop.push_back( mols[ i]);
-//                  tries = 0;
+              tries = 0;
             }
           }
         }
 
         // if we are failing really hard, then we should probably just abort...
-//            BCL_Assert( ++tries < 100, "Tried to generate a unique molecule, took more than 100 tries, bailing out");
+        BCL_Assert( ++tries < m_MaxFailedAttempts, "Tried to generate a unique molecule, took more than 100 tries, bailing out");
 
         // print off a status message so the users don't get antsy
         if( next_pop.size() % 10)
@@ -897,7 +903,7 @@ namespace bcl
         }
       }
 
-      storage::Vector< storage::Triplet< chemistry::FragmentComplete, chemistry::FragmentComplete, double>> refined_mols( next_pop.size());
+      storage::Vector< storage::Triplet< FragmentComplete, FragmentComplete, double>> refined_mols( next_pop.size());
 
       // score all molecules as a batch
       BCL_MessageStd( "Scoring molecules");
@@ -1139,6 +1145,15 @@ namespace bcl
     {
       io::Serializer member_data;
       member_data.SetClassDescription( "Evolves a molecule.");
+
+      // TODO: is it easier for people if this is one string or if i split it into 3?
+      member_data.AddOptionalInitializer
+      (
+        "druglikeness_filter",
+        "comparison to determine whether a molecule is druglike; "
+        "formatted as a comparison: <lhs_property> <comparison> <rhs_property>",
+        io::Serialization::GetAgent( &m_DruglikenessFilterStr)
+      );
 
       return member_data;
     }

@@ -17,7 +17,7 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "chemistry/bcl_chemistry_fragment_halogenate.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_halogenate.h"
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
@@ -44,9 +44,9 @@ namespace bcl
   //////////
 
     // add the interface to the set of known implementations
-    const util::SiPtr< const util::ObjectInterface> FragmentHalogenate::s_Instance
+    const util::SiPtr< const util::ObjectInterface> FragmentMutateHalogenate::s_Instance
     (
-      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentHalogenate())
+      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentMutateHalogenate())
     );
 
   //////////////////////////////////
@@ -54,7 +54,7 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    FragmentHalogenate::FragmentHalogenate() :
+    FragmentMutateHalogenate::FragmentMutateHalogenate() :
       m_AllowedHalogens( storage::Vector< AtomType>()),
       m_AllowedHalogensString( "F Cl Br I"),
       m_Reversible( false),
@@ -66,7 +66,7 @@ namespace bcl
 
     //! @brief druglikeness constructor
     //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-    FragmentHalogenate::FragmentHalogenate
+    FragmentMutateHalogenate::FragmentMutateHalogenate
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const bool &CORINA_CONFS
@@ -88,7 +88,7 @@ namespace bcl
     //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
     //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
     //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-    FragmentHalogenate::FragmentHalogenate
+    FragmentMutateHalogenate::FragmentMutateHalogenate
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -120,7 +120,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentHalogenate::FragmentHalogenate
+    FragmentMutateHalogenate::FragmentMutateHalogenate
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -160,7 +160,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentHalogenate::FragmentHalogenate
+    FragmentMutateHalogenate::FragmentMutateHalogenate
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -190,9 +190,9 @@ namespace bcl
     }
 
     //! @brief clone constructor
-    FragmentHalogenate *FragmentHalogenate::Clone() const
+    FragmentMutateHalogenate *FragmentMutateHalogenate::Clone() const
     {
-      return new FragmentHalogenate( *this);
+      return new FragmentMutateHalogenate( *this);
     }
 
   /////////////////
@@ -201,14 +201,14 @@ namespace bcl
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
-    const std::string &FragmentHalogenate::GetClassIdentifier() const
+    const std::string &FragmentMutateHalogenate::GetClassIdentifier() const
     {
       return GetStaticClassName( *this);
     }
 
     //! @brief get a short name for this class
     //! @return a short name for this class
-    const std::string &FragmentHalogenate::GetAlias() const
+    const std::string &FragmentMutateHalogenate::GetAlias() const
     {
       static const std::string s_name( "Halogenate");
       return s_name;
@@ -221,7 +221,7 @@ namespace bcl
     //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
     //! @param FRAGMENT small molecule of interest
     //! @return MutateResult with Constitution after the mutate
-    math::MutateResult< FragmentComplete> FragmentHalogenate::operator()( const FragmentComplete &FRAGMENT) const
+    math::MutateResult< FragmentComplete> FragmentMutateHalogenate::operator()( const FragmentComplete &FRAGMENT) const
     {
       BCL_MessageStd( "Halogenate!");
 
@@ -423,13 +423,13 @@ namespace bcl
   ////////////////
 
     //! @brief set the fragment mutable atom indices
-    void FragmentHalogenate::SetAllowedHalogens( const storage::Vector< AtomType> &ALLOWED_HALOGENS)
+    void FragmentMutateHalogenate::SetAllowedHalogens( const storage::Vector< AtomType> &ALLOWED_HALOGENS)
     {
       m_AllowedHalogens = ALLOWED_HALOGENS;
     }
 
     //! @brief set reversibility
-    void FragmentHalogenate::SetReversibility( const bool REVERSIBLE)
+    void FragmentMutateHalogenate::SetReversibility( const bool REVERSIBLE)
     {
       m_Reversible = REVERSIBLE;
     }
@@ -438,7 +438,7 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    io::Serializer FragmentHalogenate::GetSerializer() const
+    io::Serializer FragmentMutateHalogenate::GetSerializer() const
     {
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
@@ -489,7 +489,7 @@ namespace bcl
     //! @brief Set the members of this property from the given LABEL
     //! @param LABEL the label to parse
     //! @param ERROR_STREAM the stream to write errors to
-    bool FragmentHalogenate::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+    bool FragmentMutateHalogenate::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
     {
       // static initialization check
       if( command::CommandState::IsInStaticInitialization())
