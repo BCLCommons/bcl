@@ -242,20 +242,44 @@ namespace bcl
       BCL_MessageStd( "AddMedChem!");
 
       // this will cause issues so it's banned
-      if( m_TargetMoleculeLinkElementType.empty() && !m_EnableDummyAtom)
+      if
+      (
+         ( m_TargetMoleculeLinkElementType.empty() && m_EnableDummyAtom ) ||
+         ( !m_TargetMoleculeLinkElementType.empty() && !m_EnableDummyAtom )
+      )
       {
         BCL_MessageStd
         (
+          "\n"
           "Invalid combination of target molecule atom selection options. "
           "To obtain pseudo-reaction-style control over the reaction without "
-          "specifying specific atom indices, the following options are available: "
-          "1. Set 'mutable_elements=X', do not specify any other atom selectors. "
+          "specifying specific atom indices, the following options are available: \n"
+          "1. Set 'mutable_elements=X', do not specify any other atom selectors. \n"
           "2. Choose an element type that is unique in the target molecule, such as "
           "Rb, set 'mutable_elements=Rb', 'target_molecule_link_element=Rb', and "
-          "'enable_target_dummy_atom=true'. "
+          "'enable_target_dummy_atom=true'. \n"
           "For either option 1 or 2, you are free to change the link/dummy element type "
           "of the medchem fragments via the 'medchem_fragment_link_element' flag depending "
           "on how your library is constructed."
+          "\n"
+        );
+        return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
+      }
+      else if
+      (
+          !m_TargetMoleculeLinkElementType.empty() &&
+          m_EnableDummyAtom &&
+          m_MutableElements.Find( GetElementTypes().ElementTypeLookup( m_TargetMoleculeLinkElementType)) >= m_MutableElements.GetSize()
+      )
+      {
+        BCL_MessageStd
+        (
+          "\n"
+          "A custom target molecule link element type was specified and enabled, but "
+          "the input molecule does not contain any elements of the desired type. "
+          "Alternatively, the specified element type is mismatched with the allowed mutable "
+          "element types."
+          "\n"
         );
         return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
       }
@@ -297,6 +321,23 @@ namespace bcl
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
 
+        // dummy atoms are allowed only one bonded partner, which must be a heavy atom
+        BCL_Assert
+        (
+          medchem_atom_v( undefined_index).GetBonds().GetSize() == size_t( 1),
+          "Encountered a medchem fragment from the library whose target link atom "
+          "contains more than one bond! This is not allowed. Atoms designating "
+          "pseudo-reactions must be bonded to only one heavy atom. Exiting..."
+        );
+
+        BCL_Assert
+        (
+          medchem_atom_v( undefined_index).GetBonds().Begin()->GetTargetAtom().GetElementType() != GetElementTypes().e_Hydrogen,
+          "Encountered a medchem fragment from the library whose target link atom "
+          "is bonded to a hdyrogen atom. This is not allowed. Atoms designating "
+          "pseudo-reactions must be bonded to only one heavy atom. Exiting..."
+        );
+
         // get the element to which the reactive atom is bonded
         auto &atom_bonded_to_undefined( medchem_atom_v( undefined_index).GetBonds().Begin()->GetTargetAtom());
         size_t atom_bonded_to_undefined_index( medchem_atom_v.GetAtomIndex( atom_bonded_to_undefined));
@@ -312,8 +353,8 @@ namespace bcl
           if
           (
               // remove undefined elements anyway, even if we use a separate link element type
-              medchem_atom_v( i).GetElementType() != GetElementTypes().e_Undefined ||
-              medchem_atom_v( i).GetElementType() != medchem_fragment_link_element
+              medchem_atom_v( i).GetElementType() != GetElementTypes().e_Undefined &&
+              i != undefined_index
           )
           {
             defined_indices.PushBack( i);
@@ -351,7 +392,27 @@ namespace bcl
             ( picked_atom->GetElementType() == target_molecule_link_element && m_EnableDummyAtom )
         )
         {
+          // this is the dummy atom
           undefined_base_index = FRAGMENT.GetAtomVector().GetAtomIndex( *picked_atom);
+
+          // dummy atoms are allowed only one bonded partner, which must be a heavy atom
+          BCL_Assert
+          (
+            FRAGMENT.GetAtomVector()( undefined_base_index).GetBonds().GetSize() == size_t( 1),
+            "The user atom selection specified a target atom dummy atom for linking "
+            "that contains more than one bond! This is not allowed. Atoms designating "
+            "pseudo-reactions must be bonded to only one heavy atom. Exiting..."
+          );
+
+          BCL_Assert
+          (
+            FRAGMENT.GetAtomVector()( undefined_base_index).GetBonds().Begin()->GetTargetAtom().GetElementType() != GetElementTypes().e_Hydrogen,
+            "The user atom selection specified a target atom dummy atom for linking "
+            "that is bonded to a hydrogen atom! This is not allowed. Atoms designating "
+            "pseudo-reactions must be bonded to only one heavy atom. Exiting..."
+          );
+
+          // reassign picked atom to the atom bonded to the dummy atom
           picked_atom = util::SiPtr< const AtomConformationalInterface>( picked_atom->GetBonds().Begin()->GetTargetAtom());
         }
 
@@ -393,9 +454,33 @@ namespace bcl
             picked_atom = this->PickAtom( FRAGMENT, true);
           }
 
-          if( picked_atom->GetElementType() == GetElementTypes().e_Undefined)
+          if
+          (
+              picked_atom->GetElementType() == GetElementTypes().e_Undefined ||
+              ( picked_atom->GetElementType() == target_molecule_link_element && m_EnableDummyAtom )
+          )
           {
+            // this is the dummy atom
             undefined_base_index = FRAGMENT.GetAtomVector().GetAtomIndex( *picked_atom);
+
+            // dummy atoms are allowed only one bonded partner, which must be a heavy atom
+            BCL_Assert
+            (
+              FRAGMENT.GetAtomVector()( undefined_base_index).GetBonds().GetSize() == size_t( 1),
+              "The user atom selection specified a target atom dummy atom for linking "
+              "that contains more than one bond! This is not allowed. Atoms designating "
+              "pseudo-reactions must be bonded to only one heavy atom. Exiting..."
+            );
+
+            BCL_Assert
+            (
+              FRAGMENT.GetAtomVector()( undefined_base_index).GetBonds().Begin()->GetTargetAtom().GetElementType() != GetElementTypes().e_Hydrogen,
+              "The user atom selection specified a target atom dummy atom for linking "
+              "that is bonded to a hydrogen atom! This is not allowed. Atoms designating "
+              "pseudo-reactions must be bonded to only one heavy atom. Exiting..."
+            );
+
+            // reassign picked atom to the atom bonded to the dummy atom
             picked_atom = util::SiPtr< const AtomConformationalInterface>( picked_atom->GetBonds().Begin()->GetTargetAtom());
           }
 
@@ -465,7 +550,7 @@ namespace bcl
         AtomVector< AtomComplete> all_defined_atom_v( FRAGMENT.GetAtomVector());
         all_defined_atom_v.Reorder( keep_indices);
         AtomsCompleteStandardizer standardizer_2( all_defined_atom_v, "", true);
-        standardizer.SetConjugationOfBondTypes( all_defined_atom_v);
+        standardizer_2.SetConjugationOfBondTypes( all_defined_atom_v);
 
         // make new fragment
         FragmentComplete fragment( all_defined_atom_v, FRAGMENT.GetName());
@@ -596,8 +681,10 @@ namespace bcl
       (
         "medchem_fragment_link_element",
         "alternative link element type for the medchem fragments; if unspecified, defaults to "
-        "the undefined element type (X).",
-        io::Serialization::GetAgent( &m_MedChemFragmentLinkElementType)
+        "the undefined element type (X). "
+        "Dummy/linker atoms are required to have only one bond to the target atom of interest. ",
+        io::Serialization::GetAgent( &m_MedChemFragmentLinkElementType),
+        "X"
       );
 
       parameters.AddInitializer
@@ -607,8 +694,10 @@ namespace bcl
         "if you are not using an undefined element (specific 'X' in SDF) to mark the attachment site "
         "by specifying 'mutable_elements=X', then use this flag to change the element type; "
         "requires that 'enable_target_dummy_atoms' is set; "
-        "be careful that this is applied appropriately with the mutable_elements atom selector",
-        io::Serialization::GetAgent( &m_TargetMoleculeLinkElementType)
+        "be careful that this is applied appropriately with the mutable_elements atom selector "
+        "Dummy/linker atoms are required to have only one bond to the target atom of interest. ",
+        io::Serialization::GetAgent( &m_TargetMoleculeLinkElementType),
+        ""
       );
 
       parameters.AddInitializer
@@ -619,7 +708,8 @@ namespace bcl
         "by default if 'mutable_elements' is set to X and no other atom selectors are specified "
         "then only X elements will 'react' with the link element type in the medchem library "
         "fragments (default is also X). ",
-        io::Serialization::GetAgent( &m_EnableDummyAtom)
+        io::Serialization::GetAgent( &m_EnableDummyAtom),
+        "0"
       );
 
       return parameters;
