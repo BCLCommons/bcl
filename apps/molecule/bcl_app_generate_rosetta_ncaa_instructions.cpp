@@ -1,16 +1,21 @@
 // (c) Copyright BCL @ Vanderbilt University 2014
 // (c) BCL Homepage: http://www.meilerlab.org/bclcommons
-// (c) BCL Code Repository: https://github.com/BCLCommons/bcl
+// (c) The BCL software is developed by the contributing members of the BCL @ Vanderbilt University
+// (c) This file is part of the BCL software suite and is made available under license.
+// (c) To view or modify this file, you must enter into one of the following agreements if you have not done so already:
+// (c) For academic and non-profit users:
+// (c)   the BCL Academic Single-User License, available at http://www.meilerlab.org/bclcommons/license
+// (c) For commercial users:
+// (c)   The BCL Commercial Site License, available upon request from bcl-support-commercial@meilerlab.org
+// (c) For BCL developers at Vanderbilt University:
+// (c)   The BCL Developer Agreement, available at http://www.meilerlab.org/bclcommons/developer_agreement
 // (c)
-// (c) The BioChemical Library (BCL) was originally developed by contributing members of the Meiler Lab @ Vanderbilt University.
-// (c)
-// (c) The BCL is now made available as an open-source software package distributed under the permissive MIT license,
-// (c) developed and maintained by the Meiler Lab at Vanderbilt University and contributing members of the BCL Commons.
-// (c)
-// (c) External code contributions to the BCL are welcome. Please visit the BCL Commons GitHub page for information on how you can contribute.
-// (c)
-// (c) This file is part of the BCL software suite and is made available under the MIT license.
-// (c)
+// (c)   As part of all such agreements, this copyright notice must appear, verbatim and without addition, at the
+// (c) top of all source files of the BCL project and may not be modified by any party except the BCL developers at
+// (c) Vanderbilt University.
+// (c)   The BCL copyright and license yields to non-BCL copyrights and licenses where indicated by code comments.
+// (c)   Questions about this copyright notice or license agreement may be emailed to bcl-support-academic@meilerlab.org
+// (c) (for academic users) or bcl-support-commercial@meilerlab.org (for commercial users)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
@@ -25,33 +30,35 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_bond_isometry_handler.h"
 #include "chemistry/bcl_chemistry_configurational_bond_type_data.h"
 #include "chemistry/bcl_chemistry_configurational_bond_types.h"
-#include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
 #include "chemistry/bcl_chemistry_conformation_graph_converter.h"
-#include "chemistry/bcl_chemistry_fragment_add_med_chem.h"
-#include "chemistry/bcl_chemistry_fragment_ensemble.h"
-#include "chemistry/bcl_chemistry_fragment_feed.h"
-#include "chemistry/bcl_chemistry_fragment_make_conformers.h"
 #include "chemistry/bcl_chemistry_fragment_split_interface.h"
 #include "chemistry/bcl_chemistry_fragment_split_largest_component.h"
+#include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
+#include "chemistry/bcl_chemistry_fragment_make_conformers.h"
 #include "chemistry/bcl_chemistry_merge_fragment_complete.h"
-#include "chemistry/bcl_chemistry_molecule_feature_mapper.h"
 #include "chemistry/bcl_chemistry_rotamer_library_file.h"
 #include "chemistry/bcl_chemistry_stereocenters_handler.h"
+#include "chemistry/bcl_chemistry_fragment_ensemble.h"
+#include "chemistry/bcl_chemistry_fragment_feed.h"
+#include "chemistry/bcl_chemistry_molecule_feature_mapper.h"
 #include "command/bcl_command_app_default_flags.h"
 #include "command/bcl_command_flag_dynamic.h"
 #include "command/bcl_command_flag_static.h"
 #include "command/bcl_command_parameter_check_allowed.h"
-#include "command/bcl_command_parameter_check_file_existence.h"
 #include "command/bcl_command_parameter_check_ranged.h"
+#include "command/bcl_command_parameter_check_file_existence.h"
 #include "command/bcl_command_parameter_check_serializable.h"
+#include "graph/bcl_graph_connectivity.h"
 #include "graph/bcl_graph_common_subgraph_isomorphism.h"
 #include "graph/bcl_graph_common_subgraph_isomorphism_base.h"
-#include "graph/bcl_graph_connectivity.h"
 #include "io/bcl_io_file.h"
 #include "molecule/bcl_app_generate_rosetta_ncaa_instructions.h"
+
+#include "storage/bcl_storage_map.h"
+#include "chemistry/bcl_chemistry_fragment_add_med_chem.h"
+
 #include "sdf/bcl_sdf_atom_info.h"
 #include "sdf/bcl_sdf_bond_info.h"
-#include "storage/bcl_storage_map.h"
 #include "util/bcl_util_format.h"
 #include "util/bcl_util_implementation.h"
 #include "util/bcl_util_sh_ptr.h"
@@ -207,9 +214,9 @@ namespace bcl
 
           // get subgraph of our current molecule
           storage::Vector< graph::Subgraph< size_t, size_t>> mol_subgraph
-              (
-                common_subgraph_iso.GetSubgraphIsomorphismsOfGraphB()
-              );
+          (
+            common_subgraph_iso.GetSubgraphIsomorphismsOfGraphB()
+          );
 
           // iterate over isomorphisms
           for
@@ -290,7 +297,7 @@ namespace bcl
                         chi1_atom_index
                       );
                   BCL_MessageStd( "Molecule # " + util::Format()( mol_index) +
-                    ": Computed CA chirality from input structure is " + input_ca_chirality);
+                    ": Computed CA chirality from input structure is " + input_ca_chirality );
                 }
 
                 util::ShPtr< storage::Vector< size_t> > reachable_vertices_to_keep
@@ -322,7 +329,7 @@ namespace bcl
         else
         {
           mol_ca_index = m_CaAndChi1IndicesFlag->GetFirstParameter()->GetNumericalValue< size_t>() - 1;
-          chi1_atom_index = m_CaAndChi1IndicesFlag->GetParameterList()( 1)->GetNumericalValue< size_t>() - 1;
+          chi1_atom_index = m_CaAndChi1IndicesFlag->GetParameterList()( 1)->GetNumericalValue< size_t>() - 1 ;
 
           // make graph of molecule
           graph::ConstGraph< size_t, size_t> mol_graph( graph_maker( current_mol));
@@ -341,7 +348,7 @@ namespace bcl
         {
            BCL_MessageStd
            (
-             "Error: molecule # " + util::Format()( mol_index) + " No substructure match allows incorporation of non-canonical into backbone. "
+             "Error: molecule # " + util::Format()( mol_index) +" No substructure match allows incorporation of non-canonical into backbone. "
              "May require manual addition of correct Chi 1 and CA atom indices for matching. Exiting..."
            );
            continue;
@@ -368,7 +375,7 @@ namespace bcl
         }
         else
         {
-          BCL_MessageStd( "Error: Undefined atom attached to CA!, skip molecule # " + util::Format()( mol_index));
+          BCL_MessageStd("Error: Undefined atom attached to CA!, skip molecule # " + util::Format()( mol_index));
           continue;
         }
 
@@ -380,7 +387,7 @@ namespace bcl
 
         // connect sidechain to backbone via AddMedChem
         chemistry::FragmentAddMedChem add_med_chem;
-        add_med_chem.SetMutableAtomIndices( storage::Vector< size_t>( 1, new_mol_ca_index));
+        add_med_chem.SetMutableAtomIndices( storage::Vector< size_t>(1, new_mol_ca_index));
         storage::Triplet< bool, size_t, chemistry::FragmentComplete> glycine_dipeptide
         (
           ReadDipeptideBackbone( "ALPHA_AA")
@@ -451,7 +458,7 @@ namespace bcl
         }
 
         // clean at atom_vector level
-        chemistry::AtomVector< chemistry::AtomComplete> new_mol_v( new_ncaa.Second().GetAtomVector());
+        chemistry::AtomVector< chemistry::AtomComplete> new_mol_v( new_ncaa.Second().GetAtomVector() );
         chemistry::AtomsCompleteStandardizer standardizer( new_mol_v, "", true);
         standardizer.SetConjugationOfBondTypes( new_mol_v);
 
@@ -528,6 +535,20 @@ namespace bcl
           descriptor::GetCheminfoProperties().calc_NRings->SumOverObject( ncaa_sc)( 0)
         );
 
+        // compute the total numbers of hbonds doner and acceptors
+        const size_t logP
+        (
+          std::max
+          (
+            std::max
+            (
+              descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( ncaa_sc)( 0),
+              descriptor::GetCheminfoProperties().calc_LogP2008->SumOverObject( ncaa_sc)( 0)
+            ),
+            descriptor::GetCheminfoProperties().calc_LogP->SumOverObject( ncaa_sc)( 0)
+          )
+        );
+
         // add chirality properties
         std::string chirality;
         if( util::IsDefined( chi1_index))
@@ -559,6 +580,7 @@ namespace bcl
             ring_num,
             aromatic_ring_num,
             chirality,
+            logP,
             m_ExtraPropertiesFlag->GetFlag() ?
                 m_ExtraPropertiesFlag->GetStringList() :
                 storage::Vector< std::string>()
@@ -797,16 +819,6 @@ namespace bcl
     ) const
     {
       std::string ca_chirarity;
-      // Purpose: ranking the priority among the sidechain branch, the C=O and the amine group
-
-      //chemistry::StereocentersHandler::AddChiralityFromConformation( NCAA);
-
-      //BCL_Debug( NCAA[ CA_INDEX]->GetAtomInfo());
-      //BCL_Debug( NCAA[ CA_INDEX]->GetBonds());
-
-      //BCL_Debug( NCAA[ CHI1_INDEX]->GetAtomInfo());
-      //BCL_Debug( NCAA[ C_INDEX]->GetAtomInfo());
-      //BCL_Debug( NCAA[ N_INDEX]->GetAtomInfo());
       if
       (
           GetChiralityName( NCAA[ CA_INDEX]->GetChirality()) == "R" ||
@@ -909,6 +921,7 @@ namespace bcl
       const size_t &RING_NUM,
       const size_t &AROMATIC_NUM,
       const std::string &CA_CHIRARITY,
+      const float LOGP,
       const storage::Vector< std::string> &EXTRAS
     ) const
     {
@@ -929,22 +942,46 @@ namespace bcl
       if( FORMAL_CHARGE != float( 0.0))
       {
         poly_properties.Insert( std::pair< std::string, std::string>( "charge", "CHARGED"));
+        poly_properties.Insert( std::pair< std::string, std::string>( "polarity", "POLAR"));
+        if( FORMAL_CHARGE > float( 0.0))
+        {
+          poly_properties.Insert( std::pair< std::string, std::string>( "charge_sign", "POSITIVE_CHARGE"));
+        }
+        else
+        {
+          poly_properties.Insert( std::pair< std::string, std::string>( "charge_sign", "NEGATIVE_CHARGE"));
+        }
+      }
+      else
+      {
+        // 1.03 is the logP of methane (sidechain of alanine)
+        if( LOGP > 1.0)
+        {
+          poly_properties.Insert( std::pair< std::string, std::string>( "polarity", "HYDROPHOBIC"));
+        }
+        else
+        {
+          poly_properties.Insert( std::pair< std::string, std::string>( "polarity", "POLAR"));
+        }
       }
 
       // add the sidechain ring info
       if( RING_NUM < 1)
       {
-        poly_properties.Insert( std::pair< std::string, std::string>( "scring", "ALIPHATIC"));
+        poly_properties.Insert( std::pair< std::string, std::string>( "scring", "ALIPHATIC" ));
       }
-      else if( AROMATIC_NUM > 0)
+      else
       {
-        poly_properties.Insert( std::pair< std::string, std::string>( "scring", "AROMATIC"));
+        poly_properties.Insert( std::pair< std::string, std::string>( "scring", "CYCLIC" ));
+        if( AROMATIC_NUM > 0)
+        {
+          poly_properties.Insert( std::pair< std::string, std::string>( "aromaticity", "AROMATIC" ));
+        }
+        else // empty string if has non-aromatic rings
+        {
+          poly_properties.Insert( std::pair< std::string, std::string>( "aromaticity", "" ));
+        }
       }
-      else // empty string if has non-aromatic rings
-      {
-        poly_properties.Insert( std::pair< std::string, std::string>( "scring", ""));
-      }
-
       // Combine EXTRA properties and computed properties
       if( !EXTRAS.IsEmpty())
       {
@@ -966,7 +1003,7 @@ namespace bcl
               BCL_MessageStd
               (
                 "Input extra CA chirarity is " + property +
-                ", but the computed CA chirarity is " + poly_properties.GetValue( "cachirality") +
+                ", but the computed CA chirarity is " + poly_properties.GetValue("cachirality") +
                 ". Ignore extra CA chirarity input"
               );
             }
@@ -982,29 +1019,55 @@ namespace bcl
             // Check on number of rings and aromatic rings
             else if
             (
-                ( property == "ALIPHATIC" || property == "AROMATIC") &&
-                property != poly_properties.GetValue( "scring")
+                property == "ALIPHATIC" || property == "CYCLIC"
             )
             {
-              std::string computed_scring;
-              if( poly_properties.GetValue( "scring") == "")
-              {
-                computed_scring = "N/A";
-              }
-              else
-              {
-                computed_scring = poly_properties.GetValue( "scring");
-              }
               BCL_MessageStd
               (
                 "Input extra sidechain type is " + property +
-                ", but the computed sidechain type is " + computed_scring +
+                ", but the computed sidechain type is " + poly_properties.GetValue( "scring") +
+                ". Ignore extra sidechain type input."
+              );
+            }
+            else if( property == "AROMATIC")
+            {
+              BCL_MessageStd
+              (
+                "Input extra sidechain type is " + property +
+                ", but the computed sidechain type is not aromatic."
+              );
+            }
+            else if( property == "CHARGED")
+            {
+              BCL_MessageStd
+              (
+                "Input extra sidechain type is " + property +
+                ", but the computed sidechain type is not charged."
+              );
+            }
+            else if( property == "NEGATIVE_CHARGE" || property == "POSITIVE_CHARGE")
+            {
+              BCL_MessageStd
+              (
+                "Input extra sidechain type is " + property +
+                ", but the computed sidechain type is " + poly_properties.GetValue( "charge_sign")
+              );
+            }
+            else if
+            (
+                ( property == "HYDROPHOBIC" || property == "POLAR")
+            )
+            {
+              BCL_MessageStd
+              (
+                "Input extra sidechain type is " + property +
+                ", but the computed sidechain type is " + poly_properties.GetValue( "polarity") +
                 ". Ignore extra sidechain type input."
               );
             }
             else
             {
-              poly_properties.Insert( std::pair< std::string, std::string>( "extra", property));
+              poly_properties.Insert( std::pair< std::string, std::string>( "extra", property) );
             }
           }
         }
@@ -1017,8 +1080,8 @@ namespace bcl
       std::string ncaa_properties;
       for
       (
-          auto itr( poly_properties_v.Begin()),
-          itr_end( poly_properties_v.End());
+          auto itr( poly_properties_v.Begin() ),
+          itr_end( poly_properties_v.End() );
           itr != itr_end;
           ++itr
       )
@@ -1069,6 +1132,7 @@ namespace bcl
       // close output file
       io::File::CloseClearFStream( out);
     }
+
 
     //! @brief get a description for the app
     //! @return a brief (no more than 3 line) description for the application
