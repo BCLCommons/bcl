@@ -18,6 +18,8 @@
 // (c) (for academic users) or bcl-support-commercial@meilerlab.org (for commercial users)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include <chemistry/bcl_chemistry_rotamer_library_file.h>
+#include <io/bcl_io_file.h>
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
@@ -54,6 +56,278 @@ namespace bcl
     {
       return new NCAAFragmentComplete( *this);
     }
+    ///////////////
+    // helpers   //
+    ///////////////
+
+    //! @brief return the chi1 atom indices
+    //! @param NCAA: the atom vector of NCAA
+    //! @param BB_CONN_INDICES: the indices of three bb atoms that are closest to Chi 1 Atom
+    //! @return the chi1 atom index
+    const size_t NCAAFragmentComplete::FindChi1Index
+    (
+      const chemistry::AtomVector< chemistry::AtomComplete> &NCAA,
+      storage::Vector< size_t> BB_CONN_INDICES
+    ) const
+    {
+      // iterate over bonds of carbon alpha
+      for
+      (
+          auto bond_itr( NCAA( BB_CONN_INDICES( 0) ).GetBonds().Begin()),
+          bond_itr_end( NCAA( BB_CONN_INDICES( 0) ).GetBonds().End());
+          bond_itr != bond_itr_end;
+          ++bond_itr
+      )
+      {
+        // skip backbone atoms
+        const size_t &atom_index( NCAA.GetAtomIndex( bond_itr->GetTargetAtom()));
+        if( atom_index == NCAA( BB_CONN_INDICES( 1) ) || atom_index == NCAA( BB_CONN_INDICES( 2) ) )
+        {
+          continue;
+        }
+
+        // if the next atom is a heavy atom then accept it as chi1;
+        // i realize that if there are two heavy atoms then this is not perfect;
+        // R/S will be assigned below a
+        if( bond_itr->GetTargetAtom().GetElementType() != chemistry::GetElementTypes().e_Hydrogen)
+        {
+          return atom_index;
+        }
+      }
+      return util::GetUndefinedSize_t();
+    }
+
+    ///////////////
+    // Alpha AAs //
+    ///////////////
+
+    //! @brief load neutral glycine residue from library
+    //! @return the neutral glycine as the ncaa base
+    const storage::Pair< bool, chemistry::FragmentComplete> NCAAFragmentComplete::ReadAlphaBase() const
+    {
+      // Begin
+      chemistry::FragmentEnsemble glycine;
+
+      // Read in neutral glycine file
+      io::IFStream file;
+      io::File::MustOpenIFStream
+      (
+        file,
+        chemistry::RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ncaa_base/glycine_bb.sdf.gz"
+        //chemistry::RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ncaa_base/glycine_neutral.sdf.gz"
+      );
+      glycine.ReadMoreFromMdl( file, sdf::e_Maintain);
+
+      // return the glycine residue
+      io::File::CloseClearFStream( file);
+
+      // get the ncaa base (which will provide our reference to Rosetta for peptide backbone atoms)
+      chemistry::FragmentComplete ncaa_base( glycine.GetMolecules().FirstElement());
+
+      // make sure no one fucked with the reference file in a harmful way
+      const chemistry::AtomVector< chemistry::AtomComplete> atom_v( ncaa_base.GetAtomVector());
+      if
+      (
+          // central amide oxygen atom
+          atom_v( 4).GetElementType() != chemistry::GetElementTypes().e_Oxygen ||
+
+          // central amide nitrogen atom
+          atom_v( 1).GetElementType() != chemistry::GetElementTypes().e_Nitrogen ||
+
+          // alpha and beta carbon atoms
+          atom_v( 3).GetElementType() != chemistry::GetElementTypes().e_Carbon ||
+          atom_v( 2).GetElementType() != chemistry::GetElementTypes().e_Carbon ||
+
+          // alpha and beta carbon hydrogen atoms
+          atom_v( 6).GetElementType() != chemistry::GetElementTypes().e_Hydrogen ||
+          atom_v( 7).GetElementType() != chemistry::GetElementTypes().e_Hydrogen
+      )
+      {
+        return storage::Pair< bool, chemistry::FragmentComplete>
+        (
+          std::make_pair( bool( false), chemistry::FragmentComplete( ncaa_base))
+        );
+      }
+      return storage::Pair< bool, chemistry::FragmentComplete>
+      (
+        std::make_pair( bool( true), chemistry::FragmentComplete( ncaa_base))
+      );
+    }
+
+    //! @brief load neutral glycine dipeptide from library as backbone for alpha AA
+    //! @return the neutral glycine dipeptide as the ncaa base
+    const storage::Triplet< bool, size_t, chemistry::FragmentComplete> NCAAFragmentComplete::ReadAlphaDipeptideBackbone() const
+    {
+      // Begin
+      chemistry::FragmentEnsemble backbone;
+      // Read in neutral glycine file
+      io::IFStream file;
+      io::File::MustOpenIFStream
+      (
+        file,
+        chemistry::RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ncaa_base/glycine_neutral.sdf.gz"
+      );
+      backbone.ReadMoreFromMdl( file, sdf::e_Maintain);
+
+      // return the glycine residue
+      io::File::CloseClearFStream( file);
+
+      // get the ncaa base (which will provide our reference to Rosetta for peptide backbone atoms)
+      chemistry::FragmentComplete alpha_bb( backbone.GetMolecules().FirstElement());
+
+      // make sure no one fucked with the reference file in a harmful way
+      const chemistry::AtomVector< chemistry::AtomComplete> atom_v( alpha_bb.GetAtomVector());
+      if
+      (
+          //central amide oxygen atom
+          atom_v( 5).GetElementType() != chemistry::GetElementTypes().e_Oxygen ||
+
+          // central amide nitrogen atom
+          atom_v( 3).GetElementType() != chemistry::GetElementTypes().e_Nitrogen ||
+
+          // alpha and beta carbon atoms
+          atom_v( 4).GetElementType() != chemistry::GetElementTypes().e_Carbon ||
+          atom_v( 2).GetElementType() != chemistry::GetElementTypes().e_Carbon ||
+
+          // alpha and beta carbon hydrogen atoms
+          atom_v( 0).GetElementType() != chemistry::GetElementTypes().e_Hydrogen ||
+          atom_v( 1).GetElementType() != chemistry::GetElementTypes().e_Hydrogen
+      )
+      {
+        return storage::Triplet< bool, size_t, chemistry::FragmentComplete>
+        (
+          bool( false), size_t(), chemistry::FragmentComplete()
+        );
+      }
+      return storage::Triplet< bool, size_t, chemistry::FragmentComplete>
+      (
+        bool( true), size_t( 4), chemistry::FragmentComplete( alpha_bb)
+      );
+    }
+
+    //! @brief Find the CA chirality for alpha + Nmethyl alpha NCAAs
+    //! @param NCAA: the atom vector of NCAA
+    //! @param C_INDEX: the index of backbone C atom
+    //! @param N_INDEX: the index of the backbone N atom
+    //! @param CHI1_INDEX: the index of the chi1 angle atom
+    const std::string NCAAFragmentComplete::FindAlphaCAChirarity
+    (
+      const chemistry::AtomVector< chemistry::AtomComplete> &NCAA,
+      const size_t &CA_INDEX,
+      const size_t &C_INDEX,
+      const size_t &N_INDEX,
+      const size_t &CHI1_INDEX
+    ) const
+    {
+      std::string ca_chirarity;
+      if
+      (
+          GetChiralityName( NCAA[ CA_INDEX]->GetChirality()) == "R" ||
+          GetChiralityName( NCAA[ CA_INDEX]->GetChirality()) == "S"
+      )
+      {
+        // make a vector of N, C, chi1 atoms.
+        // If this is L-AA, the order of those three atoms will be counter clockwise
+        // To determine the order of those atoms in space, we can determine the sign of the determinant
+        // of the matrix formed by the 3D coordinate of those three points
+        // For the explanation, see https://math.stackexchange.com/questions/2400911/ordering-points-in-mathbbr3-using-the-sign-of-determinant
+        storage::Vector< size_t> ca_branches( storage::Vector< size_t>::Create( N_INDEX, C_INDEX, CHI1_INDEX));
+        // Create a matrix that will hold the x,y, and z coordinates for the three atoms of highest priority.
+        linal::Matrix3x3< float> xyz_coordinates( 0.0); // make a matrix of size 3 X 3
+        const linal::Vector3D &root_position( NCAA[ CA_INDEX]->GetPosition());
+
+        // put the positions (relative to the root atom) of the 3 highest priority substituents into a matrix
+        // the sign of the determinant of the matrix will give us clock-wise (D-AA) or counter-clockwise (L-AA)
+        for( size_t index( 0), size( 3); index < size; ++index)
+        {
+          // get the atom position out of the vector, which has been sorted by priority
+          const linal::Vector3D &position( NCAA[ ca_branches( index)]->GetPosition());
+
+          // put the positions of this atom relative to the root atom into the rows of the matrix
+          xyz_coordinates( index, 0) = position( 0) - root_position( 0);
+          xyz_coordinates( index, 1) = position( 1) - root_position( 1);
+          xyz_coordinates( index, 2) = position( 2) - root_position( 2);
+        }
+
+        // Calculate the determinant of a 3 X 3 matrix that has rows sorted in descending order of ca_branches.
+        // Opposite orders will have opposite signs.
+        const float determinant( xyz_coordinates.Determinant());
+        //BCL_Debug( xyz_coordinates.Determinant());
+        if( determinant > 0.0)
+        {
+          ca_chirarity = "L_AA";
+        }
+        else if( determinant < 0.0)
+        {
+          ca_chirarity = "D_AA";
+        }
+        else
+        {
+          BCL_MessageStd( "Warning: cannot determine whether the NCAA is L or D stereoisomer");
+          ca_chirarity = "ACHIRAL_BACKBONE";
+        }
+      }
+      else
+      {
+        BCL_MessageStd( "Warning: cannot determine whether the NCAA is L or D stereoisomer");
+        ca_chirarity = "ACHIRAL_BACKBONE";
+      }
+      //BCL_Debug( ca_chirarity);
+      return ca_chirarity;
+    }
+
+    ///////////////
+    // peptoid   //
+    ///////////////
+
+    //! @brief load neutral glycine residue from library
+    //! @return the neutral glycine as the ncaa base
+    const storage::Pair< bool, chemistry::FragmentComplete> NCAAFragmentComplete::ReadPeptoidBase() const
+    {
+      // TODO: Adding code here
+    }
+
+    //! @brief load neutral glycine dipeptide from library as backbone for alpha AA
+    //! @return the neutral glycine dipeptide as the ncaa base
+    const storage::Triplet< bool, size_t, chemistry::FragmentComplete> NCAAFragmentComplete::ReadPeptoidDipeptideBackbone() const
+    {
+      // TODO: Adding code here
+    }
+
+    //! @brief Find the CA chirality for alpha + Nmethyl alpha NCAAs
+    //! @param NCAA: the atom vector of NCAA
+    //! @param C_INDEX: the index of backbone C atom
+    //! @param N_INDEX: the index of the backbone N atom
+    //! @param CHI1_INDEX: the index of the chi1 angle atom
+    const std::string NCAAFragmentComplete::FindPeptoidNChirarity
+    (
+      const chemistry::AtomVector< chemistry::AtomComplete> &NCAA,
+      const size_t &C_INDEX,
+      const size_t &N_INDEX,
+      const size_t &CHI1_INDEX
+    ) const
+    {
+      // TODO: Adding code here
+    }
+
+    ////////////////////
+    // N methyl alpha //
+    ////////////////////
+
+    //! @brief load neutral glycine residue from library
+    //! @return the neutral glycine as the ncaa base
+    const storage::Pair< bool, chemistry::FragmentComplete> NCAAFragmentComplete::ReadNMethylAlphaBase() const
+    {
+      // TODO: Adding code here
+    }
+
+    //! @brief load neutral glycine dipeptide from library as backbone for alpha AA
+    //! @return the neutral glycine dipeptide as the ncaa base
+    const storage::Triplet< bool, size_t, chemistry::FragmentComplete> NCAAFragmentComplete::ReadNMethylAlphaDipeptideBackbone() const
+    {
+      // TODO: Adding code here
+    }
+
 
   /////////////////
   // data access //
@@ -86,5 +360,6 @@ namespace bcl
     {
       return OSTREAM;
     }
+
   } // namespace chemistry
 } // namespace bcl

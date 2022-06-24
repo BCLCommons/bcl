@@ -43,7 +43,7 @@ namespace bcl
     //! @details Models stereochemistry, isomeric fragments, chemical adjacency, and aromatic and ring structures
     //!
     //! @see @link example_chemistry_ncaa_fragment_complete.cpp @endlink
-    //! @author vuot2, mendenjl
+    //! @author vuot2, brownpb1, mendenjl
     //! @date Mar 14, 2022
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

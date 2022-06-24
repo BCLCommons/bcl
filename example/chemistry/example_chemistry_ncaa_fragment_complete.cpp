@@ -41,7 +41,7 @@ namespace bcl
   //! @example example_chemistry_ncaa_fragment_complete.cpp
   //! @details Tests ChemistryNCAAFragmentComplete class which contains small molecule configuration data
   //!
-  //! @author vuot2, mendenjl
+  //! @author vuot2, brownbp1, mendenjl
   //! @date
   //! @remarks status complete
   //! @remarks

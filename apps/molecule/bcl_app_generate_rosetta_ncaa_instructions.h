@@ -179,6 +179,7 @@ namespace bcl
         const size_t &RING_NUM,
         const size_t &AROMATIC_NUM,
         const std::string &CA_CHIRARITY,
+        const float LOGP,
         const storage::Vector< std::string> &EXTRAS
       ) const;
 
