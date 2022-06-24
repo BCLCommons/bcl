@@ -151,6 +151,7 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_mutate_fragment.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_mutate_molecule_generic.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_mutate_multi_fragment.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_ncaa_fragment_complete.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_perturb_molecule_pose.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_pharmacophore_mapper.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_pick_atom_by_element.cpp

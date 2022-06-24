@@ -120,6 +120,18 @@ namespace bcl
         const graph::CommonSubgraphIsomorphismBase::SolutionType &TYPE
       );
 
+      //! @param COMPARISON This metric will be used to compare the resulting substructures rather
+      //!        than tanimoto or raw distance
+      //! @param TYPE whether to enforce a connected substructure solution
+      ConformationComparisonBySubstructure::ConformationComparisonBySubstructure
+      (
+        const ConformationComparisonInterface &COMPARISON,
+        const graph::CommonSubgraphIsomorphismBase::SolutionType &TYPE,
+        const ConfigurationalBondTypeData::DataEnum &BONDCOMPARISONTYPE,
+        const ConformationGraphConverter::AtomComparisonTypeEnum &ATOMCOMPARISONTYPE,
+        const bool COMPAREH
+      );
+
       //! virtual copy constructor
       ConformationComparisonBySubstructure *Clone() const;
 

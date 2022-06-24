@@ -97,6 +97,7 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_molecule_storage_file.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_mutate_chirality.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_mutate_fragment.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_ncaa_fragment_complete.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_pick_atom_random.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_possible_atom_types_for_atom.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_priority_dihedral_angles.cpp

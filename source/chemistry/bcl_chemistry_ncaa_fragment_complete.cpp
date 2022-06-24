@@ -50,6 +50,27 @@ namespace bcl
     {
     }
 
+    //! @brief Construct a NCAA from input a input NCAA structure
+    //!        Automatically determines the type of the backbone based on the input NCAA
+    //!        Should only be used when the backbone of the input NCAA are complete
+    NCAAFragmentComplete::NCAAFragmentComplete
+    (
+      const FragmentComplete& INPUT_NCAA
+    )
+    {
+
+    }
+
+    //! @brief Construct a NCAA from input a input NCAA structure and a give type of the backbone
+    NCAAFragmentComplete::NCAAFragmentComplete
+    (
+      const FragmentComplete& INPUT_NCAA,
+      const Backbone_Type BACKBONE_TYPE
+    ) : m_BackboneType( BACKBONE_TYPE)
+    {
+
+    }
+
     //! @brief Clone function
     //! @return pointer to new NCAAFragmentComplete
     NCAAFragmentComplete *NCAAFragmentComplete::Clone() const
@@ -103,7 +124,7 @@ namespace bcl
 
     //! @brief load neutral glycine residue from library
     //! @return the neutral glycine as the ncaa base
-    const storage::Pair< bool, chemistry::FragmentComplete> NCAAFragmentComplete::ReadAlphaBase() const
+    const storage::Pair< bool, chemistry::FragmentComplete> NCAAFragmentComplete::ReadGlycineBase() const
     {
       // Begin
       chemistry::FragmentEnsemble glycine;
@@ -156,7 +177,7 @@ namespace bcl
 
     //! @brief load neutral glycine dipeptide from library as backbone for alpha AA
     //! @return the neutral glycine dipeptide as the ncaa base
-    const storage::Triplet< bool, size_t, chemistry::FragmentComplete> NCAAFragmentComplete::ReadAlphaDipeptideBackbone() const
+    const storage::Triplet< bool, size_t, chemistry::FragmentComplete> NCAAFragmentComplete::ReadGlycineDipeptideBackbone() const
     {
       // Begin
       chemistry::FragmentEnsemble backbone;
@@ -280,20 +301,6 @@ namespace bcl
     // peptoid   //
     ///////////////
 
-    //! @brief load neutral glycine residue from library
-    //! @return the neutral glycine as the ncaa base
-    const storage::Pair< bool, chemistry::FragmentComplete> NCAAFragmentComplete::ReadPeptoidBase() const
-    {
-      // TODO: Adding code here
-    }
-
-    //! @brief load neutral glycine dipeptide from library as backbone for alpha AA
-    //! @return the neutral glycine dipeptide as the ncaa base
-    const storage::Triplet< bool, size_t, chemistry::FragmentComplete> NCAAFragmentComplete::ReadPeptoidDipeptideBackbone() const
-    {
-      // TODO: Adding code here
-    }
-
     //! @brief Find the CA chirality for alpha + Nmethyl alpha NCAAs
     //! @param NCAA: the atom vector of NCAA
     //! @param C_INDEX: the index of backbone C atom
@@ -316,14 +323,61 @@ namespace bcl
 
     //! @brief load neutral glycine residue from library
     //! @return the neutral glycine as the ncaa base
-    const storage::Pair< bool, chemistry::FragmentComplete> NCAAFragmentComplete::ReadNMethylAlphaBase() const
+    const storage::Pair< bool, chemistry::FragmentComplete> NCAAFragmentComplete::ReadNMethylGlycineBase() const
     {
-      // TODO: Adding code here
+      // Begin
+      chemistry::FragmentEnsemble nmethyl_glycine;
+
+      // Read in neutral glycine file
+      io::IFStream file;
+      io::File::MustOpenIFStream
+      (
+        file,
+        // TODO: Make the sdf file
+        chemistry::RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ncaa_base/n_methyl_glycine_bb.sdf.gz"
+      );
+      nmethyl_glycine.ReadMoreFromMdl( file, sdf::e_Maintain);
+
+      // return the glycine residue
+      io::File::CloseClearFStream( file);
+
+      // get the ncaa base (which will provide our reference to Rosetta for peptide backbone atoms)
+      chemistry::FragmentComplete ncaa_base( nmethyl_glycine.GetMolecules().FirstElement());
+
+      // make sure no one fucked with the reference file in a harmful way
+      const chemistry::AtomVector< chemistry::AtomComplete> atom_v( ncaa_base.GetAtomVector());
+      if
+      (
+          // TODO: update the condition for n methyl glycine
+          // central amide oxygen atom
+          atom_v( 4).GetElementType() != chemistry::GetElementTypes().e_Oxygen ||
+
+          // central amide nitrogen atom
+          atom_v( 1).GetElementType() != chemistry::GetElementTypes().e_Nitrogen ||
+
+          // alpha and beta carbon atoms
+          atom_v( 3).GetElementType() != chemistry::GetElementTypes().e_Carbon ||
+          atom_v( 2).GetElementType() != chemistry::GetElementTypes().e_Carbon ||
+
+          // alpha and beta carbon hydrogen atoms
+          atom_v( 6).GetElementType() != chemistry::GetElementTypes().e_Hydrogen ||
+          atom_v( 7).GetElementType() != chemistry::GetElementTypes().e_Hydrogen
+      )
+      {
+        return storage::Pair< bool, chemistry::FragmentComplete>
+        (
+          std::make_pair( bool( false), chemistry::FragmentComplete( ncaa_base))
+        );
+      }
+      return storage::Pair< bool, chemistry::FragmentComplete>
+      (
+        std::make_pair( bool( true), chemistry::FragmentComplete( ncaa_base))
+      );
     }
 
     //! @brief load neutral glycine dipeptide from library as backbone for alpha AA
     //! @return the neutral glycine dipeptide as the ncaa base
-    const storage::Triplet< bool, size_t, chemistry::FragmentComplete> NCAAFragmentComplete::ReadNMethylAlphaDipeptideBackbone() const
+    const storage::Triplet< bool, size_t, chemistry::FragmentComplete> NCAAFragmentComplete::ReadNMethylGlycineDipeptideBackbone() const
     {
       // TODO: Adding code here
     }
