@@ -2,3 +2,6 @@
 source/bcl_version.cpp
 build/
 **/*.pyc
+*.pyc
+*.swp
+
