@@ -257,10 +257,10 @@ namespace bcl
       //! @return the per-amide bond penalty
       storage::Vector< double> GetPerAmideBondNonPlanarityPenalty
       (
-        storage::Vector< storage::Triplet< size_t, size_t, double>> &AMIDE_DEVIATIONS,
-            storage::Vector< double> &TOLERANCES,
-            storage::Vector< double> &PENALTIES
-          ) const;
+        storage::Vector< storage::Triplet< size_t, size_t, double> > &AMIDE_DEVIATIONS,
+        storage::Vector< double> &TOLERANCES,
+        storage::Vector< double> &PENALTIES
+      ) const;
 
       //! @brief Sum the deviation of amide bond planarity over the molecule
       //! @param TOLERANCE tolerance (in degrees) for non-planarity, amide bonds with deviation smaller than tolerance

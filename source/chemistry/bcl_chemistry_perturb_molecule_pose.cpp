@@ -13,13 +13,13 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "linal/bcl_linal_vector_3d.h"
+#include "math/bcl_math_mutate_interface.h"
+#include "math/bcl_math_mutate_result.h"
+#include "math/bcl_math_rotation_matrix_3d.h"
+#include "math/bcl_math_transformation_matrix_3d.h"
+#include "quality/bcl_quality_rmsd.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <linal/bcl_linal_vector_3d.h>
-#include <math/bcl_math_mutate_interface.h>
-#include <math/bcl_math_mutate_result.h>
-#include <math/bcl_math_rotation_matrix_3d.h>
-#include <math/bcl_math_transformation_matrix_3d.h>
-#include <quality/bcl_quality_rmsd.h>
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class

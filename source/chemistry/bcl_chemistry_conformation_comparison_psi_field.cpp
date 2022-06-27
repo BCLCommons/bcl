@@ -14,8 +14,6 @@
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <chemistry/bcl_chemistry_fragment_align_to_scaffold.h>
-#include <io/bcl_io_file.h>
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
@@ -28,9 +26,11 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_conformation_comparison_multi_align.h"
 #include "chemistry/bcl_chemistry_conformation_comparison_property_field_correlation.h"
 #include "chemistry/bcl_chemistry_conformation_interface.h"
+#include "chemistry/bcl_chemistry_fragment_align_to_scaffold.h"
 #include "chemistry/bcl_chemistry_ligand_pocket_fit_score.h"
 #include "chemistry/bcl_chemistry_voxel_grid_atom.h"
 #include "graph/bcl_graph_const_graph.h"
+#include "io/bcl_io_file.h"
 #include "io/bcl_io_serialization.h"
 #include "math/bcl_math_histogram.h"
 #include "mc/bcl_mc_temperature_accepted.h"
@@ -384,7 +384,7 @@ namespace bcl
 
       // manage max atom distance
       float dmax_increment( ( m_AtomDistanceUpperLimit - m_AtomDistanceLowerLimit) / ( m_NumberRigidTrajectories - 1));
-      storage::Vector< storage::Pair< FragmentComplete, double >> traj_tracker;
+      storage::Vector< storage::Pair< FragmentComplete, double> > traj_tracker;
       storage::Vector< double> distances;
 
       //perform m_NumberRigidTrajectories number of independent rigid alignments
@@ -426,7 +426,7 @@ namespace bcl
         // cache properties MOLECULE_A
         FragmentComplete mol_a( MOLECULE_A);
         mol_a.ShareCache( MOLECULE_A);
-        storage::Vector< storage::Pair< ConformationGraphConverter::AtomComparisonTypeEnum, ConfigurationalBondTypeData::DataEnum>> ats_options;
+        storage::Vector< storage::Pair< ConformationGraphConverter::AtomComparisonTypeEnum, ConfigurationalBondTypeData::DataEnum> > ats_options;
 
         static storage::List< util::Stopwatch> stopwatches;
         if( stopwatches.IsEmpty())
@@ -488,13 +488,13 @@ namespace bcl
 
       // Formerly just evaluated the lower, middle, and upper bounds on the max atom distances;
       // now averages across all sampled distances
-      storage::Vector< storage::Pair< double, size_t>> sorter( traj_tracker.GetSize());
+      storage::Vector< storage::Pair< double, size_t> > sorter( traj_tracker.GetSize());
       size_t tracker_index( 0);
       for
       (
-          storage::Vector< storage::Pair< FragmentComplete, double >>::iterator itr( traj_tracker.Begin()), itr_end( traj_tracker.End());
-          itr < itr_end;
-          ++itr, ++tracker_index
+        storage::Vector< storage::Pair< FragmentComplete, double >>::iterator itr( traj_tracker.Begin()), itr_end( traj_tracker.End());
+        itr < itr_end;
+        ++itr, ++tracker_index
       )
       {
         math::RunningAverage< double> sum( 0.0);
@@ -509,7 +509,7 @@ namespace bcl
       }
 
       // Sort molecules by best
-      sorter.Sort( std::less< storage::Pair< double, size_t>>());
+      sorter.Sort( std::less< storage::Pair< double, size_t> >());
       storage::Vector< size_t> best_order( traj_tracker.GetSize());
       for( size_t i( 0); i < traj_tracker.GetSize(); ++i)
       {
@@ -668,30 +668,29 @@ namespace bcl
     //! @param MOLECULE_A_CONFORMERS = molecule A conformer ensemble
     //! @param POCKET_BOX = bounding box for pocket
     //! @return the new molecule A and RMSDX between the two aligned molecules
-    storage::Vector< storage::Pair< FragmentComplete, double>> ConformationComparisonPsiField::PseudoOperator
-        (
-          const ConformationInterface &MOLECULE_A,
-          const ConformationInterface &MOLECULE_B,
-          const size_t &ITERATIONS,
-          const size_t &MAX_UNIMPROVED,
-          const bool &RECENTER_FIRST,
-          const float &MAX_ATOM_DIST,
-          const FragmentEnsemble &MOLECULE_A_CONFORMERS,
-          const storage::Vector< size_t> &EXCLUSION_ATOMS_A,
-          const storage::Vector< size_t> &EXCLUSION_ATOMS_B,
-          const FragmentEnsemble &POCKETS
-        ) const
-        {
-
-          // we need to get the keep_indices from exclusion_indices for the scaffold-based alignment
-          storage::Vector< size_t> keep_indices_a, keep_indices_b;
+    storage::Vector< storage::Pair< FragmentComplete, double> > ConformationComparisonPsiField::PseudoOperator
+    (
+      const ConformationInterface &MOLECULE_A,
+      const ConformationInterface &MOLECULE_B,
+      const size_t &ITERATIONS,
+      const size_t &MAX_UNIMPROVED,
+      const bool &RECENTER_FIRST,
+      const float &MAX_ATOM_DIST,
+      const FragmentEnsemble &MOLECULE_A_CONFORMERS,
+      const storage::Vector< size_t> &EXCLUSION_ATOMS_A,
+      const storage::Vector< size_t> &EXCLUSION_ATOMS_B,
+      const FragmentEnsemble &POCKETS
+    ) const
+    {
+      // we need to get the keep_indices from exclusion_indices for the scaffold-based alignment
+      storage::Vector< size_t> keep_indices_a, keep_indices_b;
       GetNonMaskedAtoms( MOLECULE_A, MOLECULE_B, m_ExclusionIndicesA, m_ExclusionIndicesB, keep_indices_a, keep_indices_b);
       m_KeepIndicesA = keep_indices_a;
       m_KeepIndicesB = keep_indices_b;
 
       // manage max atom distance
       float dmax_increment( ( m_AtomDistanceUpperLimit - m_AtomDistanceLowerLimit) / ( m_NumberRigidTrajectories - 1));
-      storage::Vector< storage::Pair< FragmentComplete, double >> traj_tracker;
+      storage::Vector< storage::Pair< FragmentComplete, double> > traj_tracker;
       storage::Vector< double> distances;
 
       //perform m_NumberRigidTrajectories number of independent rigid alignments

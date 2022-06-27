@@ -13,8 +13,8 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "math/bcl_math_angle.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <math/bcl_math_angle.h>
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class

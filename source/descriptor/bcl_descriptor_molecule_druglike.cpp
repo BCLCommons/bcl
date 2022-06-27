@@ -13,17 +13,17 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "chemistry/bcl_chemistry_configurational_bond_type_data.h"
+#include "chemistry/bcl_chemistry_constitution_set.h"
+#include "chemistry/bcl_chemistry_fragment_constitution_shared.h"
+#include "chemistry/bcl_chemistry_fragment_ensemble.h"
+#include "chemistry/bcl_chemistry_fragment_split_ecfp_fragments.h"
+#include "chemistry/bcl_chemistry_fragment_split_rigid.h"
+#include "chemistry/bcl_chemistry_fragment_split_rings.h"
+#include "chemistry/bcl_chemistry_rotamer_library_file.h"
+#include "io/bcl_io_file.h"
+#include "io/bcl_io_ifstream.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <chemistry/bcl_chemistry_configurational_bond_type_data.h>
-#include <chemistry/bcl_chemistry_constitution_set.h>
-#include <chemistry/bcl_chemistry_fragment_constitution_shared.h>
-#include <chemistry/bcl_chemistry_fragment_ensemble.h>
-#include <chemistry/bcl_chemistry_fragment_split_ecfp_fragments.h>
-#include <chemistry/bcl_chemistry_fragment_split_rigid.h>
-#include <chemistry/bcl_chemistry_fragment_split_rings.h>
-#include <chemistry/bcl_chemistry_rotamer_library_file.h>
-#include <io/bcl_io_file.h>
-#include <io/bcl_io_ifstream.h>
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
@@ -604,17 +604,20 @@ namespace bcl
             // check to see if bonded to some atom type that is not okay outside of a ring
             if
             (
-                // not in a ring
-                !bonds_itr->GetTargetAtom().CountNonValenceBondsWithProperty( chemistry::ConfigurationalBondTypeData::e_IsInRing, size_t( 1)) &&
+              // not in a ring
+              !bonds_itr->GetTargetAtom().CountNonValenceBondsWithProperty( chemistry::ConfigurationalBondTypeData::e_IsInRing, size_t( 1))
+              &&
+              (
+                // is bonded to O outside of a ring
+                bonds_itr->GetTargetAtom().GetAtomType()->GetElementType() == chemistry::GetElementTypes().e_Oxygen ||
+                // is double bonded to anything outside of a ring
+                bonds_itr->GetBondType() == chemistry::GetConfigurationalBondTypes().e_ConjugatedDoubleBond ||
+                // is bonded to a S and is part of an amide bond
                 (
-                    // is bonded to O outside of a ring
-                    bonds_itr->GetTargetAtom().GetAtomType()->GetElementType() == chemistry::GetElementTypes().e_Oxygen ||
-                    // is double bonded to anything outside of a ring
-                    bonds_itr->GetBondType() == chemistry::GetConfigurationalBondTypes().e_ConjugatedDoubleBond ||
-                    // is bonded to a S and is part of an amide bond
-                    ( atoms_itr->CountNonValenceBondsWithProperty( chemistry::ConfigurationalBondTypeData::e_IsAmide, size_t( 1)) &&
-                    bonds_itr->GetTargetAtom().GetAtomType()->GetElementType() == chemistry::GetElementTypes().e_Sulfur)
+                  atoms_itr->CountNonValenceBondsWithProperty( chemistry::ConfigurationalBondTypeData::e_IsAmide, size_t( 1))
+                  && bonds_itr->GetTargetAtom().GetAtomType()->GetElementType() == chemistry::GetElementTypes().e_Sulfur
                 )
+              )
             )
             {
               return true;

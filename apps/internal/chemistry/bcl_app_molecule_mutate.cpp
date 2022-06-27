@@ -13,8 +13,8 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "command/bcl_command_parameter_check_ranged.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <command/bcl_command_parameter_check_ranged.h>
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class

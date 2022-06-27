@@ -370,14 +370,14 @@ namespace bcl
 
           if( conf_ens->GetSize())
           {
-            storage::Vector< storage::Pair< bool, float>> aets
-                (
-                  m_Aligner.AlignEnsembleToScaffold
-                  (
-                    *conf_ens,
-                    REFERENCE_MOL
-                  )
-                );
+            storage::Vector< storage::Pair< bool, float> > aets
+            (
+              m_Aligner.AlignEnsembleToScaffold
+              (
+                *conf_ens,
+                REFERENCE_MOL
+              )
+            );
 
             // sort by alignment score
             conf_ens->Sort( "PropertyFieldDistance");
@@ -733,17 +733,17 @@ namespace bcl
 
       // get atoms of rings that matter
       storage::Set< size_t> important_ring_atoms;
-      storage::Vector< storage::Vector< size_t>> ring_components_vec
-          (
-            RING_COMPONENTS.Begin(),
-            RING_COMPONENTS.End()
-          );
+      storage::Vector< storage::Vector< size_t> > ring_components_vec
+      (
+        RING_COMPONENTS.Begin(),
+        RING_COMPONENTS.End()
+      );
       for
       (
-          auto important_rings_itr( rings_that_matter.Begin()),
+        auto important_rings_itr( rings_that_matter.Begin()),
           import_rings_itr_end( rings_that_matter.End());
-          important_rings_itr != import_rings_itr_end;
-          ++important_rings_itr
+        important_rings_itr != import_rings_itr_end;
+        ++important_rings_itr
       )
       {
         for( size_t atom( 0); atom < ring_components_vec( *important_rings_itr).GetSize(); ++atom)

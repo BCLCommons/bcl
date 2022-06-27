@@ -245,7 +245,7 @@ namespace bcl
                 {
                   // do next step in approximation and get new molecule
                   approximator.Next();
-                  const util::ShPtr< storage::Pair< chemistry::FragmentComplete, double>> &current_mol( approximator.GetTracker().GetCurrent());
+                  const util::ShPtr< storage::Pair< chemistry::FragmentComplete, double> > &current_mol( approximator.GetTracker().GetCurrent());
 
                   // Check for undruglike properties of the current molecule
                   if( approximator.GetTracker().GetStatusOfLastStep() == opti::e_Accepted || approximator.GetTracker().GetStatusOfLastStep() == opti::e_Improved)
@@ -256,9 +256,13 @@ namespace bcl
                     // tell me about the new mol
                     BCL_MessageStd( "Molecule tracker updated at iteration: " + util::Format()( approximator.GetTracker().GetIteration()));
                     BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( last_accepted->First())( 0)));
-                    BCL_MessageStd( "# of HBondAcceptors + HBondDonors: " +
-                      util::Format()( descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( last_accepted->First())( 0)
-                          + descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( last_accepted->First())( 0)));
+                    BCL_MessageStd(
+                      "# of HBondAcceptors + HBondDonors: " +
+                      util::Format()(
+                        descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( last_accepted->First())( 0)
+                        + descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( last_accepted->First())( 0)
+                      )
+                    );
                     BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( bonde->SumOverObject( last_accepted->First())( 3)));
@@ -972,8 +976,10 @@ namespace bcl
           sp_mutablefragment = util::ShPtr< chemistry::FragmentComplete>( new chemistry::FragmentComplete( frag));
           mutable_fragments = chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, *sp_mutablefragment));
           // message indicating using mutable fragment
-          BCL_MessageStd( "Mutating substructure atoms specified in the file '" +
-            util::Format()( m_MutableFragmentFlag->GetFirstParameter()->GetValue()) + "'");
+          BCL_MessageStd(
+            "Mutating substructure atoms specified in the file '" +
+            util::Format()( m_MutableFragmentFlag->GetFirstParameter()->GetValue()) + "'"
+          );
         }
         io::File::CloseClearFStream( input);
 

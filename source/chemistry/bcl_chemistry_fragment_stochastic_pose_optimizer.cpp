@@ -13,18 +13,37 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "util/bcl_util_static_initialization_fiasco_finder.h"
+BCL_StaticInitializationFiascoFinder
+
+// include header of this class
+#include "chemistry/bcl_chemistry_fragment_stochastic_pose_optimizer.h"
+
+// includes, sorted alphabetically
 #include "assemble/bcl_assemble_protein_model.h"
 #include "biol/bcl_biol_aa_classes.h"
 #include "biol/bcl_biol_aa_side_chain_factory.h"
 #include "chemistry/bcl_chemistry_aa_fragment_complete.h"
+#include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
+#include "chemistry/bcl_chemistry_bond_isometry_handler.h"
+#include "chemistry/bcl_chemistry_bond_lengths.h"
 #include "chemistry/bcl_chemistry_conformation_comparison_interface.h"
+#include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
 #include "chemistry/bcl_chemistry_conformation_interface.h"
 #include "chemistry/bcl_chemistry_conformation_set.h"
 #include "chemistry/bcl_chemistry_fragment_evolve_base.h"
 #include "chemistry/bcl_chemistry_fragment_make_conformers.h"
+#include "chemistry/bcl_chemistry_fragment_split_largest_component.h"
+#include "chemistry/bcl_chemistry_fragment_split_rings_with_unsaturated_substituents.h"
 #include "chemistry/bcl_chemistry_perturb_molecule_pose.h"
+#include "chemistry/bcl_chemistry_rotamer_library_file.h"
+#include "chemistry/bcl_chemistry_sample_conformations.h"
 #include "chemistry/bcl_chemistry_score_function_generic.h"
+#include "chemistry/bcl_chemistry_stereocenters_handler.h"
+#include "chemistry/bcl_chemistry_voxel_grid_atom.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
+#include "descriptor/bcl_descriptor_molecule_druglike.h"
+#include "find/bcl_find_collector_interface.h"
 #include "math/bcl_math_function_interface_serializable.h"
 #include "math/bcl_math_mutate_decision_node.h"
 #include "math/bcl_math_mutate_interface.h"
@@ -39,25 +58,8 @@
 #include "pdb/bcl_pdb_factory.h"
 #include "quality/bcl_quality_rmsd.h"
 #include "random/bcl_random_distribution_interface.h"
-#include "util/bcl_util_implementation.h"
-#include "util/bcl_util_static_initialization_fiasco_finder.h"
-BCL_StaticInitializationFiascoFinder
-
-// include header of this class
-#include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
-#include "chemistry/bcl_chemistry_bond_isometry_handler.h"
-#include "chemistry/bcl_chemistry_bond_lengths.h"
-#include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
-#include "chemistry/bcl_chemistry_fragment_split_largest_component.h"
-#include "chemistry/bcl_chemistry_fragment_split_rings_with_unsaturated_substituents.h"
-#include "chemistry/bcl_chemistry_fragment_stochastic_pose_optimizer.h"
-#include "chemistry/bcl_chemistry_rotamer_library_file.h"
-#include "chemistry/bcl_chemistry_sample_conformations.h"
-#include "chemistry/bcl_chemistry_stereocenters_handler.h"
-#include "chemistry/bcl_chemistry_voxel_grid_atom.h"
-#include "descriptor/bcl_descriptor_molecule_druglike.h"
-#include "find/bcl_find_collector_interface.h"
 #include "random/bcl_random_uniform_distribution.h"
+#include "util/bcl_util_implementation.h"
 // external includes - sorted alphabetically
 
 #undef AddAtom
@@ -416,16 +418,12 @@ namespace bcl
         // minor perturb rotation/translation
         for( size_t iteration( 0); iteration < m_Iterations; ++iteration)
         {
-          PerturbMoleculePose( *conf_itr);
-          double temp_score( m_PropertyScorer->SumOverObject( *conf_itr)( 0));
+          auto this_one( PerturbMoleculePoseFiveDegreesMax( *conf_itr));
+          double temp_score( m_PropertyScorer->SumOverObject( *this_one)( 0));
           if( temp_score < scores( score_index))
           {
             temp_score = scores( score_index);
-            last_best = *conf_itr;
-          }
-          else
-          {
-            *conf_itr = last_best;
+            last_best = *this_one;
           }
         }
         // save final score to molecule for sorting and reporting
@@ -557,7 +555,7 @@ namespace bcl
       // minor perturb rotation/translation or conformer swap
       for( size_t iteration( 0); iteration < m_Iterations; ++iteration)
       {
-        util::ShPtr< FragmentComplete> pose( PerturbMoleculePose( *best_pose, ensemble));
+        util::ShPtr< FragmentComplete> pose( PerturbMoleculePoseFiveDegreesMax( *best_pose, ensemble));
         pose->ResetCache(); //< ultimately it would be nice to only clear the cached protein-ligand interaction score
         pose->GetStoredPropertiesNonConst().SetMDLProperty( m_MDL, m_BindingPocketFilename);
         GetMutex().Lock();
@@ -618,10 +616,10 @@ namespace bcl
       opti::CriterionCombine< FragmentComplete, double> criterion_combine;
 
       // create a scoring object
-      util::ShPtr< math::FunctionInterfaceSerializable< FragmentComplete, double>> scorer
-          (
-            new ScoreFunctionGeneric( m_PropertyScorer)
-          );
+      util::ShPtr< math::FunctionInterfaceSerializable< FragmentComplete, double> > scorer
+      (
+        new ScoreFunctionGeneric( m_PropertyScorer)
+      );
 
       // set up our mutater object
       util::ShPtr< math::MutateDecisionNode< FragmentComplete> > mutater
@@ -643,7 +641,7 @@ namespace bcl
         molecule.Translate( trans.Rotate( math::RotationMatrix3D().SetRand()));
 
         // add the perturb mutate with medium sized moves
-        mutater->AddMutate( chemistry::PerturbMoleculePose( ENSEMBLE), 1.0);
+        mutater->AddMutate( PerturbMoleculePose( ENSEMBLE), 1.0);
 
         // insert termination criteria that depends on the total number of MC iterations
         opti::CriterionNumberIterations< FragmentComplete, double> maximum_number_iterations( m_Iterations);
@@ -657,7 +655,7 @@ namespace bcl
       else
       {
         // add the perturb mutate with small sized moves (1 degree rot, 0.1 A trans)
-        mutater->AddMutate( chemistry::PerturbMoleculePose( ENSEMBLE, 0.0174533, 0.1), 1.0);
+        mutater->AddMutate( PerturbMoleculePose( ENSEMBLE, 0.0174533, 0.1), 1.0);
 
         // insert termination criteria that depends on the total number of MC iterations
         opti::CriterionNumberIterations< FragmentComplete, double> maximum_number_iterations( m_RefinementIterations);
@@ -885,7 +883,7 @@ namespace bcl
     //! @brief performs a minor perturbation of the molecule via rotation or translation, then score
     //! @param MOLECULE the molecule whose pose is to be perturbed
     //! @param CONF_ENSEMBLE optionslly a conformer ensemble of the molecule to be perturbed
-    util::ShPtr< FragmentComplete> FragmentStochasticPoseOptimizer::PerturbMoleculePose
+    util::ShPtr< FragmentComplete> FragmentStochasticPoseOptimizer::PerturbMoleculePoseFiveDegreesMax
     (
       const FragmentComplete &MOLECULE,
       const FragmentEnsemble &CONF_ENSEMBLE
@@ -920,7 +918,7 @@ namespace bcl
         size_t pos( random::GetGlobalRandom().Random< double>( CONF_ENSEMBLE.GetSize()));
         std::advance( mol_itr, pos);
 
-        // superimpose with original conformer
+        // superimpose with original conf        ormer
         util::SiPtrVector< const linal::Vector3D> scaffold_coords( molecule.GetAtomCoordinates());
         util::SiPtrVector< const linal::Vector3D> molecule_coords( mol_itr->GetAtomCoordinates());
         math::TransformationMatrix3D transform( quality::RMSD::SuperimposeCoordinates( scaffold_coords, molecule_coords));

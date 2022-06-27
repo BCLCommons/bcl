@@ -18,7 +18,6 @@ BCL_StaticInitializationFiascoFinder
 
 // include header of this class
 #include "bcl_app_molecule_coordinates.h"
-#include "chemistry/bcl_chemistry.fwd.hh"
 #include "chemistry/bcl_chemistry_atom_clash_score.h"
 #include "chemistry/bcl_chemistry_fragment_probability_score.h"
 #include "chemistry/bcl_chemistry_priority_dihedral_angles.h"

@@ -175,13 +175,13 @@ namespace bcl
       //! @param MOL_A_ALIGNED_ATOMS - indices of aligned atoms in molecule A
       //! @param MOL_B_ALIGNED_ATOMS - indices of aligned atoms in molecule B
       //! @return void
-      static storage::Pair< storage::Vector< size_t>, storage::Vector< size_t>> GetAlignedAtoms
-          (
-            const FragmentComplete &MOLECULE_A,
-            const FragmentComplete &MOLECULE_B,
-            const storage::Vector< size_t> &KEEP_INDICES_A,
-            const storage::Vector< size_t> &KEEP_INDICES_B
-          );
+      static storage::Pair< storage::Vector< size_t>, storage::Vector< size_t> > GetAlignedAtoms
+      (
+        const FragmentComplete &MOLECULE_A,
+        const FragmentComplete &MOLECULE_B,
+        const storage::Vector< size_t> &KEEP_INDICES_A,
+        const storage::Vector< size_t> &KEEP_INDICES_B
+      );
 
       //! @brief find parameters for given atom coordinates
       //! @param ATOM_COORD_X - the x coordinate

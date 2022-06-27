@@ -13,11 +13,11 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "descriptor/bcl_descriptor_atom_is_sp3.h"
+#include "descriptor/bcl_descriptor_atom_relative_property_score.h"
+#include "descriptor/bcl_descriptor_molecule_similarity.h"
+#include "descriptor/bcl_descriptor_pair_convolution_correlation_dnn.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <descriptor/bcl_descriptor_atom_is_sp3.h>
-#include <descriptor/bcl_descriptor_atom_relative_property_score.h>
-#include <descriptor/bcl_descriptor_molecule_similarity.h>
-#include <descriptor/bcl_descriptor_pair_convolution_correlation_dnn.h>
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class

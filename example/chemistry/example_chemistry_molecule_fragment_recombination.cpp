@@ -18,17 +18,15 @@
 #include "chemistry/bcl_chemistry_molecule_fragment_recombination.h"
 
 // includes from bcl - sorted alphabetically
+#include "chemistry/bcl_chemistry_configurational_bond_type_data.h"
+#include "chemistry/bcl_chemistry_conformation_graph_converter.h"
+#include "chemistry/bcl_chemistry_fragment_ensemble.h"
 #include "graph/bcl_graph_const_graph.h"
 #include "io/bcl_io_file.h"
 #include "random/bcl_random_uniform_distribution.h"
 
 // external includes - sorted alphabetically
-#include "chemistry/bcl_chemistry_configurational_bond_type_data.h"
-#include "chemistry/bcl_chemistry_conformation_graph_converter.h"
-#include <stdio.h>
-using bcl::chemistry::FragmentEnsemble;
 
-#include "chemistry/bcl_chemistry_fragment_ensemble.h"
 namespace bcl
 {
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

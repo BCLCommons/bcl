@@ -41,7 +41,6 @@ namespace bcl
     //! @class SetSampleByPartsAtoms
     //! @brief Assigns atoms to the SampleByParts MDL property based on a reference structure to be used with SampleConformations
     //!
-    //! @see @link example_app_molecule_split.cpp @endlink
     //! @author brownbp1
     //! @date October 23, 2020
     //!

@@ -28,7 +28,6 @@
 #include "bcl_chemistry_fragment_constitution_shared.h"
 #include "bcl_chemistry_fragment_ensemble.h"
 #include "bcl_chemistry_fragment_mutate_interface.h"
-#include "descriptor/bcl_descriptor.fwd.hh"
 #include "descriptor/bcl_descriptor_base.h"
 #include "find/bcl_find_pick_interface.h"
 #include "math/bcl_math_mutate_interface.h"
@@ -37,6 +36,7 @@
 #include "util/bcl_util_function_interface.h"
 #include "util/bcl_util_sh_ptr.h"
 #include "util/bcl_util_si_ptr_list.h"
+
 // external includes - sorted alphabetically
 
 namespace bcl
