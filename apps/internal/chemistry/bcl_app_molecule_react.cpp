@@ -13,7 +13,6 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
-#include "descriptor/bcl_descriptor.fwd.hh"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
@@ -542,189 +541,192 @@ namespace bcl
         //! brief constructor
         ThreadManager
         (
-          const util::ShPtr< storage::Vector< chemistry::FragmentComplete>>   &INPUT_FRAGMENTS,       // Input fragments
-              const util::ShPtr< chemistry::FragmentEnsemble>                     &REAGENTS,              // Input reagents
-              const std::string                                                   &REACTIONS_DIRECTORY,   // Reactions directory
-              const std::string                                                   &ROUTINE,               // Molecule react routine
-              const size_t                                                         REPEATS,               // Reaction routine repeats
-              const storage::Vector< size_t>                                      &TARGET_REACTION_POS,   // Target reactant reaction positions
-              const bool                                                           LIGAND_BASED,          // If true, do not preserve coordinate info during reaction
-              const chemistry::SampleConformations                                &SAMPLE_CONFS,          // Sample conformers object
-              const bool                                                           FIX_GEOMETRY,          // Fix any bad atoms during reactions
-              const bool                                                           FIX_RING_GEOMETRY,     // Fix any bad ring atoms during reaction
-              const size_t                                                         EXTEND_ADJACENT,       // Number of atoms to extend from mobile into fixed region
-              const std::string                                                   &OUTPUT_FILENAME,       // Output SDF filename
-              const bool                                                           CORINA,                // Corina 3D conformer
-              const size_t                                                         NUMBER_THREADS         // Number of threads (from scheduler)
-            ) :
-              m_Threads( std::min( NUMBER_THREADS, INPUT_FRAGMENTS->GetSize() *( REPEATS + 1))),
-              m_NumberInputFragments( INPUT_FRAGMENTS->GetSize()),
-              m_NumberRepeatCycles( REPEATS),
-              m_NumberTotalJobs( ( REPEATS + 1) *INPUT_FRAGMENTS->GetSize()),
-              m_NumberCompletedJobs( 0),
-              m_CurrentMolIndex
-              (
-                REPEATS < INPUT_FRAGMENTS->GetSize() ?
-                std::min( NUMBER_THREADS, INPUT_FRAGMENTS->GetSize()) - 1 :
-                0
-              ),
-              m_CurrentCycleRepeat( 0),
-              m_SampleConfs( SAMPLE_CONFS),
-              m_Corina( CORINA)
-            {
-              // do not allow people to do multiple cycles of enumeration - it is wasteful
-              if( ROUTINE == "Exhaustive" && REPEATS)
-              {
-                BCL_Assert( false, "ERROR: Running the 'Exhaustive' routine with multiple repeats is not allowed; "
-                  "please either change to a stochastic routine or set repeats to 0.");
-            }
+          const util::ShPtr< storage::Vector< chemistry::FragmentComplete> >   &INPUT_FRAGMENTS,       // Input fragments
+          const util::ShPtr< chemistry::FragmentEnsemble>                     &REAGENTS,              // Input reagents
+          const std::string                                                   &REACTIONS_DIRECTORY,   // Reactions directory
+          const std::string                                                   &ROUTINE,               // Molecule react routine
+          const size_t                                                         REPEATS,               // Reaction routine repeats
+          const storage::Vector< size_t>                                      &TARGET_REACTION_POS,   // Target reactant reaction positions
+          const bool                                                           LIGAND_BASED,          // If true, do not preserve coordinate info during reaction
+          const chemistry::SampleConformations                                &SAMPLE_CONFS,          // Sample conformers object
+          const bool                                                           FIX_GEOMETRY,          // Fix any bad atoms during reactions
+          const bool                                                           FIX_RING_GEOMETRY,     // Fix any bad ring atoms during reaction
+          const size_t                                                         EXTEND_ADJACENT,       // Number of atoms to extend from mobile into fixed region
+          const std::string                                                   &OUTPUT_FILENAME,       // Output SDF filename
+          const bool                                                           CORINA,                // Corina 3D conformer
+          const size_t                                                         NUMBER_THREADS         // Number of threads (from scheduler)
+        ) :
+          m_Threads( std::min( NUMBER_THREADS, INPUT_FRAGMENTS->GetSize() * ( REPEATS + 1))),
+          m_NumberInputFragments( INPUT_FRAGMENTS->GetSize()),
+          m_NumberRepeatCycles( REPEATS),
+          m_NumberTotalJobs( ( REPEATS + 1) * INPUT_FRAGMENTS->GetSize()),
+          m_NumberCompletedJobs( 0),
+          m_CurrentMolIndex
+          (
+            REPEATS < INPUT_FRAGMENTS->GetSize() ?
+            std::min( NUMBER_THREADS, INPUT_FRAGMENTS->GetSize()) - 1 :
+            0
+          ),
+          m_CurrentCycleRepeat( 0),
+          m_SampleConfs( SAMPLE_CONFS),
+          m_Corina( CORINA)
+        {
+          // do not allow people to do multiple cycles of enumeration - it is wasteful
+          if( ROUTINE == "Exhaustive" && REPEATS)
+          {
+            BCL_ExitWithoutCallstack(
+              "ERROR: Running the 'Exhaustive' routine with multiple repeats is not allowed; "
+              "please either change to a stochastic routine or set repeats to 0.",
+              -1
+            );
+          }
 
-            // prepare output filestream
-            io::DirectoryEntry entry( OUTPUT_FILENAME);
-            if( entry.DoesExist())
-            {
-              entry.Remove();
-            }
-            io::File::MustOpenOFStream( m_OutputStream, OUTPUT_FILENAME, std::ios::app);
+          // prepare output filestream
+          io::DirectoryEntry entry( OUTPUT_FILENAME);
+          if( entry.DoesExist())
+          {
+            entry.Remove();
+          }
+          io::File::MustOpenOFStream( m_OutputStream, OUTPUT_FILENAME, std::ios::app);
 
-            // initialize one worker per thread
-            std::vector< Worker> workers( m_Threads);
-            size_t current_mol_index( 0), current_cycle_index( 0);
-            for
+          // initialize one worker per thread
+          std::vector< Worker> workers( m_Threads);
+          size_t current_mol_index( 0), current_cycle_index( 0);
+          for
+          (
+              std::vector< Worker>::iterator itr( workers.begin()), end( workers.end());
+              itr != end;
+              ++itr
+          )
+          {
+            // setup worker
+            Worker &worker_ref( *itr);
+            worker_ref.m_ThreadManager                    = this;                          // Copy of pointer to thread manager
+            worker_ref.m_InputFragments                   = INPUT_FRAGMENTS;               // Input molecules
+            worker_ref.m_CurrentWorkerMolIndex            = current_mol_index;             // Current molecule index
+            worker_ref.m_CurrentWorkerRepeatCycle         = current_mol_index;             // Current molecule index
+            worker_ref.m_WorkerRoutine                    = ROUTINE;                       // Set the routine for the worker
+            worker_ref.m_Reagents                         = REAGENTS;                      // Reagents for the reaction
+            worker_ref.m_ReactionsDirectory               = REACTIONS_DIRECTORY;           // Reactions
+            worker_ref.m_Initialized                      = false;
+            worker_ref.m_TargetReactantPositions          = TARGET_REACTION_POS;
+            worker_ref.m_LigandBased                      = LIGAND_BASED;
+            worker_ref.m_WorkerSampleConfs                = SAMPLE_CONFS;                  // Conformer generator
+            worker_ref.m_FixGeometry                      = FIX_GEOMETRY;
+            worker_ref.m_FixRingGeometry                  = FIX_RING_GEOMETRY;
+            worker_ref.m_AdjacentAtoms                    = EXTEND_ADJACENT;
+
+            // manage molecule vs. cycle threads
+            REPEATS < INPUT_FRAGMENTS->GetSize() ?
+            ++current_mol_index :
+            ++current_cycle_index;
+
+          }
+
+          // Allocate space for jobs
+          util::ShPtrVector< sched::JobInterface> jobs;
+          jobs.AllocateMemory( m_Threads);
+
+          // assign group id for job priority (all jobs same priority)
+          const size_t group_id( 0);
+
+          // add threads to jobs
+          for( size_t proc_number( 0); proc_number < m_Threads; ++proc_number)
+          {
+            Worker &worker_ref( workers[ proc_number]);
+            jobs.PushBack
             (
-                std::vector< Worker>::iterator itr( workers.begin()), end( workers.end());
-                itr != end;
-                ++itr
-            )
-            {
-              // setup worker
-              Worker &worker_ref( *itr);
-              worker_ref.m_ThreadManager                    = this;                          // Copy of pointer to thread manager
-              worker_ref.m_InputFragments                   = INPUT_FRAGMENTS;               // Input molecules
-              worker_ref.m_CurrentWorkerMolIndex            = current_mol_index;             // Current molecule index
-              worker_ref.m_CurrentWorkerRepeatCycle         = current_mol_index;             // Current molecule index
-              worker_ref.m_WorkerRoutine                    = ROUTINE;                       // Set the routine for the worker
-              worker_ref.m_Reagents                         = REAGENTS;                      // Reagents for the reaction
-              worker_ref.m_ReactionsDirectory               = REACTIONS_DIRECTORY;           // Reactions
-              worker_ref.m_Initialized                      = false;
-              worker_ref.m_TargetReactantPositions          = TARGET_REACTION_POS;
-              worker_ref.m_LigandBased                      = LIGAND_BASED;
-              worker_ref.m_WorkerSampleConfs                = SAMPLE_CONFS;                  // Conformer generator
-              worker_ref.m_FixGeometry                      = FIX_GEOMETRY;
-              worker_ref.m_FixRingGeometry                  = FIX_RING_GEOMETRY;
-              worker_ref.m_AdjacentAtoms                    = EXTEND_ADJACENT;
-
-              // manage molecule vs. cycle threads
-              REPEATS < INPUT_FRAGMENTS->GetSize() ?
-              ++current_mol_index :
-              ++current_cycle_index;
-
-            }
-
-            // Allocate space for jobs
-            util::ShPtrVector< sched::JobInterface> jobs;
-            jobs.AllocateMemory( m_Threads);
-
-            // assign group id for job priority (all jobs same priority)
-            const size_t group_id( 0);
-
-            // add threads to jobs
-            for( size_t proc_number( 0); proc_number < m_Threads; ++proc_number)
-            {
-              Worker &worker_ref( workers[ proc_number]);
-              jobs.PushBack
+              util::ShPtr< sched::JobInterface>
               (
-                util::ShPtr< sched::JobInterface>
+                new sched::ThunkJob< Worker, void>
                 (
-                  new sched::ThunkJob< Worker, void>
-                  (
-                    group_id,
-                    worker_ref,
-                    &Worker::RunThread,
-                    sched::JobInterface::e_READY,
-                    NULL
-                  )
+                  group_id,
+                  worker_ref,
+                  &Worker::RunThread,
+                  sched::JobInterface::e_READY,
+                  NULL
                 )
-              );
-              // Submit the jobs to the scheduler
-              sched::GetScheduler().RunJob( jobs.LastElement());
-            }
+              )
+            );
+            // Submit the jobs to the scheduler
+            sched::GetScheduler().RunJob( jobs.LastElement());
+          }
 
-            // join all the jobs
-            for( size_t proc_number( 0); proc_number < m_Threads; ++proc_number)
-            {
-              sched::GetScheduler().Join( jobs( proc_number));
-            }
+          // join all the jobs
+          for( size_t proc_number( 0); proc_number < m_Threads; ++proc_number)
+          {
+            sched::GetScheduler().Join( jobs( proc_number));
+          }
 
-            // Close output
-            io::File::CloseClearFStream( m_OutputStream);
+          // Close output
+          io::File::CloseClearFStream( m_OutputStream);
         }; // ThreadManager()
 
-          //! @brief clone function
-          ThreadManager *Clone() const
-          {
-            BCL_Exit( "ThreadManager cannot be cloned.", -1);
-            return NULL;
-          }
+        //! @brief clone function
+        ThreadManager *Clone() const
+        {
+          BCL_Exit( "ThreadManager cannot be cloned.", -1);
+          return NULL;
+        }
 
-          //! @brief Get class identifier string
-          const std::string &GetClassIdentifier() const
-          {
-            return GetStaticClassName( *this);
-          }
+        //! @brief Get class identifier string
+        const std::string &GetClassIdentifier() const
+        {
+          return GetStaticClassName( *this);
+        }
 
       /////////////////
       // data access //
       /////////////////
 
-          // Return the current molecule index
-          size_t GetCurrentMolIndex()
-          {
-            return m_CurrentMolIndex;
-          }
+        // Return the current molecule index
+        size_t GetCurrentMolIndex()
+        {
+          return m_CurrentMolIndex;
+        }
 
-          // Return the number of threads being used
-          size_t GetNumberThreads()
-          {
-            return m_Threads;
-          }
+        // Return the number of threads being used
+        size_t GetNumberThreads()
+        {
+          return m_Threads;
+        }
 
-          // Return the number of threads being used
-          size_t GetNumberInputFragments()
-          {
-            return m_NumberInputFragments;
-          }
+        // Return the number of threads being used
+        size_t GetNumberInputFragments()
+        {
+          return m_NumberInputFragments;
+        }
 
-          // Return the number of threads being used
-          size_t GetNumberRepeatCycles()
-          {
-            return m_NumberRepeatCycles;
-          }
+        // Return the number of threads being used
+        size_t GetNumberRepeatCycles()
+        {
+          return m_NumberRepeatCycles;
+        }
 
-          // Return molecules
-          storage::Vector< chemistry::FragmentComplete> &GetMolecules()
-          {
-            return m_Molecules;
-          }
+        // Return molecules
+        storage::Vector< chemistry::FragmentComplete> &GetMolecules()
+        {
+          return m_Molecules;
+        }
 
-          // Return yay or nay on Corina conformer
-          bool GetIsCorina()
-          {
-            return m_Corina;
-          }
+        // Return yay or nay on Corina conformer
+        bool GetIsCorina()
+        {
+          return m_Corina;
+        }
 
       //////////////////////
       // helper functions //
       //////////////////////
 
-          // Add fit molecules to output vector
-          void AddMolecule
-          (
-            const chemistry::FragmentComplete &MOLECULE
-          )
-          {
-            MOLECULE.WriteMDL( m_OutputStream);
-          }
+        // Add fit molecules to output vector
+        void AddMolecule
+        (
+          const chemistry::FragmentComplete &MOLECULE
+        )
+        {
+          MOLECULE.WriteMDL( m_OutputStream);
+        }
 
       //////////////////
       // input/output //
@@ -742,7 +744,7 @@ namespace bcl
           return OUTSTREAM;
         }
 
-        }; // class ThreadManager
+      }; // class ThreadManager
 
     //////////
     // data //

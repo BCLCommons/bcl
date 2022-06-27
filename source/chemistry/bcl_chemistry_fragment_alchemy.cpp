@@ -480,7 +480,7 @@ namespace bcl
         // skip geometry cleanup if we mutated into an undefined atom
         if( GetChosenElementType() == GetElementTypes().e_Undefined)
         {
-          BCL_MessageStd("Chosen element type from allowed element type list is Undefined; skipping fragment cleaning");
+          BCL_MessageStd( "Chosen element type from allowed element type list is Undefined; skipping fragment cleaning");
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>( new FragmentComplete( new_atom_vector, "")), *this);
         }
 
@@ -533,7 +533,6 @@ namespace bcl
     {
       m_RestrictToBondedH = RESTRICT_TO_BOND_H;
     }
-
 
     //! @brief set the chosen element type to which we are mutating
     void FragmentAlchemy::SetChosenElement( const ElementType &ELEMENT_TYPE) const

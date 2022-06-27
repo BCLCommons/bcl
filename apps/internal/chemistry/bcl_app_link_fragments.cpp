@@ -13,20 +13,20 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "chemistry/bcl_chemistry_configurational_bond_types.h"
+#include "chemistry/bcl_chemistry_fragment_map_conformer.h"
+#include "chemistry/bcl_chemistry_fragment_stochastic_pose_optimizer.h"
+#include "chemistry/bcl_chemistry_merge_fragment_complete.h"
+#include "chemistry/bcl_chemistry_rotamer_library_file.h"
+#include "chemistry/bcl_chemistry_sample_conformations.h"
+#include "command/bcl_command_parameter_check_allowed.h"
+#include "command/bcl_command_parameter_check_default.h"
+#include "command/bcl_command_parameter_check_ranged.h"
+#include "io/bcl_io_directory_entry.h"
+#include "sched/bcl_sched_job_interface.h"
+#include "sched/bcl_sched_scheduler_interface.h"
+#include "sched/bcl_sched_unary_function_job_with_data.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <chemistry/bcl_chemistry_configurational_bond_types.h>
-#include <chemistry/bcl_chemistry_fragment_map_conformer.h>
-#include <chemistry/bcl_chemistry_fragment_stochastic_pose_optimizer.h>
-#include <chemistry/bcl_chemistry_merge_fragment_complete.h>
-#include <chemistry/bcl_chemistry_rotamer_library_file.h>
-#include <chemistry/bcl_chemistry_sample_conformations.h>
-#include <command/bcl_command_parameter_check_allowed.h>
-#include <command/bcl_command_parameter_check_default.h>
-#include <command/bcl_command_parameter_check_ranged.h>
-#include <io/bcl_io_directory_entry.h>
-#include <sched/bcl_sched_job_interface.h>
-#include <sched/bcl_sched_scheduler_interface.h>
-#include <sched/bcl_sched_unary_function_job_with_data.h>
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class

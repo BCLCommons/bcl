@@ -340,19 +340,19 @@ namespace bcl
       //! @param MOLECULE_A_CONFORMERS = molecule A conformer ensemble
       //! @param POCKET_BOX = bounding box for pocket
       //! @return the new molecule A and RMSDX between the two aligned molecules
-      storage::Vector< storage::Pair< FragmentComplete, double>> PseudoOperator
-          (
-            const ConformationInterface &MOLECULE_A,
-            const ConformationInterface &MOLECULE_B,
-            const size_t &ITERATIONS,
-            const size_t &MAX_UNIMPROVED,
-            const bool &RECENTER_FIRST = true,
-            const float &MAX_ATOM_DIST = 1.00,
-            const FragmentEnsemble &MOLECULE_A_CONFORMERS = FragmentEnsemble(),
-            const storage::Vector< size_t> &EXCLUSION_ATOMS_A = storage::Vector< size_t>(),
-            const storage::Vector< size_t> &EXCLUSION_ATOMS_B = storage::Vector< size_t>(),
-            const FragmentEnsemble &POCKETS = FragmentEnsemble()
-          ) const;
+      storage::Vector< storage::Pair< FragmentComplete, double> > PseudoOperator
+      (
+        const ConformationInterface &MOLECULE_A,
+        const ConformationInterface &MOLECULE_B,
+        const size_t &ITERATIONS,
+        const size_t &MAX_UNIMPROVED,
+        const bool &RECENTER_FIRST = true,
+        const float &MAX_ATOM_DIST = 1.00,
+        const FragmentEnsemble &MOLECULE_A_CONFORMERS = FragmentEnsemble(),
+        const storage::Vector< size_t> &EXCLUSION_ATOMS_A = storage::Vector< size_t>(),
+        const storage::Vector< size_t> &EXCLUSION_ATOMS_B = storage::Vector< size_t>(),
+        const FragmentEnsemble &POCKETS = FragmentEnsemble()
+      ) const;
 
       ///////////////////
       // Helper Functions
@@ -553,7 +553,7 @@ namespace bcl
         util::SiPtr< const storage::Vector< descriptor::CheminfoProperty> > m_Properties;
 
         //! simple pointer to tracker
-        util::SiPtr< const opti::Tracker< FragmentComplete, double>> m_ScoreTracker;
+        util::SiPtr< const opti::Tracker< FragmentComplete, double> > m_ScoreTracker;
 
         //! atom indices to exclude from scoring / atom pair matching
         storage::Vector< size_t> m_ExclusionIndicesA;

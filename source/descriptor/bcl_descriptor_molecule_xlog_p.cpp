@@ -13,10 +13,10 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "chemistry/bcl_chemistry_atom_conformational_interface.h"
+#include "chemistry/bcl_chemistry_fragment_complete.h"
+#include "util/bcl_util_implementation.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <chemistry/bcl_chemistry_atom_conformational_interface.h>
-#include <chemistry/bcl_chemistry_fragment_complete.h>
-#include <util/bcl_util_implementation.h>
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class

@@ -121,90 +121,92 @@ namespace bcl
       m_ReactionSearch.Initialize();
 
       // collect valid reactions
-      m_Reactions = ReactionEnsemble( storage::List< ReactionComplete>
+      m_Reactions = ReactionEnsemble(
+        storage::List< ReactionComplete>
         (
           m_ReactionSearch.GetReactions()->Begin(),
-          m_ReactionSearch.GetReactions()->End())
-        );
+          m_ReactionSearch.GetReactions()->End()
+        )
+      );
 
-        // Reset the reaction search object with the new molecules
-        m_ReactionSearch.Reset();
-        m_ReactionSearch = ReactionSearch
-            (
-              m_Reagents,
-              m_Reactions
-            );
-
-        // re-initialize
-        m_ReactionSearch.Initialize();
-
-        // provide user messages
-        if( !m_LigandBased)
-        {
-          BCL_MessageStd( "Setting pose-dependent options");
-          BCL_MessageStd( "Ligand-based: " + util::Format()( m_LigandBased ? "true" : "false"));
-          BCL_MessageStd( "Fix bad geometry: " + util::Format()( m_CorrectGeometry ? "true" : "false"));
-          BCL_MessageStd("Fix bad ring geometry: " + util::Format()( m_CorrectNonReferenceRingGeometry ? "true" : "false"));
-          BCL_MessageStd("Extend adjacent atoms: " + util::Format()( m_AdditionalAdjacentAtoms));
-        }
-
-        // try a few times
-        for( size_t i( 0); i < m_NumberMaxAttempts; ++i)
-        {
-          // perform reaction
-          auto products( ReactRandom( FRAGMENT));
-          if( !products.Second().GetSize())
-          {
-            return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
-          }
-
-          // for cleaning and optimizing the new molecule
-          AtomVector< AtomComplete> new_atom_vector( products.Second().GetMolecules().FirstElement().GetAtomVector());
-          FragmentMapConformer cleaner
+      // Reset the reaction search object with the new molecules
+      m_ReactionSearch.Reset();
+      m_ReactionSearch = ReactionSearch
           (
-            m_DrugLikenessType,
-            m_MDL,
-            FRAGMENT.GetMDLProperty( m_MDL),
-            m_PropertyScorer,
-            m_ResolveClashes,
-            m_BFactors,
-            m_Corina,
-            storage::Vector< size_t>(),
-            false,
-            m_CorrectGeometry,
-            m_AdditionalAdjacentAtoms
+            m_Reagents,
+            m_Reactions
           );
 
-          // remove hydrogen atoms so ease burden on the isomorphism search during cleaning
-          static HydrogensHandler hydrogens_handler;
-          hydrogens_handler.Remove( new_atom_vector);
+      // re-initialize
+      m_ReactionSearch.Initialize();
 
-          // also known as the "fuck it, just give me a conformer" option
-          if( m_LigandBased)
-          {
-            // remove any restrictions to sampling
-            FragmentComplete unclean_mol( new_atom_vector, "");
-            unclean_mol.RemoveProperty( "SampleByParts");
-
-            // finalize
-            util::ShPtr< FragmentComplete> new_mol_ptr
-            (
-              m_ScaffoldFragment.GetSize() ?
-                  cleaner.Clean( unclean_mol.GetAtomVector(), m_ScaffoldFragment, m_DrugLikenessType) :
-                  cleaner.Clean( unclean_mol.GetAtomVector(), FRAGMENT, m_DrugLikenessType)
-            );
-            return math::MutateResult< FragmentComplete>( new_mol_ptr, *this);
-          }
-
-          // clean atoms only; 3D conformer was adjusted in ReactionWorker
-          AtomVector< AtomComplete> clean_mol( cleaner.CleanAtoms( new_atom_vector, m_DrugLikenessType));
-          FragmentComplete clean_labeled_mol( clean_mol, "");
-          this->SetPropertiesFromOther( clean_labeled_mol, products.Second().GetMolecules().FirstElement());
-          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>( new FragmentComplete( clean_labeled_mol)), *this);
-        }
-        // if we never get it right then just return null
-        return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
+      // provide user messages
+      if( !m_LigandBased)
+      {
+        BCL_MessageStd( "Setting pose-dependent options");
+        BCL_MessageStd( "Ligand-based: " + util::Format()( m_LigandBased ? "true" : "false"));
+        BCL_MessageStd( "Fix bad geometry: " + util::Format()( m_CorrectGeometry ? "true" : "false"));
+        BCL_MessageStd("Fix bad ring geometry: " + util::Format()( m_CorrectNonReferenceRingGeometry ? "true" : "false"));
+        BCL_MessageStd("Extend adjacent atoms: " + util::Format()( m_AdditionalAdjacentAtoms));
       }
+
+      // try a few times
+      for( size_t i( 0); i < m_NumberMaxAttempts; ++i)
+      {
+        // perform reaction
+        auto products( ReactRandom( FRAGMENT));
+        if( !products.Second().GetSize())
+        {
+          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
+        }
+
+        // for cleaning and optimizing the new molecule
+        AtomVector< AtomComplete> new_atom_vector( products.Second().GetMolecules().FirstElement().GetAtomVector());
+        FragmentMapConformer cleaner
+        (
+          m_DrugLikenessType,
+          m_MDL,
+          FRAGMENT.GetMDLProperty( m_MDL),
+          m_PropertyScorer,
+          m_ResolveClashes,
+          m_BFactors,
+          m_Corina,
+          storage::Vector< size_t>(),
+          false,
+          m_CorrectGeometry,
+          m_AdditionalAdjacentAtoms
+        );
+
+        // remove hydrogen atoms so ease burden on the isomorphism search during cleaning
+        static HydrogensHandler hydrogens_handler;
+        hydrogens_handler.Remove( new_atom_vector);
+
+        // also known as the "fuck it, just give me a conformer" option
+        if( m_LigandBased)
+        {
+          // remove any restrictions to sampling
+          FragmentComplete unclean_mol( new_atom_vector, "");
+          unclean_mol.RemoveProperty( "SampleByParts");
+
+          // finalize
+          util::ShPtr< FragmentComplete> new_mol_ptr
+          (
+            m_ScaffoldFragment.GetSize() ?
+                cleaner.Clean( unclean_mol.GetAtomVector(), m_ScaffoldFragment, m_DrugLikenessType) :
+                cleaner.Clean( unclean_mol.GetAtomVector(), FRAGMENT, m_DrugLikenessType)
+          );
+          return math::MutateResult< FragmentComplete>( new_mol_ptr, *this);
+        }
+
+        // clean atoms only; 3D conformer was adjusted in ReactionWorker
+        AtomVector< AtomComplete> clean_mol( cleaner.CleanAtoms( new_atom_vector, m_DrugLikenessType));
+        FragmentComplete clean_labeled_mol( clean_mol, "");
+        this->SetPropertiesFromOther( clean_labeled_mol, products.Second().GetMolecules().FirstElement());
+        return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>( new FragmentComplete( clean_labeled_mol)), *this);
+      }
+      // if we never get it right then just return null
+      return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
+    }
 
   ////////////////
   // operations //

@@ -262,21 +262,21 @@ namespace bcl
     //! @param COMPARER the metric to be used to compare alignments
     //! @return true if alignment occurs, false if the isomorphism size
     //! is below the minimum size allowed or the ensemble is empty
-    storage::Vector< storage::Pair< bool, float>> FragmentAlignToScaffold::AlignEnsembleToScaffold
-        (
-          FragmentEnsemble &TARGET_ENS,
-          const FragmentComplete &SCAFFOLD_MOL,
-          const util::Implementation< ConformationComparisonInterface> &COMPARER
-        ) const
-        {
-          // if empty ensemble then return false
-          if( !TARGET_ENS.GetSize())
-          {
-            return false;
+    storage::Vector< storage::Pair< bool, float> > FragmentAlignToScaffold::AlignEnsembleToScaffold
+    (
+      FragmentEnsemble &TARGET_ENS,
+      const FragmentComplete &SCAFFOLD_MOL,
+      const util::Implementation< ConformationComparisonInterface> &COMPARER
+    ) const
+    {
+      // if empty ensemble then return false
+      if( !TARGET_ENS.GetSize())
+      {
+        return false;
       }
 
       // output alignment success and MolAlign score
-      storage::Vector< storage::Pair< bool, float>> scores( TARGET_ENS.GetSize());
+      storage::Vector< storage::Pair< bool, float> > scores( TARGET_ENS.GetSize());
 
       // iterate over conformational ensemble and score confs
       size_t score_index( 0);
@@ -284,9 +284,9 @@ namespace bcl
       // align all conformers
       for
       (
-          auto conf_itr( TARGET_ENS.Begin()), conf_itr_end( TARGET_ENS.End());
-          conf_itr != conf_itr_end;
-          ++conf_itr, ++score_index
+        auto conf_itr( TARGET_ENS.Begin()), conf_itr_end( TARGET_ENS.End());
+        conf_itr != conf_itr_end;
+        ++conf_itr, ++score_index
       )
       {
         // align and score

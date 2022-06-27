@@ -13,17 +13,17 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "chemistry/bcl_chemistry_atom_conformational_interface.h"
+#include "chemistry/bcl_chemistry_conformation_graph_converter.h"
+#include "chemistry/bcl_chemistry_fragment_complete.h"
+#include "command/bcl_command_command_state.h"
+#include "descriptor/bcl_descriptor_iterator.h"
+#include "descriptor/bcl_descriptor_molecule_2da_smooth_sign_code.h"
+#include "graph/bcl_graph_connectivity.h"
+#include "io/bcl_io_serialization.h"
+#include "io/bcl_io_serializer.h"
+#include "math/bcl_math_statistics.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <chemistry/bcl_chemistry_atom_conformational_interface.h>
-#include <chemistry/bcl_chemistry_conformation_graph_converter.h>
-#include <chemistry/bcl_chemistry_fragment_complete.h>
-#include <command/bcl_command_command_state.h>
-#include <descriptor/bcl_descriptor_iterator.h>
-#include <descriptor/bcl_descriptor_molecule_2da_smooth_sign_code.h>
-#include <graph/bcl_graph_connectivity.h>
-#include <io/bcl_io_serialization.h>
-#include <io/bcl_io_serializer.h>
-#include <math/bcl_math_statistics.h>
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class

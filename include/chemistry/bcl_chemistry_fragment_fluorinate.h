@@ -19,6 +19,7 @@
 #include "bcl_chemistry.h"
 
 // include other forward headers - sorted alphabetically
+#include "descriptor/bcl_descriptor.fwd.hh"
 #include "find/bcl_find.fwd.hh"
 
 // includes from bcl - sorted alphabetically
@@ -28,7 +29,6 @@
 #include "bcl_chemistry_fragment_constitution_shared.h"
 #include "bcl_chemistry_fragment_ensemble.h"
 #include "bcl_chemistry_fragment_mutate_interface.h"
-#include "descriptor/bcl_descriptor.fwd.hh"
 #include "descriptor/bcl_descriptor_base.h"
 #include "find/bcl_find_pick_interface.h"
 #include "math/bcl_math_mutate_interface.h"

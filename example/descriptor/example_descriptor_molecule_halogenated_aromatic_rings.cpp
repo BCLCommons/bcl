@@ -14,7 +14,7 @@
 
 // include example header
 #include "example.h"
-#include "chemistry/bcl_chemistry.fwd.hh"
+
 // include the header of the class which this example is for
 #include "descriptor/bcl_descriptor_molecule_halogenated_aromatic_rings.h"
 

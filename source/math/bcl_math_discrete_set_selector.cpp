@@ -13,7 +13,7 @@
 // (c)
 
 // include for this class
-#include <math/bcl_math_discrete_set_selector.h>
+#include "math/bcl_math_discrete_set_selector.h"
 // includes from bcl - sorted alphabetically
 #include "linal/bcl_linal_vector.h"
 #include "linal/bcl_linal_vector_operations.h"

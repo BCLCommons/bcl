@@ -189,8 +189,8 @@ namespace bcl
       //! @brief react a molecule at all reactive centers with all reagents for a single specified reaction
       storage::Pair
       <
-        storage::Vector< storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble>>,
-            storage::Vector< storage::Vector< std::string>>
+        storage::Vector< storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble> >,
+            storage::Vector< storage::Vector< std::string> >
       >
       ReactExhaustiveOneReaction
       (
@@ -201,8 +201,8 @@ namespace bcl
       //! @brief react a molecule at all reactive centers with all reagents
       storage::Pair
       <
-        storage::Vector< storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble>>,
-            storage::Vector< storage::Vector< std::string>>
+        storage::Vector< storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble> >,
+        storage::Vector< storage::Vector< std::string> >
       >
       ReactExhaustive
       (
