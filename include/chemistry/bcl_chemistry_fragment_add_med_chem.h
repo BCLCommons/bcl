@@ -68,8 +68,15 @@ namespace bcl
       util::ShPtr< FragmentEnsemble> m_FragmentPool;
       std::string m_MedChemFilename;
 
+      //! alternate element types to Undefined to control directionality
+      std::string m_MedChemFragmentLinkElementType;
+      std::string m_TargetMoleculeLinkElementType;
+
       //! restrict medchem additions to aromatic rings
       bool m_RestrictAdditionsToAroRings;
+
+      //! must use this flag if you want to specify an element type as a dummy atom
+      bool m_EnableDummyAtom;
 
     //////////
     // data //
