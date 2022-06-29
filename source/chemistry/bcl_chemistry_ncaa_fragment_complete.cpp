@@ -18,8 +18,10 @@
 // (c) (for academic users) or bcl-support-commercial@meilerlab.org (for commercial users)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include <chemistry/bcl_chemistry_fragment_complete.h>
 #include <chemistry/bcl_chemistry_rotamer_library_file.h>
 #include <io/bcl_io_file.h>
+#include <linal/bcl_linal_matrix3x3.h>
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
@@ -102,7 +104,7 @@ namespace bcl
       {
         // skip backbone atoms
         const size_t &atom_index( NCAA.GetAtomIndex( bond_itr->GetTargetAtom()));
-        if( atom_index == NCAA( BB_CONN_INDICES( 1) ) || atom_index == NCAA( BB_CONN_INDICES( 2) ) )
+        if( atom_index == BB_CONN_INDICES( 1) || atom_index == BB_CONN_INDICES( 2) )
         {
           continue;
         }
@@ -145,7 +147,7 @@ namespace bcl
       // get the ncaa base (which will provide our reference to Rosetta for peptide backbone atoms)
       chemistry::FragmentComplete ncaa_base( glycine.GetMolecules().FirstElement());
 
-      // make sure no one fucked with the reference file in a harmful way
+      // make sure no one changed the reference file in a harmful way
       const chemistry::AtomVector< chemistry::AtomComplete> atom_v( ncaa_base.GetAtomVector());
       if
       (
@@ -314,7 +316,7 @@ namespace bcl
       const size_t &CHI1_INDEX
     ) const
     {
-      // TODO: Adding code here
+
     }
 
     ////////////////////
@@ -333,8 +335,7 @@ namespace bcl
       io::File::MustOpenIFStream
       (
         file,
-        // TODO: Make the sdf file
-        chemistry::RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ncaa_base/n_methyl_glycine_bb.sdf.gz"
+        chemistry::RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ncaa_base/nmethyl_glycine_bb.sdf.gz"
       );
       nmethyl_glycine.ReadMoreFromMdl( file, sdf::e_Maintain);
 
@@ -344,24 +345,28 @@ namespace bcl
       // get the ncaa base (which will provide our reference to Rosetta for peptide backbone atoms)
       chemistry::FragmentComplete ncaa_base( nmethyl_glycine.GetMolecules().FirstElement());
 
-      // make sure no one fucked with the reference file in a harmful way
+      // make sure no one change the reference file in a harmful way
       const chemistry::AtomVector< chemistry::AtomComplete> atom_v( ncaa_base.GetAtomVector());
       if
       (
-          // TODO: update the condition for n methyl glycine
-          // central amide oxygen atom
-          atom_v( 4).GetElementType() != chemistry::GetElementTypes().e_Oxygen ||
+          // methyl group
+          atom_v( 0).GetElementType() != chemistry::GetElementTypes().e_Hydrogen ||
+          atom_v( 2).GetElementType() != chemistry::GetElementTypes().e_Hydrogen ||
+          atom_v( 3).GetElementType() != chemistry::GetElementTypes().e_Hydrogen ||
+          atom_v( 4).GetElementType() != chemistry::GetElementTypes().e_Carbon ||
 
-          // central amide nitrogen atom
-          atom_v( 1).GetElementType() != chemistry::GetElementTypes().e_Nitrogen ||
+          // amide oxygen atom
+          atom_v( 1).GetElementType() != chemistry::GetElementTypes().e_Oxygen ||
 
-          // alpha and beta carbon atoms
-          atom_v( 3).GetElementType() != chemistry::GetElementTypes().e_Carbon ||
-          atom_v( 2).GetElementType() != chemistry::GetElementTypes().e_Carbon ||
+          // amide nitrogen atom
+          atom_v( 8).GetElementType() != chemistry::GetElementTypes().e_Nitrogen ||
 
-          // alpha and beta carbon hydrogen atoms
-          atom_v( 6).GetElementType() != chemistry::GetElementTypes().e_Hydrogen ||
-          atom_v( 7).GetElementType() != chemistry::GetElementTypes().e_Hydrogen
+          // alpha carbon atom
+          atom_v( 9).GetElementType() != chemistry::GetElementTypes().e_Carbon ||
+
+          // alpha carbon hydrogen atoms
+          atom_v( 5).GetElementType() != chemistry::GetElementTypes().e_Hydrogen ||
+          atom_v( 6).GetElementType() != chemistry::GetElementTypes().e_Hydrogen
       )
       {
         return storage::Pair< bool, chemistry::FragmentComplete>
@@ -379,7 +384,51 @@ namespace bcl
     //! @return the neutral glycine dipeptide as the ncaa base
     const storage::Triplet< bool, size_t, chemistry::FragmentComplete> NCAAFragmentComplete::ReadNMethylGlycineDipeptideBackbone() const
     {
-      // TODO: Adding code here
+      // Begin
+      chemistry::FragmentEnsemble backbone;
+      // Read in neutral glycine file
+      io::IFStream file;
+      io::File::MustOpenIFStream
+      (
+        file,
+        chemistry::RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ncaa_base/nmethyl_glycine_neutral.sdf.gz"
+      );
+      backbone.ReadMoreFromMdl( file, sdf::e_Maintain);
+
+      // return the glycine residue
+      io::File::CloseClearFStream( file);
+
+      // get the ncaa base (which will provide our reference to Rosetta for peptide backbone atoms)
+      chemistry::FragmentComplete bb( backbone.GetMolecules().FirstElement());
+
+      // make sure no one changed the reference file in a harmful way
+      const chemistry::AtomVector< chemistry::AtomComplete> atom_v( bb.GetAtomVector());
+      if
+      (
+          //central amide oxygen atom
+          atom_v( 5).GetElementType() != chemistry::GetElementTypes().e_Oxygen ||
+
+          // central amide nitrogen atom
+          atom_v( 3).GetElementType() != chemistry::GetElementTypes().e_Nitrogen ||
+
+          // alpha and beta carbon atoms
+          atom_v( 4).GetElementType() != chemistry::GetElementTypes().e_Carbon ||
+          atom_v( 2).GetElementType() != chemistry::GetElementTypes().e_Carbon ||
+
+          // alpha and beta carbon hydrogen atoms
+          atom_v( 0).GetElementType() != chemistry::GetElementTypes().e_Hydrogen ||
+          atom_v( 1).GetElementType() != chemistry::GetElementTypes().e_Hydrogen
+      )
+      {
+        return storage::Triplet< bool, size_t, chemistry::FragmentComplete>
+        (
+          bool( false), size_t(), chemistry::FragmentComplete()
+        );
+      }
+      return storage::Triplet< bool, size_t, chemistry::FragmentComplete>
+      (
+        bool( true), size_t( 4), chemistry::FragmentComplete( bb)
+      );
     }
 
 
