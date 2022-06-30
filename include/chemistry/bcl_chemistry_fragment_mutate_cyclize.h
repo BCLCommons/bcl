@@ -49,8 +49,8 @@ namespace bcl
     //! @brief Used to form intramolecular bonds between two non-ring atoms or one ring and one non-ring atom
     //!
     //! @see @link example_chemistry_fragment_mutate_cyclize.cpp @endlink
-    //! @author ben
-    //! @date Jun 20, 2022
+    //! @author brownbp1
+    //! @date Sep 14, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

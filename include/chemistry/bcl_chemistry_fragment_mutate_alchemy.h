@@ -50,8 +50,8 @@ namespace bcl
     //! @brief Used to transform atom types inside a molecule
     //!
     //! @see @link example_chemistry_fragment_mutate_alchemy.cpp @endlink
-    //! @author ben
-    //! @date Jun 20, 2022
+    //! @author brownbp1
+    //! @date Sep 6, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

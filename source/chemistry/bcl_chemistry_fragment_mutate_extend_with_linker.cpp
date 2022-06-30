@@ -24,7 +24,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_conformation_graph_converter.h"
 #include "chemistry/bcl_chemistry_fragment_make_conformers.h"
 #include "chemistry/bcl_chemistry_fragment_map_conformer.h"
-#include "chemistry/bcl_chemistry_fragment_remove_bond.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_remove_bond.h"
 #include "chemistry/bcl_chemistry_fragment_split_isolate.h"
 #include "chemistry/bcl_chemistry_fragment_split_rings.h"
 #include "chemistry/bcl_chemistry_fragment_track_mutable_atoms.h"

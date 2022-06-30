@@ -25,7 +25,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
 #include "chemistry/bcl_chemistry_conformation_graph_converter.h"
 #include "chemistry/bcl_chemistry_fragment_graph_marker.h"
-#include "chemistry/bcl_chemistry_fragment_remove_bond.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_remove_bond.h"
 #include "chemistry/bcl_chemistry_fragment_split_rings_with_unsaturated_substituents.h"
 #include "chemistry/bcl_chemistry_merge_fragment_complete.h"
 #include "chemistry/bcl_chemistry_sample_conformations.h"

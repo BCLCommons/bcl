@@ -23,7 +23,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
 #include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
 #include "chemistry/bcl_chemistry_fragment_map_conformer.h"
-#include "chemistry/bcl_chemistry_fragment_remove_bond.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_remove_bond.h"
 #include "chemistry/bcl_chemistry_fragment_track_mutable_atoms.h"
 #include "chemistry/bcl_chemistry_hydrogens_handler.h"
 #include "chemistry/bcl_chemistry_merge_fragment_complete.h"

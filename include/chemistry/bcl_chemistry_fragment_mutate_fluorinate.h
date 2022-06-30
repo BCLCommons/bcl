@@ -51,8 +51,8 @@ namespace bcl
     //! bulkier halogens.
     //!
     //! @see @link example_chemistry_fragment_mutate_fluorinate.cpp @endlink
-    //! @author ben
-    //! @date Jun 20, 2022
+    //! @author brownbp1
+    //! @date Sep 12, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

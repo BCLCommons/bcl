@@ -28,7 +28,7 @@
 #include "bcl_chemistry_fragment_complete.h"
 #include "bcl_chemistry_fragment_constitution_shared.h"
 #include "bcl_chemistry_fragment_ensemble.h"
-#include "bcl_chemistry_fragment_extend_with_linker.h"
+#include "bcl_chemistry_fragment_mutate_extend_with_linker.h"
 #include "bcl_chemistry_fragment_map_conformer.h"
 #include "bcl_chemistry_fragment_mutate_interface.h"
 #include "descriptor/bcl_descriptor_base.h"
@@ -52,8 +52,8 @@ namespace bcl
     //! @brief Used to connect disconnected atoms in fragment(s) with complex linkers
     //!
     //! @see @link example_chemistry_fragment_mutate_connect.cpp @endlink
-    //! @author ben
-    //! @date Jun 20, 2022
+    //! @author brownbp1
+    //! @date May 19, 2021
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

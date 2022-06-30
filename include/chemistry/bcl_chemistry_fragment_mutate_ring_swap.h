@@ -52,8 +52,8 @@ namespace bcl
     //!        rings have the same size
     //!
     //! @see @link example_chemistry_fragment_mutate_ring_swap.cpp @endlink
-    //! @author ben
-    //! @date Jun 20, 2022
+    //! @author mendenjl, brownbp1
+    //! @date Sep 10, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

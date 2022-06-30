@@ -50,8 +50,8 @@ namespace bcl
     //! @brief Used to remove a bond from a fragment, add a bond, or change the bond type
     //!
     //! @see @link example_chemistry_fragment_mutate_remove_bond.cpp @endlink
-    //! @author ben
-    //! @date Jun 20, 2022
+    //! @author brownbp1
+    //! @date Sep 17, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

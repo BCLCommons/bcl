@@ -49,8 +49,8 @@ namespace bcl
     //! @brief Used to add canonical medicinal chemistry functional groups directly to molecules
     //!
     //! @see @link example_chemistry_fragment_mutate_add_med_chem.cpp @endlink
-    //! @author ben
-    //! @date Jun 20, 2022
+    //! @author brownbp1
+    //! @date Sep 12, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

@@ -49,8 +49,8 @@ namespace bcl
     //! @brief Used to add halogens to ring fragments.
     //!
     //! @see @link example_chemistry_fragment_mutate_halogenate.cpp @endlink
-    //! @author ben
-    //! @date Jun 20, 2022
+    //! @author brownbp1
+    //! @date Sep 12, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 

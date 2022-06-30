@@ -52,8 +52,8 @@ namespace bcl
     //! or by linking to a new ring system
     //!
     //! @see @link example_chemistry_fragment_mutate_extend_with_linker.cpp @endlink
-    //! @author ben
-    //! @date Jun 20, 2022
+    //! @author brownbp1
+    //! @date April 20, 2020
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
