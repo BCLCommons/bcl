@@ -52,7 +52,7 @@ namespace bcl
     //////////
 
       //! to append functional groups to backbones
-      chemistry::FragmentMutateAddMedChem m_AddMedChem;
+      mutable chemistry::FragmentMutateAddMedChem m_AddMedChem;
 
       //! flag that specifies the output filename
       util::ShPtr< command::FlagInterface> m_OutputPrefixFlag;

@@ -43,7 +43,7 @@ namespace bcl
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     class BCL_API FragmentEvolveBase :
-    public util::ObjectInterface
+      public util::ObjectInterface
     {
 
     private:
@@ -79,8 +79,7 @@ namespace bcl
       //! @param MOLECULE the molecule to finalize
       //! @param CORINA generate a 3D conformer with corina (requires system call to external program)
       //! @return a new FragmentComplete that has been cleaned
-      static util::ShPtr< FragmentComplete> FinalizeMolecule( const FragmentComplete &MOLECULE, const bool CORINA=false);
-
+      static util::ShPtr< FragmentComplete> FinalizeMolecule( const FragmentComplete &MOLECULE, const bool CORINA = false);
 
       //! @brief determines what fragments would result from breaking a bond in a graph
       //! @param MOLECULE_GRAPH the graph that will have its bond broken

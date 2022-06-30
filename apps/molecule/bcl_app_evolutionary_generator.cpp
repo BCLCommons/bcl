@@ -27,6 +27,8 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_fragment_mutate_interface.h"
 #include "chemistry/bcl_chemistry_fragment_react.h"
 #include "chemistry/bcl_chemistry_fragment_split_gadd_fragments.h"
+#include "chemistry/bcl_chemistry_molecule_evolution_info.h"
+#include "chemistry/bcl_chemistry_molecule_evolutionary_optimizer.h"
 #include "chemistry/bcl_chemistry_reaction_search.h"
 #include "command/bcl_command_app_default_flags.h"
 #include "command/bcl_command_flag_dynamic.h"
@@ -41,7 +43,6 @@ BCL_StaticInitializationFiascoFinder
 #include "io/bcl_io_file.h"
 #include "math/bcl_math_running_average.h"
 #include "math/bcl_math_template_instantiations.h"
-#include "chemistry/bcl_chemistry_molecule_evolution_info.h"
 #include "pdb/bcl_pdb_factory.h"
 #include "random/bcl_random_uniform_distribution.h"
 #include "storage/bcl_storage_triplet.h"
@@ -88,22 +89,6 @@ namespace bcl
       mutable chemistry::FragmentEnsemble m_BindingPocket;
 
     private:
-
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-      //!
-      //! @class MolOptimizer
-      //! @brief The class that actually does the heavy-lifing part of the stochastic molecular structure search
-      //!
-      //! @author geanesar
-      //! @date 11/11/2016
-      //!
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-      class MolOptimizer
-      {
-          // MoleculeEvolutionaryOptimizer
-
-      }; // end MolOptimizer
 
     //////////
     // data //
@@ -329,7 +314,7 @@ namespace bcl
         timer.Start();
 
         // Execute the evolutionary algorithm
-        MolOptimizer optimizer;
+        chemistry::MoleculeEvolutionaryOptimizer optimizer;
 
         // set up the population filter/selector
         std::string sel_type( m_SelectionTypeFlag->GetFirstParameter()->GetValue());
@@ -450,12 +435,12 @@ namespace bcl
 
         { // this is here on purpose so that we can re-use variable names later
           std::string out_filename( pop_sdf_prefix + "_0.sdf.gz");
-          const std::vector< MolInfo> &mols( optimizer.GetMolInfos().back());
+          const std::vector< MolInfo> &mols( optimizer.GetMoleculeEvolutionInfos().back());
 
           io::File::MustOpenOFStream( out, out_filename);
           for( size_t i( 0), end_i( mols.size()); i < end_i; ++i)
           {
-            chemistry::FragmentComplete mol( mols[ i].m_Molecule);
+            chemistry::FragmentComplete mol( mols[ i].GetMolecule());
             if( mol.IsPropertyStored( "EvoGenFitness"))
             {
               mol.RemoveProperty( "EvoGenFitness");
@@ -468,11 +453,11 @@ namespace bcl
             {
               mol.RemoveProperty( "EvoGenIdentifier");
             }
-            mol.StoreProperty( "EvoGenFitness", util::Format()( mols[ i].m_Fitness));
-            mol.StoreProperty( "EvoGenHistory", util::Format()( mols[ i].m_History));
-            mol.StoreProperty( "EvoGenIdentifier", util::Format()( mols[ i].m_Identifier));
+            mol.StoreProperty( "EvoGenFitness", util::Format()( mols[ i].GetMoleculeFitness()));
+            mol.StoreProperty( "EvoGenHistory", util::Format()( mols[ i].GetMoleculeHistory()));
+            mol.StoreProperty( "EvoGenIdentifier", util::Format()( mols[ i].GetMoleculeIdentifier()));
             mol.WriteMDL( out);
-            out_csv << "0," << mols[ i].m_Fitness << "\n";
+            out_csv << "0," << mols[ i].GetMoleculeFitness() << "\n";
           }
           out_csv.flush();
           io::File::CloseClearFStream( out);
@@ -486,27 +471,27 @@ namespace bcl
         // execute the optimization until we have iterated enough times
         chemistry::FragmentEnsemble mols_across_generations;
         chemistry::ConstitutionSet unique_mols;
-        while( optimizer.GetMolInfos().size() < n_iters)
+        while( optimizer.GetMoleculeEvolutionInfos().size() < n_iters)
         {
           // population ID number
-          size_t pop_no( optimizer.GetMolInfos().size());
+          size_t pop_no( optimizer.GetMoleculeEvolutionInfos().size());
 
           // check for errors
           if( optimizer.Next() == -1)
           {
-            BCL_MessageStd( "Could not optimize population " + util::Format()( optimizer.GetMolInfos().size()) + ", optimizer returned error");
+            BCL_MessageStd( "Could not optimize population " + util::Format()( optimizer.GetMoleculeEvolutionInfos().size()) + ", optimizer returned error");
             break;
           }
 
           // open up an sdf file to write molecule info to
           std::string out_filename( pop_sdf_prefix + "_" + util::Format()( pop_no) + ".sdf.gz");
-          const std::vector< MolInfo> &mols( optimizer.GetMolInfos().back());
+          const std::vector< MolInfo> &mols( optimizer.GetMoleculeEvolutionInfos().back());
 
           // write all molecules, storing necessary properties
           io::File::MustOpenOFStream( out, out_filename);
           for( size_t i( 0), end_i( mols.size()); i < end_i; ++i)
           {
-            chemistry::FragmentComplete mol( mols[ i].m_Molecule);
+            chemistry::FragmentComplete mol( mols[ i].GetMolecule());
             if( mol.IsPropertyStored( "EvoGenFitness"))
             {
               mol.RemoveProperty( "EvoGenFitness");
@@ -519,14 +504,14 @@ namespace bcl
             {
               mol.RemoveProperty( "EvoGenIdentifier");
             }
-            mol.StoreProperty( "EvoGenFitness", util::Format()( mols[ i].m_Fitness));
-            mol.StoreProperty( "EvoGenHistory", util::Format()( mols[ i].m_History));
-            mol.StoreProperty( "EvoGenIdentifier", util::Format()( mols[ i].m_Identifier));
+            mol.StoreProperty( "EvoGenFitness", util::Format()( mols[ i].GetMoleculeFitness()));
+            mol.StoreProperty( "EvoGenHistory", util::Format()( mols[ i].GetMoleculeHistory()));
+            mol.StoreProperty( "EvoGenIdentifier", util::Format()( mols[ i].GetMoleculeIdentifier()));
             mol.WriteMDL( out);
-            out_csv << pop_no << "," << mols[ i].m_Fitness << "\n";
+            out_csv << pop_no << "," << mols[ i].GetMoleculeFitness() << "\n";
 
             // Save current generation to all, but make sure the final selection does not include duplicates carried across generations
-            if( unique_mols.Insert( chemistry::FragmentConstitutionShared( mols[ i].m_Molecule)).second)
+            if( unique_mols.Insert( chemistry::FragmentConstitutionShared( mols[ i].GetMolecule())).second)
             {
               mols_across_generations.PushBack( mol);
             }
@@ -541,8 +526,8 @@ namespace bcl
           // display message to user
           BCL_MessageStd
           (
-            " Opti has generated " + util::Format()( optimizer.GetMolInfos().size()) + " populations with "
-            + util::Format()( optimizer.GetMolInfos().back().size())
+            " Opti has generated " + util::Format()( optimizer.GetMoleculeEvolutionInfos().size()) + " populations with "
+            + util::Format()( optimizer.GetMoleculeEvolutionInfos().back().size())
           );
         }
 

@@ -57,7 +57,7 @@ namespace bcl
       public util::SerializableInterface
       {
 
-      private:
+    private:
 
       //! @brief methods for how molecules should be selected
       enum SelectionType
@@ -111,13 +111,13 @@ namespace bcl
       size_t m_MaxFailedAttempts;
 
       //! The reaction operation class, used for modifying structures
-      chemistry::FragmentReact m_ReactOp;
+      FragmentReact m_ReactOp;
 
       //! The alchemical mutate to use to combine molecules
-      util::Implementation< chemistry::FragmentMutateInterface> m_Mutate; //!< obtains a implementation
+      util::Implementation< FragmentMutateInterface> m_Mutate; //!< obtains a implementation
 
       //! vector of molecules for addition/insertion operations
-      util::ShPtrVector< chemistry::FragmentComplete> m_InsertMols;
+      util::ShPtrVector< FragmentComplete> m_InsertMols;
 
       //! molecule scorer, if model type uses BCL-only models
       descriptor::CheminfoProperty m_Scorer;
@@ -154,14 +154,14 @@ namespace bcl
       EvolutionBalance m_EvolutionBalanceType;
 
       //! vector of molecules for recombination operations
-      mutable chemistry::FragmentEvolveImplementations m_RecombineOp;
+      mutable FragmentEvolveImplementations m_RecombineOp;
 
       //! components to filter druglikeness by comparing two descriptors
       storage::Triplet
       <
-      descriptor::CheminfoProperty,
-      math::Comparisons< float>::Comparison,
-      descriptor::CheminfoProperty
+        descriptor::CheminfoProperty,
+        math::Comparisons< float>::Comparison,
+        descriptor::CheminfoProperty
       > m_DruglikenessFilter;
       std::string m_DruglikenessFilterStr;
 //      descriptor::CheminfoProperty m_DruglikenessFilterLHS;
@@ -174,15 +174,15 @@ namespace bcl
       //! output stream for EvoGen logging information
       io::OFStream m_LogStream;
 
-      //////////
-      // data //
-      //////////
+    //////////
+    // data //
+    //////////
 
-      public:
+    public:
 
-      //////////////////////////////////
-      // construction and destruction //
-      //////////////////////////////////
+    //////////////////////////////////
+    // construction and destruction //
+    //////////////////////////////////
 
       //! @brief default constructor
       MoleculeEvolutionaryOptimizer();
@@ -194,10 +194,9 @@ namespace bcl
         return new MoleculeEvolutionaryOptimizer( *this);
       }
 
-      /////////////////
-      // data access //
-      /////////////////
-
+    /////////////////
+    // data access //
+    /////////////////
 
       //! @brief returns class name
       //! @return the class name as const ref std::string
@@ -253,9 +252,9 @@ namespace bcl
       //! @brief Get the external script path if external scoring is used
       const std::string &GetModelCmd();
 
-      ////////////////
-      // operations //
-      ////////////////
+    ////////////////
+    // operations //
+    ////////////////
 
       //! @brief set filename for EvoGen log file
       //! @details this file is a json-formatted log file containing information about the generated molecules
@@ -367,7 +366,7 @@ namespace bcl
       //! @param MOL the molecule to score
       //! @return the score of the molecule
       //! @details does not do any preprocessing of the molecule, this is up to the caller
-      float ScoreMoleculeInternal( const chemistry::FragmentComplete &MOL) const;
+      float ScoreMoleculeInternal( const FragmentComplete &MOL) const;
 
       //! @brief helper function for scoring a single molecule using an external script
       //! @param MOL_INFOS the molecules to score
@@ -400,9 +399,9 @@ namespace bcl
       //! passes or fails the druglikeness filter
       bool EvaluateDruglikeness() const;
 
-      ///////////////
-      // operators //
-      ///////////////
+    ///////////////
+    // operators //
+    ///////////////
 
       //! @brief execute a reaction/addition operation to generate new molecules
       //! @brief MOLS the vector to add the new molecules to
@@ -414,9 +413,9 @@ namespace bcl
       //! @return 0 on success, negative value on error
       int Next();
 
-      //////////////////////
-      // helper functions //
-      //////////////////////
+    //////////////////////
+    // helper functions //
+    //////////////////////
 
       //! @brief open log file for writing; continues if file cannot be opened
       void StartLogging();
@@ -441,7 +440,7 @@ namespace bcl
       //! @param STR the string to write
       void WriteLog( const std::string &STR);
 
-      protected:
+    protected:
 
       //! @brief Set the members with LABEL
       //! @param LABEL the label to parse

@@ -26,9 +26,9 @@ namespace bcl
   namespace chemistry
   {
 
-    //////////////////////////////////
-    // construction and destruction //
-    //////////////////////////////////
+  //////////////////////////////////
+  // construction and destruction //
+  //////////////////////////////////
 
     // brief constructor
     MoleculeEvolutionInfo::MoleculeEvolutionInfo() :
@@ -57,9 +57,9 @@ namespace bcl
     {
     }
 
-    /////////////////
-    // data access //
-    /////////////////
+  /////////////////
+  // data access //
+  /////////////////
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
@@ -113,10 +113,9 @@ namespace bcl
       return m_Age;
     }
 
-    ////////////////
-    // operations //
-    ////////////////
-
+  ////////////////
+  // operations //
+  ////////////////
 
     //! @brief set the molecule identifier
     void MoleculeEvolutionInfo::SetMoleculeIdentifier( const std::string &IDENTIFIER)
@@ -160,10 +159,9 @@ namespace bcl
       m_History.PushBack( NEW_HISTORY_ENTRY);
     }
 
-
-    ///////////////
-    // operators //
-    ///////////////
+  ///////////////
+  // operators //
+  ///////////////
 
     //! @brief less-than operator for MolInfos
     //! @return true if fitness of left operand is less than fitness of right operand
@@ -179,9 +177,9 @@ namespace bcl
       return m_Fitness > SECOND.m_Fitness;
     }
 
-    //////////////////////
-    // helper functions //
-    //////////////////////
+  //////////////////////
+  // helper functions //
+  //////////////////////
 
     //! @brief Set the members with LABEL
     //! @param LABEL the label to parse

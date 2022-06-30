@@ -20,6 +20,8 @@ BCL_StaticInitializationFiascoFinder
 #include "bcl_chemistry_molecule_evolutionary_optimizer.h"
 
 // includes from bcl - sorted alphabetically
+#include "bcl_chemistry_atom_conformational_interface.h"
+#include "bcl_chemistry_bond_isometry_handler.h"
 #include "bcl_chemistry_configuration_set.h"
 #include "bcl_chemistry_conformation_comparison_psi_field.h"
 #include "bcl_chemistry_conformation_graph_converter.h"
@@ -31,15 +33,13 @@ BCL_StaticInitializationFiascoFinder
 #include "bcl_chemistry_fragment_split_interface.h"
 #include "bcl_chemistry_fragment_split_largest_component.h"
 #include "bcl_chemistry_fragment_split_rings.h"
-#include "bcl_chemistry_atom_conformational_interface.h"
-#include "bcl_chemistry_bond_isometry_handler.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
-#include "graph/bcl_graph_subgraph_isomorphism.h"
 #include "graph/bcl_graph_connectivity.h"
 #include "graph/bcl_graph_subgraph.h"
+#include "graph/bcl_graph_subgraph_isomorphism.h"
 #include "io/bcl_io_directory_entry.h"
-#include "io/bcl_io_ofstream.h"
 #include "io/bcl_io_file.h"
+#include "io/bcl_io_ofstream.h"
 #include "math/bcl_math_running_average.h"
 #include "sched/bcl_sched_scheduler_interface.h"
 #include "sched/bcl_sched_thunk_job.h"
@@ -53,9 +53,9 @@ namespace bcl
   namespace chemistry
   {
 
-    //////////////////////////////////
-    // construction and destruction //
-    //////////////////////////////////
+  //////////////////////////////////
+  // construction and destruction //
+  //////////////////////////////////
 
     //! @brief default constructor
     MoleculeEvolutionaryOptimizer::MoleculeEvolutionaryOptimizer() :
@@ -72,9 +72,9 @@ namespace bcl
     {
     }
 
-    /////////////////
-    // data access //
-    /////////////////
+  /////////////////
+  // data access //
+  /////////////////
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
@@ -182,9 +182,9 @@ namespace bcl
       return m_ModelCmd;
     }
 
-    ////////////////
-    // operations //
-    ////////////////
+  ////////////////
+  // operations //
+  ////////////////
 
     //! @brief set filename for EvoGen log file
     //! @details this file is a json-formatted log file containing information about the generated molecules
@@ -196,7 +196,7 @@ namespace bcl
     //! @brief set up the initial population from an ensemble of molecules
     //! @details molecules must have >= 1 atoms or they will be discarded.
     //! @param MOLS the structures to use, will be copied
-    void MoleculeEvolutionaryOptimizer::SetInitialPopulation( const chemistry::FragmentEnsemble &MOLS)
+    void MoleculeEvolutionaryOptimizer::SetInitialPopulation( const FragmentEnsemble &MOLS)
     {
       // check necessary components are available
       BCL_Assert( m_Scorer.IsDefined() || !m_ModelCmd.empty(), "Must set score descriptor before calling SetInitialPopulation");
@@ -210,7 +210,7 @@ namespace bcl
       size_t mol_no( 0);
       for
       (
-        chemistry::FragmentEnsemble::const_iterator itr_mol( MOLS.Begin()), itr_mol_end( MOLS.End());
+        FragmentEnsemble::const_iterator itr_mol( MOLS.Begin()), itr_mol_end( MOLS.End());
         itr_mol != itr_mol_end;
         ++itr_mol
       )
@@ -354,7 +354,7 @@ namespace bcl
     //! @brief REACTION_DIRNAME directory in which RXN files should be found
     void MoleculeEvolutionaryOptimizer::SetupReactOperation( const std::string &REACTANT_FILENAME, const std::string &REACTION_DIRNAME)
     {
-      m_ReactOp = chemistry::FragmentReact( chemistry::ReactionSearch( REACTANT_FILENAME, REACTION_DIRNAME));
+      m_ReactOp = FragmentReact( ReactionSearch( REACTANT_FILENAME, REACTION_DIRNAME));
     }
 
     //! @brief initialize the one-shot reaction operation structure
@@ -416,7 +416,7 @@ namespace bcl
     {
       io::IFStream in;
       io::File::MustOpenIFStream( in, INSERT_MOL_FILENAME);
-      chemistry::FragmentFeed ff( in, sdf::e_Saturate);
+      FragmentFeed ff( in, sdf::e_Saturate);
       m_InsertMols.Reset();
       for( ; ff.NotAtEnd(); ++ff)
       {
@@ -604,7 +604,7 @@ namespace bcl
       // read in what cmd wrote out
       io::IFStream in;
       io::File::MustOpenIFStream( in, filename_in);
-      chemistry::FragmentEnsemble in_ens( in, sdf::HydrogenHandlingPref::e_Saturate);
+      FragmentEnsemble in_ens( in, sdf::HydrogenHandlingPref::e_Saturate);
 
       // check the input
       size_t ens_size( in_ens.GetSize());
@@ -620,7 +620,7 @@ namespace bcl
       std::map< std::string, MoleculeEvolutionInfo *>::iterator map_end( mol_names.end());
       for
       (
-        chemistry::FragmentEnsemble::const_iterator itr_mol( in_ens.Begin()), itr_mol_end( in_ens.End());
+        FragmentEnsemble::const_iterator itr_mol( in_ens.Begin()), itr_mol_end( in_ens.End());
         itr_mol != itr_mol_end;
         ++itr_mol, ++mol_no
       )
@@ -728,9 +728,9 @@ namespace bcl
       return m_DruglikenessFilter.Second()( lhs_property, rhs_property);
     }
 
-    ///////////////
-    // operators //
-    ///////////////
+  ///////////////
+  // operators //
+  ///////////////
 
     //! @brief execute a reaction/addition operation to generate new molecules
     //! @brief MOLS the vector to add the new molecules to
@@ -819,7 +819,7 @@ namespace bcl
 
         // react the molecule with something random
         const FragmentComplete &picked_mol( last_pop[ mol_no].m_Molecule);
-        storage::Pair< util::SiPtr< const chemistry::ReactionComplete>, chemistry::FragmentEnsemble> res
+        storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble> res
         (
           m_ReactOp.ReactRandom( picked_mol)
         );
@@ -827,7 +827,7 @@ namespace bcl
         // a reaction may have generated more than one molecule, add each of them to the new population
         for
         (
-          chemistry::FragmentEnsemble::const_iterator itr_mol( res.Second().Begin()), itr_mol_end( res.Second().End());
+          FragmentEnsemble::const_iterator itr_mol( res.Second().Begin()), itr_mol_end( res.Second().End());
             itr_mol != itr_mol_end;
             ++itr_mol
         )
@@ -854,7 +854,7 @@ namespace bcl
         if( recomb_type == 0 || recomb_type == 1)
         {
           // combine selected molecule with random molecule from the inserted (or "migrant") mols population
-          m_RecombineOp = chemistry::FragmentEvolveImplementations( chemistry::FragmentEvolveImplementations::e_Combine, false);
+          m_RecombineOp = FragmentEvolveImplementations( FragmentEvolveImplementations::e_Combine, false);
           size_t mol_two( random::GetGlobalRandom().Random< size_t>( 0, m_InsertMols.GetSize() - 1));
           const FragmentComplete &picked_mol_two( *m_InsertMols( mol_two));
           new_mols = m_RecombineOp.Combine( picked_mol_one, picked_mol_two, 50);
@@ -862,7 +862,7 @@ namespace bcl
         else if( recomb_type == 3)
         {
           // split GADD fragments from a random inserted (or "migrant) molecule and
-          m_RecombineOp = chemistry::FragmentEvolveImplementations( chemistry::FragmentEvolveImplementations::e_FragAdd, false);
+          m_RecombineOp = FragmentEvolveImplementations( FragmentEvolveImplementations::e_FragAdd, false);
 //              size_t mol_two( random::GetGlobalRandom().Random< size_t>( 0, m_InsertMols.GetSize() - 1));
 //              const FragmentComplete &picked_mol_two( *m_InsertMols( mol_two));
 
@@ -872,14 +872,14 @@ namespace bcl
           // GADD fragment rings
           if( random::GetGlobalRandom().Random< size_t>( 0, 1) == 0)
           {
-            chemistry::FragmentSplitGADDFragments splitter;
+            FragmentSplitGADDFragments splitter;
 //                splitter.GetComponentVertices( picked_mol_two, picked_mol_two.)
           }
 
           // GADD fragment chains
           else
           {
-            chemistry::FragmentSplitGADDFragments splitter;
+            FragmentSplitGADDFragments splitter;
           }
 
 //              new_mols = m_RecombineOp.MutateAdd()
@@ -887,7 +887,7 @@ namespace bcl
         }
         else if( recomb_type == 2)
         {
-          m_RecombineOp = chemistry::FragmentEvolveImplementations( chemistry::FragmentEvolveImplementations::e_FragDel, false);
+          m_RecombineOp = FragmentEvolveImplementations( FragmentEvolveImplementations::e_FragDel, false);
           new_mols = m_RecombineOp.MutateDel( picked_mol_one);
         }
 
@@ -963,7 +963,7 @@ namespace bcl
             if
             (
                 mols[ i].m_Molecule.GetNumberAtoms() &&
-                unique_mols.Insert( chemistry::FragmentConstitutionShared( mols[ i].m_Molecule)).second &&
+                unique_mols.Insert( FragmentConstitutionShared( mols[ i].m_Molecule)).second &&
                 EvaluateDruglikeness( mols[ i])
             )
             {
@@ -1030,7 +1030,7 @@ namespace bcl
           }
 
           // make sure the molecule passed the test, and it's a unique structure
-          if( r < cutoff && unique_mols.Insert( chemistry::FragmentConstitutionShared( parent_pop[ i].m_Molecule)).second)
+          if( r < cutoff && unique_mols.Insert( FragmentConstitutionShared( parent_pop[ i].m_Molecule)).second)
           {
             //BCL_MessageStd( "  Keeping parent " + parent_pop[ i].m_Identifier);
             next_pop.push_back( parent_pop[ i]);
@@ -1115,9 +1115,9 @@ namespace bcl
       return 0;
     }
 
-    //////////////////////
-    // helper functions //
-    //////////////////////
+  //////////////////////
+  // helper functions //
+  //////////////////////
 
     //! @brief open log file for writing; continues if file cannot be opened
     void MoleculeEvolutionaryOptimizer::StartLogging()

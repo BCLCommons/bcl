@@ -21,7 +21,7 @@
 // include other forward headers - sorted alphabetically
 
 // headers from bcl - sorted alphabetically
-#include "chemistry/bcl_chemistry_fragment_complete.h"
+#include "bcl_chemistry_fragment_complete.h"
 #include "io/bcl_io_serialization.h"
 #include "storage/bcl_storage_vector.h"
 #include "util/bcl_util_object_data_label.h"
@@ -47,11 +47,11 @@ namespace bcl
       public util::SerializableInterface
       {
 
-      private:
+    private:
 
-      //////////
-      // data //
-      //////////
+    //////////
+    // data //
+    //////////
 
       // Name
       std::string m_Identifier;
@@ -68,11 +68,11 @@ namespace bcl
       // Age in # generations
       size_t m_Age;
 
-      public:
+    public:
 
-      //////////////////////////////////
-      // construction and destruction //
-      //////////////////////////////////
+    //////////////////////////////////
+    // construction and destruction //
+    //////////////////////////////////
 
       //! @brief default constructor
       MoleculeEvolutionInfo();
@@ -94,9 +94,9 @@ namespace bcl
         return new MoleculeEvolutionInfo( *this);
       }
 
-      /////////////////
-      // data access //
-      /////////////////
+    /////////////////
+    // data access //
+    /////////////////
 
       //! @brief returns class name
       //! @return the class name as const ref std::string
@@ -128,9 +128,9 @@ namespace bcl
       //! @return molecule age
       const size_t &GetMoleculeAge() const;
 
-      ////////////////
-      // operations //
-      ////////////////
+    ////////////////
+    // operations //
+    ////////////////
 
       //! @brief set the molecule identifier
       void SetMoleculeIdentifier( const std::string &IDENTIFIER);
@@ -153,9 +153,9 @@ namespace bcl
       //! @brief append to molecule history by one generation
       void AppendToMoleculeHistory( const std::string &NEW_HISTORY_ENTRY);
 
-      ///////////////
-      // operators //
-      ///////////////
+    ///////////////
+    // operators //
+    ///////////////
 
       //! @brief less-than operator for MolInfos
       //! @return true if fitness of left operand is less than fitness of right operand
@@ -165,11 +165,11 @@ namespace bcl
       //! @return true if fitness of left operand is greater than fitness of right operand
       bool operator >( const MoleculeEvolutionInfo &SECOND) const;
 
-      //////////////////////
-      // helper functions //
-      //////////////////////
+    //////////////////////
+    // helper functions //
+    //////////////////////
 
-      protected:
+    protected:
 
       //! @brief Set the members with LABEL
       //! @param LABEL the label to parse

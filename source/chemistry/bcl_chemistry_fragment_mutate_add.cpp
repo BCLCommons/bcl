@@ -341,7 +341,6 @@ namespace bcl
       s_Mutex.Unlock();
     }
 
-
   //////////////////////
   // helper functions //
   //////////////////////

@@ -430,7 +430,7 @@ namespace bcl
 
             if( merged.First())
             {
-              new_molecules.PushBack(merged.Second());
+              new_molecules.PushBack( merged.Second());
             }
           }
         }
@@ -489,7 +489,6 @@ namespace bcl
       io::File::CloseClearFStream( input);
       s_Mutex.Unlock();
     }
-
 
   //////////////////////
   // helper functions //
