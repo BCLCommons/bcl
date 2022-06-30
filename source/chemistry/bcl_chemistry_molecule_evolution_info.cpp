@@ -17,7 +17,7 @@
 BCL_StaticInitializationFiascoFinder
 
 // unit header
-#include "bcl_chemistry_molecule_evolution_info.h"
+#include "chemistry/bcl_chemistry_molecule_evolution_info.h"
 
 // external includes
 
@@ -87,7 +87,7 @@ namespace bcl
     //! @return the member fragment;
     //! const because otherwise associated data do not
     //! make much sense, so force folks to make a copy
-    FragmentComplete &MoleculeEvolutionInfo::GetMolecule() const
+    const FragmentComplete &MoleculeEvolutionInfo::GetMolecule() const
     {
       return m_Molecule;
     }

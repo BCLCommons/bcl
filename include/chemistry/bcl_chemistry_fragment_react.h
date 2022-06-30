@@ -132,6 +132,10 @@ namespace bcl
       //! @return the class name as const ref std::string
       const std::string &GetClassIdentifier() const;
 
+      //! @brief get a short name for this class
+      //! @return a short name for this class
+      const std::string &GetAlias() const;
+
       //! @brief returns the reaction search object
       ReactionSearch &GetReactionSearch() const;
 

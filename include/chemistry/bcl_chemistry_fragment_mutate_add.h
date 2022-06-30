@@ -49,7 +49,7 @@ namespace bcl
     //! @brief A mutate that combines a target fragment with a fragment selected from an external library
     //!
     //! @see @link example_chemistry_fragment_mutate_add.cpp @endlink
-    //! @author ben
+    //! @author geanesar,brownbp1
     //! @date Jun 22, 2022
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

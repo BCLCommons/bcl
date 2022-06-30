@@ -244,7 +244,7 @@ namespace bcl
     //! mutate has not yet been run, this will return an undefined
     //! element type object, which is different than the element
     //! type notated 'X' for undefined.
-    const ElementType &FragmentAlchemy::GetChosenElementType() const
+    const ElementType &FragmentMutateAlchemy::GetChosenElementType() const
     {
       return m_ChosenElementType;
     }
@@ -535,7 +535,7 @@ namespace bcl
     }
 
     //! @brief set the chosen element type to which we are mutating
-    void FragmentAlchemy::SetChosenElement( const ElementType &ELEMENT_TYPE) const
+    void FragmentMutateAlchemy::SetChosenElement( const ElementType &ELEMENT_TYPE) const
     {
       m_ChosenElementType = ELEMENT_TYPE;
     }

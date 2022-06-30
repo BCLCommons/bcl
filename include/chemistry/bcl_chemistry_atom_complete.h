@@ -65,8 +65,8 @@ namespace bcl
       friend class FragmentAssemble;            //!< fixes bond orders (usually aromatic bond orders) during assembly
       friend class FragmentComplete;            //!< changes atom positions
       friend class MergeFragmentComplete;       //!< changes atom positions
-      friend class FragmentRingSwap;            //!< changes connectivity
-      friend class FragmentAlchemy;             //!< changes atom types and bond types to alter the chemical identity
+      friend class FragmentMutateRingSwap;      //!< changes connectivity
+      friend class FragmentMutateAlchemy;       //!< changes atom types and bond types to alter the chemical identity
       friend class FragmentMapConformer;        //!< maps positions of atoms from one fragment to another
 
     //////////////

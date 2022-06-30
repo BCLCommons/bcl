@@ -16,6 +16,9 @@
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
+// include header of this class
+#include "chemistry/bcl_chemistry_fragment_mutate_connect.h"
+
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atom_clash_score.h"
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
@@ -556,7 +559,7 @@ namespace bcl
     //! @return an ensemble of conformers for the first half of the extended linker (for odd numbers, half+1),
     //! the index of the link point to the next half of the molecule (in hydrogenated numbering), and
     //! the samplebyparts indices
-    storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t> > FragmentConnect::ExtendHalfLinkerForward
+    storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t> > FragmentMutateConnect::ExtendHalfLinkerForward
     (
       const FragmentComplete FRAGMENT_A,
       const storage::Vector< std::string> &LINKER_COMPOSITION,
@@ -675,7 +678,7 @@ namespace bcl
     //! @return an ensemble of conformers for the terminal half of the extended linker (for odd numbers, half-1)
     //! the index of the link point to the other half of the molecule (in hydrogenated numbering),
     //! and the samplebyparts indices
-    storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t> > FragmentConnect::ExtendHalfLinkerReverse
+    storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t> > FragmentMutateConnect::ExtendHalfLinkerReverse
     (
       const FragmentComplete &FRAGMENT_B,
       const storage::Vector< std::string> &LINKER_COMPOSITION,
@@ -792,7 +795,7 @@ namespace bcl
     //! @param REV_LINK_ATOM the atom at which this fragment will be joined
     //! @param REV_SBP_INDICES the atoms that compose conformationally flexible dihedrals
     //! @return a conformational ensemble of the fully linked molecule and the final linker indices
-    storage::Pair< FragmentEnsemble, storage::Vector< size_t> > FragmentConnect::JoinHalfExtendedFragments
+    storage::Pair< FragmentEnsemble, storage::Vector< size_t> > FragmentMutateConnect::JoinHalfExtendedFragments
     (
       const FragmentEnsemble &FWD_ENS,
       const size_t FWD_LINK_ATOM,

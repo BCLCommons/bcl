@@ -21,6 +21,7 @@
 // include other forward headers - sorted alphabetically
 
 // headers from bcl - sorted alphabetically
+#include "chemistry/bcl_chemistry_fragment_complete.h"
 #include "io/bcl_io_serialization.h"
 #include "storage/bcl_storage_vector.h"
 #include "util/bcl_util_object_data_label.h"
@@ -43,7 +44,7 @@ namespace bcl
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     class BCL_API MoleculeEvolutionInfo :
-      public util::ObjectInterface
+      public util::SerializableInterface
       {
 
       private:

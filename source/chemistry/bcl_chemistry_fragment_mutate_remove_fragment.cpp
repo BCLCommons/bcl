@@ -21,6 +21,7 @@ BCL_StaticInitializationFiascoFinder
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
+#include "chemistry/bcl_chemistry_fragment_evolve_base.h"
 #include "chemistry/bcl_chemistry_fragment_grow.h"
 #include "chemistry/bcl_chemistry_fragment_map_conformer.h"
 #include "chemistry/bcl_chemistry_fragment_track_mutable_atoms.h"
@@ -59,10 +60,7 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    FragmentMutateRemoveFragment::FragmentMutateRemoveFragment() :
-      m_FragmentPool( util::ShPtr< FragmentEnsemble>()),
-      m_FragmentFilename( std::string()),
-      m_MaxFragmentSize( util::GetUndefinedSize_t())
+    FragmentMutateRemoveFragment::FragmentMutateRemoveFragment()
     {
       this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
     }
@@ -71,15 +69,10 @@ namespace bcl
     //! @param FRAGMENT_POOL external fragments to add to base fragment
     FragmentMutateRemoveFragment::FragmentMutateRemoveFragment
     (
-      const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const bool &CORINA_CONFS
-    ) :
-      m_FragmentPool( util::ShPtr< FragmentEnsemble>()),
-      m_FragmentFilename( std::string()),
-      m_MaxFragmentSize( util::GetUndefinedSize_t())
+    )
     {
       m_Corina = CORINA_CONFS;
-
       this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
     }
 
@@ -88,17 +81,12 @@ namespace bcl
     //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
     FragmentMutateRemoveFragment::FragmentMutateRemoveFragment
     (
-      const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const std::string &DRUG_LIKENESS_TYPE,
       const bool &CORINA_CONFS
-    ) :
-      m_FragmentPool( FRAGMENT_POOL),
-      m_FragmentFilename( std::string()),
-      m_MaxFragmentSize( util::GetUndefinedSize_t())
+    )
     {
       m_DrugLikenessType = DRUG_LIKENESS_TYPE;
       m_Corina = CORINA_CONFS;
-
       this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
     }
 
@@ -110,16 +98,12 @@ namespace bcl
     //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
     FragmentMutateRemoveFragment::FragmentMutateRemoveFragment
     (
-      const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
       const FragmentEnsemble &MUTABLE_FRAGMENTS,
       const storage::Vector< size_t> &MUTABLE_ATOM_INDICES,
       const bool &CORINA_CONFS
-    ) :
-      m_FragmentPool( FRAGMENT_POOL),
-      m_FragmentFilename( std::string()),
-      m_MaxFragmentSize( util::GetUndefinedSize_t())
+    )
     {
       m_DrugLikenessType = DRUG_LIKENESS_TYPE;
       m_ScaffoldFragment = SCAFFOLD_FRAGMENT;
@@ -141,7 +125,6 @@ namespace bcl
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
     FragmentMutateRemoveFragment::FragmentMutateRemoveFragment
     (
-      const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
       const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -151,10 +134,7 @@ namespace bcl
       const bool &RESOLVE_CLASHES,
       const storage::Vector< float> &BFACTORS,
       const bool &CORINA_CONFS
-    ) :
-      m_FragmentPool( FRAGMENT_POOL),
-      m_FragmentFilename( std::string()),
-      m_MaxFragmentSize( util::GetUndefinedSize_t())
+    )
     {
       m_DrugLikenessType = DRUG_LIKENESS_TYPE;
       m_ScaffoldFragment = SCAFFOLD_FRAGMENT;
@@ -180,7 +160,6 @@ namespace bcl
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
     FragmentMutateRemoveFragment::FragmentMutateRemoveFragment
     (
-      const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
       const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -189,10 +168,7 @@ namespace bcl
       const bool &RESOLVE_CLASHES,
       const storage::Vector< float> &BFACTORS,
       const bool &CORINA_CONFS
-    ) :
-      m_FragmentPool( FRAGMENT_POOL),
-      m_FragmentFilename( std::string()),
-      m_MaxFragmentSize( util::GetUndefinedSize_t())
+    )
     {
       m_DrugLikenessType = DRUG_LIKENESS_TYPE;
       m_ScaffoldFragment = SCAFFOLD_FRAGMENT;
@@ -241,56 +217,66 @@ namespace bcl
     math::MutateResult< FragmentComplete> FragmentMutateRemoveFragment::operator()( const FragmentComplete &FRAGMENT) const
     {
       // mutate label
-      BCL_MessageStd( "Add!");
+      BCL_MessageStd( "RemoveFragment!");
 
       // redo the whole thing n-max times; increment can also be made in an inner while-loop during atom index selection
       size_t try_index( 0);
       for( ; try_index < m_NumberMaxAttempts; ++try_index)
       {
-        // select random medchem fragment
-        iterate::Generic< const FragmentComplete> itr_gen( m_FragmentPool->Begin(), m_FragmentPool->End());
-        itr_gen.GotoRandomPosition();
-        FragmentComplete medchem_frag( *itr_gen);
-
-        if( !FRAGMENT.GetNumberAtoms() || !medchem_frag.GetNumberAtoms())
-        {
-          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
-        }
-
-        // A modifiable form of the molecule (for removing hydrogens, if needed)
         FragmentComplete molecule_mutable( FRAGMENT);
 
-        // If there are already open valences, use them.  Otherwise remove the hydrogens to open valences up
-        // TODO: modernize valence handling so that we can track atoms
-        if( CollectorValence().Collect( molecule_mutable).GetSize() == 0)
-        {
-          molecule_mutable.RemoveH();
-        }
+        // TODO: modernaize valence handler so that we can track atoms
+        molecule_mutable.RemoveH();
 
-        if( CollectorValence().Collect( molecule_mutable).GetSize() == 0)
+        if( !molecule_mutable.GetNumberAtoms())
         {
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
 
-        // Create the fragment grower - adds fragments to open atoms
-        util::ShPtr< FragmentEnsemble> null_ptr;
-        FragmentGrow fragment_grower
+        ConformationGraphConverter graph_maker
         (
-          null_ptr,
-          CollectorValence(),
-          PickAtomRandom(),
-          PickFragmentRandom()
+          ConformationGraphConverter::e_ElementType,
+          ConfigurationalBondTypeData::e_BondOrderOrAromaticWithRingness
         );
 
-        // Add fragment and return the result
-        util::ShPtr< FragmentComplete> result
+        graph::ConstGraph< size_t, size_t> mol_graph( graph_maker( molecule_mutable));
+
+        storage::List< storage::Vector< size_t> > fragments
         (
-          fragment_grower.AddFragmentFromList
-          (
-            molecule_mutable,
-            FragmentEnsemble( storage::List< FragmentComplete>( 1, medchem_frag))
-          )
+          FragmentEvolveBase::FragmentsFromRandomBondBreakage( molecule_mutable, mol_graph)
         );
+
+        if( fragments.GetSize() != 2)
+        {
+          BCL_MessageVrb( "could not delete pieces of the molecule");
+          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
+        }
+
+        // atom graphs
+        ConformationGraphConverter::t_AtomGraph mol_atom_graph
+        (
+          graph_maker.CreateGraphWithAtoms( molecule_mutable)
+        );
+
+        storage::Vector< FragmentComplete> new_molecules;
+
+        // Iterate through the fragments, make FragmentCompletes, and add them to new_fragments
+        for
+        (
+          storage::List< storage::Vector< size_t> >::const_iterator itr_frag( fragments.Begin()), itr_frag_end( fragments.End());
+          itr_frag != itr_frag_end;
+          ++itr_frag
+        )
+        {
+          ConformationGraphConverter::t_AtomGraph frag_graph( mol_atom_graph.GetSubgraph( *itr_frag));
+
+          FragmentComplete new_frag( graph_maker.CreateAtomsFromGraph( frag_graph), "");
+
+          if( new_frag.GetNumberAtoms())
+          {
+            new_molecules.PushBack( new_frag);
+          }
+        }
 
         // for cleaning and optimizing the new molecule conformer
         FragmentMapConformer cleaner
@@ -305,7 +291,9 @@ namespace bcl
         );
 
         // clean and output
-        AtomVector< AtomComplete> atoms( result->GetAtomVector());
+        iterate::Generic< const FragmentComplete> random_mol( new_molecules.Begin(), new_molecules.End());
+        random_mol.GotoRandomPosition();
+        AtomVector< AtomComplete> atoms( random_mol->GetAtomVector());
 
         // Remove hydrogen atoms to allow bond type adjustment
         HydrogensHandler::Remove( atoms);
@@ -325,20 +313,6 @@ namespace bcl
   // operations //
   ////////////////
 
-    //! @brief set medchem fragment library from filename
-    void FragmentMutateRemoveFragment::SetFragmentLibraryFromFilename( const std::string &FRAGMENTS_FILENAME)
-    {
-      s_Mutex.Lock();
-      io::IFStream input;
-      io::File::MustOpenIFStream( input, FRAGMENTS_FILENAME);
-      FragmentEnsemble medchem_groups;
-      medchem_groups.ReadMoreFromMdl( input);
-      m_FragmentPool = util::CloneToShPtr( medchem_groups);
-      io::File::CloseClearFStream( input);
-      s_Mutex.Unlock();
-    }
-
-
   //////////////////////
   // helper functions //
   //////////////////////
@@ -348,25 +322,11 @@ namespace bcl
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
       (
-        "Combines a fragment from a target molecule with a fragment from an external library. "
-        "WARNING - this mutate does NOT obey atom selection rules. This will be amended in a "
-        "future version."
-      );
-
-      parameters.AddInitializer
-      (
-        "fragment_library",
-        "path to the fragment library",
-        io::Serialization::GetAgent( &m_FragmentFilename),
-        ""
-      );
-
-      parameters.AddInitializer
-      (
-        "max_fragment_size",
-        "maximum allowed size of fragments used for recombination.",
-        io::Serialization::GetAgent( &m_MaxFragmentSize),
-        "50"
+        "Removes a fragment from a target molecule by randomly breaking bonds. "
+        "WARNING - This mutate is created from a legacy chemical perturbation function. "
+        "This mutate does NOT obey atom selection rules, and it was modified from "
+        "its original version to fit the FragmentMutateInterface framework for "
+        "compatibility purposes. "
       );
 
       return parameters;
@@ -389,19 +349,6 @@ namespace bcl
         return false;
       }
 
-      // read in ring library filename
-      if( m_FragmentFilename.size())
-      {
-        s_Mutex.Lock();
-        io::IFStream input;
-        io::File::MustOpenIFStream( input, m_FragmentFilename);
-        FragmentEnsemble medchem_groups;
-        medchem_groups.ReadMoreFromMdl( input);
-        m_FragmentPool = util::CloneToShPtr( medchem_groups);
-        io::File::CloseClearFStream( input);
-        s_Mutex.Unlock();
-      }
-
       // done
       return true;
     }
@@ -415,7 +362,6 @@ namespace bcl
     //! @return istream which was read from
     std::istream &FragmentMutateRemoveFragment::Read( std::istream &ISTREAM)
     {
-      io::Serialize::Read( m_FragmentPool, ISTREAM);
       return ISTREAM;
     }
 
@@ -425,7 +371,6 @@ namespace bcl
     //! @return ostream which was written to
     std::ostream &FragmentMutateRemoveFragment::Write( std::ostream &OSTREAM, const size_t INDENT) const
     {
-      io::Serialize::Write( m_FragmentPool, OSTREAM, INDENT) << '\n';
       return OSTREAM;
     }
 

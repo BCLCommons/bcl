@@ -23,6 +23,7 @@
 // headers from bcl - sorted alphabetically
 #include "bcl_chemistry_conformation_graph_converter.h"
 #include "bcl_chemistry_fragment_ensemble.h"
+#include "bcl_chemistry_fragment_react.h"
 #include "bcl_chemistry_molecule_evolution_info.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "io/bcl_io_file.h"
@@ -197,9 +198,6 @@ namespace bcl
       // data access //
       /////////////////
 
-      //! @brief get the internal molecule data
-      //! @return a vector containing population data for each iteration so far
-      const std::vector< std::vector< MoleculeEvolutionInfo> > &GetMoleculeEvolutionInfos() const;
 
       //! @brief returns class name
       //! @return the class name as const ref std::string
@@ -208,6 +206,52 @@ namespace bcl
       //! @brief get the name of this class
       //! @return the name of this class
       const std::string &GetAlias() const;
+
+      //! @brief Get the internal molecule data
+      //! @return a vector containing population data for each iteration so far
+      const std::vector< std::vector< MoleculeEvolutionInfo> > &GetMoleculeEvolutionInfos() const;
+
+      //! @brief Get filename for EvoGen log file
+      const std::string &GetLogFile() const;
+
+      //! @brief Get the final size of each population.
+      const size_t GetFinalPopSize() const;
+
+      //! @brief Get the maximum number of molecules to generate during each iteration.
+      const size_t GetMaxToGenerate() const;
+
+      //! @brief Get molecule selection type to keep highest-scoring molecules
+      const SelectionType &GetSelectionType() const;
+
+      //! @brief Get molecule replacement method to use tournament selection
+      const float GetReplacementTypeTournament() const;
+
+      //! @brief Get molecule modification method to use tournament selection
+      const float GetModifyTypeTournament() const;
+
+      //! @brief Get retirement policy so that all parents are discarded
+      const ParentRetirementType &GetRetirementType() const;
+
+      //! @brief Get molecule evolution type to primarily perform balanced processes
+      const EvolutionBalance &GetEvolutionBalanceType() const;
+
+      //! @brief Use BCL-internal models for molecule scoring
+      const ModelType &GetModelType() const;
+
+      //! @brief Get the reaction operation structure
+      const std::string &GetReactionOperationLabel() const;
+
+      //! @brief Get the one-shot reaction operation structure
+      const std::string &GetAlchemicalOperationLabel() const;
+
+      //! @brief Get the descriptor to use for scoring, if internal models are used
+      const std::string &GetModelDescriptorLabel() const;
+
+      //! @brief Get the descriptor to use for scoring, if internal models are used
+      const descriptor::CheminfoProperty &GetModelDescriptor() const;
+
+      //! @brief Get the external script path if external scoring is used
+      const std::string &GetModelCmd();
 
       ////////////////
       // operations //

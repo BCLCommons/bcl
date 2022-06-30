@@ -135,7 +135,7 @@ namespace bcl
       float m_StartingFragmentRMSDCutoff;
 
       //! mutate to extend linker
-      mutable FragmentExtendWithLinker m_ExtendWithLinker;
+      mutable FragmentMutateExtendWithLinker m_ExtendWithLinker;
 
       // Note on SampleConformations options -
       // some SampleConfs options are made accessible through member data

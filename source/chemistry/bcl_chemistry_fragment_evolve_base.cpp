@@ -17,14 +17,15 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "chemistry/bcl_chemistry_fragment_evolve_base.h"
+#include "bcl_chemistry_fragment_evolve_base.h"
 
 // includes from bcl - sorted alphabetically
-#include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
-#include "chemistry/bcl_chemistry_bond_isometry_handler.h"
-#include "chemistry/bcl_chemistry_rotamer_library_file.h"
-#include "chemistry/bcl_chemistry_sample_conformations.h"
-#include "chemistry/bcl_chemistry_stereocenters_handler.h"
+#include "bcl_chemistry_atoms_complete_standardizer.h"
+#include "bcl_chemistry_bond_isometry_handler.h"
+#include "bcl_chemistry_rotamer_library_file.h"
+#include "bcl_chemistry_sample_conformations.h"
+#include "bcl_chemistry_stereocenters_handler.h"
+#include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "io/bcl_io_directory_entry.h"
 #include "io/bcl_io_file.h"
 #include "sdf/bcl_sdf_fragment_factory.h"
@@ -61,7 +62,7 @@ namespace bcl
     //! @return false if the molecule fails any of the druglikeness checks in MoleculeDruglike; true otherwise
     bool FragmentEvolveBase::IsConstitutionDruglike( const FragmentComplete &MOLECULE)
     {
-      return m_Druglike( MOLECULE);
+      return descriptor::GetCheminfoProperties().calc_IsMolDruglike->SumOverObject( MOLECULE)( 0);
     }
 
     //! @brief generates the 3d conformation from the 2d conformation by doing a system call to corina
@@ -203,6 +204,90 @@ namespace bcl
       }
 
       return molecule_3D;
+    }
+
+    //! @brief determines what fragments would result from breaking a bond in a graph
+    //! @param MOLECULE_GRAPH the graph that will have its bond broken
+    //! @param FROM one vertex that makes up the bond to break
+    //! @param TO the other vertex
+    //! @return a list of vectors of indices which correspond to connected components of the graph
+    storage::List< storage::Vector< size_t> > FragmentEvolveBase::CollectFragmentsFromBondBreakage
+    (
+      graph::ConstGraph< size_t, size_t> &MOLECULE_GRAPH,
+      const size_t &FROM,
+      const size_t &TO
+    )
+    {
+      if( FROM >= MOLECULE_GRAPH.GetSize() || TO >= MOLECULE_GRAPH.GetSize() || FROM == TO)
+      {
+        return storage::List< storage::Vector< size_t> >();
+      }
+
+      // Save the bond info
+      size_t bond_info( MOLECULE_GRAPH.GetEdgeData( FROM, TO));
+
+      // Break the bond
+      MOLECULE_GRAPH.RemoveEdge( FROM, TO);
+
+      // Get the pieces of the graph
+      storage::List< storage::Vector< size_t> > components( graph::Connectivity::GetComponents( MOLECULE_GRAPH));
+
+      // Restore the bond
+      MOLECULE_GRAPH.AddEdge( FROM, TO, bond_info);
+
+      return components;
+    }
+
+    //! @brief determines what fragments would result from breaking a bond in a graph
+    //! @param MOLECULE the molecule that will have a bond broken
+    //! @param MOLECULE_GRAPH the graph MOLECULE
+    //! @return a list of vectors of indices which correspond to connected components of the graph
+    storage::List< storage::Vector< size_t> > FragmentEvolveBase::FragmentsFromRandomBondBreakage
+    (
+      const FragmentComplete &MOLECULE,
+      graph::ConstGraph< size_t, size_t> &MOLECULE_GRAPH,
+      const size_t &EDGE_TYPE
+    )
+    {
+      // Make sure everything matches
+      if( MOLECULE_GRAPH.GetSize() == 0 || MOLECULE_GRAPH.GetSize() != MOLECULE.GetNumberAtoms())
+      {
+        return storage::List< storage::Vector< size_t> >();
+      }
+
+      // Get a list of bonds of the molecule
+      storage::Vector< sdf::BondInfo> bonds( MOLECULE.GetBondInfo());
+
+      // Determine which ones can be broken; don't break ring bonds
+      storage::Vector< size_t> available_bonds;
+      available_bonds.AllocateMemory( bonds.GetSize());
+
+      for( size_t pos( 0), end( bonds.GetSize()); pos < end; ++pos)
+      {
+        // Check to make sure the edge isn't in a ring, and it matches the edge type
+        if
+        (
+          !bonds( pos).GetConstitutionalBondType()->IsBondInRing()
+          && MOLECULE_GRAPH.GetEdgeData( bonds( pos).GetAtomIndexLow(), bonds( pos).GetAtomIndexHigh()) == EDGE_TYPE
+        )
+        {
+          available_bonds.PushBack( pos);
+        }
+      }
+
+      if( !available_bonds.GetSize())
+      {
+        return storage::List< storage::Vector< size_t> >();
+      }
+
+      size_t which_bond( random::GetGlobalRandom().Random< size_t>( available_bonds.GetSize() - 1));
+
+      return CollectFragmentsFromBondBreakage
+          (
+            MOLECULE_GRAPH,
+            bonds( available_bonds( which_bond)).GetAtomIndexLow(),
+            bonds( available_bonds( which_bond)).GetAtomIndexHigh()
+          );
     }
 
   //////////////////////

@@ -31,14 +31,14 @@ BCL_StaticInitializationFiascoFinder
 #include "bcl_chemistry_fragment_split_interface.h"
 #include "bcl_chemistry_fragment_split_largest_component.h"
 #include "bcl_chemistry_fragment_split_rings.h"
-#include "graph/bcl_graph_connectivity.h"
-#include "graph/bcl_graph_subgraph.h"
-#include "io/bcl_io_directory_entry.h"
-#include "io/bcl_io_ofstream.h"
 #include "bcl_chemistry_atom_conformational_interface.h"
 #include "bcl_chemistry_bond_isometry_handler.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "graph/bcl_graph_subgraph_isomorphism.h"
+#include "graph/bcl_graph_connectivity.h"
+#include "graph/bcl_graph_subgraph.h"
+#include "io/bcl_io_directory_entry.h"
+#include "io/bcl_io_ofstream.h"
 #include "io/bcl_io_file.h"
 #include "math/bcl_math_running_average.h"
 #include "sched/bcl_sched_scheduler_interface.h"
@@ -61,6 +61,7 @@ namespace bcl
     MoleculeEvolutionaryOptimizer::MoleculeEvolutionaryOptimizer() :
       m_GenerateMax( 10),
       m_FinalPopSize( 10),
+      m_MaxFailedAttempts( 10),
       m_Operations( 3, size_t( 0)),
       m_SelectionType( e_Top),
       m_ModelType( e_Internal),
@@ -88,6 +89,97 @@ namespace bcl
     {
       static const std::string s_name( "MoleculeEvolutionaryOptimizer");
       return s_name;
+    }
+
+    //! @brief get the internal molecule data
+    //! @return a vector containing population data for each iteration so far
+    const std::vector< std::vector< MoleculeEvolutionInfo> > &MoleculeEvolutionaryOptimizer::GetMoleculeEvolutionInfos() const
+    {
+      return m_Populations;
+    }
+
+    //! @brief Get filename for EvoGen log file
+    const std::string &MoleculeEvolutionaryOptimizer::GetLogFile() const
+    {
+      return m_LogFile;
+    }
+
+    //! @brief Get the final size of each population.
+    const size_t MoleculeEvolutionaryOptimizer::GetFinalPopSize() const
+    {
+      return m_FinalPopSize;
+    }
+
+    //! @brief Get the maximum number of molecules to generate during each iteration.
+    const size_t MoleculeEvolutionaryOptimizer::GetMaxToGenerate() const
+    {
+      return m_GenerateMax;
+    }
+
+    //! @brief Get molecule selection type to keep highest-scoring molecules
+    const MoleculeEvolutionaryOptimizer::SelectionType &MoleculeEvolutionaryOptimizer::GetSelectionType() const
+    {
+      return m_SelectionType;
+    }
+
+    //! @brief Get molecule replacement method to use tournament selection
+    const float MoleculeEvolutionaryOptimizer::GetReplacementTypeTournament() const
+    {
+      return m_ReplacementTournSizeFactor;
+    }
+
+    //! @brief Get molecule modification method to use tournament selection
+    const float MoleculeEvolutionaryOptimizer::GetModifyTypeTournament() const
+    {
+      return m_ModifyTournSizeFactor;
+    }
+
+    //! @brief Get retirement policy so that all parents are discarded
+    const MoleculeEvolutionaryOptimizer::ParentRetirementType &MoleculeEvolutionaryOptimizer::GetRetirementType() const
+    {
+      return m_RetirementType;
+    }
+
+    //! @brief Get molecule evolution type to primarily perform balanced processes
+    const MoleculeEvolutionaryOptimizer::EvolutionBalance &MoleculeEvolutionaryOptimizer::GetEvolutionBalanceType() const
+    {
+      return m_EvolutionBalanceType;
+    }
+
+    //! @brief Use BCL-internal models for molecule scoring
+    const MoleculeEvolutionaryOptimizer::ModelType &MoleculeEvolutionaryOptimizer::GetModelType() const
+    {
+      return m_ModelType;
+    }
+
+    //! @brief Get the reaction operation structure
+    const std::string &MoleculeEvolutionaryOptimizer::GetReactionOperationLabel() const
+    {
+      return m_ReactOp.GetAlias();
+    }
+
+    //! @brief Get the one-shot reaction operation structure
+    const std::string &MoleculeEvolutionaryOptimizer::GetAlchemicalOperationLabel() const
+    {
+      return m_Mutate.GetAlias();
+    }
+
+    //! @brief Get the descriptor to use for scoring, if internal models are used
+    const std::string &MoleculeEvolutionaryOptimizer::GetModelDescriptorLabel() const
+    {
+      return m_Scorer.GetAlias();
+    }
+
+    //! @brief Get the descriptor to use for scoring, if internal models are used
+    const descriptor::CheminfoProperty &MoleculeEvolutionaryOptimizer::GetModelDescriptor() const
+    {
+      return m_Scorer;
+    }
+
+    //! @brief Get the external script path if external scoring is used
+    const std::string &MoleculeEvolutionaryOptimizer::GetModelCmd()
+    {
+      return m_ModelCmd;
     }
 
     ////////////////
@@ -255,13 +347,6 @@ namespace bcl
     void MoleculeEvolutionaryOptimizer::SetModelTypeExternal()
     {
       m_ModelType = e_External;
-    }
-
-    //! @brief get the internal molecule data
-    //! @return a vector containing population data for each iteration so far
-    const std::vector< std::vector< MoleculeEvolutionInfo> > &MoleculeEvolutionaryOptimizer::GetMoleculeEvolutionInfos() const
-    {
-      return m_Populations;
     }
 
     //! @brief initialize the reaction operation structure

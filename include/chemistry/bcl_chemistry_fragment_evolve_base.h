@@ -22,8 +22,8 @@
 
 // includes from bcl - sorted alphabetically
 #include "bcl_chemistry_fragment_ensemble.h"
-#include "descriptor/bcl_descriptor_molecule_druglike.h"
 #include "io/bcl_io_serialization.h"
+#include "util/bcl_util_object_interface.h"
 #include "util/bcl_util_sh_ptr.h"
 
 // external includes - sorted alphabetically
@@ -42,13 +42,11 @@ namespace bcl
     //! @date Jan 13, 2016
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    class BCL_API FragmentEvolveBase
+    class BCL_API FragmentEvolveBase :
+    public util::ObjectInterface
     {
 
     private:
-
-      //! detects bad bonds
-      descriptor::MoleculeDruglike m_Druglike;
 
     //////////
     // data //
@@ -82,6 +80,29 @@ namespace bcl
       //! @param CORINA generate a 3D conformer with corina (requires system call to external program)
       //! @return a new FragmentComplete that has been cleaned
       static util::ShPtr< FragmentComplete> FinalizeMolecule( const FragmentComplete &MOLECULE, const bool CORINA=false);
+
+
+      //! @brief determines what fragments would result from breaking a bond in a graph
+      //! @param MOLECULE_GRAPH the graph that will have its bond broken
+      //! @param FROM one vertex
+      //! @param TO the other vertex
+      //! @return a list of vectors of indices which correspond to connected components of the graph
+      static storage::List< storage::Vector< size_t> > CollectFragmentsFromBondBreakage
+      (
+        graph::ConstGraph< size_t, size_t> &MOLECULE_GRAPH,
+        const size_t &FROM,
+        const size_t &TO
+      );
+
+      //! @brief determines what fragments would result from breaking a bond in a graph
+      //! @param MOLECULE the molecule that will be fragmented
+      //! @param MOLECULE_GRAPH the graph that will have its bond broken
+      static storage::List< storage::Vector< size_t> > FragmentsFromRandomBondBreakage
+      (
+        const FragmentComplete &MOLECULE,
+        graph::ConstGraph< size_t, size_t> &MOLECULE_GRAPH,
+        const size_t &EDGE_TYPE = 1
+      );
 
 //      //! @brief return parameters for member data that are set up from the labels
 //      //! @return parameters for member data that are set up from the labels

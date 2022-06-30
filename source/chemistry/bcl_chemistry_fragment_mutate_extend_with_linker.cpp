@@ -448,7 +448,7 @@ namespace bcl
         }
 
         // break the bond between the two picked atoms
-        FragmentRemoveBond remove_bond;
+        FragmentMutateRemoveBond remove_bond;
         AtomVector< AtomComplete> atom_vector( remove_bond.RemoveBond( FRAGMENT, bond_to_remove));
         FragmentComplete complex_fragment( atom_vector, "");
 

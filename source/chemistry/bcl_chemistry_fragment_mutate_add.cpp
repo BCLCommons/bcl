@@ -21,11 +21,14 @@ BCL_StaticInitializationFiascoFinder
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
+#include "chemistry/bcl_chemistry_collector_valence.h"
 #include "chemistry/bcl_chemistry_fragment_grow.h"
 #include "chemistry/bcl_chemistry_fragment_map_conformer.h"
 #include "chemistry/bcl_chemistry_fragment_track_mutable_atoms.h"
 #include "chemistry/bcl_chemistry_hydrogens_handler.h"
 #include "chemistry/bcl_chemistry_merge_fragment_complete.h"
+#include "chemistry/bcl_chemistry_pick_atom_random.h"
+#include "chemistry/bcl_chemistry_pick_fragment_random.h"
 #include "chemistry/bcl_chemistry_rotamer_library_file.h"
 #include "chemistry/bcl_chemistry_voxel_grid_atom.h"
 #include "command/bcl_command_command_state.h"
@@ -349,8 +352,10 @@ namespace bcl
       parameters.SetClassDescription
       (
         "Combines a fragment from a target molecule with a fragment from an external library. "
-        "WARNING - this mutate does NOT obey atom selection rules. This will be amended in a "
-        "future version."
+        "WARNING - This mutate is created from a legacy chemical perturbation function. "
+        "This mutate does NOT obey atom selection rules, and it was modified from "
+        "its original version to fit the FragmentMutateInterface framework for "
+        "compatibility purposes. "
       );
 
       parameters.AddInitializer

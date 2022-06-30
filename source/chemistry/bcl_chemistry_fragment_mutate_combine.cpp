@@ -21,6 +21,7 @@ BCL_StaticInitializationFiascoFinder
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
+#include "chemistry/bcl_chemistry_fragment_evolve_base.h"
 #include "chemistry/bcl_chemistry_fragment_map_conformer.h"
 #include "chemistry/bcl_chemistry_fragment_track_mutable_atoms.h"
 #include "chemistry/bcl_chemistry_hydrogens_handler.h"
@@ -276,7 +277,7 @@ namespace bcl
         // Break a random single bond in each molecule and retrieve the fragments
         storage::List< storage::Vector< size_t> > first_mol_frags
         (
-          FragmentsFromRandomBondBreakage
+          FragmentEvolveBase::FragmentsFromRandomBondBreakage
           (
             first_molecule, first_mol_graph
           )
@@ -284,7 +285,7 @@ namespace bcl
 
         storage::List< storage::Vector< size_t> > second_mol_frags
         (
-          FragmentsFromRandomBondBreakage
+          FragmentEvolveBase::FragmentsFromRandomBondBreakage
           (
             second_molecule, second_mol_graph
           )
@@ -313,7 +314,7 @@ namespace bcl
         util::OwnPtr< graph::ConstGraph< size_t, size_t> > optr_second_graph( &second_mol_graph, false);
 
         // The FragmentEnsemble that will be returned
-        util::ShPtrVector< FragmentComplete> new_molecules;
+        storage::Vector< FragmentComplete> new_molecules;
 
         ///////////////
         // Determine which bond was broken in each molecule
@@ -490,91 +491,6 @@ namespace bcl
     }
 
 
-    //! @brief determines what fragments would result from breaking a bond in a graph
-    //! @param MOLECULE_GRAPH the graph that will have its bond broken
-    //! @param FROM one vertex that makes up the bond to break
-    //! @param TO the other vertex
-    //! @return a list of vectors of indices which correspond to connected components of the graph
-    storage::List< storage::Vector< size_t> > FragmentMutateCombine::CollectFragmentsFromBondBreakage
-    (
-      graph::ConstGraph< size_t, size_t> &MOLECULE_GRAPH,
-      const size_t &FROM,
-      const size_t &TO
-    ) const
-    {
-      if( FROM >= MOLECULE_GRAPH.GetSize() || TO >= MOLECULE_GRAPH.GetSize() || FROM == TO)
-      {
-        return storage::List< storage::Vector< size_t> >();
-      }
-
-      // Save the bond info
-      size_t bond_info( MOLECULE_GRAPH.GetEdgeData( FROM, TO));
-
-      // Break the bond
-      MOLECULE_GRAPH.RemoveEdge( FROM, TO);
-
-      // Get the pieces of the graph
-      storage::List< storage::Vector< size_t> > components( graph::Connectivity::GetComponents( MOLECULE_GRAPH));
-
-      // Restore the bond
-      MOLECULE_GRAPH.AddEdge( FROM, TO, bond_info);
-
-      return components;
-    }
-
-    //! @brief determines what fragments would result from breaking a bond in a graph
-    //! @param MOLECULE the molecule that will have a bond broken
-    //! @param MOLECULE_GRAPH the graph MOLECULE
-    //! @return a list of vectors of indices which correspond to connected components of the graph
-    storage::List< storage::Vector< size_t> > FragmentMutateCombine::FragmentsFromRandomBondBreakage
-    (
-      const FragmentComplete &MOLECULE,
-      graph::ConstGraph< size_t, size_t> &MOLECULE_GRAPH,
-      const size_t &EDGE_TYPE
-    ) const
-    {
-      // Make sure everything matches
-      if( MOLECULE_GRAPH.GetSize() == 0 || MOLECULE_GRAPH.GetSize() != MOLECULE.GetNumberAtoms())
-      {
-        return storage::List< storage::Vector< size_t> >();
-      }
-
-      // Get a list of bonds of the molecule
-      storage::Vector< sdf::BondInfo> bonds( MOLECULE.GetBondInfo());
-
-      // Determine which ones can be broken; don't break ring bonds
-      storage::Vector< size_t> available_bonds;
-      available_bonds.AllocateMemory( bonds.GetSize());
-
-      for( size_t pos( 0), end( bonds.GetSize()); pos < end; ++pos)
-      {
-        // Check to make sure the edge isn't in a ring, and it matches the edge type
-        if
-        (
-          !bonds( pos).GetConstitutionalBondType()->IsBondInRing()
-          && MOLECULE_GRAPH.GetEdgeData( bonds( pos).GetAtomIndexLow(), bonds( pos).GetAtomIndexHigh()) == EDGE_TYPE
-        )
-        {
-          available_bonds.PushBack( pos);
-        }
-      }
-
-      if( !available_bonds.GetSize())
-      {
-        return storage::List< storage::Vector< size_t> >();
-      }
-
-      size_t which_bond( random::GetGlobalRandom().Random< size_t>( available_bonds.GetSize() - 1));
-
-      return CollectFragmentsFromBondBreakage
-          (
-            MOLECULE_GRAPH,
-            bonds( available_bonds( which_bond)).GetAtomIndexLow(),
-            bonds( available_bonds( which_bond)).GetAtomIndexHigh()
-          );
-    }
-
-
   //////////////////////
   // helper functions //
   //////////////////////
@@ -585,8 +501,10 @@ namespace bcl
       parameters.SetClassDescription
       (
         "Combines a fragment from a target molecule with a fragment from an external library. "
-        "WARNING - this mutate does NOT obey atom selection rules. This will be amended in a "
-        "future version."
+        "WARNING - This mutate is created from a legacy chemical perturbation function. "
+        "This mutate does NOT obey atom selection rules, and it was modified from "
+        "its original version to fit the FragmentMutateInterface framework for "
+        "compatibility purposes. "
       );
 
       parameters.AddInitializer

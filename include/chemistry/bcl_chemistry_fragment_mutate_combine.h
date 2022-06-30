@@ -207,28 +207,6 @@ namespace bcl
       //! @brief set medchem fragment library from filename
       void SetFragmentLibraryFromFilename( const std::string &FRAGMENTS_FILENAME);
 
-      //! @brief determines what fragments would result from breaking a bond in a graph
-      //! @param MOLECULE_GRAPH the graph that will have its bond broken
-      //! @param FROM one vertex
-      //! @param TO the other vertex
-      //! @return a list of vectors of indices which correspond to connected components of the graph
-      storage::List< storage::Vector< size_t> > CollectFragmentsFromBondBreakage
-      (
-        graph::ConstGraph< size_t, size_t> &MOLECULE_GRAPH,
-        const size_t &FROM,
-        const size_t &TO
-      ) const;
-
-      //! @brief determines what fragments would result from breaking a bond in a graph
-      //! @param MOLECULE the molecule that will be fragmented
-      //! @param MOLECULE_GRAPH the graph that will have its bond broken
-      storage::List< storage::Vector< size_t> > FragmentsFromRandomBondBreakage
-      (
-        const FragmentComplete &MOLECULE,
-        graph::ConstGraph< size_t, size_t> &MOLECULE_GRAPH,
-        const size_t &EDGE_TYPE = 1
-      ) const;
-
     protected:
 
       //! @brief return parameters for member data that are set up from the labels

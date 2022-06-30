@@ -49,7 +49,7 @@ namespace bcl
     //! @brief A mutate that combines a target fragment with a fragment selected from an external library
     //!
     //! @see @link example_chemistry_fragment_mutate_remove_fragment.cpp @endlink
-    //! @author brownbp1
+    //! @author geanesar,brownbp1
     //! @date Jun 30, 2022
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -63,13 +63,6 @@ namespace bcl
     /////////////
 
     private:
-
-      //! pool of fragments to be picked from
-      util::ShPtr< FragmentEnsemble> m_FragmentPool;
-      std::string m_FragmentFilename;
-
-      //! maximum fragment size for fragment recombination
-      size_t m_MaxFragmentSize;
 
     //////////
     // data //
@@ -95,7 +88,6 @@ namespace bcl
       //! @param FRAGMENT_POOL external fragments to add to base fragment
       FragmentMutateRemoveFragment
       (
-        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const bool &CORINA_CONFS
       );
 
@@ -104,7 +96,6 @@ namespace bcl
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       FragmentMutateRemoveFragment
       (
-        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const bool &CORINA_CONFS
       );
@@ -117,7 +108,6 @@ namespace bcl
       //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
       FragmentMutateRemoveFragment
       (
-        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -137,7 +127,6 @@ namespace bcl
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
       FragmentMutateRemoveFragment
       (
-        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -160,7 +149,6 @@ namespace bcl
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
       FragmentMutateRemoveFragment
       (
-        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -203,9 +191,6 @@ namespace bcl
     //////////////////////
     // helper functions //
     //////////////////////
-
-      //! @brief set medchem fragment library from filename
-      void SetFragmentLibraryFromFilename( const std::string &FRAGMENTS_FILENAME);
 
     protected:
 
