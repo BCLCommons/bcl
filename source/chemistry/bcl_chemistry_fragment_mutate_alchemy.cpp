@@ -239,6 +239,16 @@ namespace bcl
       return s_name;
     }
 
+    //! @brief returns the element type chosen during the mutate
+    //! @return the element type chosen during the mutate; if the
+    //! mutate has not yet been run, this will return an undefined
+    //! element type object, which is different than the element
+    //! type notated 'X' for undefined.
+    const ElementType &FragmentAlchemy::GetChosenElementType() const
+    {
+      return m_ChosenElementType;
+    }
+
   ///////////////
   // operators //
   ///////////////
@@ -342,11 +352,18 @@ namespace bcl
           }
         }
 
+        // remember the chosen element type
+        SetChosenElement( m_AllowedElements( rand_ele_index));
+
         // is our atom in an aromatic ring?
         bool picked_atom_aromatic( picked_atom->CountNonValenceBondsWithProperty( ConfigurationalBondTypeData::e_IsAromatic, 1));
-        if( m_AllowedElements( rand_ele_index) == GetElementTypes().e_Hydrogen)
+        if( GetChosenElementType() == GetElementTypes().e_Hydrogen)
         {
           new_atom_type = GetAtomTypes().H_S;
+        }
+        else if( GetChosenElementType() == GetElementTypes().e_Undefined)
+        {
+          new_atom_type = GetAtomTypes().e_Undefined;
         }
         else
         {
@@ -362,7 +379,7 @@ namespace bcl
             BCL_MessageDbg( "n_nonh_e: " + util::Format()( n_nonh_e));
             PossibleAtomTypesForAtom available_atom_types
             (
-              m_AllowedElements( rand_ele_index),
+              GetChosenElementType(),
               n_nonh_e,
               n_current_bonds,
               util::IsDefined( m_FormalCharge) ? m_FormalCharge : picked_atom->GetCharge(),
@@ -460,6 +477,13 @@ namespace bcl
           }
         }
 
+        // skip geometry cleanup if we mutated into an undefined atom
+        if( GetChosenElementType() == GetElementTypes().e_Undefined)
+        {
+          BCL_MessageStd( "Chosen element type from allowed element type list is Undefined; skipping fragment cleaning");
+          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>( new FragmentComplete( new_atom_vector, "")), *this);
+        }
+
         // for cleaning and optimizing the new molecule conformer
         FragmentMapConformer cleaner
         (
@@ -476,9 +500,8 @@ namespace bcl
 //          4
         );
 
-        // remove hydrogen atoms so ease burden on the isomorphism search during cleaning
-        static HydrogensHandler hydrogens_handler;
-        hydrogens_handler.Remove( new_atom_vector);
+        // remove hydrogen atoms to ease burden on the isomorphism search during cleaning
+        HydrogensHandler::Remove( new_atom_vector);
 
         // Standardize and return
         if( m_ScaffoldFragment.GetSize())
@@ -509,6 +532,12 @@ namespace bcl
     void FragmentMutateAlchemy::SetRestrictions( const bool RESTRICT_TO_BOND_H)
     {
       m_RestrictToBondedH = RESTRICT_TO_BOND_H;
+    }
+
+    //! @brief set the chosen element type to which we are mutating
+    void FragmentAlchemy::SetChosenElement( const ElementType &ELEMENT_TYPE) const
+    {
+      m_ChosenElementType = ELEMENT_TYPE;
     }
 
   //////////////////////

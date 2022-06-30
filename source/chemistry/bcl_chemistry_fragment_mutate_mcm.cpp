@@ -343,7 +343,8 @@ namespace bcl
       if( m_MutableAtomIndices.GetSize())
       {
         scaffold_fragment =
-            util::ShPtr< FragmentComplete>( new FragmentComplete
+            util::ShPtr< FragmentComplete>(
+              new FragmentComplete
               (
                 atom_tracker.GetBaseFragment
                 (
@@ -351,18 +352,21 @@ namespace bcl
                   FragmentComplete(),
                   m_MutableAtomIndices
                 )
-              ));
+              )
+            );
         BCL_Assert( scaffold_fragment->GetSize(), "Invalid atom indices specified");
       }
       else
       {
-        scaffold_fragment = util::ShPtr< FragmentComplete>( new FragmentComplete(
+        scaffold_fragment = util::ShPtr< FragmentComplete>(
+          new FragmentComplete(
             atom_tracker.GetRandomBaseFragment
             (
               FRAGMENT,
               m_Splitter
             )
-          ));
+          )
+        );
       }
 
       // setup MCM mutate

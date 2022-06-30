@@ -360,6 +360,7 @@ namespace bcl
 
 } // namespace bcl
 
+// Include implementation header
 #include "bcl_util_enum.hpp"
 
 #endif //BCL_UTIL_ENUM_H_

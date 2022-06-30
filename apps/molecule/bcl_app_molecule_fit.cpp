@@ -13,7 +13,6 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
-#include "descriptor/bcl_descriptor.fwd.hh"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
@@ -408,10 +407,10 @@ namespace bcl
                 chemistry::FragmentEnsemble ensemble( main_ensemble);
 
                 // perform alignment
-                storage::Vector< storage::Pair< bool, float>> alignment_score
-                  (
-                    m_WorkerAlignScaffolds.AlignEnsembleToScaffold( ensemble, *scaffold_itr, COMPARER)
-                  );
+                storage::Vector< storage::Pair< bool, float> > alignment_score
+                (
+                  m_WorkerAlignScaffolds.AlignEnsembleToScaffold( ensemble, *scaffold_itr, COMPARER)
+                );
 
                 // get the best conformer from this set of alignments
                 ensemble.Sort( COMPARER->GetAlias());
@@ -510,8 +509,9 @@ namespace bcl
 
             storage::Vector< // indexes scaffold
             storage::Vector< // indexes alignment solution
-              storage::Triplet< chemistry::FragmentComplete, chemistry::FragmentComplete, double // single alignment result
-              > > > PropertyBasedAlignment
+              storage::Triplet< chemistry::FragmentComplete, chemistry::FragmentComplete, double> // single alignment result
+              >
+            > PropertyBasedAlignment
             (
               chemistry::FragmentComplete &MOLECULE,
               const storage::Vector< chemistry::FragmentComplete> &SCAFFOLDS
@@ -728,55 +728,55 @@ namespace bcl
           //! brief constructor
           ThreadManager
           (
-            const util::ShPtr< storage::Vector< chemistry::FragmentComplete>>       &INPUT_FRAGMENTS,             // Input molecules
-              const std::string                                                       &OUTPUT_FILENAME,             // Output SDF filename
-              const size_t                                                             NUMBER_THREADS,              // Number of threads (from scheduler)
-              const util::ShPtr< storage::Vector< chemistry::FragmentComplete>>       &SCAFFOLD_FRAGMENTS,          // Scaffold fragments against which to align inputs
-                  const descriptor::CheminfoProperty                                      &PROPERTY_SCORER,             // Pose-dependent scoring function
-                  const std::string                                                       &POSE_DEPENDENT_MDL_PROPERTY, // Pose-dependent scoring MDL property receptor
-                  const std::string                                                       &RECEPTOR_FILENAME,           // Pose-dependent scoring receptor filename
-                  const std::string                                                       &ROUTINE,                     // Molecule fit routine
-                  const size_t                                                             POSE_SAMPLING_ITERATIONS,    // Iterations for pose sampling
-                  const size_t                                                             POSE_CYCLES,                 // Number of MCM cycles to perform
-                  const size_t                                                             REFINEMENT_ITERATIONS,       // Refinement iterations
-                  const float                                                              METROPOLIS_TEMP,             // Temperature of the Metropolis criterion
-                  const chemistry::FragmentAlignToScaffold                                &MCS_ALIGN,                   // MCS alignment object
-                  const chemistry::ConformationComparisonPsiField                          &RIGID_ALIGN,                  // Rigid MolAlign
-                  const chemistry::ConformationComparisonPsiFlexField                      &FLEX_ALIGN,                  // Flex MolAlign
-                  const size_t                                                             ALIGNMENT_SOLUTIONS,         // Alignment solutions per scaffold
-                  const opti::Tracker< chemistry::FragmentComplete, double>               &OPTI_GOAL,                   // Optimization criterion
-                  const chemistry::SampleConformations                                    &SAMPLE_CONFS,                // Sample conformers object
-                  const storage::Vector< size_t>                                          &LOCAL_SAMPLE_PREFS,          // Local sampling preferences
-                  const util::Implementation< chemistry::ConformationComparisonInterface> &COMPARER,
-                  const bool                                                               REFINE_ALIGNMENT,            // Refine an initial alignment with local conformer alignments
-                  const bool                                                               SKIP_INITIAL_ALIGNMENT       // Perform alignment refinement on input pose only
-                ) :
-                  m_Threads( std::min( NUMBER_THREADS, INPUT_FRAGMENTS->GetSize())),
-                  m_CurrentMolIndex( NUMBER_THREADS - 1),
-                  m_NumberMolsToFit( INPUT_FRAGMENTS->GetSize()),
-                  m_NumberMolsFit( 0),
-                  m_Molecules( INPUT_FRAGMENTS->GetSize()),
-                  m_PoseDependentPropertyScorer( PROPERTY_SCORER),
-                  m_PoseDependentMDLProperty( POSE_DEPENDENT_MDL_PROPERTY),
-                  m_ReceptorFilename( RECEPTOR_FILENAME),
-                  m_Routine( ROUTINE),
-                  m_PoseSamplingIterations( POSE_SAMPLING_ITERATIONS),
-                  m_PoseSamplingCycles( POSE_CYCLES),
-                  m_RefinementIterations( REFINEMENT_ITERATIONS),
-                  m_MetropolisTemperature( METROPOLIS_TEMP),
-                  m_AlignScaffolds( MCS_ALIGN),
-                  m_RigidAlign( RIGID_ALIGN),
-                  m_MolAlign( FLEX_ALIGN),
-                  m_AlignmentSolutions( ALIGNMENT_SOLUTIONS),
-                  m_OptiGoal( OPTI_GOAL),
-                  m_SampleConfs( SAMPLE_CONFS),
-                  m_LocalSamplingPreferences( LOCAL_SAMPLE_PREFS),
-                  m_Comparer( COMPARER),
-                  m_RefineAlignment( REFINE_ALIGNMENT),
-                  m_SkipInitialAlignmentFlag( SKIP_INITIAL_ALIGNMENT)
-                {
-                  // prepare output filestream
-                  io::File::MustOpenOFStream( m_OutputStream, OUTPUT_FILENAME);
+            const util::ShPtr< storage::Vector< chemistry::FragmentComplete> >       &INPUT_FRAGMENTS,             // Input molecules
+            const std::string                                                       &OUTPUT_FILENAME,             // Output SDF filename
+            const size_t                                                             NUMBER_THREADS,              // Number of threads (from scheduler)
+            const util::ShPtr< storage::Vector< chemistry::FragmentComplete> >       &SCAFFOLD_FRAGMENTS,          // Scaffold fragments against which to align inputs
+            const descriptor::CheminfoProperty                                      &PROPERTY_SCORER,             // Pose-dependent scoring function
+            const std::string                                                       &POSE_DEPENDENT_MDL_PROPERTY, // Pose-dependent scoring MDL property receptor
+            const std::string                                                       &RECEPTOR_FILENAME,           // Pose-dependent scoring receptor filename
+            const std::string                                                       &ROUTINE,                     // Molecule fit routine
+            const size_t                                                             POSE_SAMPLING_ITERATIONS,    // Iterations for pose sampling
+            const size_t                                                             POSE_CYCLES,                 // Number of MCM cycles to perform
+            const size_t                                                             REFINEMENT_ITERATIONS,       // Refinement iterations
+            const float                                                              METROPOLIS_TEMP,             // Temperature of the Metropolis criterion
+            const chemistry::FragmentAlignToScaffold                                &MCS_ALIGN,                   // MCS alignment object
+            const chemistry::ConformationComparisonPsiField                          &RIGID_ALIGN,                  // Rigid MolAlign
+            const chemistry::ConformationComparisonPsiFlexField                      &FLEX_ALIGN,                  // Flex MolAlign
+            const size_t                                                             ALIGNMENT_SOLUTIONS,         // Alignment solutions per scaffold
+            const opti::Tracker< chemistry::FragmentComplete, double>               &OPTI_GOAL,                   // Optimization criterion
+            const chemistry::SampleConformations                                    &SAMPLE_CONFS,                // Sample conformers object
+            const storage::Vector< size_t>                                          &LOCAL_SAMPLE_PREFS,          // Local sampling preferences
+            const util::Implementation< chemistry::ConformationComparisonInterface> &COMPARER,
+            const bool                                                               REFINE_ALIGNMENT,            // Refine an initial alignment with local conformer alignments
+            const bool                                                               SKIP_INITIAL_ALIGNMENT       // Perform alignment refinement on input pose only
+          ) :
+            m_Threads( std::min( NUMBER_THREADS, INPUT_FRAGMENTS->GetSize())),
+            m_CurrentMolIndex( NUMBER_THREADS - 1),
+            m_NumberMolsToFit( INPUT_FRAGMENTS->GetSize()),
+            m_NumberMolsFit( 0),
+            m_Molecules( INPUT_FRAGMENTS->GetSize()),
+            m_PoseDependentPropertyScorer( PROPERTY_SCORER),
+            m_PoseDependentMDLProperty( POSE_DEPENDENT_MDL_PROPERTY),
+            m_ReceptorFilename( RECEPTOR_FILENAME),
+            m_Routine( ROUTINE),
+            m_PoseSamplingIterations( POSE_SAMPLING_ITERATIONS),
+            m_PoseSamplingCycles( POSE_CYCLES),
+            m_RefinementIterations( REFINEMENT_ITERATIONS),
+            m_MetropolisTemperature( METROPOLIS_TEMP),
+            m_AlignScaffolds( MCS_ALIGN),
+            m_RigidAlign( RIGID_ALIGN),
+            m_MolAlign( FLEX_ALIGN),
+            m_AlignmentSolutions( ALIGNMENT_SOLUTIONS),
+            m_OptiGoal( OPTI_GOAL),
+            m_SampleConfs( SAMPLE_CONFS),
+            m_LocalSamplingPreferences( LOCAL_SAMPLE_PREFS),
+            m_Comparer( COMPARER),
+            m_RefineAlignment( REFINE_ALIGNMENT),
+            m_SkipInitialAlignmentFlag( SKIP_INITIAL_ALIGNMENT)
+          {
+            // prepare output filestream
+            io::File::MustOpenOFStream( m_OutputStream, OUTPUT_FILENAME);
 
             // prepare operations to pass to worker
             SetupConformerGenerator(); // conformer generation

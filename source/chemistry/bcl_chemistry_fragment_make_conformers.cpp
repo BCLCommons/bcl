@@ -13,20 +13,20 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "assemble/bcl_assemble_protein_model.h"
+#include "biol/bcl_biol_aa_classes.h"
+#include "biol/bcl_biol_aa_side_chain_factory.h"
+#include "chemistry/bcl_chemistry_aa_fragment_complete.h"
+#include "chemistry/bcl_chemistry_conformation_interface.h"
+#include "chemistry/bcl_chemistry_fragment_evolve_base.h"
+#include "descriptor/bcl_descriptor_cheminfo_properties.h"
+#include "math/bcl_math_rotation_matrix_3d.h"
+#include "pdb/bcl_pdb_factory.h"
+#include "quality/bcl_quality_rmsd.h"
+#include "random/bcl_random_distribution_interface.h"
+#include "sdf/bcl_sdf_fragment_factory.h"
+#include "util/bcl_util_implementation.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <assemble/bcl_assemble_protein_model.h>
-#include <biol/bcl_biol_aa_classes.h>
-#include <biol/bcl_biol_aa_side_chain_factory.h>
-#include <chemistry/bcl_chemistry_aa_fragment_complete.h>
-#include <chemistry/bcl_chemistry_conformation_interface.h>
-#include <chemistry/bcl_chemistry_fragment_evolve_base.h>
-#include <descriptor/bcl_descriptor_cheminfo_properties.h>
-#include <math/bcl_math_rotation_matrix_3d.h>
-#include <pdb/bcl_pdb_factory.h>
-#include <quality/bcl_quality_rmsd.h>
-#include <random/bcl_random_distribution_interface.h>
-#include <sdf/bcl_sdf_fragment_factory.h>
-#include <util/bcl_util_implementation.h>
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class

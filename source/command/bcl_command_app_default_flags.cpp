@@ -295,7 +295,7 @@ namespace bcl
           // create the application
           app::ApplicationType application( applications_parameter.GetValue());
 
-	// we are always licensed to run the BCL now
+          // we are always licensed to run the BCL now
 //          if
 //          (
 //            GetVersion().IsLicense()

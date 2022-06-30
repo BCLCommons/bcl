@@ -17,9 +17,9 @@
 
 // include the namespace header
 #include "bcl_chemistry.h"
-#include "descriptor/bcl_descriptor.fwd.hh"
 
 // include other forward headers - sorted alphabetically
+#include "descriptor/bcl_descriptor.fwd.hh"
 #include "find/bcl_find.fwd.hh"
 
 // includes from bcl - sorted alphabetically

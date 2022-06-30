@@ -13,21 +13,21 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "chemistry/bcl_chemistry_configuration_set.h"
+#include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
+#include "chemistry/bcl_chemistry_conformation_graph_converter.h"
+#include "chemistry/bcl_chemistry_constitution_set.h"
+#include "chemistry/bcl_chemistry_fragment_configuration_shared.h"
+#include "chemistry/bcl_chemistry_fragment_constitution_shared.h"
+#include "chemistry/bcl_chemistry_fragment_graph_marker.h"
+#include "chemistry/bcl_chemistry_fragment_split_interface.h"
+#include "chemistry/bcl_chemistry_fragment_split_largest_component.h"
+#include "chemistry/bcl_chemistry_fragment_split_rings.h"
+#include "graph/bcl_graph_connectivity.h"
+#include "graph/bcl_graph_subgraph.h"
+#include "io/bcl_io_directory_entry.h"
+#include "io/bcl_io_ofstream.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <chemistry/bcl_chemistry_configuration_set.h>
-#include <chemistry/bcl_chemistry_conformation_comparison_psi_field.h>
-#include <chemistry/bcl_chemistry_conformation_graph_converter.h>
-#include <chemistry/bcl_chemistry_constitution_set.h>
-#include <chemistry/bcl_chemistry_fragment_configuration_shared.h>
-#include <chemistry/bcl_chemistry_fragment_constitution_shared.h>
-#include <chemistry/bcl_chemistry_fragment_graph_marker.h>
-#include <chemistry/bcl_chemistry_fragment_split_interface.h>
-#include <chemistry/bcl_chemistry_fragment_split_largest_component.h>
-#include <chemistry/bcl_chemistry_fragment_split_rings.h>
-#include <graph/bcl_graph_connectivity.h>
-#include <graph/bcl_graph_subgraph.h>
-#include <io/bcl_io_directory_entry.h>
-#include <io/bcl_io_ofstream.h>
 BCL_StaticInitializationFiascoFinder
 
 // includes from bcl - sorted alphabetically

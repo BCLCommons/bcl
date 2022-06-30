@@ -17,8 +17,8 @@
 
 // include the namespace header
 #include "bcl_descriptor.h"
-#include <chemistry/bcl_chemistry_constitution_set.h>
-#include <sched/bcl_sched_mutex.h>
+#include "chemistry/bcl_chemistry_constitution_set.h"
+#include "sched/bcl_sched_mutex.h"
 
 // include other forward headers - sorted alphabetically
 #include "chemistry/bcl_chemistry.fwd.hh"

@@ -14,12 +14,8 @@
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <quality/bcl_quality_rmsd.h>
 BCL_StaticInitializationFiascoFinder
 
-// include header of this class
-#include "../../include/chemistry/bcl_chemistry_mutate_bond_lengths.h"
-#include "chemistry/bcl_chemistry_fragment_mutate_connect.h"
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atom_clash_score.h"
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
@@ -30,6 +26,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_fragment_map_conformer.h"
 #include "chemistry/bcl_chemistry_fragment_split_largest_component.h"
 #include "chemistry/bcl_chemistry_fragment_track_mutable_atoms.h"
+#include "chemistry/bcl_chemistry_mutate_bond_lengths.h"
 #include "chemistry/bcl_chemistry_mutate_chirality.h"
 #include "chemistry/bcl_chemistry_mutate_clash_resolver.h"
 #include "chemistry/bcl_chemistry_mutate_dihedrals_interface.h"
@@ -41,6 +38,7 @@ BCL_StaticInitializationFiascoFinder
 #include "find/bcl_find_collector_interface.h"
 #include "io/bcl_io_file.h"
 #include "io/bcl_io_ifstream.h"
+#include "quality/bcl_quality_rmsd.h"
 #include "random/bcl_random_uniform_distribution.h"
 
 // external includes - sorted alphabetically
@@ -558,17 +556,17 @@ namespace bcl
     //! @return an ensemble of conformers for the first half of the extended linker (for odd numbers, half+1),
     //! the index of the link point to the next half of the molecule (in hydrogenated numbering), and
     //! the samplebyparts indices
-    storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t>> FragmentMutateConnect::ExtendHalfLinkerForward
-        (
-          const FragmentComplete FRAGMENT_A,
-          const storage::Vector< std::string> &LINKER_COMPOSITION,
-          const storage::Vector< storage::Triplet< FragmentComplete, size_t, size_t> > &RINGS,
-          const size_t LINK_INDEX_A,
-          const FragmentMapConformer &CLEANER,
-          SampleConformations &CONFORMATOR
-        ) const
-        {
-          BCL_MessageStd( "========== BEGIN ExtendHalfLinkerForward ==========");
+    storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t> > FragmentConnect::ExtendHalfLinkerForward
+    (
+      const FragmentComplete FRAGMENT_A,
+      const storage::Vector< std::string> &LINKER_COMPOSITION,
+      const storage::Vector< storage::Triplet< FragmentComplete, size_t, size_t> > &RINGS,
+      const size_t LINK_INDEX_A,
+      const FragmentMapConformer &CLEANER,
+      SampleConformations &CONFORMATOR
+    ) const
+    {
+      BCL_MessageStd( "========== BEGIN ExtendHalfLinkerForward ==========");
 
       // get molecule size
       FragmentComplete fragment_a( FRAGMENT_A);
@@ -587,8 +585,11 @@ namespace bcl
       {
         BCL_MessageStd("Linker index: " + util::Format()( i));
         BCL_MessageStd( "Linked atom index: " + util::Format()( !i ? LINK_INDEX_A : fragment_a.GetSize() - 1));
-        BCL_MessageStd("Current atom: " + util::Format()( fragment_a.GetAtomVector()
-            ( !i ? LINK_INDEX_A : fragment_a.GetSize() - 1).GetAtomType().GetName()));
+        BCL_MessageStd(
+          "Current atom: " + util::Format()(
+              fragment_a.GetAtomVector()( !i ? LINK_INDEX_A : fragment_a.GetSize() - 1).GetAtomType().GetName()
+          )
+        );
         if( util::GetMessenger().IsSmallerEqualCurrentMessageLevel( util::Message::e_Verbose))
         {
           for
@@ -644,7 +645,7 @@ namespace bcl
           "Unable to create valid 3D conformer of the input fragment coupled to the half-linker. "
           "Returning NULL..."
         );
-        return storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t>>();
+        return storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t> >();
       }
 
       // obtain the mobile indices
@@ -657,7 +658,7 @@ namespace bcl
       BCL_MessageStd( "========== END ExtendHalfLinkerForward ==========");
 
       // end
-      return storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t>>
+      return storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t> >
           (
             confs,
             util::IsDefined( final_connection_index) ?
@@ -674,18 +675,17 @@ namespace bcl
     //! @return an ensemble of conformers for the terminal half of the extended linker (for odd numbers, half-1)
     //! the index of the link point to the other half of the molecule (in hydrogenated numbering),
     //! and the samplebyparts indices
-    storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t>> FragmentMutateConnect::ExtendHalfLinkerReverse
-        (
-          const FragmentComplete &FRAGMENT_B,
-          const storage::Vector< std::string> &LINKER_COMPOSITION,
-          const storage::Vector< storage::Triplet< FragmentComplete, size_t, size_t> > &RINGS,
-          const size_t LINK_INDEX_B,
-          const FragmentMapConformer &CLEANER,
-          SampleConformations &CONFORMATOR
-        ) const
-        {
-
-          BCL_MessageStd( "========== BEGIN ExtendHalfLinkerReverse ==========");
+    storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t> > FragmentConnect::ExtendHalfLinkerReverse
+    (
+      const FragmentComplete &FRAGMENT_B,
+      const storage::Vector< std::string> &LINKER_COMPOSITION,
+      const storage::Vector< storage::Triplet< FragmentComplete, size_t, size_t> > &RINGS,
+      const size_t LINK_INDEX_B,
+      const FragmentMapConformer &CLEANER,
+      SampleConformations &CONFORMATOR
+    ) const
+    {
+      BCL_MessageStd( "========== BEGIN ExtendHalfLinkerReverse ==========");
 
       // get molecule size
       FragmentComplete fragment_b( FRAGMENT_B);
@@ -700,8 +700,12 @@ namespace bcl
       {
         BCL_MessageStd("Linker index: " + util::Format()( i));
         BCL_MessageStd( "Linked atom index: " + util::Format()( i == linker_sz - 1 ? LINK_INDEX_B : fragment_b.GetSize() - 1));
-        BCL_MessageStd("Current atom: " + util::Format()( fragment_b.GetAtomVector()
-            ( !i ? LINK_INDEX_B : fragment_b.GetSize() - 1).GetAtomType().GetName()));
+        BCL_MessageStd(
+          "Current atom: " + util::Format()(
+            fragment_b.GetAtomVector()
+            ( !i ? LINK_INDEX_B : fragment_b.GetSize() - 1).GetAtomType().GetName()
+          )
+        );
         if( util::GetMessenger().IsSmallerEqualCurrentMessageLevel( util::Message::e_Verbose))
         {
           for
@@ -757,7 +761,7 @@ namespace bcl
           "Unable to create valid 3D conformer of the terminal fragment coupled to the half-linker. "
           "Returning NULL..."
         );
-        return storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t>>();
+        return storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t> >();
       }
 
       // obtain the mobile indices
@@ -770,7 +774,7 @@ namespace bcl
       BCL_MessageStd( "========== END ExtendHalfLinkerReverse ==========");
 
       // end
-      return storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t>>
+      return storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t> >
           (
             confs,
             util::IsDefined( final_connection_index) ?
@@ -788,18 +792,18 @@ namespace bcl
     //! @param REV_LINK_ATOM the atom at which this fragment will be joined
     //! @param REV_SBP_INDICES the atoms that compose conformationally flexible dihedrals
     //! @return a conformational ensemble of the fully linked molecule and the final linker indices
-    storage::Pair< FragmentEnsemble, storage::Vector< size_t>> FragmentMutateConnect::JoinHalfExtendedFragments
-        (
-          const FragmentEnsemble &FWD_ENS,
-          const size_t FWD_LINK_ATOM,
-          const storage::Vector< size_t> &FWD_SBP_INDICES,
-          const FragmentEnsemble &REV_ENS,
-          const size_t REV_LINK_ATOM,
-          const storage::Vector< size_t> &REV_SBP_INDICES,
-          const RotamerLibraryFile &ROTLIB
-        ) const
-        {
-          BCL_MessageStd( "========== BEGIN JoinHalfExtendedFragments ==========");
+    storage::Pair< FragmentEnsemble, storage::Vector< size_t> > FragmentConnect::JoinHalfExtendedFragments
+    (
+      const FragmentEnsemble &FWD_ENS,
+      const size_t FWD_LINK_ATOM,
+      const storage::Vector< size_t> &FWD_SBP_INDICES,
+      const FragmentEnsemble &REV_ENS,
+      const size_t REV_LINK_ATOM,
+      const storage::Vector< size_t> &REV_SBP_INDICES,
+      const RotamerLibraryFile &ROTLIB
+    ) const
+    {
+      BCL_MessageStd( "========== BEGIN JoinHalfExtendedFragments ==========");
 
       BCL_MessageStd("FWD_LINK_ATOM: " + util::Format()( FWD_LINK_ATOM));
       BCL_MessageStd("REV_LINK_ATOM: " + util::Format()( REV_LINK_ATOM));

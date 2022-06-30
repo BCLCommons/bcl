@@ -13,11 +13,11 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "chemistry/bcl_chemistry_configurational_bond_type_data.h"
+#include "chemistry/bcl_chemistry_molecule_feature_mapper.h"
+#include "io/bcl_io_file.h"
+#include "io/bcl_io_ifstream.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <chemistry/bcl_chemistry_configurational_bond_type_data.h>
-#include <chemistry/bcl_chemistry_molecule_feature_mapper.h>
-#include <io/bcl_io_file.h>
-#include <io/bcl_io_ifstream.h>
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class

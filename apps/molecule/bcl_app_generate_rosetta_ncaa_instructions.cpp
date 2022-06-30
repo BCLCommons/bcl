@@ -205,17 +205,17 @@ namespace bcl
           storage::Vector< storage::Map< size_t, size_t>> largest_iso( common_subgraph_iso.GetIsomorphisms());
 
           // get subgraph of our current molecule
-          storage::Vector< graph::Subgraph< size_t, size_t>> mol_subgraph
-              (
-                common_subgraph_iso.GetSubgraphIsomorphismsOfGraphB()
-              );
+          storage::Vector< graph::Subgraph< size_t, size_t> > mol_subgraph
+          (
+            common_subgraph_iso.GetSubgraphIsomorphismsOfGraphB()
+          );
 
           // iterate over isomorphisms
           for
           (
-              auto iso_itr( largest_iso.Begin()), iso_itr_end( largest_iso.End());
-              iso_itr != iso_itr_end;
-              ++iso_itr
+            auto iso_itr( largest_iso.Begin()), iso_itr_end( largest_iso.End());
+            iso_itr != iso_itr_end;
+            ++iso_itr
           )
           {
             // we need the component off of the carbon alpha of our reference backbone
@@ -280,16 +280,19 @@ namespace bcl
                   std::ostringstream error_stream;
                   //chemistry::AtomVector< chemistry::AtomComplete> ncaa( current_mol.GetAtomVector());
 
-                  input_ca_chirality = FindCAChirarity
-                      (
-                        current_mol.GetAtomVector(),
-                        mol_ca_index,
-                        mol_c_index,
-                        mol_n_index,
-                        chi1_atom_index
-                      );
-                  BCL_MessageStd( "Molecule # " + util::Format()( mol_index) +
-                    ": Computed CA chirality from input structure is " + input_ca_chirality);
+                  input_ca_chirality =
+                    FindCAChirarity
+                    (
+                      current_mol.GetAtomVector(),
+                      mol_ca_index,
+                      mol_c_index,
+                      mol_n_index,
+                      chi1_atom_index
+                    );
+                  BCL_MessageStd(
+                    "Molecule # " + util::Format()( mol_index) +
+                    ": Computed CA chirality from input structure is " + input_ca_chirality
+                  );
                 }
 
                 util::ShPtr< storage::Vector< size_t> > reachable_vertices_to_keep

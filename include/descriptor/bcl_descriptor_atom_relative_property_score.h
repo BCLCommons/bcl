@@ -17,9 +17,9 @@
 
 // include the namespace header
 #include "bcl_descriptor.h"
-#include <chemistry/bcl_chemistry_fragment_complete.h>
-#include <chemistry/bcl_chemistry_fragment_ensemble.h>
-#include <storage/bcl_storage_map.h>
+#include "chemistry/bcl_chemistry_fragment_complete.h"
+#include "chemistry/bcl_chemistry_fragment_ensemble.h"
+#include "storage/bcl_storage_map.h"
 
 // include other forward headers - sorted alphabetically
 #include "chemistry/bcl_chemistry.fwd.hh"

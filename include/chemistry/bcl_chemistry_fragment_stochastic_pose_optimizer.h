@@ -17,9 +17,6 @@
 
 // include the namespace header
 #include "bcl_chemistry.h"
-#include "bcl_chemistry_voxel_grid_atom.h"
-#include "descriptor/bcl_descriptor_cheminfo_properties.h"
-#include "opti/bcl_opti_tracker.h"
 
 // include other forward headers - sorted alphabetically
 #include "find/bcl_find.fwd.hh"
@@ -30,9 +27,12 @@
 #include "bcl_chemistry_fragment_complete.h"
 #include "bcl_chemistry_fragment_constitution_shared.h"
 #include "bcl_chemistry_fragment_ensemble.h"
+#include "bcl_chemistry_voxel_grid_atom.h"
+#include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "find/bcl_find_pick_interface.h"
 #include "math/bcl_math_mutate_interface.h"
 #include "math/bcl_math_mutate_result.h"
+#include "opti/bcl_opti_tracker.h"
 #include "util/bcl_util_function_interface.h"
 #include "util/bcl_util_sh_ptr.h"
 #include "util/bcl_util_si_ptr_list.h"
@@ -242,7 +242,7 @@ namespace bcl
       //! @param MOLECULE the molecule whose pose is to be perturbed
       //! @param CONF_ENSEMBLE optionally a conformer ensemble of the molecule to be perturbed
       //! @return returns the perturbed molecule
-      util::ShPtr< FragmentComplete> PerturbMoleculePose
+      util::ShPtr< FragmentComplete> PerturbMoleculePoseFiveDegreesMax
       (
         const FragmentComplete &MOLECULE,
         const FragmentEnsemble &CONF_ENSEMBLE = FragmentEnsemble()
