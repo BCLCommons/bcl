@@ -47,7 +47,7 @@ namespace bcl
       const FragmentComplete &MOLECULE,
       const float &FITNESS,
       const storage::Vector< std::string> &HISTORY,
-      const size_t &AGE = 0
+      const size_t &AGE
     ) :
       m_Identifier( IDENTIFIER),
       m_Molecule( MOLECULE),
@@ -85,9 +85,14 @@ namespace bcl
 
     //! @brief get the stored molecule
     //! @return the member fragment;
-    //! const because otherwise associated data do not
-    //! make much sense, so force folks to make a copy
     const FragmentComplete &MoleculeEvolutionInfo::GetMolecule() const
+    {
+      return m_Molecule;
+    }
+
+    //! @brief get the stored molecule
+    //! @return the member fragment;
+    FragmentComplete MoleculeEvolutionInfo::GetMoleculeNonConst()
     {
       return m_Molecule;
     }

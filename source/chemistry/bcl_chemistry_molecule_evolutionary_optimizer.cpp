@@ -13,26 +13,28 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include <chemistry/bcl_chemistry_fragment_split_gadd_fragments.h>
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
 // unit header
-#include "bcl_chemistry_molecule_evolutionary_optimizer.h"
+#include "chemistry/bcl_chemistry_molecule_evolutionary_optimizer.h"
 
 // includes from bcl - sorted alphabetically
-#include "bcl_chemistry_atom_conformational_interface.h"
-#include "bcl_chemistry_bond_isometry_handler.h"
-#include "bcl_chemistry_configuration_set.h"
-#include "bcl_chemistry_conformation_comparison_psi_field.h"
-#include "bcl_chemistry_conformation_graph_converter.h"
-#include "bcl_chemistry_constitution_set.h"
-#include "bcl_chemistry_fragment_configuration_shared.h"
-#include "bcl_chemistry_fragment_constitution_shared.h"
-#include "bcl_chemistry_fragment_evolve_implementations.h"
-#include "bcl_chemistry_fragment_graph_marker.h"
-#include "bcl_chemistry_fragment_split_interface.h"
-#include "bcl_chemistry_fragment_split_largest_component.h"
-#include "bcl_chemistry_fragment_split_rings.h"
+#include "chemistry/bcl_chemistry_atom_conformational_interface.h"
+#include "chemistry/bcl_chemistry_bond_isometry_handler.h"
+#include "chemistry/bcl_chemistry_configuration_set.h"
+#include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
+#include "chemistry/bcl_chemistry_conformation_graph_converter.h"
+#include "chemistry/bcl_chemistry_constitution_set.h"
+#include "chemistry/bcl_chemistry_fragment_configuration_shared.h"
+#include "chemistry/bcl_chemistry_fragment_constitution_shared.h"
+#include "chemistry/bcl_chemistry_fragment_evolve_implementations.h"
+#include "chemistry/bcl_chemistry_fragment_feed.h"
+#include "chemistry/bcl_chemistry_fragment_graph_marker.h"
+#include "chemistry/bcl_chemistry_fragment_split_interface.h"
+#include "chemistry/bcl_chemistry_fragment_split_largest_component.h"
+#include "chemistry/bcl_chemistry_fragment_split_rings.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "graph/bcl_graph_connectivity.h"
 #include "graph/bcl_graph_subgraph.h"
@@ -65,11 +67,18 @@ namespace bcl
       m_Operations( 3, size_t( 0)),
       m_SelectionType( e_Top),
       m_ModelType( e_Internal),
-      m_ModelCmd(),
+      m_ModelCmd( std::string()),
       m_RetirementType( e_DoNotRetire),
       m_EvolutionBalanceType( e_ReactionDominant),
       m_RecombineOp( FragmentEvolveImplementations::EvolveType::e_Combine, false)
     {
+    }
+
+    //! @brief Clone function
+    //! @return pointer to new MoleculeEvolutionaryOptimizer
+    MoleculeEvolutionaryOptimizer *MoleculeEvolutionaryOptimizer::Clone() const
+    {
+      return new MoleculeEvolutionaryOptimizer( *this);
     }
 
   /////////////////
@@ -219,7 +228,7 @@ namespace bcl
         {
           new_pop.push_back
           (
-            MoleculeEvolutionInfo( "P" + util::Format()( 0) + "M" + util::Format()( mol_no++), *itr_mol, 0, "Begin")
+            MoleculeEvolutionInfo( "P" + util::Format()( 0) + "M" + util::Format()( mol_no++), *itr_mol) //, 0, "Begin")
           );
         }
       }
@@ -435,7 +444,7 @@ namespace bcl
     (
       const std::vector< MoleculeEvolutionInfo> &MOLS,
       size_t TOURN_SIZE,
-      const std::set< int> &IGNORE_INDICES = std::set< int>()
+      const std::set< int> &IGNORE_INDICES
     ) const
     {
       if( MOLS.empty() || IGNORE_INDICES.size() == MOLS.size())
@@ -473,7 +482,7 @@ namespace bcl
       for( size_t i( 0); i < inds.size(); ++i)
       {
         m_ptrs.push_back( std::pair< const MoleculeEvolutionInfo *, size_t>( &MOLS[ inds[ i]], inds[ i]));
-        total_fitness += MOLS[ inds[ i]].m_Fitness;
+        total_fitness += MOLS[ inds[ i]].GetMoleculeFitness();
       }
 
       // sort the pointers from high to low by fitness
@@ -484,7 +493,7 @@ namespace bcl
 
       // probability of selecting the first member is proportional to its fitness relative to the whole data set,
       // but should not be lower than 10%
-      double p( std::max< double>( 0.1, m_ptrs[ 0].first->m_Fitness / total_fitness));
+      double p( std::max< double>( 0.1, m_ptrs[ 0].first->GetMoleculeFitness() / total_fitness));
       double one_minus_p( 1 - p);
 
       // test determines which element is selected, accum decides when test has picked the right element
@@ -516,7 +525,7 @@ namespace bcl
             ++itr_mi
           )
           {
-            itr_mi->m_Fitness = ScoreMoleculeInternal( itr_mi->m_Molecule);
+            itr_mi->SetMoleculeFitness( ScoreMoleculeInternal( itr_mi->GetMolecule()));
           }
           break;
         case e_External:
@@ -571,27 +580,27 @@ namespace bcl
       {
         BCL_Assert
         (
-          !itr_mi->m_Identifier.empty(),
+          !itr_mi->GetMoleculeIdentifier().empty(),
           "Programming error: molecule " + util::Format()( mol_no) + " has an empty identifier!"
         );
 
         // remove stale properties
-        if( !itr_mi->m_Molecule.IsPropertyStored( "TmpEvoGenIdentifier"))
+        if( !itr_mi->GetMolecule().IsPropertyStored( "TmpEvoGenIdentifier"))
         {
-          itr_mi->m_Molecule.RemoveProperty( "TmpEvoGenIdentifier");
+          itr_mi->GetMoleculeNonConst().RemoveProperty( "TmpEvoGenIdentifier");
         }
 
         // add an identifier to the molecule
-        itr_mi->m_Molecule.StoreProperty( "TmpEvoGenIdentifier", itr_mi->m_Identifier);
+        itr_mi->GetMoleculeNonConst().StoreProperty( "TmpEvoGenIdentifier", itr_mi->GetMoleculeIdentifier());
 
         // All identifiers should be unique so this should never actually happen, but double check
-        if( mol_names.find( itr_mi->m_Identifier) != mol_names.end())
+        if( mol_names.find( itr_mi->GetMoleculeIdentifier()) != mol_names.end())
         {
-          BCL_MessageStd( "Multiple molecules were given with ID \"" + itr_mi->m_Identifier + "\"!");
+          BCL_MessageStd( "Multiple molecules were given with ID \"" + itr_mi->GetMoleculeIdentifier() + "\"!");
         }
-        mol_names[ itr_mi->m_Identifier] = &( *itr_mi);
+        mol_names[ itr_mi->GetMoleculeIdentifier()] = &( *itr_mi);
 
-        itr_mi->m_Molecule.WriteMDL( out);
+        itr_mi->GetMolecule().WriteMDL( out);
       }
 
       io::File::CloseClearFStream( out);
@@ -654,9 +663,9 @@ namespace bcl
         );
 
         // update the molecule with whatever was provided by the scoring script
-        itr_map->second->m_Molecule = *itr_mol;
-        itr_map->second->m_Fitness = score;
-        itr_map->second->m_Molecule.RemoveProperty( "TmpEvoGenIdentifier");
+        itr_map->second->SetMolecule( *itr_mol);
+        itr_map->second->SetMoleculeFitness( score);
+        itr_map->second->GetMoleculeNonConst().RemoveProperty( "TmpEvoGenIdentifier");
       }
       remove( filename_out.c_str());
       remove( filename_in.c_str());
@@ -693,7 +702,7 @@ namespace bcl
       std::vector< MoleculeEvolutionInfo> &TO,
       size_t NUM,
       size_t TOURN_SIZE,
-      const bool &REPLACEMENT = false
+      const bool &REPLACEMENT
     ) const
     {
       size_t n_added( 0), n_left( FROM.size());
@@ -722,10 +731,14 @@ namespace bcl
       const linal::Vector< float> lhs_property( m_DruglikenessFilter.First()->SumOverObject( MOL.GetMolecule()));
       const linal::Vector< float> rhs_property( m_DruglikenessFilter.Third()->SumOverObject( MOL.GetMolecule()));
 
-      // TODO: add catch for if the property value cannot be evaluated or is size 0
+      // TODO: add catch for if the property value cannot be evaluated
+      if( !lhs_property.GetSize() || !rhs_property.GetSize())
+      {
+        return false;
+      }
 
       // perform comparison
-      return m_DruglikenessFilter.Second()( lhs_property, rhs_property);
+      return ( **m_DruglikenessFilter.Second())( lhs_property( 0), rhs_property( 0));
     }
 
   ///////////////
@@ -794,7 +807,8 @@ namespace bcl
         size_t mol_no( SelectMoleculeTournament( last_pop, tourn_size));
 
         // react the molecule with something random
-        const FragmentComplete &picked_mol( last_pop[ mol_no].m_Molecule);
+//        const FragmentComplete &picked_mol( last_pop[ mol_no].GetMolecule());
+        FragmentComplete picked_mol( last_pop[ mol_no].GetMolecule());
 
         // mutate
         auto product( ( *m_Mutate)( picked_mol));
@@ -802,10 +816,9 @@ namespace bcl
         // update info
         if( product.GetArgument().IsDefined())
         {
-          std::stringstream hist;
-          hist << "AlchemicalMutate,";
-          hist << last_pop[ mol_no].m_Identifier;
-          MOLS.push_back( MoleculeEvolutionInfo( "", *( product.GetArgument()), 0, hist.str()));
+          auto hist( last_pop[ mol_no].GetMoleculeHistory());
+          hist.Append( "AlchemicalMutate," + m_Mutate->GetAlias() + last_pop[ mol_no].GetMoleculeIdentifier());
+          MOLS.push_back( MoleculeEvolutionInfo( "", *( product.GetArgument()), util::GetUndefined< float>(), hist));
         }
       }
 
@@ -818,7 +831,7 @@ namespace bcl
         size_t mol_no( SelectMoleculeTournament( last_pop, tourn_size));
 
         // react the molecule with something random
-        const FragmentComplete &picked_mol( last_pop[ mol_no].m_Molecule);
+        const FragmentComplete &picked_mol( last_pop[ mol_no].GetMolecule());
         storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble> res
         (
           m_ReactOp.ReactRandom( picked_mol)
@@ -832,11 +845,13 @@ namespace bcl
             ++itr_mol
         )
         {
-          std::stringstream hist;
-          hist << "React,";
-          hist << RemoveWhitespace( res.First()->GetDescription());
-          hist << "," << last_pop[ mol_no].m_Identifier;
-          MOLS.push_back( MoleculeEvolutionInfo( "", *itr_mol, 0, hist.str()));
+//          std::stringstream hist;
+          auto hist( last_pop[ mol_no].GetMoleculeHistory());
+          hist.Append( "React," + RemoveWhitespace( res.First()->GetDescription()) + "," + last_pop[ mol_no].GetMoleculeIdentifier());
+//          hist << "React,";
+//          hist << RemoveWhitespace( res.First()->GetDescription());
+//          hist << "," << last_pop[ mol_no].GetMoleculeIdentifier();
+          MOLS.push_back( MoleculeEvolutionInfo( "", *itr_mol, util::GetUndefined< float>(), hist));
         }
       }
       // recombination
@@ -846,7 +861,7 @@ namespace bcl
 
         // select molecule from tournament selection
         size_t mol_one( SelectMoleculeTournament( last_pop, tourn_size));
-        const FragmentComplete &picked_mol_one( last_pop[ mol_one].m_Molecule);
+        const FragmentComplete &picked_mol_one( last_pop[ mol_one].GetMolecule());
         util::ShPtrVector< FragmentComplete> new_mols;
 
         // select recombination type randomly
@@ -899,11 +914,12 @@ namespace bcl
             ++new_mols_itr
         )
         {
-          std::stringstream hist;
-          hist << "Recombine,";
-          hist << last_pop[ mol_one].m_Identifier;
-//              hist << "," << m_InsertMols(mol_two)->GetName();
-          MOLS.push_back( MoleculeEvolutionInfo( "", **new_mols_itr, 0, hist.str()));
+//          std::stringstream hist;
+          auto hist( last_pop[mol_one].GetMoleculeHistory());
+          hist.Append( "Recombine,");
+//          hist << "Recombine,";
+//          hist << last_pop[ mol_one].GetMoleculeHistory();
+          MOLS.push_back( MoleculeEvolutionInfo( "", **new_mols_itr, util::GetUndefined< float>(), hist));
         }
       }
 
@@ -915,15 +931,15 @@ namespace bcl
           size_t mol_no( random::GetGlobalRandom().Random< size_t>( 0, m_InsertMols.GetSize() - 1));
           MOLS.push_back( MoleculeEvolutionInfo());
           MoleculeEvolutionInfo &mol = MOLS.back();
-          mol.m_Molecule = *m_InsertMols( mol_no);
-          mol.m_History = "Insert,M" + util::Format()( mol_no);
+          mol.SetMolecule( *m_InsertMols( mol_no));
+          mol.AppendToMoleculeHistory( "Insert,M" + util::Format()( mol_no));
         }
         else if( m_InsertMols.GetSize() == 1)
         {
           MOLS.push_back( MoleculeEvolutionInfo());
           MoleculeEvolutionInfo &mol = MOLS.back();
-          mol.m_Molecule = *m_InsertMols( 0);
-          mol.m_History = "Insert,M" + util::Format()( 0);
+          mol.SetMolecule( *m_InsertMols( 0));
+          mol.AppendToMoleculeHistory( "Insert,M" + util::Format()( 0));
         } // else noop
       }
     }
@@ -937,8 +953,8 @@ namespace bcl
       next_pop.reserve( m_GenerateMax + ( m_Populations.empty() ? 0 : m_Populations.back().size()));
       ConstitutionSet unique_mols;
 
-      int tries = 0;
-      int mol_no = 0;
+      size_t tries = 0;
+      size_t mol_no = 0;
 
       // do this until we reach the specified number of molecules
       while( next_pop.size() < m_GenerateMax)
@@ -953,21 +969,21 @@ namespace bcl
 
           util::ShPtr< FragmentComplete> final_mol;
           m_Mutate.IsDefined() ?
-          final_mol = util::ShPtr< FragmentComplete> ( util::ShPtr< FragmentComplete>( new FragmentComplete( mols[i].m_Molecule))) :
-          final_mol = util::ShPtr< FragmentComplete> ( FragmentEvolveBase::FinalizeMolecule( mols[ i].m_Molecule));
+          final_mol = util::ShPtr< FragmentComplete> ( util::ShPtr< FragmentComplete>( new FragmentComplete( mols[i].GetMolecule()))) :
+          final_mol = util::ShPtr< FragmentComplete> ( FragmentEvolveBase::FinalizeMolecule( mols[ i].GetMolecule()));
           if( final_mol.IsDefined())
           {
-            mols[ i].m_Molecule = *final_mol;
+            mols[ i].SetMolecule( *final_mol);
 
             // make sure we don't generate duplicates in a single population
             if
             (
-                mols[ i].m_Molecule.GetNumberAtoms() &&
-                unique_mols.Insert( FragmentConstitutionShared( mols[ i].m_Molecule)).second &&
+                mols[ i].GetMolecule().GetNumberAtoms() &&
+                unique_mols.Insert( FragmentConstitutionShared( mols[ i].GetMolecule())).second &&
                 EvaluateDruglikeness( mols[ i])
             )
             {
-              mols[ i].m_Identifier = "P" + util::Format()( m_Populations.size()) + "M" + util::Format()( mol_no++);
+              mols[ i].SetMoleculeIdentifier( "P" + util::Format()( m_Populations.size()) + "M" + util::Format()( mol_no++));
               next_pop.push_back( mols[ i]);
               tries = 0;
             }
@@ -994,27 +1010,27 @@ namespace bcl
       BCL_MessageStd( "Scoring molecules");
       ScoreMolecules( next_pop);
 
-      // Write information to the log file in json format.  This is ugly as sin and should be re-done in the future
-      WriteLog( "{ \"pop_number\": " + util::Format()( m_Populations.size()) + ",\n");
-      WriteLog( "  \"pre_replacement\": [\n");
-      for( size_t i( 0); i < next_pop.size(); ++i)
-      {
-        WriteLog( "      { \"id\": \"" + next_pop[ i].m_Identifier + "\",\n");
-        WriteLog( "        \"history\": \"" + EscapeQuotes( next_pop[ i].m_History) + "\",\n");
-        WriteLog( "        \"age\": " + util::Format()( next_pop[ i].m_Age) + ",\n");
-        WriteLog( "        \"score\": " + util::Format()( next_pop[ i].m_Fitness) + "}");
-        if( i < ( next_pop.size() - 1))
-        {
-          WriteLog( ",\n");
-        }
-      }
-      WriteLog( "  ],\n");
+//      // Write information to the log file in json format.  This is ugly as sin and should be re-done in the future
+//      WriteLog( "{ \"pop_number\": " + util::Format()( m_Populations.size()) + ",\n");
+//      WriteLog( "  \"pre_replacement\": [\n");
+//      for( size_t i( 0); i < next_pop.size(); ++i)
+//      {
+//        WriteLog( "      { \"id\": \"" + next_pop[ i].GetMoleculeIdentifier() + "\",\n");
+//        WriteLog( "        \"history\": \"" + EscapeQuotes( next_pop[ i].GetMoleculeHistory()) + "\",\n");
+//        WriteLog( "        \"age\": " + util::Format()( next_pop[ i].GetMoleculeAge()) + ",\n");
+//        WriteLog( "        \"score\": " + util::Format()( next_pop[ i].GetMoleculeFitness()) + "}");
+//        if( i < ( next_pop.size() - 1))
+//        {
+//          WriteLog( ",\n");
+//        }
+//      }
+//      WriteLog( "  ],\n");
 
       // parent replacement: add members from the old population to the new population
       if( m_RetirementType != e_RetireAll)
       {
         BCL_MessageStd( "Copying parents to the new population");
-        WriteLog( "  \"copied_parents\": [\n");
+//        WriteLog( "  \"copied_parents\": [\n");
 
         const std::vector< MoleculeEvolutionInfo> &parent_pop( m_Populations.back());
         for( size_t i( 0); i < parent_pop.size(); ++i)
@@ -1026,35 +1042,35 @@ namespace bcl
           if( m_RetirementType == e_RetireProbabilisticByAge)
           {
             r = random::GetGlobalRandom().Random< double>( 0, 1.0); // assign a real test value
-            cutoff = exp( double( -0.5) * parent_pop[ i].m_Age); // assign a real test threshold value based on age
+            cutoff = exp( double( -0.5) * parent_pop[ i].GetMoleculeAge()); // assign a real test threshold value based on age
           }
 
           // make sure the molecule passed the test, and it's a unique structure
-          if( r < cutoff && unique_mols.Insert( FragmentConstitutionShared( parent_pop[ i].m_Molecule)).second)
+          if( r < cutoff && unique_mols.Insert( FragmentConstitutionShared( parent_pop[ i].GetMolecule())).second)
           {
-            //BCL_MessageStd( "  Keeping parent " + parent_pop[ i].m_Identifier);
+            //BCL_MessageStd( "  Keeping parent " + parent_pop[ i].GetMoleculeIdentifier());
             next_pop.push_back( parent_pop[ i]);
-            next_pop.back().m_Age++;
+            next_pop.back().IncrementMoleculeAge();
 
-            // write to the log file
-            WriteLog( "      { \"id\": \"" + parent_pop[ i].m_Identifier + "\",\n");
-            WriteLog( "        \"history\": \"" + EscapeQuotes( parent_pop[ i].m_History) + "\",\n");
-            WriteLog( "        \"age\": " + util::Format()( parent_pop[ i].m_Age) + ",\n");
-            WriteLog( "        \"score\": " + util::Format()( parent_pop[ i].m_Fitness) + "}");
-            if( i < ( parent_pop.size() - 1))
-            {
-              WriteLog( ",\n");
-            }
+//            // write to the log file
+//            WriteLog( "      { \"id\": \"" + parent_pop[ i].GetMoleculeIdentifier() + "\",\n");
+//            WriteLog( "        \"history\": \"" + EscapeQuotes( parent_pop[ i].GetMoleculeHistory()) + "\",\n");
+//            WriteLog( "        \"age\": " + util::Format()( parent_pop[ i].GetMoleculeAge()) + ",\n");
+//            WriteLog( "        \"score\": " + util::Format()( parent_pop[ i].GetMoleculeFitness()) + "}");
+//            if( i < ( parent_pop.size() - 1))
+//            {
+//              WriteLog( ",\n");
+//            }
 
           }
           else
           {
             // status message to make users happy
-            BCL_MessageStd( "  Retiring parent " + parent_pop[ i].m_Identifier);
+            BCL_MessageStd( "  Retiring parent " + parent_pop[ i].GetMoleculeIdentifier());
           }
         }
         // additional closing braces to make sure json format is ok
-        WriteLog( "\n  ],\n");
+//        WriteLog( "\n  ],\n");
       }
 
       size_t new_pop_no( m_Populations.size()); // the new population number (same as current size since we add one)
@@ -1093,20 +1109,20 @@ namespace bcl
         BCL_MessageStd( "Population " + util::Format()( new_pop_no) + " contains " + util::Format()( m_Populations[ new_pop_no].size()) + " molecules");
       }
 
-      // write more log information...
-      WriteLog( "  \"post_replacement\": [\n");
-      for( size_t i( 0); i < m_Populations[ new_pop_no].size(); ++i)
-      {
-        WriteLog( "      { \"id\": \"" + m_Populations[ new_pop_no][ i].m_Identifier + "\",\n");
-        WriteLog( "        \"history\": \"" + EscapeQuotes( m_Populations[ new_pop_no][ i].m_History) + "\",\n");
-        WriteLog( "        \"age\": " + util::Format()( m_Populations[ new_pop_no][ i].m_Age) + ",\n");
-        WriteLog( "        \"score\": " + util::Format()( m_Populations[ new_pop_no][ i].m_Fitness) + "}");
-        if( i < ( m_Populations[ new_pop_no].size() - 1))
-        {
-          WriteLog( ",\n");
-        }
-      }
-      WriteLog( "\n  ]\n}\n");
+//      // write more log information...
+//      WriteLog( "  \"post_replacement\": [\n");
+//      for( size_t i( 0); i < m_Populations[ new_pop_no].size(); ++i)
+//      {
+//        WriteLog( "      { \"id\": \"" + m_Populations[ new_pop_no][ i].GetMoleculeIdentifier() + "\",\n");
+//        WriteLog( "        \"history\": \"" + EscapeQuotes( m_Populations[ new_pop_no][ i].GetMoleculeHistory()) + "\",\n");
+//        WriteLog( "        \"age\": " + util::Format()( m_Populations[ new_pop_no][ i].GetMoleculeAge()) + ",\n");
+//        WriteLog( "        \"score\": " + util::Format()( m_Populations[ new_pop_no][ i].GetMoleculeFitness()) + "}");
+//        if( i < ( m_Populations[ new_pop_no].size() - 1))
+//        {
+//          WriteLog( ",\n");
+//        }
+//      }
+//      WriteLog( "\n  ]\n}\n");
 
       // tell the user how many reactions/insertions were done
       BCL_MessageStd( "Ran " + util::Format()( m_Operations[ 0] - prev_ops[ 0]) + " reactions");
@@ -1119,23 +1135,23 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    //! @brief open log file for writing; continues if file cannot be opened
-    void MoleculeEvolutionaryOptimizer::StartLogging()
-    {
-      if( !io::File::TryOpenOFStream( m_LogStream, m_LogFile))
-      {
-        BCL_MessageStd( "Could not open " + m_LogFile + " for writing");
-      }
-    }
-
-    //! @brief close/flush logging file stream
-    void MoleculeEvolutionaryOptimizer::StopLogging()
-    {
-      if( m_LogStream.is_open())
-      {
-        io::File::CloseClearFStream( m_LogStream);
-      }
-    }
+//    //! @brief open log file for writing; continues if file cannot be opened
+//    void MoleculeEvolutionaryOptimizer::StartLogging()
+//    {
+//      if( !io::File::TryOpenOFStream( m_LogStream, m_LogFile))
+//      {
+//        BCL_MessageStd( "Could not open " + m_LogFile + " for writing");
+//      }
+//    }
+//
+//    //! @brief close/flush logging file stream
+//    void MoleculeEvolutionaryOptimizer::StopLogging()
+//    {
+//      if( m_LogStream.is_open())
+//      {
+//        io::File::CloseClearFStream( m_LogStream);
+//      }
+//    }
 
     //! @brief remove whitespace (via isspace) from a string
     //! @param STR the string to remove whitespace from
@@ -1204,15 +1220,15 @@ namespace bcl
       return str;
     }
 
-    //! @brief write data to the json log file
-    //! @param STR the string to write
-    void MoleculeEvolutionaryOptimizer::WriteLog( const std::string &STR)
-    {
-      if( m_LogStream.is_open())
-      {
-        m_LogStream << STR;
-      }
-    }
+//    //! @brief write data to the json log file
+//    //! @param STR the string to write
+//    void MoleculeEvolutionaryOptimizer::WriteLog( const std::string &STR)
+//    {
+//      if( m_LogStream.is_open())
+//      {
+//        m_LogStream << STR;
+//      }
+//    }
 
     //! @brief Set the members with LABEL
     //! @param LABEL the label to parse
@@ -1241,6 +1257,27 @@ namespace bcl
       );
 
       return member_data;
+    }
+
+  //////////////////////
+  // input and output //
+  //////////////////////
+
+    //! @brief read from std::istream
+    //! @param ISTREAM input stream
+    //! @return istream which was read from
+    std::istream &MoleculeEvolutionaryOptimizer::Read( std::istream &ISTREAM)
+    {
+      return ISTREAM;
+    }
+
+    //! @brief write to std::ostream
+    //! @param OSTREAM output stream
+    //! @param INDENT number of indentations
+    //! @return ostream which was written to
+    std::ostream &MoleculeEvolutionaryOptimizer::Write( std::ostream &OSTREAM, const size_t INDENT) const
+    {
+      return OSTREAM;
     }
 
   } // namespace chemistry

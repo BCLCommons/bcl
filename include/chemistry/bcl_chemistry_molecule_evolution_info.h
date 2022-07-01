@@ -22,6 +22,7 @@
 
 // headers from bcl - sorted alphabetically
 #include "bcl_chemistry_fragment_complete.h"
+//#include "bcl_chemistry_molecule_evolutionary_optimizer.h"
 #include "io/bcl_io_serialization.h"
 #include "storage/bcl_storage_vector.h"
 #include "util/bcl_util_object_data_label.h"
@@ -48,6 +49,12 @@ namespace bcl
       {
 
     private:
+
+    /////////////
+    // friends //
+    /////////////
+
+      friend class MoleculeEvolutionaryOptimizer; //!< Enable access to data to update molecules
 
     //////////
     // data //
@@ -82,9 +89,9 @@ namespace bcl
       (
         const std::string &IDENTIFIER,
         const FragmentComplete &MOLECULE,
-        const float &FITNESS,
-        const storage::Vector< std::string> &HISTORY,
-        const size_t &AGE
+        const float &FITNESS = util::GetUndefined< float>(),
+        const storage::Vector< std::string> &HISTORY = storage::Vector< std::string>( 1, "Begin"),
+        const size_t &AGE = 0
       );
 
       //! @brief Clone function
@@ -112,9 +119,15 @@ namespace bcl
 
       //! @brief get the stored molecule
       //! @return the member fragment;
-      //! const because otherwise associated data do not
-      //! make much sense, so force folks to make a copy
       const FragmentComplete &GetMolecule() const;
+
+    private:
+
+      //! @brief get the stored molecule
+      //! @return the member fragment;
+      FragmentComplete GetMoleculeNonConst();
+
+    public:
 
       //! @brief get the molecule fitness
       //! @return fitness value

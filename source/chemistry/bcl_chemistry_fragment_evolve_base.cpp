@@ -17,14 +17,14 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "bcl_chemistry_fragment_evolve_base.h"
+#include "chemistry/bcl_chemistry_fragment_evolve_base.h"
 
 // includes from bcl - sorted alphabetically
-#include "bcl_chemistry_atoms_complete_standardizer.h"
-#include "bcl_chemistry_bond_isometry_handler.h"
-#include "bcl_chemistry_rotamer_library_file.h"
-#include "bcl_chemistry_sample_conformations.h"
-#include "bcl_chemistry_stereocenters_handler.h"
+#include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
+#include "chemistry/bcl_chemistry_bond_isometry_handler.h"
+#include "chemistry/bcl_chemistry_rotamer_library_file.h"
+#include "chemistry/bcl_chemistry_sample_conformations.h"
+#include "chemistry/bcl_chemistry_stereocenters_handler.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "io/bcl_io_directory_entry.h"
 #include "io/bcl_io_file.h"

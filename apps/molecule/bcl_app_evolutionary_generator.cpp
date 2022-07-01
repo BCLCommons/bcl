@@ -466,7 +466,7 @@ namespace bcl
         // open the activity log
         std::string activity_log( pop_sdf_prefix + "_activity_log.json");
         optimizer.SetLogFile( activity_log);
-        optimizer.StartLogging();
+//        optimizer.StartLogging();
 
         // execute the optimization until we have iterated enough times
         chemistry::FragmentEnsemble mols_across_generations;
@@ -532,7 +532,7 @@ namespace bcl
         }
 
         // close down the json log file
-        optimizer.StopLogging();
+//        optimizer.StopLogging();
         io::File::CloseClearFStream( out_csv);
 
         //Sort by fitness and save the top N

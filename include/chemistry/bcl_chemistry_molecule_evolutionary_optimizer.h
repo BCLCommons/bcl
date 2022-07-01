@@ -23,6 +23,8 @@
 // headers from bcl - sorted alphabetically
 #include "bcl_chemistry_conformation_graph_converter.h"
 #include "bcl_chemistry_fragment_ensemble.h"
+#include "bcl_chemistry_fragment_evolve_implementations.h"
+#include "bcl_chemistry_fragment_mutate_interface.h"
 #include "bcl_chemistry_fragment_react.h"
 #include "bcl_chemistry_molecule_evolution_info.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
@@ -33,6 +35,7 @@
 #include "storage/bcl_storage_map.h"
 #include "storage/bcl_storage_triplet.h"
 #include "storage/bcl_storage_vector.h"
+#include "util/bcl_util_implementation.h"
 #include "util/bcl_util_object_data_label.h"
 #include "util/bcl_util_serializable_interface.h"
 #include "util/bcl_util_sh_ptr.h"
@@ -172,7 +175,7 @@ namespace bcl
       std::string m_LogFile;
 
       //! output stream for EvoGen logging information
-      io::OFStream m_LogStream;
+//      io::OFStream m_LogStream;
 
     //////////
     // data //
@@ -189,10 +192,7 @@ namespace bcl
 
       //! @brief Clone function
       //! @return pointer to new MoleculeEvolutionaryOptimizer
-      MoleculeEvolutionaryOptimizer *Clone() const
-      {
-        return new MoleculeEvolutionaryOptimizer( *this);
-      }
+      MoleculeEvolutionaryOptimizer *Clone() const;
 
     /////////////////
     // data access //
@@ -397,7 +397,7 @@ namespace bcl
 
       //! @brief evaluates a descriptor to determine whether a molecule
       //! passes or fails the druglikeness filter
-      bool EvaluateDruglikeness() const;
+      bool EvaluateDruglikeness( const MoleculeEvolutionInfo &MOL) const;
 
     ///////////////
     // operators //
@@ -418,10 +418,10 @@ namespace bcl
     //////////////////////
 
       //! @brief open log file for writing; continues if file cannot be opened
-      void StartLogging();
+//      void StartLogging();
 
       //! @brief close/flush logging file stream
-      void StopLogging();
+//      void StopLogging();
 
       //! @brief remove whitespace (via isspace) from a string
       //! @param STR the string to remove whitespace from
@@ -438,7 +438,7 @@ namespace bcl
 
       //! @brief write data to the json log file
       //! @param STR the string to write
-      void WriteLog( const std::string &STR);
+//      void WriteLog( const std::string &STR);
 
     protected:
 
@@ -452,6 +452,21 @@ namespace bcl
       );
 
       io::Serializer GetSerializer() const;
+
+    //////////////////////
+    // input and output //
+    //////////////////////
+
+      //! @brief read from std::istream
+      //! @param ISTREAM input stream
+      //! @return istream which was read from
+      std::istream &Read( std::istream &ISTREAM);
+
+      //! @brief write to std::ostream
+      //! @param OSTREAM output stream
+      //! @param INDENT number of indentations
+      //! @return ostream which was written to
+      std::ostream &Write( std::ostream &OSTREAM, const size_t INDENT) const;
 
       }; // class MoleculeEvolutionaryOptimizer
 
