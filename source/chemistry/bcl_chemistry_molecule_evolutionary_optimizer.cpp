@@ -731,7 +731,7 @@ namespace bcl
       const linal::Vector< float> lhs_property( m_DruglikenessFilter.First()->SumOverObject( MOL.GetMolecule()));
       const linal::Vector< float> rhs_property( m_DruglikenessFilter.Third()->SumOverObject( MOL.GetMolecule()));
 
-      // TODO: add catch for if the property value cannot be evaluated
+      // if no value is returned then assume
       if( !lhs_property.GetSize() || !rhs_property.GetSize())
       {
         return false;
