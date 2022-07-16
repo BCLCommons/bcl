@@ -28,6 +28,7 @@ BCL_StaticInitializationFiascoFinder
 // include header of this class
 #include "chemistry/bcl_chemistry_ncaa_fragment_complete.h"
 
+#include "../../include/storage/bcl_storage_vector.h"
 // includes from bcl - sorted alphabetically
 
 // external includes - sorted alphabetically
@@ -42,6 +43,17 @@ namespace bcl
     (
       GetObjectInstances().AddInstance( new NCAAFragmentComplete())
     );
+
+    //! @brief atom type as string
+    //! @param ATOM_TYPE the name of the atom type
+    //! @return the string for the atom type
+    const std::string &NCAAFragmentComplete::GetBackboneTypeName
+    (
+      const Backbone_Type &ATOM_TYPE
+    )
+    {
+      return "TODO";
+    }
 
   //////////////////////////////////
   // construction and destruction //
@@ -82,6 +94,15 @@ namespace bcl
     ///////////////
     // helpers   //
     ///////////////
+
+    //! @brief automatically finds the type of backbone for the input NCAA structure
+    //!        Should only be used in the case the backbone of the input NCAA is complete
+    //! @return the chi1 atom index
+
+    const NCAAFragmentComplete::Backbone_Type NCAAFragmentComplete::FindBackBoneType() const
+    {
+
+    }
 
     //! @brief return the chi1 atom indices
     //! @param NCAA: the atom vector of NCAA
@@ -316,7 +337,7 @@ namespace bcl
       const size_t &CHI1_INDEX
     ) const
     {
-
+      return "S_peptoid";
     }
 
     ////////////////////

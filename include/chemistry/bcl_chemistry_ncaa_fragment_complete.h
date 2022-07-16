@@ -21,7 +21,7 @@
 #define BCL_CHEMISTRY_NCAA_FRAGMENT_COMPLETE_H_
 
 // include the namespace header
-#include <biol/bcl_biol.fwd.hh>
+#include <biol/bcl_biol_atom_type_data.h>
 #include <chemistry/bcl_chemistry_fragment_add_med_chem.h>
 #include <function/bcl_function_member_unary_const.h>
 #include "bcl_chemistry.h"
@@ -64,8 +64,8 @@ namespace bcl
 
     private :
 
-      storage::Map< size_t, biol::AtomType> m_Backbone;    //!< Biol atom type and indices of the
-      storage::Map< size_t, biol::AtomType> m_FirstThreeSidechainAtoms;
+      // storage::Map< size_t, biol::AtomType> m_Backbone;    //!< Biol atom type and indices of the
+      //storage::Map< size_t, biol::AtomType> m_FirstThreeSidechainAtoms;
       //! to append functional groups to backbones
       chemistry::FragmentAddMedChem m_AddMedChem;
 
