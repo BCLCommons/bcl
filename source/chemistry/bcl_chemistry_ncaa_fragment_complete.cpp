@@ -44,15 +44,21 @@ namespace bcl
       GetObjectInstances().AddInstance( new NCAAFragmentComplete())
     );
 
+    //! @brief Get the name, description and functions of the given backbone type
+    //! @param BACKBONE_TYPE the atom type used to build the dipeptide form of the NCAA
+    //! @return the short name or abbreviation of the class
+    const storage::Triplet< std::string, std::string, NCAAFragmentComplete::t_functions> &NCAAFragmentComplete::GetBackboneTypeInfo(
+      const Backbone_Type &BACKBONE_TYPE);
+
     //! @brief atom type as string
     //! @param ATOM_TYPE the name of the atom type
     //! @return the string for the atom type
     const std::string &NCAAFragmentComplete::GetBackboneTypeName
     (
-      const Backbone_Type &ATOM_TYPE
+      const Backbone_Type &BACKBONE_TYPE
     )
     {
-      return "TODO";
+      return GetBackboneTypeInfo( BACKBONE_TYPE).First();;
     }
 
   //////////////////////////////////
@@ -97,10 +103,23 @@ namespace bcl
 
     //! @brief automatically finds the type of backbone for the input NCAA structure
     //!        Should only be used in the case the backbone of the input NCAA is complete
-    //! @return the chi1 atom index
+    //! @return the backbone type
 
     const NCAAFragmentComplete::Backbone_Type NCAAFragmentComplete::FindBackBoneType() const
     {
+      // This function should not be called if m_AutoFindBackboneType is false
+      // something must be seriously wrong here
+      BCL_Assert
+      (
+        !m_AutoFindBackboneType,
+        "Could not automatically determine the backbone " +
+        "type due to wrong object condition is set"
+      );
+      // TODO: perform tanimoto score calculation of the NCAA with all the backbone structures
+      // Choose the backbone type with highest tanimoto score
+      // if 2 or more backbone type have the same highest tanimoto score,
+      // return error due to the input NCAA has ambiguous backbone structure
+
 
     }
 

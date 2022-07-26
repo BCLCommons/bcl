@@ -64,6 +64,9 @@ namespace bcl
 
     private :
 
+      // automatically find the type of the backbone (only apply
+      // if the backbone of the input NCAA structure is complete
+      bool m_AutoFindBackboneType;
       // storage::Map< size_t, biol::AtomType> m_Backbone;    //!< Biol atom type and indices of the
       //storage::Map< size_t, biol::AtomType> m_FirstThreeSidechainAtoms;
       //! to append functional groups to backbones
@@ -85,7 +88,7 @@ namespace bcl
       //! @brief atom type as string
       //! @param ATOM_TYPE the name of the atom type
       //! @return the string for the atom type
-      static const std::string &GetBackboneTypeName( const Backbone_Type &ATOM_TYPE);
+      static const std::string &GetBackboneTypeName( const Backbone_Type &BACKBONE_TYPE);
 
       //! @brief Initialization enum I/O helper
       typedef util::WrapperEnum< Backbone_Type, &GetBackboneTypeName, s_NumberBackboneTypes> BackboneTypeEnum;
@@ -105,11 +108,17 @@ namespace bcl
 
       BackboneTypeEnum m_BackboneType;                                          //!> The type of atom type hash
 
+    public:
+      //! @brief Get the name, description and functions of the given backbone type
+      //! @param BACKBONE_TYPE the atom type used to build the dipeptide form of the NCAA
+      //! @return the short name or abbreviation of the class
+      static const storage::Triplet< std::string, std::string, t_functions> &GetBackboneTypeInfo(
+        const Backbone_Type &BACKBONE_TYPE);
+
     //////////////////////////////////
     // construction and destruction //
     //////////////////////////////////
 
-    public :
       //! default constructor
       NCAAFragmentComplete();
 
