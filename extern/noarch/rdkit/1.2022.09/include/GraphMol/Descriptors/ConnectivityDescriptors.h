@@ -1,0 +1,211 @@
+//
+//  Copyright (C) 2012-2021 Greg Landrum
+//
+//   @@ All Rights Reserved @@
+//  This file is part of the RDKit.
+//  The contents are covered by the terms of the BSD license
+//  which is included in the file license.txt, found at the root
+//  of the RDKit source tree.
+//
+
+/*! \file ConnectivityDescriptors.h
+
+  \brief Use MolDescriptors.h in client code.
+
+*/
+#include <RDGeneral/export.h>
+#ifndef __RD_CONNECTIVITYDESCRIPTORS_H__
+#define __RD_CONNECTIVITYDESCRIPTORS_H__
+
+#include <string>
+#include <vector>
+#include <boost/smart_ptr.hpp>
+
+namespace RDKit {
+class ROMol;
+namespace Descriptors {
+
+//! From equations (5),(9) and (10) of Rev. Comp. Chem. vol 2, 367-422, (1991)
+/*!
+  \param mol           the molecule of interest
+  \param force         forces the value to be recalculated instead
+                       of pulled from the cache
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcChi0v(const ROMol &mol, bool force = false);
+const std::string chi0vVersion = "1.2.0";
+//! From equations (5),(9) and (10) of Rev. Comp. Chem. vol 2, 367-422, (1991)
+/*!
+  \param mol           the molecule of interest
+  \param force         forces the value to be recalculated instead
+                       of pulled from the cache
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcChi1v(const ROMol &mol, bool force = false);
+const std::string chi1vVersion = "1.2.0";
+//! From equations (5),(9) and (10) of Rev. Comp. Chem. vol 2, 367-422, (1991)
+/*!
+  \param mol           the molecule of interest
+  \param force         forces the value to be recalculated instead
+                       of pulled from the cache
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcChi2v(const ROMol &mol, bool force = false);
+const std::string chi2vVersion = "1.2.0";
+//! From equations (5),(9) and (10) of Rev. Comp. Chem. vol 2, 367-422, (1991)
+/*!
+  \param mol           the molecule of interest
+  \param force         forces the value to be recalculated instead
+                       of pulled from the cache
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcChi3v(const ROMol &mol, bool force = false);
+const std::string chi3vVersion = "1.2.0";
+//! From equations (5),(9) and (10) of Rev. Comp. Chem. vol 2, 367-422, (1991)
+/*!
+  \param mol           the molecule of interest
+  \param force         forces the value to be recalculated instead
+                       of pulled from the cache
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcChi4v(const ROMol &mol, bool force = false);
+const std::string chi4vVersion = "1.2.0";
+//! From equations (5),(9) and (10) of Rev. Comp. Chem. vol 2, 367-422, (1991)
+/*!
+  \param mol           the molecule of interest
+  \param n             the order of the connectivity index
+  \param force         forces the value to be recalculated instead
+                       of pulled from the cache
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcChiNv(const ROMol &mol, unsigned int n,
+                                          bool force = false);
+const std::string chiNvVersion = "1.2.0";
+
+//! Similar to Hall Kier ChiXv, but uses nVal instead of valence
+//!   This makes a big difference after we get out of the first row.
+/*!
+  \param mol           the molecule of interest
+  \param force         forces the value to be recalculated instead
+                       of pulled from the cache
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcChi0n(const ROMol &mol, bool force = false);
+const std::string chi0nVersion = "1.2.0";
+//! Similar to Hall Kier ChiXv, but uses nVal instead of valence
+//!   This makes a big difference after we get out of the first row.
+/*!
+  \param mol           the molecule of interest
+  \param force         forces the value to be recalculated instead
+                       of pulled from the cache
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcChi1n(const ROMol &mol, bool force = false);
+const std::string chi1nVersion = "1.2.0";
+//! Similar to Hall Kier ChiXv, but uses nVal instead of valence
+//!   This makes a big difference after we get out of the first row.
+/*!
+  \param mol           the molecule of interest
+  \param force         forces the value to be recalculated instead
+                       of pulled from the cache
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcChi2n(const ROMol &mol, bool force = false);
+const std::string chi2nVersion = "1.2.0";
+//! Similar to Hall Kier ChiXv, but uses nVal instead of valence
+//!   This makes a big difference after we get out of the first row.
+/*!
+  \param mol           the molecule of interest
+  \param force         forces the value to be recalculated instead
+                       of pulled from the cache
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcChi3n(const ROMol &mol, bool force = false);
+const std::string chi3nVersion = "1.2.0";
+//! Similar to Hall Kier ChiXv, but uses nVal instead of valence
+//!   This makes a big difference after we get out of the first row.
+/*!
+  \param mol           the molecule of interest
+  \param force         forces the value to be recalculated instead
+                       of pulled from the cache
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcChi4n(const ROMol &mol, bool force = false);
+const std::string chi4nVersion = "1.2.0";
+//! Similar to Hall Kier ChiXv, but uses nVal instead of valence
+//!   This makes a big difference after we get out of the first row.
+/*!
+  \param mol           the molecule of interest
+  \param n             the order of the connectivity index
+  \param force         forces the value to be recalculated instead
+                       of pulled from the cache
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcChiNn(const ROMol &mol, unsigned int n,
+                                          bool force = false);
+const std::string chiNnVersion = "1.2.0";
+
+//! calculate the Hall-Kier alpha value for a molecule
+//! From equation (58) of Rev. Comp. Chem. vol 2, 367-422, (1991)
+//!
+//! \note Because hybridization is used to calculate this, results may differ
+//! from other implementations which have different conventions for assigning
+//! hybridization
+/*!
+  \param mol           the molecule of interest
+  \param atomContribs  if provided, this will be used to return the
+  contributions
+                       of the individual atoms to the value. These do not
+                       necessarily sum to the full value.
+                       Note: this can be a time-consuming calculation.
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcHallKierAlpha(
+    const ROMol &mol, std::vector<double> *atomContribs = nullptr);
+const std::string hallKierAlphaVersion = "1.2.0";
+
+//! calculate the Hall-Kier kappa1 value for a molecule
+//! From equations (58) and (59) of Rev. Comp. Chem. vol 2, 367-422, (1991)
+//!
+//! \note Because hybridization is used to calculate this, results may differ
+//! from other implementations which have different conventions for assigning
+//! hybridization
+/*!
+  \param mol           the molecule of interest
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcKappa1(const ROMol &mol);
+const std::string kappa1Version = "1.1.0";
+
+//! calculate the Hall-Kier kappa2 value for a molecule
+//! From equations (58) and (60) of Rev. Comp. Chem. vol 2, 367-422, (1991)
+//!
+//! \note Because hybridization is used to calculate this results may differ
+//! from other implementations which have different conventions for assigning
+//! hybridization
+/*!
+  \param mol           the molecule of interest
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcKappa2(const ROMol &mol);
+const std::string kappa2Version = "1.1.0";
+
+//! calculate the Hall-Kier kappa3 value for a molecule
+//! From equations (58), (61) and (62) of Rev. Comp. Chem. vol 2, 367-422,
+/// 1991)
+//!
+//! \note Because hybridization is used to calculate this results may differ
+//! from other implementations which have different conventions for assigning
+//! hybridization
+/*!
+  \param mol           the molecule of interest
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcKappa3(const ROMol &mol);
+const std::string kappa3Version = "1.1.0";
+
+//! calculate the Kier Phi value for a molecule
+//! From Quantitative Structure-Activity Relationships 8, 221–224 (1989).
+//!
+//! \note Because hybridization is used to calculate this results may differ
+//! from other implementations which have different conventions for assigning
+//! hybridization
+/*!
+  \param mol           the molecule of interest
+*/
+RDKIT_DESCRIPTORS_EXPORT double calcPhi(const ROMol &mol);
+const std::string PhiVersion = "1.0.0";
+
+namespace detail {
+RDKIT_DESCRIPTORS_EXPORT void hkDeltas(const ROMol &mol,
+                                       std::vector<double> &deltas, bool force);
+}
+
+}  // end of namespace Descriptors
+}  // namespace RDKit
+
+#endif
