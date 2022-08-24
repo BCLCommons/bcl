@@ -7,6 +7,7 @@ SET(
 	BCL_EXTERNAL_PACKAGES
 	"pthreads 2.8.0"
 	"bzip2 1.0.5"
+	"rdkit 1.2022.09"
 	"zlib 1.2.5"
 )
 
