@@ -177,6 +177,7 @@ namespace bcl
     class PickFragmentRandom;
     class PossibleAtomTypesForAtom;
     class PriorityDihedralAngles;
+    class RdkitMolUtils;
     class ReactionComplete;
     class ReactionEnsemble;
     class ReactionSearch;
