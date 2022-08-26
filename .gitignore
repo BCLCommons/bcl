@@ -4,4 +4,5 @@ build/
 **/*.pyc
 *.pyc
 *.swp
+.cproject
 

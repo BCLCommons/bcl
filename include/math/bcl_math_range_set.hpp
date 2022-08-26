@@ -172,7 +172,8 @@ namespace bcl
       std::istringstream range_string_stream( trimmed_string);
 
       // determine the length of the string stream
-      const std::istringstream::streampos string_length( trimmed_string.size());
+      // note - updated std::istringstream::streampos to std::streampos for c++17
+      const std::streampos string_length( trimmed_string.size());
 
       // while there are characters left in the stream, attempt to read another range
       while( range_string_stream.tellg() < string_length)
