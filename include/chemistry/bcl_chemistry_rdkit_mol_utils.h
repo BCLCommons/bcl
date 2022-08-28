@@ -22,6 +22,7 @@
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_fragment_complete.h"
+#include "chemistry/bcl_chemistry_fragment_ensemble.h"
 
 // external includes - sorted alphabetically
 #include "GraphMol/Atom.h"
@@ -30,6 +31,7 @@
 #include "GraphMol/BondIterators.h"
 #include "GraphMol/Conformer.h"
 #include "GraphMol/GraphMol.h"
+#include "GraphMol/MolOps.h"
 #include "GraphMol/ROMol.h"
 #include "Geometry/point.h"
 #include "RDGeneral/RDProps.h"
@@ -82,41 +84,71 @@ namespace bcl
       //! @brief converts an RDKit ROMol into a BCL FragmentComplete
       //! @param RDKIT_MOL the RDKit ROMol to be converted
       //! @param MOL_ID the molecule identifier on the new molecule
+      //! @param ALLOW_UNDEFINED_ATOMS return null pointer if false
       //! @return the FragmentComplete constructed from the RDKit ROMol
       static std::shared_ptr< FragmentComplete> RDKitROMolToFragmentComplete
       (
         const ::RDKit::ROMol &RDKIT_MOL,
-        const std::string &MOL_ID = "RDKit-to-BCL-molecule"
+        const std::string &MOL_ID = "RDKit-to-BCL-molecule",
+        const bool ALLOW_UNDEFINED_ATOMS = true
       );
 
       //! @brief converts an RDKit ROMol into a BCL FragmentComplete
       //! @param RDKIT_MOL the RDKit ROMol to be converted
       //! @param MOL_ID the molecule identifier on the new molecule
+      //! @param ALLOW_UNDEFINED_ATOMS return null pointer if false
       //! @return the FragmentComplete constructed from the RDKit ROMol
       static std::shared_ptr< FragmentComplete> RDKitRWMolToFragmentComplete
       (
         const ::RDKit::RWMol &RDKIT_MOL,
-        const std::string &MOL_ID = "RDKit-to-BCL-molecule"
-      );
-
-      //! @brief converts a BCL FragmentComplete into an RDKit ROMol
-      //! @param MOL the BCL FragmentComplete to be converted
-      //! @param MOL_ID the molecule identifier on the new molecule
-      //! @return the RDKit ROMol constructed from the FragmentComplete
-      static std::shared_ptr< ::RDKit::ROMol> FragmentCompleteToRDKitROMol
-      (
-        const FragmentComplete &MOL,
-        const std::string &MOL_ID = "BCL-to-RDKit-molecule"
+        const std::string &MOL_ID = "RDKit-to-BCL-molecule",
+        const bool ALLOW_UNDEFINED_ATOMS = true
       );
 
       //! @brief converts a BCL FragmentComplete into an RDKit RWMol
       //! @param MOL the BCL FragmentComplete to be converted
-      //! @param MOL_ID the molecule identifier on the new molecule
+      //! @param UNDEFINED_SUBSTITUTE if the BCL atom is undefined (X), replace with this
+      //! element type in the RDKit molecule; default is to leave undefined, which
+      //! will skip this atom when building the new molecule
+      //! @param SANITIZE perform RDKit-style standardization of molecule after an initial
+      //! molecule is created from the BCL FragmentComplete
       //! @return the RDKit RWMol constructed from the FragmentComplete
       static std::shared_ptr< ::RDKit::RWMol> FragmentCompleteToRDKitRWMol
       (
         const FragmentComplete &MOL,
-        const std::string &MOL_ID = "BCL-to-RDKit-molecule"
+        const ElementType &UNDEFINED_SUBSTITUTE = GetElementTypes().e_Undefined,
+        const bool SANITIZE = true
+      );
+
+    private:
+
+      //! @brief add coordinates from BCL conformers to RDKit molecule
+      //! @details BCL and RDKit are organized differently with respect to
+      //! storage of atomic coordinates. In the BCL, coordinates are a component
+      //! of the AtomInfo object, which means each atom can independently have
+      //! associated coordinate information. Each molecule contains both the
+      //! topological and coordinate data, and thus a conformer ensemble is represented
+      //! through a list of molecules (e.g., FragmentEnsemble). In contrast, RDKit
+      //! molecule objects, such as RWMol, contain topology and property information,
+      //! but no coordinate information. Conformers are stored on RDKit molecules as
+      //! attributes, which means conformers need to be added to a molecule (rather than
+      //! represented as individual molecules). This function will modify an RDKit molecule
+      //! directly to add conformers based on an ensemble of BCL conformers.
+      //! @param RDKIT_MOL the RDKit molecule to which conformers will be added
+      //! @param MOL_ENS the BCL conformers that will be added to the RDKit molecule
+      //! @param MAP_ATOMS if true, convert RDKit molecule to BCL molecule and perform
+      //! substructure comparison to map atoms; default false assumes atoms are in the same
+      //! order already, such as if the RDKit molecule was derived from the BCL molecule, or
+      //! vice versa.
+      //! TODO: make public, but need to finish the substructure mapping bit
+      //! @param ATOM_MAP user-supplied map between RDKit and BCL molecule atoms; key is the
+      //! BCL atom index and value is the RDKit atom index
+      static void AddBCLConformersToRDKitRWMol
+      (
+        std::shared_ptr< ::RDKit::RWMol> RDKIT_MOL,
+        const FragmentEnsemble &MOL_ENS,
+        const bool MAP_ATOMS = false,
+        const std::map< size_t, size_t> ATOM_MAP = std::map< size_t, size_t>()
       );
 
     //////////////////////
