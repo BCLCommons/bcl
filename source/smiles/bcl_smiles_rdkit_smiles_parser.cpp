@@ -92,7 +92,7 @@ namespace bcl
 //    RdkitSmilesParser::RdkitSmilesParser
 //    (
 //      std::ostream &OSTREAM,
-//      const storage::Vector< std::shared_ptr< chemistry::FragmentComplete>> &MOLECULES,
+//      const storage::Vector< chemistry::FragmentComplete> &MOLECULES,
 //      const FileType &TYPE
 //    ) :
 //    m_Header( storage::Vector< std::string>()),
@@ -194,7 +194,7 @@ namespace bcl
         // generate our molecule from the SMILES/SMARTS string
         if( !READ_TO_DATA_ONLY)
         {
-          std::shared_ptr< chemistry::FragmentComplete> mol
+          chemistry::FragmentComplete mol
           (
             m_FileType == e_SMILES ?
                 ConvertSMILESToMOL( mol_str) :
@@ -210,9 +210,9 @@ namespace bcl
               ++header_itr, ++col_index
           )
           {
-            mol->GetStoredPropertiesNonConst().SetMDLProperty( *header_itr, line_str( col_index));
+            mol.GetStoredPropertiesNonConst().SetMDLProperty( *header_itr, line_str( col_index));
           }
-          m_Molecules.PushBack( *mol);
+          m_Molecules.PushBack( mol);
         }
       }
       return itr;
@@ -256,8 +256,7 @@ namespace bcl
       WriteHeaderLine( OSTREAM);
       for( auto mol_itr( m_Molecules.Begin()), mol_itr_end( m_Molecules.End()); mol_itr != mol_itr_end; ++mol_itr)
       {
-        std::shared_ptr< chemistry::FragmentComplete> mol_itr_p( std::make_shared<chemistry::FragmentComplete>( *mol_itr));
-        WriteNonHeaderLine( OSTREAM, mol_itr_p, true);
+        WriteNonHeaderLine( OSTREAM, *mol_itr, true);
       }
       if( !ContainsValidHeader())
       {
@@ -295,7 +294,7 @@ namespace bcl
     std::ostream &RdkitSmilesParser::WriteNonHeaderLine
     (
       std::ostream &OSTREAM,
-      const std::shared_ptr< chemistry::FragmentComplete> &MOL,
+      const chemistry::FragmentComplete &MOL,
       const bool INCLUDE_PROPERTIES,
       const std::string &DELIMITER
     ) const
@@ -322,7 +321,7 @@ namespace bcl
         )
         {
           OSTREAM << DELIMITER;
-          OSTREAM << MOL->GetStoredPropertiesNonConst().GetMDLProperty( *header_itr);
+          OSTREAM << MOL.GetStoredProperties().GetMDLProperty( *header_itr);
         }
         OSTREAM << std::endl;
       }
@@ -337,13 +336,13 @@ namespace bcl
     //! @brief build a molecule from the file data member
     //! @param MOL_INDEX the index of the file data that will be filled
     //! @returns molecule filled from data SMILES/SMARTS and any properties
-    std::shared_ptr< chemistry::FragmentComplete> RdkitSmilesParser::FillMolFromData( const size_t MOL_INDEX) const
+    chemistry::FragmentComplete RdkitSmilesParser::FillMolFromData( const size_t MOL_INDEX) const
     {
       // get the molecule string id
       if( !m_Header.GetSize() || !ContainsValidHeader())
       {
         BCL_MessageStd("Invalid header on input file. Returning null.");
-        return std::shared_ptr< chemistry::FragmentComplete>( nullptr);
+        return chemistry::FragmentComplete();
       }
       const std::string &id_str( m_Header( 0));
 
@@ -351,7 +350,7 @@ namespace bcl
       if( m_FileData.GetSize() <= MOL_INDEX)
       {
         BCL_MessageStd("Invalid molecule index specified. Returning null.");
-        return std::shared_ptr< chemistry::FragmentComplete>( nullptr);
+        return chemistry::FragmentComplete();
       }
       const std::string &mol_str( m_FileData( MOL_INDEX).Find( id_str)->second);
 
@@ -359,11 +358,11 @@ namespace bcl
       if( mol_str.empty())
       {
         BCL_MessageStd("Empty molecule. Returning null.");
-        return std::shared_ptr< chemistry::FragmentComplete>( nullptr);
+        return chemistry::FragmentComplete();
       }
 
       // build molecule from SMILES or SMARTS string
-      std::shared_ptr< chemistry::FragmentComplete> mol
+      chemistry::FragmentComplete mol
       (
         m_FileType == e_SMILES ?
             ConvertSMILESToMOL( mol_str) :
@@ -379,7 +378,7 @@ namespace bcl
           ++header_itr
       )
       {
-        mol->GetStoredPropertiesNonConst().SetMDLProperty( *header_itr, m_FileData( MOL_INDEX).Find( *header_itr)->second);
+        mol.GetStoredPropertiesNonConst().SetMDLProperty( *header_itr, m_FileData( MOL_INDEX).Find( *header_itr)->second);
       }
       return mol;
     }
@@ -392,7 +391,7 @@ namespace bcl
     std::ostream &RdkitSmilesParser::WriteSMILESFromMol
     (
       std::ostream &OSTREAM,
-      const std::shared_ptr< chemistry::FragmentComplete> &MOL
+      const chemistry::FragmentComplete &MOL
     )
     {
       const std::string mol_str( ConvertMolToSMILES( MOL));
@@ -416,13 +415,7 @@ namespace bcl
     )
     {
       const chemistry::AtomVector< chemistry::AtomComplete> atom_v( ATOM_INFO, BOND_INFO);
-      std::shared_ptr< chemistry::FragmentComplete> mol
-      (
-        std::make_shared< chemistry::FragmentComplete>
-        (
-          chemistry::FragmentComplete( atom_v, NAME)
-        )
-      );
+      const chemistry::FragmentComplete mol( atom_v, NAME);
       const std::string mol_str( ConvertMolToSMILES( mol));
       OSTREAM << mol_str;
       return OSTREAM;
@@ -436,7 +429,7 @@ namespace bcl
     std::ostream &RdkitSmilesParser::WriteSMARTSFromMol
     (
       std::ostream &OSTREAM,
-      const std::shared_ptr< chemistry::FragmentComplete> &MOL
+      const chemistry::FragmentComplete &MOL
     )
     {
       const std::string mol_str( ConvertMolToSMARTS( MOL));
@@ -460,13 +453,7 @@ namespace bcl
     )
     {
       const chemistry::AtomVector< chemistry::AtomComplete> atom_v( ATOM_INFO, BOND_INFO);
-      std::shared_ptr< chemistry::FragmentComplete> mol
-      (
-        std::make_shared< chemistry::FragmentComplete>
-        (
-          chemistry::FragmentComplete( atom_v, NAME)
-        )
-      );
+      const chemistry::FragmentComplete mol( atom_v, NAME);
       const std::string mol_str( ConvertMolToSMARTS( mol));
       OSTREAM << mol_str;
       return OSTREAM;
@@ -474,24 +461,24 @@ namespace bcl
 
     //! @brief convert input molecule into SMILES string
     //! @param MOL molecule to be converted to SMILES string
-    std::string RdkitSmilesParser::ConvertMolToSMILES( const std::shared_ptr< chemistry::FragmentComplete> &MOL)
+    std::string RdkitSmilesParser::ConvertMolToSMILES( const chemistry::FragmentComplete &MOL)
     {
       // generate our molecule from the SMILES/SMARTS string
-      auto rdkit_mol( chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( *MOL));
+      auto rdkit_mol( chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( MOL));
       return ::RDKit::MolToSmiles( *rdkit_mol);
     }
 
     //! @brief convert input molecule into SMARTS string
     //! @param MOL molecule to be converted to SMARTS string
-    std::string RdkitSmilesParser::ConvertMolToSMARTS( const std::shared_ptr< chemistry::FragmentComplete> &MOL)
+    std::string RdkitSmilesParser::ConvertMolToSMARTS( const chemistry::FragmentComplete &MOL)
     {
-      auto rdkit_mol( chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( *MOL));
+      auto rdkit_mol( chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( MOL));
       return ::RDKit::MolToSmarts( *rdkit_mol);
     }
 
     //! @brief convert SMILES string to molecule
     //! @param MOL molecule to be converted to SMILES string
-    std::shared_ptr< chemistry::FragmentComplete> RdkitSmilesParser::ConvertSMILESToMOL( const std::string &SMILES)
+    chemistry::FragmentComplete RdkitSmilesParser::ConvertSMILESToMOL( const std::string &SMILES)
     {
       // generate our molecule from the SMILES/SMARTS string
       ::RDKit::RWMol* rdkit_mol( ::RDKit::SmilesToMol( SMILES));
@@ -500,16 +487,16 @@ namespace bcl
       ::RDKit::MolOps::sanitizeMol( *rdkit_mol);
       if( rdkit_mol == nullptr)
       {
-        return std::shared_ptr< chemistry::FragmentComplete>();
+        return chemistry::FragmentComplete();
       }
 
       // conversion to BCL molecule
-      return chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete( *rdkit_mol, SMILES);
+      return *( chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete( *rdkit_mol, SMILES));
     }
 
     //! @brief convert SMARTS string to molecule
     //! @param MOL molecule to be converted to SMARTS string
-    std::shared_ptr< chemistry::FragmentComplete> RdkitSmilesParser::ConvertSMARTSToMOL( const std::string &SMARTS)
+    chemistry::FragmentComplete RdkitSmilesParser::ConvertSMARTSToMOL( const std::string &SMARTS)
     {
       // generate our molecule from the SMILES/SMARTS string
       ::RDKit::RWMol* rdkit_mol( ::RDKit::SmartsToMol( SMARTS));
@@ -518,11 +505,11 @@ namespace bcl
       ::RDKit::MolOps::sanitizeMol( *rdkit_mol);
       if( rdkit_mol == nullptr)
       {
-        return std::shared_ptr< chemistry::FragmentComplete>();
+        return chemistry::FragmentComplete();
       }
 
       // conversion to BCL molecule
-      return chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete( *rdkit_mol, SMARTS);
+      return *( chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete( *rdkit_mol, SMARTS));
     }
 
   //////////////////////
@@ -543,13 +530,14 @@ namespace bcl
       return false;
     }
 
-
     //! @brief check validity of first column header name; this column MUST
     //! indicate the output file type (SMILES or SMARTS)
     //! @returns true if valid; false otherwise
     bool RdkitSmilesParser::ContainsValidHeader() const
     {
       const std::string &mol_str( m_Header( 0));
+
+      // first column of header labels must indicate the molecule string type
       if
       (
           mol_str == "SMILES" ||
@@ -561,6 +549,12 @@ namespace bcl
           mol_str == "Smarts" ||
           mol_str == "sma"
       )
+      {
+        return true;
+      }
+      // alternatively, you can get by with no actual header so long as there is only one column;
+      // this assumes that
+      else if( m_Header.GetSize() == 1)
       {
         return true;
       }

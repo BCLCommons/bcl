@@ -259,7 +259,7 @@ namespace bcl
       std::ostream &WriteNonHeaderLine
       (
         std::ostream &OSTREAM,
-        const std::shared_ptr< chemistry::FragmentComplete> &MOL,
+        const chemistry::FragmentComplete &MOL,
         const bool INCLUDE_PROPERTIES = false,
         const std::string &DELIMITER = std::string( ",")
       ) const;
@@ -267,7 +267,7 @@ namespace bcl
       //! @brief build a molecule from the file data member
       //! @param MOL_INDEX the index of the file data that will be filled
       //! @returns molecule filled from data SMILES/SMARTS and any properties
-      std::shared_ptr< chemistry::FragmentComplete> FillMolFromData( const size_t MOL_INDEX) const;
+      chemistry::FragmentComplete FillMolFromData( const size_t MOL_INDEX) const;
 
       //! @brief write to std::ostream directly from a molecule without object construction
       //! @param OSTREAM the stream to write to
@@ -277,7 +277,7 @@ namespace bcl
       static std::ostream &WriteSMILESFromMol
       (
         std::ostream &OSTREAM,
-        const std::shared_ptr< chemistry::FragmentComplete> &MOL
+        const chemistry::FragmentComplete &MOL
       );
 
       //! @brief write to std::ostream directly from a molecule without object construction
@@ -303,7 +303,7 @@ namespace bcl
       static std::ostream &WriteSMARTSFromMol
       (
         std::ostream &OSTREAM,
-        const std::shared_ptr< chemistry::FragmentComplete> &MOL
+        const chemistry::FragmentComplete &MOL
       );
 
       //! @brief write to std::ostream directly from a molecule without object construction
@@ -323,19 +323,19 @@ namespace bcl
 
       //! @brief convert input molecule into SMILES string
       //! @param MOL molecule to be converted to SMILES string
-      static std::string ConvertMolToSMILES( const std::shared_ptr< chemistry::FragmentComplete> &MOL);
+      static std::string ConvertMolToSMILES( const chemistry::FragmentComplete &MOL);
 
       //! @brief convert input molecule into SMARTS string
       //! @param MOL molecule to be converted to SMARTS string
-      static std::string ConvertMolToSMARTS( const std::shared_ptr< chemistry::FragmentComplete> &MOL);
+      static std::string ConvertMolToSMARTS( const chemistry::FragmentComplete &MOL);
 
       //! @brief convert SMILES string to molecule
       //! @param MOL molecule to be converted to SMILES string
-      static std::shared_ptr< chemistry::FragmentComplete> ConvertSMILESToMOL( const std::string &SMILES);
+      static chemistry::FragmentComplete ConvertSMILESToMOL( const std::string &SMILES);
 
       //! @brief convert SMARTS string to molecule
       //! @param MOL molecule to be converted to SMARTS string
-      static std::shared_ptr< chemistry::FragmentComplete> ConvertSMARTSToMOL( const std::string &SMARTS);
+      static chemistry::FragmentComplete ConvertSMARTSToMOL( const std::string &SMARTS);
 
     //////////////////////
     // helper functions //
@@ -351,6 +351,12 @@ namespace bcl
       //! indicate the output file type (SMILES or SMARTS)
       //! @returns true if valid; false otherwise
       bool ContainsValidHeader() const;
+
+      //! @brief check if there is a header; assume that if the first line
+      //! of the input file contains only one column that that column is intended
+      //! for SMILES or SMARTS IDs only and that the first row should not be
+      //! interpreted as a header row
+      bool ContainsHeaderLine() const;
 
       //! @brief read from std::istream
       //! @param ISTREAM input stream
