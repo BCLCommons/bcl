@@ -61,6 +61,7 @@ SET(
 	scorestat
 	sdf
 	signal
+	smiles
 	sspred
 	storage
 	type

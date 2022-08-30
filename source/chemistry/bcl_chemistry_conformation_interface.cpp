@@ -29,6 +29,7 @@ BCL_StaticInitializationFiascoFinder
 #include "math/bcl_math_linear_least_squares.h"
 #include "math/bcl_math_running_average_sd.h"
 #include "sdf/bcl_sdf_mdl_handler.h"
+#include "smiles/bcl_smiles_rdkit_smiles_parser.h"
 // external includes - sorted alphabetically
 
 // Uncomment the following line to see a printout of ring planarity by type; useful for benchmarking aromatization schemes
@@ -1823,6 +1824,36 @@ namespace bcl
           GetAtomInfo(),
           GetBondInfo(),
           GetStoredProperties().GetMDLProperties()
+        );
+    }
+
+    //! @brief write to std::ostream
+    //! @param OSTREAM output stream to write to
+    //! @return output stream which was written to
+    std::ostream &ConformationInterface::WriteSMILES( std::ostream &OSTREAM) const
+    {
+      return
+        smiles::RdkitSmilesParser::WriteSMILESFromMolInfo
+        (
+          OSTREAM,
+          GetName(),
+          GetAtomInfo(),
+          GetBondInfo()
+        );
+    }
+
+    //! @brief write to std::ostream
+    //! @param OSTREAM output stream to write to
+    //! @return output stream which was written to
+    std::ostream &ConformationInterface::WriteSMARTS( std::ostream &OSTREAM) const
+    {
+      return
+        smiles::RdkitSmilesParser::WriteSMARTSFromMolInfo
+        (
+          OSTREAM,
+          GetName(),
+          GetAtomInfo(),
+          GetBondInfo()
         );
     }
 
