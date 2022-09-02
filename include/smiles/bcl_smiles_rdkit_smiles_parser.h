@@ -222,13 +222,13 @@ namespace bcl
     // input and output //
     //////////////////////
 
-      //! @brief Read the CTab using iterators to strings
+      //! @brief Read the SMILES/SMARTS file using iterators to strings
       //! @param LINE_BEGIN a line that represents a header/counts line
       //! @param LINE_END one-past-end of possible lines
       //! @param READ_TO_DATA_ONLY if true, do not store molecules in memory, but populate
       //! the file data member; useful if you are reading many molecules but working on
       //! one at a time.
-      //! @details if the CTab ends before LINE_END, not all lines will be read
+      //! @details if the file ends before LINE_END, not all lines will be read
       //! @return an iterator to the first line that was not read
       storage::List< std::string>::const_iterator ReadFile
       ( 

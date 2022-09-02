@@ -122,7 +122,7 @@ namespace bcl
       return s_Names[ENUM];
     }
 
-    //! @brief Read the CTab using iterators to strings
+    //! @brief Read the SMILES/SMARTS file using iterators to strings
     //! @param LINE_BEGIN a line that represents a header/counts line
     //! @param LINE_END one-past-end of possible lines
     //! @param READ_TO_DATA_ONLY if true, do not store molecules in memory, but populate
