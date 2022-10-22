@@ -13,7 +13,6 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
-#include <util/bcl_util_undefined.h>
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
@@ -23,11 +22,17 @@ BCL_StaticInitializationFiascoFinder
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_fragment_complete.h"
 #include "chemistry/bcl_chemistry_rdkit_mol_utils.h"
+#include "io/bcl_io_directory_entry.h"
+#include "math/bcl_math_limits.h"
 
 // external includes - sorted alphabetically
-#include "GraphMol/RWMol.h"
 #include "GraphMol/ForceFieldHelpers/MMFF/MMFF.h"
+#include "GraphMol/ForceFieldHelpers/FFConvenience.h"
 #include "ForceField/ForceField.h"
+#include "ForceField/MMFF/PositionConstraint.h"
+#include "ForceField/MMFF/DistanceConstraint.h"
+#include "ForceField/MMFF/AngleConstraint.h"
+#include "ForceField/MMFF/TorsionConstraint.h"
 
 namespace bcl
 {
@@ -128,33 +133,139 @@ namespace bcl
     //! @return error code - 0 for success
     int MoleculeMinimize::Main() const
     {
+      // clear output file if it exists
+      const std::string output_filename( m_OutputFilenameBase->GetFirstParameter()->GetValue() + util::Format()( ".sdf"));
+      io::DirectoryEntry entry( output_filename);
+      if( entry.DoesExist())
+      {
+        entry.Remove();
+      }
+
+      // I/O
       io::OFStream output;
-      io::File::MustOpenOFStream
-      (
-        output,
-        m_OutputFilenameBase->GetFirstParameter()->GetValue() + util::Format()( ".sdf"),
-        std::ios::app
-      );
+      io::File::MustOpenOFStream( output, output_filename, std::ios::app);
       size_t feed_index( 0);
-      std::shared_ptr< ::RDKit::RWMol> rdkit_mol = nullptr;
-      std::shared_ptr< chemistry::FragmentComplete> min_mol = nullptr;
+      std::shared_ptr< ::RDKit::RWMol> rdkit_mol, rdkit_mol_min, rdkit_mol_min_ctrl, rdkit_mol_min_cst = nullptr;
+      std::shared_ptr< chemistry::FragmentComplete> mol, min_mol_ctrl, min_mol, min_mol_cst = nullptr;
       for( chemistry::FragmentFeed feed; feed.NotAtEnd(); ++feed, ++feed_index)
       {
-        BCL_MessageStd("Feed index: " + util::Format()( feed_index));
+        // Convert the BCL fragment into an RDKit molecule
         rdkit_mol = chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( *feed);
-        BCL_MessageStd("Converted from BCL to RDKit");
-        ::RDKit::MMFF::MMFFOptimizeMolecule( *rdkit_mol , 1000 , "MMFF94s" );
-        min_mol = chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete(*rdkit_mol);
-        BCL_MessageStd("Converted from RDKit to BCL");
-        BCL_MessageStd("Output final molecule");
-        BCL_Debug( min_mol->GetSize());
-        BCL_Debug( min_mol != nullptr);
+        rdkit_mol_min_ctrl = chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( *feed);
+        rdkit_mol_min = chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( *feed);
+        rdkit_mol_min_cst = chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( *feed);
+        if( rdkit_mol == nullptr)
+        {
+          continue;
+        }
+
+        // minimize
+        Minimize( rdkit_mol_min);
+        MinimizeWithConstraints( rdkit_mol_min_cst);
+
+        // required for force field construction
+        std::string const mmff_variant("MMFF94s");
+        size_t max_iters( 1000);
+        ::RDKit::MMFF::MMFFMolProperties mmffMolProperties( *rdkit_mol_min_ctrl, mmff_variant);
+
+  //      // output from minimizer
+  //      // first: -1 if parameters were missing, 0 if the optimization converged, 1 if more iterations are required.
+  //      // second: the energy
+  //      std::pair<int, double> res = std::make_pair(-1, 0.0);
+  //      if ( mmffMolProperties.isValid())
+  //      {
+  //        // construct force field
+  //        ::ForceFields::ForceField *ff = ::RDKit::MMFF::constructForceField( MOL, 10, -1, true);
+  ////        ff->initialize();
+  //
+  //        // run minimizationMOL
+  //        res = ::RDKit::ForceFieldsHelper::OptimizeMolecule(*ff, max_iters);
+  //        delete ff;
+  //      }
+        ::RDKit::MMFF::MMFFOptimizeMolecule( *rdkit_mol_min_ctrl, max_iters, mmff_variant, 10, -1, true);
+
+
+        // write complete
+        mol = chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete(*rdkit_mol);
+        min_mol_ctrl = chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete(*rdkit_mol_min_ctrl);
+        min_mol = chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete(*rdkit_mol_min);
+        min_mol_cst = chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete(*rdkit_mol_min_cst);
+//        if( min_mol == nullptr)
+//        {
+//          BCL_MessageStd("Molecule could not be minimized! Returning input...");
+//          min_mol = std::make_shared< chemistry::FragmentComplete>( *feed);
+//        }
+
+        mol->WriteMDL( output);
+        min_mol_ctrl->WriteMDL( output);
         min_mol->WriteMDL( output);
-        BCL_Debug( feed.NotAtEnd());
+        min_mol_cst->WriteMDL( output);
       }
       io::File::CloseClearFStream( output);
-      BCL_MessageStd("Done!");
       return 0;
+    }
+
+
+    //! @brief minimize without any constraints
+    void MoleculeMinimize::Minimize( std::shared_ptr< ::RDKit::RWMol> &MOL) const
+    {
+      // required for force field construction
+      std::string const mmff_variant("MMFF94s");
+      size_t max_iters( 1000);
+      ::RDKit::MMFF::MMFFMolProperties mmffMolProperties( *MOL, mmff_variant);
+
+      // output from minimizer
+      // first: -1 if parameters were missing, 0 if the optimization converged, 1 if more iterations are required.
+      // second: the energy
+      std::pair<int, double> res = std::make_pair(-1, 0.0);
+      if ( mmffMolProperties.isValid())
+      {
+        // construct force field
+        ::ForceFields::ForceField *ff = ::RDKit::MMFF::constructForceField( *MOL, 10, -1, true);
+        ff->initialize();
+
+        // run minimizationMOL
+        res = ::RDKit::ForceFieldsHelper::OptimizeMolecule(*ff, max_iters);
+        ff->minimize( max_iters);
+        double energy( ff->calcEnergy());
+        BCL_MessageStd( "Minimization final energy: " + util::Format()( energy));
+        delete ff;
+      }
+    }
+
+    //! @brief minimize with constraints
+    void MoleculeMinimize::MinimizeWithConstraints( std::shared_ptr< ::RDKit::RWMol> &MOL) const
+    {
+      // required for force field construction
+      std::string const mmff_variant("MMFF94s");
+      size_t max_iters( 1000);
+      ::RDKit::MMFF::MMFFMolProperties mmffMolProperties( *MOL, mmff_variant);
+
+      // output from minimizer
+      // first: -1 if parameters were missing, 0 if the optimization converged, 1 if more iterations are required.
+      // second: the energy
+      std::pair<int, double> res = std::make_pair(-1, 0.0);
+      if ( mmffMolProperties.isValid())
+      {
+        // construct force field
+        ::ForceFields::ForceField *ff = ::RDKit::MMFF::constructForceField( *MOL, 10, -1, true);
+        ff->initialize();
+
+        // add constraint force field terms
+        for( size_t i( 0); i < 11; ++i)
+        {
+          ::ForceFields::MMFF::PositionConstraintContrib *coord_cst;
+          coord_cst = new ::ForceFields::MMFF::PositionConstraintContrib( ff, i, 0.0, 1.0e5);
+          ff->contribs().push_back( ForceFields::ContribPtr( coord_cst));
+        }
+
+        // run minimization
+//        res = ::RDKit::ForceFieldsHelper::OptimizeMolecule(*ff, max_iters);
+        ff->minimize( max_iters);
+        double energy( ff->calcEnergy());
+        BCL_MessageStd( "Minimization with constraints final energy: " + util::Format()( energy));
+        delete ff;
+      }
     }
 
   } // namespace app

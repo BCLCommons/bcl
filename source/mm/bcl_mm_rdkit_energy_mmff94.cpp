@@ -12,41 +12,25 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_SMILES_H_
-#define BCL_SMILES_H_
+// initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "util/bcl_util_static_initialization_fiasco_finder.h"
+BCL_StaticInitializationFiascoFinder
 
-// include the namespace forward header
-#include "bcl_smiles.fwd.hh"
-
-// include other forward headers - sorted alphabetically
+// include header of this class
+#include "mm/bcl_mm_rdkit_energy_mmff94.h"
 
 // includes from bcl - sorted alphabetically
-#include "bcl.h"
 
 // external includes - sorted alphabetically
 
 namespace bcl
 {
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-  //!
-  //! @file bcl_smiles.h
-  //! @brief Contains wrappers for RDKit functions for I/O of SMILES and SMARTS. 
-  //!
-  //! @see @link example_smiles.cpp @endlink
-  //! @author brownbp1
-  //! @date Aug 29, 2022
-  //!
-  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-  namespace smiles
+  namespace mm
   {
 
-    //! @brief identifier for the name space
-    //! @return the name of the namespace
-    BCL_API
-    const std::string &GetNamespaceIdentifier();
+  ////////////////
+  // operations //
+  ////////////////
 
-  } // namespace smiles
+  } // namespace mm
 } // namespace bcl
-
-#endif //BCL_SMILES_H_

@@ -12,11 +12,11 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_SMILES_H_
-#define BCL_SMILES_H_
+#ifndef BCL_MM_H_
+#define BCL_MM_H_
 
 // include the namespace forward header
-#include "bcl_smiles.fwd.hh"
+#include "bcl_mm.fwd.hh"
 
 // include other forward headers - sorted alphabetically
 
@@ -29,16 +29,17 @@ namespace bcl
 {
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
   //!
-  //! @file bcl_smiles.h
-  //! @brief Contains wrappers for RDKit functions for I/O of SMILES and SMARTS. 
+  //! @file bcl_mm.h
+  //! @brief TODO: document
+  //! @details TODO: document
   //!
-  //! @see @link example_smiles.cpp @endlink
+  //! @see @link example_mm.cpp @endlink
   //! @author brownbp1
-  //! @date Aug 29, 2022
+  //! @date Oct 22, 2022
   //!
   //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-  namespace smiles
+  namespace mm
   {
 
     //! @brief identifier for the name space
@@ -46,7 +47,7 @@ namespace bcl
     BCL_API
     const std::string &GetNamespaceIdentifier();
 
-  } // namespace smiles
+  } // namespace mm
 } // namespace bcl
 
-#endif //BCL_SMILES_H_
+#endif //BCL_MM_H_

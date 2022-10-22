@@ -29,6 +29,9 @@
 #include "command/bcl_command_parameter_check_ranged.h"
 #include "io/bcl_io_file.h"
 
+// includes from rdkit
+#include "GraphMol/RWMol.h"
+
 namespace bcl
 {
   namespace app
@@ -97,6 +100,12 @@ namespace bcl
       //! @brief the Main function
       //! @return error code - 0 for success
       int Main() const;
+
+      //! @brief minimize without any constraints
+      void Minimize( std::shared_ptr< ::RDKit::RWMol> &MOL) const;
+
+      //! @brief minimize with constraints
+      void MinimizeWithConstraints( std::shared_ptr< ::RDKit::RWMol> &MOL) const;
 
     //////////////////////
     // input and output //
