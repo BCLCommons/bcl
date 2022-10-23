@@ -31,6 +31,7 @@ namespace bcl
   /////////////////////
 
     class EnergyInterface;
+    class RDKitEnergyMMFF94;
 
   //////////////////////
   // template classes //

@@ -21,7 +21,7 @@
 // include other forward headers - sorted alphabetically
 
 // includes from bcl - sorted alphabetically
-#include "chemistry/bcl_chemistry_conformation_interface.h"
+#include "chemistry/bcl_chemistry_fragment_complete.h"
 #include "util/bcl_util_function_interface_serializable.h"
 
 namespace bcl
@@ -60,7 +60,7 @@ namespace bcl
       //! @brief splits the molecule according to GetComponentVertices
       //! @param MOLECULE the molecule for which the energy will be computed
       //! @return the energy of MOLECULE
-      virtual double CalculateEnergy( const chemistry::ConformationInterface &MOLECULE) const = 0;
+      virtual double CalculateEnergy( const chemistry::FragmentComplete &MOLECULE) const = 0;
 
     };
 

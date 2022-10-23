@@ -19,10 +19,14 @@
 #include "bcl_mm.h"
 
 // include other forward headers - sorted alphabetically
+#include "mm/bcl_mm_energy_interface.h"
 
 // includes from bcl - sorted alphabetically
-#include "chemistry/bcl_chemistry_conformation_interface.h"
+#include "chemistry/bcl_chemistry_fragment_complete.h"
 #include "util/bcl_util_function_interface_serializable.h"
+
+// external includes - sorted alphabetically
+
 
 namespace bcl
 {
@@ -31,7 +35,7 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class RdkitEnergyMmff94
+    //! @class RDKitEnergyMMFF94
     //! @brief This class is an interface class for classes that compute energies with molecular mechanics force fields
     //!
     //! @see @link example_mm_rdkit_energy_mmff94.cpp @endlink
@@ -40,27 +44,121 @@ namespace bcl
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class BCL_API RdkitEnergyMmff94 :
-      public util::SerializableInterface
+    class BCL_API RDKitEnergyMMFF94 :
+      public mm::EnergyInterface
     {
+      //////////
+      // data //
+      //////////
 
     public:
 
-    //////////////////////////////////
-    // construction and destruction //
-    //////////////////////////////////
+      //! Lipinski variants
+      enum MMFFVariant
+      {
+        e_MMFF94,
+        e_MMFF94s
+      };
+
+    private:
+
+      //! The MMFF variant that we are using
+      MMFFVariant m_MMFFVariant;
+      std::string m_MMFFVariantString;
+
+      //! The threshold to be used in adding non-bonded terms to the force field.
+      //! Any non-bonded contact whose current distance is greater than nonBondedThresh * the minimum value for that contact
+      //! will not be included.
+      double m_NonbondedThreshold;
+
+      //!  If true, nonbonded terms will not be added between fragments
+      bool m_IgnoreInterFragmentInteractions;
+
+    public:
+
+      //////////////////////////////////
+      // construction and destruction //
+      //////////////////////////////////
+
+      //! default constructor
+      RDKitEnergyMMFF94();
+
+      //! full constructor
+      RDKitEnergyMMFF94
+      (
+        const MMFFVariant &VARIANT,
+        const double NON_BONDED_THRESHOLD,
+        const bool IGNORE_INTER_FRAG_INTERACTIONS
+      );
 
       //! virtual copy constructor
-      virtual RdkitEnergyMmff94 *Clone() const = 0;
+      RDKitEnergyMMFF94 *Clone() const;
+
+      /////////////////
+      // data access //
+      /////////////////
 
       //! @brief returns the name used for this class in an object data label
       //! @return the name used for this class in an object data label
-      virtual const std::string &GetAlias() const = 0;
+      const std::string &GetAlias() const;
 
-      //! @brief splits the molecule according to GetComponentVertices
+      //! @brief returns class name of the object behind a pointer or the current object
+      //! @return the class name
+      const std::string &GetClassIdentifier() const;
+
+      //! @brief returns the MMFF94 variant
+      MMFFVariant GetMMFFVariant() const;
+
+      //! @brief returns the MMFF94 variant as a string
+      std::string GetMMFFVariantAsString() const;
+
+      //! @brief returns the non-bonded threshold
+      double GetNonbondedThreshold() const;
+
+      //! @brief returns whether to ignore fragment interactions
+      bool GetIgnoreInterFragmentInteractions() const;
+
+      ///////////////////
+      //   operations  //
+      ///////////////////
+
+      //! @brief sets the MMFF94 variant
+      void SetMMFFVariant( const MMFFVariant &VARIANT);
+
+      //! @brief sets the MMFF94 variant from a string
+      void SetMMFFVariantFromString( const std::string &VARIANT);
+
+      //! @brief sets the non-bonded threshold
+      void SetNonbondedThreshold( const double THRESHOLD);
+
+      //! @brief sets whether to ignore fragment interactions
+      void SetIgnoreInterFragmentInteractions( const bool IGNORE_INTER_FRAGMENT_INTERACTIONS);
+
+      //! @brief Computes the MMFF94 potential energy of a molecule
       //! @param MOLECULE the molecule for which the energy will be computed
       //! @return the energy of MOLECULE
-      virtual double CalculateEnergy( const chemistry::ConformationInterface &MOLECULE) const = 0;
+      double CalculateEnergy( const chemistry::FragmentComplete &MOLECULE) const;
+
+      //! @brief Computes the MMFF94 potential energy of a molecule
+      //! @param MOLECULE the molecule for which the energy will be computed
+      //! @param NON_BONDED_THRESHOLD the threshold to be used in adding non-bonded terms to the force field.
+      //! @param IGNORE_INTER_FRAG_INTERACTIONS If true, nonbonded terms will not be added between fragments
+      //! @return the energy of MOLECULE
+      static double CalculateEnergy
+      (
+        const chemistry::FragmentComplete &MOLECULE,
+        const std::string &MMFF_VARIANT,
+        const double NON_BONDED_THRESHOLD,
+        const bool IGNORE_INTER_FRAG_INTERACTIONS
+      );
+
+      //////////////////////
+      // helper functions //
+      //////////////////////
+
+      //! @brief return parameters for member data that are set up from the labels
+      //! @return parameters for member data that are set up from the labels
+      io::Serializer GetSerializer() const;
 
     };
 
