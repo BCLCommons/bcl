@@ -78,7 +78,7 @@ namespace bcl
     //! @return the name used for this class in an object data label
     const std::string &RDKitEnergyMMFF94::GetAlias() const
     {
-      static const std::string s_name( m_MMFFVariant == e_MMFF94 ? "MMFF94" : "MMFF94s");
+      static const std::string s_name( m_MMFFVariant == e_MMFF94 ? "Energy_MMFF94" : "Energy_MMFF94s");
       return s_name;
     }
 
@@ -179,6 +179,7 @@ namespace bcl
 
     //! @brief Computes the MMFF94 potential energy of a molecule
     //! @param MOLECULE the molecule for which the energy will be computed
+    //! @param MMFF_VARIANT whether to use MMFF94 or MMFF94s
     //! @param NON_BONDED_THRESHOLD the threshold to be used in adding non-bonded terms to the force field.
     //! @param IGNORE_INTER_FRAG_INTERACTIONS If true, nonbonded terms will not be added between fragments
     //! @return the energy of MOLECULE

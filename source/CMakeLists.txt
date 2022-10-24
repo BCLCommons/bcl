@@ -46,6 +46,7 @@ SET(
 	linal
 	math
 	mc
+	mm
 	model
 	nmr
 	opencl

@@ -36,7 +36,8 @@ namespace bcl
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
     //! @class RDKitEnergyMMFF94
-    //! @brief This class is an interface class for classes that compute energies with molecular mechanics force fields
+    //! @brief This class computes molecular mechanics energies using the MMFF94 or MMFF94s force field implemented in
+    //! RDKit. Working energy unit is kcal/mol. Any energy conversion is done after the calculation.
     //!
     //! @see @link example_mm_rdkit_energy_mmff94.cpp @endlink
     //! @author ben
@@ -60,7 +61,7 @@ namespace bcl
         e_MMFF94s
       };
 
-    private:
+    protected:
 
       //! The MMFF variant that we are using
       MMFFVariant m_MMFFVariant;
@@ -141,6 +142,7 @@ namespace bcl
 
       //! @brief Computes the MMFF94 potential energy of a molecule
       //! @param MOLECULE the molecule for which the energy will be computed
+      //! @param MMFF_VARIANT whether to use MMFF94 or MMFF94s
       //! @param NON_BONDED_THRESHOLD the threshold to be used in adding non-bonded terms to the force field.
       //! @param IGNORE_INTER_FRAG_INTERACTIONS If true, nonbonded terms will not be added between fragments
       //! @return the energy of MOLECULE
