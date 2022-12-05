@@ -142,12 +142,12 @@ namespace bcl
         AtomVector< AtomComplete> new_atom_vec( start_mol.GetAtomVector());
         if( m_Complement)
         {
-          BCL_Debug( subgraph.GetComplement().GetVertexIndices());
+          // BCL_Debug( subgraph.GetComplement().GetVertexIndices());
           new_atom_vec.Reorder( subgraph.GetComplement().GetVertexIndices());
         }
         else
         {
-          BCL_Debug( subgraph.GetVertexIndices());
+          // BCL_Debug( subgraph.GetVertexIndices());
           new_atom_vec.Reorder( subgraph.GetVertexIndices());
         }
         FragmentComplete split_mol( new_atom_vec, "");
@@ -155,7 +155,7 @@ namespace bcl
         // if we have disconnected elements then we want those to be separate entries in the final SDF
         FragmentSplitIsolate isolater( size_t( 1));
         FragmentEnsemble split_ensemble( isolater( split_mol));
-        BCL_Debug( split_ensemble.GetSize());
+        // BCL_Debug( split_ensemble.GetSize());
 
         // save the final molecule(s)
         for
@@ -165,7 +165,7 @@ namespace bcl
             ++mol_itr
         )
         {
-          BCL_Debug( mol_itr->GetSize());
+          // BCL_Debug( mol_itr->GetSize());
           common_structs.PushBack( *mol_itr);
         }
       }
