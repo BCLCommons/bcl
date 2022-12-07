@@ -21,11 +21,11 @@ BCL_StaticInitializationFiascoFinder
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_rdkit_mol_utils.h"
+#include "util/bcl_util_string_functions.h"
 
 // external includes - sorted alphabetically
-#include "ForceField/ForceField.h"
-#include "GraphMol/ForceFieldHelpers/MMFF/AtomTyper.h"
-#include "GraphMol/ForceFieldHelpers/MMFF/Builder.h"
+#include "ForceField/MMFF/PositionConstraint.h"
+
 
 namespace bcl
 {
@@ -101,6 +101,47 @@ namespace bcl
     void RdkitEnergyMinimizeMmff94::SetEnergyTolerance( const double ENERGY_TOLERANCE)
     {
       m_EnergyTolerance = ENERGY_TOLERANCE;
+    }
+
+    //! @brief add positional constraints to force field for geometry optimization
+    //! @param FORCE_FIELD the force field that is modified with the new restraint term
+    //! @param ATOM_INDICES indices that are restrained during minimization
+    //! @param MAX_UNRESTRAINED DISPLACEMENT coordinate displacement above which restraint force is applied
+    //! @param RESTRAINT_FORCE restraint force
+    void RdkitEnergyMinimizeMmff94::AddPositionalRestraints
+    (
+      ::ForceFields::ForceField* FORCE_FIELD, // raw pointer unconventional for BCL outside of Clone(), but this is what RDKit requires
+      const storage::Vector< size_t> &ATOM_INDICES,
+      const storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT,
+      const storage::Vector< double> &RESTRAINT_FORCE
+    )
+    {
+      // sanity check on vector sizes
+      if
+      (
+          ( ( ATOM_INDICES.GetSize() == MAX_UNRESTRAINED_DISPLACEMENT.GetSize() ) == RESTRAINT_FORCE.GetSize() ) ||
+          ( ( ATOM_INDICES.GetSize() == MAX_UNRESTRAINED_DISPLACEMENT.GetSize() ) && RESTRAINT_FORCE.GetSize()  == size_t( 1) )
+      )
+      {
+        // loop over atom indices and add restraint forces to our force field
+        for( size_t i( 0), sz( ATOM_INDICES.GetSize()); i < sz; ++i)
+        {
+          ::ForceFields::MMFF::PositionConstraintContrib *coord_cst;
+          coord_cst = new ::ForceFields::MMFF::PositionConstraintContrib( FORCE_FIELD, ATOM_INDICES( i), MAX_UNRESTRAINED_DISPLACEMENT( i), RESTRAINT_FORCE( i));
+          FORCE_FIELD->contribs().push_back( ForceFields::ContribPtr( coord_cst));
+        }
+
+      }
+      // do not kill, but inform user that positional restraints are not added
+      else
+      {
+        BCL_MessageStd
+        (
+          "The number of atoms does not match the number of max displacements and/or the number of provided restraint forces; "
+          "alternatively, if the number of restraint forces to be added is one, then the number of atoms simply does not match the number of "
+          "max displacements. NO POSITIONAL RESTRAINT ADDED!"
+        )
+      }
     }
 
     //! @brief optimizes the geometry of a molecule based on a molecular mechanics force field
@@ -266,6 +307,64 @@ namespace bcl
       // return calculation result
       return storage::Triplet< chemistry::FragmentComplete, int, double>( optimized_molecule, min_result, energy);
     }
+
+    //////////////////////
+    // helper functions //
+    //////////////////////
+
+    //! @brief return parameters for member data that are set up from the labels
+    //! @return parameters for member data that are set up from the labels
+    io::Serializer RdkitEnergyMinimizeMmff94::GetSerializer() const
+    {
+      io::Serializer parameters( RDKitEnergyMMFF94::GetSerializer());
+      parameters.SetClassDescription( "Optimizes the geometry of a molecule using the MMFF94(s) force field with or without restraints.");
+      parameters.AddInitializer
+      (
+        "max_iterations",
+        "The maximum number of iterations to perform during geometry optimization, above which the optimization will terminate "
+        "even if convergence is not yet reached.",
+        io::Serialization::GetAgent( &m_MaxIterations),
+        "1000"
+      );
+      parameters.AddInitializer
+      (
+        "force_tolerance",
+        "The convergence criterion for forces",
+        io::Serialization::GetAgent( &m_ForceTolerance),
+        "1.0e-4"
+      );
+      parameters.AddInitializer
+      (
+        "energy_tolerance",
+        "The convergence criterion for energies",
+        io::Serialization::GetAgent( &m_EnergyTolerance),
+        "1.0e-4"
+      );
+      parameters.AddInitializer
+      (
+        "coordinate_restraint_atoms",
+        "Atoms that will be restrained to their current positions in Cartesian coordinate space",
+        io::Serialization::GetAgent( &m_PositionalRestraintAtomsString),
+        ""
+      );
+
+      return parameters;
+    }
+
+      //! @brief Set the members of this property from the given LABEL; override from SerializableInterface
+      //! @param LABEL the label to parse
+      //! @param ERROR_STREAM the stream to write errors to
+      bool RdkitEnergyMinimizeMmff94::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+      {
+        // parse string encoding atoms to be restrained in coordinate space
+        if( m_PositionalRestraintAtomsString.size())
+        {
+          m_PositionalRestraintAtoms.Reset();
+          m_PositionalRestraintAtoms = util::SplitStringToNumerical< size_t>( m_PositionalRestraintAtomsString);
+        }
+
+        return true;
+      }
 
   } // namespace mm
 } // namespace bcl

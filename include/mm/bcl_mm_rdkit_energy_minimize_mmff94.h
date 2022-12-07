@@ -25,6 +25,11 @@
 #include "chemistry/bcl_chemistry_fragment_complete.h"
 #include "util/bcl_util_function_interface_serializable.h"
 
+// external includes - sorted alphabetically
+#include "ForceField/ForceField.h"
+#include "GraphMol/ForceFieldHelpers/MMFF/AtomTyper.h"
+#include "GraphMol/ForceFieldHelpers/MMFF/Builder.h"
+
 namespace bcl
 {
   namespace mm
@@ -55,17 +60,26 @@ namespace bcl
       //! @brief Maximum number of iterations to perform for geometry optimization
       size_t m_MaxIterations;
 
-      //! @brief the convergence criterion for forces
+      //! @brief The convergence criterion for forces
       double m_ForceTolerance;
 
-      //! @brief the convergence criterion for energies
+      //! @brief The convergence criterion for energies
       double m_EnergyTolerance;
+
+      //! @brief The atoms subject to coordinate restraints
+      storage::Vector< size_t> m_PositionalRestraintAtoms;
+      std::string m_PositionalRestraintAtomsString;
 
     public:
 
     //////////////////////////////////
     // construction and destruction //
     //////////////////////////////////
+
+      //! @brief default constructor
+      RdkitEnergyMinimizeMmff94();
+
+      //! @brief full constructor
 
       //! virtual copy constructor
       RdkitEnergyMinimizeMmff94 *Clone() const;
@@ -106,6 +120,23 @@ namespace bcl
 
       //! @brief set the energy tolerance for the geometry optimization
       void SetEnergyTolerance( const double ENERGY_TOLERANCE);
+
+    private:
+
+      //! @brief add positional constraints to force field for geometry optimization
+      //! @param FORCE_FIELD the force field that is modified with the new restraint term
+      //! @param ATOM_INDICES indices that are restrained during minimization
+      //! @param MAX_UNRESTRAINED DISPLACEMENT coordinate displacement above which restraint force is applied
+      //! @param RESTRAINT_FORCE restraint force
+      void AddPositionalRestraints
+      (
+        ::ForceFields::ForceField* FORCE_FIELD, // raw pointer unconventional for BCL outside of Clone(), but this is what RDKit requires
+        const storage::Vector< size_t> &ATOM_INDICES,
+        const storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT,
+        const storage::Vector< double> &RESTRAINT_FORCE
+      );
+
+    public:
 
       //! @brief optimizes the geometry of a molecule based on a molecular mechanics force field
       //! @param MOLECULE the molecule to be optimized; passed as non-const reference to be modified directly
@@ -152,6 +183,19 @@ namespace bcl
         const double FORCE_TOLERANCE,
         const double ENERGY_TOLERANCE
       );
+
+      //////////////////////
+      // helper functions //
+      //////////////////////
+
+      //! @brief return parameters for member data that are set up from the labels
+      //! @return parameters for member data that are set up from the labels
+      io::Serializer GetSerializer() const;
+
+      //! @brief Set the members of this property from the given LABEL; override from SerializableInterface
+      //! @param LABEL the label to parse
+      //! @param ERROR_STREAM the stream to write errors to
+      bool ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM);
 
     };
 

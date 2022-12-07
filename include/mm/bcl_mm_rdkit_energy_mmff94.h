@@ -19,6 +19,7 @@
 #include "bcl_mm.h"
 
 // include other forward headers - sorted alphabetically
+#include "io/bcl_io_serialization.h"
 #include "mm/bcl_mm_energy_interface.h"
 
 // includes from bcl - sorted alphabetically

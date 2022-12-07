@@ -13,7 +13,6 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
-#include <io/bcl_io_serialization.h>
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
@@ -244,10 +243,8 @@ namespace bcl
         io::Serialization::GetAgent( &m_MMFFVariantString),
         "MMFF94s"
       );
-
       return parameters;
     }
-
 
   } // namespace mm
 } // namespace bcl
