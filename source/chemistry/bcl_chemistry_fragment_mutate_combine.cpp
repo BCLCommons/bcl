@@ -17,10 +17,11 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "chemistry/bcl_chemistry_fragment_add_med_chem.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_combine.h"
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
+#include "chemistry/bcl_chemistry_fragment_evolve_base.h"
 #include "chemistry/bcl_chemistry_fragment_map_conformer.h"
 #include "chemistry/bcl_chemistry_fragment_track_mutable_atoms.h"
 #include "chemistry/bcl_chemistry_hydrogens_handler.h"
@@ -30,6 +31,8 @@ BCL_StaticInitializationFiascoFinder
 #include "command/bcl_command_command_state.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "find/bcl_find_collector_interface.h"
+#include "graph/bcl_graph_connectivity.h"
+#include "graph/bcl_graph_subgraph.h"
 #include "io/bcl_io_file.h"
 #include "io/bcl_io_ifstream.h"
 #include "random/bcl_random_uniform_distribution.h"
@@ -46,9 +49,9 @@ namespace bcl
   //////////
 
     // add the interface to the set of known implementations
-    const util::SiPtr< const util::ObjectInterface> FragmentAddMedChem::s_Instance
+    const util::SiPtr< const util::ObjectInterface> FragmentMutateCombine::s_Instance
     (
-      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentAddMedChem())
+      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentMutateCombine())
     );
 
   //////////////////////////////////
@@ -56,24 +59,24 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    FragmentAddMedChem::FragmentAddMedChem() :
+    FragmentMutateCombine::FragmentMutateCombine() :
       m_FragmentPool( util::ShPtr< FragmentEnsemble>()),
-      m_MedChemFilename( std::string()),
-      m_RestrictAdditionsToAroRings( false)
+      m_FragmentFilename( std::string()),
+      m_MaxFragmentSize( util::GetUndefinedSize_t())
     {
       this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
     }
 
     //! @brief construct with a pool of external fragments for fragment grow
     //! @param FRAGMENT_POOL external fragments to add to base fragment
-    FragmentAddMedChem::FragmentAddMedChem
+    FragmentMutateCombine::FragmentMutateCombine
     (
       const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const bool &CORINA_CONFS
     ) :
       m_FragmentPool( util::ShPtr< FragmentEnsemble>()),
-      m_MedChemFilename( std::string()),
-      m_RestrictAdditionsToAroRings( false)
+      m_FragmentFilename( std::string()),
+      m_MaxFragmentSize( util::GetUndefinedSize_t())
     {
       m_Corina = CORINA_CONFS;
 
@@ -83,15 +86,15 @@ namespace bcl
     //! @brief druglikeness constructor
     //! @param FRAGMENT_POOL external fragments to add to base fragment
     //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-    FragmentAddMedChem::FragmentAddMedChem
+    FragmentMutateCombine::FragmentMutateCombine
     (
       const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const std::string &DRUG_LIKENESS_TYPE,
       const bool &CORINA_CONFS
     ) :
       m_FragmentPool( FRAGMENT_POOL),
-      m_MedChemFilename( std::string()),
-      m_RestrictAdditionsToAroRings( false)
+      m_FragmentFilename( std::string()),
+      m_MaxFragmentSize( util::GetUndefinedSize_t())
     {
       m_DrugLikenessType = DRUG_LIKENESS_TYPE;
       m_Corina = CORINA_CONFS;
@@ -105,7 +108,7 @@ namespace bcl
     //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
     //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
     //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-    FragmentAddMedChem::FragmentAddMedChem
+    FragmentMutateCombine::FragmentMutateCombine
     (
       const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const std::string &DRUG_LIKENESS_TYPE,
@@ -115,8 +118,8 @@ namespace bcl
       const bool &CORINA_CONFS
     ) :
       m_FragmentPool( FRAGMENT_POOL),
-      m_MedChemFilename( std::string()),
-      m_RestrictAdditionsToAroRings( false)
+      m_FragmentFilename( std::string()),
+      m_MaxFragmentSize( util::GetUndefinedSize_t())
     {
       m_DrugLikenessType = DRUG_LIKENESS_TYPE;
       m_ScaffoldFragment = SCAFFOLD_FRAGMENT;
@@ -136,7 +139,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentAddMedChem::FragmentAddMedChem
+    FragmentMutateCombine::FragmentMutateCombine
     (
       const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const std::string &DRUG_LIKENESS_TYPE,
@@ -150,8 +153,8 @@ namespace bcl
       const bool &CORINA_CONFS
     ) :
       m_FragmentPool( FRAGMENT_POOL),
-      m_MedChemFilename( std::string()),
-      m_RestrictAdditionsToAroRings( false)
+      m_FragmentFilename( std::string()),
+      m_MaxFragmentSize( util::GetUndefinedSize_t())
     {
       m_DrugLikenessType = DRUG_LIKENESS_TYPE;
       m_ScaffoldFragment = SCAFFOLD_FRAGMENT;
@@ -175,7 +178,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentAddMedChem::FragmentAddMedChem
+    FragmentMutateCombine::FragmentMutateCombine
     (
       const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
       const std::string &DRUG_LIKENESS_TYPE,
@@ -188,8 +191,8 @@ namespace bcl
       const bool &CORINA_CONFS
     ) :
       m_FragmentPool( FRAGMENT_POOL),
-      m_MedChemFilename( std::string()),
-      m_RestrictAdditionsToAroRings( false)
+      m_FragmentFilename( std::string()),
+      m_MaxFragmentSize( util::GetUndefinedSize_t())
     {
       m_DrugLikenessType = DRUG_LIKENESS_TYPE;
       m_ScaffoldFragment = SCAFFOLD_FRAGMENT;
@@ -204,9 +207,9 @@ namespace bcl
     }
 
     //! @brief clone constructor
-    FragmentAddMedChem *FragmentAddMedChem::Clone() const
+    FragmentMutateCombine *FragmentMutateCombine::Clone() const
     {
-      return new FragmentAddMedChem( *this);
+      return new FragmentMutateCombine( *this);
     }
 
   /////////////////
@@ -215,16 +218,16 @@ namespace bcl
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
-    const std::string &FragmentAddMedChem::GetClassIdentifier() const
+    const std::string &FragmentMutateCombine::GetClassIdentifier() const
     {
       return GetStaticClassName( *this);
     }
 
     //! @brief get a short name for this class
     //! @return a short name for this class
-    const std::string &FragmentAddMedChem::GetAlias() const
+    const std::string &FragmentMutateCombine::GetAlias() const
     {
-      static const std::string s_name( "AddMedChem");
+      static const std::string s_name( "Combine");
       return s_name;
     }
 
@@ -235,235 +238,207 @@ namespace bcl
     //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
     //! @param FRAGMENT small molecule of interest
     //! @return MutateResult with Constitution after the mutate
-    math::MutateResult< FragmentComplete> FragmentAddMedChem::operator()( const FragmentComplete &FRAGMENT) const
+    math::MutateResult< FragmentComplete> FragmentMutateCombine::operator()( const FragmentComplete &FRAGMENT) const
     {
       // mutate label
-      BCL_MessageStd( "AddMedChem!");
+      BCL_MessageStd( "Combine!");
 
       // redo the whole thing n-max times; increment can also be made in an inner while-loop during atom index selection
       size_t try_index( 0);
       for( ; try_index < m_NumberMaxAttempts; ++try_index)
       {
-
         // select random medchem fragment
         iterate::Generic< const FragmentComplete> itr_gen( m_FragmentPool->Begin(), m_FragmentPool->End());
         itr_gen.GotoRandomPosition();
         FragmentComplete medchem_frag( *itr_gen);
 
-        // fragment pool marks "reactive" atom as the undefined atom
-        // get the undefined atom index
-        AtomVector< AtomComplete> medchem_atom_v( medchem_frag.GetAtomVector());
-        size_t undefined_index( util::GetUndefinedSize_t());
-        for( size_t i( 0), end_i( medchem_atom_v.GetSize()); i < end_i; ++i)
-        {
-          if( medchem_atom_v( i).GetElementType() == GetElementTypes().e_Undefined)
-          {
-            undefined_index = i;
-          }
-        }
-        if( undefined_index == util::GetUndefinedSize_t())
+        if( !FRAGMENT.GetNumberAtoms() || !medchem_frag.GetNumberAtoms())
         {
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
 
-        // get the element to which the reactive atom is bonded
-        auto &atom_bonded_to_undefined( medchem_atom_v( undefined_index).GetBonds().Begin()->GetTargetAtom());
-        size_t atom_bonded_to_undefined_index( medchem_atom_v.GetAtomIndex( atom_bonded_to_undefined));
+        // Remove hydrogens
+        // TODO modernize valence handling so that we can track atoms
+        FragmentComplete first_molecule( FRAGMENT);
+        first_molecule.RemoveH();
+        FragmentComplete second_molecule( medchem_frag);
+        second_molecule.RemoveH();
 
-        // now remove undefined atom and update tracking of the bonded atom's index
-        if( undefined_index < atom_bonded_to_undefined_index)
-        {
-          atom_bonded_to_undefined_index -= size_t( 1);
-        }
-        storage::Vector< size_t> defined_indices;
-        for( size_t i( 0), end_i( medchem_atom_v.GetSize()); i < end_i; ++i)
-        {
-          if( medchem_atom_v( i).GetElementType() != GetElementTypes().e_Undefined)
-          {
-            defined_indices.PushBack( i);
-          }
-        }
-
-        // create new medchem fragment that does not contain the undefined atom
-        medchem_atom_v.Reorder( defined_indices);
-
-        // clean up the medchem fragment
-        AtomsCompleteStandardizer standardizer(medchem_atom_v,"",true);
-        standardizer.SetConjugationOfBondTypes(medchem_atom_v);
-
-        // make new fragment
-        FragmentComplete new_medchem_frag( medchem_atom_v, "");
-        new_medchem_frag.StandardizeBondLengths();
-
-        // now pick a random heavy atom from the base fragment
-        util::SiPtr< const AtomConformationalInterface> picked_atom;
-        if( m_MutableAtomIndices.GetSize() || m_MutableElements.GetSize() || m_MutableFragments.GetSize())
-        {
-          picked_atom = this->PickAtom( FRAGMENT, false);
-        }
-        else
-        {
-          picked_atom = this->PickAtom( FRAGMENT, true);
-        }
-
-        // if the chosen atom is undefined then just grab a bonded atom
-        // this is biased to the lower index bonded atom, but should not generally matter
-        size_t undefined_base_index( util::GetUndefinedSize_t());
-        if( picked_atom->GetElementType() == GetElementTypes().e_Undefined)
-        {
-          undefined_base_index = FRAGMENT.GetAtomVector().GetAtomIndex( *picked_atom);
-          picked_atom = util::SiPtr< const AtomConformationalInterface>( picked_atom->GetBonds().Begin()->GetTargetAtom());
-        }
-
-        // restrict medchem additions to aromatic rings if desired to see if it is actually aromatic
-        size_t picked_atom_index( FRAGMENT.GetAtomVector().GetAtomIndex( *picked_atom));
-        bool aromatic( false);
-        if
+        ConformationGraphConverter graph_maker
         (
-            m_RestrictAdditionsToAroRings &&
-            picked_atom->CountNonValenceBondsWithProperty( ConfigurationalBondTypeData::e_IsInRing, size_t( 1))
-        )
-        {
-          for
-          (
-              auto bonds_itr( FRAGMENT.GetAtomVector()( picked_atom_index).GetBonds().Begin()),
-              bonds_itr_end( FRAGMENT.GetAtomVector()( picked_atom_index).GetBonds().End());
-              bonds_itr != bonds_itr_end;
-              ++bonds_itr
-          )
-          {
-            if( bonds_itr->GetBondType()->GetConjugation() == ConstitutionalBondTypeData::e_Aromatic)
-            {
-              aromatic = true;
-              break;
-            }
-          }
-        }
+          ConformationGraphConverter::e_AtomTypeAndChirality,
+          ConfigurationalBondTypeData::e_BondOrderOrAromaticWithRingness
+        );
 
-        // make sure it is a heavy atom
-        while( picked_atom->GetElementType() == GetElementTypes().e_Hydrogen && try_index < m_NumberMaxAttempts)
-        {
-          // pick random atom to transform
-          if( m_MutableAtomIndices.GetSize() || m_MutableElements.GetSize() || m_MutableFragments.GetSize())
-          {
-            picked_atom = this->PickAtom( FRAGMENT, false);
-          }
-          else
-          {
-            picked_atom = this->PickAtom( FRAGMENT, true);
-          }
+        // Make a size_t graph of the molecules
+        graph::ConstGraph< size_t, size_t> first_mol_graph( graph_maker( first_molecule));
+        graph::ConstGraph< size_t, size_t> second_mol_graph( graph_maker( second_molecule));
 
-          if( picked_atom->GetElementType() == GetElementTypes().e_Undefined)
-          {
-            undefined_base_index = FRAGMENT.GetAtomVector().GetAtomIndex( *picked_atom);
-            picked_atom = util::SiPtr< const AtomConformationalInterface>( picked_atom->GetBonds().Begin()->GetTargetAtom());
-          }
-
-          // restrict medchem additions to aromatic rings if desired to see if it is actually aromatic
-          picked_atom_index = FRAGMENT.GetAtomVector().GetAtomIndex( *picked_atom);
-          aromatic = false;
-          if
-          (
-              m_RestrictAdditionsToAroRings &&
-              picked_atom->CountNonValenceBondsWithProperty( ConfigurationalBondTypeData::e_IsInRing, size_t( 1))
-          )
-          {
-            for
-            (
-                auto bonds_itr( FRAGMENT.GetAtomVector()( picked_atom_index).GetBonds().Begin()),
-                bonds_itr_end( FRAGMENT.GetAtomVector()( picked_atom_index).GetBonds().End());
-                bonds_itr != bonds_itr_end;
-                ++bonds_itr
-            )
-            {
-              if( bonds_itr->GetBondType()->GetConjugation() == ConstitutionalBondTypeData::e_Aromatic)
-              {
-                aromatic = true;
-                break;
-              }
-            }
-          }
-          // update
-          ++try_index;
-        }
-
-        // enforce heavy atom requirement
-        if( picked_atom->GetElementType() == GetElementTypes().e_Hydrogen)
-        {
-          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
-        }
-
-        // enforce aromatic ring requirement
-        if
+        // Break a random single bond in each molecule and retrieve the fragments
+        storage::List< storage::Vector< size_t> > first_mol_frags
         (
-            m_RestrictAdditionsToAroRings &&
-            !aromatic
-        )
-        {
-          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
-        }
-
-        // move forward with the chosen index
-        picked_atom_index = FRAGMENT.GetAtomVector().GetAtomIndex( *picked_atom);
-
-        // adjust the picked atom index for when we remove the undefined atom from the base fragment
-        if( undefined_base_index < picked_atom_index)
-        {
-          picked_atom_index -= size_t( 1);
-        }
-
-        // get an atom vector of starting molecule that only contains the defined atoms
-        storage::Vector< size_t> keep_indices;
-        for( size_t i( 0); i < FRAGMENT.GetSize(); ++i)
-        {
-          if( i == undefined_base_index)
-          {
-            continue;
-          }
-          keep_indices.PushBack( i);
-        }
-        AtomVector< AtomComplete> all_defined_atom_v( FRAGMENT.GetAtomVector());
-        all_defined_atom_v.Reorder( keep_indices);
-        AtomsCompleteStandardizer standardizer_2( all_defined_atom_v, "", true);
-        standardizer.SetConjugationOfBondTypes( all_defined_atom_v);
-
-        // make new fragment
-        FragmentComplete fragment( all_defined_atom_v, FRAGMENT.GetName());
-        fragment.StandardizeBondLengths();
-
-        // TODO: control with bool
-        //      // if aromatic, check if substitution will be directed correctly
-        //      size_t n_aro_neigh( picked_atom->CountNonValenceBondsWithProperty( chemistry::ConfigurationalBondTypeData::e_IsAromatic, 1));
-        //      if( n_aro_neigh)
-        //      {
-        //        if( !IsRingSubstitutionDirected( FRAGMENT, picked_atom))
-        //        {
-        //          // if aromatic and not correctly substituted, skip mutate
-        //          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
-        //        }
-        //      }
-
-        // open a valence for the addition
-        storage::Triplet< FragmentComplete, size_t, size_t> pair_a( OpenValence( fragment, picked_atom_index, m_OVShuffleH, m_OVReverse));
-
-        // join the medchem fragment to our base molecule
-        storage::Pair< bool, FragmentComplete> new_fragment
-        (
-          MergeFragmentComplete::MergeFragments
+          FragmentEvolveBase::FragmentsFromRandomBondBreakage
           (
-            util::IsDefined( undefined_base_index) ? fragment : pair_a.First(),
-                new_medchem_frag,
-                GetConfigurationalBondTypes().e_NonConjugatedSingleBond,
-                util::IsDefined( undefined_base_index) ?
-                    storage::Pair< size_t, size_t>( picked_atom_index, atom_bonded_to_undefined_index) :
-                    storage::Pair< size_t, size_t>( pair_a.Second(), atom_bonded_to_undefined_index)
+            first_molecule, first_mol_graph
           )
         );
 
-        // try again
-        if( !new_fragment.First())
+        storage::List< storage::Vector< size_t> > second_mol_frags
+        (
+          FragmentEvolveBase::FragmentsFromRandomBondBreakage
+          (
+            second_molecule, second_mol_graph
+          )
+        );
+
+        size_t first_mol_frags_size( first_mol_frags.GetSize());
+        size_t second_mol_frags_size( second_mol_frags.GetSize());
+
+        // there should be only two fragments from each molecule, otherwise combining pieces is senseless
+        if( first_mol_frags_size != 2 || second_mol_frags_size != 2)
         {
-          continue;
+          BCL_MessageVrb
+          (
+            "First mol had " + util::Format()( first_mol_frags_size) + " fragments, second had "
+            + util::Format()( second_mol_frags_size)
+          );
+          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
+        }
+
+        // If everything succeeded, make atom graphs of the molecules
+        ConformationGraphConverter::t_AtomGraph first_mol_atom_graph( graph_maker.CreateGraphWithAtoms( first_molecule));
+        ConformationGraphConverter::t_AtomGraph second_mol_atom_graph( graph_maker.CreateGraphWithAtoms( second_molecule));
+
+        // OwnPtrs to graphs; to be used in subgraph construction
+        util::OwnPtr< graph::ConstGraph< size_t, size_t> > optr_first_graph( &first_mol_graph, false);
+        util::OwnPtr< graph::ConstGraph< size_t, size_t> > optr_second_graph( &second_mol_graph, false);
+
+        // The FragmentEnsemble that will be returned
+        storage::Vector< FragmentComplete> new_molecules;
+
+        ///////////////
+        // Determine which bond was broken in each molecule
+        ///////////////
+
+        graph::Subgraph< size_t, size_t> first_subgraph( optr_first_graph, *first_mol_frags.Begin());
+        storage::List< storage::Pair< size_t, size_t> > first_adj_edges( first_subgraph.GetAdjacentEdgeIndices());
+        if( first_adj_edges.GetSize() != 1)
+        {
+          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
+        }
+        storage::Pair< size_t, size_t> &first_broken_bond( *first_adj_edges.Begin());
+
+        graph::Subgraph< size_t, size_t> second_subgraph( optr_second_graph, *second_mol_frags.Begin());
+        storage::List< storage::Pair< size_t, size_t> > second_adj_edges( second_subgraph.GetAdjacentEdgeIndices());
+        if( second_adj_edges.GetSize() != 1)
+        {
+          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
+        }
+        storage::Pair< size_t, size_t> &second_broken_bond( *second_adj_edges.Begin());
+
+        // Combine each fragment with each other fragment
+        for
+        (
+          storage::List< storage::Vector< size_t> >::const_iterator itr_first_frag( first_mol_frags.Begin()),
+            itr_first_frag_end( first_mol_frags.End());
+          itr_first_frag != itr_first_frag_end;
+          ++itr_first_frag
+        )
+        {
+
+          if( itr_first_frag->GetSize() > m_MaxFragmentSize)
+          {
+            continue;
+          }
+
+          // get which atom from the first fragment's subgraph was in the broken bond
+          size_t first_atom
+          (
+            itr_first_frag->Find( first_broken_bond.First()) < itr_first_frag->GetSize()
+            ? first_broken_bond.First()
+            : first_broken_bond.Second()
+          );
+
+          for
+          (
+            storage::List< storage::Vector< size_t> >::const_iterator itr_second_frag( second_mol_frags.Begin()),
+              itr_second_frag_end( second_mol_frags.End());
+              itr_second_frag != itr_second_frag_end;
+            ++itr_second_frag
+          )
+          {
+
+            if( itr_second_frag->GetSize() > m_MaxFragmentSize)
+            {
+              continue;
+            }
+
+            // get which atom from the second fragment's subgraph was in the broken bond
+            size_t second_atom
+            (
+              itr_second_frag->Find( second_broken_bond.First()) < itr_second_frag->GetSize()
+              ? second_broken_bond.First()
+              : second_broken_bond.Second()
+            );
+
+            storage::Vector< size_t> first_mapping;
+            first_mapping.AllocateMemory( first_mol_graph.GetSize());
+            storage::Vector< size_t> second_mapping;
+            second_mapping.AllocateMemory( second_mol_graph.GetSize());
+
+            util::SiPtr< storage::Vector< size_t> > sip_first_map( &first_mapping);
+            util::SiPtr< storage::Vector< size_t> > sip_second_map( &second_mapping);
+
+            // Get the atom graphs and the mappings for each fragment
+            ConformationGraphConverter::t_AtomGraph first_frag_graph
+            (
+              first_mol_atom_graph.GetSubgraph( *itr_first_frag, sip_first_map)
+            );
+
+            ConformationGraphConverter::t_AtomGraph second_frag_graph
+            (
+              second_mol_atom_graph.GetSubgraph( *itr_second_frag, sip_second_map)
+            );
+
+            // Make FragmentCompletes
+            FragmentComplete first_frag( graph_maker.CreateAtomsFromGraph( first_frag_graph), "");
+            FragmentComplete second_frag( graph_maker.CreateAtomsFromGraph( second_frag_graph), "");
+
+            // Determine if the bond should be conjugated or not
+            const bool is_conjugated
+            (
+              first_frag.GetAtomVector()( first_mapping( first_atom)).GetAtomType()->IsConjugated() &&
+              second_frag.GetAtomVector()( second_mapping( second_atom)).GetAtomType()->IsConjugated()
+            );
+
+            storage::Pair< bool, FragmentComplete> merged
+            (
+              MergeFragmentComplete::MergeFragments
+              (
+                first_frag,
+                second_frag,
+                is_conjugated
+                  ? GetConfigurationalBondTypes().e_ConjugatedSingleBond
+                  : GetConfigurationalBondTypes().e_NonConjugatedSingleBond,
+                storage::Pair< size_t, size_t>
+                (
+                  first_mapping( first_atom),
+                  second_mapping( second_atom)
+                )
+              )
+            );
+
+            if( merged.First())
+            {
+              new_molecules.PushBack( merged.Second());
+            }
+          }
+        }
+
+        // exit if nothing
+        if( !new_molecules.GetSize())
+        {
+          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
 
         // for cleaning and optimizing the new molecule conformer
@@ -479,7 +454,10 @@ namespace bcl
         );
 
         // clean and output
-        AtomVector< AtomComplete> atoms( new_fragment.Second().GetAtomVector());
+        // TODO: make some type of selector to choose which fragment to take (e.g., Largest, Smallest, Closest to some feature space, etc)
+        iterate::Generic< const FragmentComplete> mol_itr( new_molecules.Begin(), new_molecules.End());
+        mol_itr.GotoRandomPosition();
+        AtomVector< AtomComplete> atoms( mol_itr->GetAtomVector());
 
         // Remove hydrogen atoms to allow bond type adjustment
         HydrogensHandler::Remove( atoms);
@@ -489,7 +467,7 @@ namespace bcl
         }
         else
         {
-          return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, fragment, m_DrugLikenessType), *this);
+          return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, FRAGMENT, m_DrugLikenessType), *this);
         }
       }
       return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
@@ -500,7 +478,7 @@ namespace bcl
   ////////////////
 
     //! @brief set medchem fragment library from filename
-    void FragmentAddMedChem::SetFragmentLibraryFromFilename( const std::string &FRAGMENTS_FILENAME)
+    void FragmentMutateCombine::SetFragmentLibraryFromFilename( const std::string &FRAGMENTS_FILENAME)
     {
       s_Mutex.Lock();
       io::IFStream input;
@@ -516,28 +494,32 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    io::Serializer FragmentAddMedChem::GetSerializer() const
+    io::Serializer FragmentMutateCombine::GetSerializer() const
     {
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
       (
-        "Appends a classic medicinal chemistry functional group to the current molecule"
+        "Combines a fragment from a target molecule with a fragment from an external library. "
+        "WARNING - This mutate is created from a legacy chemical perturbation function. "
+        "This mutate does NOT obey atom selection rules, and it was modified from "
+        "its original version to fit the FragmentMutateInterface framework for "
+        "compatibility purposes. "
       );
 
       parameters.AddInitializer
       (
-        "medchem_library",
-        "path to the medchem library",
-        io::Serialization::GetAgent( &m_MedChemFilename),
-        RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "medchem_fragments/bcl_buildfrag_0.sdf.gz"
+        "fragment_library",
+        "path to the fragment library",
+        io::Serialization::GetAgent( &m_FragmentFilename),
+        ""
       );
 
       parameters.AddInitializer
       (
-        "restrict_additions_to_aromatic_rings",
-        "only permit medchem additions if the base atom is part of an aromatic ring",
-        io::Serialization::GetAgent( &m_RestrictAdditionsToAroRings),
-        "false"
+        "max_fragment_size",
+        "maximum allowed size of fragments used for recombination.",
+        io::Serialization::GetAgent( &m_MaxFragmentSize),
+        "50"
       );
 
       return parameters;
@@ -546,7 +528,7 @@ namespace bcl
     //! @brief Set the members of this property from the given LABEL
     //! @param LABEL the label to parse
     //! @param ERROR_STREAM the stream to write errors to
-    bool FragmentAddMedChem::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+    bool FragmentMutateCombine::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
     {
       // static initialization check
       if( command::CommandState::IsInStaticInitialization())
@@ -561,11 +543,11 @@ namespace bcl
       }
 
       // read in ring library filename
-      if( m_MedChemFilename.size())
+      if( m_FragmentFilename.size())
       {
         s_Mutex.Lock();
         io::IFStream input;
-        io::File::MustOpenIFStream( input, m_MedChemFilename);
+        io::File::MustOpenIFStream( input, m_FragmentFilename);
         FragmentEnsemble medchem_groups;
         medchem_groups.ReadMoreFromMdl( input);
         m_FragmentPool = util::CloneToShPtr( medchem_groups);
@@ -584,7 +566,7 @@ namespace bcl
     //! @brief read from std::istream
     //! @param ISTREAM input stream
     //! @return istream which was read from
-    std::istream &FragmentAddMedChem::Read( std::istream &ISTREAM)
+    std::istream &FragmentMutateCombine::Read( std::istream &ISTREAM)
     {
       io::Serialize::Read( m_FragmentPool, ISTREAM);
       return ISTREAM;
@@ -594,7 +576,7 @@ namespace bcl
     //! @param OSTREAM output stream
     //! @param INDENT number of indentations
     //! @return ostream which was written to
-    std::ostream &FragmentAddMedChem::Write( std::ostream &OSTREAM, const size_t INDENT) const
+    std::ostream &FragmentMutateCombine::Write( std::ostream &OSTREAM, const size_t INDENT) const
     {
       io::Serialize::Write( m_FragmentPool, OSTREAM, INDENT) << '\n';
       return OSTREAM;

@@ -17,13 +17,13 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "chemistry/bcl_chemistry_fragment_alchemy.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_alchemy.h"
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
 #include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
 #include "chemistry/bcl_chemistry_fragment_map_conformer.h"
-#include "chemistry/bcl_chemistry_fragment_remove_bond.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_remove_bond.h"
 #include "chemistry/bcl_chemistry_fragment_track_mutable_atoms.h"
 #include "chemistry/bcl_chemistry_hydrogens_handler.h"
 #include "chemistry/bcl_chemistry_merge_fragment_complete.h"
@@ -47,9 +47,9 @@ namespace bcl
   //////////
 
     // add the interface to the set of known implementations
-    const util::SiPtr< const util::ObjectInterface> FragmentAlchemy::s_Instance
+    const util::SiPtr< const util::ObjectInterface> FragmentMutateAlchemy::s_Instance
     (
-      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentAlchemy())
+      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentMutateAlchemy())
     );
 
   //////////////////////////////////
@@ -57,7 +57,7 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    FragmentAlchemy::FragmentAlchemy() :
+    FragmentMutateAlchemy::FragmentMutateAlchemy() :
         m_AllowedElements( storage::Vector< ElementType>()),
         m_AllowedElementsString( "H C O N S"),
         m_FormalCharge( util::GetUndefined< float>()),
@@ -69,7 +69,7 @@ namespace bcl
 
     //! @brief druglikeness constructor
     //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-    FragmentAlchemy::FragmentAlchemy
+    FragmentMutateAlchemy::FragmentMutateAlchemy
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const bool &CORINA_CONFS
@@ -89,7 +89,7 @@ namespace bcl
     //! @brief secondary constructor
     //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
     //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
-    FragmentAlchemy::FragmentAlchemy
+    FragmentMutateAlchemy::FragmentMutateAlchemy
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -113,7 +113,7 @@ namespace bcl
     //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
     //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
     //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-    FragmentAlchemy::FragmentAlchemy
+    FragmentMutateAlchemy::FragmentMutateAlchemy
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -145,7 +145,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentAlchemy::FragmentAlchemy
+    FragmentMutateAlchemy::FragmentMutateAlchemy
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -185,7 +185,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentAlchemy::FragmentAlchemy
+    FragmentMutateAlchemy::FragmentMutateAlchemy
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -215,9 +215,9 @@ namespace bcl
     }
 
     //! @brief clone constructor
-    FragmentAlchemy *FragmentAlchemy::Clone() const
+    FragmentMutateAlchemy *FragmentMutateAlchemy::Clone() const
     {
-      return new FragmentAlchemy( *this);
+      return new FragmentMutateAlchemy( *this);
     }
 
   /////////////////
@@ -226,14 +226,14 @@ namespace bcl
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
-    const std::string &FragmentAlchemy::GetClassIdentifier() const
+    const std::string &FragmentMutateAlchemy::GetClassIdentifier() const
     {
       return GetStaticClassName( *this);
     }
 
     //! @brief get a short name for this class
     //! @return a short name for this class
-    const std::string &FragmentAlchemy::GetAlias() const
+    const std::string &FragmentMutateAlchemy::GetAlias() const
     {
       static const std::string s_name( "Alchemy");
       return s_name;
@@ -244,7 +244,7 @@ namespace bcl
     //! mutate has not yet been run, this will return an undefined
     //! element type object, which is different than the element
     //! type notated 'X' for undefined.
-    const ElementType &FragmentAlchemy::GetChosenElementType() const
+    const ElementType &FragmentMutateAlchemy::GetChosenElementType() const
     {
       return m_ChosenElementType;
     }
@@ -256,9 +256,9 @@ namespace bcl
     //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
     //! @param FRAGMENT small molecule of interest
     //! @return MutateResult with Constitution after the mutate
-    math::MutateResult< FragmentComplete> FragmentAlchemy::operator()( const FragmentComplete &FRAGMENT) const
+    math::MutateResult< FragmentComplete> FragmentMutateAlchemy::operator()( const FragmentComplete &FRAGMENT) const
     {
-      BCL_MessageStd( "FragmentAlchemy!");
+      BCL_MessageStd( "FragmentMutateAlchemy!");
 
       // try this a few times
       for( size_t counter( 0); counter < m_NumberMaxAttempts; ++counter)
@@ -523,19 +523,19 @@ namespace bcl
   ////////////////
 
     //! @brief set the fragment mutable atom indices
-    void FragmentAlchemy::SetAllowedElements( const storage::Vector< ElementType> &ALLOWED_ELEMENTS)
+    void FragmentMutateAlchemy::SetAllowedElements( const storage::Vector< ElementType> &ALLOWED_ELEMENTS)
     {
       m_AllowedElements = ALLOWED_ELEMENTS;
     }
 
     //! @brief set the fragment mutable atom indices
-    void FragmentAlchemy::SetRestrictions( const bool RESTRICT_TO_BOND_H)
+    void FragmentMutateAlchemy::SetRestrictions( const bool RESTRICT_TO_BOND_H)
     {
       m_RestrictToBondedH = RESTRICT_TO_BOND_H;
     }
 
     //! @brief set the chosen element type to which we are mutating
-    void FragmentAlchemy::SetChosenElement( const ElementType &ELEMENT_TYPE) const
+    void FragmentMutateAlchemy::SetChosenElement( const ElementType &ELEMENT_TYPE) const
     {
       m_ChosenElementType = ELEMENT_TYPE;
     }
@@ -544,7 +544,7 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    io::Serializer FragmentAlchemy::GetSerializer() const
+    io::Serializer FragmentMutateAlchemy::GetSerializer() const
     {
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
@@ -588,7 +588,7 @@ namespace bcl
         "is that hydrogen atoms can be difficult to track. Generally, the mutates strip and re-add hydrogen "
         "atoms during the cleaning phase, which means that hydrogen atom indices change at a much easier than "
         "heavy atom indices. So, if you are using multiple mutates sequentially and you want to perturb hydrogen "
-        "atoms directly with FragmentAlchemy, consider doing it by specifying the bonded heavy atom index as "
+        "atoms directly with FragmentMutateAlchemy, consider doing it by specifying the bonded heavy atom index as "
         "mutable and setting this flag true.",
         io::Serialization::GetAgent( &m_RestrictToBondedH),
         "false"
@@ -600,7 +600,7 @@ namespace bcl
     //! @brief Set the members of this property from the given LABEL
     //! @param LABEL the label to parse
     //! @param ERROR_STREAM the stream to write errors to
-    bool FragmentAlchemy::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+    bool FragmentMutateAlchemy::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
     {
       // static initialization check
       if( command::CommandState::IsInStaticInitialization())

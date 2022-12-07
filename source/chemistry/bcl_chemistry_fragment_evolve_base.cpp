@@ -25,6 +25,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_rotamer_library_file.h"
 #include "chemistry/bcl_chemistry_sample_conformations.h"
 #include "chemistry/bcl_chemistry_stereocenters_handler.h"
+#include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "io/bcl_io_directory_entry.h"
 #include "io/bcl_io_file.h"
 #include "sdf/bcl_sdf_fragment_factory.h"
@@ -56,125 +57,12 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    namespace
-    {
-      // helper struct to keept track of bad-bond info
-      struct BadBond
-      {
-        // Data
-        ElementType m_Element1;
-        ElementType m_Element2;
-        size_t m_BondOrder; // 0 is any, 1, 2, 3 do what you expect, 4 is aromatic
-        bool m_InRing;
-
-        //! @brief default constructor
-        BadBond() :
-          m_Element1(),
-          m_Element2(),
-          m_BondOrder(),
-          m_InRing()
-        {
-        }
-
-        //! @brief full constructor
-        BadBond
-        (
-          const ElementType &ELEMENT1,
-          const ElementType &ELEMENT2,
-          const int &BOND_ORDER,
-          const bool &IN_RING
-        ) :
-          m_Element1( ELEMENT1),
-          m_Element2( ELEMENT2),
-          m_BondOrder( BOND_ORDER),
-          m_InRing( IN_RING)
-        {
-        }
-      };
-    }
-
-    //! @brief returns the number of heteroatom-heteroatom (same element) non-ring bonds in a molecule
+    //! @brief evaluates a molecule's topology to see if there are druglikeness violations
     //! @param MOLECULE the molecule to inspect
-    //! @return the number of bad bonds in MOLECULE
-    size_t FragmentEvolveBase::NumberBadBonds( const FragmentComplete &MOLECULE)
+    //! @return false if the molecule fails any of the druglikeness checks in MoleculeDruglike; true otherwise
+    bool FragmentEvolveBase::IsConstitutionDruglike( const FragmentComplete &MOLECULE)
     {
-      static std::vector< BadBond> bad_bond_info;
-      if( bad_bond_info.empty())
-      {
-        // To oxygen
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Oxygen, GetElementTypes().e_Oxygen, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Oxygen, GetElementTypes().e_Nitrogen, 1, false));
-
-        // To sulfur
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Sulfur, 1, true));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Sulfur, 1, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Sulfur, 1, false));
-
-        // To nitrogen
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Nitrogen, GetElementTypes().e_Nitrogen, 2, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Nitrogen, GetElementTypes().e_Nitrogen, 1, false));
-
-        // To halogens
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Nitrogen, GetElementTypes().e_Fluorine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Nitrogen, GetElementTypes().e_Chlorine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Nitrogen, GetElementTypes().e_Bromine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Nitrogen, GetElementTypes().e_Iodine, 0, false));
-
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Oxygen, GetElementTypes().e_Fluorine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Oxygen, GetElementTypes().e_Chlorine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Oxygen, GetElementTypes().e_Bromine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Oxygen, GetElementTypes().e_Iodine, 0, false));
-
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Fluorine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Chlorine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Bromine, 0, false));
-        bad_bond_info.push_back( BadBond( GetElementTypes().e_Sulfur, GetElementTypes().e_Iodine, 0, false));
-      }
-
-      size_t bad_bonds( 0);
-      iterate::Generic< const AtomConformationalInterface> itr_atom( MOLECULE.GetAtomsIterator());
-      for( ; itr_atom.NotAtEnd(); ++itr_atom)
-      {
-        const ElementType &element( itr_atom->GetElementType());
-        if
-        (
-          element == GetElementTypes().e_Carbon
-          || element == GetElementTypes().e_Hydrogen
-        )
-        {
-          continue;
-        }
-        const storage::Vector< BondConformational> &atom_bonds( itr_atom->GetBonds());
-        for( size_t i( 0); i < atom_bonds.GetSize(); ++i)
-        {
-          const ConfigurationalBondType &bond_type( atom_bonds( i).GetBondType());
-          const ElementType &neighbor_element( atom_bonds( i).GetTargetAtom().GetElementType());
-
-          // Iterate through each bad bond and see if the bond matches
-          for( size_t b = 0; b < bad_bond_info.size(); ++b)
-          {
-            const BadBond &bad_bond( bad_bond_info[ b]);
-            if
-            (
-              ( ( element == bad_bond.m_Element1 && neighbor_element == bad_bond.m_Element2)
-                || ( element == bad_bond.m_Element2 && neighbor_element == bad_bond.m_Element1))
-              && bond_type->IsBondInRing() == bad_bond.m_InRing
-            )
-            {
-              if
-              (
-                bad_bond.m_BondOrder == 0
-                || ( bond_type->GetConjugation() == ConstitutionalBondTypeData::e_Aromatic && bad_bond.m_BondOrder == 4)
-                || ( bond_type->GetNumberOfElectrons() == bad_bond.m_BondOrder * 2)
-              )
-              {
-                ++bad_bonds;
-              }
-            }
-          }
-        }
-      }
-      return bad_bonds;
+      return descriptor::GetCheminfoProperties().calc_IsMolDruglike->SumOverObject( MOLECULE)( 0);
     }
 
     //! @brief generates the 3d conformation from the 2d conformation by doing a system call to corina
@@ -272,8 +160,9 @@ namespace bcl
 
     //! @brief Finalizes a molecule by running it through the atom standardizer and getting a 3D conformation
     //! @param MOLECULE the molecule to finalize
+    //! @param CORINA generate a 3D conformer with corina (requires system call to external program)
     //! @return a new FragmentComplete that has been cleaned
-    util::ShPtr< FragmentComplete> FragmentEvolveBase::FinalizeMolecule( const FragmentComplete &MOLECULE)
+    util::ShPtr< FragmentComplete> FragmentEvolveBase::FinalizeMolecule( const FragmentComplete &MOLECULE, const bool CORINA)
     {
 
       if( !MOLECULE.GetNumberAtoms())
@@ -294,8 +183,9 @@ namespace bcl
       // Return the 3D conformer
       util::ShPtr< FragmentComplete> molecule_3D;
 
-      // Use SampleConformations instead of Corina
-//      molecule_3D = GetCorina3DCoordinates( new_fragment);
+      // Generate 3D conformer
+      CORINA ?
+      molecule_3D = GetCorina3DCoordinates( new_fragment) :
       molecule_3D = MakeBCLConformer( new_fragment);
 
       if( molecule_3D.IsDefined())
@@ -314,6 +204,90 @@ namespace bcl
       }
 
       return molecule_3D;
+    }
+
+    //! @brief determines what fragments would result from breaking a bond in a graph
+    //! @param MOLECULE_GRAPH the graph that will have its bond broken
+    //! @param FROM one vertex that makes up the bond to break
+    //! @param TO the other vertex
+    //! @return a list of vectors of indices which correspond to connected components of the graph
+    storage::List< storage::Vector< size_t> > FragmentEvolveBase::CollectFragmentsFromBondBreakage
+    (
+      graph::ConstGraph< size_t, size_t> &MOLECULE_GRAPH,
+      const size_t &FROM,
+      const size_t &TO
+    )
+    {
+      if( FROM >= MOLECULE_GRAPH.GetSize() || TO >= MOLECULE_GRAPH.GetSize() || FROM == TO)
+      {
+        return storage::List< storage::Vector< size_t> >();
+      }
+
+      // Save the bond info
+      size_t bond_info( MOLECULE_GRAPH.GetEdgeData( FROM, TO));
+
+      // Break the bond
+      MOLECULE_GRAPH.RemoveEdge( FROM, TO);
+
+      // Get the pieces of the graph
+      storage::List< storage::Vector< size_t> > components( graph::Connectivity::GetComponents( MOLECULE_GRAPH));
+
+      // Restore the bond
+      MOLECULE_GRAPH.AddEdge( FROM, TO, bond_info);
+
+      return components;
+    }
+
+    //! @brief determines what fragments would result from breaking a bond in a graph
+    //! @param MOLECULE the molecule that will have a bond broken
+    //! @param MOLECULE_GRAPH the graph MOLECULE
+    //! @return a list of vectors of indices which correspond to connected components of the graph
+    storage::List< storage::Vector< size_t> > FragmentEvolveBase::FragmentsFromRandomBondBreakage
+    (
+      const FragmentComplete &MOLECULE,
+      graph::ConstGraph< size_t, size_t> &MOLECULE_GRAPH,
+      const size_t &EDGE_TYPE
+    )
+    {
+      // Make sure everything matches
+      if( MOLECULE_GRAPH.GetSize() == 0 || MOLECULE_GRAPH.GetSize() != MOLECULE.GetNumberAtoms())
+      {
+        return storage::List< storage::Vector< size_t> >();
+      }
+
+      // Get a list of bonds of the molecule
+      storage::Vector< sdf::BondInfo> bonds( MOLECULE.GetBondInfo());
+
+      // Determine which ones can be broken; don't break ring bonds
+      storage::Vector< size_t> available_bonds;
+      available_bonds.AllocateMemory( bonds.GetSize());
+
+      for( size_t pos( 0), end( bonds.GetSize()); pos < end; ++pos)
+      {
+        // Check to make sure the edge isn't in a ring, and it matches the edge type
+        if
+        (
+          !bonds( pos).GetConstitutionalBondType()->IsBondInRing()
+          && MOLECULE_GRAPH.GetEdgeData( bonds( pos).GetAtomIndexLow(), bonds( pos).GetAtomIndexHigh()) == EDGE_TYPE
+        )
+        {
+          available_bonds.PushBack( pos);
+        }
+      }
+
+      if( !available_bonds.GetSize())
+      {
+        return storage::List< storage::Vector< size_t> >();
+      }
+
+      size_t which_bond( random::GetGlobalRandom().Random< size_t>( available_bonds.GetSize() - 1));
+
+      return CollectFragmentsFromBondBreakage
+          (
+            MOLECULE_GRAPH,
+            bonds( available_bonds( which_bond)).GetAtomIndexLow(),
+            bonds( available_bonds( which_bond)).GetAtomIndexHigh()
+          );
     }
 
   //////////////////////

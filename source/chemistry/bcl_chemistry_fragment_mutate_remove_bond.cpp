@@ -17,7 +17,7 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "chemistry/bcl_chemistry_fragment_remove_bond.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_remove_bond.h"
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
@@ -42,13 +42,13 @@ namespace bcl
   //////////
 
     // add the interfaces to the set of known implementations
-    const util::SiPtr< const util::ObjectInterface> FragmentRemoveBond::s_AddBondInstance
+    const util::SiPtr< const util::ObjectInterface> FragmentMutateRemoveBond::s_AddBondInstance
     (
-      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentRemoveBond( FragmentRemoveBond::BondTreatment::e_AddBond))
+      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentMutateRemoveBond( FragmentMutateRemoveBond::BondTreatment::e_AddBond))
     );
-    const util::SiPtr< const util::ObjectInterface> FragmentRemoveBond::s_RemoveBondInstance
+    const util::SiPtr< const util::ObjectInterface> FragmentMutateRemoveBond::s_RemoveBondInstance
     (
-      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentRemoveBond( FragmentRemoveBond::BondTreatment::e_RemoveBond))
+      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentMutateRemoveBond( FragmentMutateRemoveBond::BondTreatment::e_RemoveBond))
     );
 
   //////////////////////////////////
@@ -56,8 +56,8 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    FragmentRemoveBond::FragmentRemoveBond() :
-      m_BondChange( FragmentRemoveBond::BondTreatment::e_RemoveBond),
+    FragmentMutateRemoveBond::FragmentMutateRemoveBond() :
+      m_BondChange( FragmentMutateRemoveBond::BondTreatment::e_RemoveBond),
       m_BondType( GetConfigurationalBondTypes().e_NonConjugatedSingleBond),
       m_PairedAtomIndices( storage::Vector< size_t>()),
       m_PairedAtoms( std::string())
@@ -67,7 +67,7 @@ namespace bcl
 
     //! @brief bond change constructor
     //! @param BOND_CHANGE whether to add or remove bond
-    FragmentRemoveBond::FragmentRemoveBond( const BondTreatment &BOND_CHANGE) :
+    FragmentMutateRemoveBond::FragmentMutateRemoveBond( const BondTreatment &BOND_CHANGE) :
       m_BondChange( BOND_CHANGE),
       m_BondType( GetConfigurationalBondTypes().e_NonConjugatedSingleBond),
       m_PairedAtomIndices( storage::Vector< size_t>()),
@@ -78,12 +78,12 @@ namespace bcl
 
     //! @brief druglikeness constructor
     //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-    FragmentRemoveBond::FragmentRemoveBond
+    FragmentMutateRemoveBond::FragmentMutateRemoveBond
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const bool &CORINA_CONFS
     ) :
-      m_BondChange( FragmentRemoveBond::BondTreatment::e_RemoveBond),
+      m_BondChange( FragmentMutateRemoveBond::BondTreatment::e_RemoveBond),
       m_BondType( GetConfigurationalBondTypes().e_NonConjugatedSingleBond),
       m_PairedAtomIndices( storage::Vector< size_t>()),
       m_PairedAtoms( std::string())
@@ -99,7 +99,7 @@ namespace bcl
     //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
     //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
     //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-    FragmentRemoveBond::FragmentRemoveBond
+    FragmentMutateRemoveBond::FragmentMutateRemoveBond
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -107,7 +107,7 @@ namespace bcl
       const storage::Vector< size_t> &MUTABLE_ATOM_INDICES,
       const bool &CORINA_CONFS
     ) :
-      m_BondChange( FragmentRemoveBond::BondTreatment::e_RemoveBond),
+      m_BondChange( FragmentMutateRemoveBond::BondTreatment::e_RemoveBond),
       m_BondType( GetConfigurationalBondTypes().e_NonConjugatedSingleBond),
       m_PairedAtomIndices( storage::Vector< size_t>()),
       m_PairedAtoms( std::string())
@@ -130,7 +130,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentRemoveBond::FragmentRemoveBond
+    FragmentMutateRemoveBond::FragmentMutateRemoveBond
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -142,7 +142,7 @@ namespace bcl
       const storage::Vector< float> &BFACTORS,
       const bool &CORINA_CONFS
     ) :
-      m_BondChange( FragmentRemoveBond::BondTreatment::e_RemoveBond),
+      m_BondChange( FragmentMutateRemoveBond::BondTreatment::e_RemoveBond),
       m_BondType( GetConfigurationalBondTypes().e_NonConjugatedSingleBond),
       m_PairedAtomIndices( storage::Vector< size_t>()),
       m_PairedAtoms( std::string())
@@ -169,7 +169,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentRemoveBond::FragmentRemoveBond
+    FragmentMutateRemoveBond::FragmentMutateRemoveBond
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -180,7 +180,7 @@ namespace bcl
       const storage::Vector< float> &BFACTORS,
       const bool &CORINA_CONFS
     ) :
-      m_BondChange( FragmentRemoveBond::BondTreatment::e_RemoveBond),
+      m_BondChange( FragmentMutateRemoveBond::BondTreatment::e_RemoveBond),
       m_BondType( GetConfigurationalBondTypes().e_NonConjugatedSingleBond),
       m_PairedAtomIndices( storage::Vector< size_t>()),
       m_PairedAtoms( std::string())
@@ -198,9 +198,9 @@ namespace bcl
     }
 
     //! @brief clone constructor
-    FragmentRemoveBond *FragmentRemoveBond::Clone() const
+    FragmentMutateRemoveBond *FragmentMutateRemoveBond::Clone() const
     {
-      return new FragmentRemoveBond( *this);
+      return new FragmentMutateRemoveBond( *this);
     }
 
   /////////////////
@@ -209,14 +209,14 @@ namespace bcl
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
-    const std::string &FragmentRemoveBond::GetClassIdentifier() const
+    const std::string &FragmentMutateRemoveBond::GetClassIdentifier() const
     {
       return GetStaticClassName( *this);
     }
 
     //! @brief get a short name for this class
     //! @return a short name for this class
-    const std::string &FragmentRemoveBond::GetAlias() const
+    const std::string &FragmentMutateRemoveBond::GetAlias() const
     {
       static const std::string s_remove( "RemoveBond"), s_add( "AddBond");
       return m_BondChange == e_AddBond ? s_add : s_remove;
@@ -229,9 +229,9 @@ namespace bcl
     //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
     //! @param FRAGMENT small molecule of interest
     //! @return MutateResult with Constitution after the mutate
-    math::MutateResult< FragmentComplete> FragmentRemoveBond::operator()( const FragmentComplete &FRAGMENT) const
+    math::MutateResult< FragmentComplete> FragmentMutateRemoveBond::operator()( const FragmentComplete &FRAGMENT) const
     {
-      std::string name( "FragmentRemoveBond!");
+      std::string name( "FragmentMutateRemoveBond!");
       if( m_BondChange == e_AddBond)
       {
         name = "FragmentAddBond!";
@@ -380,7 +380,7 @@ namespace bcl
   ////////////////
 
     //! @brief set the bond change type
-    void FragmentRemoveBond::SetBondChange( const BondTreatment &BOND_CHANGE)
+    void FragmentMutateRemoveBond::SetBondChange( const BondTreatment &BOND_CHANGE)
     {
       m_BondChange = BOND_CHANGE;
     }
@@ -389,7 +389,7 @@ namespace bcl
     //! @param FRAGMENT the small molecule of interest
     //! @param BOND the bond to remove
     //! @return atom vector after removal of the bond
-    AtomVector< AtomComplete> FragmentRemoveBond::RemoveBond( const FragmentComplete &FRAGMENT, const sdf::BondInfo &BOND) const
+    AtomVector< AtomComplete> FragmentMutateRemoveBond::RemoveBond( const FragmentComplete &FRAGMENT, const sdf::BondInfo &BOND) const
     {
       // remove bond
       storage::Vector< sdf::AtomInfo> atominfo( FRAGMENT.GetAtomInfo());
@@ -432,7 +432,7 @@ namespace bcl
     //! @param FRAGMENT the small molecule of interest
     //! @param BOND the bond to add
     //! @return atom vector after addition of the bond
-    AtomVector< AtomComplete> FragmentRemoveBond::AddBond( const FragmentComplete &FRAGMENT, const sdf::BondInfo &BOND) const
+    AtomVector< AtomComplete> FragmentMutateRemoveBond::AddBond( const FragmentComplete &FRAGMENT, const sdf::BondInfo &BOND) const
     {
       // add bond
       storage::Vector< sdf::AtomInfo> atominfo( FRAGMENT.GetAtomInfo());
@@ -447,7 +447,7 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    io::Serializer FragmentRemoveBond::GetSerializer() const
+    io::Serializer FragmentMutateRemoveBond::GetSerializer() const
     {
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
@@ -485,7 +485,7 @@ namespace bcl
     //! @brief Set the members of this property from the given LABEL
     //! @param LABEL the label to parse
     //! @param ERROR_STREAM the stream to write errors to
-    bool FragmentRemoveBond::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+    bool FragmentMutateRemoveBond::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
     {
       // static initialization check
       if( command::CommandState::IsInStaticInitialization())

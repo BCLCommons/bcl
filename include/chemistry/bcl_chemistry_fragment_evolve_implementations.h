@@ -44,7 +44,7 @@ namespace bcl
     //! @brief Class used for mutating FragmentCompletes by mixing two FragmentCompletes together or mutating them
     //!
     //! @see @link example_chemistry_fragment_evolve_implementations.cpp @endlink
-    //! @author geanesar
+    //! @author geanesar, brownbp1
     //! @date Jan 14, 2016
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -87,50 +87,6 @@ namespace bcl
       //! Whether to check if bad bonds were formed
       bool m_AllowBadBonds;
 
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-      //!
-      //! @class BadBond
-      //! @brief Structure that stores bad bond info
-      //!
-      //! @see @link example_chemistry_fragment_evolve_implementations.cpp @endlink
-      //! @author geanesar
-      //! @date Jan 14, 2016
-      //!
-      ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-      struct BadBond
-      {
-        // Data
-        ElementType m_Element1;
-        ElementType m_Element2;
-        size_t m_BondOrder; // 0 is any, 1, 2, 3 do what you expect, 4 is aromatic
-        bool m_InRing;
-        
-        //! @brief default constructor
-        BadBond() :
-          m_Element1(),
-          m_Element2(),
-          m_BondOrder(),
-          m_InRing()
-        {
-        }
-
-        //! @brief full constructor
-        BadBond
-        (
-          const ElementType &ELEMENT1,
-          const ElementType &ELEMENT2,
-          const int &BOND_ORDER,
-          const bool &IN_RING
-        ) : 
-          m_Element1( ELEMENT1), 
-          m_Element2( ELEMENT2),
-          m_BondOrder( BOND_ORDER),
-          m_InRing( IN_RING)
-        {
-        }
-      };
-
     public:
 
     //////////
@@ -171,6 +127,10 @@ namespace bcl
       //! @return a string describing the evolve type
       static const std::string &GetEvolveTypeString( const FragmentEvolveImplementations::EvolveType &EVOLVE_TYPE);
 
+      //! @brief gets the fragment list that is in use
+      //! @return a ShPtr to a FragmentEnsemble that holds the fragments
+      const util::ShPtr< FragmentEnsemble> &GetFragmentList() const;
+
       //! @brief sets the fragment list for this class
       //! @param FRAGMENT_LIST the fragment list to use
       void SetFragmentList( const FragmentEnsemble &FRAGMENT_LIST);
@@ -182,10 +142,6 @@ namespace bcl
       //! @brief reads in fragments from a file and sets up the fragment list for this class
       //! @param FILENAME the file to read from
       void SetFragmentList( const std::string &FILENAME);
-
-      //! @brief gets the fragment list that is in use
-      //! @return a ShPtr to a FragmentEnsemble that holds the fragments
-      const util::ShPtr< FragmentEnsemble> &GetFragmentList() const;
 
       //! @brief sets whether to check for bad bonds
       //! @param ALLOW_BAD_BONDS if false, adding fragments will check for bad bonds

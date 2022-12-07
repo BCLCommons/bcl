@@ -17,7 +17,7 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "chemistry/bcl_chemistry_fragment_ring_swap.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_ring_swap.h"
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
@@ -48,9 +48,9 @@ namespace bcl
   //////////
 
     // add the interface to the set of known implementations
-    const util::SiPtr< const util::ObjectInterface> FragmentRingSwap::s_Instance
+    const util::SiPtr< const util::ObjectInterface> FragmentMutateRingSwap::s_Instance
     (
-      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentRingSwap())
+      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentMutateRingSwap())
     );
 
   //////////////////////////////////
@@ -58,7 +58,7 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    FragmentRingSwap::FragmentRingSwap() :
+    FragmentMutateRingSwap::FragmentMutateRingSwap() :
       m_RotamerLibrarySearcher( util::ShPtr< SearchFragmentLibraryFromTree>()),
       m_RingInitiationProbability( 0.1),
       m_FixGeometry( true),
@@ -75,7 +75,7 @@ namespace bcl
     }
 
     //! @brief pose-dependent constructor
-    FragmentRingSwap::FragmentRingSwap
+    FragmentMutateRingSwap::FragmentMutateRingSwap
     (
       const util::ShPtr< SearchFragmentLibraryFromTree> &FRAGMENT_LIBRARY,
       const std::string &DRUG_LIKENESS_TYPE,
@@ -119,7 +119,7 @@ namespace bcl
     }
 
     //! @brief pose-independent constructor
-    FragmentRingSwap::FragmentRingSwap
+    FragmentMutateRingSwap::FragmentMutateRingSwap
     (
       const util::ShPtr< SearchFragmentLibraryFromTree> &FRAGMENT_LIBRARY,
       const std::string &DRUG_LIKENESS_TYPE,
@@ -155,9 +155,9 @@ namespace bcl
     }
 
     //! @brief clone constructor
-    FragmentRingSwap *FragmentRingSwap::Clone() const
+    FragmentMutateRingSwap *FragmentMutateRingSwap::Clone() const
     {
-      return new FragmentRingSwap( *this);
+      return new FragmentMutateRingSwap( *this);
     }
 
   /////////////////
@@ -166,14 +166,14 @@ namespace bcl
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
-    const std::string &FragmentRingSwap::GetClassIdentifier() const
+    const std::string &FragmentMutateRingSwap::GetClassIdentifier() const
     {
       return GetStaticClassName( *this);
     }
 
     //! @brief get a short name for this class
     //! @return a short name for this class
-    const std::string &FragmentRingSwap::GetAlias() const
+    const std::string &FragmentMutateRingSwap::GetAlias() const
     {
       static const std::string s_name( "RingSwap");
       return s_name;
@@ -186,7 +186,7 @@ namespace bcl
     //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
     //! @param FRAGMENT small molecule of interest
     //! @return MutateResult with Constitution after the mutate
-    math::MutateResult< FragmentComplete> FragmentRingSwap::operator()( const FragmentComplete &FRAGMENT) const
+    math::MutateResult< FragmentComplete> FragmentMutateRingSwap::operator()( const FragmentComplete &FRAGMENT) const
     {
       BCL_MessageStd( "RingSwap!");
 
@@ -720,7 +720,7 @@ namespace bcl
   ////////////////
 
     //! @brief compute whether two vectors differ by at most one element
-    bool FragmentRingSwap::SortedVectorsDifferByNoMoreThanOneElement
+    bool FragmentMutateRingSwap::SortedVectorsDifferByNoMoreThanOneElement
     (
       const linal::Vector< float> &VEC_A,
       const linal::Vector< float> &VEC_B
@@ -766,7 +766,7 @@ namespace bcl
     }
 
     //! @brief add ring size information as a property to the molecule
-    typename descriptor::CacheMap::value_type FragmentRingSwap::GetRingSizeInformation( const FragmentComplete &FRAG)
+    typename descriptor::CacheMap::value_type FragmentMutateRingSwap::GetRingSizeInformation( const FragmentComplete &FRAG)
     {
       static util::ObjectDataLabel s_label( "RingSizes");
       auto cached_val( FRAG.GetFromCache( s_label));
@@ -788,7 +788,7 @@ namespace bcl
     }
 
     //! @brief add ring size information as a property to the molecule
-    typename descriptor::CacheMap::value_type FragmentRingSwap::GetRingSizeInformation
+    typename descriptor::CacheMap::value_type FragmentMutateRingSwap::GetRingSizeInformation
     (
       const FragmentComplete &FRAG,
       const storage::Vector< size_t> &RING
@@ -808,7 +808,7 @@ namespace bcl
     }
 
     //! @brief add ring size information as a property to the molecule
-    size_t FragmentRingSwap::GetNumberDoubleBondValences( const FragmentComplete &FRAG)
+    size_t FragmentMutateRingSwap::GetNumberDoubleBondValences( const FragmentComplete &FRAG)
     {
       static util::ObjectDataLabel s_label( "DoubleBondValences");
       auto cached_val( FRAG.GetFromCache( s_label));
@@ -826,7 +826,7 @@ namespace bcl
     }
 
     //! @brief add ring size information as a property to the molecule
-    size_t FragmentRingSwap::GetNumberDoubleBondValences( const FragmentComplete &FRAG, const storage::Vector< size_t> &RING)
+    size_t FragmentMutateRingSwap::GetNumberDoubleBondValences( const FragmentComplete &FRAG, const storage::Vector< size_t> &RING)
     {
       size_t value( 0);
       for( auto itr( RING.Begin()), itr_end( RING.End()); itr != itr_end; ++itr)
@@ -837,7 +837,7 @@ namespace bcl
     }
 
     //! @brief Get the counts for the given fragment
-    size_t FragmentRingSwap::GetCounts( const FragmentComplete &FRAG)
+    size_t FragmentMutateRingSwap::GetCounts( const FragmentComplete &FRAG)
     {
       static util::ObjectDataLabel s_label( "ScaffoldCount");
       if( !FRAG.IsPropertyStored( s_label))
@@ -848,7 +848,7 @@ namespace bcl
     }
 
     //! @brief get a random ring system of the given fragment
-    storage::Vector< size_t> FragmentRingSwap::GetRandomRingSystem( const FragmentComplete &FRAG, const size_t ATOM_INDEX, bool ALLOW_LARGE_RING_COLLAPSE)
+    storage::Vector< size_t> FragmentMutateRingSwap::GetRandomRingSystem( const FragmentComplete &FRAG, const size_t ATOM_INDEX, bool ALLOW_LARGE_RING_COLLAPSE)
     {
       // create a ring splitter
       FragmentSplitRings ringsplit( size_t( 2), true);
@@ -914,7 +914,7 @@ namespace bcl
     }
 
     //! @brief get a random atom that is not in a ring system for the given fragment
-    size_t FragmentRingSwap::GetRandomNonringAtom( const FragmentComplete &FRAG, const size_t ATOM_INDEX)
+    size_t FragmentMutateRingSwap::GetRandomNonringAtom( const FragmentComplete &FRAG, const size_t ATOM_INDEX)
     {
       // enforce that the picked atom is not in a ring or triple bond
       if
@@ -929,7 +929,7 @@ namespace bcl
     }
 
     //! @brief get a random ring system of the given fragment
-    storage::Vector< size_t> FragmentRingSwap::GetGlobalRandomRingSystem( const FragmentComplete &FRAG, bool ALLOW_LARGE_RING_COLLAPSE)
+    storage::Vector< size_t> FragmentMutateRingSwap::GetGlobalRandomRingSystem( const FragmentComplete &FRAG, bool ALLOW_LARGE_RING_COLLAPSE)
     {
       FragmentSplitRings ringsplit( size_t( 2), true);
       // create a graph
@@ -959,7 +959,7 @@ namespace bcl
     }
 
     //! @brief get a random atom that is not in a ring system for the given fragment
-    size_t FragmentRingSwap::GetGlobalRandomNonringAtom( const FragmentComplete &FRAG)
+    size_t FragmentMutateRingSwap::GetGlobalRandomNonringAtom( const FragmentComplete &FRAG)
     {
       storage::Vector< size_t> available_chain_atoms;
       for( auto itr( FRAG.GetAtomsIterator()); itr.NotAtEnd(); ++itr)
@@ -982,7 +982,7 @@ namespace bcl
     }
 
     //! @brief return the immediate substituent indices for all atoms of a given ring
-    storage::Vector< storage::Vector< storage::Pair< size_t, ConfigurationalBondType> > > FragmentRingSwap::GetSubstitutents
+    storage::Vector< storage::Vector< storage::Pair< size_t, ConfigurationalBondType> > > FragmentMutateRingSwap::GetSubstitutents
     (
       const FragmentComplete &FRAG,
       const storage::Vector< size_t> &RING,
@@ -1020,7 +1020,7 @@ namespace bcl
     }
 
     //! @brief return whether the ring can be collapsed to a single atom
-    bool FragmentRingSwap::IsCollapsible
+    bool FragmentMutateRingSwap::IsCollapsible
     (
       const FragmentComplete &FRAG,
       const storage::Vector< size_t> &RING
@@ -1059,7 +1059,7 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    io::Serializer FragmentRingSwap::GetSerializer() const
+    io::Serializer FragmentMutateRingSwap::GetSerializer() const
     {
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription( "Swaps ring systems; can also create and delete ring systems");
@@ -1151,7 +1151,7 @@ namespace bcl
     //! @brief Set the members of this property from the given LABEL
     //! @param LABEL the label to parse
     //! @param ERROR_STREAM the stream to write errors to
-    bool FragmentRingSwap::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+    bool FragmentMutateRingSwap::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
     {
       // static initialization check
       if( command::CommandState::IsInStaticInitialization())

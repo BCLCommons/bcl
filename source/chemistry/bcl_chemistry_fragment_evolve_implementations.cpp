@@ -118,6 +118,13 @@ namespace bcl
       return s_any_alias;
     }
 
+    //! @brief gets the fragment list that is in use
+    //! @return a ShPtr to a FragmentEnsemble that holds the fragments
+    const util::ShPtr< FragmentEnsemble> &FragmentEvolveImplementations::GetFragmentList() const
+    {
+      return m_FragmentPool;
+    }
+
     //! @brief remove a fragment from a molecule
     //! @param MOLECULE the molecule to remove a fragment from
     //! @return a new molecule with a removed fragment
@@ -147,13 +154,6 @@ namespace bcl
       m_FragmentFilename = FILENAME;
       m_FragmentPool.Reset();
 //      BCL_Assert( ReadFragmentsFromFile( FILENAME), "Could not read fragments from file");
-    }
-
-    //! @brief gets the fragment list that is in use
-    //! @return a ShPtr to a FragmentEnsemble that holds the fragments
-    const util::ShPtr< FragmentEnsemble> &FragmentEvolveImplementations::GetFragmentList() const
-    {
-      return m_FragmentPool;
     }
 
     //! @brief sets whether to check for bad bonds
@@ -251,12 +251,6 @@ namespace bcl
       first_molecule.RemoveH();
       FragmentComplete second_molecule( SECOND_MOLECULE);
       second_molecule.RemoveH();
-
-//      size_t bad_bonds_parents( 0);
-//      if( !m_AllowBadBonds)
-//      {
-//        bad_bonds_parents = NumberBadBonds( first_molecule) + NumberBadBonds( second_molecule);
-//      }
 
       ConformationGraphConverter graph_maker
       (
@@ -427,7 +421,7 @@ namespace bcl
             // If we are checking for bad bonds, do so
             if( !m_AllowBadBonds)
             {
-              size_t bad_bonds_result( FragmentEvolveBase::NumberBadBonds( merged.Second()));
+              bool bad_bonds_result( FragmentEvolveBase::IsConstitutionDruglike( merged.Second()));
               if( bad_bonds_result)
               {
                 BCL_MessageVrb( GetAlias() + ": bad bonds were formed, rejecting one molecule");
@@ -501,8 +495,7 @@ namespace bcl
       // If we are checking for bad bonds, do so
       if( !m_AllowBadBonds)
       {
-//        size_t bad_bonds_parent( NumberBadBonds( molecule_mutable));
-        size_t bad_bonds_result( FragmentEvolveBase::NumberBadBonds( *result));
+        bool bad_bonds_result( FragmentEvolveBase::IsConstitutionDruglike( *result));
         if( bad_bonds_result)
         {
           BCL_MessageVrb( GetAlias() + ": contained bad bonds, rejecting");

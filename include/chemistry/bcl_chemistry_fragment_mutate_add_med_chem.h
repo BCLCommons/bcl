@@ -12,8 +12,8 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_CHEMISTRY_FRAGMENT_FLUORINATE_H_
-#define BCL_CHEMISTRY_FRAGMENT_FLUORINATE_H_
+#ifndef BCL_CHEMISTRY_FRAGMENT_MUTATE_ADD_MED_CHEM_H_
+#define BCL_CHEMISTRY_FRAGMENT_MUTATE_ADD_MED_CHEM_H_
 
 // include the namespace header
 #include "bcl_chemistry.h"
@@ -45,18 +45,16 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class FragmentFluorinate
-    //! @brief Used to add fluorine atoms to molecules; distinct from halogenate because
-    //! patterns of fluorine placement in organic molecules tend to differ from patterns of
-    //! bulkier halogens.
+    //! @class FragmentMutateAddMedChem
+    //! @brief Used to add canonical medicinal chemistry functional groups directly to molecules
     //!
-    //! @see @link example_chemistry_fragment_fluorinate.cpp @endlink
+    //! @see @link example_chemistry_fragment_mutate_add_med_chem.cpp @endlink
     //! @author brownbp1
     //! @date Sep 12, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class BCL_API FragmentFluorinate :
+    class BCL_API FragmentMutateAddMedChem :
       public FragmentMutateInterface
     {
 
@@ -66,24 +64,16 @@ namespace bcl
 
     private:
 
+      //! pool of fragments to be picked from
+      util::ShPtr< FragmentEnsemble> m_FragmentPool;
+      std::string m_MedChemFilename;
+
+      //! restrict medchem additions to aromatic rings
+      bool m_RestrictAdditionsToAroRings;
+
     //////////
     // data //
     //////////
-
-      //! enables removal of fluorines
-      bool m_Reversible;
-
-      //! minimum number of fluorine atoms that must be added or removed from a single heavy atom for the mutate to return a valid fragment
-      size_t m_MinF;
-
-      //! when counting the number of fluorine atoms added, include in that count fluorine atoms already attached to the chosen heavy atom
-      bool m_IncludeExistingFInMinCount;
-
-      //! minimum number of hydrogen atoms that must be replaced on a single heavy atom for the mutate to return a valid fragment
-      size_t m_MinH;
-
-      //! maximum number of hydrogen atoms that can be replaced on a single heavy atom for the mutate to return a valid fragment
-      size_t m_MaxH;
 
     public:
 
@@ -99,23 +89,35 @@ namespace bcl
     //////////////////////////////////
 
       //! @brief default constructor
-      FragmentFluorinate();
+      FragmentMutateAddMedChem();
+
+      //! @brief construct with a pool of external fragments for fragment grow
+      //! @param FRAGMENT_POOL external fragments to add to base fragment
+      FragmentMutateAddMedChem
+      (
+        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
+        const bool &CORINA_CONFS
+      );
 
       //! @brief druglikeness constructor
+      //! @param FRAGMENT_POOL external fragments to add to base fragment
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-      FragmentFluorinate
+      FragmentMutateAddMedChem
       (
+        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const bool &CORINA_CONFS
       );
 
-      //! @brief full constructor
+      //! @brief local mutate constructor
+      //! @param FRAGMENT_POOL external fragments to add to base fragment
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
       //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-      FragmentFluorinate
+      FragmentMutateAddMedChem
       (
+        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -124,6 +126,7 @@ namespace bcl
       );
 
       //! @brief local mutate pose-sensitive constructor
+      //! @param FRAGMENT_POOL external fragments to add to base fragment
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
@@ -132,8 +135,9 @@ namespace bcl
       //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentFluorinate
+      FragmentMutateAddMedChem
       (
+        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -146,6 +150,7 @@ namespace bcl
       );
 
       //! @brief local clash resolver constructor
+      //! @param FRAGMENT_POOL external fragments to add to base fragment
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
@@ -153,8 +158,9 @@ namespace bcl
       //! @param MDL property label containing path to protein binding pocket PDB file
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentFluorinate
+      FragmentMutateAddMedChem
       (
+        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -166,7 +172,7 @@ namespace bcl
       );
 
       //! @brief clone constructor
-      FragmentFluorinate *Clone() const;
+      FragmentMutateAddMedChem *Clone() const;
 
     /////////////////
     // data access //
@@ -179,10 +185,6 @@ namespace bcl
       //! @brief returns the name used for this class in an object data label
       //! @return the name used for this class in an object data label
       const std::string &GetAlias() const;
-
-      //! @brief returns whether fluorinate is reversible
-      //! @return reversibility of the fluorinate mutate
-      const bool GetReversibility() const;
 
     ///////////////
     // operators //
@@ -197,14 +199,14 @@ namespace bcl
     // operations //
     ////////////////
 
-      //! @brief set reversibility
-      void SetReverisibility( const bool REVERSIBLE);
-
-    protected:
+      //! @brief set medchem fragment library from filename
+      void SetFragmentLibraryFromFilename( const std::string &FRAGMENTS_FILENAME);
 
     //////////////////////
     // helper functions //
     //////////////////////
+
+    protected:
 
       //! @brief return parameters for member data that are set up from the labels
       //! @return parameters for member data that are set up from the labels
@@ -215,9 +217,24 @@ namespace bcl
       //! @param ERROR_STREAM the stream to write errors to
       bool ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM);
 
-    }; // class FragmentFluorinate
+    //////////////////////
+    // input and output //
+    //////////////////////
+
+      //! @brief read from std::istream
+      //! @param ISTREAM input stream
+      //! @return istream which was read from
+      std::istream &Read( std::istream &ISTREAM);
+
+      //! @brief write to std::ostream
+      //! @param OSTREAM output stream
+      //! @param INDENT number of indentations
+      //! @return ostream which was written to
+      std::ostream &Write( std::ostream &OSTREAM, const size_t INDENT) const;
+
+    }; // class FragmentMutateAddMedChem
 
   } // namespace chemistry
 } // namespace bcl
 
-#endif //BCL_CHEMISTRY_FRAGMENT_FLUORINATE_H_
+#endif //BCL_CHEMISTRY_FRAGMENT_MUTATE_ADD_MED_CHEM_H_
