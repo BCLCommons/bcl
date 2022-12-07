@@ -77,40 +77,43 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_element_structure_factor.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_element_type_data.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_element_types.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_add_med_chem.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_alchemy.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_align_to_scaffold.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_complete.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_configuration_shared.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_conformation_shared.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_connect.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_connector.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_constitution_shared.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_cyclize.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_dock_engine.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_ensemble.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_evolve_base.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_evolve_implementations.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_extend_with_linker.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_feed.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_feed_from_file.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_feed_from_stream.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_feed_interface.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_fluorinate.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_graph_marker.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_grow.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_halogenate.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_make_conformers.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_map_conformer.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_molecule.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_add.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_add_med_chem.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_alchemy.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_combine.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_connect.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_cyclize.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_extend_with_linker.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_fluorinate.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_halogenate.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_interface.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_mcm.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_react.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_remove_atom.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_remove_bond.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_remove_fragment.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_ring_swap.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_probability_score.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_react.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_remove_atom.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_remove_bond.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_ring_swap.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_split_common_substructure.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_split_conformations.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_split_ecfp_fragments.cpp
@@ -140,6 +143,8 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_molecule_complete.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_molecule_ensemble.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_molecule_environment.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_molecule_evolution_info.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_molecule_evolutionary_optimizer.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_molecule_feature_mapper.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_molecule_fragment_recombination.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_molecule_storage_file.cpp

@@ -12,14 +12,13 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_CHEMISTRY_FRAGMENT_REMOVE_ATOM_H_
-#define BCL_CHEMISTRY_FRAGMENT_REMOVE_ATOM_H_
+#ifndef BCL_CHEMISTRY_FRAGMENT_MUTATE_ALCHEMY_H_
+#define BCL_CHEMISTRY_FRAGMENT_MUTATE_ALCHEMY_H_
 
 // include the namespace header
 #include "bcl_chemistry.h"
 
 // include other forward headers - sorted alphabetically
-#include "descriptor/bcl_descriptor.fwd.hh"
 #include "find/bcl_find.fwd.hh"
 
 // includes from bcl - sorted alphabetically
@@ -33,9 +32,11 @@
 #include "find/bcl_find_pick_interface.h"
 #include "math/bcl_math_mutate_interface.h"
 #include "math/bcl_math_mutate_result.h"
+#include "sched/bcl_sched_mutex.h"
 #include "util/bcl_util_function_interface.h"
 #include "util/bcl_util_sh_ptr.h"
 #include "util/bcl_util_si_ptr_list.h"
+
 // external includes - sorted alphabetically
 
 namespace bcl
@@ -45,16 +46,16 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class FragmentRemoveAtom
-    //! @brief Used to remove atoms from fragments
+    //! @class FragmentMutateAlchemy
+    //! @brief Used to transform atom types inside a molecule
     //!
-    //! @see @link example_chemistry_fragment_remove_atom.cpp @endlink
+    //! @see @link example_chemistry_fragment_mutate_alchemy.cpp @endlink
     //! @author brownbp1
-    //! @date Sep 12, 2019
+    //! @date Sep 6, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class BCL_API FragmentRemoveAtom :
+    class BCL_API FragmentMutateAlchemy :
       public FragmentMutateInterface
     {
 
@@ -67,6 +68,22 @@ namespace bcl
     //////////
     // data //
     //////////
+
+      //! atoms that are allowed
+      storage::Vector< ElementType> m_AllowedElements;
+      std::string m_AllowedElementsString;
+
+      //! desired formal charge
+      float m_FormalCharge;
+
+      //! desired chirality
+      ChiralityEnum m_Chirality;
+
+      //! only mutate hydrogen atoms; if heavy atoms are made mutable, only consider their hydrogen(s)
+      bool m_RestrictToBondedH;
+
+      //! the element type chosen during the mutate; updated internally
+      mutable ElementType m_ChosenElementType;
 
     public:
 
@@ -82,22 +99,32 @@ namespace bcl
     //////////////////////////////////
 
       //! @brief default constructor
-      FragmentRemoveAtom();
+      FragmentMutateAlchemy();
 
       //! @brief druglikeness constructor
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-      FragmentRemoveAtom
+      FragmentMutateAlchemy
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const bool &CORINA_CONFS
       );
 
-      //! @brief full constructor
+      //! @brief secondary constructor
+      //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
+      //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
+      FragmentMutateAlchemy
+      (
+        const std::string &DRUG_LIKENESS_TYPE,
+        const FragmentComplete &SCAFFOLD_FRAGMENT,
+        const bool &CORINA_CONFS
+      );
+
+      //! @brief local mutate constructor
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
       //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-      FragmentRemoveAtom
+      FragmentMutateAlchemy
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -115,7 +142,7 @@ namespace bcl
       //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentRemoveAtom
+      FragmentMutateAlchemy
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -136,7 +163,7 @@ namespace bcl
       //! @param MDL property label containing path to protein binding pocket PDB file
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentRemoveAtom
+      FragmentMutateAlchemy
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -149,7 +176,7 @@ namespace bcl
       );
 
       //! @brief clone constructor
-      FragmentRemoveAtom *Clone() const;
+      FragmentMutateAlchemy *Clone() const;
 
     /////////////////
     // data access //
@@ -162,6 +189,13 @@ namespace bcl
       //! @brief returns the name used for this class in an object data label
       //! @return the name used for this class in an object data label
       const std::string &GetAlias() const;
+
+      //! @brief returns the element type chosen during the mutate
+      //! @return the element type chosen during the mutate; if the
+      //! mutate has not yet been run, this will return an undefined
+      //! element type object, which is different than the element
+      //! type notated 'X' for undefined.
+      const ElementType &GetChosenElementType() const;
 
     ///////////////
     // operators //
@@ -176,11 +210,22 @@ namespace bcl
     // operations //
     ////////////////
 
-    protected:
+      //! @brief set the fragment mutable atom indices
+      void SetAllowedElements( const storage::Vector< ElementType> &ALLOWED_ELEMENTS);
+
+      //! @brief set the fragment mutable atom indices
+      void SetRestrictions( const bool RESTRICT_TO_BOND_H);
 
     //////////////////////
     // helper functions //
     //////////////////////
+
+    private:
+
+      //! @brief set the chosen element type to which we are mutating
+      void SetChosenElement( const ElementType &ELEMENT_TYPE) const;
+
+    protected:
 
       //! @brief return parameters for member data that are set up from the labels
       //! @return parameters for member data that are set up from the labels
@@ -191,9 +236,9 @@ namespace bcl
       //! @param ERROR_STREAM the stream to write errors to
       bool ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM);
 
-    }; // class FragmentRemoveAtom
+    }; // class FragmentMutateAlchemy
 
   } // namespace chemistry
 } // namespace bcl
 
-#endif //BCL_CHEMISTRY_FRAGMENT_REMOVE_ATOM_H_
+#endif //BCL_CHEMISTRY_FRAGMENT_MUTATE_ALCHEMY_H_

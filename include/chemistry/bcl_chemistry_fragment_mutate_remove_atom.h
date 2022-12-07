@@ -12,8 +12,8 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_CHEMISTRY_FRAGMENT_ADD_MED_CHEM_H_
-#define BCL_CHEMISTRY_FRAGMENT_ADD_MED_CHEM_H_
+#ifndef BCL_CHEMISTRY_FRAGMENT_MUTATE_REMOVE_ATOM_H_
+#define BCL_CHEMISTRY_FRAGMENT_MUTATE_REMOVE_ATOM_H_
 
 // include the namespace header
 #include "bcl_chemistry.h"
@@ -45,16 +45,16 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class FragmentAddMedChem
-    //! @brief Used to add canonical medicinal chemistry functional groups directly to molecules
+    //! @class FragmentMutateRemoveAtom
+    //! @brief Used to remove atoms from fragments
     //!
-    //! @see @link example_chemistry_fragment_add_med_chem.cpp @endlink
+    //! @see @link example_chemistry_fragment_mutate_remove_atom.cpp @endlink
     //! @author brownbp1
     //! @date Sep 12, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class BCL_API FragmentAddMedChem :
+    class BCL_API FragmentMutateRemoveAtom :
       public FragmentMutateInterface
     {
 
@@ -63,13 +63,6 @@ namespace bcl
     /////////////
 
     private:
-
-      //! pool of fragments to be picked from
-      util::ShPtr< FragmentEnsemble> m_FragmentPool;
-      std::string m_MedChemFilename;
-
-      //! restrict medchem additions to aromatic rings
-      bool m_RestrictAdditionsToAroRings;
 
     //////////
     // data //
@@ -89,35 +82,23 @@ namespace bcl
     //////////////////////////////////
 
       //! @brief default constructor
-      FragmentAddMedChem();
-
-      //! @brief construct with a pool of external fragments for fragment grow
-      //! @param FRAGMENT_POOL external fragments to add to base fragment
-      FragmentAddMedChem
-      (
-        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
-        const bool &CORINA_CONFS
-      );
+      FragmentMutateRemoveAtom();
 
       //! @brief druglikeness constructor
-      //! @param FRAGMENT_POOL external fragments to add to base fragment
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-      FragmentAddMedChem
+      FragmentMutateRemoveAtom
       (
-        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const bool &CORINA_CONFS
       );
 
-      //! @brief local mutate constructor
-      //! @param FRAGMENT_POOL external fragments to add to base fragment
+      //! @brief full constructor
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
       //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-      FragmentAddMedChem
+      FragmentMutateRemoveAtom
       (
-        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -126,7 +107,6 @@ namespace bcl
       );
 
       //! @brief local mutate pose-sensitive constructor
-      //! @param FRAGMENT_POOL external fragments to add to base fragment
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
@@ -135,9 +115,8 @@ namespace bcl
       //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentAddMedChem
+      FragmentMutateRemoveAtom
       (
-        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -150,7 +129,6 @@ namespace bcl
       );
 
       //! @brief local clash resolver constructor
-      //! @param FRAGMENT_POOL external fragments to add to base fragment
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
@@ -158,9 +136,8 @@ namespace bcl
       //! @param MDL property label containing path to protein binding pocket PDB file
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentAddMedChem
+      FragmentMutateRemoveAtom
       (
-        const util::ShPtr< FragmentEnsemble> &FRAGMENT_POOL,
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
@@ -172,7 +149,7 @@ namespace bcl
       );
 
       //! @brief clone constructor
-      FragmentAddMedChem *Clone() const;
+      FragmentMutateRemoveAtom *Clone() const;
 
     /////////////////
     // data access //
@@ -199,14 +176,11 @@ namespace bcl
     // operations //
     ////////////////
 
-      //! @brief set medchem fragment library from filename
-      void SetFragmentLibraryFromFilename( const std::string &FRAGMENTS_FILENAME);
+    protected:
 
     //////////////////////
     // helper functions //
     //////////////////////
-
-    protected:
 
       //! @brief return parameters for member data that are set up from the labels
       //! @return parameters for member data that are set up from the labels
@@ -217,24 +191,9 @@ namespace bcl
       //! @param ERROR_STREAM the stream to write errors to
       bool ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM);
 
-    //////////////////////
-    // input and output //
-    //////////////////////
-
-      //! @brief read from std::istream
-      //! @param ISTREAM input stream
-      //! @return istream which was read from
-      std::istream &Read( std::istream &ISTREAM);
-
-      //! @brief write to std::ostream
-      //! @param OSTREAM output stream
-      //! @param INDENT number of indentations
-      //! @return ostream which was written to
-      std::ostream &Write( std::ostream &OSTREAM, const size_t INDENT) const;
-
-    }; // class FragmentAddMedChem
+    }; // class FragmentMutateRemoveAtom
 
   } // namespace chemistry
 } // namespace bcl
 
-#endif //BCL_CHEMISTRY_FRAGMENT_ADD_MED_CHEM_H_
+#endif //BCL_CHEMISTRY_FRAGMENT_MUTATE_REMOVE_ATOM_H_

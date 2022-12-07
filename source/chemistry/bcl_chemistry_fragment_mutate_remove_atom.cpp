@@ -17,7 +17,7 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "chemistry/bcl_chemistry_fragment_remove_atom.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_remove_atom.h"
 
 // includes from bcl - sorted alphabetically
 #include "iostream"
@@ -45,9 +45,9 @@ namespace bcl
   //////////
 
     // add the interface to the set of known implementations
-    const util::SiPtr< const util::ObjectInterface> FragmentRemoveAtom::s_Instance
+    const util::SiPtr< const util::ObjectInterface> FragmentMutateRemoveAtom::s_Instance
     (
-      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentRemoveAtom())
+      util::Enumerated< FragmentMutateInterface>::AddInstance( new FragmentMutateRemoveAtom())
     );
 
   //////////////////////////////////
@@ -55,14 +55,14 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    FragmentRemoveAtom::FragmentRemoveAtom()
+    FragmentMutateRemoveAtom::FragmentMutateRemoveAtom()
     {
       this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
     }
 
     //! @brief druglikeness constructor
     //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-    FragmentRemoveAtom::FragmentRemoveAtom
+    FragmentMutateRemoveAtom::FragmentMutateRemoveAtom
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const bool &CORINA_CONFS
@@ -79,7 +79,7 @@ namespace bcl
     //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
     //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
     //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-    FragmentRemoveAtom::FragmentRemoveAtom
+    FragmentMutateRemoveAtom::FragmentMutateRemoveAtom
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -106,7 +106,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentRemoveAtom::FragmentRemoveAtom
+    FragmentMutateRemoveAtom::FragmentMutateRemoveAtom
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -141,7 +141,7 @@ namespace bcl
     //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
     //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
     //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-    FragmentRemoveAtom::FragmentRemoveAtom
+    FragmentMutateRemoveAtom::FragmentMutateRemoveAtom
     (
       const std::string &DRUG_LIKENESS_TYPE,
       const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -156,9 +156,9 @@ namespace bcl
     }
 
     //! @brief clone constructor
-    FragmentRemoveAtom *FragmentRemoveAtom::Clone() const
+    FragmentMutateRemoveAtom *FragmentMutateRemoveAtom::Clone() const
     {
-      return new FragmentRemoveAtom( *this);
+      return new FragmentMutateRemoveAtom( *this);
     }
 
   /////////////////
@@ -167,14 +167,14 @@ namespace bcl
 
     //! @brief returns class name
     //! @return the class name as const ref std::string
-    const std::string &FragmentRemoveAtom::GetClassIdentifier() const
+    const std::string &FragmentMutateRemoveAtom::GetClassIdentifier() const
     {
       return GetStaticClassName( *this);
     }
 
     //! @brief get a short name for this class
     //! @return a short name for this class
-    const std::string &FragmentRemoveAtom::GetAlias() const
+    const std::string &FragmentMutateRemoveAtom::GetAlias() const
     {
       static const std::string s_name( "RemoveAtom");
       return s_name;
@@ -187,7 +187,7 @@ namespace bcl
     //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
     //! @param FRAGMENT small molecule of interest
     //! @return MutateResult with Constitution after the mutate
-    math::MutateResult< FragmentComplete> FragmentRemoveAtom::operator()( const FragmentComplete &FRAGMENT) const
+    math::MutateResult< FragmentComplete> FragmentMutateRemoveAtom::operator()( const FragmentComplete &FRAGMENT) const
     {
       BCL_MessageStd( "RemoveAtom!");
 
@@ -262,7 +262,7 @@ namespace bcl
   // helper functions //
   //////////////////////
 
-    io::Serializer FragmentRemoveAtom::GetSerializer() const
+    io::Serializer FragmentMutateRemoveAtom::GetSerializer() const
     {
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
@@ -277,7 +277,7 @@ namespace bcl
     //! @brief Set the members of this property from the given LABEL
     //! @param LABEL the label to parse
     //! @param ERROR_STREAM the stream to write errors to
-    bool FragmentRemoveAtom::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+    bool FragmentMutateRemoveAtom::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
     {
       // static initialization check
       if( command::CommandState::IsInStaticInitialization())

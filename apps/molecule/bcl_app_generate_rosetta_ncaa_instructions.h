@@ -17,7 +17,7 @@
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
 #include "app/bcl_app.h"
 #include "app/bcl_app_interface.h"
-#include "chemistry/bcl_chemistry_fragment_add_med_chem.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_add_med_chem.h"
 #include "command/bcl_command_command.h"
 #include "command/bcl_command_flag_interface.h"
 #include "linal/bcl_linal_vector.h"
@@ -52,7 +52,7 @@ namespace bcl
     //////////
 
       //! to append functional groups to backbones
-      chemistry::FragmentAddMedChem m_AddMedChem;
+      mutable chemistry::FragmentMutateAddMedChem m_AddMedChem;
 
       //! flag that specifies the output filename
       util::ShPtr< command::FlagInterface> m_OutputPrefixFlag;

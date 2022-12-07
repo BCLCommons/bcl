@@ -12,8 +12,8 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_CHEMISTRY_FRAGMENT_REMOVE_BOND_H_
-#define BCL_CHEMISTRY_FRAGMENT_REMOVE_BOND_H_
+#ifndef BCL_CHEMISTRY_FRAGMENT_MUTATE_HALOGENATE_H_
+#define BCL_CHEMISTRY_FRAGMENT_MUTATE_HALOGENATE_H_
 
 // include the namespace header
 #include "bcl_chemistry.h"
@@ -25,7 +25,6 @@
 // includes from bcl - sorted alphabetically
 #include "bcl_chemistry_atom_conformational_interface.h"
 #include "bcl_chemistry_collector_valence.h"
-#include "bcl_chemistry_configurational_bond_types.h"
 #include "bcl_chemistry_fragment_complete.h"
 #include "bcl_chemistry_fragment_constitution_shared.h"
 #include "bcl_chemistry_fragment_ensemble.h"
@@ -46,16 +45,16 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class FragmentRemoveBond
-    //! @brief Used to remove a bond from a fragment, add a bond, or change the bond type
+    //! @class FragmentMutateHalogenate
+    //! @brief Used to add halogens to ring fragments.
     //!
-    //! @see @link example_chemistry_fragment_remove_bond.cpp @endlink
+    //! @see @link example_chemistry_fragment_mutate_halogenate.cpp @endlink
     //! @author brownbp1
-    //! @date Sep 17, 2019
+    //! @date Sep 12, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class BCL_API FragmentRemoveBond :
+    class BCL_API FragmentMutateHalogenate :
       public FragmentMutateInterface
     {
 
@@ -63,30 +62,24 @@ namespace bcl
     // friends //
     /////////////
 
-    public:
-
-        //! Count types
-        enum BondTreatment
-        {
-          e_AddBond,      //! add a bond between atoms
-          e_RemoveBond    //! remove a bond between atoms
-        };
-
     private:
 
     //////////
     // data //
     //////////
 
-      //! whether to add or remove a bond
-      BondTreatment m_BondChange;
+      //! halogens that are allowed
+      storage::Vector< AtomType> m_AllowedHalogens;
+      std::string m_AllowedHalogensString;
 
-      //! bond type to add
-      ConfigurationalBondType m_BondType;
+      //! enables removal of halogens
+      bool m_Reversible;
 
-      //! atom indices that can be mutated
-      storage::Vector< size_t> m_PairedAtomIndices;
-      std::string m_PairedAtoms;
+      //! restrict reversibility to allowed halogens
+      bool m_RestrictReversibility;
+
+      //! disable aromatic ring requirement
+      bool m_DisableAromaticRingReq;
 
     public:
 
@@ -94,26 +87,19 @@ namespace bcl
     // data //
     //////////
 
-      //! instance for adding bonds
-      static const util::SiPtr< const util::ObjectInterface> s_AddBondInstance;
-
-      //! instance for removing bonds
-      static const util::SiPtr< const util::ObjectInterface> s_RemoveBondInstance;
+      //! single instance of that class
+      static const util::SiPtr< const util::ObjectInterface> s_Instance;
 
     //////////////////////////////////
     // construction and destruction //
     //////////////////////////////////
 
       //! @brief default constructor
-      FragmentRemoveBond();
-
-      //! @brief bond change constructor
-      //! @param BOND_CHANGE whether to add or remove bond
-      FragmentRemoveBond( const BondTreatment &BOND_CHANGE);
+      FragmentMutateHalogenate();
 
       //! @brief druglikeness constructor
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
-      FragmentRemoveBond
+      FragmentMutateHalogenate
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const bool &CORINA_CONFS
@@ -124,7 +110,7 @@ namespace bcl
       //! @param SCAFFOLD_FRAGMENT fragment to which the new mutated molecule will be aligned based on substructure
       //! @param MUTABLE_FRAGMENTS non-mutable component of the current molecule
       //! @param MUTABLE_ATOM_INDICES indices of atoms that can be mutated
-      FragmentRemoveBond
+      FragmentMutateHalogenate
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -142,7 +128,7 @@ namespace bcl
       //! @param PROPERTY_SCORER property that will be used to score interactions with protein pocket
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentRemoveBond
+      FragmentMutateHalogenate
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -163,7 +149,7 @@ namespace bcl
       //! @param MDL property label containing path to protein binding pocket PDB file
       //! @param RESOLVE_CLASHES if true, resolve clashes with specified protein pocket after mutatation
       //! @param BFACTORS vector of values indicating per-residue flexibility (higher values are more flexible)
-      FragmentRemoveBond
+      FragmentMutateHalogenate
       (
         const std::string &DRUG_LIKENESS_TYPE,
         const FragmentComplete &SCAFFOLD_FRAGMENT,
@@ -176,7 +162,7 @@ namespace bcl
       );
 
       //! @brief clone constructor
-      FragmentRemoveBond *Clone() const;
+      FragmentMutateHalogenate *Clone() const;
 
     /////////////////
     // data access //
@@ -189,6 +175,10 @@ namespace bcl
       //! @brief returns the name used for this class in an object data label
       //! @return the name used for this class in an object data label
       const std::string &GetAlias() const;
+
+      //! @brief returns the mutable atoms
+      //! @return the mutable atoms
+      const storage::Vector< size_t> &GetMutableAtomIndices() const;
 
     ///////////////
     // operators //
@@ -203,26 +193,17 @@ namespace bcl
     // operations //
     ////////////////
 
-      //! @brief set the bond change type
-      void SetBondChange( const BondTreatment &BOND_CHANGE);
+      //! @brief set the fragment mutable atom indices
+      void SetAllowedHalogens( const storage::Vector< AtomType> &ALLOWED_HALOGENS);
 
-      //! @brief a function that removes a bond between two atoms
-      //! @param FRAGMENT the small molecule of interest
-      //! @param BOND the bond to remove
-      //! @return atom vector after removal of the bond
-      AtomVector< AtomComplete> RemoveBond( const FragmentComplete &FRAGMENT, const sdf::BondInfo &BOND) const;
-
-      //! @brief a function that adds a bond between two atoms
-      //! @param FRAGMENT the small molecule of interest
-      //! @param BOND the bond to add
-      //! @return atom vector after addition of the bond
-      AtomVector< AtomComplete> AddBond( const FragmentComplete &FRAGMENT, const sdf::BondInfo &BOND) const;
-
-    protected:
+      //! @brief set reversibility
+      void SetReversibility( const bool REVERSIBLE);
 
     //////////////////////
     // helper functions //
     //////////////////////
+
+    protected:
 
       //! @brief return parameters for member data that are set up from the labels
       //! @return parameters for member data that are set up from the labels
@@ -233,9 +214,9 @@ namespace bcl
       //! @param ERROR_STREAM the stream to write errors to
       bool ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM);
 
-    }; // class FragmentRemoveBond
+    }; // class FragmentMutateHalogenate
 
   } // namespace chemistry
 } // namespace bcl
 
-#endif //BCL_CHEMISTRY_FRAGMENT_REMOVE_BOND_H_
+#endif //BCL_CHEMISTRY_FRAGMENT_MUTATE_HALOGENATE_H_
