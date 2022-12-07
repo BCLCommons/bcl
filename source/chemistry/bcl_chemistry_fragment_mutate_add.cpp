@@ -230,7 +230,7 @@ namespace bcl
     //! @return a short name for this class
     const std::string &FragmentMutateAdd::GetAlias() const
     {
-      static const std::string s_name( "Combine");
+      static const std::string s_name( "Add");
       return s_name;
     }
 
