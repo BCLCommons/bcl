@@ -430,6 +430,14 @@ namespace bcl
         const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_B
       ) const;
 
+      //! @brief recursively call ReactFragments to combine reagents into a single product
+      //! @return a product molecule with an associated map between un-reacted dummy atom
+      //! element types and the attachment indices using the new product molecule indexing
+      storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> ReactFragments
+      (
+        const storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> &REAGENTS
+      ) const;
+
       //! @brief remove the dummy element from the input molecule
       //! @return the new molecule with all dummy elements removed, as well
       //! as a map between the dummy element type and the atom that used to connect

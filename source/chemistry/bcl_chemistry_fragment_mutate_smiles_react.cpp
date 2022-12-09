@@ -282,26 +282,36 @@ namespace bcl
           stripped_reagents.PushBack( stripped_reagent);
         }
 
-        // initialize output of all the merged molecules
-        FragmentComplete merged_fragment;
+        // perform our reaction(s)
+        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> reagents_product( ReactFragments( stripped_reagents));
+        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_mol, reagents_product));
 
-        // combine the reagents first
-        if( stripped_reagents.GetSize() > size_t( 1))
+        // for cleaning and optimizing the new molecule conformer
+        FragmentMapConformer cleaner
+        (
+          m_DrugLikenessType,
+          m_MDL,
+          FRAGMENT.GetMDLProperty( m_MDL),
+          m_PropertyScorer,
+          m_ResolveClashes,
+          m_BFactors,
+          m_Corina
+        );
+
+        // clean and output
+        AtomVector< AtomComplete> atoms( product.First().GetAtomVector());
+
+        // Remove hydrogen atoms to allow bond type adjustment
+        HydrogensHandler::Remove( atoms);
+        if( m_ScaffoldFragment.GetSize())
         {
-          const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &rgt_first( stripped_reagents( 0));
-          for( size_t r( 1); r < stripped_reagents.GetSize(); ++r)
-          {
-
-          }
+          return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, m_ScaffoldFragment, m_DrugLikenessType), *this);
         }
-
-
-
-
-
-
+        else
+        {
+          return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, product.First(), m_DrugLikenessType), *this);
+        }
       }
-
       // return null on failure
       return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
     }
@@ -474,6 +484,7 @@ namespace bcl
       }
 
       // perform intramolecular reactions
+      storage::Map< ElementType, size_t> product_dummy_sites;
       storage::Vector< sdf::AtomInfo> product_atominfo( product.First().GetAtomInfo());
       storage::Vector< sdf::BondInfo> product_bondinfo( product.First().GetBondInfo());
       for
@@ -483,7 +494,10 @@ namespace bcl
           ++itr
       )
       {
-        // check that there are defined atom indices for both pair values
+        // check that there are defined atom indices for both pair values;
+        // if this is the case, then this is an intramolecular reaction and we
+        // need to connect the atoms with a bond and discard the (not save) the
+        // dummy atom attachment sites
         if( util::IsDefined( itr->second.First()) && util::IsDefined( itr->second.Second()))
         {
           // create a bond between those atoms
@@ -496,20 +510,17 @@ namespace bcl
               GetConfigurationalBondTypes().e_NonConjugatedSingleBond
             )
           );
-
-          // remove these dummy atom keys
-
-
         }
+
         // add unpaired dummy atom attachment sites to keys list for the product molecule
         else if( util::IsDefined( itr->second.First()))
         {
-
+          product_dummy_sites.Insert( storage::Pair< ElementType, size_t>( itr->first, itr->second.First()));
         }
 
         else if( util::IsDefined( itr->second.Second()))
         {
-
+          product_dummy_sites.Insert( storage::Pair< ElementType, size_t>( itr->first, itr->second.Second()));
         }
       }
 
@@ -518,10 +529,43 @@ namespace bcl
       AtomVector< AtomComplete> product_atoms( product_atominfo, product_bondinfo);
       AtomsCompleteStandardizer standardizer( product_atoms, "", true);
       standardizer.SetConjugationOfBondTypes( product_atoms);
-      FragmentComplete fragment( product_atoms, "");
-      fragment.StandardizeBondLengths();
-//      return fragment;
-      return storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>();
+      FragmentComplete final_product( product_atoms, "");
+      final_product.StandardizeBondLengths();
+      return storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>( final_product, product_dummy_sites);
+    }
+
+    //! @brief recursively call ReactFragments to combine reagents into a single product
+    //! @return a product molecule with an associated map between un-reacted dummy atom
+    //! element types and the attachment indices using the new product molecule indexing
+    storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> FragmentMutateSmilesReact::ReactFragments
+    (
+      const storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> &REAGENTS
+    ) const
+    {
+      // copy
+      size_t n_reagents( REAGENTS.GetSize());
+      storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> reagents( REAGENTS);
+
+      // react until only one molecule remaining
+      while( n_reagents > size_t( 1))
+      {
+        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product
+        (
+          // react the last two reagents in the vector
+          ReactFragments( reagents( n_reagents - 1), reagents( n_reagents - 2))
+        );
+
+        // kick the two reagents off the back of the vector
+        reagents.PopBack();
+        reagents.PopBack();
+
+        // add the product to the end of the vector
+        reagents.PushBack( product);
+
+        // increment counter
+        n_reagents = reagents.GetSize();
+      }
+      return reagents( 0);
     }
 
     //! @brief remove the dummy element from the input molecule
