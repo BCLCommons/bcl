@@ -46,7 +46,7 @@ namespace bcl
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
     //! @class FragmentMutateSmilesReact
-    //! @brief Used to add canonical medicinal chemistry functional groups directly to molecules
+    //! @brief Used to read reaction SMILES/SMIRKS/SMARTS files to modify molecules during design
     //!
     //! @see @link example_chemistry_fragment_mutate_smiles_react.cpp @endlink
     //! @author brownbp1
@@ -58,14 +58,219 @@ namespace bcl
       public FragmentMutateInterface
     {
 
+    public:
+
+      ////////////////////
+      // helper classes //
+      ////////////////////
+
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      //!
+      //! @class SmilesReactionComponent
+      //! @brief A container object describing reagent components of SMIRKS reaction
+      //!
+      //! @author brownbp1
+      //! @date Dec 7, 2022
+      //!
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      struct SmilesReactionComponent {
+
+        //! Reagent SMILES/SMARTS string
+        std::string m_ReagentSmiles;
+
+        //! Group ID for the reagent
+        size_t m_ReagentID;
+
+        //! Reaction ID
+        std::string m_ReactionID;
+
+        //! Position in the reaction that this reagent holds
+        size_t m_ReactionPosition;
+
+        // Constructors
+
+        //! @brief Default constructor
+        SmilesReactionComponent() :
+          m_ReagentSmiles( ""),
+          m_ReagentID( util::GetUndefinedSize_t()),
+          m_ReactionID( ""),
+          m_ReactionPosition( util::GetUndefinedSize_t())
+        {
+        }
+
+        //! @brief Construct from all data
+        SmilesReactionComponent
+        (
+          const std::string &SMILES,
+          const size_t GROUP_ID,
+          const std::string &RXN_ID,
+          const size_t RXN_POS
+        ) :
+          m_ReagentSmiles( SMILES),
+          m_ReagentID( GROUP_ID),
+          m_ReactionID( RXN_ID),
+          m_ReactionPosition( RXN_POS)
+        {
+        }
+
+        // Operators
+        // @brief less-than operator
+        // @return true if the lhs object is less than the rhs object; false otherwise
+        bool operator<( SmilesReactionComponent const &RHS)
+        {
+          if( m_ReagentID < RHS.m_ReagentID )
+          {
+            return true;
+          }
+          return false;
+        }
+      };
+
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+      //!
+      //! @class SmirksReactor
+      //! @brief A poorly written, incomplete parser for SMIRKS reaction files
+      //!
+      //! @author brownbp1
+      //! @date Dec 8, 2022
+      //!
+      //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+      struct SmirksReactor {
+
+        //! @brief full reaction data string
+        //! @details consists of 8 space-separated columns:
+        //! reaction_id number_rxn_positions smirks_reaction smirks_product smirks_reagent_1 smirks_reagent_2 smirks_reagent_3 smirks_reagent_4
+        std::string m_ReactionData;
+
+        //! @brief reaction ID
+        std::string m_SmirksReactionID;
+
+        //! @brief reaction
+        std::string m_SmirksReaction;
+
+        //! @brief number of reagents (also the number of reaction positions)
+        size_t m_NumberReagents;
+
+        //! @brief reagents
+        storage::Vector< std::string> m_SmirksReagents;
+
+
+
+
+        // TODO this really needs to be private when this struct is refactored into its own class
+        //! @brief Get dummy/reactant atom from reagent string
+        storage::Vector< ElementType> ParseDummyAtom( const std::string &REAGENT)
+        {
+          // split apart the components of the reagent
+          BCL_Debug( REAGENT);
+          storage::Vector< std::string> reagent_components( util::SplitString(REAGENT, "[]")); // TODO verify the split
+          BCL_Debug( reagent_components);
+
+          // iterate over components and collect the valid element types that pop out
+          storage::Vector< ElementType> elements;
+          for
+          (
+              auto itr( reagent_components.Begin()), itr_end( reagent_components.End());
+              itr != itr_end;
+              ++itr
+          )
+          {
+            ElementType element( GetElementTypes().ElementTypeLookup( *itr));
+            if( element != GetElementTypes().e_Undefined)
+            {
+              elements.PushBack( element);
+            }
+          }
+          BCL_Debug( elements);
+          return elements;
+        }
+
+
+        //! @brief Parses reaction data
+        void ParseReactionData( const std::string &DATA)
+        {
+          // first split the line into the 8 columns
+          storage::Vector< std::string> split_data( util::SplitString(DATA, " "));
+
+          // convenience
+          m_SmirksReactionID = split_data( 0);
+          m_NumberReagents = util::ConvertStringToNumericalValue< size_t>( split_data( 1) );
+          m_SmirksReaction = split_data( 2);
+
+          // now split the reaction taking the first n_reagents positions as reagents
+          BCL_Debug( m_SmirksReaction);
+          storage::Vector< std::string> smirks_reagents_products( util::SplitString(m_SmirksReaction, ".'>>'")); // TODO this seems hairy
+          BCL_Debug( smirks_reagents_products);
+          storage::Vector< std::string> smirks_reagents;
+          for( size_t i( 0); i < m_NumberReagents; ++i)
+          {
+            smirks_reagents.PushBack( smirks_reagents_products( i));
+          }
+          m_SmirksReagents = smirks_reagents;
+          const std::string &smirks_products( smirks_reagents_products( m_NumberReagents));
+
+          // make sure that we have the correct number of reagents and products
+          BCL_Assert
+          (
+            smirks_reagents_products.GetSize() == smirks_reagents.GetSize() + 1, // only ever expect 1 product
+            "[ERROR] SmirksReactor::ParseReactionData reagents and products incorrectly parsed!"
+          );
+
+        }
+
+        //! @brief Parses reaction data
+        void ParseReactionData()
+        {
+          ParseReactionData( m_ReactionData);
+        }
+
+
+        //! @brief default constructor
+        SmirksReactor() :
+          m_ReactionData( ""),
+          m_SmirksReaction( ""),
+          m_NumberReagents( 0),
+          m_SmirksReagents( storage::Vector< std::string>())
+        {
+        }
+
+        //! @brief data constructor
+        SmirksReactor( const std::string &DATA) :
+          m_ReactionData( DATA)
+        {
+          ParseReactionData();
+        }
+
+      };
+
     /////////////
     // friends //
     /////////////
 
     private:
 
-      //! pool of fragments to be picked from
-      std::string m_MedChemFilename;
+      //! @brief allowed reactions
+      std::string m_ReactionFilename;
+      std::string m_ReactionFileContents;
+      storage::Vector< std::string> m_ReactionIDs;
+      std::map< std::string, std::string> m_Reactions;
+      bool m_InitializedReactions;
+
+      //! @brief allowed reagents with which to perform reactions
+      std::string m_ReagentsFilename;
+      std::string m_ReagentsFileContents;
+      bool m_InitializedReagents;
+
+      //! @brief associated reagents and reactions;
+      //! @details the key is a pair consisting of the reaction ID string and the reaction position;
+      //! the value is a vector of all the SMILES reaction data containers matching the key
+      std::map< std::pair< std::string, size_t>, std::vector< SmilesReactionComponent> > m_AssociatedReactions;
+
+      //! @brief allowed reaction positions of starting molecule
+      std::string m_AllowedRxnPositions;
+      storage::Vector< size_t> m_AllowedRxnPositionIndices;
 
     //////////
     // data //
@@ -193,11 +398,61 @@ namespace bcl
       //! @brief set medchem fragment library from filename
       void SetFragmentLibraryFromFilename( const std::string &FRAGMENTS_FILENAME);
 
+      //! @brief get a random reagent matching the reaction id and position
+      //! @return a reagent molecule
+      FragmentComplete GetRandomReagent( const std::string &REACTION_ID, const size_t REACTION_POS) const;
+
+      //! @brief get a random reaction
+      //! @return a reaction ID string
+      std::string GetRandomReactionID() const;
+
+      //! @brief get a random reaction
+      //! @return a reaction ID string
+      std::string GetReactionFromID( const std::string &RXN_ID) const;
+
+      //! @brief get random allowed reaction position from user-specified options
+      size_t GetRandomReactionPosition( const storage::Vector< size_t> &RXN_POSITIONS) const;
+
+    private:
+
+      //! @brief combine two fragments through their pseudoreaction scheme
+      //! @details attach two fragments using their mutually matched dummy atom element types
+      //! and mapped attachment atom indices. After attaching the two fragments, it is
+      //! possible that the new product molecule contains additional mutually matched
+      //! dummy elements within a single fragment. Therefore, after combining the two
+      //! fragments, this function will perform intramolecular pseudoreactions until
+      //! there are no more mutually matched dummy atoms
+      //! @return a product molecule with an associated map between un-reacted dummy atom
+      //! element types and the attachment indices using the new product molecule indexing
+      storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> ReactFragments
+      (
+        const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_A,
+        const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_B
+      ) const;
+
+      //! @brief remove the dummy element from the input molecule
+      //! @return the new molecule with all dummy elements removed, as well
+      //! as a map between the dummy element type and the atom that used to connect
+      //! to that dummy element
+      storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> RemoveDummyElement
+      (
+        const FragmentComplete &MOLECULE,
+        const storage::Vector< ElementType> &ELEMENTS
+      ) const;
+
     //////////////////////
     // helper functions //
     //////////////////////
 
     protected:
+
+      //! @brief Set the data members corresponding to reagents files
+      //! @return true if initialization successful; false otherwise
+      bool InitializeReagents();
+
+      //! @brief Set the data members corresponding to reactions files
+      //! @return true if initialization successful; false otherwise
+      bool InitializeReactions();
 
       //! @brief return parameters for member data that are set up from the labels
       //! @return parameters for member data that are set up from the labels

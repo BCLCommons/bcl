@@ -112,6 +112,7 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_remove_bond.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_remove_fragment.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_ring_swap.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_smiles_react.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_probability_score.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_react.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_split_common_substructure.cpp

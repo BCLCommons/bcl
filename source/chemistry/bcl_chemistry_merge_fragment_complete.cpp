@@ -652,7 +652,7 @@ namespace bcl
       // if new coordinates is empty then return false and return an empty molecule
       if( new_coordinates_b.IsEmpty())
       {
-        BCL_MessageStd( "Molecule B empty coords!");
+        BCL_MessageStd( "[WARNING] MergeFragmentComplete::MergeFragments Coordinate transformation of MOLECULE_B failed!");
         return storage::Pair< bool, FragmentComplete>( false, MOLECULE_A);
       }
 
@@ -1087,6 +1087,14 @@ namespace bcl
       // if any of the molecules doesnt have valencies
       if( ideal_coords_ab.IsEmpty() || ideal_coords_ba.IsEmpty())
       {
+        if( ideal_coords_ab.IsEmpty())
+        {
+          BCL_MessageStd( "[WARNING] MergeFragmentComplete::GetTransformedCoordinates No open valences on selected atom of MOLECULE_A!");
+        }
+        if( ideal_coords_ba.IsEmpty())
+        {
+          BCL_MessageStd( "[WARNING] MergeFragmentComplete::GetTransformedCoordinates No open valences on selected atom of MOLECULE_B!");
+        }
         return storage::Vector< linal::Vector3D>();
       }
 

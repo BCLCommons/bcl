@@ -129,6 +129,7 @@ namespace bcl
     class FragmentMutateRemoveBond;
     class FragmentMutateRemoveFragment;
     class FragmentMutateRingSwap;
+    class FragmentMutateSmilesReact;
     class FragmentProbabilityScore;
     class FragmentReact;
     class FragmentSplitCommonSubstructure;
