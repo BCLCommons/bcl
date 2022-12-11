@@ -243,12 +243,17 @@ namespace bcl
 
         // choose a reaction and reagents
         std::string rxn_id( GetRandomReactionID());
+        BCL_Debug( rxn_id);
         std::string rxn_line( GetReactionFromID( rxn_id));
+        BCL_Debug( rxn_line);
         SmirksReactor reactor( rxn_line);
         size_t start_mol_rxn_pos( GetRandomReactionPosition( m_AllowedRxnPositionIndices));
 
         // identify the dummy atom(s) based on the starting mol position in the rxn
+        BCL_Debug( start_mol_rxn_pos);
+        BCL_MessageStd( "Parse start dummy atoms.");
         storage::Vector< ElementType> start_mol_dummy_elements( reactor.ParseDummyAtom( reactor.m_SmirksReagents( start_mol_rxn_pos)));
+        BCL_MessageStd( "Parse start dummy atom bonds");
         storage::Map< ElementType, ConfigurationalBondType> start_mol_dummy_bondtypes( reactor.ParseDummyAtomBonds( reactor.m_SmirksReagents( start_mol_rxn_pos)));
 
         // remove dummy atom and track attached index (map this index from the element type of the removed dummy atom)
@@ -275,9 +280,13 @@ namespace bcl
         storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> stripped_reagents;
         for( size_t i( 0); i < rxn_pos.GetSize(); ++i)
         {
+          BCL_Debug( rxn_pos( i));
+          BCL_MessageStd( "Parse reagent dummy atoms.");
           storage::Vector< ElementType> dummy_elements( reactor.ParseDummyAtom( reactor.m_SmirksReagents( rxn_pos( i))));
+          BCL_MessageStd( "Parse reagent dummy atom bonds");
           storage::Map< ElementType, ConfigurationalBondType> dummy_bondtypes( reactor.ParseDummyAtomBonds( reactor.m_SmirksReagents( rxn_pos( i))));
           start_mol_dummy_bondtypes.InsertElements( dummy_bondtypes.Begin(), dummy_bondtypes.End());
+          BCL_MessageStd( "GetRandomReagent!");
           FragmentComplete reagent( GetRandomReagent( rxn_id, rxn_pos( i)));
           storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> stripped_reagent
           (
@@ -287,7 +296,9 @@ namespace bcl
         }
 
         // perform our reaction(s)
+        BCL_MessageStd(" React reagent fragments!");
         storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> reagents_product( ReactFragments( stripped_reagents, start_mol_dummy_bondtypes));
+        BCL_MessageStd(" React reagent product with start molecule!");
         storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_mol, reagents_product, start_mol_dummy_bondtypes));
 
         // for cleaning and optimizing the new molecule conformer
@@ -344,11 +355,15 @@ namespace bcl
     // TODO: (2) add option to make 3D conformer of reagent (add hydrogens, generate conformer, remove hydrogens, return)
     FragmentComplete FragmentMutateSmilesReact::GetRandomReagent( const std::string &REACTION_ID, const size_t REACTION_POS) const
     {
+      BCL_Debug( REACTION_ID);
+      BCL_Debug( REACTION_POS);
       std::vector< SmilesReactionComponent> reagent_smiles
       (
         m_AssociatedReactions.find( std::pair< std::string, size_t>( REACTION_ID, REACTION_POS))->second
       );
+      BCL_Debug( reagent_smiles.size());
       const size_t rand_pos( random::GetGlobalRandom().Random<size_t>( 0, reagent_smiles.size()));
+      BCL_Debug( rand_pos);
 
       // note that hydrogen atoms are not added if they are not present in SMILES
       return smiles::RdkitSmilesParser::ConvertSMILESToMOL( reagent_smiles[ rand_pos].m_ReagentSmiles);
@@ -552,11 +567,15 @@ namespace bcl
     {
       // copy
       size_t n_reagents( REAGENTS.GetSize());
+      BCL_Debug( n_reagents);
+      BCL_Debug( REAGENTS);
       storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> reagents( REAGENTS);
 
       // react until only one molecule remaining
+      BCL_MessageStd("Entering while-loop");
       while( n_reagents > size_t( 1))
       {
+        BCL_MessageStd( "n_reagents counter at: " + util::Format()( n_reagents));
         storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product
         (
           // react the last two reagents in the vector
@@ -569,6 +588,7 @@ namespace bcl
 
         // add the product to the end of the vector
         reagents.PushBack( product);
+        BCL_Debug( reagents);
 
         // increment counter
         n_reagents = reagents.GetSize();
@@ -683,17 +703,22 @@ namespace bcl
       )
       {
         // SMILES reagent_id reaction_id reaction_pos
-        const storage::Vector< std::string> line( util::SplitString( *line_itr, " ") );
+        const storage::Vector< std::string> line( util::SplitString( *line_itr, " \t") );
+        BCL_Debug( line);
         SmilesReactionComponent rxn_components
         (
-          line( 0),                                                 // Reagent SMILES
-          util::ConvertStringToNumericalValue< size_t>( line( 1)),  // Reagent ID
-          line( 2),                                                 // Reaction ID
-          util::ConvertStringToNumericalValue< size_t>( line( 3))   // Reaction position
+          line( 0),                                                      // Reagent SMILES
+          util::ConvertStringToNumericalValue< size_t>( line( 1)),       // Reagent ID
+          line( 2),                                                      // Reaction ID
+          util::ConvertStringToNumericalValue< size_t>( line( 3)) - 1    // Reaction position 0-indexed
         );
+        BCL_Debug( util::ConvertStringToNumericalValue< size_t>( line( 1)));
+        BCL_Debug( util::ConvertStringToNumericalValue< size_t>( line( 3)) - 1);
 
         // if we already have a key and we need to update the value
         const std::pair< std::string, size_t> key_pair( rxn_components.m_ReactionID, rxn_components.m_ReactionPosition);
+        BCL_Debug( key_pair.first);
+        BCL_Debug( key_pair.second);
         if( m_AssociatedReactions.count( key_pair))
         {
           m_AssociatedReactions.find( key_pair)->second.push_back( rxn_components);
@@ -704,6 +729,12 @@ namespace bcl
           std::vector< SmilesReactionComponent> smiles_v( 1, rxn_components);
           m_AssociatedReactions.insert( std::pair< std::pair< std::string, size_t>, std::vector< SmilesReactionComponent> >( key_pair, smiles_v ) );
         }
+      }
+      for( auto debug_itr( m_AssociatedReactions.begin()), debug_itr_end( m_AssociatedReactions.end()); debug_itr != debug_itr_end; ++debug_itr)
+      {
+        BCL_Debug( debug_itr->first.first);
+        BCL_Debug( debug_itr->first.second);
+        BCL_Debug( debug_itr->second.size());
       }
 
       // unsuccessful if there are no reagents
@@ -741,7 +772,7 @@ namespace bcl
       )
       {
         // reactions are in the first column; save unique
-        const storage::Vector< std::string> line( util::SplitString( *line_itr, " ") );
+        const storage::Vector< std::string> line( util::SplitString( *line_itr, " \t") );
         const std::string &rxn_id( line( 0));
         if( !m_Reactions.count( rxn_id))
         {
