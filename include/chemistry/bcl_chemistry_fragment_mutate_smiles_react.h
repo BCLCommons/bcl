@@ -157,6 +157,42 @@ namespace bcl
         storage::Vector< std::string> m_SmirksReagents;
 
 
+        //! @brief Return the BCL bond type from a SMIRKS bond type
+        //! @details SMIRKS bond types are simply encoded for single, double,
+        //! and triple bonds, as well as an ambiguous "any" bond type and a generic
+        //! "ring" bond type. The BCL bond types are higher resolution, and there
+        //! may be multiple that fit under the SMIRKS bond type umbrella; however,
+        //! this function returns the most simple and generic version of the bond
+        //! type under the hope that if molecule perturbations or conversions
+        //! are occurring that the molecule is standardized after-the-fact
+        //! @return the BCL configurational bond type
+        ConfigurationalBondType GetBondTypeFromSmirks( std::string &SMIRKS_BOND_TYPE)
+        {
+          if( SMIRKS_BOND_TYPE == "-")
+          {
+            return GetConfigurationalBondTypes().e_NonConjugatedSingleBond;
+          }
+          else if( SMIRKS_BOND_TYPE == "=")
+          {
+            return GetConfigurationalBondTypes().e_ConjugatedDoubleBond;
+          }
+          else if( SMIRKS_BOND_TYPE == "#")
+          {
+            return GetConfigurationalBondTypes().e_ConjugatedTripleBond;
+          }
+          else if( SMIRKS_BOND_TYPE == "~")
+          {
+            return GetConfigurationalBondTypes().e_Undefined; // TODO reactions involving these will require more sophisticated parsing
+          }
+          else if( SMIRKS_BOND_TYPE == "@")
+          {
+            return GetConfigurationalBondTypes().e_ConjugatedBondInRing; // consider also e_NonConjugatedSingleBondInRing
+          }
+          else
+          {
+            return GetConfigurationalBondTypes().e_Undefined; // TODO conflicting with ~
+          }
+        }
 
 
         // TODO this really needs to be private when this struct is refactored into its own class
@@ -165,7 +201,7 @@ namespace bcl
         {
           // split apart the components of the reagent
           BCL_Debug( REAGENT);
-          storage::Vector< std::string> reagent_components( util::SplitString(REAGENT, "[]")); // TODO verify the split
+          storage::Vector< std::string> reagent_components( util::SplitString( REAGENT, "[]")); // TODO verify the split
           BCL_Debug( reagent_components);
 
           // iterate over components and collect the valid element types that pop out
@@ -185,6 +221,63 @@ namespace bcl
           }
           BCL_Debug( elements);
           return elements;
+        }
+
+        // TODO this really needs to be private when this struct is refactored into its own class
+        //! @brief Get dummy/reactant atom from reagent string
+        storage::Map< ElementType, ConfigurationalBondType> ParseDummyAtomBonds( const std::string &REAGENT)
+        {
+          // initialize output
+          storage::Map< ElementType, ConfigurationalBondType> mapped_bonds;
+
+          // get our dummy atoms
+          storage::Vector< ElementType> dummy_elements( ParseDummyAtom( REAGENT ) );
+          if( !dummy_elements.GetSize())
+          {
+            return storage::Map< ElementType, ConfigurationalBondType>();
+          }
+
+          // for each dummy atom check its bond to a neighbor atom
+          for( size_t e_i( 0), e_sz( dummy_elements.GetSize()); e_i < e_sz; ++e_i)
+          {
+            const ElementType &element_type( dummy_elements( e_i));
+            std::string smirks_ele( "[" +  element_type->GetChemicalSymbol() + "]");
+
+            // find where this dummy atom occurs in the original reagent string
+            // assumptions: (1) getting first occurrence is sufficient;
+            // (2) if there is a second occurrence then the bond type would be the same as it indicates
+            // a cyclical closure within the reagent
+            size_t dummy_atom_npos( REAGENT.find( smirks_ele));
+            size_t reagent_str_size( REAGENT.size());
+
+            // left-edge: only check +1 npos
+            ConfigurationalBondType bond_type;
+            if( dummy_atom_npos == size_t( 0))
+            {
+              std::string bond( REAGENT.substr( dummy_atom_npos + 1, 1));
+              bond_type = this->GetBondTypeFromSmirks( bond);
+            }
+            // right-edge; only check -1 npos
+            else if( dummy_atom_npos == reagent_str_size - 1)
+            {
+              std::string bond( REAGENT.substr( dummy_atom_npos - 1, 1));
+              bond_type = this->GetBondTypeFromSmirks( bond);
+            }
+            // otherwise check both -1 and +1 npos
+            else
+            {
+              std::string bond( REAGENT.substr( dummy_atom_npos - 1, 1));
+              bond_type = this->GetBondTypeFromSmirks( bond);
+
+              if( bond_type == GetConfigurationalBondTypes().e_Undefined) // TODO generally, all of this is incompatible with '~' bond types
+              {
+                bond = REAGENT.substr( dummy_atom_npos + 1, 1);
+                bond_type = this->GetBondTypeFromSmirks( bond);
+              }
+            }
+            mapped_bonds.Insert( storage::Pair< ElementType, ConfigurationalBondType>( element_type, bond_type));
+          }
+          return mapped_bonds;
         }
 
 
@@ -209,7 +302,7 @@ namespace bcl
             smirks_reagents.PushBack( smirks_reagents_products( i));
           }
           m_SmirksReagents = smirks_reagents;
-          const std::string &smirks_products( smirks_reagents_products( m_NumberReagents));
+//          const std::string &smirks_products( smirks_reagents_products( m_NumberReagents));
 
           // make sure that we have the correct number of reagents and products
           BCL_Assert
@@ -427,7 +520,8 @@ namespace bcl
       storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> ReactFragments
       (
         const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_A,
-        const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_B
+        const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_B,
+        const storage::Map< ElementType, ConfigurationalBondType> &BONDS
       ) const;
 
       //! @brief recursively call ReactFragments to combine reagents into a single product
@@ -435,7 +529,8 @@ namespace bcl
       //! element types and the attachment indices using the new product molecule indexing
       storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> ReactFragments
       (
-        const storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> &REAGENTS
+        const storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> &REAGENTS,
+        const storage::Map< ElementType, ConfigurationalBondType> &BONDS
       ) const;
 
       //! @brief remove the dummy element from the input molecule

@@ -248,12 +248,13 @@ namespace bcl
         size_t start_mol_rxn_pos( GetRandomReactionPosition( m_AllowedRxnPositionIndices));
 
         // identify the dummy atom(s) based on the starting mol position in the rxn
-        storage::Vector< ElementType> dummy_elements( reactor.ParseDummyAtom( reactor.m_SmirksReagents( start_mol_rxn_pos)));
+        storage::Vector< ElementType> start_mol_dummy_elements( reactor.ParseDummyAtom( reactor.m_SmirksReagents( start_mol_rxn_pos)));
+        storage::Map< ElementType, ConfigurationalBondType> start_mol_dummy_bondtypes( reactor.ParseDummyAtomBonds( reactor.m_SmirksReagents( start_mol_rxn_pos)));
 
         // remove dummy atom and track attached index (map this index from the element type of the removed dummy atom)
         storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> stripped_mol
         (
-          RemoveDummyElement( FRAGMENT, dummy_elements)
+          RemoveDummyElement( FRAGMENT, start_mol_dummy_elements)
         );
 
         //!!
@@ -274,7 +275,10 @@ namespace bcl
         storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> stripped_reagents;
         for( size_t i( 0); i < rxn_pos.GetSize(); ++i)
         {
-          FragmentComplete reagent( GetRandomReagent(rxn_id, i));
+          storage::Vector< ElementType> dummy_elements( reactor.ParseDummyAtom( reactor.m_SmirksReagents( rxn_pos( i))));
+          storage::Map< ElementType, ConfigurationalBondType> dummy_bondtypes( reactor.ParseDummyAtomBonds( reactor.m_SmirksReagents( rxn_pos( i))));
+          start_mol_dummy_bondtypes.InsertElements( dummy_bondtypes.Begin(), dummy_bondtypes.End());
+          FragmentComplete reagent( GetRandomReagent( rxn_id, rxn_pos( i)));
           storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> stripped_reagent
           (
             RemoveDummyElement( reagent, dummy_elements)
@@ -283,8 +287,8 @@ namespace bcl
         }
 
         // perform our reaction(s)
-        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> reagents_product( ReactFragments( stripped_reagents));
-        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_mol, reagents_product));
+        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> reagents_product( ReactFragments( stripped_reagents, start_mol_dummy_bondtypes));
+        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_mol, reagents_product, start_mol_dummy_bondtypes));
 
         // for cleaning and optimizing the new molecule conformer
         FragmentMapConformer cleaner
@@ -388,7 +392,8 @@ namespace bcl
     storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> FragmentMutateSmilesReact::ReactFragments
     (
       const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_A,
-      const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_B
+      const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_B,
+      const storage::Map< ElementType, ConfigurationalBondType> &BONDS
     ) const
     {
       // the final molecule will contain all dummy atom attachment sites minus the ones used to connect here
@@ -439,7 +444,8 @@ namespace bcl
           (
             a_frag, // these atoms occur first in sequence
             b_frag, // these atoms are appended to the list of atoms from a_frag
-            GetConfigurationalBondTypes().e_NonConjugatedSingleBond, // TODO this should be specific to the RXN code
+            BONDS.Find( keys( e_i))->second,
+//            GetConfigurationalBondTypes().e_NonConjugatedSingleBond,
             storage::Pair< size_t, size_t>( a_connect, b_connect)
           )
         );
@@ -507,7 +513,8 @@ namespace bcl
             (
               itr->second.First(),
               itr->second.Second(),
-              GetConfigurationalBondTypes().e_NonConjugatedSingleBond
+              BONDS.Find( itr->first)->second
+//              GetConfigurationalBondTypes().e_NonConjugatedSingleBond
             )
           );
         }
@@ -539,7 +546,8 @@ namespace bcl
     //! element types and the attachment indices using the new product molecule indexing
     storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> FragmentMutateSmilesReact::ReactFragments
     (
-      const storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> &REAGENTS
+      const storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> &REAGENTS,
+      const storage::Map< ElementType, ConfigurationalBondType> &BONDS
     ) const
     {
       // copy
@@ -552,7 +560,7 @@ namespace bcl
         storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product
         (
           // react the last two reagents in the vector
-          ReactFragments( reagents( n_reagents - 1), reagents( n_reagents - 2))
+          ReactFragments( reagents( n_reagents - 1), reagents( n_reagents - 2), BONDS)
         );
 
         // kick the two reagents off the back of the vector
@@ -764,7 +772,7 @@ namespace bcl
 
       parameters.AddInitializer
       (
-        "reaction_filename",
+        "reactions_filename",
         "file containing allowed reactions",
         io::Serialization::GetAgent( &m_ReactionFilename),
         ""
@@ -782,7 +790,7 @@ namespace bcl
 
       parameters.AddInitializer
       (
-        "allowed_rxn_positions",
+        "allowed_reaction_positions",
         "indices (0-indexed) of reaction positions that the starting molecule is allowed to take",
         io::Serialization::GetAgent( &m_AllowedRxnPositions),
         ""
