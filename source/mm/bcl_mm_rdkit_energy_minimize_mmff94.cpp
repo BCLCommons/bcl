@@ -42,7 +42,9 @@ namespace bcl
       m_ForceTolerance( 1.0e-4),
       m_EnergyTolerance( 1.0e-4),
       m_PositionalRestraintAtoms( storage::Vector< size_t>()),
-      m_PositionalRestraintAtomsString( "")
+      m_PositionalRestraintAtomsString( ""),
+      m_MaxUnrestrainedDisplacement( storage::Vector< double>()),
+      m_RestraintForce( storage::Vector< double>())
     {
     }
 
@@ -52,13 +54,17 @@ namespace bcl
       const size_t MAX_ITERATIONS,
       const double FORCE_TOLERANCE,
       const double ENERGY_TOLERANCE,
-      const std::string &POSITION_RESTRAINED_ATOMS_STRING
+      const std::string &POSITION_RESTRAINED_ATOMS_STRING,
+      const storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT,
+      const storage::Vector< double> &RESTRAINT_FORCE
     ) :
       m_MaxIterations( MAX_ITERATIONS),
       m_ForceTolerance( FORCE_TOLERANCE),
       m_EnergyTolerance( ENERGY_TOLERANCE),
       m_PositionalRestraintAtoms( storage::Vector< size_t>()),
-      m_PositionalRestraintAtomsString( POSITION_RESTRAINED_ATOMS_STRING)
+      m_PositionalRestraintAtomsString( POSITION_RESTRAINED_ATOMS_STRING),
+      m_MaxUnrestrainedDisplacement( MAX_UNRESTRAINED_DISPLACEMENT),
+      m_RestraintForce( RESTRAINT_FORCE)
     {
       // set the positionally restrained atom indices in RISH
       this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
@@ -70,13 +76,17 @@ namespace bcl
       const size_t MAX_ITERATIONS,
       const double FORCE_TOLERANCE,
       const double ENERGY_TOLERANCE,
-      const storage::Vector< size_t> &POSITION_RESTRAINED_ATOMS
+      const storage::Vector< size_t> &POSITION_RESTRAINED_ATOMS,
+      const storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT,
+      const storage::Vector< double> &RESTRAINT_FORCE
     ) :
       m_MaxIterations( MAX_ITERATIONS),
       m_ForceTolerance( FORCE_TOLERANCE),
       m_EnergyTolerance( ENERGY_TOLERANCE),
       m_PositionalRestraintAtoms( POSITION_RESTRAINED_ATOMS),
-      m_PositionalRestraintAtomsString( "")
+      m_PositionalRestraintAtomsString( ""),
+      m_MaxUnrestrainedDisplacement( MAX_UNRESTRAINED_DISPLACEMENT),
+      m_RestraintForce( RESTRAINT_FORCE)
     {
     }
 
@@ -125,6 +135,31 @@ namespace bcl
     {
       return m_EnergyTolerance;
     }
+
+    //! @brief returns the atoms (by index) to which positional restraints are applied
+    storage::Vector< size_t> RdkitEnergyMinimizeMmff94::GetPositionalRestraintAtoms() const
+    {
+      return m_PositionalRestraintAtoms;
+    }
+
+    //! @brief returns the atoms (by string) to which positional restraints are applied
+    std::string RdkitEnergyMinimizeMmff94::GetPositionalRestraintAtomsString() const
+    {
+      return m_PositionalRestraintAtomsString;
+    }
+
+    //! @brief returns the maximum displacement each atom can experience before restraint force activates
+    storage::Vector< double> RdkitEnergyMinimizeMmff94::GetMaxUnrestrainedDisplacement() const
+    {
+      return m_MaxUnrestrainedDisplacement;
+    }
+
+    //! @brief returns the restraint force applied to each atom
+    storage::Vector< double> RdkitEnergyMinimizeMmff94::GetRestraintForce() const
+    {
+      return m_RestraintForce;
+    }
+
     ////////////////
     // operations //
     ////////////////
@@ -147,6 +182,48 @@ namespace bcl
       m_EnergyTolerance = ENERGY_TOLERANCE;
     }
 
+    //! @brief sets the atoms to which positional restraints are applied
+    void RdkitEnergyMinimizeMmff94::SetPositionalRestraintAtoms( storage::Vector< size_t> &ATOMS)
+    {
+      m_PositionalRestraintAtoms = ATOMS;
+    }
+
+    //! @brief sets the atoms to which positional restraints are applied
+    void RdkitEnergyMinimizeMmff94::SetPositionalRestraintAtomsFromString( std::string &ATOMS)
+    {
+      if( m_PositionalRestraintAtomsString.size())
+      {
+        m_PositionalRestraintAtoms.Reset();
+        m_PositionalRestraintAtoms = util::SplitStringToNumerical< size_t>( m_PositionalRestraintAtomsString);
+      }
+      else
+      {
+        BCL_MessageStd
+        (
+          "[WARNING] RdkitEnergyMinimizeMmff94::SetPositionalRestraintAtomsFromString "
+          "string is empty - the restrained atoms set will not be modified!"
+        );
+      }
+    }
+
+    //! @brief sets the atoms to which positional restraints are applied
+    void RdkitEnergyMinimizeMmff94::SetPositionalRestraintAtomsString( std::string &ATOMS)
+    {
+      m_PositionalRestraintAtomsString = ATOMS;
+    }
+
+    //! @brief sets the maximum displacement each atom can experience before restraint force activates
+    void RdkitEnergyMinimizeMmff94::SetMaxUnrestrainedDisplacement( storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT)
+    {
+      m_MaxUnrestrainedDisplacement = MAX_UNRESTRAINED_DISPLACEMENT;
+    }
+
+    //! @brief sets the restraint force applied to each atom
+    void RdkitEnergyMinimizeMmff94::SetRestraintForce( storage::Vector< double> &RESTRAINT_FORCE)
+    {
+      m_RestraintForce = RESTRAINT_FORCE;
+    }
+
     //! @brief add positional constraints to force field for geometry optimization
     //! @param FORCE_FIELD the force field that is modified with the new restraint term
     //! @param ATOM_INDICES indices that are restrained during minimization
@@ -158,7 +235,7 @@ namespace bcl
       const storage::Vector< size_t> &ATOM_INDICES,
       const storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT,
       const storage::Vector< double> &RESTRAINT_FORCE
-    )
+    ) const
     {
       // sanity check on vector sizes
       if
@@ -205,12 +282,18 @@ namespace bcl
       if( !mmff_mol_properties.isValid())
       {
         BCL_MessageStd( "Invalid MMFF molecule properties. Returning null.");
-        return storage::Pair< int, double>();
+        return storage::Pair< int, double>( -1, util::GetUndefinedDouble());
       }
 
       // generate an initialized force field ready for use
       ::ForceFields::ForceField *ff = ::RDKit::MMFF::constructForceField( *rdkit_mol, m_NonbondedThreshold, -1, m_IgnoreInterFragmentInteractions);
       ff->initialize();
+
+      // add constraints
+      if( m_PositionalRestraintAtoms.GetSize())
+      {
+        AddPositionalRestraints( ff, m_PositionalRestraintAtoms, m_MaxUnrestrainedDisplacement, m_RestraintForce);
+      }
 
       // minimization
       int min_result( ff->minimize( m_MaxIterations, m_ForceTolerance, m_EnergyTolerance));
@@ -242,12 +325,18 @@ namespace bcl
       if( !mmff_mol_properties.isValid())
       {
         BCL_MessageStd( "Invalid MMFF molecule properties. Returning null.");
-        return storage::Triplet< chemistry::FragmentComplete, int, double>();
+        return storage::Triplet< chemistry::FragmentComplete, int, double>( MOLECULE, -1, util::GetUndefinedDouble());
       }
 
       // generate an initialized force field ready for use
       ::ForceFields::ForceField *ff = ::RDKit::MMFF::constructForceField( *rdkit_mol, m_NonbondedThreshold, -1, m_IgnoreInterFragmentInteractions);
       ff->initialize();
+
+      // add constraints
+      if( m_PositionalRestraintAtoms.GetSize())
+      {
+        AddPositionalRestraints( ff, m_PositionalRestraintAtoms, m_MaxUnrestrainedDisplacement, m_RestraintForce);
+      }
 
       // minimization
       int min_result( ff->minimize( m_MaxIterations, m_ForceTolerance, m_EnergyTolerance));
@@ -291,7 +380,7 @@ namespace bcl
       if( !mmff_mol_properties.isValid())
       {
         BCL_MessageStd( "Invalid MMFF molecule properties. Returning null.");
-        return storage::Pair< int, double>();
+        return storage::Pair< int, double>( -1, util::GetUndefinedDouble());
       }
 
       // generate an initialized force field ready for use
@@ -335,7 +424,7 @@ namespace bcl
       if( !mmff_mol_properties.isValid())
       {
         BCL_MessageStd( "Invalid MMFF molecule properties. Returning null.");
-        return storage::Triplet< chemistry::FragmentComplete, int, double>();
+        return storage::Triplet< chemistry::FragmentComplete, int, double>( MOLECULE, -1, util::GetUndefinedDouble());
       }
 
       // generate an initialized force field ready for use
@@ -402,12 +491,7 @@ namespace bcl
       bool RdkitEnergyMinimizeMmff94::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
       {
         // parse string encoding atoms to be restrained in coordinate space
-        if( m_PositionalRestraintAtomsString.size())
-        {
-          m_PositionalRestraintAtoms.Reset();
-          m_PositionalRestraintAtoms = util::SplitStringToNumerical< size_t>( m_PositionalRestraintAtomsString);
-        }
-
+        SetPositionalRestraintAtomsFromString( m_PositionalRestraintAtomsString);
         return true;
       }
 

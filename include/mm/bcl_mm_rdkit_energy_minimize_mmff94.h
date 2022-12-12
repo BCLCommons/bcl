@@ -70,6 +70,12 @@ namespace bcl
       storage::Vector< size_t> m_PositionalRestraintAtoms;
       std::string m_PositionalRestraintAtomsString;
 
+      //! @brief The maximum allowed displacement per-atom
+      storage::Vector< double> m_MaxUnrestrainedDisplacement;
+
+      //! @brief The per-atom restraint force
+      storage::Vector< double> m_RestraintForce;
+
     public:
 
     //////////////////////////////////
@@ -85,7 +91,9 @@ namespace bcl
         const size_t MAX_ITERATIONS,
         const double FORCE_TOLERANCE,
         const double ENERGY_TOLERANCE,
-        const std::string &POSITION_RESTRAINED_ATOMS_STRING
+        const std::string &POSITION_RESTRAINED_ATOMS_STRING,
+        const storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT,
+        const storage::Vector< double> &RESTRAINT_FORCE
       );
 
       //! @brief full constructor with directly specified restrained atom indices
@@ -94,7 +102,9 @@ namespace bcl
         const size_t MAX_ITERATIONS,
         const double FORCE_TOLERANCE,
         const double ENERGY_TOLERANCE,
-        const storage::Vector< size_t> &POSITION_RESTRAINED_ATOMS
+        const storage::Vector< size_t> &POSITION_RESTRAINED_ATOMS,
+        const storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT,
+        const storage::Vector< double> &RESTRAINT_FORCE
       );
 
       //! virtual copy constructor
@@ -124,6 +134,21 @@ namespace bcl
       //! @returns the energy tolerance
       double GetEnergyTolerance() const;
 
+      //! @brief returns the atoms (by index) to which positional restraints are applied
+      storage::Vector< size_t> GetPositionalRestraintAtoms() const;
+
+      //! @brief returns the atoms (by index) to which positional restraints are applied
+      storage::Vector< size_t> GetPositionalRestraintAtomsFromString( std::string &ATOMS) const;
+
+      //! @brief returns the atoms (by string) to which positional restraints are applied
+      std::string GetPositionalRestraintAtomsString() const;
+
+      //! @brief returns the maximum displacement each atom can experience before restraint force activates
+      storage::Vector< double> GetMaxUnrestrainedDisplacement() const;
+
+      //! @brief returns the restraint force applied to each atom
+      storage::Vector< double> GetRestraintForce() const;
+
       ////////////////
       // operations //
       ////////////////
@@ -136,6 +161,21 @@ namespace bcl
 
       //! @brief set the energy tolerance for the geometry optimization
       void SetEnergyTolerance( const double ENERGY_TOLERANCE);
+
+      //! @brief sets the atoms to which positional restraints are applied
+      void SetPositionalRestraintAtoms( storage::Vector< size_t> &ATOMS);
+
+      //! @brief sets the atoms to which positional restraints are applied
+      void SetPositionalRestraintAtomsFromString( std::string &ATOMS);
+
+      //! @brief sets the atoms to which positional restraints are applied
+      void SetPositionalRestraintAtomsString( std::string &ATOMS);
+
+      //! @brief sets the maximum displacement each atom can experience before restraint force activates
+      void SetMaxUnrestrainedDisplacement( storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT);
+
+      //! @brief sets the restraint force applied to each atom
+      void SetRestraintForce( storage::Vector< double> &RESTRAINT_FORCE);
 
     private:
 
@@ -150,7 +190,7 @@ namespace bcl
         const storage::Vector< size_t> &ATOM_INDICES,
         const storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT,
         const storage::Vector< double> &RESTRAINT_FORCE
-      );
+      ) const;
 
     public:
 
@@ -176,12 +216,12 @@ namespace bcl
       static storage::Pair< int, double> OptimizeGeometry
       (
         chemistry::FragmentComplete &MOLECULE,
-        const std::string &MMFF_VARIANT,
-        const double NON_BONDED_THRESHOLD,
-        const bool IGNORE_INTER_FRAG_INTERACTIONS,
-        const size_t MAX_ITERATIONS,
-        const double FORCE_TOLERANCE,
-        const double ENERGY_TOLERANCE
+        const std::string &MMFF_VARIANT = "MMFF94s",
+        const double NON_BONDED_THRESHOLD = 10.0,
+        const bool IGNORE_INTER_FRAG_INTERACTIONS = true,
+        const size_t MAX_ITERATIONS = 1000,
+        const double FORCE_TOLERANCE = 1e-4,
+        const double ENERGY_TOLERANCE = 1e-4
       );
 
       //! @brief optimizes the geometry of a molecule based on a molecular mechanics force field
@@ -192,12 +232,12 @@ namespace bcl
       static storage::Triplet< chemistry::FragmentComplete, int, double> OptimizeGeometry
       (
         const chemistry::FragmentComplete &MOLECULE,
-        const std::string &MMFF_VARIANT,
-        const double NON_BONDED_THRESHOLD,
-        const bool IGNORE_INTER_FRAG_INTERACTIONS,
-        const size_t MAX_ITERATIONS,
-        const double FORCE_TOLERANCE,
-        const double ENERGY_TOLERANCE
+        const std::string &MMFF_VARIANT = "MMFF94s",
+        const double NON_BONDED_THRESHOLD = 10.0,
+        const bool IGNORE_INTER_FRAG_INTERACTIONS = true,
+        const size_t MAX_ITERATIONS = 1000,
+        const double FORCE_TOLERANCE = 1e-4,
+        const double ENERGY_TOLERANCE = 1e-4
       );
 
       //////////////////////
