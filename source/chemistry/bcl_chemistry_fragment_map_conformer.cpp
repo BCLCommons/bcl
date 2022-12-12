@@ -246,6 +246,7 @@ namespace bcl
       // no moveable indices, just return existing conformer, after fixing any issues with bond lengths or H
       if( m_MoveableIndices.IsEmpty())
       {
+        BCL_MessageStd( "FragmentMapConformer::Clean no mobile atom indices");
         new_mol.StandardizeBondLengths();
         new_mol.UpdateH();
       }
@@ -426,7 +427,7 @@ namespace bcl
             descriptor::GetCheminfoProperties().calc_MoleculeVdwScore->SumOverObject( *gen_mol_3d_sp)( 0) < m_VDWClashCutoff ?
                 true :
                 false
-        );
+        ); // TODO this is not doing anything
         GetMutex().Unlock();
         if( !good_conf)
         {

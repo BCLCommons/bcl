@@ -331,11 +331,30 @@ namespace bcl
 
       //! @brief convert SMILES string to molecule
       //! @param MOL molecule to be converted to SMILES string
-      static chemistry::FragmentComplete ConvertSMILESToMOL( const std::string &SMILES);
+      static chemistry::FragmentComplete ConvertSMILESToMOL
+      (
+        const std::string &SMILES,
+        const bool IS_SMARTS = false,
+        const bool ADD_H = false,
+        const bool GEN3D = false,
+        const size_t GEOOPT_ITERATIONS = size_t( 0),
+        const std::string &GEOOPT_MMFF94S_VARIANT = "MMFF94s",
+        const float GEOOPT_NONBONDED_THRESH = float( 10.0),
+        const bool GEOOPT_IGNORE_INTERFRAG_INTERACTIONS = true
+      );
 
       //! @brief convert SMARTS string to molecule
       //! @param MOL molecule to be converted to SMARTS string
-      static chemistry::FragmentComplete ConvertSMARTSToMOL( const std::string &SMARTS);
+      static chemistry::FragmentComplete ConvertSMARTSToMOL
+      (
+        const std::string &SMILES,
+        const bool ADD_H = false,
+        const bool GEN3D = false,
+        const size_t GEOOPT_ITERATIONS = size_t( 0),
+        const std::string &GEOOPT_MMFF94S_VARIANT = "MMFF94s",
+        const float GEOOPT_NONBONDED_THRESH = float( 10.0),
+        const bool GEOOPT_IGNORE_INTERFRAG_INTERACTIONS = true
+      );
 
     //////////////////////
     // helper functions //

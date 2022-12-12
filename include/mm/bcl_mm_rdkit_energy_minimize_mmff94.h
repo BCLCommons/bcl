@@ -79,7 +79,23 @@ namespace bcl
       //! @brief default constructor
       RdkitEnergyMinimizeMmff94();
 
-      //! @brief full constructor
+      //! @brief full constructor with restrained atoms string
+      RdkitEnergyMinimizeMmff94
+      (
+        const size_t MAX_ITERATIONS,
+        const double FORCE_TOLERANCE,
+        const double ENERGY_TOLERANCE,
+        const std::string &POSITION_RESTRAINED_ATOMS_STRING
+      );
+
+      //! @brief full constructor with directly specified restrained atom indices
+      RdkitEnergyMinimizeMmff94
+      (
+        const size_t MAX_ITERATIONS,
+        const double FORCE_TOLERANCE,
+        const double ENERGY_TOLERANCE,
+        const storage::Vector< size_t> &POSITION_RESTRAINED_ATOMS
+      );
 
       //! virtual copy constructor
       RdkitEnergyMinimizeMmff94 *Clone() const;

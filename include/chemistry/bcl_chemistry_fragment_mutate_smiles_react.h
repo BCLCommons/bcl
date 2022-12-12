@@ -533,7 +533,13 @@ namespace bcl
       //! @brief get random allowed reaction position from user-specified options
       size_t GetRandomReactionPosition( const storage::Vector< size_t> &RXN_POSITIONS) const;
 
+
     private:
+
+      // TODO: consider bool, though this is just a hack for now; need a framework for SampleConfs involving
+      // setting and resetting the same static object initially defined in the base class
+      //! @brief generate a 3D conformer of a molecule
+      void Generate3DConformer( FragmentComplete &MOLECULE) const;
 
       //! @brief combine two fragments through their pseudoreaction scheme
       //! @details attach two fragments using their mutually matched dummy atom element types

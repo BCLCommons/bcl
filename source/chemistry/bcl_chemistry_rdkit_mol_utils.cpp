@@ -87,6 +87,14 @@ namespace bcl
       storage::Vector< sdf::BondInfo> bcl_bonds;
 
       // retrieve coordinates of all atoms
+      if( !RDKIT_MOL.getNumConformers())
+      {
+        BCL_MessageStd
+        (
+          "[WARNING] RdkitMolUtils::RDKitRWMolToFragmentComplete "
+          "no 3D conformer stored on RDKit molecule. Setting all atom coordinates to origin."
+        );
+      }
       const std::vector<RDGeom::Point3D> rdkit_mol_positions
       (
         RDKIT_MOL.getNumConformers() ?
@@ -95,7 +103,6 @@ namespace bcl
       );
 
       // retrieve ring information for atoms and bonds in our rdkit molecule
-//      std::shared_ptr< ::RDKit::RingInfo> rdkit_ringinfo( RDKIT_MOL.getRingInfo()); // TODO make raw pointer
       ::RDKit::RingInfo* const rdkit_ringinfo( RDKIT_MOL.getRingInfo());
 
       // atoms
@@ -270,12 +277,16 @@ namespace bcl
     //! will skip this atom when building the new molecule
     //! @param SANITIZE perform RDKit-style standardization of molecule after an initial
     //! molecule is created from the BCL FragmentComplete
+    //! @param SKIP_COORDS do not try to assign 3D coordinates from BCL object as a 3D conformer
+    //! on the RDKit molecule; this means that we are effectively creating a molecule topology
+    //! object from our BCL molecule; useful when just converting from FragmentComplete to SMILES
     //! @return the RDKit RWMol constructed from the FragmentComplete
     std::shared_ptr< ::RDKit::RWMol> RdkitMolUtils::FragmentCompleteToRDKitRWMol
     (
       const FragmentComplete &MOL,
       const ElementType &UNDEFINED_SUBSTITUTE,
-      const bool SANITIZE
+      const bool SANITIZE,
+      const bool SKIP_COORDS
     )
     {
       // initialize an empty RDKit molecule
@@ -421,7 +432,10 @@ namespace bcl
       }
 
       // currently the rdkit_mol is just a topology; this will add coordinates
-      AddBCLConformersToRDKitRWMol( rdkit_mol, FragmentEnsemble( storage::List< FragmentComplete>( 1, MOL)));
+      if( !SKIP_COORDS)
+      {
+        AddBCLConformersToRDKitRWMol( rdkit_mol, FragmentEnsemble( storage::List< FragmentComplete>( 1, MOL)));
+      }
       return rdkit_mol;
     }
 

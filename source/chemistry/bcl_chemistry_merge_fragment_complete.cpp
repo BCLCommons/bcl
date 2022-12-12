@@ -1070,6 +1070,7 @@ namespace bcl
       const AtomComplete &atom_of_interest_aa( MOLECULE_A.GetAtomVector()( VERTICES_TO_CONNECT.First()));
       const AtomComplete &atom_of_interest_bb( MOLECULE_B.GetAtomVector()( VERTICES_TO_CONNECT.Second()));
 
+      // obtain ideal bond length based on the two atom types and their connecting bond
       double bond_length
       (
         BondLengths::GetBondLength
@@ -1079,6 +1080,22 @@ namespace bcl
           atom_of_interest_bb.GetAtomType()
         )
       );
+
+      // if no bond length is defined for a given atom pair and bond type combination, set to a default value
+      // TODO fix hack
+      if( util::IsNaN( bond_length))
+      {
+        BCL_MessageStd
+        (
+          "[WARNING] MergeFragmentComplete::GetTransformedCoordinates "
+          "no valid bond length joining "
+          + atom_of_interest_aa.GetAtomType().GetName() + " and "
+          + atom_of_interest_bb.GetAtomType().GetName() + " via the bond type "
+          + util::Format()( BOND_TYPE->GetBondData( ConfigurationalBondTypeData::e_BondOrderOrAromatic))
+          + ". Setting a nominal default bond length value of " + util::Format()( 1.45) +  " Angstroms."
+        );
+         bond_length = 1.45;
+      }
 
       // get where a new atom will be placed if it has to be added
       storage::Vector< linal::Vector3D> ideal_coords_ab( ValenceHandler::DetermineCoordinates( atom_of_interest_aa));
@@ -1098,9 +1115,9 @@ namespace bcl
         return storage::Vector< linal::Vector3D>();
       }
 
+      // obtain ideal coordinate placement for the transformation
       linal::Vector3D ideal_coord_ab( ideal_coords_ab( random::GetGlobalRandom().Random( ideal_coords_ab.GetSize() - 1)));
       linal::Vector3D ideal_coord_ba( ideal_coords_ba( random::GetGlobalRandom().Random( ideal_coords_ba.GetSize() - 1)));
-
       ideal_coord_ba = ( ( ideal_coord_ba - atom_of_interest_bb.GetPosition()) * bond_length) + atom_of_interest_bb.GetPosition();
       ideal_coord_ab = ( ( ideal_coord_ab - atom_of_interest_aa.GetPosition()) * bond_length) + atom_of_interest_aa.GetPosition();
 

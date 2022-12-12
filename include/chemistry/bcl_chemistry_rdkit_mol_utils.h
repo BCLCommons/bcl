@@ -112,12 +112,16 @@ namespace bcl
       //! will skip this atom when building the new molecule
       //! @param SANITIZE perform RDKit-style standardization of molecule after an initial
       //! molecule is created from the BCL FragmentComplete
+      //! @param SKIP_COORDS do not try to assign 3D coordinates from BCL object as a 3D conformer
+      //! on the RDKit molecule; this means that we are effectively creating a molecule topology
+      //! object from our BCL molecule; useful when just converting from FragmentComplete to SMILES
       //! @return the RDKit RWMol constructed from the FragmentComplete
       static std::shared_ptr< ::RDKit::RWMol> FragmentCompleteToRDKitRWMol
       (
         const FragmentComplete &MOL,
         const ElementType &UNDEFINED_SUBSTITUTE = GetElementTypes().e_Undefined,
-        const bool SANITIZE = true
+        const bool SANITIZE = true,
+        const bool SKIP_COORDS = false
       );
 
     private:

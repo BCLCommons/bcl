@@ -36,6 +36,50 @@ namespace bcl
     // construction and destruction //
     //////////////////////////////////
 
+    //! @brief default constructor
+    RdkitEnergyMinimizeMmff94::RdkitEnergyMinimizeMmff94() :
+      m_MaxIterations( 1000),
+      m_ForceTolerance( 1.0e-4),
+      m_EnergyTolerance( 1.0e-4),
+      m_PositionalRestraintAtoms( storage::Vector< size_t>()),
+      m_PositionalRestraintAtomsString( "")
+    {
+    }
+
+    //! @brief full constructor with restrained atoms string
+    RdkitEnergyMinimizeMmff94::RdkitEnergyMinimizeMmff94
+    (
+      const size_t MAX_ITERATIONS,
+      const double FORCE_TOLERANCE,
+      const double ENERGY_TOLERANCE,
+      const std::string &POSITION_RESTRAINED_ATOMS_STRING
+    ) :
+      m_MaxIterations( MAX_ITERATIONS),
+      m_ForceTolerance( FORCE_TOLERANCE),
+      m_EnergyTolerance( ENERGY_TOLERANCE),
+      m_PositionalRestraintAtoms( storage::Vector< size_t>()),
+      m_PositionalRestraintAtomsString( POSITION_RESTRAINED_ATOMS_STRING)
+    {
+      // set the positionally restrained atom indices in RISH
+      this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
+    }
+
+    //! @brief full constructor with directly specified restrained atom indices
+    RdkitEnergyMinimizeMmff94::RdkitEnergyMinimizeMmff94
+    (
+      const size_t MAX_ITERATIONS,
+      const double FORCE_TOLERANCE,
+      const double ENERGY_TOLERANCE,
+      const storage::Vector< size_t> &POSITION_RESTRAINED_ATOMS
+    ) :
+      m_MaxIterations( MAX_ITERATIONS),
+      m_ForceTolerance( FORCE_TOLERANCE),
+      m_EnergyTolerance( ENERGY_TOLERANCE),
+      m_PositionalRestraintAtoms( POSITION_RESTRAINED_ATOMS),
+      m_PositionalRestraintAtomsString( "")
+    {
+    }
+
     //! virtual copy constructor
     RdkitEnergyMinimizeMmff94 *RdkitEnergyMinimizeMmff94::Clone() const
     {
@@ -137,6 +181,7 @@ namespace bcl
       {
         BCL_MessageStd
         (
+          "[WARNING] RdkitEnergyMinimizeMmff94::AddPositionalRestraints "
           "The number of atoms does not match the number of max displacements and/or the number of provided restraint forces; "
           "alternatively, if the number of restraint forces to be added is one, then the number of atoms simply does not match the number of "
           "max displacements. NO POSITIONAL RESTRAINT ADDED!"

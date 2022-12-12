@@ -13,6 +13,7 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include <io/bcl_io_file.h>
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
@@ -33,6 +34,14 @@ BCL_StaticInitializationFiascoFinder
 #include "GraphMol/SmilesParse/SmilesParse.h"
 #include "GraphMol/SmilesParse/SmartsWrite.h"
 #include "GraphMol/SmilesParse/SmilesWrite.h"
+#include "GraphMol/DistGeomHelpers/Embedder.h"
+#include "ForceField/ForceField.h"
+#include "GraphMol/ForceFieldHelpers/MMFF/AtomTyper.h"
+#include "GraphMol/ForceFieldHelpers/MMFF/Builder.h"
+#include "GraphMol/FileParsers/FileParsers.h"
+
+#include <iostream>
+#include <fstream>
 
 namespace bcl
 {
@@ -464,7 +473,7 @@ namespace bcl
     std::string RdkitSmilesParser::ConvertMolToSMILES( const chemistry::FragmentComplete &MOL)
     {
       // generate our molecule from the SMILES/SMARTS string
-      auto rdkit_mol( chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( MOL));
+      auto rdkit_mol( chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( MOL, chemistry::GetElementTypes().e_Undefined, true, true));
       return ::RDKit::MolToSmiles( *rdkit_mol);
     }
 
@@ -472,44 +481,104 @@ namespace bcl
     //! @param MOL molecule to be converted to SMARTS string
     std::string RdkitSmilesParser::ConvertMolToSMARTS( const chemistry::FragmentComplete &MOL)
     {
-      auto rdkit_mol( chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( MOL));
+      auto rdkit_mol( chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( MOL, chemistry::GetElementTypes().e_Undefined, true, true));
       return ::RDKit::MolToSmarts( *rdkit_mol);
     }
 
     //! @brief convert SMILES string to molecule
     //! @param MOL molecule to be converted to SMILES string
-    chemistry::FragmentComplete RdkitSmilesParser::ConvertSMILESToMOL( const std::string &SMILES)
+    chemistry::FragmentComplete RdkitSmilesParser::ConvertSMILESToMOL
+    (
+      const std::string &SMILES,
+      const bool IS_SMARTS,
+      const bool ADD_H,
+      const bool GEN3D,
+      const size_t GEOOPT_ITERATIONS,
+      const std::string &GEOOPT_MMFF94S_VARIANT,
+      const float GEOOPT_NONBONDED_THRESH,
+      const bool GEOOPT_IGNORE_INTERFRAG_INTERACTIONS
+    )
     {
       // generate our molecule from the SMILES/SMARTS string
-      ::RDKit::RWMol* rdkit_mol( ::RDKit::SmilesToMol( SMILES));
+      ::RDKit::RWMol* rdkit_mol
+      (
+        IS_SMARTS ?
+          ::RDKit::SmartsToMol( SMILES) :
+          ::RDKit::SmilesToMol( SMILES)
+      );
 
       // check validity of SMILES/SMARTS syntax
       ::RDKit::MolOps::sanitizeMol( *rdkit_mol);
       if( rdkit_mol == nullptr)
       {
+        BCL_MessageStd( "RDKit could not sanitize the molecule upon conversion from SMILES. Returning null...");
         return chemistry::FragmentComplete();
       }
 
+      // add explicit hydrogen atoms
+      if( ADD_H)
+      {
+        ::RDKit::MolOps::addHs( *rdkit_mol );
+      }
+
+      // generate a 3D conformer
+      if( GEN3D)
+      {
+        ::RDKit::DGeomHelpers::EmbedMolecule( *rdkit_mol );
+        std::ofstream ofs( "foo.mol" );
+        ofs << ::RDKit::MolToMolBlock( *rdkit_mol );
+      }
+
+      // geometry optimize the structure with a molecular mechanics force field
+      if( GEOOPT_ITERATIONS)
+      {
+        ::RDKit::MMFF::MMFFMolProperties mmff_mol_properties( *rdkit_mol, GEOOPT_MMFF94S_VARIANT);
+        if( !mmff_mol_properties.isValid())
+        {
+          BCL_MessageStd( "Invalid MMFF molecule properties. Skipping geometry optimization.");
+          return *( chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete( *rdkit_mol, SMILES));
+        }
+
+        BCL_MessageStd( "Running short MMFF94s minimization on the chemical fragment converted from SMILES/SMARTS...");
+        ::ForceFields::ForceField *ff = ::RDKit::MMFF::constructForceField( *rdkit_mol, GEOOPT_NONBONDED_THRESH, -1, GEOOPT_IGNORE_INTERFRAG_INTERACTIONS);
+        ff->initialize();
+        ff->minimize( GEOOPT_ITERATIONS);
+      }
+
       // conversion to BCL molecule
+//      chemistry::FragmentComplete mol( *( chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete( *rdkit_mol, SMILES)));
+//      io::OFStream debug_out;
+//      io::File::MustOpenOFStream( debug_out, "foo.fragment_complete.sdf");
+//      mol.WriteMDL( debug_out);
+//      io::File::CloseClearFStream( debug_out);
+//      return mol;
       return *( chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete( *rdkit_mol, SMILES));
     }
 
     //! @brief convert SMARTS string to molecule
     //! @param MOL molecule to be converted to SMARTS string
-    chemistry::FragmentComplete RdkitSmilesParser::ConvertSMARTSToMOL( const std::string &SMARTS)
+    chemistry::FragmentComplete RdkitSmilesParser::ConvertSMARTSToMOL
+    (
+      const std::string &SMILES,
+      const bool ADD_H,
+      const bool GEN3D,
+      const size_t GEOOPT_ITERATIONS,
+      const std::string &GEOOPT_MMFF94S_VARIANT,
+      const float GEOOPT_NONBONDED_THRESH,
+      const bool GEOOPT_IGNORE_INTERFRAG_INTERACTIONS
+    )
     {
-      // generate our molecule from the SMILES/SMARTS string
-      ::RDKit::RWMol* rdkit_mol( ::RDKit::SmartsToMol( SMARTS));
-
-      // check validity of SMILES/SMARTS syntax
-      ::RDKit::MolOps::sanitizeMol( *rdkit_mol);
-      if( rdkit_mol == nullptr)
-      {
-        return chemistry::FragmentComplete();
-      }
-
-      // conversion to BCL molecule
-      return *( chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete( *rdkit_mol, SMARTS));
+      return ConvertSMILESToMOL
+          (
+            SMILES,
+            true,
+            ADD_H,
+            GEN3D,
+            GEOOPT_ITERATIONS,
+            GEOOPT_MMFF94S_VARIANT,
+            GEOOPT_NONBONDED_THRESH,
+            GEOOPT_IGNORE_INTERFRAG_INTERACTIONS
+          );
     }
 
   //////////////////////
