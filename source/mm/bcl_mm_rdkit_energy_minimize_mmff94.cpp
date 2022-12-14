@@ -238,20 +238,34 @@ namespace bcl
     ) const
     {
       // sanity check on vector sizes
-      if
-      (
-          ( ( ATOM_INDICES.GetSize() == MAX_UNRESTRAINED_DISPLACEMENT.GetSize() ) == RESTRAINT_FORCE.GetSize() ) ||
-          ( ( ATOM_INDICES.GetSize() == MAX_UNRESTRAINED_DISPLACEMENT.GetSize() ) && RESTRAINT_FORCE.GetSize()  == size_t( 1) )
-      )
+      if( ATOM_INDICES.GetSize() == MAX_UNRESTRAINED_DISPLACEMENT.GetSize() && ATOM_INDICES.GetSize() == RESTRAINT_FORCE.GetSize() )
       {
         // loop over atom indices and add restraint forces to our force field
         for( size_t i( 0), sz( ATOM_INDICES.GetSize()); i < sz; ++i)
         {
           ::ForceFields::MMFF::PositionConstraintContrib *coord_cst;
-          coord_cst = new ::ForceFields::MMFF::PositionConstraintContrib( FORCE_FIELD, ATOM_INDICES( i), MAX_UNRESTRAINED_DISPLACEMENT( i), RESTRAINT_FORCE( i));
+          coord_cst = new ::ForceFields::MMFF::PositionConstraintContrib
+              (
+                FORCE_FIELD, ATOM_INDICES( i),
+                MAX_UNRESTRAINED_DISPLACEMENT( i),
+                RESTRAINT_FORCE( i)
+              );
           FORCE_FIELD->contribs().push_back( ForceFields::ContribPtr( coord_cst));
         }
-
+      }
+      else if( ATOM_INDICES.GetSize() == MAX_UNRESTRAINED_DISPLACEMENT.GetSize() && RESTRAINT_FORCE.GetSize() == size_t( 1) )
+      {
+        for( size_t i( 0), sz( ATOM_INDICES.GetSize()); i < sz; ++i)
+        {
+          ::ForceFields::MMFF::PositionConstraintContrib *coord_cst;
+          coord_cst = new ::ForceFields::MMFF::PositionConstraintContrib
+              (
+                FORCE_FIELD, ATOM_INDICES( i),
+                MAX_UNRESTRAINED_DISPLACEMENT( i),
+                RESTRAINT_FORCE( 0)
+              );
+          FORCE_FIELD->contribs().push_back( ForceFields::ContribPtr( coord_cst));
+        }
       }
       // do not kill, but inform user that positional restraints are not added
       else
@@ -262,6 +276,9 @@ namespace bcl
           "The number of atoms does not match the number of max displacements and/or the number of provided restraint forces; "
           "alternatively, if the number of restraint forces to be added is one, then the number of atoms simply does not match the number of "
           "max displacements. NO POSITIONAL RESTRAINT ADDED!"
+          " Number of atoms to be restrained: " + util::Format()( ATOM_INDICES.GetSize()) +
+          " Number of max unrestrained distances: " + util::Format()( MAX_UNRESTRAINED_DISPLACEMENT.GetSize()) +
+          " Number of restraint forces specified: " + util::Format()( RESTRAINT_FORCE.GetSize())
         )
       }
     }

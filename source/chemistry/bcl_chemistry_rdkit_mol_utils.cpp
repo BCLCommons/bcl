@@ -263,6 +263,7 @@ namespace bcl
 
       // determine atom and bond types (fix all of our errors, e.g., amide bonds)
       AtomsCompleteStandardizer standardizer( atoms, MOL_ID, true); // force recalculation
+      standardizer.SetConjugationOfBondTypes( atoms);
 
       // add bond stereocenter/isometry info then build full molecule
       BondIsometryHandler::AddIsometryInformation( atoms, true);

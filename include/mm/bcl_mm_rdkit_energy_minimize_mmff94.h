@@ -216,7 +216,7 @@ namespace bcl
       static storage::Pair< int, double> OptimizeGeometry
       (
         chemistry::FragmentComplete &MOLECULE,
-        const std::string &MMFF_VARIANT = "MMFF94s",
+        const std::string &MMFF_VARIANT,
         const double NON_BONDED_THRESHOLD = 10.0,
         const bool IGNORE_INTER_FRAG_INTERACTIONS = true,
         const size_t MAX_ITERATIONS = 1000,
@@ -232,7 +232,7 @@ namespace bcl
       static storage::Triplet< chemistry::FragmentComplete, int, double> OptimizeGeometry
       (
         const chemistry::FragmentComplete &MOLECULE,
-        const std::string &MMFF_VARIANT = "MMFF94s",
+        const std::string &MMFF_VARIANT,
         const double NON_BONDED_THRESHOLD = 10.0,
         const bool IGNORE_INTER_FRAG_INTERACTIONS = true,
         const size_t MAX_ITERATIONS = 1000,

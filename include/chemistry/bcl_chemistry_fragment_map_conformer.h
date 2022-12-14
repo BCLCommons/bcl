@@ -50,9 +50,11 @@ namespace bcl
     //!
     //! @class FragmentMapConformer
     //! @brief Used to map the 3D coordinates of a derived structure to its parent
+    //! TODO: refactor this entire thing completely, but first make sure to have rigorous examples every single class
+    //! that uses it or else we are virtually guaranteed to have changes in desired behavior
     //!
     //! @see @link example_chemistry_fragment_map_conformer.cpp @endlink
-    //! @author brownbp1, mendenjl
+    //! @author brownbp1
     //! @date Dec 13, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -97,6 +99,9 @@ namespace bcl
       //! bypass the mapconformer step and directly set the moveable indices
       mutable storage::Vector< size_t> m_MoveableIndices;
 
+      //! indices that are not accessible via SampleByParts (BCL::Conf) or are restrained during MMFF94s geometry optimization
+      mutable storage::Vector< size_t> m_RestrainedIndices;
+
       //! perform a quick substructure-based ensemble align and choose best conformer based on ChargeRMSD
       bool m_ChooseBestAlignedConf;
 
@@ -108,6 +113,12 @@ namespace bcl
 
       //! Open conformational sampling to new ring atoms
       bool m_MapSubgraphRingAtoms;
+
+      //! do not generate a new 3D conformer
+      bool m_SkipConfGen;
+
+      //! perform classical mechanics geometry optimization
+      bool m_GeoOpt;
 
     public:
 
@@ -154,7 +165,9 @@ namespace bcl
         const bool CHOOSE_BEST_ALIGNED_CONF = false,
         const bool FIX_GEOMETRY = true,
         const size_t ADJACENT_NBRS = size_t( 1),
-        const bool MAP_SUBGRAPH_RINGS = true
+        const bool MAP_SUBGRAPH_RINGS = true,
+        const bool SKIP_CONFGEN = false,
+        const bool GEO_OPT = false
       );
 
       //! @brief clone constructor
@@ -180,9 +193,21 @@ namespace bcl
       //! return the bfactors for each atom in the pocket
       const storage::Vector< float> &GetBFactors() const;
 
+      //! @brief return whether to skip conformer generation
+      bool GetSkipConfGen() const;
+
+      //! @brief return whether to run MMFF94s minimization
+      bool GetGeoOpt() const;
+
     ////////////////
     // operations //
     ////////////////
+
+      //! @brief set skip conformer generation
+      void SetSkipConfGen( const bool SKIP);
+
+      //! @brief set geometry optimization
+      void SetGeoOpt( const bool OPT);
 
       //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
       //! @param FRAGMENT small molecule of interest
@@ -216,8 +241,8 @@ namespace bcl
       //! @param BOND_COMPARISON the bond comaprison type to use for subgraph isomorphism
       //! @param COMPLEMENT if true, the mapped atom indices returned are the subgraph complement,
       //! if false then the returned indices are of the common subgraph
-      //! @return the NEW_MOL indices mapped to STARTING_MOL
-      storage::Set< size_t> MapAtoms
+      //! @return the NEW_MOL indices mapped to STARTING_MOL (first) and the unmapped indices (second)
+      storage::Pair< storage::Set< size_t>, storage::Set< size_t>> MapAtoms
       (
         const FragmentComplete &STARTING_MOL,
         const FragmentComplete &NEW_MOL,

@@ -229,6 +229,7 @@ namespace bcl
     {
       // mutate label
       BCL_MessageStd( "SmilesReact!");
+      io::OFStream debug_out;
 
       // try N times to have a successful mutate
       size_t try_index( 0);
@@ -262,6 +263,9 @@ namespace bcl
         (
           RemoveDummyElement( FRAGMENT, start_mol_dummy_elements)
         );
+        io::File::MustOpenOFStream( debug_out, "stripped_mol.sdf");
+        stripped_mol.First().WriteMDL( debug_out);
+        io::File::CloseClearFStream( debug_out);
 
         //!!
         // TODO Need to know what the bond type is that will connect the two fragments
@@ -304,7 +308,6 @@ namespace bcl
         storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_mol, stripped_reagents( 0), start_mol_dummy_bondtypes));
 
         // DEBUG out
-        io::OFStream debug_out;
         io::File::MustOpenOFStream( debug_out, "debug_out.sdf");
         product.First().WriteMDL( debug_out);
         io::File::CloseClearFStream( debug_out);
@@ -322,7 +325,14 @@ namespace bcl
           m_PropertyScorer,
           m_ResolveClashes,
           m_BFactors,
-          m_Corina
+          m_Corina,
+          storage::Vector< size_t>(), // moveable indices (empty)
+          false, // choose best aligned conf (false)
+          true, // fix geometry (true)
+          1, // adjacent nbrs (1)
+          true, // map subgraph rings (true)
+          false, // skip confgen (false)
+          true // geo opt MMFF94s (false)
         );
 
         // clean and output
@@ -333,12 +343,10 @@ namespace bcl
         HydrogensHandler::Remove( atoms);
         if( m_ScaffoldFragment.GetSize())
         {
-          BCL_MessageStd( "Clean 1");
           return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, m_ScaffoldFragment, m_DrugLikenessType), *this);
         }
         else
         {
-          BCL_MessageStd( "Clean 2");
           return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, stripped_mol.First(), m_DrugLikenessType), *this);
         }
       }
