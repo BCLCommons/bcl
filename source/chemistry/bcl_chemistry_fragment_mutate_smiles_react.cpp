@@ -259,6 +259,9 @@ namespace bcl
         storage::Map< ElementType, ConfigurationalBondType> start_mol_dummy_bondtypes( reactor.ParseDummyAtomBonds( reactor.m_SmirksReagents( start_mol_rxn_pos)));
 
         // remove dummy atom and track attached index (map this index from the element type of the removed dummy atom)
+        io::File::MustOpenOFStream( debug_out, "unstripped_mol.sdf");
+        FRAGMENT.WriteMDL( debug_out);
+        io::File::CloseClearFStream( debug_out);
         storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> stripped_mol
         (
           RemoveDummyElement( FRAGMENT, start_mol_dummy_elements)
@@ -293,6 +296,9 @@ namespace bcl
           start_mol_dummy_bondtypes.InsertElements( dummy_bondtypes.Begin(), dummy_bondtypes.End());
           BCL_MessageStd( "GetRandomReagent!");
           FragmentComplete reagent( GetRandomReagent( rxn_id, rxn_pos( i)));
+          io::File::MustOpenOFStream( debug_out, "unstripped_reagent." + util::Format()( i) + ".sdf");
+          reagent.WriteMDL( debug_out);
+          io::File::CloseClearFStream( debug_out);
           storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> stripped_reagent
           (
             RemoveDummyElement( reagent, dummy_elements)
@@ -821,8 +827,10 @@ namespace bcl
           size_t bonded_atom_i( atoms.GetAtomIndex( bonded_atom));
 
           // account for index change when dummy atom removed
+          BCL_Debug( ELEMENTS( e_i));
+          BCL_Debug( bonded_atom_i);
           atom_i < bonded_atom_i ?
-            bonded_atoms.Insert( storage::Pair< ElementType, size_t>( ELEMENTS( e_i), bonded_atom_i - 1) ):
+            bonded_atoms.Insert( storage::Pair< ElementType, size_t>( ELEMENTS( e_i), bonded_atom_i - 1) ): // TODO BUG if there is another bonded element at a lower index
             bonded_atoms.Insert( storage::Pair< ElementType, size_t>( ELEMENTS( e_i), bonded_atom_i) );
 
           // increment the count
