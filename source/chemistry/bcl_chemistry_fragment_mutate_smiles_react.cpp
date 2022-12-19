@@ -245,9 +245,9 @@ namespace bcl
 
         // choose a reaction and reagents
         std::string rxn_id( GetRandomReactionID());
-        BCL_Debug( rxn_id);
+//        BCL_Debug( rxn_id);
         std::string rxn_line( GetReactionFromID( rxn_id));
-        BCL_Debug( rxn_line);
+//        BCL_Debug( rxn_line);
         SmirksReactor reactor( rxn_line);
         size_t start_mol_rxn_pos( GetRandomReactionPosition( m_AllowedRxnPositionIndices));
 
@@ -297,15 +297,21 @@ namespace bcl
           (
             RemoveDummyElement( reagent, dummy_elements)
           );
+          io::File::MustOpenOFStream( debug_out, "stripped_reagent." + util::Format()( i) + ".sdf");
+          stripped_reagent.First().WriteMDL( debug_out);
+          io::File::CloseClearFStream( debug_out);
           stripped_reagents.PushBack( stripped_reagent);
         }
+        stripped_reagents.PushBack( stripped_mol);
 
         // perform our reaction(s)
-        BCL_MessageStd(" React reagent fragments!");
-        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> reagents_product( ReactFragments( stripped_reagents, start_mol_dummy_bondtypes));
-        BCL_MessageStd(" React reagent product with start molecule!");
+//        BCL_MessageStd(" React reagent fragments!");
+        // TODO but what if the reagents do not react together, but they both react with the start mol?
+//        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> reagents_product( ReactFragments( stripped_reagents, start_mol_dummy_bondtypes));
+        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_reagents, start_mol_dummy_bondtypes));
+//        BCL_MessageStd(" React reagent product with start molecule!");
 //        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_mol, reagents_product, start_mol_dummy_bondtypes));
-        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_mol, stripped_reagents( 0), start_mol_dummy_bondtypes));
+//        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_mol, stripped_reagents( 0), start_mol_dummy_bondtypes));
 
         // DEBUG out
         io::File::MustOpenOFStream( debug_out, "debug_out.sdf");
@@ -385,8 +391,13 @@ namespace bcl
         m_AssociatedReactions.find( std::pair< std::string, size_t>( REACTION_ID, REACTION_POS))->second
       );
       BCL_Debug( reagent_smiles.size());
-      const size_t rand_pos( random::GetGlobalRandom().Random<size_t>( 0, reagent_smiles.size()));
+      const size_t rand_pos( random::GetGlobalRandom().Random<size_t>( 0, reagent_smiles.size() - 1));
       BCL_Debug( rand_pos);
+//      for( size_t i( 0); i < reagent_smiles.size(); ++i)
+//      {
+//        BCL_Debug( reagent_smiles[ i].m_ReagentSmiles);
+//      }
+      BCL_Debug( reagent_smiles[ rand_pos].m_ReagentSmiles);
       return smiles::RdkitSmilesParser::ConvertSMILESToMOL
           (
             reagent_smiles[ rand_pos].m_ReagentSmiles,
@@ -472,24 +483,22 @@ namespace bcl
       BCL_Debug( REAGENT_B);
       BCL_Debug( BONDS);
       storage::Set< ElementType> uniq_keys( REAGENT_A.Second().GetKeys());
-      BCL_Debug( uniq_keys);
+      storage::Vector< ElementType> b_keys( REAGENT_B.Second().GetKeysAsVector());
       BCL_Debug( REAGENT_A.Second().GetKeys().GetSize());
-      BCL_Debug( REAGENT_B.Second().GetKeys().GetSize());
-      // TODO where is a bug here where the loop goes around a second time; reagent B keys iterator is borked somehow
-//      for
-//      (
-//          auto key_itr( REAGENT_B.Second().GetKeys().Begin()),
-//          key_itr_end( REAGENT_B.Second().GetKeys().End());
-//          key_itr != key_itr_end;
-//          ++key_itr
-//      )
-//      {
-//        BCL_Debug( key_itr->GetName());
-//        uniq_keys.Insert( *key_itr);
-//      }
-
-      // try this instead?
-//      uniq_keys.InsertElements( REAGENT_B.Second().GetKeys());
+      BCL_Debug( b_keys.GetSize());
+      for
+      (
+          auto key_itr( b_keys.Begin()),
+          key_itr_end( b_keys.End());
+          key_itr != key_itr_end;
+          ++key_itr
+      )
+      {
+        BCL_Debug( key_itr->GetName());
+        ElementType ele( GetElementTypes().ElementTypeLookup( ( *key_itr)->GetChemicalSymbol()));
+        uniq_keys.Insert( ele);
+      }
+      BCL_Debug( uniq_keys);
 
       // we can only attach at mutually matched dummy atom sites, so always get the smaller map
       BCL_MessageStd( "Do some key stuff");
@@ -502,7 +511,8 @@ namespace bcl
       BCL_Debug( keys);
 
       // our final molecule will begin from our first reagent
-      storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( REAGENT_A);
+//      storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( REAGENT_A);
+      storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product;
       storage::Map< ElementType, storage::Pair< size_t, size_t>> product_react_atoms; // this is a pair now for intramolecular attachment
 
       // for all potential dummy elements
@@ -541,7 +551,6 @@ namespace bcl
             a_frag, // these atoms occur first in sequence
             b_frag, // these atoms are appended to the list of atoms from a_frag
             BONDS.Find( keys( e_i))->second,
-//            GetConfigurationalBondTypes().e_NonConjugatedSingleBond,
             storage::Pair< size_t, size_t>( a_connect, b_connect)
           )
         );
@@ -593,6 +602,12 @@ namespace bcl
         break; // after joining the two fragments, any additional reactions are intramolecular
       }
 
+      // return null if there is no product
+      if( !product.First().GetSize())
+      {
+        return storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>();
+      }
+
       // perform intramolecular reactions
       BCL_MessageStd( "Intramolecular reaction stuff");
       storage::Map< ElementType, size_t> product_dummy_sites;
@@ -619,7 +634,6 @@ namespace bcl
               itr->second.First(),
               itr->second.Second(),
               BONDS.Find( itr->first)->second
-//              GetConfigurationalBondTypes().e_NonConjugatedSingleBond
             )
           );
         }
@@ -656,38 +670,117 @@ namespace bcl
       const storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> &REAGENTS,
       const storage::Map< ElementType, ConfigurationalBondType> &BONDS
     ) const
+//    {
+//      // copy
+//      size_t n_reagents( REAGENTS.GetSize());
+////      BCL_Debug( n_reagents);
+////      BCL_Debug( REAGENTS);
+//      storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> reagents( REAGENTS);
+//
+//      // react until only one molecule remaining
+////      BCL_MessageStd("Pre while-loop");
+//      size_t blah( 0);
+//      while( n_reagents > size_t( 1))
+//      {
+////        BCL_MessageStd("In while-loop");
+////        BCL_MessageStd( "n_reagents counter at: " + util::Format()( n_reagents));
+//        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product
+//        (
+//          // react the last two reagents in the vector
+//          ReactFragments( reagents( n_reagents - 1), reagents( n_reagents - 2), BONDS)
+//        );
+//
+//        io::OFStream debug_out;
+//        io::File::MustOpenOFStream( debug_out, "reagent_rxn_product." + util::Format()( blah) + ".sdf");
+//        product.First().WriteMDL( debug_out);
+//        io::File::CloseClearFStream( debug_out);
+//
+//        // kick the two reagents off the back of the vector
+//        reagents.PopBack();
+//        reagents.PopBack();
+//
+//        // add the product to the end of the vector
+//        reagents.PushBack( product);
+//        BCL_Debug( reagents);
+//
+//        // increment counter
+//        n_reagents = reagents.GetSize();
+//        ++blah;
+//      }
+////      BCL_MessageStd("Post (or skip) while-loop");
+////      BCL_Debug( reagents( 0));
+//      return reagents( 0);
+//    }
     {
-      // copy
-      size_t n_reagents( REAGENTS.GetSize());
+      int n_reagents( REAGENTS.GetSize());
       BCL_Debug( n_reagents);
-      BCL_Debug( REAGENTS);
       storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> reagents( REAGENTS);
+      io::OFStream debug_out;
 
-      // react until only one molecule remaining
-      BCL_MessageStd("Pre while-loop");
-      while( n_reagents > size_t( 1))
+      // need a pair of reagents for each reaction
+      for( int i( 0); i < n_reagents; ++i)
       {
-        BCL_MessageStd("In while-loop");
-        BCL_MessageStd( "n_reagents counter at: " + util::Format()( n_reagents));
-        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product
-        (
-          // react the last two reagents in the vector
-          ReactFragments( reagents( n_reagents - 1), reagents( n_reagents - 2), BONDS)
-        );
+        BCL_MessageStd( "Start of for-loop i: " + util::Format()( i));
+        for( int j( i + 1); j < n_reagents; ++j)
+        {
+          BCL_MessageStd( "Start of for-loop j: " + util::Format()( j));
 
-        // kick the two reagents off the back of the vector
-        reagents.PopBack();
-        reagents.PopBack();
+          // invalid if there are not at least 2 reagents
+          if( n_reagents < int( 2))
+          {
+            BCL_MessageStd( "Too few reagents");
+            break;
+          }
 
-        // add the product to the end of the vector
-        reagents.PushBack( product);
-        BCL_Debug( reagents);
+          // perform reaction
+          io::File::MustOpenOFStream
+          (
+            debug_out,
+            "reaction.r_" + util::Format()( i) + "_" + util::Format()( j) + ".i_" + util::Format()( i) + ".sdf",
+            std::ios::app
+          );
+          reagents( i).First().WriteMDL( debug_out);
+          io::File::CloseClearFStream( debug_out);
 
-        // increment counter
-        n_reagents = reagents.GetSize();
+          io::File::MustOpenOFStream
+          (
+            debug_out,
+            "reaction.r_" + util::Format()( i) + "_" + util::Format()( j) + ".j_" + util::Format()( j) + ".sdf",
+            std::ios::app
+          );
+          reagents( j).First().WriteMDL( debug_out);
+          io::File::CloseClearFStream( debug_out);
+
+          storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product
+          (
+            ReactFragments( reagents( i), reagents( j), BONDS)
+          );
+
+          // skip next part if no valid product formed
+          if( !product.First().GetSize())
+          {
+            BCL_MessageStd( "Invalid product formed");
+            continue;
+          }
+
+          // remove reagents from reagent pool
+          reagents.RemoveElements( i, 1);
+          j < i ?
+            reagents.RemoveElements( j, 1) : // j-index unchanged
+            reagents.RemoveElements( j - 1, 1); // j-index shifted down from removal of i
+
+          // add new product to reagent pool
+          reagents.PushBack( product);
+
+          // reset our progression through the for-loop
+          j = int( -1);
+          BCL_MessageStd( "Reset j: " + util::Format()( j));
+          n_reagents = reagents.GetSize();
+          i = int( -1);
+          BCL_MessageStd( "Reset i: " + util::Format()( i));
+          break;
+        }
       }
-      BCL_MessageStd("Post (or skip) while-loop");
-      BCL_Debug( reagents( 0));
       return reagents( 0);
     }
 
@@ -798,7 +891,7 @@ namespace bcl
       {
         // SMILES reagent_id reaction_id reaction_pos
         const storage::Vector< std::string> line( util::SplitString( *line_itr, " \t") );
-        BCL_Debug( line);
+//        BCL_Debug( line);
         SmilesReactionComponent rxn_components
         (
           line( 0),                                                      // Reagent SMILES
@@ -806,13 +899,13 @@ namespace bcl
           line( 2),                                                      // Reaction ID
           util::ConvertStringToNumericalValue< size_t>( line( 3)) - 1    // Reaction position 0-indexed
         );
-        BCL_Debug( util::ConvertStringToNumericalValue< size_t>( line( 1)));
-        BCL_Debug( util::ConvertStringToNumericalValue< size_t>( line( 3)) - 1);
+//        BCL_Debug( util::ConvertStringToNumericalValue< size_t>( line( 1)));
+//        BCL_Debug( util::ConvertStringToNumericalValue< size_t>( line( 3)) - 1);
 
         // if we already have a key and we need to update the value
         const std::pair< std::string, size_t> key_pair( rxn_components.m_ReactionID, rxn_components.m_ReactionPosition);
-        BCL_Debug( key_pair.first);
-        BCL_Debug( key_pair.second);
+//        BCL_Debug( key_pair.first);
+//        BCL_Debug( key_pair.second);
         if( m_AssociatedReactions.count( key_pair))
         {
           m_AssociatedReactions.find( key_pair)->second.push_back( rxn_components);
@@ -823,13 +916,16 @@ namespace bcl
           std::vector< SmilesReactionComponent> smiles_v( 1, rxn_components);
           m_AssociatedReactions.insert( std::pair< std::pair< std::string, size_t>, std::vector< SmilesReactionComponent> >( key_pair, smiles_v ) );
         }
+
+//        BCL_Debug( m_AssociatedReactions.find( key_pair)->second.back().m_ReagentSmiles);
+
       }
-      for( auto debug_itr( m_AssociatedReactions.begin()), debug_itr_end( m_AssociatedReactions.end()); debug_itr != debug_itr_end; ++debug_itr)
-      {
-        BCL_Debug( debug_itr->first.first);
-        BCL_Debug( debug_itr->first.second);
-        BCL_Debug( debug_itr->second.size());
-      }
+//      for( auto debug_itr( m_AssociatedReactions.begin()), debug_itr_end( m_AssociatedReactions.end()); debug_itr != debug_itr_end; ++debug_itr)
+//      {
+//        BCL_Debug( debug_itr->first.first);
+//        BCL_Debug( debug_itr->first.second);
+//        BCL_Debug( debug_itr->second.size());
+//      }
 
       // unsuccessful if there are no reagents
       if( m_AssociatedReactions.empty())
