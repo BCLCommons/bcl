@@ -676,47 +676,6 @@ namespace bcl
       const storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> &REAGENTS,
       const storage::Map< ElementType, ConfigurationalBondType> &BONDS
     ) const
-//    {
-//      // copy
-//      size_t n_reagents( REAGENTS.GetSize());
-////      BCL_Debug( n_reagents);
-////      BCL_Debug( REAGENTS);
-//      storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> reagents( REAGENTS);
-//
-//      // react until only one molecule remaining
-////      BCL_MessageStd("Pre while-loop");
-//      size_t blah( 0);
-//      while( n_reagents > size_t( 1))
-//      {
-////        BCL_MessageStd("In while-loop");
-////        BCL_MessageStd( "n_reagents counter at: " + util::Format()( n_reagents));
-//        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product
-//        (
-//          // react the last two reagents in the vector
-//          ReactFragments( reagents( n_reagents - 1), reagents( n_reagents - 2), BONDS)
-//        );
-//
-//        io::OFStream debug_out;
-//        io::File::MustOpenOFStream( debug_out, "reagent_rxn_product." + util::Format()( blah) + ".sdf");
-//        product.First().WriteMDL( debug_out);
-//        io::File::CloseClearFStream( debug_out);
-//
-//        // kick the two reagents off the back of the vector
-//        reagents.PopBack();
-//        reagents.PopBack();
-//
-//        // add the product to the end of the vector
-//        reagents.PushBack( product);
-//        BCL_Debug( reagents);
-//
-//        // increment counter
-//        n_reagents = reagents.GetSize();
-//        ++blah;
-//      }
-////      BCL_MessageStd("Post (or skip) while-loop");
-////      BCL_Debug( reagents( 0));
-//      return reagents( 0);
-//    }
     {
       int n_reagents( REAGENTS.GetSize());
       BCL_Debug( n_reagents);
@@ -729,6 +688,7 @@ namespace bcl
         BCL_MessageStd( "Start of for-loop i: " + util::Format()( i));
         for( int j( i + 1); j < n_reagents; ++j)
         {
+          BCL_Debug( n_reagents);
           BCL_MessageStd( "Start of for-loop j: " + util::Format()( j));
 
           // invalid if there are not at least 2 reagents
@@ -800,6 +760,9 @@ namespace bcl
       const storage::Vector< ElementType> &ELEMENTS
     ) const
     {
+      BCL_MessageStd( "RemoveDummyElement");
+      BCL_Debug( ELEMENTS);
+
       // does not work if there are no elements
       BCL_Assert( ELEMENTS.GetSize(), "[ERROR] FragmentMutateSmilesReact::RemoveDummyElement no elements to remove!");
 
@@ -874,14 +837,18 @@ namespace bcl
       }
 
       // check for ambiguous dummy atoms
+      BCL_Debug( element_count);
       for( size_t e_i( 0), e_sz( ELEMENTS.GetSize()); e_i < e_sz; ++e_i)
       {
+        if( element_count.Count( ELEMENTS( e_i)))
+        {
           BCL_Assert
           (
             element_count.Find( ELEMENTS( e_i))->second < size_t( 2), // TODO second assert that each dummy element is found?
             "[ERROR] FragmentMutateSmilesReact: multiple dummy atoms of the same element type identified; "
             "ambiguous reaction cannot be performed."
           ); // TODO edge case - unambiguous if we are doing the reaction on a single fragment
+        }
       }
 
       // remove the dummy atoms

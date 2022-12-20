@@ -182,15 +182,19 @@ namespace bcl
           }
           else if( SMIRKS_BOND_TYPE == "~")
           {
-            return GetConfigurationalBondTypes().e_Undefined; // TODO reactions involving these will require more sophisticated parsing
+            // TODO improve parsing based on product bonds, if specified; otherwise, this needs to be detected from final structure
+            BCL_MessageStd("[WARNING] SmirksReactor::GetBondTypeFromSmirks parsing bond type '~' as 'NonConjugatedSingleBond'");
+            return GetConfigurationalBondTypes().e_NonConjugatedSingleBond;
           }
           else if( SMIRKS_BOND_TYPE == "@")
           {
-            return GetConfigurationalBondTypes().e_ConjugatedBondInRing; // consider also e_NonConjugatedSingleBondInRing
+            // TODO consider also e_NonConjugatedSingleBondInRing or detection based from final structure
+            BCL_MessageStd("[WARNING] SmirksReactor::GetBondTypeFromSmirks parsing bond type '@' as 'ConjugatedBondInRing'");
+            return GetConfigurationalBondTypes().e_ConjugatedBondInRing;
           }
           else
           {
-            return GetConfigurationalBondTypes().e_Undefined; // TODO conflicting with ~
+            return GetConfigurationalBondTypes().e_Undefined;
           }
         }
 
