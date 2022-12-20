@@ -360,7 +360,7 @@ namespace bcl
           true,
           true,
           100,
-          "MMFF94s",
+          "UFF",
           10.0,
           true
         );

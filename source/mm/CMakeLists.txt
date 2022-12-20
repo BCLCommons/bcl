@@ -11,7 +11,9 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_mm.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_mm_energy_interface.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_mm_rdkit_energy_minimize_mmff94.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_mm_rdkit_energy_minimize_uff.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_mm_rdkit_energy_mmff94.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_mm_rdkit_energy_uff.cpp
 )
 MACRO_CHECK_CMAKE_DIRECTORY_LIST( ${CMAKE_CURRENT_SOURCE_DIR} "${LIBRARY_SOURCES}")
 

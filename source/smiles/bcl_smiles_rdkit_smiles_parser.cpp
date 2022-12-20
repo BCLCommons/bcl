@@ -34,6 +34,8 @@ BCL_StaticInitializationFiascoFinder
 #include "GraphMol/FileParsers/FileParsers.h"
 #include "GraphMol/ForceFieldHelpers/MMFF/AtomTyper.h"
 #include "GraphMol/ForceFieldHelpers/MMFF/Builder.h"
+#include "GraphMol/ForceFieldHelpers/UFF/AtomTyper.h"
+#include "GraphMol/ForceFieldHelpers/UFF/Builder.h"
 #include "GraphMol/GraphMol.h"
 #include "GraphMol/ROMol.h"
 #include "GraphMol/SmilesParse/SmartsWrite.h"
@@ -493,7 +495,7 @@ namespace bcl
       const bool ADD_H,
       const bool GEN3D,
       const size_t GEOOPT_ITERATIONS,
-      const std::string &GEOOPT_MMFF94S_VARIANT,
+      const std::string &GEOOPT_FF,
       const float GEOOPT_NONBONDED_THRESH,
       const bool GEOOPT_IGNORE_INTERFRAG_INTERACTIONS
     )
@@ -531,26 +533,33 @@ namespace bcl
       // geometry optimize the structure with a molecular mechanics force field
       if( GEOOPT_ITERATIONS)
       {
-        ::RDKit::MMFF::MMFFMolProperties mmff_mol_properties( *rdkit_mol, GEOOPT_MMFF94S_VARIANT);
-        if( !mmff_mol_properties.isValid())
+        // initialize force field
+        ::ForceFields::ForceField *ff;
+
+        // setup force field
+        if( GEOOPT_FF == "MMFF94" || GEOOPT_FF == "MMFF94s")
         {
-          BCL_MessageStd( "Invalid MMFF molecule properties. Skipping geometry optimization.");
+          ::RDKit::MMFF::MMFFMolProperties mmff_mol_properties( *rdkit_mol, GEOOPT_FF == "MMFF94" ? "MMFF94" : "MMFF94s");
+          if( !mmff_mol_properties.isValid())
+          {
+            BCL_MessageStd( "Invalid MMFF molecule properties. Skipping geometry optimization.");
+            return *( chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete( *rdkit_mol, SMILES));
+          }
+          ff = ::RDKit::MMFF::constructForceField( *rdkit_mol, GEOOPT_NONBONDED_THRESH, -1, GEOOPT_IGNORE_INTERFRAG_INTERACTIONS);
+        }
+        else if( GEOOPT_FF == "UFF")
+        {
+          ff = ::RDKit::UFF::constructForceField( *rdkit_mol, GEOOPT_NONBONDED_THRESH, -1, GEOOPT_IGNORE_INTERFRAG_INTERACTIONS);
+        }
+        else
+        {
+          BCL_MessageStd( "[WARNING] Invalid force field specification - not performing geometry optimization!");
           return *( chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete( *rdkit_mol, SMILES));
         }
-
-        BCL_MessageStd( "Running short MMFF94s minimization on the chemical fragment converted from SMILES/SMARTS...");
-        ::ForceFields::ForceField *ff = ::RDKit::MMFF::constructForceField( *rdkit_mol, GEOOPT_NONBONDED_THRESH, -1, GEOOPT_IGNORE_INTERFRAG_INTERACTIONS);
+        BCL_MessageVrb( "Running short geometry optimization on the chemical fragment converted from SMILES/SMARTS...");
         ff->initialize();
         ff->minimize( GEOOPT_ITERATIONS);
       }
-
-      // conversion to BCL molecule
-//      chemistry::FragmentComplete mol( *( chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete( *rdkit_mol, SMILES)));
-//      io::OFStream debug_out;
-//      io::File::MustOpenOFStream( debug_out, "foo.fragment_complete.sdf");
-//      mol.WriteMDL( debug_out);
-//      io::File::CloseClearFStream( debug_out);
-//      return mol;
       return *( chemistry::RdkitMolUtils::RDKitRWMolToFragmentComplete( *rdkit_mol, SMILES));
     }
 
@@ -562,7 +571,7 @@ namespace bcl
       const bool ADD_H,
       const bool GEN3D,
       const size_t GEOOPT_ITERATIONS,
-      const std::string &GEOOPT_MMFF94S_VARIANT,
+      const std::string &GEOOPT_FF,
       const float GEOOPT_NONBONDED_THRESH,
       const bool GEOOPT_IGNORE_INTERFRAG_INTERACTIONS
     )
@@ -574,7 +583,7 @@ namespace bcl
             ADD_H,
             GEN3D,
             GEOOPT_ITERATIONS,
-            GEOOPT_MMFF94S_VARIANT,
+            GEOOPT_FF,
             GEOOPT_NONBONDED_THRESH,
             GEOOPT_IGNORE_INTERFRAG_INTERACTIONS
           );

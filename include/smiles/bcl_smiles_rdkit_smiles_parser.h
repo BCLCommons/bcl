@@ -338,7 +338,7 @@ namespace bcl
         const bool ADD_H = false,
         const bool GEN3D = false,
         const size_t GEOOPT_ITERATIONS = size_t( 0),
-        const std::string &GEOOPT_MMFF94S_VARIANT = "MMFF94s",
+        const std::string &GEOOPT_FF = "UFF",
         const float GEOOPT_NONBONDED_THRESH = float( 10.0),
         const bool GEOOPT_IGNORE_INTERFRAG_INTERACTIONS = true
       );
@@ -351,7 +351,7 @@ namespace bcl
         const bool ADD_H = false,
         const bool GEN3D = false,
         const size_t GEOOPT_ITERATIONS = size_t( 0),
-        const std::string &GEOOPT_MMFF94S_VARIANT = "MMFF94s",
+        const std::string &GEOOPT_FF = "UFF",
         const float GEOOPT_NONBONDED_THRESH = float( 10.0),
         const bool GEOOPT_IGNORE_INTERFRAG_INTERACTIONS = true
       );

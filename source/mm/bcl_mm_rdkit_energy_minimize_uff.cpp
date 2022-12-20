@@ -17,14 +17,14 @@
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
-#include "mm/bcl_mm_rdkit_energy_minimize_mmff94.h"
+#include "mm/bcl_mm_rdkit_energy_minimize_uff.h"
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_rdkit_mol_utils.h"
 #include "util/bcl_util_string_functions.h"
 
 // external includes - sorted alphabetically
-#include "ForceField/MMFF/PositionConstraint.h"
+#include "ForceField/UFF/PositionConstraint.h"
 
 namespace bcl
 {
@@ -36,8 +36,8 @@ namespace bcl
   //////////////////////////////////
 
     //! @brief default constructor
-    RdkitEnergyMinimizeMmff94::RdkitEnergyMinimizeMmff94() :
-      RDKitEnergyMMFF94(),
+    RdkitEnergyMinimizeUff::RdkitEnergyMinimizeUff() :
+      RDKitEnergyUFF(),
       m_MaxIterations( 1000),
       m_ForceTolerance( 1.0e-4),
       m_EnergyTolerance( 1.0e-4),
@@ -49,9 +49,9 @@ namespace bcl
     }
 
     //! @brief full constructor with restrained atoms string
-    RdkitEnergyMinimizeMmff94::RdkitEnergyMinimizeMmff94
+    RdkitEnergyMinimizeUff::RdkitEnergyMinimizeUff
     (
-      const RDKitEnergyMMFF94 &ENERGY,
+      const RDKitEnergyUFF &ENERGY,
       const size_t MAX_ITERATIONS,
       const double FORCE_TOLERANCE,
       const double ENERGY_TOLERANCE,
@@ -59,7 +59,7 @@ namespace bcl
       const storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT,
       const storage::Vector< double> &RESTRAINT_FORCE
     ) :
-      RDKitEnergyMMFF94( ENERGY),
+      RDKitEnergyUFF( ENERGY),
       m_MaxIterations( MAX_ITERATIONS),
       m_ForceTolerance( FORCE_TOLERANCE),
       m_EnergyTolerance( ENERGY_TOLERANCE),
@@ -73,9 +73,9 @@ namespace bcl
     }
 
     //! @brief full constructor with directly specified restrained atom indices
-    RdkitEnergyMinimizeMmff94::RdkitEnergyMinimizeMmff94
+    RdkitEnergyMinimizeUff::RdkitEnergyMinimizeUff
     (
-      const RDKitEnergyMMFF94 &ENERGY,
+      const RDKitEnergyUFF &ENERGY,
       const size_t MAX_ITERATIONS,
       const double FORCE_TOLERANCE,
       const double ENERGY_TOLERANCE,
@@ -83,7 +83,7 @@ namespace bcl
       const storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT,
       const storage::Vector< double> &RESTRAINT_FORCE
     ) :
-      RDKitEnergyMMFF94( ENERGY),
+      RDKitEnergyUFF( ENERGY),
       m_MaxIterations( MAX_ITERATIONS),
       m_ForceTolerance( FORCE_TOLERANCE),
       m_EnergyTolerance( ENERGY_TOLERANCE),
@@ -95,9 +95,9 @@ namespace bcl
     }
 
     //! virtual copy constructor
-    RdkitEnergyMinimizeMmff94 *RdkitEnergyMinimizeMmff94::Clone() const
+    RdkitEnergyMinimizeUff *RdkitEnergyMinimizeUff::Clone() const
     {
-      return new RdkitEnergyMinimizeMmff94( *this);
+      return new RdkitEnergyMinimizeUff( *this);
     }
 
   /////////////////
@@ -106,60 +106,60 @@ namespace bcl
 
     //! @brief returns the name used for this class in an object data label
     //! @return the name used for this class in an object data label
-    const std::string &RdkitEnergyMinimizeMmff94::GetAlias() const
+    const std::string &RdkitEnergyMinimizeUff::GetAlias() const
     {
-      static const std::string s_name( m_MMFFVariant == e_MMFF94 ? "EnergyMinimization_MMFF94" : "EnergyMinimization_MMFF94s");
+      static const std::string s_name( "EnergyMinimization_UFF");
       return s_name;
     }
 
     //! @brief returns class name of the object behind a pointer or the current object
     //! @return the class name
-    const std::string &RdkitEnergyMinimizeMmff94::GetClassIdentifier() const
+    const std::string &RdkitEnergyMinimizeUff::GetClassIdentifier() const
     {
       return GetStaticClassName( *this);
     }
 
     //! @brief returns the maximum number of iterations to perform for geometry optimization
     //! @returns the number of iterations
-    size_t RdkitEnergyMinimizeMmff94::GetMaxIterations() const
+    size_t RdkitEnergyMinimizeUff::GetMaxIterations() const
     {
       return m_MaxIterations;
     }
 
     //! @brief returns the force tolerance for the geometry optimization
     //! @returns the force tolerance
-    double RdkitEnergyMinimizeMmff94::GetForceTolerance() const
+    double RdkitEnergyMinimizeUff::GetForceTolerance() const
     {
       return m_ForceTolerance;
     }
 
     //! @brief returns the energy tolerance for the geometry optimization
     //! @returns the energy tolerance
-    double RdkitEnergyMinimizeMmff94::GetEnergyTolerance() const
+    double RdkitEnergyMinimizeUff::GetEnergyTolerance() const
     {
       return m_EnergyTolerance;
     }
 
     //! @brief returns the atoms (by index) to which positional restraints are applied
-    storage::Vector< size_t> RdkitEnergyMinimizeMmff94::GetPositionalRestraintAtoms() const
+    storage::Vector< size_t> RdkitEnergyMinimizeUff::GetPositionalRestraintAtoms() const
     {
       return m_PositionalRestraintAtoms;
     }
 
     //! @brief returns the atoms (by string) to which positional restraints are applied
-    std::string RdkitEnergyMinimizeMmff94::GetPositionalRestraintAtomsString() const
+    std::string RdkitEnergyMinimizeUff::GetPositionalRestraintAtomsString() const
     {
       return m_PositionalRestraintAtomsString;
     }
 
     //! @brief returns the maximum displacement each atom can experience before restraint force activates
-    storage::Vector< double> RdkitEnergyMinimizeMmff94::GetMaxUnrestrainedDisplacement() const
+    storage::Vector< double> RdkitEnergyMinimizeUff::GetMaxUnrestrainedDisplacement() const
     {
       return m_MaxUnrestrainedDisplacement;
     }
 
     //! @brief returns the restraint force applied to each atom
-    storage::Vector< double> RdkitEnergyMinimizeMmff94::GetRestraintForce() const
+    storage::Vector< double> RdkitEnergyMinimizeUff::GetRestraintForce() const
     {
       return m_RestraintForce;
     }
@@ -169,31 +169,31 @@ namespace bcl
   ////////////////
 
     //! @brief set the maximum number of iterations to perform for geometry optimization
-    void RdkitEnergyMinimizeMmff94::SetMaxIterations( const size_t &MAX_ITERATIONS)
+    void RdkitEnergyMinimizeUff::SetMaxIterations( const size_t &MAX_ITERATIONS)
     {
       m_MaxIterations = MAX_ITERATIONS;
     }
 
     //! @brief set the force tolerance for the geometry optimization
-    void RdkitEnergyMinimizeMmff94::SetForceTolerance( const double FORCE_TOLERANCE)
+    void RdkitEnergyMinimizeUff::SetForceTolerance( const double FORCE_TOLERANCE)
     {
       m_ForceTolerance = FORCE_TOLERANCE;
     }
 
     //! @brief set the energy tolerance for the geometry optimization
-    void RdkitEnergyMinimizeMmff94::SetEnergyTolerance( const double ENERGY_TOLERANCE)
+    void RdkitEnergyMinimizeUff::SetEnergyTolerance( const double ENERGY_TOLERANCE)
     {
       m_EnergyTolerance = ENERGY_TOLERANCE;
     }
 
     //! @brief sets the atoms to which positional restraints are applied
-    void RdkitEnergyMinimizeMmff94::SetPositionalRestraintAtoms( storage::Vector< size_t> &ATOMS)
+    void RdkitEnergyMinimizeUff::SetPositionalRestraintAtoms( storage::Vector< size_t> &ATOMS)
     {
       m_PositionalRestraintAtoms = ATOMS;
     }
 
     //! @brief sets the atoms to which positional restraints are applied
-    void RdkitEnergyMinimizeMmff94::SetPositionalRestraintAtomsFromString( std::string &ATOMS)
+    void RdkitEnergyMinimizeUff::SetPositionalRestraintAtomsFromString( std::string &ATOMS)
     {
       if( m_PositionalRestraintAtomsString.size())
       {
@@ -204,26 +204,26 @@ namespace bcl
       {
         BCL_MessageStd
         (
-          "[WARNING] RdkitEnergyMinimizeMmff94::SetPositionalRestraintAtomsFromString "
+          "[WARNING] RdkitEnergyMinimizeUff::SetPositionalRestraintAtomsFromString "
           "string is empty - the restrained atoms set will not be modified!"
         );
       }
     }
 
     //! @brief sets the atoms to which positional restraints are applied
-    void RdkitEnergyMinimizeMmff94::SetPositionalRestraintAtomsString( std::string &ATOMS)
+    void RdkitEnergyMinimizeUff::SetPositionalRestraintAtomsString( std::string &ATOMS)
     {
       m_PositionalRestraintAtomsString = ATOMS;
     }
 
     //! @brief sets the maximum displacement each atom can experience before restraint force activates
-    void RdkitEnergyMinimizeMmff94::SetMaxUnrestrainedDisplacement( storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT)
+    void RdkitEnergyMinimizeUff::SetMaxUnrestrainedDisplacement( storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT)
     {
       m_MaxUnrestrainedDisplacement = MAX_UNRESTRAINED_DISPLACEMENT;
     }
 
     //! @brief sets the restraint force applied to each atom
-    void RdkitEnergyMinimizeMmff94::SetRestraintForce( storage::Vector< double> &RESTRAINT_FORCE)
+    void RdkitEnergyMinimizeUff::SetRestraintForce( storage::Vector< double> &RESTRAINT_FORCE)
     {
       m_RestraintForce = RESTRAINT_FORCE;
     }
@@ -233,7 +233,7 @@ namespace bcl
     //! @param ATOM_INDICES indices that are restrained during minimization
     //! @param MAX_UNRESTRAINED DISPLACEMENT coordinate displacement above which restraint force is applied
     //! @param RESTRAINT_FORCE restraint force
-    void RdkitEnergyMinimizeMmff94::AddPositionalRestraints
+    void RdkitEnergyMinimizeUff::AddPositionalRestraints
     (
       ::ForceFields::ForceField *FORCE_FIELD, // raw pointer unconventional for BCL outside of Clone(), but this is what RDKit requires
       const storage::Vector< size_t> &ATOM_INDICES,
@@ -247,8 +247,8 @@ namespace bcl
         // loop over atom indices and add restraint forces to our force field
         for( size_t i( 0), sz( ATOM_INDICES.GetSize()); i < sz; ++i)
         {
-          ::ForceFields::MMFF::PositionConstraintContrib *coord_cst;
-          coord_cst = new ::ForceFields::MMFF::PositionConstraintContrib
+          ::ForceFields::UFF::PositionConstraintContrib *coord_cst;
+          coord_cst = new ::ForceFields::UFF::PositionConstraintContrib
               (
                 FORCE_FIELD, ATOM_INDICES( i),
                 MAX_UNRESTRAINED_DISPLACEMENT( i),
@@ -261,8 +261,8 @@ namespace bcl
       {
         for( size_t i( 0), sz( ATOM_INDICES.GetSize()); i < sz; ++i)
         {
-          ::ForceFields::MMFF::PositionConstraintContrib *coord_cst;
-          coord_cst = new ::ForceFields::MMFF::PositionConstraintContrib
+          ::ForceFields::UFF::PositionConstraintContrib *coord_cst;
+          coord_cst = new ::ForceFields::UFF::PositionConstraintContrib
               (
                 FORCE_FIELD, ATOM_INDICES( i),
                 MAX_UNRESTRAINED_DISPLACEMENT( i),
@@ -276,7 +276,7 @@ namespace bcl
       {
         BCL_MessageStd
         (
-          "[WARNING] RdkitEnergyMinimizeMmff94::AddPositionalRestraints "
+          "[WARNING] RdkitEnergyMinimizeUff::AddPositionalRestraints "
           "The number of atoms does not match the number of max displacements and/or the number of provided restraint forces; "
           "alternatively, if the number of restraint forces to be added is one, then the number of atoms simply does not match the number of "
           "max displacements. NO POSITIONAL RESTRAINT ADDED!"
@@ -292,22 +292,22 @@ namespace bcl
     //! @returns a pair where the first value indicates if the minimization was a success (0), failed to converge
     //! within the maximum number of iterations (1), or had missing parameters (-1), and where the second value
     //! is the final energy of the optimized geometry
-    storage::Pair< int, double> RdkitEnergyMinimizeMmff94::OptimizeGeometry( chemistry::FragmentComplete &MOLECULE) const
+    storage::Pair< int, double> RdkitEnergyMinimizeUff::OptimizeGeometry( chemistry::FragmentComplete &MOLECULE) const
     {
       // convert to rdkit molecule
       std::shared_ptr< ::RDKit::RWMol> rdkit_mol;
       rdkit_mol = chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( MOLECULE);
 
       // check validity
-      ::RDKit::MMFF::MMFFMolProperties mmff_mol_properties( *rdkit_mol, GetMMFFVariantAsString());
-      if( !mmff_mol_properties.isValid())
-      {
-        BCL_MessageStd( "Invalid MMFF molecule properties. Returning null.");
-        return storage::Pair< int, double>( -1, util::GetUndefinedDouble());
-      }
+//      ::RDKit::MMFF::MMFFMolProperties mmff_mol_properties( *rdkit_mol, GetMMFFVariantAsString());
+//      if( !mmff_mol_properties.isValid())
+//      {
+//        BCL_MessageStd( "Invalid MMFF molecule properties. Returning null.");
+//        return storage::Pair< int, double>( -1, util::GetUndefinedDouble());
+//      }
 
       // generate an initialized force field ready for use
-      ::ForceFields::ForceField *ff = ::RDKit::MMFF::constructForceField( *rdkit_mol, m_NonbondedThreshold, -1, m_IgnoreInterFragmentInteractions);
+      ::ForceFields::ForceField *ff = ::RDKit::UFF::constructForceField( *rdkit_mol, m_NonbondedThreshold, -1, m_IgnoreInterFragmentInteractions);
       ff->initialize();
 
       // add constraints
@@ -332,7 +332,7 @@ namespace bcl
     //! @returns a triplet where the first value is the new minimized molecule, the second value indicates
     //! if the minimization was a success (0), failed to converge within the maximum number of iterations (1),
     //! or had missing parameters (-1), and where the second value is the final energy of the optimized geometry
-    storage::Triplet< chemistry::FragmentComplete, int, double> RdkitEnergyMinimizeMmff94::OptimizeGeometry
+    storage::Triplet< chemistry::FragmentComplete, int, double> RdkitEnergyMinimizeUff::OptimizeGeometry
     (
       const chemistry::FragmentComplete &MOLECULE
     ) const
@@ -342,15 +342,15 @@ namespace bcl
       rdkit_mol = chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( MOLECULE);
 
       // check validity
-      ::RDKit::MMFF::MMFFMolProperties mmff_mol_properties( *rdkit_mol, GetMMFFVariantAsString());
-      if( !mmff_mol_properties.isValid())
-      {
-        BCL_MessageStd( "Invalid MMFF molecule properties. Returning null.");
-        return storage::Triplet< chemistry::FragmentComplete, int, double>( MOLECULE, -1, util::GetUndefinedDouble());
-      }
+//      ::RDKit::MMFF::MMFFMolProperties mmff_mol_properties( *rdkit_mol, GetMMFFVariantAsString());
+//      if( !mmff_mol_properties.isValid())
+//      {
+//        BCL_MessageStd( "Invalid MMFF molecule properties. Returning null.");
+//        return storage::Triplet< chemistry::FragmentComplete, int, double>( MOLECULE, -1, util::GetUndefinedDouble());
+//      }
 
       // generate an initialized force field ready for use
-      ::ForceFields::ForceField *ff = ::RDKit::MMFF::constructForceField( *rdkit_mol, m_NonbondedThreshold, -1, m_IgnoreInterFragmentInteractions);
+      ::ForceFields::ForceField *ff = ::RDKit::UFF::constructForceField( *rdkit_mol, m_NonbondedThreshold, -1, m_IgnoreInterFragmentInteractions);
       ff->initialize();
 
       // add constraints
@@ -381,10 +381,9 @@ namespace bcl
     //! @returns a pair where the first value indicates if the minimization was a success (0), failed to converge
     //! within the maximum number of iterations (1), or had missing parameters (-1), and where the second value
     //! is the final energy of the optimized geometry
-    storage::Pair< int, double> RdkitEnergyMinimizeMmff94::OptimizeGeometry
+    storage::Pair< int, double> RdkitEnergyMinimizeUff::OptimizeGeometry
     (
       chemistry::FragmentComplete &MOLECULE,
-      const std::string &MMFF_VARIANT,
       const double NON_BONDED_THRESHOLD,
       const bool IGNORE_INTER_FRAG_INTERACTIONS,
       const size_t MAX_ITERATIONS,
@@ -397,15 +396,15 @@ namespace bcl
       rdkit_mol = chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( MOLECULE);
 
       // check validity
-      ::RDKit::MMFF::MMFFMolProperties mmff_mol_properties( *rdkit_mol, MMFF_VARIANT);
-      if( !mmff_mol_properties.isValid())
-      {
-        BCL_MessageStd( "Invalid MMFF molecule properties. Returning null.");
-        return storage::Pair< int, double>( -1, util::GetUndefinedDouble());
-      }
+//      ::RDKit::MMFF::MMFFMolProperties mmff_mol_properties( *rdkit_mol, MMFF_VARIANT);
+//      if( !mmff_mol_properties.isValid())
+//      {
+//        BCL_MessageStd( "Invalid MMFF molecule properties. Returning null.");
+//        return storage::Pair< int, double>( -1, util::GetUndefinedDouble());
+//      }
 
       // generate an initialized force field ready for use
-      ::ForceFields::ForceField *ff = ::RDKit::MMFF::constructForceField( *rdkit_mol, NON_BONDED_THRESHOLD, -1, IGNORE_INTER_FRAG_INTERACTIONS);
+      ::ForceFields::ForceField *ff = ::RDKit::UFF::constructForceField( *rdkit_mol, NON_BONDED_THRESHOLD, -1, IGNORE_INTER_FRAG_INTERACTIONS);
       ff->initialize();
 
       // minimization
@@ -424,10 +423,9 @@ namespace bcl
     //! @returns a triplet where the first value is the new minimized molecule, the second value indicates
     //! if the minimization was a success (0), failed to converge within the maximum number of iterations (1),
     //! or had missing parameters (-1), and where the second value is the final energy of the optimized geometry
-    storage::Triplet< chemistry::FragmentComplete, int, double> RdkitEnergyMinimizeMmff94::OptimizeGeometry
+    storage::Triplet< chemistry::FragmentComplete, int, double> RdkitEnergyMinimizeUff::OptimizeGeometry
     (
       const chemistry::FragmentComplete &MOLECULE,
-      const std::string &MMFF_VARIANT,
       const double NON_BONDED_THRESHOLD,
       const bool IGNORE_INTER_FRAG_INTERACTIONS,
       const size_t MAX_ITERATIONS,
@@ -441,15 +439,15 @@ namespace bcl
       rdkit_mol = chemistry::RdkitMolUtils::FragmentCompleteToRDKitRWMol( MOLECULE);
 
       // check validity
-      ::RDKit::MMFF::MMFFMolProperties mmff_mol_properties( *rdkit_mol, MMFF_VARIANT);
-      if( !mmff_mol_properties.isValid())
-      {
-        BCL_MessageStd( "Invalid MMFF molecule properties. Returning null.");
-        return storage::Triplet< chemistry::FragmentComplete, int, double>( MOLECULE, -1, util::GetUndefinedDouble());
-      }
+//      ::RDKit::MMFF::MMFFMolProperties mmff_mol_properties( *rdkit_mol, MMFF_VARIANT);
+//      if( !mmff_mol_properties.isValid())
+//      {
+//        BCL_MessageStd( "Invalid MMFF molecule properties. Returning null.");
+//        return storage::Triplet< chemistry::FragmentComplete, int, double>( MOLECULE, -1, util::GetUndefinedDouble());
+//      }
 
       // generate an initialized force field ready for use
-      ::ForceFields::ForceField *ff = ::RDKit::MMFF::constructForceField( *rdkit_mol, NON_BONDED_THRESHOLD, -1, IGNORE_INTER_FRAG_INTERACTIONS);
+      ::ForceFields::ForceField *ff = ::RDKit::UFF::constructForceField( *rdkit_mol, NON_BONDED_THRESHOLD, -1, IGNORE_INTER_FRAG_INTERACTIONS);
       ff->initialize();
 
       // minimization
@@ -469,10 +467,10 @@ namespace bcl
 
     //! @brief return parameters for member data that are set up from the labels
     //! @return parameters for member data that are set up from the labels
-    io::Serializer RdkitEnergyMinimizeMmff94::GetSerializer() const
+    io::Serializer RdkitEnergyMinimizeUff::GetSerializer() const
     {
-      io::Serializer parameters( RDKitEnergyMMFF94::GetSerializer());
-      parameters.SetClassDescription( "Optimizes the geometry of a molecule using the MMFF94(s) force field with or without restraints.");
+      io::Serializer parameters( RDKitEnergyUFF::GetSerializer());
+      parameters.SetClassDescription( "Optimizes the geometry of a molecule using the UFF force field with or without restraints.");
       parameters.AddInitializer
       (
         "max_iterations",
@@ -509,7 +507,7 @@ namespace bcl
       //! @brief Set the members of this property from the given LABEL; override from SerializableInterface
       //! @param LABEL the label to parse
       //! @param ERROR_STREAM the stream to write errors to
-      bool RdkitEnergyMinimizeMmff94::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
+      bool RdkitEnergyMinimizeUff::ReadInitializerSuccessHook( const util::ObjectDataLabel &LABEL, std::ostream &ERROR_STREAM)
       {
         // parse string encoding atoms to be restrained in coordinate space
         SetPositionalRestraintAtomsFromString( m_PositionalRestraintAtomsString);
