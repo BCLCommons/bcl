@@ -485,7 +485,7 @@ namespace bcl
         minimizer.SetMaxUnrestrainedDisplacement( max_displacement);
 
         // run minimization
-        storage::Triplet< FragmentComplete, int, double> opt_result( minimizer.OptimizeGeometry( mol) );
+        storage::Triplet< FragmentComplete, int, double> opt_result( minimizer.OptimizeGeometry( mol));
         io::File::MustOpenOFStream( debug_out, "post_opt.sdf");
         opt_result.First().WriteMDL( debug_out);
         io::File::CloseClearFStream( debug_out);
@@ -640,21 +640,21 @@ namespace bcl
     //! if false then the returned indices are of the common subgraph
     //! @return the NEW_MOL indices mapped to STARTING_MOL (first) and the unmapped indices (second)
     storage::Pair< storage::Set< size_t>, storage::Set< size_t>> FragmentMapConformer::MapAtoms
-    (
-      const FragmentComplete &STARTING_MOL,
-      const FragmentComplete &NEW_MOL,
-      const ConformationGraphConverter::AtomComparisonType &ATOM_COMPARISON,
-      const ConfigurationalBondTypeData::Data &BOND_COMPARISON,
-      const bool &COMPLEMENT
-    ) const
-    {
-      // prepare dehydrogenated copy
-      ConformationGraphConverter graph_maker
-      (
-        ATOM_COMPARISON,
-        BOND_COMPARISON,
-        false
-      );
+        (
+          const FragmentComplete &STARTING_MOL,
+          const FragmentComplete &NEW_MOL,
+          const ConformationGraphConverter::AtomComparisonType &ATOM_COMPARISON,
+          const ConfigurationalBondTypeData::Data &BOND_COMPARISON,
+          const bool &COMPLEMENT
+        ) const
+        {
+          // prepare dehydrogenated copy
+          ConformationGraphConverter graph_maker
+          (
+            ATOM_COMPARISON,
+            BOND_COMPARISON,
+            false
+          );
 
       // set up the isomorphisms with pointers to the graphs
       graph::CommonSubgraphIsomorphism< size_t, size_t> isomorphism( graph::CommonSubgraphIsomorphismBase::SolutionType::e_GreedyUnconnected);

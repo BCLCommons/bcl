@@ -147,11 +147,10 @@ namespace bcl
       for( chemistry::FragmentFeed feed; feed.NotAtEnd(); ++feed, ++feed_index)
       {
         chemistry::FragmentComplete mol( *feed);
-        mm::RdkitEnergyMinimizeMmff94::OptimizeGeometry(mol, "MMFF94s", 100.0, true, 1000, 1.0e-4, 1.0e-4);
+        mm::RdkitEnergyMinimizeMmff94::OptimizeGeometry( mol, "MMFF94s", 100.0, true, 1000, 1.0e-4, 1.0e-4);
         mol.WriteMDL( output);
       }
       io::File::CloseClearFStream( output);
-
 
       // TODO consider checking all minimizations before returning 0; alternatively give option that
       // either forces all to pass or allows some to fail

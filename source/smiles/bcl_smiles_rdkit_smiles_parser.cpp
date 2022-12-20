@@ -13,8 +13,8 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
-#include <io/bcl_io_file.h>
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
+#include <io/bcl_io_file.h>
 BCL_StaticInitializationFiascoFinder
 
 // include header of this class
@@ -29,19 +29,20 @@ BCL_StaticInitializationFiascoFinder
 #include "sdf/bcl_sdf_mdl_property.h"
 
 // external includes - sorted alphabetically
-#include "GraphMol/GraphMol.h"
-#include "GraphMol/ROMol.h"
-#include "GraphMol/SmilesParse/SmilesParse.h"
-#include "GraphMol/SmilesParse/SmartsWrite.h"
-#include "GraphMol/SmilesParse/SmilesWrite.h"
-#include "GraphMol/DistGeomHelpers/Embedder.h"
 #include "ForceField/ForceField.h"
+#include "GraphMol/DistGeomHelpers/Embedder.h"
+#include "GraphMol/FileParsers/FileParsers.h"
 #include "GraphMol/ForceFieldHelpers/MMFF/AtomTyper.h"
 #include "GraphMol/ForceFieldHelpers/MMFF/Builder.h"
-#include "GraphMol/FileParsers/FileParsers.h"
+#include "GraphMol/GraphMol.h"
+#include "GraphMol/ROMol.h"
+#include "GraphMol/SmilesParse/SmartsWrite.h"
+#include "GraphMol/SmilesParse/SmilesParse.h"
+#include "GraphMol/SmilesParse/SmilesWrite.h"
 
-#include <iostream>
+// stl includes
 #include <fstream>
+#include <iostream>
 
 namespace bcl
 {
@@ -50,51 +51,51 @@ namespace bcl
 
     //! @brief standard constructor
     RdkitSmilesParser::RdkitSmilesParser() :
-    m_Header( storage::Vector< std::string>()),
-    m_FileData( storage::Vector< storage::Map< std::string, std::string>>()),
-    m_Molecules( storage::Vector< chemistry::FragmentComplete>()),
-    m_FileType( e_SMILES)
-    {
-    }
+      m_Header( storage::Vector< std::string>()),
+      m_FileData( storage::Vector< storage::Map< std::string, std::string>>()),
+          m_Molecules( storage::Vector< chemistry::FragmentComplete>()),
+          m_FileType( e_SMILES)
+        {
+        }
 
     //! @brief constructor from an input stream
     RdkitSmilesParser::RdkitSmilesParser( std::istream &ISTREAM) :
-    m_Header( storage::Vector< std::string>()),
-    m_FileData( storage::Vector< storage::Map< std::string, std::string>>()),
-    m_Molecules( storage::Vector< chemistry::FragmentComplete>()),
-    m_FileType( e_SMILES)
-    {
-      ReadFile( ISTREAM);
+      m_Header( storage::Vector< std::string>()),
+      m_FileData( storage::Vector< storage::Map< std::string, std::string>>()),
+          m_Molecules( storage::Vector< chemistry::FragmentComplete>()),
+          m_FileType( e_SMILES)
+        {
+          ReadFile( ISTREAM);
     }
 
     //! @brief constructor from a pre-read set of lines
     RdkitSmilesParser::RdkitSmilesParser( const storage::List< std::string> &LINES) :
-    m_Header( storage::Vector< std::string>()),
-    m_FileData( storage::Vector< storage::Map< std::string, std::string>>()),
-    m_Molecules( storage::Vector< chemistry::FragmentComplete>()),
-    m_FileType( e_SMILES)
-    {
-      ReadFile( LINES.Begin(), LINES.End());
+      m_Header( storage::Vector< std::string>()),
+      m_FileData( storage::Vector< storage::Map< std::string, std::string>>()),
+          m_Molecules( storage::Vector< chemistry::FragmentComplete>()),
+          m_FileType( e_SMILES)
+        {
+          ReadFile( LINES.Begin(), LINES.End());
     }
 
     //! @brief constructor from an input stream and file type specification
     RdkitSmilesParser::RdkitSmilesParser( std::istream &ISTREAM, const FileType &TYPE) :
-    m_Header( storage::Vector< std::string>()),
-    m_FileData( storage::Vector< storage::Map< std::string, std::string>>()),
-    m_Molecules( storage::Vector< chemistry::FragmentComplete>()),
-    m_FileType( TYPE)
-    {
-      ReadFile( ISTREAM);
+      m_Header( storage::Vector< std::string>()),
+      m_FileData( storage::Vector< storage::Map< std::string, std::string>>()),
+          m_Molecules( storage::Vector< chemistry::FragmentComplete>()),
+          m_FileType( TYPE)
+        {
+          ReadFile( ISTREAM);
     }
 
     //! @brief constructor from a pre-read set of lines and file type specification
     RdkitSmilesParser::RdkitSmilesParser( const storage::List< std::string> &LINES, const FileType &TYPE) :
-    m_Header( storage::Vector< std::string>()),
-    m_FileData( storage::Vector< storage::Map< std::string, std::string>>()),
-    m_Molecules( storage::Vector< chemistry::FragmentComplete>()),
-    m_FileType( TYPE)
-    {
-      ReadFile( LINES.Begin(), LINES.End());
+      m_Header( storage::Vector< std::string>()),
+      m_FileData( storage::Vector< storage::Map< std::string, std::string>>()),
+          m_Molecules( storage::Vector< chemistry::FragmentComplete>()),
+          m_FileType( TYPE)
+        {
+          ReadFile( LINES.Begin(), LINES.End());
     }
 
 //    //! @brief write constructor
@@ -120,7 +121,7 @@ namespace bcl
 
     //! @brief return the file type
     //! returns the file type as a string
-    const std::string &RdkitSmilesParser::GetFileTypeAsString( const FileType &ENUM )
+    const std::string &RdkitSmilesParser::GetFileTypeAsString( const FileType &ENUM)
     {
       static const std::string s_Names[ size_t( s_TotalFileTypes) + 1] =
       {
@@ -128,7 +129,7 @@ namespace bcl
           "SMARTS",
           GetStaticClassName< FileType>()
       };
-      return s_Names[ENUM];
+      return s_Names[ ENUM];
     }
 
     //! @brief Read the SMILES/SMARTS file using iterators to strings
@@ -186,7 +187,7 @@ namespace bcl
         }
 
         // add properties to our molecule
-        size_t col_index( 0 );
+        size_t col_index( 0);
         for
         (
             storage::Vector< std::string>::const_iterator
@@ -210,7 +211,7 @@ namespace bcl
                 ConvertSMARTSToMOL( mol_str)
           );
 
-          size_t col_index( 0 );
+          size_t col_index( 0);
           for
           (
               storage::Vector< std::string>::const_iterator
@@ -274,7 +275,6 @@ namespace bcl
       }
       return OSTREAM;
     }
-
 
     //! @brief write header lines to std::ostream to top the output SMILES or SMARTS file
     //! @param OSTREAM the stream to write to
@@ -341,7 +341,6 @@ namespace bcl
       return OSTREAM;
     }
 
-
     //! @brief build a molecule from the file data member
     //! @param MOL_INDEX the index of the file data that will be filled
     //! @returns molecule filled from data SMILES/SMARTS and any properties
@@ -350,7 +349,7 @@ namespace bcl
       // get the molecule string id
       if( !m_Header.GetSize() || !ContainsValidHeader())
       {
-        BCL_MessageStd("Invalid header on input file. Returning null.");
+        BCL_MessageStd( "Invalid header on input file. Returning null.");
         return chemistry::FragmentComplete();
       }
       const std::string &id_str( m_Header( 0));
@@ -358,7 +357,7 @@ namespace bcl
       // get the appropriate line from the file data
       if( m_FileData.GetSize() <= MOL_INDEX)
       {
-        BCL_MessageStd("Invalid molecule index specified. Returning null.");
+        BCL_MessageStd( "Invalid molecule index specified. Returning null.");
         return chemistry::FragmentComplete();
       }
       const std::string &mol_str( m_FileData( MOL_INDEX).Find( id_str)->second);
@@ -366,7 +365,7 @@ namespace bcl
       // no empty molecule strings
       if( mol_str.empty())
       {
-        BCL_MessageStd("Empty molecule. Returning null.");
+        BCL_MessageStd( "Empty molecule. Returning null.");
         return chemistry::FragmentComplete();
       }
 
@@ -500,7 +499,7 @@ namespace bcl
     )
     {
       // generate our molecule from the SMILES/SMARTS string
-      ::RDKit::RWMol* rdkit_mol
+      ::RDKit::RWMol *rdkit_mol
       (
         IS_SMARTS ?
           ::RDKit::SmartsToMol( SMILES) :
@@ -518,15 +517,15 @@ namespace bcl
       // add explicit hydrogen atoms
       if( ADD_H)
       {
-        ::RDKit::MolOps::addHs( *rdkit_mol );
+        ::RDKit::MolOps::addHs( *rdkit_mol);
       }
 
       // generate a 3D conformer
       if( GEN3D)
       {
-        ::RDKit::DGeomHelpers::EmbedMolecule( *rdkit_mol );
-        std::ofstream ofs( "foo.mol" );
-        ofs << ::RDKit::MolToMolBlock( *rdkit_mol );
+        ::RDKit::DGeomHelpers::EmbedMolecule( *rdkit_mol);
+        std::ofstream ofs( "foo.mol");
+        ofs << ::RDKit::MolToMolBlock( *rdkit_mol);
       }
 
       // geometry optimize the structure with a molecular mechanics force field

@@ -13,8 +13,8 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
-#include <chemistry/bcl_chemistry_fragment_split_gadd_fragments.h>
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
+#include <chemistry/bcl_chemistry_fragment_split_gadd_fragments.h>
 BCL_StaticInitializationFiascoFinder
 
 // unit header
@@ -915,7 +915,7 @@ namespace bcl
         )
         {
 //          std::stringstream hist;
-          auto hist( last_pop[mol_one].GetMoleculeHistory());
+          auto hist( last_pop[ mol_one].GetMoleculeHistory());
           hist.Append( "Recombine,");
 //          hist << "Recombine,";
 //          hist << last_pop[ mol_one].GetMoleculeHistory();

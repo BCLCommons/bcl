@@ -50,16 +50,13 @@ namespace bcl
       return GetStaticClassName( *this);
     }
 
-
   ////////////////
   // operations //
   ////////////////
 
-
   ///////////////
   // operators //
   ///////////////
-
 
     //! @brief converts an RDKit ROMol into a BCL FragmentComplete
     //! @param RDKIT_MOL the RDKit ROMol to be converted
@@ -95,15 +92,15 @@ namespace bcl
           "no 3D conformer stored on RDKit molecule. Setting all atom coordinates to origin."
         );
       }
-      const std::vector<RDGeom::Point3D> rdkit_mol_positions
+      const std::vector< RDGeom::Point3D> rdkit_mol_positions
       (
         RDKIT_MOL.getNumConformers() ?
           RDKIT_MOL.getConformer().getPositions() :
-          std::vector<RDGeom::Point3D>( RDKIT_MOL.getNumAtoms(), RDGeom::Point3D( 0.0, 0.0, 0.0))
+          std::vector< RDGeom::Point3D>( RDKIT_MOL.getNumAtoms(), RDGeom::Point3D( 0.0, 0.0, 0.0))
       );
 
       // retrieve ring information for atoms and bonds in our rdkit molecule
-      ::RDKit::RingInfo* const rdkit_ringinfo( RDKIT_MOL.getRingInfo());
+      ::RDKit::RingInfo *const rdkit_ringinfo( RDKIT_MOL.getRingInfo());
 
       // atoms
       size_t atom_index( 0);
@@ -116,7 +113,7 @@ namespace bcl
       {
         // determine atom type
         const int formal_charge( ( *atom_itr)->getFormalCharge());
-        const std::string element( (*atom_itr)->getSymbol());
+        const std::string element( ( *atom_itr)->getSymbol());
         const ElementType element_type( GetElementTypes().ElementTypeLookup( element));
         const AtomType atom_type( AtomTypes::GetAtomType( element_type, formal_charge));
 
@@ -138,7 +135,7 @@ namespace bcl
 
         // retrieve coordinates of current atom
         const RDGeom::Point3D &position( rdkit_mol_positions[ atom_index]);
-        const linal::Vector3D atom_coords(position.x, position.y, position.z);
+        const linal::Vector3D atom_coords( position.x, position.y, position.z);
 
         // save the AtomInfo object that will correspond to the current RDKit atom
         bcl_atoms.PushBack
@@ -169,14 +166,14 @@ namespace bcl
         );
 
         // conjugation and aromaticity
-        const bool conjugated( (*bond_itr)->getIsConjugated());
-        const bool aromatic( (*bond_itr)->getIsAromatic());
+        const bool conjugated( ( *bond_itr)->getIsConjugated());
+        const bool aromatic( ( *bond_itr)->getIsAromatic());
 
         // bond order as a simple numeric value
         const double bond_type( ( **bond_itr).getBondTypeAsDouble());
 
         // put it all together to determine the bond type
-        chemistry::ConfigurationalBondType bcl_bond_type;
+        ConfigurationalBondType bcl_bond_type;
 
         // priority to aromaticity
         if( aromatic)
@@ -204,7 +201,7 @@ namespace bcl
         else if( conjugated)
         {
           // standard bond orders
-          if(  bond_type == double( 1.0))
+          if( bond_type == double( 1.0))
           {
             ring_bond ?
                 bcl_bond_type = GetConfigurationalBondTypes().e_ConjugatedSingleBondInRing :
@@ -318,7 +315,7 @@ namespace bcl
         }
 
         // RDKit requires that this is a raw pointer (non-owning for memory safety)
-        ::RDKit::Atom* rdkit_atom_p( new ::RDKit::Atom( element_type->GetAtomicNumber()));
+        ::RDKit::Atom *rdkit_atom_p( new ::RDKit::Atom( element_type->GetAtomicNumber()));
         rdkit_mol->addAtom
         (
           rdkit_atom_p, // raw pointer to atom
@@ -337,7 +334,7 @@ namespace bcl
       )
       {
         // prepare to set bond type
-        ::RDKit::Bond* rdkit_bond_p( new ::RDKit::Bond());
+        ::RDKit::Bond *rdkit_bond_p( new ::RDKit::Bond());
 
         // set the atoms involved in the bond
         rdkit_bond_p->setBeginAtomIdx( bond_itr->GetAtomIndexLow());
@@ -495,7 +492,7 @@ namespace bcl
       )
       {
         // initialize RDKit conformer with coordinates at origin for each atom
-        ::RDKit::Conformer* rdkit_conformer_p( new ::RDKit::Conformer( RDKIT_MOL->getNumAtoms( false)));
+        ::RDKit::Conformer *rdkit_conformer_p( new ::RDKit::Conformer( RDKIT_MOL->getNumAtoms( false)));
 
         // assign an atom coordinate for each atom in BCL conformer
         for( size_t coord_index( 0), n_coords( conf_itr->GetAtomCoordinates().GetSize()); coord_index < n_coords; ++coord_index)
@@ -519,7 +516,7 @@ namespace bcl
           rdkit_conformer_p->setAtomPos( rdkit_atom_id, position);
         }
         // add the conformer to our RDKit molecule
-        RDKIT_MOL->addConformer(rdkit_conformer_p, true);
+        RDKIT_MOL->addConformer( rdkit_conformer_p, true);
       }
     }
 

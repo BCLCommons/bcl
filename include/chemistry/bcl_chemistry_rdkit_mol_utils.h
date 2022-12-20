@@ -21,10 +21,11 @@
 // include other forward headers - sorted alphabetically
 
 // includes from bcl - sorted alphabetically
-#include "chemistry/bcl_chemistry_fragment_complete.h"
-#include "chemistry/bcl_chemistry_fragment_ensemble.h"
+#include "bcl_chemistry_fragment_complete.h"
+#include "bcl_chemistry_fragment_ensemble.h"
 
 // external includes - sorted alphabetically
+#include "Geometry/point.h"
 #include "GraphMol/Atom.h"
 #include "GraphMol/AtomIterators.h"
 #include "GraphMol/Bond.h"
@@ -33,7 +34,6 @@
 #include "GraphMol/GraphMol.h"
 #include "GraphMol/MolOps.h"
 #include "GraphMol/ROMol.h"
-#include "Geometry/point.h"
 #include "RDGeneral/RDProps.h"
 #include "RDGeneral/types.h"
 

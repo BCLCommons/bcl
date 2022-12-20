@@ -238,7 +238,7 @@ namespace bcl
         // sanity check
         if( !m_InitializedReactions || !m_InitializedReagents)
         {
-          BCL_MessageStd("FragmentMutateSmilesReact::operator() not initialized! Returning null...");
+          BCL_MessageStd( "FragmentMutateSmilesReact::operator() not initialized! Returning null...");
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
 
@@ -254,9 +254,9 @@ namespace bcl
 
         // remove dummy atom and track attached index (map this index from the element type of the removed dummy atom)
         storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> stripped_mol
-        (
-          RemoveDummyElement( FRAGMENT, start_mol_dummy_elements)
-        );
+            (
+              RemoveDummyElement( FRAGMENT, start_mol_dummy_elements)
+            );
 
         // create fragment for the other reagent
         storage::Vector< size_t> rxn_pos;
@@ -277,9 +277,9 @@ namespace bcl
           start_mol_dummy_bondtypes.InsertElements( dummy_bondtypes.Begin(), dummy_bondtypes.End());
           FragmentComplete reagent( GetRandomReagent( rxn_id, rxn_pos( i)));
           storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> stripped_reagent
-          (
-            RemoveDummyElement( reagent, dummy_elements)
-          );
+              (
+                RemoveDummyElement( reagent, dummy_elements)
+              );
           stripped_reagents.PushBack( stripped_reagent);
         }
         stripped_reagents.PushBack( stripped_mol);
@@ -352,7 +352,7 @@ namespace bcl
       (
         m_AssociatedReactions.find( std::pair< std::string, size_t>( REACTION_ID, REACTION_POS))->second
       );
-      const size_t rand_pos( random::GetGlobalRandom().Random<size_t>( 0, reagent_smiles.size() - 1));
+      const size_t rand_pos( random::GetGlobalRandom().Random< size_t>( 0, reagent_smiles.size() - 1));
       return smiles::RdkitSmilesParser::ConvertSMILESToMOL
         (
           reagent_smiles[ rand_pos].m_ReagentSmiles,
@@ -366,15 +366,13 @@ namespace bcl
         );
     }
 
-
     //! @brief get a random reaction
     //! @return a reaction ID string
     std::string FragmentMutateSmilesReact::GetRandomReactionID() const
     {
-      size_t pos( random::GetGlobalRandom().Random<size_t>( m_ReactionIDs.GetSize() - 1));
+      size_t pos( random::GetGlobalRandom().Random< size_t>( m_ReactionIDs.GetSize() - 1));
       return m_ReactionIDs( pos);
     }
-
 
     //! @brief get a random reaction
     //! @return a reaction ID string
@@ -383,14 +381,12 @@ namespace bcl
       return m_Reactions.find( RXN_ID)->second;
     }
 
-
     //! @brief get random allowed reaction position from user-specified options
     size_t FragmentMutateSmilesReact::GetRandomReactionPosition( const storage::Vector< size_t> &RXN_POSITIONS) const
     {
-      size_t pos( random::GetGlobalRandom().Random<size_t>( RXN_POSITIONS.GetSize() - 1));
+      size_t pos( random::GetGlobalRandom().Random< size_t>( RXN_POSITIONS.GetSize() - 1));
       return RXN_POSITIONS( pos);
     }
-
 
     //! @brief generate a 3D conformer of a molecule
     void FragmentMutateSmilesReact::Generate3DConformer( FragmentComplete &MOLECULE) const
@@ -413,7 +409,6 @@ namespace bcl
       MOLECULE = confs.GetMolecules().FirstElement();
     }
 
-
     //! @brief combine two fragments through their pseudoreaction scheme
     //! @details attach two fragments using their mutually matched dummy atom element types
     //! and mapped attachment atom indices. After attaching the two fragments, it is
@@ -424,14 +419,14 @@ namespace bcl
     //! @return a product molecule with an associated map between un-reacted dummy atom
     //! element types and the attachment indices using the new product molecule indexing
     storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> FragmentMutateSmilesReact::ReactFragments
-    (
-      const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_A,
+        (
+          const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_A,
       const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_B,
       const storage::Map< ElementType, ConfigurationalBondType> &BONDS
     ) const
     {
-      // the final molecule will contain all dummy atom attachment sites minus the ones used to connect here
-      storage::Set< ElementType> uniq_keys( REAGENT_A.Second().GetKeys());
+                  // the final molecule will contain all dummy atom attachment sites minus the ones used to connect here
+                  storage::Set< ElementType> uniq_keys( REAGENT_A.Second().GetKeys());
       storage::Vector< ElementType> b_keys( REAGENT_B.Second().GetKeysAsVector());
       for
       (
@@ -510,15 +505,15 @@ namespace bcl
             product_react_atoms.Insert
             (
               storage::Pair< ElementType, storage::Pair< size_t, size_t>>
-              (
-                  *key_itr,
-                  storage::Pair< size_t, size_t>
                   (
+                    *key_itr,
+                    storage::Pair< size_t, size_t>
+                    (
                       REAGENT_A.Second().Count( *key_itr) ? REAGENT_A.Second().Find( *key_itr)->second : util::GetUndefinedSize_t(),
                       REAGENT_B.Second().Count( *key_itr) ? REAGENT_B.Second().Find( *key_itr)->second + a_frag.GetSize() : util::GetUndefinedSize_t()
+                    )
                   )
-              )
-            );
+                );
           }
         }
         product.First() = new_fragment.Second();
@@ -586,12 +581,12 @@ namespace bcl
     //! @return a product molecule with an associated map between un-reacted dummy atom
     //! element types and the attachment indices using the new product molecule indexing
     storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> FragmentMutateSmilesReact::ReactFragments
-    (
-      const storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> &REAGENTS,
+        (
+          const storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> &REAGENTS,
       const storage::Map< ElementType, ConfigurationalBondType> &BONDS
     ) const
     {
-      int n_reagents( REAGENTS.GetSize());
+              int n_reagents( REAGENTS.GetSize());
       storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> reagents( REAGENTS);
 
       // need a pair of reagents for each reaction
@@ -608,9 +603,9 @@ namespace bcl
 
           // perform reaction
           storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product
-          (
-            ReactFragments( reagents( i), reagents( j), BONDS)
-          );
+              (
+                ReactFragments( reagents( i), reagents( j), BONDS)
+              );
 
           // skip next part if no valid product formed
           if( !product.First().GetSize())
@@ -643,13 +638,13 @@ namespace bcl
     //! as a map between the dummy element type and the atom that used to connect
     //! to that dummy element
     storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> FragmentMutateSmilesReact::RemoveDummyElement
-    (
-      const FragmentComplete &MOLECULE,
-      const storage::Vector< ElementType> &ELEMENTS
-    ) const
-    {
-      // does not work if there are no elements
-      BCL_Assert( ELEMENTS.GetSize(), "[ERROR] FragmentMutateSmilesReact::RemoveDummyElement no elements to remove!");
+        (
+          const FragmentComplete &MOLECULE,
+          const storage::Vector< ElementType> &ELEMENTS
+        ) const
+        {
+          // does not work if there are no elements
+          BCL_Assert( ELEMENTS.GetSize(), "[ERROR] FragmentMutateSmilesReact::RemoveDummyElement no elements to remove!");
 
       // we want to throw an error if multiple dummy elements of the same type are in our molecule
       // because then the reaction is ambiguous
@@ -678,7 +673,7 @@ namespace bcl
           size_t bonded_atom_i( atoms.GetAtomIndex( bonded_atom));
 
           // save the indices of the dummy atoms so that we can correct our other indices later
-          dummy_atoms.PushBack( storage::Triplet< size_t, size_t, size_t>( atom_i, bonded_atom_i, e_i ) );
+          dummy_atoms.PushBack( storage::Triplet< size_t, size_t, size_t>( atom_i, bonded_atom_i, e_i));
 
           // increment the count
           if( element_count.Count( ELEMENTS( e_i)))
@@ -715,7 +710,7 @@ namespace bcl
         }
 
         // account for index change when dummy atom removed
-        bonded_atoms.Insert( storage::Pair< ElementType, size_t>( ELEMENTS( e_i ), bonded_i - n_lower) );
+        bonded_atoms.Insert( storage::Pair< ElementType, size_t>( ELEMENTS( e_i), bonded_i - n_lower));
       }
 
       // check for ambiguous dummy atoms
@@ -760,7 +755,7 @@ namespace bcl
       }
 
       // associate our reaction IDs with every reagent
-      storage::Vector< std::string> lines( util::SplitString( m_ReagentsFileContents, "\n") );
+      storage::Vector< std::string> lines( util::SplitString( m_ReagentsFileContents, "\n"));
       for
       (
           auto line_itr( lines.Begin()), line_itr_end( lines.End());
@@ -769,7 +764,7 @@ namespace bcl
       )
       {
         // SMILES reagent_id reaction_id reaction_pos
-        const storage::Vector< std::string> line( util::SplitString( *line_itr, " \t") );
+        const storage::Vector< std::string> line( util::SplitString( *line_itr, " \t"));
         SmilesReactionComponent rxn_components
         (
           line( 0),                                                      // Reagent SMILES
@@ -789,14 +784,14 @@ namespace bcl
         else
         {
           std::vector< SmilesReactionComponent> smiles_v( 1, rxn_components);
-          m_AssociatedReactions.insert( std::pair< std::pair< std::string, size_t>, std::vector< SmilesReactionComponent> >( key_pair, smiles_v ) );
+          m_AssociatedReactions.insert( std::pair< std::pair< std::string, size_t>, std::vector< SmilesReactionComponent> >( key_pair, smiles_v));
         }
       }
 
       // unsuccessful if there are no reagents
       if( m_AssociatedReactions.empty())
       {
-        BCL_MessageStd("FragmentMutateSmilesReact::InitializeReagents no reagents!");
+        BCL_MessageStd( "FragmentMutateSmilesReact::InitializeReagents no reagents!");
         m_InitializedReagents = false;
         return false;
       }
@@ -818,7 +813,7 @@ namespace bcl
       }
 
       // associate our reaction IDs with every reagent
-      storage::Vector< std::string> lines( util::SplitString( m_ReactionFileContents, "\n") );
+      storage::Vector< std::string> lines( util::SplitString( m_ReactionFileContents, "\n"));
       size_t line_index( 0);
       for
       (
@@ -828,7 +823,7 @@ namespace bcl
       )
       {
         // reactions are in the first column; save unique
-        const storage::Vector< std::string> line( util::SplitString( *line_itr, " \t") );
+        const storage::Vector< std::string> line( util::SplitString( *line_itr, " \t"));
         const std::string &rxn_id( line( 0));
         if( !m_Reactions.count( rxn_id))
         {
@@ -840,14 +835,13 @@ namespace bcl
       // unsuccessful if there are no reactions
       if( m_Reactions.empty())
       {
-        BCL_MessageStd("FragmentMutateSmilesReact::InitializeReactions no reactions!");
+        BCL_MessageStd( "FragmentMutateSmilesReact::InitializeReactions no reactions!");
         m_InitializedReactions = false;
         return false;
       }
       m_InitializedReactions = true;
       return true;
     }
-
 
     io::Serializer FragmentMutateSmilesReact::GetSerializer() const
     {
@@ -939,7 +933,6 @@ namespace bcl
       // done
       return true;
     }
-
 
   //////////////////////
   // input and output //

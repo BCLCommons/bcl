@@ -19,15 +19,14 @@
 #include "bcl_mm.h"
 
 // include other forward headers - sorted alphabetically
+#include "bcl_mm_energy_interface.h"
 #include "io/bcl_io_serialization.h"
-#include "mm/bcl_mm_energy_interface.h"
 
 // includes from bcl - sorted alphabetically
 #include "chemistry/bcl_chemistry_fragment_complete.h"
 #include "util/bcl_util_function_interface_serializable.h"
 
 // external includes - sorted alphabetically
-
 
 namespace bcl
 {
@@ -47,11 +46,11 @@ namespace bcl
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     class BCL_API RDKitEnergyMMFF94 :
-      public mm::EnergyInterface
+      public EnergyInterface
     {
-      //////////
-      // data //
-      //////////
+    //////////
+    // data //
+    //////////
 
     public:
 
@@ -78,9 +77,9 @@ namespace bcl
 
     public:
 
-      //////////////////////////////////
-      // construction and destruction //
-      //////////////////////////////////
+    //////////////////////////////////
+    // construction and destruction //
+    //////////////////////////////////
 
       //! default constructor
       RDKitEnergyMMFF94();
@@ -96,9 +95,9 @@ namespace bcl
       //! virtual copy constructor
       RDKitEnergyMMFF94 *Clone() const;
 
-      /////////////////
-      // data access //
-      /////////////////
+    /////////////////
+    // data access //
+    /////////////////
 
       //! @brief returns the name used for this class in an object data label
       //! @return the name used for this class in an object data label
@@ -120,9 +119,9 @@ namespace bcl
       //! @brief returns whether to ignore fragment interactions
       bool GetIgnoreInterFragmentInteractions() const;
 
-      ///////////////////
-      //   operations  //
-      ///////////////////
+    ///////////////////
+    //   operations  //
+    ///////////////////
 
       //! @brief sets the MMFF94 variant
       void SetMMFFVariant( const MMFFVariant &VARIANT);
@@ -155,9 +154,9 @@ namespace bcl
         const bool IGNORE_INTER_FRAG_INTERACTIONS
       );
 
-      //////////////////////
-      // helper functions //
-      //////////////////////
+    //////////////////////
+    // helper functions //
+    //////////////////////
 
       //! @brief return parameters for member data that are set up from the labels
       //! @return parameters for member data that are set up from the labels

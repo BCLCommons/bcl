@@ -243,13 +243,13 @@ namespace bcl
       //! if false then the returned indices are of the common subgraph
       //! @return the NEW_MOL indices mapped to STARTING_MOL (first) and the unmapped indices (second)
       storage::Pair< storage::Set< size_t>, storage::Set< size_t>> MapAtoms
-      (
-        const FragmentComplete &STARTING_MOL,
-        const FragmentComplete &NEW_MOL,
-        const ConformationGraphConverter::AtomComparisonType &ATOM_COMPARISON = ConformationGraphConverter::AtomComparisonType::e_ElementType,
-        const ConfigurationalBondTypeData::Data &BOND_COMPARISON = ConfigurationalBondTypeData::Data::e_BondOrderAmideOrAromaticWithRingness,
-        const bool &COMPLEMENT = true
-      ) const;
+          (
+            const FragmentComplete &STARTING_MOL,
+            const FragmentComplete &NEW_MOL,
+            const ConformationGraphConverter::AtomComparisonType &ATOM_COMPARISON = ConformationGraphConverter::AtomComparisonType::e_ElementType,
+            const ConfigurationalBondTypeData::Data &BOND_COMPARISON = ConfigurationalBondTypeData::Data::e_BondOrderAmideOrAromaticWithRingness,
+            const bool &COMPLEMENT = true
+          ) const;
 
       //! @brief preserve conformational information from starting molecule in new molecule
       //! @param STARTING_MOL the starting molecule

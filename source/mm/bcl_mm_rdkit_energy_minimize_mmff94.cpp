@@ -26,15 +26,14 @@ BCL_StaticInitializationFiascoFinder
 // external includes - sorted alphabetically
 #include "ForceField/MMFF/PositionConstraint.h"
 
-
 namespace bcl
 {
   namespace mm
   {
 
-    //////////////////////////////////
-    // construction and destruction //
-    //////////////////////////////////
+  //////////////////////////////////
+  // construction and destruction //
+  //////////////////////////////////
 
     //! @brief default constructor
     RdkitEnergyMinimizeMmff94::RdkitEnergyMinimizeMmff94() :
@@ -96,9 +95,9 @@ namespace bcl
       return new RdkitEnergyMinimizeMmff94( *this);
     }
 
-    /////////////////
-    // data access //
-    /////////////////
+  /////////////////
+  // data access //
+  /////////////////
 
     //! @brief returns the name used for this class in an object data label
     //! @return the name used for this class in an object data label
@@ -160,9 +159,9 @@ namespace bcl
       return m_RestraintForce;
     }
 
-    ////////////////
-    // operations //
-    ////////////////
+  ////////////////
+  // operations //
+  ////////////////
 
     //! @brief set the maximum number of iterations to perform for geometry optimization
     void RdkitEnergyMinimizeMmff94::SetMaxIterations( const size_t &MAX_ITERATIONS)
@@ -231,14 +230,14 @@ namespace bcl
     //! @param RESTRAINT_FORCE restraint force
     void RdkitEnergyMinimizeMmff94::AddPositionalRestraints
     (
-      ::ForceFields::ForceField* FORCE_FIELD, // raw pointer unconventional for BCL outside of Clone(), but this is what RDKit requires
+      ::ForceFields::ForceField *FORCE_FIELD, // raw pointer unconventional for BCL outside of Clone(), but this is what RDKit requires
       const storage::Vector< size_t> &ATOM_INDICES,
       const storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT,
       const storage::Vector< double> &RESTRAINT_FORCE
     ) const
     {
       // sanity check on vector sizes
-      if( ATOM_INDICES.GetSize() == MAX_UNRESTRAINED_DISPLACEMENT.GetSize() && ATOM_INDICES.GetSize() == RESTRAINT_FORCE.GetSize() )
+      if( ATOM_INDICES.GetSize() == MAX_UNRESTRAINED_DISPLACEMENT.GetSize() && ATOM_INDICES.GetSize() == RESTRAINT_FORCE.GetSize())
       {
         // loop over atom indices and add restraint forces to our force field
         for( size_t i( 0), sz( ATOM_INDICES.GetSize()); i < sz; ++i)
@@ -253,7 +252,7 @@ namespace bcl
           FORCE_FIELD->contribs().push_back( ForceFields::ContribPtr( coord_cst));
         }
       }
-      else if( ATOM_INDICES.GetSize() == MAX_UNRESTRAINED_DISPLACEMENT.GetSize() && RESTRAINT_FORCE.GetSize() == size_t( 1) )
+      else if( ATOM_INDICES.GetSize() == MAX_UNRESTRAINED_DISPLACEMENT.GetSize() && RESTRAINT_FORCE.GetSize() == size_t( 1))
       {
         for( size_t i( 0), sz( ATOM_INDICES.GetSize()); i < sz; ++i)
         {
@@ -459,9 +458,9 @@ namespace bcl
       return storage::Triplet< chemistry::FragmentComplete, int, double>( optimized_molecule, min_result, energy);
     }
 
-    //////////////////////
-    // helper functions //
-    //////////////////////
+  //////////////////////
+  // helper functions //
+  //////////////////////
 
     //! @brief return parameters for member data that are set up from the labels
     //! @return parameters for member data that are set up from the labels

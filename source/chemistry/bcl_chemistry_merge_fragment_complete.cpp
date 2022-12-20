@@ -1092,7 +1092,7 @@ namespace bcl
           + atom_of_interest_aa.GetAtomType().GetName() + " and "
           + atom_of_interest_bb.GetAtomType().GetName() + " via the bond type "
           + util::Format()( BOND_TYPE->GetBondData( ConfigurationalBondTypeData::e_BondOrderOrAromatic))
-          + ". Setting a nominal default bond length value of " + util::Format()( 1.45) +  " Angstroms."
+          + ". Setting a nominal default bond length value of " + util::Format()( 1.45) + " Angstroms."
         );
          bond_length = 1.45;
       }

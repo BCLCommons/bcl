@@ -60,9 +60,9 @@ namespace bcl
 
     public:
 
-      ////////////////////
-      // helper classes //
-      ////////////////////
+    ////////////////////
+    // helper classes //
+    ////////////////////
 
       //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       //!
@@ -119,7 +119,7 @@ namespace bcl
         // @return true if the lhs object is less than the rhs object; false otherwise
         bool operator<( SmilesReactionComponent const &RHS)
         {
-          if( m_ReagentID < RHS.m_ReagentID )
+          if( m_ReagentID < RHS.m_ReagentID)
           {
             return true;
           }
@@ -156,7 +156,6 @@ namespace bcl
         //! @brief reagents
         storage::Vector< std::string> m_SmirksReagents;
 
-
         //! @brief Return the BCL bond type from a SMIRKS bond type
         //! @details SMIRKS bond types are simply encoded for single, double,
         //! and triple bonds, as well as an ambiguous "any" bond type and a generic
@@ -183,17 +182,17 @@ namespace bcl
           else if( SMIRKS_BOND_TYPE == "~")
           {
             // TODO improve parsing based on product bonds, if specified; otherwise, this needs to be detected from final structure
-            BCL_MessageStd("[WARNING] SmirksReactor::GetBondTypeFromSmirks parsing bond type '~' as 'NonConjugatedSingleBond'");
+            BCL_MessageStd( "[WARNING] SmirksReactor::GetBondTypeFromSmirks parsing bond type '~' as 'NonConjugatedSingleBond'");
             return GetConfigurationalBondTypes().e_NonConjugatedSingleBond;
           }
           else if( SMIRKS_BOND_TYPE == "@")
           {
             // TODO consider also e_NonConjugatedSingleBondInRing or detection based from final structure
-            BCL_MessageStd("[WARNING] SmirksReactor::GetBondTypeFromSmirks parsing bond type '@' as 'ConjugatedBondInRing'");
+            BCL_MessageStd( "[WARNING] SmirksReactor::GetBondTypeFromSmirks parsing bond type '@' as 'ConjugatedBondInRing'");
             return GetConfigurationalBondTypes().e_ConjugatedBondInRing;
           }
           // sometimes single bonds are given as just adjacent brackets
-          if( SMIRKS_BOND_TYPE == "[" || SMIRKS_BOND_TYPE == "]" || SMIRKS_BOND_TYPE == "(" || SMIRKS_BOND_TYPE == ")" )
+          if( SMIRKS_BOND_TYPE == "[" || SMIRKS_BOND_TYPE == "]" || SMIRKS_BOND_TYPE == "(" || SMIRKS_BOND_TYPE == ")")
           {
             return GetConfigurationalBondTypes().e_NonConjugatedSingleBond;
           }
@@ -202,7 +201,6 @@ namespace bcl
             return GetConfigurationalBondTypes().e_Undefined;
           }
         }
-
 
         // TODO this really needs to be private when this struct is refactored into its own class
         //! @brief Get dummy/reactant atom from reagent string
@@ -258,7 +256,7 @@ namespace bcl
           storage::Map< ElementType, ConfigurationalBondType> mapped_bonds;
 
           // get our dummy atoms
-          storage::Vector< ElementType> dummy_elements( ParseDummyAtom( REAGENT ) );
+          storage::Vector< ElementType> dummy_elements( ParseDummyAtom( REAGENT));
           if( !dummy_elements.GetSize())
           {
             return storage::Map< ElementType, ConfigurationalBondType>();
@@ -268,7 +266,7 @@ namespace bcl
           for( size_t e_i( 0), e_sz( dummy_elements.GetSize()); e_i < e_sz; ++e_i)
           {
             const ElementType &element_type( dummy_elements( e_i));
-            std::string smirks_ele( "[" +  element_type->GetChemicalSymbol() + "]");
+            std::string smirks_ele( "[" + element_type->GetChemicalSymbol() + "]");
 
             // find where this dummy atom occurs in the original reagent string
             // assumptions:
@@ -308,12 +306,11 @@ namespace bcl
           return mapped_bonds;
         }
 
-
         //! @brief Parses reaction data
         void ParseReactionData( const std::string &DATA)
         {
           // first split the line into the 8 columns
-          storage::Vector< std::string> split_data( util::SplitString(DATA, " \t"));
+          storage::Vector< std::string> split_data( util::SplitString( DATA, " \t"));
 
           // convenience
           m_SmirksReactionID = split_data( 0);
@@ -321,7 +318,7 @@ namespace bcl
           m_SmirksReaction = split_data( 2);
 
           // now split the reaction taking the first n_reagents positions as reagents
-          storage::Vector< std::string> smirks_reagents_products( util::SplitString(m_SmirksReaction, ".'>>'"));
+          storage::Vector< std::string> smirks_reagents_products( util::SplitString( m_SmirksReaction, ".'>>'"));
           storage::Vector< std::string> smirks_reagents;
           for( size_t i( 0); i < m_NumberReagents; ++i)
           {
@@ -343,7 +340,6 @@ namespace bcl
         {
           ParseReactionData( m_ReactionData);
         }
-
 
         //! @brief default constructor
         SmirksReactor() :
@@ -531,7 +527,6 @@ namespace bcl
       //! @brief get random allowed reaction position from user-specified options
       size_t GetRandomReactionPosition( const storage::Vector< size_t> &RXN_POSITIONS) const;
 
-
     private:
 
       // TODO: consider bool, though this is just a hack for now; need a framework for SampleConfs involving
@@ -549,30 +544,30 @@ namespace bcl
       //! @return a product molecule with an associated map between un-reacted dummy atom
       //! element types and the attachment indices using the new product molecule indexing
       storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> ReactFragments
-      (
-        const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_A,
+          (
+            const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_A,
         const storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> &REAGENT_B,
         const storage::Map< ElementType, ConfigurationalBondType> &BONDS
-      ) const;
+                  ) const;
 
       //! @brief recursively call ReactFragments to combine reagents into a single product
       //! @return a product molecule with an associated map between un-reacted dummy atom
       //! element types and the attachment indices using the new product molecule indexing
       storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> ReactFragments
-      (
-        const storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> &REAGENTS,
+          (
+            const storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> &REAGENTS,
         const storage::Map< ElementType, ConfigurationalBondType> &BONDS
-      ) const;
+              ) const;
 
       //! @brief remove the dummy element from the input molecule
       //! @return the new molecule with all dummy elements removed, as well
       //! as a map between the dummy element type and the atom that used to connect
       //! to that dummy element
       storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> RemoveDummyElement
-      (
-        const FragmentComplete &MOLECULE,
-        const storage::Vector< ElementType> &ELEMENTS
-      ) const;
+          (
+            const FragmentComplete &MOLECULE,
+            const storage::Vector< ElementType> &ELEMENTS
+          ) const;
 
     //////////////////////
     // helper functions //

@@ -132,7 +132,7 @@ namespace bcl
 
       //! @brief return the file type
       //! returns the file type as a string
-      static const std::string &GetFileTypeAsString( const FileType &ENUM );
+      static const std::string &GetFileTypeAsString( const FileType &ENUM);
 
       //! DataEnum simplifies the usage of the Data enum of this class
       typedef util::WrapperEnum< FileType, &GetFileTypeAsString, s_TotalFileTypes> DataEnum;
@@ -155,8 +155,8 @@ namespace bcl
       //! @return a vector of maps where each map matches a column header label (key)
       //! to a data value (value); SMILES/SMARTs string must always be first label
       const storage::Vector< storage::Map< std::string, std::string>> &GetFileData() const
-      {
-        return m_FileData;
+          {
+            return m_FileData;
       }
 
       //! @brief return the molecules that were read in from the input file
@@ -180,12 +180,12 @@ namespace bcl
       }
 
       //! @brief set the header
-      void SetHeader( const storage::Vector< std::string > &HEADER)
+      void SetHeader( const storage::Vector< std::string> &HEADER)
       {
         m_Header = HEADER;
       }
 
-      void SetMolecules( const storage::Vector< chemistry::FragmentComplete > &MOLECULES)
+      void SetMolecules( const storage::Vector< chemistry::FragmentComplete> &MOLECULES)
       {
         m_Molecules = MOLECULES;
       }
@@ -193,7 +193,7 @@ namespace bcl
       //! @brief clear/reset all useful data in this class
       void ResetAll()
       {
-        m_Header = storage::Vector< std::string >();
+        m_Header = storage::Vector< std::string>();
         m_FileData = storage::Vector< storage::Map< std::string, std::string > >();
         m_Molecules = storage::Vector< chemistry::FragmentComplete>();
         m_FileType = e_SMILES;
@@ -206,7 +206,7 @@ namespace bcl
 
       void ResetFileData()
       {
-        m_FileData = storage::Vector< storage::Map< std::string, std::string > >();
+        m_FileData = storage::Vector< storage::Map< std::string, std::string> >();
       }
 
       void ResetMolecules()

@@ -21,7 +21,7 @@
 // include other forward headers - sorted alphabetically
 
 // includes from bcl - sorted alphabetically
-#include "mm/bcl_mm_rdkit_energy_mmff94.h"
+#include "bcl_mm_rdkit_energy_mmff94.h"
 #include "chemistry/bcl_chemistry_fragment_complete.h"
 #include "util/bcl_util_function_interface_serializable.h"
 
@@ -48,12 +48,12 @@ namespace bcl
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     class BCL_API RdkitEnergyMinimizeMmff94 :
-      public mm::RDKitEnergyMMFF94
+      public RDKitEnergyMMFF94
     {
 
-      //////////
-      // data //
-      //////////
+    //////////
+    // data //
+    //////////
 
     private:
 
@@ -110,9 +110,9 @@ namespace bcl
       //! virtual copy constructor
       RdkitEnergyMinimizeMmff94 *Clone() const;
 
-      /////////////////
-      // data access //
-      /////////////////
+    /////////////////
+    // data access //
+    /////////////////
 
       //! @brief returns the name used for this class in an object data label
       //! @return the name used for this class in an object data label
@@ -149,9 +149,9 @@ namespace bcl
       //! @brief returns the restraint force applied to each atom
       storage::Vector< double> GetRestraintForce() const;
 
-      ////////////////
-      // operations //
-      ////////////////
+    ////////////////
+    // operations //
+    ////////////////
 
       //! @brief set the maximum number of iterations to perform for geometry optimization
       void SetMaxIterations( const size_t &MAX_ITERATIONS);
@@ -186,7 +186,7 @@ namespace bcl
       //! @param RESTRAINT_FORCE restraint force
       void AddPositionalRestraints
       (
-        ::ForceFields::ForceField* FORCE_FIELD, // raw pointer unconventional for BCL outside of Clone(), but this is what RDKit requires
+        ::ForceFields::ForceField *FORCE_FIELD, // raw pointer unconventional for BCL outside of Clone(), but this is what RDKit requires
         const storage::Vector< size_t> &ATOM_INDICES,
         const storage::Vector< double> &MAX_UNRESTRAINED_DISPLACEMENT,
         const storage::Vector< double> &RESTRAINT_FORCE
@@ -240,9 +240,9 @@ namespace bcl
         const double ENERGY_TOLERANCE = 1e-4
       );
 
-      //////////////////////
-      // helper functions //
-      //////////////////////
+    //////////////////////
+    // helper functions //
+    //////////////////////
 
       //! @brief return parameters for member data that are set up from the labels
       //! @return parameters for member data that are set up from the labels

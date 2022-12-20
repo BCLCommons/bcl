@@ -33,10 +33,9 @@ namespace bcl
   namespace mm
   {
 
-    //////////////////////////////////
-    // construction and destruction //
-    //////////////////////////////////
-
+  //////////////////////////////////
+  // construction and destruction //
+  //////////////////////////////////
 
     //! default constructor
     RDKitEnergyMMFF94::RDKitEnergyMMFF94() :
@@ -112,9 +111,9 @@ namespace bcl
       return m_IgnoreInterFragmentInteractions;
     }
 
-    ///////////////////
-    //   operations  //
-    ///////////////////
+  ///////////////////
+  //   operations  //
+  ///////////////////
 
     //! @brief sets the MMFF94 variant
     void RDKitEnergyMMFF94::SetMMFFVariant( const MMFFVariant &VARIANT)
@@ -135,7 +134,7 @@ namespace bcl
       }
       else
       {
-        BCL_Exit("Invalid string; choices are either 'MMFF94' or 'MMFF94s'.", 1);
+        BCL_Exit( "Invalid string; choices are either 'MMFF94' or 'MMFF94s'.", 1);
       }
     }
 
@@ -210,9 +209,9 @@ namespace bcl
       return ff->calcEnergy();
     }
 
-    //////////////////////
-    // helper functions //
-    //////////////////////
+  //////////////////////
+  // helper functions //
+  //////////////////////
 
     //! @brief return parameters for member data that are set up from the labels
     //! @return parameters for member data that are set up from the labels
