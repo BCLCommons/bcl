@@ -209,9 +209,7 @@ namespace bcl
         storage::Vector< ElementType> ParseDummyAtom( const std::string &REAGENT)
         {
           // split apart the components of the reagent
-          BCL_Debug( REAGENT);
           storage::Vector< std::string> reagent_components( util::SplitString( REAGENT, "[]")); // TODO verify the split
-          BCL_Debug( reagent_components);
 
           // iterate over components and collect the valid element types that pop out
           storage::Vector< ElementType> elements;
@@ -239,17 +237,16 @@ namespace bcl
               continue;
             }
 
-            ElementType element( GetElementTypes().ElementTypeLookup( *itr));
+            ElementType element( GetElementTypes().ElementTypeLookup( *itr, true));
             if( element != GetElementTypes().e_Undefined)
             {
               elements.PushBack( element);
             }
             else
             {
-              BCL_MessageStd( "Skipping undefined element!");
+              BCL_MessageVrb( "Skipping undefined element!");
             }
           }
-          BCL_Debug( elements);
           return elements;
         }
 
@@ -271,9 +268,7 @@ namespace bcl
           for( size_t e_i( 0), e_sz( dummy_elements.GetSize()); e_i < e_sz; ++e_i)
           {
             const ElementType &element_type( dummy_elements( e_i));
-            BCL_Debug( element_type);
             std::string smirks_ele( "[" +  element_type->GetChemicalSymbol() + "]");
-            BCL_Debug( smirks_ele);
 
             // find where this dummy atom occurs in the original reagent string
             // assumptions:
@@ -281,42 +276,35 @@ namespace bcl
             // (2) if there is a second occurrence then the bond type would be the same as it indicates
             // a cyclical closure within the reagent
             size_t dummy_atom_npos( REAGENT.find( smirks_ele));
-            BCL_Debug( dummy_atom_npos);
             size_t reagent_str_size( REAGENT.size());
-            BCL_Debug( reagent_str_size);
 
             // left-edge: only check +1 npos
             ConfigurationalBondType bond_type;
             if( dummy_atom_npos == size_t( 0))
             {
               std::string bond( REAGENT.substr( dummy_atom_npos + 3, 1));
-              BCL_Debug( bond);
               bond_type = this->GetBondTypeFromSmirks( bond);
             }
             // right-edge; only check -1 npos
             else if( dummy_atom_npos == reagent_str_size - 1)
             {
               std::string bond( REAGENT.substr( dummy_atom_npos - 1, 1));
-              BCL_Debug( bond);
               bond_type = this->GetBondTypeFromSmirks( bond);
             }
             // otherwise check both -1 and +1 npos
             else
             {
               std::string bond( REAGENT.substr( dummy_atom_npos - 1, 1));
-              BCL_Debug( bond);
               bond_type = this->GetBondTypeFromSmirks( bond);
 
               if( bond_type == GetConfigurationalBondTypes().e_Undefined) // TODO generally, all of this is incompatible with '~' bond types
               {
                 bond = REAGENT.substr( dummy_atom_npos + 3, 1);
-                BCL_Debug( bond);
                 bond_type = this->GetBondTypeFromSmirks( bond);
               }
             }
             mapped_bonds.Insert( storage::Pair< ElementType, ConfigurationalBondType>( element_type, bond_type));
           }
-          BCL_Debug( mapped_bonds);
           return mapped_bonds;
         }
 
@@ -325,9 +313,7 @@ namespace bcl
         void ParseReactionData( const std::string &DATA)
         {
           // first split the line into the 8 columns
-          BCL_Debug( DATA);
           storage::Vector< std::string> split_data( util::SplitString(DATA, " \t"));
-          BCL_Debug( split_data);
 
           // convenience
           m_SmirksReactionID = split_data( 0);
@@ -335,16 +321,13 @@ namespace bcl
           m_SmirksReaction = split_data( 2);
 
           // now split the reaction taking the first n_reagents positions as reagents
-          BCL_Debug( m_SmirksReaction);
-          storage::Vector< std::string> smirks_reagents_products( util::SplitString(m_SmirksReaction, ".'>>'")); // TODO this seems hairy
-          BCL_Debug( smirks_reagents_products);
+          storage::Vector< std::string> smirks_reagents_products( util::SplitString(m_SmirksReaction, ".'>>'"));
           storage::Vector< std::string> smirks_reagents;
           for( size_t i( 0); i < m_NumberReagents; ++i)
           {
             smirks_reagents.PushBack( smirks_reagents_products( i));
           }
           m_SmirksReagents = smirks_reagents;
-//          const std::string &smirks_products( smirks_reagents_products( m_NumberReagents));
 
           // make sure that we have the correct number of reagents and products
           BCL_Assert

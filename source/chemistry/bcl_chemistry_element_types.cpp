@@ -184,14 +184,22 @@ namespace bcl
 
     //! obtain ElementTypes from symbol
     //! @param SYMBOL the atomic symbol; may also contain isotopic information
-    ElementType ElementTypes::ElementTypeLookup( const std::string &SYMBOL) const
+    //! @param QUIET reduce the volume of message output from CRT to VRB
+    ElementType ElementTypes::ElementTypeLookup( const std::string &SYMBOL, const bool QUIET) const
     {
       // get the constant string to element type map
       static std::map< std::string, ElementType> s_element_types_map( GetStringToElementTypeMap());
 
       if( SYMBOL.empty())
       {
-        BCL_MessageCrt( "Element without symbol given!");
+        if( QUIET)
+        {
+          BCL_MessageVrb( "Element without symbol given!");
+        }
+        else
+        {
+          BCL_MessageCrt( "Element without symbol given!");
+        }
         return GetElementTypes().e_Undefined;
       }
 
@@ -251,7 +259,14 @@ namespace bcl
 
         if( first_letter == name_size)
         {
-          BCL_MessageCrt( "Element with invalid symbol found: " + SYMBOL);
+          if( QUIET)
+          {
+            BCL_MessageVrb( "Element with invalid symbol found: " + SYMBOL);
+          }
+          else
+          {
+            BCL_MessageCrt( "Element with invalid symbol found: " + SYMBOL);
+          }
           return GetElementTypes().e_Undefined;
         }
       }
@@ -301,10 +316,20 @@ namespace bcl
 
       if( itr_map != s_element_types_map.end())
       {
-        BCL_MessageCrt
-        (
-          "Warning: Interpreting " + SYMBOL + " as elemental " + itr_map->second->GetChemicalName()
-        );
+        if( QUIET)
+        {
+          BCL_MessageVrb
+          (
+            "Warning: Interpreting " + SYMBOL + " as elemental " + itr_map->second->GetChemicalName()
+          );
+        }
+        else
+        {
+          BCL_MessageCrt
+          (
+            "Warning: Interpreting " + SYMBOL + " as elemental " + itr_map->second->GetChemicalName()
+          );
+        }
         return itr_map->second;
       }
 

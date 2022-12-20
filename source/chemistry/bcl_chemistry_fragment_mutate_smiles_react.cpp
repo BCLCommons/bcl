@@ -229,7 +229,6 @@ namespace bcl
     {
       // mutate label
       BCL_MessageStd( "SmilesReact!");
-      io::OFStream debug_out;
 
       // try N times to have a successful mutate
       size_t try_index( 0);
@@ -245,34 +244,19 @@ namespace bcl
 
         // choose a reaction and reagents
         std::string rxn_id( GetRandomReactionID());
-//        BCL_Debug( rxn_id);
         std::string rxn_line( GetReactionFromID( rxn_id));
-//        BCL_Debug( rxn_line);
         SmirksReactor reactor( rxn_line);
         size_t start_mol_rxn_pos( GetRandomReactionPosition( m_AllowedRxnPositionIndices));
 
         // identify the dummy atom(s) based on the starting mol position in the rxn
-        BCL_Debug( start_mol_rxn_pos);
-        BCL_MessageStd( "Parse start dummy atoms.");
         storage::Vector< ElementType> start_mol_dummy_elements( reactor.ParseDummyAtom( reactor.m_SmirksReagents( start_mol_rxn_pos)));
-        BCL_MessageStd( "Parse start dummy atom bonds");
         storage::Map< ElementType, ConfigurationalBondType> start_mol_dummy_bondtypes( reactor.ParseDummyAtomBonds( reactor.m_SmirksReagents( start_mol_rxn_pos)));
 
         // remove dummy atom and track attached index (map this index from the element type of the removed dummy atom)
-        io::File::MustOpenOFStream( debug_out, "unstripped_mol.sdf");
-        FRAGMENT.WriteMDL( debug_out);
-        io::File::CloseClearFStream( debug_out);
         storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> stripped_mol
         (
           RemoveDummyElement( FRAGMENT, start_mol_dummy_elements)
         );
-        io::File::MustOpenOFStream( debug_out, "stripped_mol.sdf");
-        stripped_mol.First().WriteMDL( debug_out);
-        io::File::CloseClearFStream( debug_out);
-
-        //!!
-        // TODO Need to know what the bond type is that will connect the two fragments
-        //!!
 
         // create fragment for the other reagent
         storage::Vector< size_t> rxn_pos;
@@ -288,24 +272,14 @@ namespace bcl
         storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> stripped_reagents;
         for( size_t i( 0); i < rxn_pos.GetSize(); ++i)
         {
-          BCL_Debug( rxn_pos( i));
-          BCL_MessageStd( "Parse reagent dummy atoms.");
           storage::Vector< ElementType> dummy_elements( reactor.ParseDummyAtom( reactor.m_SmirksReagents( rxn_pos( i))));
-          BCL_MessageStd( "Parse reagent dummy atom bonds");
           storage::Map< ElementType, ConfigurationalBondType> dummy_bondtypes( reactor.ParseDummyAtomBonds( reactor.m_SmirksReagents( rxn_pos( i))));
           start_mol_dummy_bondtypes.InsertElements( dummy_bondtypes.Begin(), dummy_bondtypes.End());
-          BCL_MessageStd( "GetRandomReagent!");
           FragmentComplete reagent( GetRandomReagent( rxn_id, rxn_pos( i)));
-          io::File::MustOpenOFStream( debug_out, "unstripped_reagent." + util::Format()( i) + ".sdf");
-          reagent.WriteMDL( debug_out);
-          io::File::CloseClearFStream( debug_out);
           storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> stripped_reagent
           (
             RemoveDummyElement( reagent, dummy_elements)
           );
-          io::File::MustOpenOFStream( debug_out, "stripped_reagent." + util::Format()( i) + ".sdf");
-          stripped_reagent.First().WriteMDL( debug_out);
-          io::File::CloseClearFStream( debug_out);
           stripped_reagents.PushBack( stripped_reagent);
         }
         stripped_reagents.PushBack( stripped_mol);
@@ -313,16 +287,7 @@ namespace bcl
         // perform our reaction(s)
         storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_reagents, start_mol_dummy_bondtypes));
 
-        // DEBUG out
-        io::File::MustOpenOFStream( debug_out, "debug_out.sdf");
-        product.First().WriteMDL( debug_out);
-        io::File::CloseClearFStream( debug_out);
-        io::File::MustOpenOFStream( debug_out, "debug_out.smiles");
-        product.First().WriteSMILES( debug_out);
-        io::File::CloseClearFStream( debug_out);
-
         // for cleaning and optimizing the new molecule conformer
-        BCL_MessageStd( "Build my cleaner");
         FragmentMapConformer cleaner
         (
           m_DrugLikenessType,
@@ -342,7 +307,6 @@ namespace bcl
         );
 
         // clean and output
-        BCL_MessageStd( "Getting product atom v");
         AtomVector< AtomComplete> atoms( product.First().GetAtomVector());
 
         // Remove hydrogen atoms to allow bond type adjustment
@@ -384,31 +348,22 @@ namespace bcl
     // TODO: (2) add option to make 3D conformer of reagent (add hydrogens, generate conformer, remove hydrogens, return)
     FragmentComplete FragmentMutateSmilesReact::GetRandomReagent( const std::string &REACTION_ID, const size_t REACTION_POS) const
     {
-      BCL_Debug( REACTION_ID);
-      BCL_Debug( REACTION_POS);
       std::vector< SmilesReactionComponent> reagent_smiles
       (
         m_AssociatedReactions.find( std::pair< std::string, size_t>( REACTION_ID, REACTION_POS))->second
       );
-      BCL_Debug( reagent_smiles.size());
       const size_t rand_pos( random::GetGlobalRandom().Random<size_t>( 0, reagent_smiles.size() - 1));
-      BCL_Debug( rand_pos);
-//      for( size_t i( 0); i < reagent_smiles.size(); ++i)
-//      {
-//        BCL_Debug( reagent_smiles[ i].m_ReagentSmiles);
-//      }
-      BCL_Debug( reagent_smiles[ rand_pos].m_ReagentSmiles);
       return smiles::RdkitSmilesParser::ConvertSMILESToMOL
-          (
-            reagent_smiles[ rand_pos].m_ReagentSmiles,
-            false,
-            true,
-            true,
-            100,
-            "MMFF94s",
-            10.0,
-            true
-          );
+        (
+          reagent_smiles[ rand_pos].m_ReagentSmiles,
+          false,
+          true,
+          true,
+          100,
+          "MMFF94s",
+          10.0,
+          true
+        );
     }
 
 
@@ -475,17 +430,9 @@ namespace bcl
       const storage::Map< ElementType, ConfigurationalBondType> &BONDS
     ) const
     {
-
-      io::OFStream io_reagent;
-
       // the final molecule will contain all dummy atom attachment sites minus the ones used to connect here
-      BCL_Debug( REAGENT_A);
-      BCL_Debug( REAGENT_B);
-      BCL_Debug( BONDS);
       storage::Set< ElementType> uniq_keys( REAGENT_A.Second().GetKeys());
       storage::Vector< ElementType> b_keys( REAGENT_B.Second().GetKeysAsVector());
-      BCL_Debug( REAGENT_A.Second().GetKeys().GetSize());
-      BCL_Debug( b_keys.GetSize());
       for
       (
           auto key_itr( b_keys.Begin()),
@@ -494,24 +441,19 @@ namespace bcl
           ++key_itr
       )
       {
-        BCL_Debug( key_itr->GetName());
         ElementType ele( GetElementTypes().ElementTypeLookup( ( *key_itr)->GetChemicalSymbol()));
         uniq_keys.Insert( ele);
       }
-      BCL_Debug( uniq_keys);
 
       // we can only attach at mutually matched dummy atom sites, so always get the smaller map
-      BCL_MessageStd( "Do some key stuff");
       storage::Vector< ElementType> keys
       (
         REAGENT_A.Second().GetSize() < REAGENT_B.Second().GetSize() ?
         REAGENT_A.Second().GetKeysAsVector() :
         REAGENT_B.Second().GetKeysAsVector()
       );
-      BCL_Debug( keys);
 
       // our final molecule will begin from our first reagent
-//      storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( REAGENT_A);
       storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product;
       storage::Map< ElementType, storage::Pair< size_t, size_t>> product_react_atoms; // this is a pair now for intramolecular attachment
 
@@ -519,7 +461,6 @@ namespace bcl
       for( size_t e_i( 0), e_sz( keys.GetSize()); e_i < e_sz; ++e_i)
       {
         // must mutually match or else we cannot connect
-        BCL_Debug( e_i);
         if( !REAGENT_A.Second().Count( keys( e_i)) || !REAGENT_B.Second().Count( keys( e_i)))
         {
           BCL_MessageStd( "not mutually matched");
@@ -529,21 +470,11 @@ namespace bcl
         // convenience
         const FragmentComplete &a_frag( REAGENT_A.First());
         const FragmentComplete &b_frag( REAGENT_B.First());
-        io::File::MustOpenOFStream( io_reagent, "reagent.a.check.sdf");
-        a_frag.WriteMDL( io_reagent);
-        io::File::CloseClearFStream( io_reagent);
-        io::File::MustOpenOFStream( io_reagent, "reagent.b.check.sdf");
-        b_frag.WriteMDL( io_reagent);
-        io::File::CloseClearFStream( io_reagent);
         const size_t a_connect( REAGENT_A.Second().Find( keys( e_i))->second);
         const size_t b_connect( REAGENT_B.Second().Find( keys( e_i))->second);
-        BCL_Debug( a_connect);
-        BCL_Debug( b_connect);
-        BCL_Debug( BONDS.Find( keys( e_i))->second);
 
         // join our fragments via the mapped dummy atoms;
         // OpenValence step can be skipped because we have done an equivalent step in RemoveDummyElement
-        BCL_MessageStd( "Merge fragment");
         storage::Pair< bool, FragmentComplete> new_fragment
         (
           MergeFragmentComplete::MergeFragments
@@ -554,11 +485,6 @@ namespace bcl
             storage::Pair< size_t, size_t>( a_connect, b_connect)
           )
         );
-        BCL_MessageStd( "Tried the merge");
-        BCL_Debug( new_fragment.First());
-        io::File::MustOpenOFStream( io_reagent, "reagent.post_merge.check.sdf");
-        new_fragment.Second().WriteMDL( io_reagent);
-        io::File::CloseClearFStream( io_reagent);
 
         // do not update
         if( !new_fragment.First()) // TODO should this be an Assert?
@@ -568,7 +494,6 @@ namespace bcl
         }
 
         // update the remaining dummy atom attachment sites, the attachment indices, and finally the molecule
-        BCL_MessageStd( "Doing post-merge stuff");
         for
         (
             auto key_itr( uniq_keys.Begin()),
@@ -580,8 +505,6 @@ namespace bcl
           // add mapped attachment sites, excluding the key we just used to attach the two reagents
           // A atom indices do not need adjustment
           // B atom indices must be offset by the size of reagent A fragment
-          BCL_Debug( *key_itr);
-          BCL_Debug( keys( e_i));
           if( *key_itr != keys( e_i))
           {
             product_react_atoms.Insert
@@ -609,7 +532,6 @@ namespace bcl
       }
 
       // perform intramolecular reactions
-      BCL_MessageStd( "Intramolecular reaction stuff");
       storage::Map< ElementType, size_t> product_dummy_sites;
       storage::Vector< sdf::AtomInfo> product_atominfo( product.First().GetAtomInfo());
       storage::Vector< sdf::BondInfo> product_bondinfo( product.First().GetBondInfo());
@@ -652,13 +574,11 @@ namespace bcl
 
       // TODO 3D?
       // create the final molecule
-      BCL_MessageStd( "Finalizing recursive reagent product thing");
       AtomVector< AtomComplete> product_atoms( product_atominfo, product_bondinfo);
       AtomsCompleteStandardizer standardizer( product_atoms, "", true);
       standardizer.SetConjugationOfBondTypes( product_atoms);
       FragmentComplete final_product( product_atoms, "");
       final_product.StandardizeBondLengths();
-      BCL_MessageStd( "Returning pairwise reagent product thing");
       return storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>( final_product, product_dummy_sites);
     }
 
@@ -672,45 +592,21 @@ namespace bcl
     ) const
     {
       int n_reagents( REAGENTS.GetSize());
-      BCL_Debug( n_reagents);
       storage::Vector< storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>>> reagents( REAGENTS);
-      io::OFStream debug_out;
 
       // need a pair of reagents for each reaction
       for( int i( 0); i < n_reagents; ++i)
       {
-        BCL_MessageStd( "Start of for-loop i: " + util::Format()( i));
         for( int j( i + 1); j < n_reagents; ++j)
         {
-          BCL_Debug( n_reagents);
-          BCL_MessageStd( "Start of for-loop j: " + util::Format()( j));
-
           // invalid if there are not at least 2 reagents
           if( n_reagents < int( 2))
           {
-            BCL_MessageStd( "Too few reagents");
+            BCL_MessageStd( "FragmentMutateSmilesReact::ReactFragments too few reagents");
             break;
           }
 
           // perform reaction
-          io::File::MustOpenOFStream
-          (
-            debug_out,
-            "reaction.r_" + util::Format()( i) + "_" + util::Format()( j) + ".i_" + util::Format()( i) + ".sdf",
-            std::ios::app
-          );
-          reagents( i).First().WriteMDL( debug_out);
-          io::File::CloseClearFStream( debug_out);
-
-          io::File::MustOpenOFStream
-          (
-            debug_out,
-            "reaction.r_" + util::Format()( i) + "_" + util::Format()( j) + ".j_" + util::Format()( j) + ".sdf",
-            std::ios::app
-          );
-          reagents( j).First().WriteMDL( debug_out);
-          io::File::CloseClearFStream( debug_out);
-
           storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product
           (
             ReactFragments( reagents( i), reagents( j), BONDS)
@@ -719,7 +615,7 @@ namespace bcl
           // skip next part if no valid product formed
           if( !product.First().GetSize())
           {
-            BCL_MessageStd( "Invalid product formed");
+            BCL_MessageStd( "FragmentMutateSmilesReact::ReactFragments invalid product formed");
             continue;
           }
 
@@ -734,10 +630,8 @@ namespace bcl
 
           // reset our progression through the for-loop
           j = int( -1);
-          BCL_MessageStd( "Reset j: " + util::Format()( j));
           n_reagents = reagents.GetSize();
           i = int( -1);
-          BCL_MessageStd( "Reset i: " + util::Format()( i));
           break;
         }
       }
@@ -754,9 +648,6 @@ namespace bcl
       const storage::Vector< ElementType> &ELEMENTS
     ) const
     {
-      BCL_MessageStd( "RemoveDummyElement");
-      BCL_Debug( ELEMENTS);
-
       // does not work if there are no elements
       BCL_Assert( ELEMENTS.GetSize(), "[ERROR] FragmentMutateSmilesReact::RemoveDummyElement no elements to remove!");
 
@@ -810,13 +701,8 @@ namespace bcl
       for( size_t ii( 0), sz( dummy_atoms.GetSize()); ii < sz; ++ii)
       {
         // readability
-//        const size_t &atom_i( dummy_atoms( ii).First());
         const size_t &bonded_i( dummy_atoms( ii).Second());
         const size_t &e_i( dummy_atoms( ii).Third());
-
-        // account for index change when dummy atom removed
-        BCL_Debug( ELEMENTS( e_i ) );
-        BCL_Debug( bonded_i);
 
         // count how many dummy atoms are of lower index than the current bonded atom
         size_t n_lower( 0);
@@ -827,11 +713,12 @@ namespace bcl
             ++n_lower;
           }
         }
+
+        // account for index change when dummy atom removed
         bonded_atoms.Insert( storage::Pair< ElementType, size_t>( ELEMENTS( e_i ), bonded_i - n_lower) );
       }
 
       // check for ambiguous dummy atoms
-      BCL_Debug( element_count);
       for( size_t e_i( 0), e_sz( ELEMENTS.GetSize()); e_i < e_sz; ++e_i)
       {
         if( element_count.Count( ELEMENTS( e_i)))
@@ -883,7 +770,6 @@ namespace bcl
       {
         // SMILES reagent_id reaction_id reaction_pos
         const storage::Vector< std::string> line( util::SplitString( *line_itr, " \t") );
-//        BCL_Debug( line);
         SmilesReactionComponent rxn_components
         (
           line( 0),                                                      // Reagent SMILES
@@ -891,33 +777,21 @@ namespace bcl
           line( 2),                                                      // Reaction ID
           util::ConvertStringToNumericalValue< size_t>( line( 3)) - 1    // Reaction position 0-indexed
         );
-//        BCL_Debug( util::ConvertStringToNumericalValue< size_t>( line( 1)));
-//        BCL_Debug( util::ConvertStringToNumericalValue< size_t>( line( 3)) - 1);
 
         // if we already have a key and we need to update the value
         const std::pair< std::string, size_t> key_pair( rxn_components.m_ReactionID, rxn_components.m_ReactionPosition);
-//        BCL_Debug( key_pair.first);
-//        BCL_Debug( key_pair.second);
         if( m_AssociatedReactions.count( key_pair))
         {
           m_AssociatedReactions.find( key_pair)->second.push_back( rxn_components);
         }
+
         // adding a new key with the first element in the value vector
         else
         {
           std::vector< SmilesReactionComponent> smiles_v( 1, rxn_components);
           m_AssociatedReactions.insert( std::pair< std::pair< std::string, size_t>, std::vector< SmilesReactionComponent> >( key_pair, smiles_v ) );
         }
-
-//        BCL_Debug( m_AssociatedReactions.find( key_pair)->second.back().m_ReagentSmiles);
-
       }
-//      for( auto debug_itr( m_AssociatedReactions.begin()), debug_itr_end( m_AssociatedReactions.end()); debug_itr != debug_itr_end; ++debug_itr)
-//      {
-//        BCL_Debug( debug_itr->first.first);
-//        BCL_Debug( debug_itr->first.second);
-//        BCL_Debug( debug_itr->second.size());
-//      }
 
       // unsuccessful if there are no reagents
       if( m_AssociatedReactions.empty())
