@@ -807,8 +807,11 @@ namespace bcl
       // because then the reaction is ambiguous
       storage::Map< ElementType, size_t> element_count;
 
-      // track the atoms to keep and the bonded atoms to the dummy atom
+      // track the atoms to keep
       storage::Vector< size_t> non_dummy_atoms;
+
+      // track the dummy atoms, their bonded partners, and the dummy element type
+      storage::Vector< storage::Triplet< size_t, size_t, size_t> > dummy_atoms;
       storage::Map< ElementType, size_t> bonded_atoms;
 
       // track the atom indices of the dummy atoms to be removed
@@ -826,12 +829,8 @@ namespace bcl
           const auto &bonded_atom( atoms( atom_i).GetBonds().Begin()->GetTargetAtom());
           size_t bonded_atom_i( atoms.GetAtomIndex( bonded_atom));
 
-          // account for index change when dummy atom removed
-          BCL_Debug( ELEMENTS( e_i));
-          BCL_Debug( bonded_atom_i);
-          atom_i < bonded_atom_i ?
-            bonded_atoms.Insert( storage::Pair< ElementType, size_t>( ELEMENTS( e_i), bonded_atom_i - 1) ): // TODO BUG if there is another bonded element at a lower index
-            bonded_atoms.Insert( storage::Pair< ElementType, size_t>( ELEMENTS( e_i), bonded_atom_i) );
+          // save the indices of the dummy atoms so that we can correct our other indices later
+          dummy_atoms.PushBack( storage::Triplet< size_t, size_t, size_t>( atom_i, bonded_atom_i, e_i ) );
 
           // increment the count
           if( element_count.Count( ELEMENTS( e_i)))
@@ -848,6 +847,30 @@ namespace bcl
         {
           non_dummy_atoms.PushBack( atom_i);
         }
+      }
+
+      // update our bonded atoms map
+      for( size_t ii( 0), sz( dummy_atoms.GetSize()); ii < sz; ++ii)
+      {
+        // readability
+//        const size_t &atom_i( dummy_atoms( ii).First());
+        const size_t &bonded_i( dummy_atoms( ii).Second());
+        const size_t &e_i( dummy_atoms( ii).Third());
+
+        // account for index change when dummy atom removed
+        BCL_Debug( ELEMENTS( e_i ) );
+        BCL_Debug( bonded_i);
+
+        // count how many dummy atoms are of lower index than the current bonded atom
+        size_t n_lower( 0);
+        for( size_t jj( 0); jj < sz; ++jj)
+        {
+          if( dummy_atoms( jj).First() < bonded_i)
+          {
+            ++n_lower;
+          }
+        }
+        bonded_atoms.Insert( storage::Pair< ElementType, size_t>( ELEMENTS( e_i ), bonded_i - n_lower) );
       }
 
       // check for ambiguous dummy atoms

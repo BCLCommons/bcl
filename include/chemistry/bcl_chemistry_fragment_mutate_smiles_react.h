@@ -220,7 +220,11 @@ namespace bcl
                 *itr == "=" ||
                 *itr == "#" ||
                 *itr == "~" ||
-                *itr == "@"
+                *itr == "@" ||
+                *itr == ")" || // hack
+                *itr == "(" || // hack
+                *itr == "-)" || // hack
+                *itr == "(-" // hack
             )
             {
               continue;
