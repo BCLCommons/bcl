@@ -192,6 +192,11 @@ namespace bcl
             BCL_MessageStd("[WARNING] SmirksReactor::GetBondTypeFromSmirks parsing bond type '@' as 'ConjugatedBondInRing'");
             return GetConfigurationalBondTypes().e_ConjugatedBondInRing;
           }
+          // sometimes single bonds are given as just adjacent brackets
+          if( SMIRKS_BOND_TYPE == "[" || SMIRKS_BOND_TYPE == "]" || SMIRKS_BOND_TYPE == "(" || SMIRKS_BOND_TYPE == ")" )
+          {
+            return GetConfigurationalBondTypes().e_NonConjugatedSingleBond;
+          }
           else
           {
             return GetConfigurationalBondTypes().e_Undefined;
@@ -271,7 +276,8 @@ namespace bcl
             BCL_Debug( smirks_ele);
 
             // find where this dummy atom occurs in the original reagent string
-            // assumptions: (1) getting first occurrence is sufficient;
+            // assumptions:
+            // (1) getting first occurrence is sufficient;
             // (2) if there is a second occurrence then the bond type would be the same as it indicates
             // a cyclical closure within the reagent
             size_t dummy_atom_npos( REAGENT.find( smirks_ele));
@@ -304,6 +310,7 @@ namespace bcl
               if( bond_type == GetConfigurationalBondTypes().e_Undefined) // TODO generally, all of this is incompatible with '~' bond types
               {
                 bond = REAGENT.substr( dummy_atom_npos + 3, 1);
+                BCL_Debug( bond);
                 bond_type = this->GetBondTypeFromSmirks( bond);
               }
             }

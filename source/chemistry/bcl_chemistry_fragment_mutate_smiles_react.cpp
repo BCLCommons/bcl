@@ -311,13 +311,7 @@ namespace bcl
         stripped_reagents.PushBack( stripped_mol);
 
         // perform our reaction(s)
-//        BCL_MessageStd(" React reagent fragments!");
-        // TODO but what if the reagents do not react together, but they both react with the start mol?
-//        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> reagents_product( ReactFragments( stripped_reagents, start_mol_dummy_bondtypes));
         storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_reagents, start_mol_dummy_bondtypes));
-//        BCL_MessageStd(" React reagent product with start molecule!");
-//        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_mol, reagents_product, start_mol_dummy_bondtypes));
-//        storage::Pair< FragmentComplete, storage::Map< ElementType, size_t>> product( ReactFragments( stripped_mol, stripped_reagents( 0), start_mol_dummy_bondtypes));
 
         // DEBUG out
         io::File::MustOpenOFStream( debug_out, "debug_out.sdf");
