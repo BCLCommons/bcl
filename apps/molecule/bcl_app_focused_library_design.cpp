@@ -171,6 +171,7 @@ namespace bcl
             chemistry::FragmentEnsemble                                                              m_MutableFragment; // mutable fragment in base fragment
             storage::Vector< size_t>                                                                 m_MutableAtomIndices; // mutable atoms in base fragment
             descriptor::CheminfoProperty                                                             m_PropertyScorer; // Set objective function with property instead of model
+            descriptor::MoleculeTotalBondEnergy                                                      m_TotalBondEnergy; // The statistical bond energy
             size_t                                                                                   m_NumberMCIterations; // Number of MC iterations
             size_t                                                                                   m_NumberMCUnimproved; // Number of allowed consecutive unimproved MC iterations
             size_t                                                                                   m_NumberMCSkipped; // Number of allowed consecutive unimproved MC iterations
@@ -222,17 +223,9 @@ namespace bcl
                 );
 
                 // assume we start with druglike molecule
-                static descriptor::CheminfoProperty bonde( "MoleculeTotalDruglikeBondEnergy");
                 const auto current( approximator.GetTracker().GetCurrent()->First());
                 double druglike_mol_activity( ( *m_Score)( current));
-                std::string rotlib( chemistry::RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "atom_environments/statistical_bond_energies/");
-                BCL_Debug( rotlib);
-                static descriptor::MoleculeTotalBondEnergy total_bonde;
-                BCL_Debug( total_bonde.GetAlias());
-                BCL_Debug( total_bonde.GetNormalSizeOfFeatures());
-                BCL_Debug( total_bonde.GetBondEnergiesFilename());
-                BCL_Debug( total_bonde.GetBondEnergies());
-                BCL_Debug( total_bonde( current));
+//                static descriptor::MoleculeTotalBondEnergy total_bonde;
 
                 // tell me about the scaffold
                 BCL_MessageStd("Scaffold properties");
@@ -242,7 +235,7 @@ namespace bcl
                       + descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( current)( 0)));
                 BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( current)( 0)));
                 BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( current)( 0)));
-                BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( total_bonde( current)( 3)));
+                BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( m_TotalBondEnergy( current)( 3)));
                 BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( current)( 0)));
                 BCL_MessageStd( "# of Cl: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( current)( 0)));
                 BCL_MessageStd( "# of Br: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsBr->SumOverObject( current)( 0)));
@@ -277,7 +270,7 @@ namespace bcl
                     );
                     BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( last_accepted->First())( 0)));
-                    BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( bonde->SumOverObject( last_accepted->First())( 3)));
+                    BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( m_TotalBondEnergy( last_accepted->First())( 3)));
                     BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "# of Cl: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "# of Br: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsBr->SumOverObject( last_accepted->First())( 0)));
@@ -450,6 +443,9 @@ namespace bcl
             m_PoseDependentMDLProperty( POSE_DEPENDENT_MDL_PROPERTY),
             m_PoseDependentResolveClashes( POSE_DEPENDENT_RESOLVE_CLASHES)
           {
+            // read the druglike bond energy filter
+            descriptor::MoleculeTotalBondEnergy total_bonde;
+
             BCL_MessageStd( "HELP __ A");
             // prepare output filestream
             io::File::MustOpenOFStream( m_OutputStream, OUTPUT_FILENAME);
@@ -652,6 +648,7 @@ namespace bcl
               worker_ref.m_Corina                       = CORINA_CONFS;
               worker_ref.m_ThreadManager                = this;
               worker_ref.m_PropertyScorer               = PROPERTY_SCORER.HardCopy();
+              worker_ref.m_TotalBondEnergy              = total_bonde;
               BCL_MessageStd( "Pre setup scorer");
 //              chemistry::ScoreFunctionGeneric worker_scorer;
 //              worker_scorer.SetDescriptor( worker_ref.m_PropertyScorer);
