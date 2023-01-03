@@ -1558,7 +1558,7 @@ namespace bcl
           command::Parameter
           (
             "function",
-            "the scoring function implementation to use" //,
+            "the scoring function implementation to use",
             command::ParameterCheckSerializable
             (
               chemistry::ScoreFunctionGeneric()
