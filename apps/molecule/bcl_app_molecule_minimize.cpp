@@ -27,13 +27,6 @@ BCL_StaticInitializationFiascoFinder
 #include "mm/bcl_mm_rdkit_energy_minimize_mmff94.h"
 
 // external includes - sorted alphabetically
-//#include "GraphMol/ForceFieldHelpers/MMFF/MMFF.h"
-//#include "GraphMol/ForceFieldHelpers/FFConvenience.h"
-//#include "ForceField/ForceField.h"
-//#include "ForceField/MMFF/PositionConstraint.h"
-//#include "ForceField/MMFF/DistanceConstraint.h"
-//#include "ForceField/MMFF/AngleConstraint.h"
-//#include "ForceField/MMFF/TorsionConstraint.h"
 
 namespace bcl
 {
@@ -144,6 +137,10 @@ namespace bcl
       io::OFStream output;
       io::File::MustOpenOFStream( output, output_filename, std::ios::app);
       size_t feed_index( 0);
+
+      // TODO add restraint options
+
+
       for( chemistry::FragmentFeed feed; feed.NotAtEnd(); ++feed, ++feed_index)
       {
         chemistry::FragmentComplete mol( *feed);
@@ -156,41 +153,6 @@ namespace bcl
       // either forces all to pass or allows some to fail
       return 0;
     }
-
-//    //! @brief minimize with constraints
-//    void MoleculeMinimize::MinimizeWithConstraints( std::shared_ptr< ::RDKit::RWMol> &MOL) const
-//    {
-//      // required for force field construction
-//      std::string const mmff_variant("MMFF94s");
-//      size_t max_iters( 1000);
-//      ::RDKit::MMFF::MMFFMolProperties mmffMolProperties( *MOL, mmff_variant);
-//
-//      // output from minimizer
-//      // first: -1 if parameters were missing, 0 if the optimization converged, 1 if more iterations are required.
-//      // second: the energy
-//      std::pair<int, double> res = std::make_pair(-1, 0.0);
-//      if ( mmffMolProperties.isValid())
-//      {
-//        // construct force field
-//        ::ForceFields::ForceField *ff = ::RDKit::MMFF::constructForceField( *MOL, 10, -1, true);
-//        ff->initialize();
-//
-//        // add constraint force field terms
-//        for( size_t i( 0); i < 11; ++i)
-//        {
-//          ::ForceFields::MMFF::PositionConstraintContrib *coord_cst;
-//          coord_cst = new ::ForceFields::MMFF::PositionConstraintContrib( ff, i, 0.0, 1.0e5);
-//          ff->contribs().push_back( ForceFields::ContribPtr( coord_cst));
-//        }
-//
-//        // run minimization
-////        res = ::RDKit::ForceFieldsHelper::OptimizeMolecule(*ff, max_iters);
-//        ff->minimize( max_iters);
-//        double energy( ff->calcEnergy());
-//        BCL_MessageStd( "Minimization with constraints final energy: " + util::Format()( energy));
-//        delete ff;
-//      }
-//    }
 
   } // namespace app
 } // namespace bcl
