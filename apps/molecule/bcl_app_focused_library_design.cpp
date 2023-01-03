@@ -249,7 +249,15 @@ namespace bcl
                 {
                   // do next step in approximation and get new molecule
                   approximator.Next();
+
+                  // if the molecule is undefined then skip it
                   const util::ShPtr< storage::Pair< chemistry::FragmentComplete, double> > &current_mol( approximator.GetTracker().GetCurrent());
+                  if( !util::IsDefined( current_mol->First()) || !current_mol->First().GetSize())
+                  {
+                    BCL_MessageStd( "Molecule undefined! Reverting molecule and skipping step!");
+                    approximator.GetTracker().SetCurrent( last_accepted);
+                    continue;
+                  }
 
                   // Check for undruglike properties of the current molecule
                   if( approximator.GetTracker().GetStatusOfLastStep() == opti::e_Accepted || approximator.GetTracker().GetStatusOfLastStep() == opti::e_Improved)
@@ -293,6 +301,7 @@ namespace bcl
                     BCL_MessageStd( "FLD_Score: " + util::Format()( current_mol->Second()));
                     BCL_MessageStd( "MCM Rejected");
                   }
+
                   // save every accepted/improved step of MCM
                   // hack - add this to approximator at some point
                   if( last_accepted.IsDefined() && m_SaveAllAcceptedImproved)
