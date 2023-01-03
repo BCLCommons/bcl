@@ -225,7 +225,6 @@ namespace bcl
                 // assume we start with druglike molecule
                 const auto current( approximator.GetTracker().GetCurrent()->First());
                 double druglike_mol_activity( ( *m_Score)( current));
-//                static descriptor::MoleculeTotalBondEnergy total_bonde;
 
                 // tell me about the scaffold
                 BCL_MessageStd("Scaffold properties");
@@ -255,6 +254,16 @@ namespace bcl
                   // Check for undruglike properties of the current molecule
                   if( approximator.GetTracker().GetStatusOfLastStep() == opti::e_Accepted || approximator.GetTracker().GetStatusOfLastStep() == opti::e_Improved)
                   {
+                    // output to log
+                    if( approximator.GetTracker().GetStatusOfLastStep() == opti::e_Accepted)
+                    {
+                      BCL_MessageStd( "MCM Accepted");
+                    }
+                    else if( approximator.GetTracker().GetStatusOfLastStep() == opti::e_Improved)
+                    {
+                      BCL_MessageStd( "MCM Improved");
+                    }
+
                     // save the new molecule
                     last_accepted = current_mol;
 
@@ -446,11 +455,8 @@ namespace bcl
             // read the druglike bond energy filter
             descriptor::MoleculeTotalBondEnergy total_bonde;
 
-            BCL_MessageStd( "HELP __ A");
             // prepare output filestream
             io::File::MustOpenOFStream( m_OutputStream, OUTPUT_FILENAME);
-
-            BCL_MessageStd( "A1");
 
             // tree search for RingSwap
             util::ShPtr< chemistry::SearchFragmentLibraryFromTree> tree_search
@@ -461,19 +467,14 @@ namespace bcl
               )
             );
 
-            BCL_MessageStd( "A2");
-
             // set up our primary mutater object
             util::ShPtr< math::MutateDecisionNode< chemistry::FragmentComplete> > mutater
             (
               new math::MutateDecisionNode< chemistry::FragmentComplete>()
             );
 
-            BCL_MessageStd( "A3");
-
             // get the starting molecule minus the mutable region for local mutations
              util::ShPtr< chemistry::FragmentComplete> scaffold_fragment( new chemistry::FragmentComplete());
-             BCL_MessageStd( "A4");
              if( MUTABLE_FRAGMENT.GetSize() || MUTABLE_ATOM_INDICES.GetSize())
              {
                BCL_Assert( MUTABLE_FRAGMENT.GetMolecules().FirstElement().GetSize(), "Mutable fragment contains 0 atoms!");
@@ -489,12 +490,10 @@ namespace bcl
                      ));
                BCL_Assert( scaffold_fragment->GetSize(), "Exiting because of incompatible mutable options");
              }
-             BCL_MessageStd( "A5");
 
             // if the internal MCM local optimization option is selected
             if( INTERNAL_MCM_OPTI)
             {
-              BCL_MessageStd( "A5.1");
               // POSE-DEPENDENT CONSTRUCTION OF MUTATES //
               if( !POSE_DEPENDENT_MDL_PROPERTY.empty())
               {
@@ -570,12 +569,10 @@ namespace bcl
             // otherwise, just add the mutates and let them fly
             else
             {
-              BCL_MessageStd( "A5.2");
               // POSE-DEPENDENT CONSTRUCTION OF MUTATES //
               chemistry::FragmentEnsemble scaffold_ens( storage::List< chemistry::FragmentComplete>( 1, *scaffold_fragment));
               if( !POSE_DEPENDENT_MDL_PROPERTY.empty())
               {
-                BCL_MessageStd( "A5.2a");
                 BCL_MessageStd( "Pose-dependent scoring enabled");
                 // set clash resolver
                 bool clash_resolver;
@@ -596,7 +593,6 @@ namespace bcl
               // POSE-INDEPENDENT CONSTRUCTION OF MUTATES //
               else
               {
-                BCL_MessageStd( "A5.2b");
                 BCL_MessageStd( "Pose-independent scoring enabled");
                 mutater->AddMutate( chemistry::FragmentMutateRingSwap( tree_search, m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS, true, false, 0.1, true, true), m_RingSwapProb);
                 mutater->AddMutate( chemistry::FragmentMutateCyclize( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_CyclizeProb);
@@ -612,7 +608,6 @@ namespace bcl
             }
 
             // set up sequential mutate to perform 1 to N mutates in a row prior to scoring (does not bypass druglikeness filtering)
-            BCL_MessageStd( "HELP __ B");
             util::ShPtr< math::MutateInterface< chemistry::FragmentComplete> > mutate_repeater
             (
               new math::MutateRepeat< chemistry::FragmentComplete>
@@ -632,8 +627,6 @@ namespace bcl
                 ++itr, ++itr_i
             )
             {
-              BCL_MessageStd( "HELP __ C __ " + util::Format()( itr_i));
-
               Worker &worker_ref( *itr);
               worker_ref.m_StartFragment                = START_FRAGMENT.HardCopy();
               worker_ref.m_StartFragment->GetCacheMap() = util::ShPtr< descriptor::CacheMap>( new descriptor::CacheMap);
@@ -649,15 +642,10 @@ namespace bcl
               worker_ref.m_ThreadManager                = this;
               worker_ref.m_PropertyScorer               = PROPERTY_SCORER.HardCopy();
               worker_ref.m_TotalBondEnergy              = total_bonde;
-              BCL_MessageStd( "Pre setup scorer");
-//              chemistry::ScoreFunctionGeneric worker_scorer;
-//              worker_scorer.SetDescriptor( worker_ref.m_PropertyScorer);
               worker_ref.m_Score                        = util::ShPtr< math::FunctionInterfaceSerializable< chemistry::FragmentComplete, double> >
               (
-//                new chemistry::ScoreFunctionGeneric( worker_scorer)
                 new chemistry::ScoreFunctionGeneric( worker_ref.m_PropertyScorer)
               );
-              BCL_MessageStd( "Post setup scorer");
               BCL_Debug( worker_ref.m_PropertyScorer);
               if( INTERNAL_MCM_OPTI)
               {
@@ -670,7 +658,6 @@ namespace bcl
             }
 
             // Allocate space for jobs
-            BCL_MessageStd( "HELP __ D");
             util::ShPtrVector< sched::JobInterface> jobs;
             jobs.AllocateMemory( m_Threads);
 
@@ -1074,7 +1061,6 @@ namespace bcl
           // flat energy surface
           property_scorer = "Constant(0.0)";
         }
-        BCL_Debug( property_scorer);
 
         // read internal mcm opti flag
         bool internal_mcm_opti( false);
@@ -1187,7 +1173,6 @@ namespace bcl
           ThreadManager thread_manager
           (
             sp_startfragment,
-//            sp_mutablefragment,
             mutable_fragments,
             mutable_atom_indices,
             sp_fragment_pool,
@@ -1574,10 +1559,10 @@ namespace bcl
           (
             "function",
             "the scoring function implementation to use" //,
-//            command::ParameterCheckSerializable
-//            (
-//              chemistry::ScoreFunctionGeneric()
-//            )
+            command::ParameterCheckSerializable
+            (
+              chemistry::ScoreFunctionGeneric()
+            )
           )
         )
       ),
