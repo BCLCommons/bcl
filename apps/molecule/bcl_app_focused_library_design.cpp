@@ -54,6 +54,7 @@ BCL_StaticInitializationFiascoFinder
 #include "command/bcl_command_parameter_check_serializable.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "descriptor/bcl_descriptor_combine.h"
+#include "descriptor/bcl_descriptor_molecule_total_bond_energy.h"
 #include "io/bcl_io_file.h"
 #include "math/bcl_math_const_function.h"
 #include "math/bcl_math_mutate_combine.h"
