@@ -222,9 +222,15 @@ namespace bcl
 
                 // assume we start with druglike molecule
                 static descriptor::CheminfoProperty bonde( "MoleculeTotalDruglikeBondEnergy");
-//                descriptor::GetCheminfoProperties().calc_MolTotalBondEnergy
                 const auto current( approximator.GetTracker().GetCurrent()->First());
                 double druglike_mol_activity( ( *m_Score)( current));
+                std::string rotlib( chemistry::RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "atom_environments/statistical_bond_energies/");
+                BCL_Debug( rotlib);
+                static descriptor::MoleculeTotalBondEnergy total_bonde;
+                BCL_Debug( total_bonde.GetAlias());
+                BCL_Debug( total_bonde.GetNormalSizeOfFeatures());
+                BCL_Debug( total_bonde.GetBondEnergiesFilename());
+                BCL_Debug( total_bonde.GetBondEnergies());
                 BCL_Debug( bonde->SumOverObject( current));
 
                 // tell me about the scaffold
@@ -235,7 +241,7 @@ namespace bcl
                       + descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( current)( 0)));
                 BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( current)( 0)));
                 BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( current)( 0)));
-                BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( bonde->SumOverObject( current)( 3)));
+                BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( total_bonde( current)( 3)));
                 BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( current)( 0)));
                 BCL_MessageStd( "# of Cl: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( current)( 0)));
                 BCL_MessageStd( "# of Br: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsBr->SumOverObject( current)( 0)));

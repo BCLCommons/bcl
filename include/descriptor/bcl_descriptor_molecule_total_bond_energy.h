@@ -87,6 +87,15 @@ namespace bcl
       //! @return data label as string
       const std::string &GetAlias() const;
 
+      //! @brief return the filename for the file used to load the bond energies
+      //! @return filename string
+      const std::string &GetBondEnergiesFilename() const;
+
+      //! @brief return the bond energies
+      //! @return bond energies map
+      storage::Map< storage::Triplet< chemistry::ElementType, chemistry::ElementType, chemistry::ConfigurationalBondType>, float>
+      &GetBondEnergies() const;
+
       //! @brief get the feature siz  e under the normal dimension setting (e.g. GetNormalDimension())
       //! @return the feature size, assuming this feature has its normal dimension setting
       size_t GetNormalSizeOfFeatures() const

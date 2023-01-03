@@ -86,6 +86,21 @@ namespace bcl
       return s_name;
     }
 
+    //! @brief return the filename for the file used to load the bond energies
+    //! @return filename string
+    const std::string &MoleculeTotalBondEnergy::GetBondEnergiesFilename() const
+    {
+      return m_BondEnergiesFilename;
+    }
+
+    //! @brief return the bond energies
+    //! @return bond energies map
+    storage::Map< storage::Triplet< chemistry::ElementType, chemistry::ElementType, chemistry::ConfigurationalBondType>, float>
+    &MoleculeTotalBondEnergy::GetBondEnergies() const
+    {
+      return m_BondEnergies;
+    }
+
   ////////////////
   // operations //
   ////////////////
