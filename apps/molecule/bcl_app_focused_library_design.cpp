@@ -232,7 +232,7 @@ namespace bcl
                 BCL_Debug( total_bonde.GetNormalSizeOfFeatures());
                 BCL_Debug( total_bonde.GetBondEnergiesFilename());
                 BCL_Debug( total_bonde.GetBondEnergies());
-                BCL_Debug( bonde->SumOverObject( current));
+                BCL_Debug( total_bonde( current));
 
                 // tell me about the scaffold
                 BCL_MessageStd("Scaffold properties");
