@@ -69,7 +69,7 @@ namespace bcl
       MoleculeTotalBondEnergy();
 
       //! @brief specify bond energies file constructor
-      explicit MoleculeTotalBondEnergy( const std::string &BOND_ENERGIES_FILENAME);
+      MoleculeTotalBondEnergy( const std::string &BOND_ENERGIES_FILENAME);
 
       //! @brief Clone function
       //! @return pointer to new MoleculeTotalBondEnergy
@@ -94,7 +94,7 @@ namespace bcl
       //! @brief return the bond energies
       //! @return bond energies map
       storage::Map< storage::Triplet< chemistry::ElementType, chemistry::ElementType, chemistry::ConfigurationalBondType>, float>
-      &GetBondEnergies() const;
+      GetBondEnergies() const;
 
       //! @brief get the feature siz  e under the normal dimension setting (e.g. GetNormalDimension())
       //! @return the feature size, assuming this feature has its normal dimension setting
