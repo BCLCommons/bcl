@@ -445,6 +445,8 @@ namespace bcl
             // prepare output filestream
             io::File::MustOpenOFStream( m_OutputStream, OUTPUT_FILENAME);
 
+            BCL_MessageStd( "A1");
+
             // tree search for RingSwap
             util::ShPtr< chemistry::SearchFragmentLibraryFromTree> tree_search
             (
@@ -454,14 +456,19 @@ namespace bcl
               )
             );
 
+            BCL_MessageStd( "A2");
+
             // set up our primary mutater object
             util::ShPtr< math::MutateDecisionNode< chemistry::FragmentComplete> > mutater
             (
               new math::MutateDecisionNode< chemistry::FragmentComplete>()
             );
 
+            BCL_MessageStd( "A3");
+
             // get the starting molecule minus the mutable region for local mutations
              util::ShPtr< chemistry::FragmentComplete> scaffold_fragment( new chemistry::FragmentComplete());
+             BCL_MessageStd( "A4");
              if( MUTABLE_FRAGMENT.GetMolecules().FirstElement().GetSize() || MUTABLE_ATOM_INDICES.GetSize())
              {
                static chemistry::FragmentTrackMutableAtoms atom_tracker;
@@ -477,10 +484,12 @@ namespace bcl
                      ));
                BCL_Assert( scaffold_fragment->GetSize(), "Exiting because of incompatible mutable options");
              }
+             BCL_MessageStd( "A5");
 
             // if the internal MCM local optimization option is selected
             if( INTERNAL_MCM_OPTI)
             {
+              BCL_MessageStd( "A5.1");
               // POSE-DEPENDENT CONSTRUCTION OF MUTATES //
               if( !POSE_DEPENDENT_MDL_PROPERTY.empty())
               {
@@ -556,10 +565,12 @@ namespace bcl
             // otherwise, just add the mutates and let them fly
             else
             {
+              BCL_MessageStd( "A5.2");
               // POSE-DEPENDENT CONSTRUCTION OF MUTATES //
               chemistry::FragmentEnsemble scaffold_ens( storage::List< chemistry::FragmentComplete>( 1, *scaffold_fragment));
               if( !POSE_DEPENDENT_MDL_PROPERTY.empty())
               {
+                BCL_MessageStd( "A5.2a");
                 BCL_MessageStd( "Pose-dependent scoring enabled");
                 // set clash resolver
                 bool clash_resolver;
@@ -580,11 +591,13 @@ namespace bcl
               // POSE-INDEPENDENT CONSTRUCTION OF MUTATES //
               else
               {
+                BCL_MessageStd( "A5.2b");
                 BCL_MessageStd( "Pose-independent scoring enabled");
                 mutater->AddMutate( chemistry::FragmentMutateRingSwap( tree_search, m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS, true, false, 0.1, true, true), m_RingSwapProb);
                 mutater->AddMutate( chemistry::FragmentMutateCyclize( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_CyclizeProb);
                 mutater->AddMutate( chemistry::FragmentMutateAlchemy( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AlchemyProb);
                 mutater->AddMutate( chemistry::FragmentMutateRemoveAtom( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveAtomProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveFragment( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveFragmentProb);
                 mutater->AddMutate( chemistry::FragmentMutateRemoveBond( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveBondProb);
                 mutater->AddMutate( chemistry::FragmentMutateExtendWithLinker( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_ExtendWithLinkerProb);
                 mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AddMedChemProb);
