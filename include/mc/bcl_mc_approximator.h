@@ -261,17 +261,11 @@ namespace bcl
       //! @brief conducts the next approximation step and stores the approximation
       void Next()
       {
-        BCL_MessageStd( "Approximator A");
         // compute the next MC step and store the mutate result
-        BCL_Debug( this->GetTracker().GetCurrent()->First());
-        BCL_MessageStd( "Approximator B");
         math::MutateResult< t_ArgumentType> mutate_result
         (
           m_Mutate->operator()( this->GetTracker().GetCurrent()->First())
         );
-        BCL_MessageStd( "Approximator C");
-        BCL_Debug( mutate_result.GetArgument().IsDefined());
-        BCL_Debug( this->GetTracker().GetCurrent().IsDefined());
 
         // define an upper limit to the number of skipped steps
         static const size_t s_max_skipped_steps_in_a_row( 1000); // TODO why is this hard-coded here?
