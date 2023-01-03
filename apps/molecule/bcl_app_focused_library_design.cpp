@@ -249,12 +249,16 @@ namespace bcl
                 {
                   // do next step in approximation and get new molecule
                   approximator.Next();
+                  BCL_MessageStd("FLD A");
 
                   // if the molecule is undefined then skip it
                   const util::ShPtr< storage::Pair< chemistry::FragmentComplete, double> > &current_mol( approximator.GetTracker().GetCurrent());
+                  BCL_MessageStd("FLD B");
                   BCL_Debug( approximator.GetTracker().GetCurrent().IsDefined());
+                  BCL_MessageStd("FLD C");
                   if( !current_mol->First().GetSize())
                   {
+                    BCL_MessageStd("FLD D");
                     BCL_MessageStd( "Molecule undefined! Reverting molecule and skipping step!");
                     approximator.GetTracker().SetCurrent( last_accepted);
                     approximator.GetTracker().Update( opti::e_Skipped);
@@ -262,9 +266,11 @@ namespace bcl
                   }
 
                   // Check for undruglike properties of the current molecule
+                  BCL_MessageStd("FLD E");
                   if( approximator.GetTracker().GetStatusOfLastStep() == opti::e_Accepted || approximator.GetTracker().GetStatusOfLastStep() == opti::e_Improved)
                   {
                     // output to log
+                    BCL_MessageStd("FLD F");
                     if( approximator.GetTracker().GetStatusOfLastStep() == opti::e_Accepted)
                     {
                       BCL_MessageStd( "MCM Accepted");
@@ -275,7 +281,9 @@ namespace bcl
                     }
 
                     // save the new molecule
+                    BCL_MessageStd("FLD G");
                     last_accepted = current_mol;
+                    BCL_MessageStd("FLD H");
 
                     // tell me about the new mol
                     BCL_MessageStd( "Molecule tracker updated at iteration: " + util::Format()( approximator.GetTracker().GetIteration()));
@@ -300,7 +308,9 @@ namespace bcl
                   }
                   else
                   {
+                    BCL_MessageStd("FLD I");
                     BCL_MessageStd( "FLD_Score: " + util::Format()( current_mol->Second()));
+                    BCL_MessageStd("FLD J");
                     BCL_MessageStd( "MCM Rejected");
                   }
 

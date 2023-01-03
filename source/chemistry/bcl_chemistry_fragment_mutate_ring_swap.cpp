@@ -715,6 +715,7 @@ namespace bcl
       {
         return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, FRAGMENT, m_DrugLikenessType), *this);
       }
+      BCL_MessageStd(" Dying in RingSwap?");
       return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
     }
 
