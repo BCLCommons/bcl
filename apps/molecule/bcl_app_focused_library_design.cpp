@@ -318,7 +318,7 @@ namespace bcl
                   // hack - add this to approximator at some point
                   BCL_Debug( last_accepted.IsDefined());
                   BCL_Debug( m_SaveAllAcceptedImproved);
-                  if( last_accepted.IsDefined() && m_SaveAllAcceptedImproved)
+                  if( last_accepted.IsDefined() && m_SaveAllAcceptedImproved) // TODO note that if previous step rejected then this will add last accepted
                   {
                     m_ThreadManager->m_Mutex.Lock();
                     if( m_ThreadManager->GetNumberMoleculesBuilt() + 1 <= m_ThreadManager->GetNumberMoleculesToBuild())

@@ -261,11 +261,15 @@ namespace bcl
       //! @brief conducts the next approximation step and stores the approximation
       void Next()
       {
+        BCL_MessageStd( "Approximator A");
+        BCL_Debug( this->GetTracker().GetCurrent()->First().GetSize());
+        BCL_MessageStd( "Approximator C");
         // compute the next MC step and store the mutate result
         math::MutateResult< t_ArgumentType> mutate_result
         (
           m_Mutate->operator()( this->GetTracker().GetCurrent()->First())
         );
+        BCL_MessageStd( "Approximator D");
         BCL_Debug( mutate_result.GetArgument().IsDefined());
         BCL_Debug( this->GetTracker().GetCurrent().IsDefined());
 
