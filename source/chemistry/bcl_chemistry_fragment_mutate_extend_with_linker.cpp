@@ -672,21 +672,16 @@ namespace bcl
       AtomVector< AtomComplete> not_empty( new_mol.GetAtomVector());
       HydrogensHandler::Remove( not_empty);
 
-      // Check for valid atom types
-      util::ShPtr< FragmentComplete> new_mol_ptr
-      (
-        m_ScaffoldFragment.GetSize()
-        ? cleaner.Clean( not_empty, m_ScaffoldFragment, m_DrugLikenessType)
-            : cleaner.Clean( not_empty, FRAGMENT, m_DrugLikenessType)
-      );
-
-      if( !new_mol_ptr.IsDefined() || new_mol_ptr->HasNonGasteigerAtomTypes())
+      // clean and return
+      if( m_ScaffoldFragment.GetSize())
       {
-        return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
+        return math::MutateResult< FragmentComplete>( cleaner.Clean( not_empty, m_ScaffoldFragment, m_DrugLikenessType), *this);
       }
-
-      // return the new molecule
-      return math::MutateResult< FragmentComplete>( new_mol_ptr, *this);
+      else
+      {
+        return math::MutateResult< FragmentComplete>( cleaner.Clean( not_empty, FRAGMENT, m_DrugLikenessType), *this);
+      }
+      return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
     }
 
   ////////////////

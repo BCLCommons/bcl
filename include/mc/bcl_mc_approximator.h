@@ -266,6 +266,8 @@ namespace bcl
         (
           m_Mutate->operator()( this->GetTracker().GetCurrent()->First())
         );
+        BCL_Debug( mutate_result.GetArgument().IsDefined());
+        BCL_Debug( this->GetTracker().GetCurrent().IsDefined());
 
         // define an upper limit to the number of skipped steps
         static const size_t s_max_skipped_steps_in_a_row( 1000); // TODO why is this hard-coded here?

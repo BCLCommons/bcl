@@ -513,8 +513,6 @@ namespace bcl
           return math::MutateResult< FragmentComplete>( cleaner.Clean( new_atom_vector, FRAGMENT, m_DrugLikenessType), *this);
         }
       }
-
-      // if no luck, return null ptr
       return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
     }
 
