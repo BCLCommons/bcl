@@ -263,11 +263,13 @@ namespace bcl
       {
         BCL_MessageStd( "Approximator A");
         // compute the next MC step and store the mutate result
+        BCL_Debug( this->GetTracker().GetCurrent()->First());
+        BCL_MessageStd( "Approximator B");
         math::MutateResult< t_ArgumentType> mutate_result
         (
           m_Mutate->operator()( this->GetTracker().GetCurrent()->First())
         );
-        BCL_MessageStd( "Approximator B");
+        BCL_MessageStd( "Approximator C");
         BCL_Debug( mutate_result.GetArgument().IsDefined());
         BCL_Debug( this->GetTracker().GetCurrent().IsDefined());
 
