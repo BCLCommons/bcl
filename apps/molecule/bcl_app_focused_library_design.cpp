@@ -471,13 +471,13 @@ namespace bcl
              BCL_Debug( MUTABLE_FRAGMENT.GetMolecules().FirstElement().GetSize());
              BCL_Debug( MUTABLE_ATOM_INDICES.GetSize());
              BCL_Debug( START_FRAGMENT->GetSize());
-             if( MUTABLE_FRAGMENT.GetMolecules().FirstElement().GetSize() || MUTABLE_ATOM_INDICES.GetSize())
+             if( MUTABLE_FRAGMENT.GetSize() || MUTABLE_ATOM_INDICES.GetSize())
              {
-               /* static */ chemistry::FragmentTrackMutableAtoms atom_tracker;
+               BCL_Assert( MUTABLE_FRAGMENT.GetMolecules().FirstElement().GetSize(), "Mutable fragment contains 0 atoms!");
                scaffold_fragment =
                    util::ShPtr< chemistry::FragmentComplete>( new chemistry::FragmentComplete
                      (
-                       atom_tracker.GetBaseFragment
+                       chemistry::FragmentTrackMutableAtoms::GetBaseFragment
                        (
                          *START_FRAGMENT,
                          MUTABLE_FRAGMENT.GetMolecules().FirstElement(),
@@ -1012,8 +1012,6 @@ namespace bcl
           );
         }
         io::File::CloseClearFStream( input);
-        BCL_Debug( mutable_fragments.GetSize());
-        BCL_Debug( mutable_fragments.GetMolecules().FirstElement().GetSize());
 
         // setup the mutable atom indices
         storage::Vector< size_t> mutable_atom_indices;
