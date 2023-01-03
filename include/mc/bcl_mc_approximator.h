@@ -268,7 +268,7 @@ namespace bcl
         );
 
         // define an upper limit to the number of skipped steps
-        static const size_t s_max_skipped_steps_in_a_row( 1000);
+        static const size_t s_max_skipped_steps_in_a_row( 1000); // TODO why is this hard-coded here?
 
         // get a defined argument
         for( size_t n_skipped( 0); !mutate_result.GetArgument().IsDefined() && n_skipped < s_max_skipped_steps_in_a_row; ++n_skipped)
@@ -289,6 +289,7 @@ namespace bcl
 
           // try a different step
           mutate_result = m_Mutate->operator()( this->GetTracker().GetCurrent()->First());
+          BCL_Debug( mutate_result.GetArgument().IsDefined());
         }
         if( !mutate_result.GetArgument().IsDefined())
         {
