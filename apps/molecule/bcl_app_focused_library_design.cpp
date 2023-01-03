@@ -316,6 +316,8 @@ namespace bcl
 
                   // save every accepted/improved step of MCM
                   // hack - add this to approximator at some point
+                  BCL_Debug( last_accepted.IsDefined());
+                  BCL_Debug( m_SaveAllAcceptedImproved);
                   if( last_accepted.IsDefined() && m_SaveAllAcceptedImproved)
                   {
                     m_ThreadManager->m_Mutex.Lock();
