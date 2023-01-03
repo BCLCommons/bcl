@@ -384,7 +384,6 @@ namespace bcl
           //! param
           ThreadManager(
             util::ShPtr< chemistry::FragmentComplete>              START_FRAGMENT, // Base fragment to use
-//            util::ShPtr< chemistry::FragmentComplete>              MUTABLE_FRAGMENT, // mutable fragment in base fragment
             chemistry::FragmentEnsemble                            MUTABLE_FRAGMENT, // mutable fragment in base fragment
             storage::Vector< size_t>                               MUTABLE_ATOM_INDICES, // mutable atom indices in base fragment
             util::ShPtr< chemistry::FragmentEnsemble>              FRAGMENT_POOL, // Fragments to add to base fragment
@@ -474,7 +473,7 @@ namespace bcl
              BCL_Debug( START_FRAGMENT->GetSize());
              if( MUTABLE_FRAGMENT.GetMolecules().FirstElement().GetSize() || MUTABLE_ATOM_INDICES.GetSize())
              {
-               static chemistry::FragmentTrackMutableAtoms atom_tracker;
+               /* static */ chemistry::FragmentTrackMutableAtoms atom_tracker;
                scaffold_fragment =
                    util::ShPtr< chemistry::FragmentComplete>( new chemistry::FragmentComplete
                      (
@@ -1000,23 +999,21 @@ namespace bcl
         io::File::CloseClearFStream( input);
 
         // setup the mutable fragment
-        util::ShPtr< chemistry::FragmentComplete> sp_mutablefragment( new chemistry::FragmentComplete());
         chemistry::FragmentEnsemble mutable_fragments;
         if( m_MutableFragmentFlag->GetFlag())
         {
           io::File::MustOpenIFStream( input, m_MutableFragmentFlag->GetFirstParameter()->GetValue());
-
-          // Needs to be wrapped in a ShPtr so it can be passed to ThreadManager
           chemistry::FragmentComplete frag( sdf::FragmentFactory::MakeFragment( input, sdf::e_Maintain));
-          sp_mutablefragment = util::ShPtr< chemistry::FragmentComplete>( new chemistry::FragmentComplete( frag));
-          mutable_fragments = chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, *sp_mutablefragment));
-          // message indicating using mutable fragment
-          BCL_MessageStd(
+          mutable_fragments = chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, frag)); // TODO multiple fragments
+          BCL_MessageStd
+          (
             "Mutating substructure atoms specified in the file '" +
             util::Format()( m_MutableFragmentFlag->GetFirstParameter()->GetValue()) + "'"
           );
         }
         io::File::CloseClearFStream( input);
+        BCL_Debug( mutable_fragments.GetSize());
+        BCL_Debug( mutable_fragments.GetMolecules().FirstElement().GetSize());
 
         // setup the mutable atom indices
         storage::Vector< size_t> mutable_atom_indices;
@@ -1150,7 +1147,6 @@ namespace bcl
           ThreadManager thread_manager
           (
             sp_startfragment,
-//            sp_mutablefragment,
             mutable_fragments,
             mutable_atom_indices,
             sp_fragment_pool,
