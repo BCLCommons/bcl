@@ -34,6 +34,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_fragment_mutate_mcm.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_remove_atom.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_remove_bond.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_remove_fragment.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_ring_swap.h"
 #include "chemistry/bcl_chemistry_fragment_split_interface.h"
 #include "chemistry/bcl_chemistry_fragment_track_mutable_atoms.h"
@@ -144,6 +145,7 @@ namespace bcl
           const float                                             m_CyclizeProb;
           const float                                             m_AlchemyProb;
           const float                                             m_RemoveAtomProb;
+          const float                                             m_RemoveFragmentProb;
           const float                                             m_RemoveBondProb;
           const float                                             m_AddMedChemProb;
           const float                                             m_FluorinateProb;
@@ -295,7 +297,7 @@ namespace bcl
                       if( m_ThreadManager->CheckUniqueConfiguration( best_mol))
                       {
                         m_ThreadManager->AddMolecule( best_mol);
-                        m_ThreadManager->IncreaseMoleculeBuiltCount();
+//                        m_ThreadManager->IncreaseMoleculeBuiltCount();
                       }
                     }
                     m_ThreadManager->m_Mutex.Unlock();
@@ -316,11 +318,11 @@ namespace bcl
                     // I can get rid of this hack
                     BCL_MessageStd( "MC Minimization ended");
                     const storage::Vector< size_t> &counts( approximator.GetTracker().GetCounts());
-                    const size_t &tot_nr_steps( approximator.GetTracker().GetIteration());
-                    const size_t &nr_improved( counts( opti::e_Improved));
-                    const size_t &nr_accepted( counts( opti::e_Accepted));
-                    const size_t &nr_rejected( counts( opti::e_Rejected));
-                    const size_t &nr_skipped( counts( opti::e_Skipped));
+                    const size_t tot_nr_steps( approximator.GetTracker().GetIteration());
+                    const size_t nr_improved( counts( opti::e_Improved));
+                    const size_t nr_accepted( counts( opti::e_Accepted));
+                    const size_t nr_rejected( counts( opti::e_Rejected));
+                    const size_t nr_skipped( counts( opti::e_Skipped));
                     util::Format format_a, format_b;
                     format_a.W( 5);
                     format_b.W( 5).FFP( 2);
@@ -405,6 +407,7 @@ namespace bcl
             const float                                            &CYCLIZE_PROB,
             const float                                            &ALCHEMY_PROB,
             const float                                            &REMOVE_ATOM_PROB,
+            const float                                            &REMOVE_FRAGMENT_PROB,
             const float                                            &REMOVE_BOND_PROB,
             const float                                            &ADD_MEDCHEM_PROB,
             const float                                            &FLUORINATE_PROB,
@@ -429,6 +432,7 @@ namespace bcl
             m_CyclizeProb( CYCLIZE_PROB),
             m_AlchemyProb( ALCHEMY_PROB),
             m_RemoveAtomProb( REMOVE_ATOM_PROB),
+            m_RemoveFragmentProb( REMOVE_FRAGMENT_PROB),
             m_RemoveBondProb( REMOVE_BOND_PROB),
             m_AddMedChemProb( ADD_MEDCHEM_PROB),
             m_FluorinateProb( FLUORINATE_PROB),
@@ -437,6 +441,7 @@ namespace bcl
             m_PoseDependentMDLProperty( POSE_DEPENDENT_MDL_PROPERTY),
             m_PoseDependentResolveClashes( POSE_DEPENDENT_RESOLVE_CLASHES)
           {
+            BCL_MessageStd( "HELP __ A");
             // prepare output filestream
             io::File::MustOpenOFStream( m_OutputStream, OUTPUT_FILENAME);
 
@@ -565,6 +570,7 @@ namespace bcl
                 mutater->AddMutate( chemistry::FragmentMutateCyclize( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_CyclizeProb);
                 mutater->AddMutate( chemistry::FragmentMutateAlchemy( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_AlchemyProb);
                 mutater->AddMutate( chemistry::FragmentMutateRemoveAtom( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveAtomProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveFragment( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveFragmentProb);
                 mutater->AddMutate( chemistry::FragmentMutateRemoveBond( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveBondProb);
                 mutater->AddMutate( chemistry::FragmentMutateExtendWithLinker( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_ExtendWithLinkerProb);
                 mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_AddMedChemProb);
@@ -588,6 +594,7 @@ namespace bcl
             }
 
             // set up sequential mutate to perform 1 to N mutates in a row prior to scoring (does not bypass druglikeness filtering)
+            BCL_MessageStd( "HELP __ B");
             util::ShPtr< math::MutateInterface< chemistry::FragmentComplete> > mutate_repeater
             (
               new math::MutateRepeat< chemistry::FragmentComplete>
@@ -600,12 +607,15 @@ namespace bcl
 
             // Set up workers
             std::vector< Worker> workers( m_Threads);
+            size_t itr_i( 0);
             for(
                 std::vector< Worker>::iterator itr( workers.begin()), end( workers.end());
                 itr != end;
-                ++itr
+                ++itr, ++itr_i
             )
             {
+              BCL_MessageStd( "HELP __ C __ " + util::Format()( itr_i));
+
               Worker &worker_ref( *itr);
               worker_ref.m_StartFragment                = START_FRAGMENT.HardCopy();
               worker_ref.m_StartFragment->GetCacheMap() = util::ShPtr< descriptor::CacheMap>( new descriptor::CacheMap);
@@ -620,10 +630,16 @@ namespace bcl
               worker_ref.m_Corina                       = CORINA_CONFS;
               worker_ref.m_ThreadManager                = this;
               worker_ref.m_PropertyScorer               = PROPERTY_SCORER.HardCopy();
+              BCL_MessageStd( "Pre setup scorer");
+//              chemistry::ScoreFunctionGeneric worker_scorer;
+//              worker_scorer.SetDescriptor( worker_ref.m_PropertyScorer);
               worker_ref.m_Score                        = util::ShPtr< math::FunctionInterfaceSerializable< chemistry::FragmentComplete, double> >
               (
+//                new chemistry::ScoreFunctionGeneric( worker_scorer)
                 new chemistry::ScoreFunctionGeneric( worker_ref.m_PropertyScorer)
               );
+              BCL_MessageStd( "Post setup scorer");
+              BCL_Debug( worker_ref.m_PropertyScorer);
               if( INTERNAL_MCM_OPTI)
               {
                 worker_ref.m_Mutate = mutater;
@@ -635,6 +651,7 @@ namespace bcl
             }
 
             // Allocate space for jobs
+            BCL_MessageStd( "HELP __ D");
             util::ShPtrVector< sched::JobInterface> jobs;
             jobs.AllocateMemory( m_Threads);
 
@@ -827,6 +844,7 @@ namespace bcl
       util::ShPtr< command::FlagInterface> m_CyclizeProbFlag;
       util::ShPtr< command::FlagInterface> m_AlchemyProbFlag;
       util::ShPtr< command::FlagInterface> m_RemoveAtomProbFlag;
+      util::ShPtr< command::FlagInterface> m_RemoveFragmentProbFlag;
       util::ShPtr< command::FlagInterface> m_RemoveBondProbFlag;
       util::ShPtr< command::FlagInterface> m_AddMedChemProbFlag;
       util::ShPtr< command::FlagInterface> m_FluorinateProbFlag;
@@ -931,6 +949,7 @@ namespace bcl
         sp_cmd->AddFlag( m_CyclizeProbFlag);
         sp_cmd->AddFlag( m_AlchemyProbFlag);
         sp_cmd->AddFlag( m_RemoveAtomProbFlag);
+        sp_cmd->AddFlag( m_RemoveFragmentProbFlag);
         sp_cmd->AddFlag( m_RemoveBondProbFlag);
         sp_cmd->AddFlag( m_AddMedChemProbFlag);
         sp_cmd->AddFlag( m_FluorinateProbFlag);
@@ -1040,6 +1059,7 @@ namespace bcl
           // flat energy surface
           property_scorer = "Constant(0.0)";
         }
+        BCL_Debug( property_scorer);
 
         // read internal mcm opti flag
         bool internal_mcm_opti( false);
@@ -1137,6 +1157,7 @@ namespace bcl
             m_CyclizeProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_AlchemyProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_RemoveAtomProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
+            m_RemoveFragmentProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_RemoveBondProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_AddMedChemProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_FluorinateProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
@@ -1175,6 +1196,7 @@ namespace bcl
             m_CyclizeProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_AlchemyProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_RemoveAtomProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
+            m_RemoveFragmentProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_RemoveBondProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_AddMedChemProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_FluorinateProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
@@ -1378,6 +1400,20 @@ namespace bcl
           )
         )
       ),
+      m_RemoveFragmentProbFlag
+      (
+        new command::FlagStatic
+        (
+          "mutate_remove_fragment_prob", "flag for the relative probability of performing a fragment removal mutation during molecule optimization; "
+              "automatically rescaled between 0 and 1 with any other mutates",
+          command::Parameter
+          (
+            "mutate_remove_fragment", "remove a fragment from the molecule; if the "
+                "molecule is split into multiple fragments, keep only the largest fragment",
+            command::ParameterCheckRanged< float>( 0.0, std::numeric_limits< float>::max()), "0.1"
+          )
+        )
+      ),
       m_RemoveBondProbFlag
       (
         new command::FlagStatic
@@ -1523,11 +1559,11 @@ namespace bcl
           command::Parameter
           (
             "function",
-            "the scoring function implementation to use",
-            command::ParameterCheckSerializable
-            (
-              chemistry::ScoreFunctionGeneric()
-            )
+            "the scoring function implementation to use" //,
+//            command::ParameterCheckSerializable
+//            (
+//              chemistry::ScoreFunctionGeneric()
+//            )
           )
         )
       ),
