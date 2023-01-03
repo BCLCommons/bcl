@@ -222,23 +222,26 @@ namespace bcl
 
                 // assume we start with druglike molecule
                 static descriptor::CheminfoProperty bonde( "MoleculeTotalDruglikeBondEnergy");
-                double druglike_mol_activity( ( *m_Score)( approximator.GetTracker().GetCurrent()->First()));
+//                descriptor::GetCheminfoProperties().calc_MolTotalBondEnergy
+                const auto current( approximator.GetTracker().GetCurrent()->First());
+                double druglike_mol_activity( ( *m_Score)( current));
+                BCL_Debug( bonde->SumOverObject( current));
 
                 // tell me about the scaffold
                 BCL_MessageStd("Scaffold properties");
-                BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
+                BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( current)( 0)));
                 BCL_MessageStd( "# of HBondAcceptors + HBondDonors: " +
-                  util::Format()( descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)
-                      + descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( bonde->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 3)));
-                BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "# of Cl: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "# of Br: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsBr->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "# of I: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsI->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
+                  util::Format()( descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( current)( 0)
+                      + descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( current)( 0)));
+                BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( current)( 0)));
+                BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( bonde->SumOverObject( current)( 3)));
+                BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of Cl: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of Br: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsBr->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of I: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsI->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( current)( 0)));
+                BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( current)( 0)));
                 BCL_MessageStd( "FLD_Score: " + util::Format()( druglike_mol_activity));
 
                 // run the approximator
