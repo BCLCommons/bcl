@@ -289,7 +289,6 @@ namespace bcl
 
           // try a different step
           mutate_result = m_Mutate->operator()( this->GetTracker().GetCurrent()->First());
-          BCL_Debug( mutate_result.GetArgument().IsDefined());
         }
         if( !mutate_result.GetArgument().IsDefined())
         {

@@ -252,7 +252,7 @@ namespace bcl
 
                   // if the molecule is undefined then skip it
                   const util::ShPtr< storage::Pair< chemistry::FragmentComplete, double> > &current_mol( approximator.GetTracker().GetCurrent());
-                  BCL_Debug( current_mol->First().GetSize());
+                  BCL_Debug( approximator.GetTracker().GetCurrent().IsDefined());
                   if( !current_mol->First().GetSize())
                   {
                     BCL_MessageStd( "Molecule undefined! Reverting molecule and skipping step!");
