@@ -468,9 +468,6 @@ namespace bcl
             // get the starting molecule minus the mutable region for local mutations
              util::ShPtr< chemistry::FragmentComplete> scaffold_fragment( new chemistry::FragmentComplete());
              BCL_MessageStd( "A4");
-             BCL_Debug( MUTABLE_FRAGMENT.GetMolecules().FirstElement().GetSize());
-             BCL_Debug( MUTABLE_ATOM_INDICES.GetSize());
-             BCL_Debug( START_FRAGMENT->GetSize());
              if( MUTABLE_FRAGMENT.GetSize() || MUTABLE_ATOM_INDICES.GetSize())
              {
                BCL_Assert( MUTABLE_FRAGMENT.GetMolecules().FirstElement().GetSize(), "Mutable fragment contains 0 atoms!");
