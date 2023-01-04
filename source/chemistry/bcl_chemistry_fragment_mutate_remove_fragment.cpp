@@ -279,6 +279,7 @@ namespace bcl
           ConformationGraphConverter::t_AtomGraph frag_graph( mol_atom_graph.GetSubgraph( *itr_frag));
           BCL_MessageStd( "H");
           FragmentComplete new_frag( graph_maker.CreateAtomsFromGraph( frag_graph), "");
+          BCL_Debug( new_frag.GetSize());
           BCL_MessageStd( "I");
           if( new_frag.GetNumberAtoms())
           {
@@ -287,6 +288,7 @@ namespace bcl
           BCL_MessageStd( "J");
         }
         BCL_MessageStd( "K");
+        BCL_Debug( new_molecules.GetSize());
 
         // for cleaning and optimizing the new molecule conformer
         FragmentMapConformer cleaner
@@ -309,7 +311,9 @@ namespace bcl
         BCL_MessageStd( "N");
 
         // Remove hydrogen atoms to allow bond type adjustment
+        BCL_Debug( atoms.GetSize());
         HydrogensHandler::Remove( atoms);
+        BCL_Debug( atoms.GetSize());
         if( m_ScaffoldFragment.GetSize())
         {
           BCL_MessageStd( "O");
