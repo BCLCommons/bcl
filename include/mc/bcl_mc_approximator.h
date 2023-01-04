@@ -284,11 +284,8 @@ namespace bcl
         static const size_t s_max_skipped_steps_in_a_row( 1000);
 
         // get a defined argument
-        BCL_Debug( mutate_result.GetArgument().IsDefined());
         for( size_t n_skipped( 0); !mutate_result.GetArgument().IsDefined() && n_skipped < s_max_skipped_steps_in_a_row; ++n_skipped)
         {
-          BCL_MessageStd( "In skipped loop");
-
           // increment skipped steps
           this->GetTracker().IncrementSkippedSteps();
 
