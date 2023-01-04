@@ -672,7 +672,6 @@ namespace bcl
               (
                 new chemistry::ScoreFunctionGeneric( worker_ref.m_PropertyScorer)
               );
-              BCL_Debug( worker_ref.m_PropertyScorer);
               if( INTERNAL_MCM_OPTI)
               {
                 worker_ref.m_Mutate = mutater;
