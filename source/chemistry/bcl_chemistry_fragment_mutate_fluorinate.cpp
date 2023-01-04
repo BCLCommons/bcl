@@ -83,16 +83,16 @@ namespace bcl
       const FragmentComplete &SCAFFOLD_FRAGMENT,
       const FragmentEnsemble &MUTABLE_FRAGMENTS,
       const storage::Vector< size_t> &MUTABLE_ATOM_INDICES,
-      const bool &CORINA_CONFS
-    ) :
-      m_Reversible( false)
+      const bool CORINA_CONFS,
+      const bool REVERSIBLE
+    )
     {
       m_DrugLikenessType = DRUG_LIKENESS_TYPE;
       m_ScaffoldFragment = SCAFFOLD_FRAGMENT;
       m_MutableFragments = MUTABLE_FRAGMENTS;
       m_MutableAtomIndices = MUTABLE_ATOM_INDICES;
       m_Corina = CORINA_CONFS;
-
+      m_Reversible = REVERSIBLE;
       this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
     }
 
@@ -209,7 +209,6 @@ namespace bcl
     {
       BCL_MessageStd( "Fluorinate!");
       AtomVector< AtomComplete> atom_vector( FRAGMENT.GetAtomVector());
-      BCL_MessageStd( "A");
 
       // for cleaning and optimizing the new molecule conformer
       FragmentMapConformer cleaner
@@ -223,15 +222,12 @@ namespace bcl
         m_Corina
       );
 
-      BCL_MessageStd( "B");
-
       // make equal probability to add or remove fluorine atoms
       float rand( 0.0);
       if( m_Reversible)
       {
         rand = random::GetGlobalRandom().Random< float>( 0.0, 1.0);
       }
-      BCL_MessageStd( "C");
 
       // add fluorine atoms
       if( rand < 0.50)
@@ -243,32 +239,24 @@ namespace bcl
           util::SiPtr< const AtomConformationalInterface> picked_atom;
           if( m_MutableAtomIndices.GetSize() || m_MutableElements.GetSize() || m_MutableFragments.GetSize())
           {
-            BCL_MessageStd( "D");
             picked_atom = this->PickAtom( FRAGMENT, false);
           }
           else
           {
-            BCL_MessageStd( "E");
             picked_atom = this->PickAtom( FRAGMENT, true);
           }
 
           // if atom is hydrogen atom, grab the atom to which it is connected
-          BCL_MessageStd( "F");
           if( picked_atom->GetElementType() == GetElementTypes().e_Hydrogen)
           {
-            BCL_MessageStd( "G");
             if( !picked_atom->GetBonds().GetSize())
             {
-              BCL_MessageStd( "H");
               continue;
             }
-            BCL_MessageStd( "I");
             picked_atom = util::SiPtr< const AtomConformationalInterface>( picked_atom->GetBonds().Begin()->GetTargetAtom());
           }
 
-          BCL_MessageStd( "J");
           size_t picked_atom_index( FRAGMENT.GetAtomVector().GetAtomIndex( *picked_atom));
-          BCL_MessageStd( "K");
           // TODO: consider making a flag for this
           // make sure not aromatic to avoid double-counting with Halogenate
 //          if( picked_atom->GetElementType() == GetElementTypes().e_Hydrogen)
@@ -293,48 +281,38 @@ namespace bcl
           size_t n_added_f( 0), n_removed_h( 0);
           if( picked_atom->GetElementType() == GetElementTypes().e_Carbon) // || picked_atom->GetElementType() == GetElementTypes().e_Nitrogen)
           {
-            BCL_MessageStd( "L");
             for( auto bonds_itr( atom_vector( picked_atom_index).GetBonds().Begin()), bonds_itr_end( atom_vector( picked_atom_index).GetBonds().End()); bonds_itr != bonds_itr_end; ++bonds_itr)
             {
-              BCL_MessageStd( "M");
               if( bonds_itr->GetTargetAtom().GetElementType() == GetElementTypes().e_Hydrogen)
               {
                 // convert to fluorine
-                BCL_MessageStd( "N");
                 atom_vector( atom_vector.GetAtomIndex( bonds_itr->GetTargetAtom())).SetAtomType( GetAtomTypes().F_SP2P2P2);
                 ++n_added_f, ++n_removed_h;
               }
               else if( bonds_itr->GetTargetAtom().GetElementType() == GetElementTypes().e_Fluorine && m_IncludeExistingFInMinCount)
               {
-                BCL_MessageStd( "O");
                 ++n_added_f;
               }
             }
 
             // check min f req
-            BCL_MessageStd( "P");
             if( n_added_f < m_MinF || n_removed_h < m_MinH || n_removed_h > m_MaxH)
             {
-              BCL_MessageStd( "Q");
               atom_vector = FRAGMENT.GetAtomVector();
               continue;
             }
 
             HydrogensHandler::Remove( atom_vector);
-            BCL_MessageStd( "R");
             util::ShPtr< FragmentComplete> new_mol_ptr
             (
               m_ScaffoldFragment.GetSize() ?
               cleaner.Clean( atom_vector, m_ScaffoldFragment, m_DrugLikenessType) :
               cleaner.Clean( atom_vector, FRAGMENT, m_DrugLikenessType)
             );
-            BCL_MessageStd( "S");
             if( !new_mol_ptr.IsDefined())
             {
-              BCL_MessageStd( "T");
               continue;
             }
-            BCL_MessageStd( "U");
             return math::MutateResult< FragmentComplete>( new_mol_ptr, *this);
           }
         }
@@ -427,10 +405,8 @@ namespace bcl
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
       (
-        "Add fluorine atoms to molecules; distinct from "
-        "halogenate because patterns of fluorine placement "
-        "in organic molecules tend to differ from patterns "
-        "of bulkier halogens"
+        "Add or remove fluorine atoms to molecules. This mutate is distinct from 'halogenate' because it is intended to "
+        "cover some fluorine-specific chemical perturbations that go beyond the scope of 'halogenate'."
       );
 
       parameters.AddInitializer

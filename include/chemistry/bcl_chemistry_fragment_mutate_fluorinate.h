@@ -120,7 +120,8 @@ namespace bcl
         const FragmentComplete &SCAFFOLD_FRAGMENT,
         const FragmentEnsemble &MUTABLE_FRAGMENTS,
         const storage::Vector< size_t> &MUTABLE_ATOM_INDICES,
-        const bool &CORINA_CONFS
+        const bool CORINA_CONFS,
+        const bool REVERSIBLE = false
       );
 
       //! @brief local mutate pose-sensitive constructor
