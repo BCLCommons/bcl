@@ -236,7 +236,8 @@ namespace bcl
                   criterion_combine,
                   *m_StartFragment,
                   m_OptiGoal,
-                  0.0 // on rejection, do not revert to best step with any probability
+                  0.0,          // on rejection, do not revert to best step with any probability
+                  false         // compare to most recently accepted for Metropolis delta, not the best so far
                 );
 //                approximator.Approximate();
 

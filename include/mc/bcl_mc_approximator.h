@@ -74,6 +74,11 @@ namespace bcl
       //! and is primarily useful in problems where a rejected step suggests a dead-end that is difficult to recover from
       double m_RejectedStepRevertsToBest;
 
+      //! If true then compare the candidate state to the best state for the Metropolis criterion evaluation (this is backwards-compatible and
+      //! what is typically expected in legacy applications; will be default)
+      //! If false then compare the candidate state to the current (i.e., most recently accepted) state for the Metropolis evaluation
+      bool m_MetropolisCompareToBest;
+
       //! Whether we have exceeded a prespecified maximum number of skipped steps in a row
       bool m_AllStepsSkipped;
 
@@ -93,6 +98,7 @@ namespace bcl
         m_Mutate(),
         m_Metropolis(),
         m_RejectedStepRevertsToBest( 1.0),
+        m_MetropolisCompareToBest( true),
         m_AllStepsSkipped( false)
       {
       }
@@ -108,13 +114,16 @@ namespace bcl
         const math::MutateInterface< t_ArgumentType> &MUTATE,
         const Metropolis< t_ResultType> &METROPOLIS,
         const opti::CriterionInterface< t_ArgumentType, t_ResultType> &CRITERION,
-        const double &REJECTED_STEP_REVERTS_TO_BEST_PROB = 1.0
+        const bool REJECTED_STEP_REVERTS_TO_BEST_PROB = 1.0,
+        const bool METROPOLIS_COMPARE_TO_BEST = true
+
       ) :
         opti::ApproximatorModularBase< t_ArgumentType, t_ResultType>( opti::e_SmallerIsBetter),
         m_Objective( util::CloneToShPtr( OBJECTIVE)),
         m_Mutate( util::CloneToShPtr( MUTATE)),
         m_Metropolis( util::CloneToShPtr( METROPOLIS)),
         m_RejectedStepRevertsToBest( REJECTED_STEP_REVERTS_TO_BEST_PROB),
+        m_MetropolisCompareToBest( METROPOLIS_COMPARE_TO_BEST),
         m_AllStepsSkipped( false)
       {
         // set the termination criterion
@@ -136,13 +145,15 @@ namespace bcl
         const opti::CriterionInterface< t_ArgumentType, t_ResultType> &CRITERION,
         const t_ArgumentType &INITIAL_ARGUMENT,
         const opti::Tracker< t_ArgumentType, t_ResultType> &TRACKER = opti::Tracker< t_ArgumentType, t_ResultType>( opti::e_SmallerIsBetter),
-        const double &REJECTED_STEP_REVERTS_TO_BEST_PROB = 1.0
+        const bool REJECTED_STEP_REVERTS_TO_BEST_PROB = 1.0,
+        const bool METROPOLIS_COMPARE_TO_BEST = true
       ) :
         opti::ApproximatorModularBase< t_ArgumentType, t_ResultType>( TRACKER),
         m_Objective( util::CloneToShPtr( OBJECTIVE)),
         m_Mutate( util::CloneToShPtr( MUTATE)),
         m_Metropolis( util::CloneToShPtr( METROPOLIS)),
         m_RejectedStepRevertsToBest( REJECTED_STEP_REVERTS_TO_BEST_PROB),
+        m_MetropolisCompareToBest( METROPOLIS_COMPARE_TO_BEST),
         m_AllStepsSkipped( false)
       {
         // set the termination criterion
@@ -176,13 +187,15 @@ namespace bcl
         const opti::CriterionInterface< t_ArgumentType, t_ResultType> &CRITERION,
         const t_ArgumentType &INITIAL_ARGUMENT,
         const opti::Tracker< t_ArgumentType, t_ResultType> &TRACKER = opti::Tracker< t_ArgumentType, t_ResultType>( opti::e_SmallerIsBetter),
-        const bool &REJECTED_STEP_REVERTS_TO_BEST_PROB = 1.0
+        const bool REJECTED_STEP_REVERTS_TO_BEST_PROB = 1.0,
+        const bool METROPOLIS_COMPARE_TO_BEST = true
       ) :
         opti::ApproximatorModularBase< t_ArgumentType, t_ResultType>( TRACKER),
         m_Objective( OBJECTIVE),
         m_Mutate( MUTATE),
         m_Metropolis( util::CloneToShPtr( METROPOLIS)),
         m_RejectedStepRevertsToBest( REJECTED_STEP_REVERTS_TO_BEST_PROB),
+        m_MetropolisCompareToBest( METROPOLIS_COMPARE_TO_BEST),
         m_AllStepsSkipped( false)
       {
         // set the termination criterion
@@ -267,8 +280,8 @@ namespace bcl
           m_Mutate->operator()( this->GetTracker().GetCurrent()->First())
         );
 
-        // define an upper limit to the number of skipped steps
-        static const size_t s_max_skipped_steps_in_a_row( 1000); // TODO why is this hard-coded here?
+        // nominally define an upper limit to the number of skipped steps to avoid an infinite loop
+        static const size_t s_max_skipped_steps_in_a_row( 1000);
 
         // get a defined argument
         for( size_t n_skipped( 0); !mutate_result.GetArgument().IsDefined() && n_skipped < s_max_skipped_steps_in_a_row; ++n_skipped)
@@ -312,8 +325,9 @@ namespace bcl
         // let Metropolis determine the step status
         opti::StepStatus step_status
         (
-          m_Metropolis->Evaluate( this->GetTracker().GetBest()->Second(), sp_mutated_model->Second(), this->GetTracker()) // legacy
-//          m_Metropolis->Evaluate( this->GetTracker().GetCurrent()->Second(), sp_mutated_model->Second(), this->GetTracker()) // BPB temp mod
+          m_MetropolisCompareToBest ?
+          m_Metropolis->Evaluate( this->GetTracker().GetBest()->Second(), sp_mutated_model->Second(), this->GetTracker()) :
+          m_Metropolis->Evaluate( this->GetTracker().GetCurrent()->Second(), sp_mutated_model->Second(), this->GetTracker())
         );
 
         // form the mutate string
