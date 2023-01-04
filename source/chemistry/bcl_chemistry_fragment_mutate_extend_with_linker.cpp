@@ -65,7 +65,7 @@ namespace bcl
     //! @brief default constructor
     FragmentMutateExtendWithLinker::FragmentMutateExtendWithLinker() :
         m_Rings( util::ShPtr< FragmentEnsemble>()),
-        m_RingsFilename( std::string()),
+        m_RingsFilename( RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ring_libraries/drug_ring_database.simple.aro.sdf.gz"),
         m_ExtendWithinProb( 0.50),
         m_FragmentMinSize( 0),
         m_AllowFragmentDuplication( false),
@@ -108,7 +108,7 @@ namespace bcl
       const bool &CORINA_CONFS
     ) :
       m_Rings( util::ShPtr< FragmentEnsemble>()),
-      m_RingsFilename( std::string()),
+      m_RingsFilename( RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ring_libraries/drug_ring_database.simple.aro.sdf.gz"),
       m_ExtendWithinProb( 0.50),
       m_FragmentMinSize( 0),
       m_AllowFragmentDuplication( false),
@@ -165,7 +165,7 @@ namespace bcl
       const bool &CORINA_CONFS
     ) :
       m_Rings( util::ShPtr< FragmentEnsemble>()),
-      m_RingsFilename( std::string()),
+      m_RingsFilename( RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ring_libraries/drug_ring_database.simple.aro.sdf.gz"),
       m_ExtendWithinProb( 0.50),
       m_FragmentMinSize( 0),
       m_AllowFragmentDuplication( false),
@@ -225,7 +225,7 @@ namespace bcl
       const bool &CORINA_CONFS
     ) :
       m_Rings( util::ShPtr< FragmentEnsemble>()),
-      m_RingsFilename( std::string()),
+      m_RingsFilename( RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ring_libraries/drug_ring_database.simple.aro.sdf.gz"),
       m_ExtendWithinProb( 0.50),
       m_FragmentMinSize( 0),
       m_AllowFragmentDuplication( false),
