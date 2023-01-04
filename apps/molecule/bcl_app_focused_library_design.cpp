@@ -617,6 +617,10 @@ namespace bcl
             {
               // POSE-DEPENDENT CONSTRUCTION OF MUTATES //
               chemistry::FragmentEnsemble scaffold_ens( storage::List< chemistry::FragmentComplete>( 1, *scaffold_fragment));
+              io::OFStream debug_out;
+              io::File::MustOpenOFStream( debug_out, "scaffold_ens.sdf");
+              scaffold_ens.WriteMDL( debug_out);
+              io::File::CloseClearFStream( debug_out);
               if( !POSE_DEPENDENT_MDL_PROPERTY.empty())
               {
                 BCL_MessageStd( "Pose-dependent scoring enabled");
