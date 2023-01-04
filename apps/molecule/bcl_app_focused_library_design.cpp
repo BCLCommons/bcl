@@ -167,7 +167,6 @@ namespace bcl
           {
             // Rotamer library to use - read in at Main()
             util::ShPtr< chemistry::FragmentComplete>                                                m_StartFragment; // Base fragment to use
-//            util::ShPtr< chemistry::FragmentComplete>                                                m_MutableFragment; // mutable fragment in base fragment
             chemistry::FragmentEnsemble                                                              m_MutableFragment; // mutable fragment in base fragment
             storage::Vector< size_t>                                                                 m_MutableAtomIndices; // mutable atoms in base fragment
             descriptor::CheminfoProperty                                                             m_PropertyScorer; // Set objective function with property instead of model
@@ -405,7 +404,7 @@ namespace bcl
                     BCL_MessageStd( "# of I: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsI->SumOverObject( best_mol)( 0)));
                     BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( best_mol)( 0)));
                     BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( best_mol)( 0)));
-                    BCL_MessageStd( "FLD_Score: " + util::Format()( best_score));
+                    BCL_MessageStd( "FLD_Score: " + util::Format()( best_score( 0)));
 
                     // save the final MCM molecule
                     if( m_ThreadManager->CheckUniqueConfiguration( best_mol))
@@ -519,30 +518,6 @@ namespace bcl
               new math::MutateDecisionNode< chemistry::FragmentComplete>()
             );
 
-            // get the starting molecule minus the mutable region for local mutations
-             util::ShPtr< chemistry::FragmentComplete> scaffold_fragment( new chemistry::FragmentComplete());
-             BCL_Debug( MUTABLE_FRAGMENT.GetSize());
-             BCL_Debug( MUTABLE_ATOM_INDICES.GetSize());
-             io::OFStream debug_out;
-             io::File::MustOpenOFStream( debug_out, "scaffold_ens.sdf");
-             MUTABLE_FRAGMENT.WriteMDL( debug_out);
-             io::File::CloseClearFStream( debug_out);
-//             if( MUTABLE_FRAGMENT.GetSize() || MUTABLE_ATOM_INDICES.GetSize())
-//             {
-//               BCL_Assert( MUTABLE_FRAGMENT.GetMolecules().FirstElement().GetSize(), "Mutable fragment contains 0 atoms!");
-//               scaffold_fragment =
-//                   util::ShPtr< chemistry::FragmentComplete>( new chemistry::FragmentComplete
-//                     (
-//                       chemistry::FragmentTrackMutableAtoms::GetBaseFragment
-//                       (
-//                         *START_FRAGMENT,
-//                         MUTABLE_FRAGMENT.GetMolecules().FirstElement(),
-//                         MUTABLE_ATOM_INDICES
-//                       )
-//                     ));
-//               BCL_Assert( scaffold_fragment->GetSize(), "Exiting because of incompatible mutable options");
-//             }
-
             // if the internal MCM local optimization option is selected
             if( INTERNAL_MCM_OPTI)
             {
@@ -552,9 +527,7 @@ namespace bcl
                 BCL_MessageStd( "Pose-dependent scoring enabled");
                 // set clash resolver
                 bool clash_resolver;
-                POSE_DEPENDENT_RESOLVE_CLASHES == "true" ?
-                    clash_resolver = true:
-                    clash_resolver = false;
+                POSE_DEPENDENT_RESOLVE_CLASHES == "true" ? clash_resolver = true: clash_resolver = false;
                 mutater->AddMutate
                 (
                   chemistry::FragmentMutateMCM
@@ -565,7 +538,7 @@ namespace bcl
                     FRAGMENT_POOL,
                     m_DrugLikenessType,
                     *START_FRAGMENT,
-                    chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, *START_FRAGMENT)),
+                    MUTABLE_FRAGMENT,
                     MUTABLE_ATOM_INDICES,
                     POSE_DEPENDENT_MDL_PROPERTY,
                     PROPERTY_SCORER,
@@ -599,7 +572,7 @@ namespace bcl
                     FRAGMENT_POOL,
                     m_DrugLikenessType,
                     *START_FRAGMENT,
-                    chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, *START_FRAGMENT)),
+                    MUTABLE_FRAGMENT,
                     MUTABLE_ATOM_INDICES,
                     PROPERTY_SCORER,
                     CORINA_CONFS,
@@ -627,9 +600,7 @@ namespace bcl
                 BCL_MessageStd( "Pose-dependent scoring enabled");
                 // set clash resolver
                 bool clash_resolver;
-                POSE_DEPENDENT_RESOLVE_CLASHES == "true" ?
-                    clash_resolver = true:
-                    clash_resolver = false;
+                POSE_DEPENDENT_RESOLVE_CLASHES == "true" ? clash_resolver = true: clash_resolver = false;
                 mutater->AddMutate( chemistry::FragmentMutateRingSwap( tree_search, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS, true, false, 0.1, true, true), m_RingSwapProb);
                 mutater->AddMutate( chemistry::FragmentMutateCyclize( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_CyclizeProb);
                 mutater->AddMutate( chemistry::FragmentMutateAlchemy( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_AlchemyProb);
