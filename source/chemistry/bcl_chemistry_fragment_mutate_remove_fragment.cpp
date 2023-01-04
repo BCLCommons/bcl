@@ -266,6 +266,7 @@ namespace bcl
         BCL_MessageStd( "F");
 
         storage::Vector< FragmentComplete> new_molecules;
+        storage::Vector< size_t> new_molecules_i;
 
         // Iterate through the fragments, make FragmentCompletes, and add them to new_fragments
         size_t frag_i( 0);
@@ -285,6 +286,7 @@ namespace bcl
           if( new_frag.GetNumberAtoms())
           {
             new_molecules.PushBack( new_frag);
+            new_molecules_i.PushBack( frag_i);
             io::OFStream debug_out;
             io::File::MustOpenOFStream( debug_out, "frag." + util::Format()( frag_i) + ".sdf", std::ios::app);
             new_frag.WriteMDL( debug_out);
@@ -308,18 +310,26 @@ namespace bcl
         );
         BCL_MessageStd( "L");
 
-        // clean and output
-        iterate::Generic< const FragmentComplete> random_mol( new_molecules.Begin(), new_molecules.End());
-//        random_mol.GotoRandomPosition();
-        random_mol.RandomlyPickElementThatSatisfies( random_mol->GetSize() > size_t( 2));
+        // satisfy minimize fragment size requirement
         BCL_MessageStd( "M");
-        AtomVector< AtomComplete> atoms( random_mol->GetAtomVector());
+        new_molecules_i.Shuffle();
+        AtomVector< AtomComplete> atoms;
+        for( size_t i( 0), sz( new_molecules_i.GetSize()); i < sz; ++i)
+        {
+          if( new_molecules( new_molecules_i( i)).GetSize() > 2)
+          {
+            atoms = new_molecules( new_molecules_i( i)).GetAtomVector();
+            break;
+          }
+        }
         BCL_MessageStd( "N");
 
         // Remove hydrogen atoms to allow bond type adjustment
         BCL_Debug( atoms.GetSize());
         HydrogensHandler::Remove( atoms);
         BCL_Debug( atoms.GetSize());
+
+        // clean and output
         if( m_ScaffoldFragment.GetSize())
         {
           BCL_MessageStd( "O");
