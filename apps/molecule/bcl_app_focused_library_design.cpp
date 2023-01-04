@@ -1326,7 +1326,7 @@ namespace bcl
           command::Parameter
           (
             "temperature", "temperature for MCM evaluation",
-            command::ParameterCheckRanged< float>( 1.0, std::numeric_limits< float>::max()), "1.0"
+            command::ParameterCheckRanged< float>( 0.0, std::numeric_limits< float>::max()), "1.0"
           )
         )
       ),
