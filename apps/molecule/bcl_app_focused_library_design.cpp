@@ -27,6 +27,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_fragment_grow.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_add_med_chem.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_alchemy.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_combine.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_cyclize.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_extend_with_linker.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_fluorinate.h"
@@ -601,7 +602,7 @@ namespace bcl
                     m_RemoveAtomProb,
                     m_RemoveBondProb,
                     m_AddMedChemProb,
-                    m_CombineProb,
+//                    m_CombineProb,
                     m_FluorinateProb,
                     m_HalogenateProb,
                     m_ExtendWithLinkerProb
@@ -633,7 +634,7 @@ namespace bcl
                     m_RemoveAtomProb,
                     m_RemoveBondProb,
                     m_AddMedChemProb,
-                    m_CombineProb,
+//                    m_CombineProb,
                     m_FluorinateProb,
                     m_HalogenateProb,
                     m_ExtendWithLinkerProb
@@ -1656,6 +1657,21 @@ namespace bcl
             "name of file containing grow fragments",
             command::ParameterCheckFileExistence(),
             chemistry::RotamerLibraryFile::GetRotamerFinder().FindFile( "") + ( "bcl_buildfrag_0.sdf.gz")
+          )
+        )
+      ),
+      m_CombineFragmentsFlag
+      (
+        new command::FlagStatic
+        (
+          "combine_fragments",
+          "files containing fragments to combine with the molecule",
+          command::Parameter
+          (
+            "combine fragments filename",
+            "name of file containing combine fragments",
+            command::ParameterCheckFileExistence()
+            /* chemistry::RotamerLibraryFile::GetRotamerFinder().FindFile( "") + ( "bcl_buildfrag_0.sdf.gz") */
           )
         )
       ),
