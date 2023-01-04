@@ -268,11 +268,12 @@ namespace bcl
         storage::Vector< FragmentComplete> new_molecules;
 
         // Iterate through the fragments, make FragmentCompletes, and add them to new_fragments
+        size_t frag_i( 0);
         for
         (
           storage::List< storage::Vector< size_t> >::const_iterator itr_frag( fragments.Begin()), itr_frag_end( fragments.End());
           itr_frag != itr_frag_end;
-          ++itr_frag
+          ++itr_frag, ++frag_i
         )
         {
           BCL_MessageStd( "G");
@@ -284,6 +285,10 @@ namespace bcl
           if( new_frag.GetNumberAtoms())
           {
             new_molecules.PushBack( new_frag);
+            io::OFStream debug_out;
+            io::File::MustOpenOFStream( debug_out, "frag." + util::Format()( frag_i) + ".sdf", std::ios::app);
+            new_frag.WriteMDL( debug_out);
+            io::File::CloseClearFStream( debug_out);
           }
           BCL_MessageStd( "J");
         }
