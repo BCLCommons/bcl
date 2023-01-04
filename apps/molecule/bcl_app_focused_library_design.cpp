@@ -239,20 +239,21 @@ namespace bcl
                   false         // compare to most recently accepted for Metropolis delta, not the best so far
                 );
 //                approximator.Approximate();
+                approximator.GetTracker().SetPhase( opti::e_Start);
 
                 // assume we start with druglike molecule
                 const auto current( approximator.GetTracker().GetCurrent()->First());
                 double druglike_mol_activity( ( *m_Score)( current));
 
                 // tell me about the scaffold
-                BCL_MessageStd("------------------------------------------------------------------------");
-                BCL_MessageStd("PROPERTIES - STARTING MOLECULE");
-                BCL_MessageStd("------------------------------------------------------------------------");
+                BCL_MessageStd( "------------------------------------------------------------------------");
+                BCL_MessageStd( "PROPERTIES - STARTING MOLECULE");
+                BCL_MessageStd( "------------------------------------------------------------------------");
                 BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( current)( 0)));
-                BCL_MessageStd( "# of HBondAcceptors + HBondDonors: " +
-                  util::Format()( descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( current)( 0)
-                      + descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of HBondAcceptors : " + util::Format()( descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of HBondDonors: " + util::Format()( descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( current)( 0)));
                 BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( current)( 0)));
+                BCL_MessageStd( "TPSA: " + util::Format()( descriptor::GetCheminfoProperties().calc_TopologicalPolarSurfaceArea->SumOverObject( current)( 0)));
                 BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( current)( 0)));
                 BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( m_TotalBondEnergy( current)( 3)));
                 BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( current)( 0)));
@@ -262,11 +263,12 @@ namespace bcl
                 BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( current)( 0)));
                 BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( current)( 0)));
                 BCL_MessageStd( "FLD_Score: " + util::Format()( druglike_mol_activity));
-                BCL_MessageStd("------------------------------------------------------------------------");
-                BCL_MessageStd("------------------------------------------------------------------------");
+                BCL_MessageStd( "------------------------------------------------------------------------");
+                BCL_MessageStd( "------------------------------------------------------------------------");
 
                 // run the approximator
                 BCL_MessageStd( "MCM BEGIN");
+                approximator.GetTracker().SetPhase( opti::e_Iteration);
                 while( approximator.CanContinue() && approximator.ShouldContinue() && m_ThreadManager->GetNumberMoleculesBuilt() + 1 <= m_ThreadManager->GetNumberMoleculesToBuild())
                 {
                   // do next step in approximation and get new molecule
@@ -296,19 +298,15 @@ namespace bcl
                     last_accepted = current_mol;
 
                     // tell me about the new mol
-                    BCL_MessageStd("------------------------------------------------------------------------");
-                    BCL_MessageStd("PROPERTIES - CURRENT ACCEPTED/IMPROVED MOLECULE");
-                    BCL_MessageStd("------------------------------------------------------------------------");
+                    BCL_MessageStd( "------------------------------------------------------------------------");
+                    BCL_MessageStd( "PROPERTIES - CURRENT ACCEPTED/IMPROVED MOLECULE");
+                    BCL_MessageStd( "------------------------------------------------------------------------");
                     BCL_MessageStd( "Molecule tracker updated at iteration: " + util::Format()( approximator.GetTracker().GetIteration()));
                     BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( last_accepted->First())( 0)));
-                    BCL_MessageStd(
-                      "# of HBondAcceptors + HBondDonors: " +
-                      util::Format()(
-                        descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( last_accepted->First())( 0)
-                        + descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( last_accepted->First())( 0)
-                      )
-                    );
+                    BCL_MessageStd( "# of HBondAcceptors : " + util::Format()( descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( last_accepted->First())( 0)));
+                    BCL_MessageStd( "# of HBondDonors: " + util::Format()( descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( last_accepted->First())( 0)));
+                    BCL_MessageStd( "TPSA: " + util::Format()( descriptor::GetCheminfoProperties().calc_TopologicalPolarSurfaceArea->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( m_TotalBondEnergy( last_accepted->First())( 3)));
                     BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( last_accepted->First())( 0)));
@@ -318,8 +316,8 @@ namespace bcl
                     BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "FLD_Score: " + util::Format()( last_accepted->Second()));
-                    BCL_MessageStd("------------------------------------------------------------------------");
-                    BCL_MessageStd("------------------------------------------------------------------------");
+                    BCL_MessageStd( "------------------------------------------------------------------------");
+                    BCL_MessageStd( "------------------------------------------------------------------------");
 
                     // save every accepted/improved step of MCM
                     // hack - add this to approximator at some point
@@ -350,7 +348,7 @@ namespace bcl
                   }
                 }
                 BCL_MessageStd( "MCM END");
-
+                approximator.GetTracker().SetPhase( opti::e_End);
                 // save molecules to output, lock it down with a mutex
                 if( /* last_accepted.IsDefined() */ approximator.GetTracker().GetBest().IsDefined())
                 {
@@ -399,19 +397,15 @@ namespace bcl
                     linal::Vector< double> best_score( 1, approximator.GetTracker().GetBest()->Second()); // used to be last_accepted
                     best_mol.StoreProperty( "FLD_Score", best_score);
 
-                    BCL_MessageStd("------------------------------------------------------------------------");
-                    BCL_MessageStd("PROPERTIES - BEST MOLECULE (FINAL OUTPUT)");
-                    BCL_MessageStd("------------------------------------------------------------------------");
+                    BCL_MessageStd( "------------------------------------------------------------------------");
+                    BCL_MessageStd( "PROPERTIES - BEST MOLECULE (FINAL OUTPUT)");
+                    BCL_MessageStd( "------------------------------------------------------------------------");
                     BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( best_mol)( 0)));
-                    BCL_MessageStd(
-                      "# of HBondAcceptors + HBondDonors: " +
-                      util::Format()(
-                        descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( best_mol)( 0)
-                        + descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( best_mol)( 0)
-                      )
-                    );
+                    BCL_MessageStd( "# of HBondAcceptors : " + util::Format()( descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "# of HBondDonors: " + util::Format()( descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( best_mol)( 0)));
                     BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( best_mol)( 0)));
                     BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "TPSA: " + util::Format()( descriptor::GetCheminfoProperties().calc_TopologicalPolarSurfaceArea->SumOverObject( best_mol)( 0)));
                     BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( m_TotalBondEnergy( best_mol)( 3)));
                     BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( best_mol)( 0)));
                     BCL_MessageStd( "# of Cl: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( best_mol)( 0)));
@@ -420,8 +414,8 @@ namespace bcl
                     BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( best_mol)( 0)));
                     BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( best_mol)( 0)));
                     BCL_MessageStd( "FLD_Score: " + util::Format()( best_score( 0)));
-                    BCL_MessageStd("------------------------------------------------------------------------");
-                    BCL_MessageStd("------------------------------------------------------------------------");
+                    BCL_MessageStd( "------------------------------------------------------------------------");
+                    BCL_MessageStd( "------------------------------------------------------------------------");
 
                     // save the final MCM molecule
                     if( m_ThreadManager->CheckUniqueConfiguration( best_mol))
@@ -1614,16 +1608,11 @@ namespace bcl
           (
             "type",
             "the type of druglikeness to use",
-            command::ParameterCheckAllowed
+            command::ParameterCheckSerializable
             (
-              storage::Vector< std::string>::Create
-              (
-                "IsConstitutionDruglike",
-                "IsConstitutionDruglikeAndHitlike",
-                "None"
-              )
+              descriptor::CheminfoProperty()
             ),
-            "IsConstitutionDruglike"
+            "IsConstitutionDruglikeAndHitlike"
           )
         )
       ),
