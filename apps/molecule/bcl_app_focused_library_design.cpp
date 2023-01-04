@@ -521,21 +521,27 @@ namespace bcl
 
             // get the starting molecule minus the mutable region for local mutations
              util::ShPtr< chemistry::FragmentComplete> scaffold_fragment( new chemistry::FragmentComplete());
-             if( MUTABLE_FRAGMENT.GetSize() || MUTABLE_ATOM_INDICES.GetSize())
-             {
-               BCL_Assert( MUTABLE_FRAGMENT.GetMolecules().FirstElement().GetSize(), "Mutable fragment contains 0 atoms!");
-               scaffold_fragment =
-                   util::ShPtr< chemistry::FragmentComplete>( new chemistry::FragmentComplete
-                     (
-                       chemistry::FragmentTrackMutableAtoms::GetBaseFragment
-                       (
-                         *START_FRAGMENT,
-                         MUTABLE_FRAGMENT.GetMolecules().FirstElement(),
-                         MUTABLE_ATOM_INDICES
-                       )
-                     ));
-               BCL_Assert( scaffold_fragment->GetSize(), "Exiting because of incompatible mutable options");
-             }
+             BCL_Debug( MUTABLE_FRAGMENT.GetSize());
+             BCL_Debug( MUTABLE_ATOM_INDICES.GetSize());
+             io::OFStream debug_out;
+             io::File::MustOpenOFStream( debug_out, "scaffold_ens.sdf");
+             MUTABLE_FRAGMENT.WriteMDL( debug_out);
+             io::File::CloseClearFStream( debug_out);
+//             if( MUTABLE_FRAGMENT.GetSize() || MUTABLE_ATOM_INDICES.GetSize())
+//             {
+//               BCL_Assert( MUTABLE_FRAGMENT.GetMolecules().FirstElement().GetSize(), "Mutable fragment contains 0 atoms!");
+//               scaffold_fragment =
+//                   util::ShPtr< chemistry::FragmentComplete>( new chemistry::FragmentComplete
+//                     (
+//                       chemistry::FragmentTrackMutableAtoms::GetBaseFragment
+//                       (
+//                         *START_FRAGMENT,
+//                         MUTABLE_FRAGMENT.GetMolecules().FirstElement(),
+//                         MUTABLE_ATOM_INDICES
+//                       )
+//                     ));
+//               BCL_Assert( scaffold_fragment->GetSize(), "Exiting because of incompatible mutable options");
+//             }
 
             // if the internal MCM local optimization option is selected
             if( INTERNAL_MCM_OPTI)
@@ -616,11 +622,6 @@ namespace bcl
             else
             {
               // POSE-DEPENDENT CONSTRUCTION OF MUTATES //
-              chemistry::FragmentEnsemble scaffold_ens( storage::List< chemistry::FragmentComplete>( 1, *scaffold_fragment));
-              io::OFStream debug_out;
-              io::File::MustOpenOFStream( debug_out, "scaffold_ens.sdf");
-              scaffold_ens.WriteMDL( debug_out);
-              io::File::CloseClearFStream( debug_out);
               if( !POSE_DEPENDENT_MDL_PROPERTY.empty())
               {
                 BCL_MessageStd( "Pose-dependent scoring enabled");
@@ -629,31 +630,31 @@ namespace bcl
                 POSE_DEPENDENT_RESOLVE_CLASHES == "true" ?
                     clash_resolver = true:
                     clash_resolver = false;
-                mutater->AddMutate( chemistry::FragmentMutateRingSwap( tree_search, m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS, true, false, 0.1, true, true), m_RingSwapProb);
-                mutater->AddMutate( chemistry::FragmentMutateCyclize( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_CyclizeProb);
-                mutater->AddMutate( chemistry::FragmentMutateAlchemy( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_AlchemyProb);
-                mutater->AddMutate( chemistry::FragmentMutateRemoveAtom( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveAtomProb);
-                mutater->AddMutate( chemistry::FragmentMutateRemoveFragment( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveFragmentProb);
-                mutater->AddMutate( chemistry::FragmentMutateRemoveBond( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveBondProb);
-                mutater->AddMutate( chemistry::FragmentMutateExtendWithLinker( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_ExtendWithLinkerProb);
-                mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_AddMedChemProb);
-                mutater->AddMutate( chemistry::FragmentMutateFluorinate( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_FluorinateProb);
-                mutater->AddMutate( chemistry::FragmentMutateHalogenate( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_HalogenateProb);
+                mutater->AddMutate( chemistry::FragmentMutateRingSwap( tree_search, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS, true, false, 0.1, true, true), m_RingSwapProb);
+                mutater->AddMutate( chemistry::FragmentMutateCyclize( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_CyclizeProb);
+                mutater->AddMutate( chemistry::FragmentMutateAlchemy( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_AlchemyProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveAtom( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveAtomProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveFragment( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveFragmentProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveBond( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveBondProb);
+                mutater->AddMutate( chemistry::FragmentMutateExtendWithLinker( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_ExtendWithLinkerProb);
+                mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_AddMedChemProb);
+                mutater->AddMutate( chemistry::FragmentMutateFluorinate( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_FluorinateProb);
+                mutater->AddMutate( chemistry::FragmentMutateHalogenate( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_HalogenateProb);
               }
               // POSE-INDEPENDENT CONSTRUCTION OF MUTATES //
               else
               {
                 BCL_MessageStd( "Pose-independent scoring enabled");
-                mutater->AddMutate( chemistry::FragmentMutateRingSwap( tree_search, m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS, true, false, 0.1, true, true), m_RingSwapProb);
-                mutater->AddMutate( chemistry::FragmentMutateCyclize( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_CyclizeProb);
-                mutater->AddMutate( chemistry::FragmentMutateAlchemy( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AlchemyProb);
-                mutater->AddMutate( chemistry::FragmentMutateRemoveAtom( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveAtomProb);
-                mutater->AddMutate( chemistry::FragmentMutateRemoveFragment( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveFragmentProb);
-                mutater->AddMutate( chemistry::FragmentMutateRemoveBond( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveBondProb);
-                mutater->AddMutate( chemistry::FragmentMutateExtendWithLinker( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_ExtendWithLinkerProb);
-                mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AddMedChemProb);
-                mutater->AddMutate( chemistry::FragmentMutateFluorinate( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_FluorinateProb);
-                mutater->AddMutate( chemistry::FragmentMutateHalogenate( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_HalogenateProb);
+                mutater->AddMutate( chemistry::FragmentMutateRingSwap( tree_search, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS, true, false, 0.1, true, true), m_RingSwapProb);
+                mutater->AddMutate( chemistry::FragmentMutateCyclize( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_CyclizeProb);
+                mutater->AddMutate( chemistry::FragmentMutateAlchemy( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AlchemyProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveAtom( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveAtomProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveFragment( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveFragmentProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveBond( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveBondProb);
+                mutater->AddMutate( chemistry::FragmentMutateExtendWithLinker( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_ExtendWithLinkerProb);
+                mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AddMedChemProb);
+                mutater->AddMutate( chemistry::FragmentMutateFluorinate( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_FluorinateProb);
+                mutater->AddMutate( chemistry::FragmentMutateHalogenate( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_HalogenateProb);
               }
             }
 
