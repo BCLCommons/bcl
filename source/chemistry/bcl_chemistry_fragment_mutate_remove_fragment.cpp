@@ -223,13 +223,16 @@ namespace bcl
       size_t try_index( 0);
       for( ; try_index < m_NumberMaxAttempts; ++try_index)
       {
+        BCL_MessageStd( "A");
         FragmentComplete molecule_mutable( FRAGMENT);
 
-        // TODO: modernaize valence handler so that we can track atoms
+        // TODO: modernize valence handler so that we can track atoms
         molecule_mutable.RemoveH();
 
+        BCL_MessageStd( "B");
         if( !molecule_mutable.GetNumberAtoms())
         {
+          BCL_MessageStd("No atoms in this molecule. Cannot remove atoms.");
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
 
@@ -241,22 +244,26 @@ namespace bcl
 
         graph::ConstGraph< size_t, size_t> mol_graph( graph_maker( molecule_mutable));
 
+        BCL_MessageStd( "C");
         storage::List< storage::Vector< size_t> > fragments
         (
           FragmentEvolveBase::FragmentsFromRandomBondBreakage( molecule_mutable, mol_graph)
         );
+        BCL_MessageStd( "D");
 
         if( fragments.GetSize() != 2)
         {
-          BCL_MessageVrb( "could not delete pieces of the molecule");
+          BCL_MessageStd( "Could not delete pieces of the molecule");
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
+        BCL_MessageStd( "E");
 
         // atom graphs
         ConformationGraphConverter::t_AtomGraph mol_atom_graph
         (
           graph_maker.CreateGraphWithAtoms( molecule_mutable)
         );
+        BCL_MessageStd( "F");
 
         storage::Vector< FragmentComplete> new_molecules;
 
@@ -268,15 +275,18 @@ namespace bcl
           ++itr_frag
         )
         {
+          BCL_MessageStd( "G");
           ConformationGraphConverter::t_AtomGraph frag_graph( mol_atom_graph.GetSubgraph( *itr_frag));
-
+          BCL_MessageStd( "H");
           FragmentComplete new_frag( graph_maker.CreateAtomsFromGraph( frag_graph), "");
-
+          BCL_MessageStd( "I");
           if( new_frag.GetNumberAtoms())
           {
             new_molecules.PushBack( new_frag);
           }
+          BCL_MessageStd( "J");
         }
+        BCL_MessageStd( "K");
 
         // for cleaning and optimizing the new molecule conformer
         FragmentMapConformer cleaner
@@ -289,23 +299,29 @@ namespace bcl
           m_BFactors,
           m_Corina
         );
+        BCL_MessageStd( "L");
 
         // clean and output
         iterate::Generic< const FragmentComplete> random_mol( new_molecules.Begin(), new_molecules.End());
         random_mol.GotoRandomPosition();
+        BCL_MessageStd( "M");
         AtomVector< AtomComplete> atoms( random_mol->GetAtomVector());
+        BCL_MessageStd( "N");
 
         // Remove hydrogen atoms to allow bond type adjustment
         HydrogensHandler::Remove( atoms);
         if( m_ScaffoldFragment.GetSize())
         {
+          BCL_MessageStd( "O");
           return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, m_ScaffoldFragment, m_DrugLikenessType), *this);
         }
         else
         {
+          BCL_MessageStd( "P");
           return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, FRAGMENT, m_DrugLikenessType), *this);
         }
       }
+      BCL_MessageStd( "Q");
       return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
     }
 
