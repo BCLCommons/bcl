@@ -245,7 +245,9 @@ namespace bcl
                 double druglike_mol_activity( ( *m_Score)( current));
 
                 // tell me about the scaffold
-                BCL_MessageStd("Scaffold properties");
+                BCL_MessageStd("------------------------------------------------------------------------");
+                BCL_MessageStd("PROPERTIES - STARTING MOLECULE");
+                BCL_MessageStd("------------------------------------------------------------------------");
                 BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( current)( 0)));
                 BCL_MessageStd( "# of HBondAcceptors + HBondDonors: " +
                   util::Format()( descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( current)( 0)
@@ -260,6 +262,8 @@ namespace bcl
                 BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( current)( 0)));
                 BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( current)( 0)));
                 BCL_MessageStd( "FLD_Score: " + util::Format()( druglike_mol_activity));
+                BCL_MessageStd("------------------------------------------------------------------------");
+                BCL_MessageStd("------------------------------------------------------------------------");
 
                 // run the approximator
                 BCL_MessageStd( "MCM BEGIN");
@@ -292,6 +296,9 @@ namespace bcl
                     last_accepted = current_mol;
 
                     // tell me about the new mol
+                    BCL_MessageStd("------------------------------------------------------------------------");
+                    BCL_MessageStd("PROPERTIES - CURRENT ACCEPTED/IMPROVED MOLECULE");
+                    BCL_MessageStd("------------------------------------------------------------------------");
                     BCL_MessageStd( "Molecule tracker updated at iteration: " + util::Format()( approximator.GetTracker().GetIteration()));
                     BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd(
@@ -311,6 +318,8 @@ namespace bcl
                     BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "FLD_Score: " + util::Format()( last_accepted->Second()));
+                    BCL_MessageStd("------------------------------------------------------------------------");
+                    BCL_MessageStd("------------------------------------------------------------------------");
 
                     // save every accepted/improved step of MCM
                     // hack - add this to approximator at some point
@@ -363,6 +372,8 @@ namespace bcl
                     util::Format format_a, format_b;
                     format_a.W( 5);
                     format_b.W( 5).FFP( 2);
+                    BCL_MessageStd("------------------------------------------------------------------------");
+                    BCL_MessageStd("------------------------------------------------------------------------");
                     BCL_MessageStd( "#MC steps: " + util::Format()( tot_nr_steps));
                     BCL_MessageStd
                     (
@@ -380,13 +391,17 @@ namespace bcl
                     (
                       "#MC steps skipped:\t" + format_a( nr_skipped) + "\t%" + format_b( 100.0 * nr_skipped / tot_nr_steps)
                     );
+                    BCL_MessageStd("------------------------------------------------------------------------");
+                    BCL_MessageStd("------------------------------------------------------------------------");
 
                     // get best molecule and best score
                     chemistry::FragmentComplete best_mol( approximator.GetTracker().GetBest()->First()); // used to be last_accepted
                     linal::Vector< double> best_score( 1, approximator.GetTracker().GetBest()->Second()); // used to be last_accepted
                     best_mol.StoreProperty( "FLD_Score", best_score);
 
-                    BCL_MessageStd( "Properties of the best molecule: ");
+                    BCL_MessageStd("------------------------------------------------------------------------");
+                    BCL_MessageStd("PROPERTIES - BEST MOLECULE (FINAL OUTPUT)");
+                    BCL_MessageStd("------------------------------------------------------------------------");
                     BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( best_mol)( 0)));
                     BCL_MessageStd(
                       "# of HBondAcceptors + HBondDonors: " +
@@ -405,6 +420,8 @@ namespace bcl
                     BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( best_mol)( 0)));
                     BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( best_mol)( 0)));
                     BCL_MessageStd( "FLD_Score: " + util::Format()( best_score( 0)));
+                    BCL_MessageStd("------------------------------------------------------------------------");
+                    BCL_MessageStd("------------------------------------------------------------------------");
 
                     // save the final MCM molecule
                     if( m_ThreadManager->CheckUniqueConfiguration( best_mol))

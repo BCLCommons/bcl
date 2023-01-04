@@ -223,13 +223,11 @@ namespace bcl
       size_t try_index( 0);
       for( ; try_index < m_NumberMaxAttempts; ++try_index)
       {
-        BCL_MessageStd( "A");
         FragmentComplete molecule_mutable( FRAGMENT);
 
         // TODO: modernize valence handler so that we can track atoms
         molecule_mutable.RemoveH();
 
-        BCL_MessageStd( "B");
         if( !molecule_mutable.GetNumberAtoms())
         {
           BCL_MessageStd("No atoms in this molecule. Cannot remove atoms.");
@@ -244,26 +242,22 @@ namespace bcl
 
         graph::ConstGraph< size_t, size_t> mol_graph( graph_maker( molecule_mutable));
 
-        BCL_MessageStd( "C");
         storage::List< storage::Vector< size_t> > fragments
         (
           FragmentEvolveBase::FragmentsFromRandomBondBreakage( molecule_mutable, mol_graph)
         );
-        BCL_MessageStd( "D");
 
         if( fragments.GetSize() != 2)
         {
           BCL_MessageStd( "Could not delete pieces of the molecule");
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
-        BCL_MessageStd( "E");
 
         // atom graphs
         ConformationGraphConverter::t_AtomGraph mol_atom_graph
         (
           graph_maker.CreateGraphWithAtoms( molecule_mutable)
         );
-        BCL_MessageStd( "F");
 
         storage::Vector< FragmentComplete> new_molecules;
         storage::Vector< size_t> new_molecules_i;
@@ -277,25 +271,14 @@ namespace bcl
           ++itr_frag, ++frag_i
         )
         {
-          BCL_MessageStd( "G");
           ConformationGraphConverter::t_AtomGraph frag_graph( mol_atom_graph.GetSubgraph( *itr_frag));
-          BCL_MessageStd( "H");
           FragmentComplete new_frag( graph_maker.CreateAtomsFromGraph( frag_graph), "");
-          BCL_Debug( new_frag.GetSize());
-          BCL_MessageStd( "I");
           if( new_frag.GetNumberAtoms())
           {
             new_molecules.PushBack( new_frag);
             new_molecules_i.PushBack( frag_i);
-            io::OFStream debug_out;
-            io::File::MustOpenOFStream( debug_out, "frag." + util::Format()( frag_i) + ".sdf", std::ios::app);
-            new_frag.WriteMDL( debug_out);
-            io::File::CloseClearFStream( debug_out);
           }
-          BCL_MessageStd( "J");
         }
-        BCL_MessageStd( "K");
-        BCL_Debug( new_molecules.GetSize());
 
         // for cleaning and optimizing the new molecule conformer
         FragmentMapConformer cleaner
@@ -308,40 +291,36 @@ namespace bcl
           m_BFactors,
           m_Corina
         );
-        BCL_MessageStd( "L");
 
         // satisfy minimize fragment size requirement
-        BCL_MessageStd( "M");
         new_molecules_i.Shuffle();
         AtomVector< AtomComplete> atoms;
         for( size_t i( 0), sz( new_molecules_i.GetSize()); i < sz; ++i)
         {
-          if( new_molecules( new_molecules_i( i)).GetSize() > 2)
+          if( new_molecules( new_molecules_i( i)).GetSize() > 2) // TODO make adjustable by user, but require > 1
           {
             atoms = new_molecules( new_molecules_i( i)).GetAtomVector();
             break;
           }
         }
-        BCL_MessageStd( "N");
+        if( !atoms.GetSize())
+        {
+          return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
+        }
 
         // Remove hydrogen atoms to allow bond type adjustment
-        BCL_Debug( atoms.GetSize());
         HydrogensHandler::Remove( atoms);
-        BCL_Debug( atoms.GetSize());
 
         // clean and output
         if( m_ScaffoldFragment.GetSize())
         {
-          BCL_MessageStd( "O");
           return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, m_ScaffoldFragment, m_DrugLikenessType), *this);
         }
         else
         {
-          BCL_MessageStd( "P");
           return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, FRAGMENT, m_DrugLikenessType), *this);
         }
       }
-      BCL_MessageStd( "Q");
       return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
     }
 
