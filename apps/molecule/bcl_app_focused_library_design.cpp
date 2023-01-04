@@ -184,6 +184,22 @@ namespace bcl
             bool                                                                                     m_Corina; // enables corina conformers during cleaning
             util::SiPtr< ThreadManager>                                                              m_ThreadManager; // Pointer to the thread manager, needed so Worker can be updated
 
+            void MCM( mc::Approximator< chemistry::FragmentComplete, double> &APPROXIMATOR)
+            {
+              // init
+              APPROXIMATOR.GetTracker().SetPhase( opti::e_Start);
+
+              // conduct approximation as long as the given termination criteria are not met
+              APPROXIMATOR.GetTracker().SetPhase( opti::e_Iteration);
+              while( APPROXIMATOR.CanContinue() && APPROXIMATOR.ShouldContinue())
+              {
+                APPROXIMATOR.Next();
+              }
+
+              // end
+              APPROXIMATOR.GetTracker().SetPhase( opti::e_End);
+            }
+
            // Builds and score the molecule
             void RunThread()
             {
@@ -219,8 +235,10 @@ namespace bcl
                   metropolis,
                   criterion_combine,
                   *m_StartFragment,
-                  m_OptiGoal
+                  m_OptiGoal,
+                  0.0 // on rejection, do not revert to best step with any probability
                 );
+//                approximator.Approximate();
 
                 // assume we start with druglike molecule
                 const auto current( approximator.GetTracker().GetCurrent()->First());
@@ -252,17 +270,13 @@ namespace bcl
 
                   // if the molecule is undefined then skip it
                   const util::ShPtr< storage::Pair< chemistry::FragmentComplete, double> > &current_mol( approximator.GetTracker().GetCurrent());
-                  BCL_Debug( approximator.GetTracker().GetCurrent().IsDefined());
-                  if( !current_mol->First().GetSize())
-                  {
-                    BCL_MessageStd( "Molecule undefined! Reverting molecule and skipping step!");
-                    approximator.GetTracker().SetCurrent( last_accepted);
-                    approximator.GetTracker().Update( opti::e_Skipped);
-                    continue;
-                  }
 
-                  // Check for undruglike properties of the current molecule
-                  if( approximator.GetTracker().GetStatusOfLastStep() == opti::e_Accepted || approximator.GetTracker().GetStatusOfLastStep() == opti::e_Improved)
+                  // Update last accepted and print properties
+                  if
+                  (
+                      approximator.GetTracker().GetStatusOfLastStep() == opti::e_Accepted ||
+                      approximator.GetTracker().GetStatusOfLastStep() == opti::e_Improved
+                  )
                   {
                     // output to log
                     if( approximator.GetTracker().GetStatusOfLastStep() == opti::e_Accepted)
@@ -297,33 +311,33 @@ namespace bcl
                     BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "FLD_Score: " + util::Format()( last_accepted->Second()));
+
+                    // save every accepted/improved step of MCM
+                    // hack - add this to approximator at some point
+                    if( m_SaveAllAcceptedImproved)
+                    {
+                      m_ThreadManager->m_Mutex.Lock();
+                      if( m_ThreadManager->GetNumberMoleculesBuilt() + 1 <= m_ThreadManager->GetNumberMoleculesToBuild())
+                      {
+                        // get best molecule and best score
+                        chemistry::FragmentComplete best_mol( last_accepted->First());
+                        linal::Vector< double> best_score( 1, last_accepted->Second());
+                        best_mol.StoreProperty( "FLD_Score", best_score);
+
+                        // save the final MCM molecule
+//                        if( m_ThreadManager->CheckUniqueConfiguration( best_mol))
+//                        {
+                          m_ThreadManager->AddMolecule( best_mol);
+//                          m_ThreadManager->IncreaseMoleculeBuiltCount(); // TODO add a flag so that we can control if these count toward build count
+//                        }
+                      }
+                      m_ThreadManager->m_Mutex.Unlock();
+                    }
                   }
                   else
                   {
                     BCL_MessageStd( "FLD_Score: " + util::Format()( current_mol->Second()));
                     BCL_MessageStd( "MCM Rejected");
-                  }
-
-                  // save every accepted/improved step of MCM
-                  // hack - add this to approximator at some point
-                  if( last_accepted.IsDefined() && m_SaveAllAcceptedImproved) // TODO note that if previous step rejected then this will add last accepted
-                  {
-                    m_ThreadManager->m_Mutex.Lock();
-                    if( m_ThreadManager->GetNumberMoleculesBuilt() + 1 <= m_ThreadManager->GetNumberMoleculesToBuild())
-                    {
-                      // get best molecule and best score
-                      chemistry::FragmentComplete best_mol( last_accepted->First());
-                      linal::Vector< double> best_score( 1, last_accepted->Second());
-                      best_mol.StoreProperty( "FLD_Score", best_score);
-
-                      // save the final MCM molecule
-                      if( m_ThreadManager->CheckUniqueConfiguration( best_mol))
-                      {
-                        m_ThreadManager->AddMolecule( best_mol);
-//                        m_ThreadManager->IncreaseMoleculeBuiltCount(); // TODO add a flag so that we can control if these count toward build count
-                      }
-                    }
-                    m_ThreadManager->m_Mutex.Unlock();
                   }
                 }
                 BCL_MessageStd( "MCM END");

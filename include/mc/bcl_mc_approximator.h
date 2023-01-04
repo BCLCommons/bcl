@@ -312,7 +312,8 @@ namespace bcl
         // let Metropolis determine the step status
         opti::StepStatus step_status
         (
-          m_Metropolis->Evaluate( this->GetTracker().GetBest()->Second(), sp_mutated_model->Second(), this->GetTracker())
+//          m_Metropolis->Evaluate( this->GetTracker().GetBest()->Second(), sp_mutated_model->Second(), this->GetTracker()) // legacy
+          m_Metropolis->Evaluate( this->GetTracker().GetCurrent()->Second(), sp_mutated_model->Second(), this->GetTracker()) // BPB temp mod
         );
 
         // form the mutate string
