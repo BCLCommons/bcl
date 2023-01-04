@@ -212,10 +212,7 @@ namespace bcl
       )
       {
         // calculate the delta between two arguments
-        BCL_Debug( CURRENT_RESULT);
-        BCL_Debug( PREVIOUS_RESULT);
         double delta( CURRENT_RESULT - PREVIOUS_RESULT);
-        BCL_Debug( delta);
 
         // consider if opti is toward maximum
         if( TRACKER.GetImprovementType() == opti::e_LargerIsBetter)
