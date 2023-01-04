@@ -278,6 +278,7 @@ namespace bcl
         graph::ConstGraph< size_t, size_t> second_mol_graph( graph_maker( second_molecule));
 
         BCL_MessageStd( "D");
+
         // Break a random single bond in each molecule and retrieve the fragments
         storage::List< storage::Vector< size_t> > first_mol_frags
         (
@@ -287,6 +288,7 @@ namespace bcl
           )
         );
 
+        // TODO refactor to allow ring combinations
         storage::List< storage::Vector< size_t> > second_mol_frags
         (
           FragmentEvolveBase::FragmentsFromRandomBondBreakage
