@@ -310,7 +310,8 @@ namespace bcl
 
         // clean and output
         iterate::Generic< const FragmentComplete> random_mol( new_molecules.Begin(), new_molecules.End());
-        random_mol.GotoRandomPosition();
+//        random_mol.GotoRandomPosition();
+        random_mol.RandomlyPickElementThatSatisfies( random_mol->GetSize() > size_t( 2));
         BCL_MessageStd( "M");
         AtomVector< AtomComplete> atoms( random_mol->GetAtomVector());
         BCL_MessageStd( "N");
