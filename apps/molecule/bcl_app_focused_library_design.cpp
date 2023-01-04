@@ -344,7 +344,7 @@ namespace bcl
                 BCL_MessageStd( "MCM END");
 
                 // save molecules to output, lock it down with a mutex
-                if( last_accepted.IsDefined())
+                if( /* last_accepted.IsDefined() */ approximator.GetTracker().GetBest().IsDefined())
                 {
                   m_ThreadManager->m_Mutex.Lock();
                   if( m_ThreadManager->GetNumberMoleculesBuilt() + 1 <= m_ThreadManager->GetNumberMoleculesToBuild())
@@ -383,9 +383,29 @@ namespace bcl
                     );
 
                     // get best molecule and best score
-                    chemistry::FragmentComplete best_mol( last_accepted->First());
-                    linal::Vector< double> best_score( 1, last_accepted->Second());
+                    chemistry::FragmentComplete best_mol( approximator.GetTracker().GetBest()->First()); // used to be last_accepted
+                    linal::Vector< double> best_score( 1, approximator.GetTracker().GetBest()->Second()); // used to be last_accepted
                     best_mol.StoreProperty( "FLD_Score", best_score);
+
+                    BCL_MessageStd( "Properties of the best molecule: ");
+                    BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd(
+                      "# of HBondAcceptors + HBondDonors: " +
+                      util::Format()(
+                        descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( best_mol)( 0)
+                        + descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( best_mol)( 0)
+                      )
+                    );
+                    BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( m_TotalBondEnergy( best_mol)( 3)));
+                    BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "# of Cl: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "# of Br: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsBr->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "# of I: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsI->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "FLD_Score: " + util::Format()( best_score));
 
                     // save the final MCM molecule
                     if( m_ThreadManager->CheckUniqueConfiguration( best_mol))
