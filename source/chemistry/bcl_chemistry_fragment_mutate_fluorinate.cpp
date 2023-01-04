@@ -241,12 +241,6 @@ namespace bcl
         {
           // pick an atom
           util::SiPtr< const AtomConformationalInterface> picked_atom;
-          BCL_Debug( m_MutableAtomIndices.GetSize());
-          BCL_Debug( m_MutableElements.GetSize());
-          BCL_Debug( m_MutableFragments.GetSize());
-          BCL_Debug( m_MutableAtomIndices);
-          BCL_Debug( m_MutableElements);
-          BCL_Debug( m_MutableFragments);
           if( m_MutableAtomIndices.GetSize() || m_MutableElements.GetSize() || m_MutableFragments.GetSize())
           {
             BCL_MessageStd( "D");
