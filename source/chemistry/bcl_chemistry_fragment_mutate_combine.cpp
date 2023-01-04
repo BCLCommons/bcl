@@ -247,6 +247,7 @@ namespace bcl
       size_t try_index( 0);
       for( ; try_index < m_NumberMaxAttempts; ++try_index)
       {
+        BCL_MessageStd( "A");
         // select random medchem fragment
         iterate::Generic< const FragmentComplete> itr_gen( m_FragmentPool->Begin(), m_FragmentPool->End());
         itr_gen.GotoRandomPosition();
@@ -254,8 +255,10 @@ namespace bcl
 
         if( !FRAGMENT.GetNumberAtoms() || !medchem_frag.GetNumberAtoms())
         {
+          BCL_MessageStd( "B");
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
+        BCL_MessageStd( "C");
 
         // Remove hydrogens
         // TODO modernize valence handling so that we can track atoms
@@ -274,6 +277,7 @@ namespace bcl
         graph::ConstGraph< size_t, size_t> first_mol_graph( graph_maker( first_molecule));
         graph::ConstGraph< size_t, size_t> second_mol_graph( graph_maker( second_molecule));
 
+        BCL_MessageStd( "D");
         // Break a random single bond in each molecule and retrieve the fragments
         storage::List< storage::Vector< size_t> > first_mol_frags
         (
@@ -290,6 +294,7 @@ namespace bcl
             second_molecule, second_mol_graph
           )
         );
+        BCL_MessageStd( "E");
 
         size_t first_mol_frags_size( first_mol_frags.GetSize());
         size_t second_mol_frags_size( second_mol_frags.GetSize());
@@ -297,13 +302,15 @@ namespace bcl
         // there should be only two fragments from each molecule, otherwise combining pieces is senseless
         if( first_mol_frags_size != 2 || second_mol_frags_size != 2)
         {
-          BCL_MessageVrb
+          BCL_MessageStd
           (
             "First mol had " + util::Format()( first_mol_frags_size) + " fragments, second had "
             + util::Format()( second_mol_frags_size)
           );
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
+
+        BCL_MessageStd( "F");
 
         // If everything succeeded, make atom graphs of the molecules
         ConformationGraphConverter::t_AtomGraph first_mol_atom_graph( graph_maker.CreateGraphWithAtoms( first_molecule));
@@ -319,24 +326,27 @@ namespace bcl
         ///////////////
         // Determine which bond was broken in each molecule
         ///////////////
-
+        BCL_MessageStd( "G");
         graph::Subgraph< size_t, size_t> first_subgraph( optr_first_graph, *first_mol_frags.Begin());
         storage::List< storage::Pair< size_t, size_t> > first_adj_edges( first_subgraph.GetAdjacentEdgeIndices());
         if( first_adj_edges.GetSize() != 1)
         {
+          BCL_MessageStd( "H");
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
         storage::Pair< size_t, size_t> &first_broken_bond( *first_adj_edges.Begin());
-
+        BCL_MessageStd( "I");
         graph::Subgraph< size_t, size_t> second_subgraph( optr_second_graph, *second_mol_frags.Begin());
         storage::List< storage::Pair< size_t, size_t> > second_adj_edges( second_subgraph.GetAdjacentEdgeIndices());
         if( second_adj_edges.GetSize() != 1)
         {
+          BCL_MessageStd( "J");
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
         storage::Pair< size_t, size_t> &second_broken_bond( *second_adj_edges.Begin());
 
         // Combine each fragment with each other fragment
+        BCL_MessageStd( "K");
         for
         (
           storage::List< storage::Vector< size_t> >::const_iterator itr_first_frag( first_mol_frags.Begin()),
@@ -434,10 +444,12 @@ namespace bcl
             }
           }
         }
+        BCL_MessageStd( "L");
 
         // exit if nothing
         if( !new_molecules.GetSize())
         {
+          BCL_MessageStd( "M");
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
 
@@ -461,15 +473,20 @@ namespace bcl
 
         // Remove hydrogen atoms to allow bond type adjustment
         HydrogensHandler::Remove( atoms);
+        BCL_MessageStd( "N");
         if( m_ScaffoldFragment.GetSize())
         {
+          BCL_MessageStd( "O");
           return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, m_ScaffoldFragment, m_DrugLikenessType), *this);
         }
         else
         {
+          BCL_MessageStd( "P");
           return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, FRAGMENT, m_DrugLikenessType), *this);
         }
+        BCL_MessageStd( "LOOP");
       }
+      BCL_MessageStd( "Q");
       return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
     }
 
