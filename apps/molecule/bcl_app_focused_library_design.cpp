@@ -681,7 +681,11 @@ namespace bcl
                 ewl.SetExtendWithinProb( 0.0);
                 ewl.SetRingLinkProb( 200000000);
                 ewl.SetAmideLinkProb( 500000000);
+                ewl.SetEsterLinkProb( 50000000);
                 ewl.SetDirectLinkProb( 100000000);
+                ewl.SetSingleElementLinkProb( 100000000);
+                ewl.SetNProb( 100000000);
+                ewl.SetOProb( 10000000);
                 mutater->AddMutate( ewl, m_ExtendWithLinkerProb);
                 mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AddMedChemProb);
                 mutater->AddMutate( chemistry::FragmentMutateCombine( COMBINE_POOL, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_CombineProb);
