@@ -237,8 +237,10 @@ namespace bcl
                   criterion_combine,
                   *m_StartFragment,
                   m_OptiGoal,
-                  0.0,          // on rejection, do not revert to best step with any probability
-                  false         // compare to most recently accepted for Metropolis delta, not the best so far
+//                  0.0,          // on rejection, do not revert to best step with any probability
+//                  false         // compare to most recently accepted for Metropolis delta, not the best so far
+                  1.0,          // on rejection, do not revert to best step with any probability
+                  true         // compare to most recently accepted for Metropolis delta, not the best so far
                 );
 //                approximator.Approximate();
                 approximator.GetTracker().SetPhase( opti::e_Start);
@@ -674,7 +676,10 @@ namespace bcl
                 mutater->AddMutate( chemistry::FragmentMutateRemoveAtom( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveAtomProb);
                 mutater->AddMutate( chemistry::FragmentMutateRemoveFragment( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveFragmentProb);
                 mutater->AddMutate( chemistry::FragmentMutateRemoveBond( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveBondProb);
-                mutater->AddMutate( chemistry::FragmentMutateExtendWithLinker( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_ExtendWithLinkerProb);
+                chemistry::FragmentMutateExtendWithLinker ewl( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS);
+                ewl.SetExtendWithinProb( 0.0);
+                ewl.SetRingLinkProb( 100000000);
+                mutater->AddMutate( ewl, m_ExtendWithLinkerProb);
                 mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AddMedChemProb);
                 mutater->AddMutate( chemistry::FragmentMutateCombine( COMBINE_POOL, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_CombineProb);
                 mutater->AddMutate( chemistry::FragmentMutateFluorinate( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS, true), m_FluorinateProb);
