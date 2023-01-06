@@ -679,7 +679,9 @@ namespace bcl
                 mutater->AddMutate( chemistry::FragmentMutateRemoveBond( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveBondProb);
                 chemistry::FragmentMutateExtendWithLinker ewl( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS);
                 ewl.SetExtendWithinProb( 0.0);
-                ewl.SetRingLinkProb( 100000000);
+                ewl.SetRingLinkProb( 200000000);
+                ewl.SetAmideLinkProb( 500000000);
+                ewl.SetDirectLinkProb( 100000000);
                 mutater->AddMutate( ewl, m_ExtendWithLinkerProb);
                 mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AddMedChemProb);
                 mutater->AddMutate( chemistry::FragmentMutateCombine( COMBINE_POOL, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_CombineProb);
