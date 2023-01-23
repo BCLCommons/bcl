@@ -1,2 +1,0 @@
-bcl::util::ObjectDataLabel
-  Combine(AASeqID,ReflectingWindow(size=1,AASeqID),Constant(1))

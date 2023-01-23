@@ -1,2 +1,0 @@
-bcl::descriptor::MoleculeShapeMoments
-  ShapeMoments(anchor=Abs(Atom_SigmaCharge),weighting=Abs(Atom_SigmaCharge))

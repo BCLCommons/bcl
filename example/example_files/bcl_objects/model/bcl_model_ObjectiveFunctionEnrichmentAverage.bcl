@@ -1,2 +1,0 @@
-bcl::model::ObjectiveFunctionEnrichmentAverage
-  EnrichmentAverage(cutoff=0,enrichment max=0,step size=0,parity=1)

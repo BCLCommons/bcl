@@ -1,5 +1,0 @@
-bcl::coord::LineSegment3D
-  bcl::linal::Vector3D
-    0	0	0
-  bcl::linal::Vector3D
-    5	0	0

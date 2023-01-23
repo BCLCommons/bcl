@@ -1,6 +1,0 @@
-bcl::storage::MultiSet<size_t,std::less<size_t>>
-  4
-  1
-  2
-  42
-  42

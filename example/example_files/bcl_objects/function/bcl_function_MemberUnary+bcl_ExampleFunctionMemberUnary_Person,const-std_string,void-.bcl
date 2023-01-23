@@ -1,1 +1,0 @@
-bcl::function::MemberUnary<bcl::ExampleFunctionMemberUnary::Person,const-std::string,void>

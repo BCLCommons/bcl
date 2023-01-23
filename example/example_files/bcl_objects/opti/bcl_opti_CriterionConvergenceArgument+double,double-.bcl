@@ -1,2 +1,0 @@
-bcl::opti::CriterionConvergenceArgument<double,double>
-  ConvergenceArgument(repeats=3,tolerance=0.25,current repetitions=4,last argument=1.1)

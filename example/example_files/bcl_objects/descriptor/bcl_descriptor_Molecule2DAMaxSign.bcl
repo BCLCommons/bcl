@@ -1,2 +1,0 @@
-bcl::descriptor::Molecule2DAMaxSign
-  2DAMaxSign(property=Atom_SigmaCharge,steps=12)

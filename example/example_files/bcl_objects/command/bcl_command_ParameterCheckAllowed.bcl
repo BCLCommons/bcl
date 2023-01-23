@@ -1,6 +1,0 @@
-bcl::command::ParameterCheckAllowed
-  bcl::storage::Vector<std::string>
-    3
-    "dog"
-    "cat"
-    "horse"

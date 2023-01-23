@@ -1,2 +1,0 @@
-bcl::math::MutateMoveWrapper<bcl::assemble::ProteinModel>
-  MutateMoveWrapper(move interface=MoveTranslateDefined(translation(1,2,3),internal=0),hardcopy=1)

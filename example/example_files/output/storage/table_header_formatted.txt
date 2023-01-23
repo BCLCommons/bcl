@@ -1,3 +1,0 @@
-     score       rmsd    rmsd100 
-          score            rmsd         rmsd100 
-               score                 rmsd              rmsd100 

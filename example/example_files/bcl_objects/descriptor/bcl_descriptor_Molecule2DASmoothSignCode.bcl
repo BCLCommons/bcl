@@ -1,2 +1,0 @@
-bcl::descriptor::Molecule2DASmoothSignCode
-  2DASign(property=Atom_SigmaCharge,steps=12)

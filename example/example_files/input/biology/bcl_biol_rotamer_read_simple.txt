@@ -1,3 +1,0 @@
-bcl::biol::Rotamer
-      e_Two      90      degree
-      e_Four      45      degree

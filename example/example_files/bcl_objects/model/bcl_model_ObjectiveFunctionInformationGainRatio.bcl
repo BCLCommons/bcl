@@ -1,2 +1,0 @@
-bcl::model::ObjectiveFunctionInformationGainRatio
-  InformationGainRatio(measure="",cutoff=0,parity=1)

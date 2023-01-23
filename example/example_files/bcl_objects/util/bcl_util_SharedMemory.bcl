@@ -1,4 +1,0 @@
-bcl::util::SharedMemory
-  "bcl_example"
-  128
-  Attached

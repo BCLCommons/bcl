@@ -1,2 +1,0 @@
-bcl::score::AAPairClash
-  AAPairClash(sigmoid width=1,histogram file name=aa_distances_0.05.histograms)

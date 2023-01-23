@@ -1,2 +1,0 @@
-bcl::score::RestraintAtomAttraction
-  atom_attraction(start angstroms=-12.25,end angstroms=2.75,start score=0,end score=-1)

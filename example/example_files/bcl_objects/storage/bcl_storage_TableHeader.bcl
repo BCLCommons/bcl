@@ -1,5 +1,0 @@
-bcl::storage::TableHeader
-  3
-  "score"
-  "rmsd"
-  "rmsd100"

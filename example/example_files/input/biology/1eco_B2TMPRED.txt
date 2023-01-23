@@ -1,2 +1,0 @@
-# manually edited file, no TM strands predicted
-soluble 1 122
