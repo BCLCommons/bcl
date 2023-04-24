@@ -58,7 +58,6 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_element_structure_factor.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_element_type_data.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_element_types.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_fragment_alchemy.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_fragment_complete.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_fragment_configuration_shared.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_fragment_conformation_shared.cpp
