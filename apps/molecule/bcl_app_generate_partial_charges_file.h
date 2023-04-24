@@ -12,8 +12,8 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_APP_GENERATE_ROSETTA_NCAA_INSTRUCTIONS_H_
-#define BCL_APP_GENERATE_ROSETTA_NCAA_INSTRUCTIONS_H_
+#ifndef BCL_APP_GENERATE_PARTIAL_CHARGES_FILE_H_
+#define BCL_APP_GENERATE_PARTIAL_CHARGES_FILE_H_
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
 #include "app/bcl_app.h"
 #include "app/bcl_app_interface.h"
@@ -33,15 +33,16 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class GenerateRosettaNCAAInstructions
-    //! @brief Prepare instructions file for generating non-canonical amino acids in Rosetta
+    //! @class GeneratePartialChargesFile
+    //! @brief Compute atomic partial charges for molecules and format the output for use
+    //! with Rosetta's molecule_to_params scripts.
     //!
-    //! @author brownbp1, vuot2
-    //! @date 09/09/2020
+    //! @author brownbp1
+    //! @date 04/23/2023
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class GenerateRosettaNCAAInstructions :
+    class GeneratePartialChargesFile :
       public InterfaceRelease
     {
 
@@ -51,32 +52,11 @@ namespace bcl
     // data //
     //////////
 
-      //! to append functional groups to backbones
-      mutable chemistry::FragmentMutateAddMedChem m_AddMedChem;
-
       //! flag that specifies the output filename
-      util::ShPtr< command::FlagInterface> m_OutputPrefixFlag;
-
-      //! flag that specifies whether
-      util::ShPtr< command::FlagInterface> m_Generate3DFlag;
-
-      //! flag that sets sidechain sample by parts
-      util::ShPtr< command::FlagInterface> m_SideChainSampleBypartsFlag;
-
-      //! flag to add extra properties
-      util::ShPtr< command::FlagInterface> m_ExtraPropertiesFlag;
-
-      //! flag to specify chirality
-      util::ShPtr< command::FlagInterface> m_ChiralityFlag;
-
-      //! flag to specify output partial charge files
-      util::ShPtr< command::FlagInterface> m_GeneratePartialChargeFileFlag;
+      util::ShPtr< command::FlagInterface> m_OutputFlag;
 
       //! flag to specify the partial charge types
       util::ShPtr< command::FlagInterface> m_PartialChargeTypeFlag;
-
-      //! flag to specify indices of CA and Chi 1 atoms
-      util::ShPtr< command::FlagInterface> m_CaAndChi1IndicesFlag;
 
       //! charge types for atomic charge assignment
       enum PartialChargeType
@@ -88,6 +68,8 @@ namespace bcl
         e_VCharge2 = 4,           //!< VeraChem partial charges with correction
         s_NumberPartialChargeTypes
       };
+
+      //! partial charge type
       mutable PartialChargeType m_PartialChargeType = e_TotalCharge; // default to TotalCharge for backwards-compatibility
 
     ///////////////////////////////////
@@ -95,15 +77,15 @@ namespace bcl
     ///////////////////////////////////
 
       //! @brief Default constructor
-      GenerateRosettaNCAAInstructions();
+      GeneratePartialChargesFile();
 
     public:
 
       //! @brief Clone function
-      //! @return pointer to new GenerateRosettaNCAAInstructions
-      GenerateRosettaNCAAInstructions *Clone() const
+      //! @return pointer to new GeneratePartialChargesFile
+      GeneratePartialChargesFile *Clone() const
       {
-        return new GenerateRosettaNCAAInstructions( *this);
+        return new GeneratePartialChargesFile( *this);
       }
 
     /////////////////
@@ -132,69 +114,6 @@ namespace bcl
       //! @brief the Main function
       //! @return 0 for success
       int Main() const;
-
-      //! @brief load neutral glycine residue from library
-      //! @return the neutral glycine as the ncaa base
-      const storage::Pair< bool, chemistry::FragmentComplete> ReadNCAABase() const;
-
-      //! @brief load neutral glycine dipeptide from library as backbone for alpha AA
-      //! @return the neutral glycine dipeptide as the ncaa base
-      const storage::Triplet< bool, size_t, chemistry::FragmentComplete> ReadDipeptideBackbone
-      (
-        const std::string &BACKBONE_TYPE
-      ) const;
-
-      //! @brief return the chi1 atom indices
-      //! @param NCAA: the atom vector of NCAA
-      //! @param C_INDEX: the index of backbone C atom
-      //! @param N_INDEX: the index of the backbone N atom
-      //! @return the chi1 atom index
-      const size_t FindChi1Index
-      (
-        const chemistry::AtomVector< chemistry::AtomComplete> &NCAA,
-        const size_t &CA_INDEX,
-        const size_t &C_INDEX,
-        const size_t &N_INDEX
-      ) const;
-
-      //! @brief return the correct type of NCAA backbone (so this can be added to the instruction file) later
-      //! @param NCAA: the atom vector of NCAA
-      //! @param C_INDEX: the index of backbone C atom
-      //! @param N_INDEX: the index of the backbone N atom
-      //! @param CHI1_INDEX: the index of the chi1 angle atom
-      const std::string FindCAChirarity
-      (
-        const chemistry::AtomVector< chemistry::AtomComplete> &NCAA,
-        const size_t &CA_INDEX,
-        const size_t &C_INDEX,
-        const size_t &N_INDEX,
-        const size_t &CHI1_INDEX
-      ) const;
-
-      //! @brief write the final Rosetta instructions file
-      const std::string WriteRosettaInstructions
-      (
-        const size_t &NTER_INDEX,
-        const size_t &CA_INDEX,
-        const size_t &C_INDEX,
-        const size_t &O_INDEX,
-        const size_t &CHI1_INDEX,
-        const storage::Vector< size_t> &IGNORE_INDICES,
-        const size_t &UPPER_N_INDEX,
-        const size_t &LOWER_C_INDEX,
-        const float &FORMAL_CHARGE,
-        const std::string &PROPERTIES
-      ) const;
-
-      //! @brief output the final property list for the SIDECHAIN of NCAA
-      const std::string GetSidechainPropertiesList
-      (
-        const float &FORMAL_CHARGE,
-        const size_t &RING_NUM,
-        const size_t &AROMATIC_NUM,
-        const std::string &CA_CHIRARITY,
-        const storage::Vector< std::string> &EXTRAS
-      ) const;
 
       //! @brief Compute partial charges of MOL
       //! @param MOL the molecule for which atomic partial charges will be computed
@@ -241,12 +160,12 @@ namespace bcl
 
     private:
 
-      // Static instance of GenerateRosettaNCAAInstructions
-      static const ApplicationType GenerateRosettaNCAAInstructions_Instance;
+      // Static instance of GeneratePartialChargesFile
+      static const ApplicationType GeneratePartialChargesFile_Instance;
 
-    }; // class GenerateRosettaNCAAInstructions
+    }; // class GeneratePartialChargesFile
 
   } // namespace app
 } // namespace bcl
 
-#endif // BCL_APP_GENERATE_ROSETTA_NCAA_INSTRUCTIONS_H_
+#endif // BCL_APP_GENERATE_PARTIAL_CHARGES_FILE_H_
