@@ -163,6 +163,8 @@ namespace bcl
       CheminfoProperty calc_MolHbondDonor;                 //!< number of hydrogen bond donors
       CheminfoProperty calc_LogP;                          //!< fast log p estimate
       CheminfoProperty calc_LogP2008;                      //!< fast log p estimate, revision over LogP
+      CheminfoProperty calc_XpKaAcid;                      //!< multi-tasking DNN prediction for pKa trained on acids
+      CheminfoProperty calc_XpKaBase;                      //!< multitasking DNN prediction for pKa trained on bases
       CheminfoProperty calc_XLogP;                         //!< multi-tasking DNN prediction for LogP
       CheminfoProperty calc_NAtoms;                        //!< number of atoms
       CheminfoProperty calc_NHeavyAtoms;                   //!< number of heavy atoms

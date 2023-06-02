@@ -63,6 +63,7 @@ BCL_StaticInitializationFiascoFinder
 #include "descriptor/bcl_descriptor_molecule_total_bond_energy.h"
 #include "descriptor/bcl_descriptor_molecule_vdw_score.h"
 #include "descriptor/bcl_descriptor_molecule_xlog_p.h"
+#include "descriptor/bcl_descriptor_molecule_xpka.h"
 #include "descriptor/bcl_descriptor_named.h"
 #include "descriptor/bcl_descriptor_protein_ligand_correlation_dnn.h"
 #include "descriptor/bcl_descriptor_sequence_size.h"
@@ -595,6 +596,8 @@ namespace bcl
       calc_LogP( AddEnum( new MoleculeLogP())),
       calc_LogP2008( AddEnum( new MoleculeLogP2008())),
       calc_XLogP( AddEnum( new MoleculeXLogP)),
+      calc_XpKaAcid( AddEnum( new MoleculeXpKa( true))),
+      calc_XpKaBase( AddEnum( new MoleculeXpKa( false))),
       calc_NAtoms
       (
         AddEnum

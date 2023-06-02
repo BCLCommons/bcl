@@ -14,12 +14,12 @@ set NUMBER_JOBS = 8
 set PUMP_COMMAND
 set TIME_CMD
 
-# only use pump if distcc is available
-which distcc > &/dev/null
-if( $status == 0) then
-  set PUMP_COMMAND = pump
-  set NUMBER_JOBS = `distcc -j`
-endif
+## only use pump if distcc is available
+#which distcc > &/dev/null
+#if( $status == 0) then
+#  set PUMP_COMMAND = pump
+#  set NUMBER_JOBS = `distcc -j`
+#endif
 
 # use /usr/bin/time (usually gnu time) if possible
 /usr/bin/time -v ls > &/dev/null

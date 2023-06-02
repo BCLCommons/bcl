@@ -114,6 +114,7 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_total_bond_energy.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_triangulator_code.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_xlog_p.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_molecule_xpka.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_mutation_aa_property.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_named.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_descriptor_numeric.cpp

@@ -19,7 +19,9 @@
 
 // headers from bcl - sorted alphabetically
 #include "bcl_chemistry_conformation_graph_converter.h"
+#include "bcl_chemistry_element_types.h"
 #include "bcl_chemistry_fragment_ensemble.h"
+#include "chemistry/bcl_chemistry_possible_atom_types_for_atom.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "io/bcl_io_file.h"
 #include "io/bcl_io_serialization.h"
@@ -125,7 +127,8 @@ namespace bcl
         const FragmentComplete &MOLECULE,
         const bool &IGNORE_H = false,
         const bool &SPLIT_LARGEST = false, // false to be compatible with what Alex originally coded
-        storage::Vector< size_t> ATOM_INDICES = storage::Vector< size_t>()
+        storage::Vector< size_t> ATOM_INDICES = storage::Vector< size_t>(),
+        storage::Vector< ElementType> ELEMENTS = storage::Vector< ElementType>()
       ) const;
 
       //! @brief perturb a chemical structure by splitting out fragments and measure the score changes it makes to a model

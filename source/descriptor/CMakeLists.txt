@@ -149,6 +149,7 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_molecule_triangulator_code.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_molecule_vdw_score.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_molecule_xlog_p.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_molecule_xpka.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_mutation_aa_density.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_mutation_aa_property.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_mutation_density.cpp

@@ -150,6 +150,7 @@ namespace bcl
     class MoleculeTriangulatorCode;
     class MoleculeVdwScore;
     class MoleculeXLogP;
+    class MoleculeXpKa;
     class MutationAADensity;
     class MutationAAProperty;
     class MutationDensity;

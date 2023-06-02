@@ -13,12 +13,6 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
-#include "chemistry/bcl_chemistry_configurational_bond_type_data.h"
-#include "chemistry/bcl_chemistry_conformation_graph_converter.h"
-#include "chemistry/bcl_chemistry_fragment_split_interface.h"
-#include "command/bcl_command_parameter_check_allowed.h"
-#include "command/bcl_command_parameter_check_ranged.h"
-#include "util/bcl_util_implementation.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
@@ -26,17 +20,25 @@ BCL_StaticInitializationFiascoFinder
 #include "app/bcl_app_apps.h"
 
 // include header for this application
+#include "chemistry/bcl_chemistry_configurational_bond_type_data.h"
+#include "chemistry/bcl_chemistry_conformation_graph_converter.h"
+#include "chemistry/bcl_chemistry_fragment_split_interface.h"
 #include "chemistry/bcl_chemistry_fragment_ensemble.h"
 #include "chemistry/bcl_chemistry_fragment_feed.h"
 #include "chemistry/bcl_chemistry_molecule_feature_mapper.h"
 #include "command/bcl_command_app_default_flags.h"
 #include "command/bcl_command_flag_dynamic.h"
 #include "command/bcl_command_flag_static.h"
+#include "command/bcl_command_parameter_check_allowed.h"
+#include "command/bcl_command_parameter_check_default.h"
 #include "command/bcl_command_parameter_check_file_existence.h"
+#include "command/bcl_command_parameter_check_ranged.h"
 #include "command/bcl_command_parameter_check_serializable.h"
 #include "io/bcl_io_file.h"
 #include "molecule/bcl_app_molecule_features.h"
+#include "util/bcl_util_implementation.h"
 #include "util/bcl_util_sh_ptr.h"
+
 
 namespace bcl
 {
@@ -82,6 +84,7 @@ namespace bcl
       sp_cmd->AddFlag( m_ReferenceFlag);
       sp_cmd->AddFlag( m_MutuallyMatchingAtomsFlag);
       sp_cmd->AddFlag( m_ScorerFlag);
+      sp_cmd->AddFlag( m_ElementPerturberFlag);
       sp_cmd->AddFlag( m_OutputFilenameFlag);
       sp_cmd->AddFlag( m_IgnoreHFlag);
       sp_cmd->AddFlag( m_NormalizeFlag);
@@ -174,11 +177,24 @@ namespace bcl
         std::vector< std::map< size_t, float> > result;
         if( m_PerturbTypeFlag->GetFirstParameter()->GetValue() == "Atoms")
         {
+          // check if there are elements that are passed for perturbation
+          storage::Set< chemistry::ElementType> elements_to_perturb;
+          if( m_ElementPerturberFlag->GetFlag())
+          {
+            storage::Vector< std::string> ele_strings( m_ElementPerturberFlag->GetStringList());
+            for( auto ele_itr( ele_strings.Begin()), ele_itr_end( ele_strings.End()); ele_itr != ele_itr_end; ++ele_itr)
+            {
+              elements_to_perturb.InsertElement( chemistry::GetElementTypes().ElementTypeLookup( *ele_itr));
+            }
+          }
+
           result = mapper.Perturb
               (
                 *itr_mol,
                 m_IgnoreHFlag->GetFlag(),
-                m_SplitLargestFlag->GetFlag()
+                m_SplitLargestFlag->GetFlag(),
+                storage::Vector< size_t>(),
+                storage::Vector< chemistry::ElementType>( elements_to_perturb.Begin(), elements_to_perturb.End())
               );
         }
         else if( m_PerturbTypeFlag->GetFirstParameter()->GetValue() == "Molecules" && m_ScoreDistributionTypeFlag->GetFirstParameter()->GetValue() == "Naive")
@@ -353,6 +369,21 @@ namespace bcl
             (
               descriptor::CheminfoProperty()
             )
+          )
+        )
+      ),
+      m_ElementPerturberFlag
+      (
+        new command::FlagDynamic
+        (
+          "perturb_element_types",
+          "sequentially mutate each atom only if it is of one of the specified element types.",
+          command::Parameter
+          (
+            "element",
+            "if provided, will use element list to focus per-atom feature contribution calculations",
+            command::ParameterCheckDefault(),
+            ""
           )
         )
       ),

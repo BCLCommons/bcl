@@ -30,6 +30,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_fragment_split_largest_component.h"
 #include "chemistry/bcl_chemistry_fragment_split_rings.h"
 #include "chemistry/bcl_chemistry_molecule_feature_mapper.h"
+#include "chemistry/bcl_chemistry_possible_atom_types_for_atom.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "graph/bcl_graph_connectivity.h"
 #include "graph/bcl_graph_subgraph.h"
@@ -38,6 +39,7 @@ BCL_StaticInitializationFiascoFinder
 #include "io/bcl_io_file.h"
 #include "io/bcl_io_ofstream.h"
 #include "math/bcl_math_running_average.h"
+#include "math/bcl_math.h"
 #include "sched/bcl_sched_scheduler_interface.h"
 #include "sched/bcl_sched_thunk_job.h"
 #include "util/bcl_util_sh_ptr_vector.h"
@@ -127,55 +129,281 @@ namespace bcl
           const AtomVector< AtomComplete> &atom_vector( temp_parent.GetAtomVector());
           size_t orig_n_atoms( atom_vector.GetSize());
 
-          //for( size_t atom_index( 0); atom_index < orig_n_atoms; ++atom_index)
+//          //for( size_t atom_index( 0); atom_index < orig_n_atoms; ++atom_index)
+//          for( size_t index( m_StartIndex), max_index( m_PerturbAtoms.GetSize()); index < max_index; index += m_Stride)
+//          {
+//
+//            // useful if you do not care about contribution of hydrogen atoms to model score
+//            size_t atom_index( m_PerturbAtoms( index));
+//            if( m_IgnoreH && atom_vector( atom_index).GetAtomType()->GetElementType() == GetElementTypes().e_Hydrogen)
+//            {
+//              continue;
+//            }
+
+//            ////////// ATOM REMOVAL //////////
+//            storage::Vector< size_t> keep_atoms;
+//            keep_atoms.AllocateMemory( orig_n_atoms - 1);
+//            for( size_t i( 0); i < orig_n_atoms; ++i)
+//            {
+//              if( i != atom_index)
+//              {
+//                keep_atoms.PushBack( i);
+//              }
+//            }
+//
+//            // make new molecule with atom removed
+//            AtomVector< AtomComplete> trimmed_vector( atom_vector);
+//            trimmed_vector.Reorder( keep_atoms);
+//            FragmentComplete new_mol( trimmed_vector, "");
+//
+//            // clean molecule to remove small fragments caused by atom deletion
+//            FragmentComplete new_clean_mol;
+//            if( m_SplitLargest)
+//            {
+//              FragmentEnsemble largest_component( m_Splitter( new_mol));
+//              new_clean_mol = largest_component.GetMolecules().FirstElement();
+//            }
+//            else
+//            {
+//              new_clean_mol = new_mol;
+//            }
+
+//            // finalize
+//            new_clean_mol.SaturateWithH();
+//            m_Ensemble.PushBack( new_clean_mol);
+//            float score( m_Model->SumOverObject( new_clean_mol)( 0));
+//            BCL_MessageDbg( "Perturbed molecule score: " + util::Format()( score));
+//            float score_diff( parent_score - score);
+//            BCL_MessageDbg( "deltaScore: " + util::Format()( score_diff));
+//            m_LocalMap[ atom_index] = score_diff;
+
+
+//            ////////// SINGLE ATOM REPLACE //////////
           for( size_t index( m_StartIndex), max_index( m_PerturbAtoms.GetSize()); index < max_index; index += m_Stride)
           {
+
+            // useful if you do not care about contribution of hydrogen atoms to model score
             size_t atom_index( m_PerturbAtoms( index));
             if( m_IgnoreH && atom_vector( atom_index).GetAtomType()->GetElementType() == GetElementTypes().e_Hydrogen)
             {
               continue;
             }
 
-            storage::Vector< size_t> keep_atoms;
-            keep_atoms.AllocateMemory( orig_n_atoms - 1);
-            for( size_t i( 0); i < orig_n_atoms; ++i)
-            {
-              if( i != atom_index)
-              {
-                keep_atoms.PushBack( i);
-              }
-            }
+          util::SiPtr< const AtomConformationalInterface> selected_atom( temp_parent.GetAtomVector()( atom_index));
+          AtomType new_atom_type( selected_atom->GetAtomType());
 
-            // make new molecule with atom removed
-            AtomVector< AtomComplete> trimmed_vector( atom_vector);
-            trimmed_vector.Reorder( keep_atoms);
-            FragmentComplete new_mol( trimmed_vector, "");
+          // Get properties for replacement atom type
+          const ElementType carbon( GetElementTypes().e_Carbon);
+          bool selected_atom_aromatic( selected_atom->CountNonValenceBondsWithProperty(ConfigurationalBondTypeData::e_IsAromatic, 1));
+          size_t n_h( selected_atom->GetNumberCovalentlyBoundHydrogens());
+          size_t n_nonh_bonds( selected_atom->GetAtomType()->GetNumberBonds() - n_h);
+          for( size_t n_current_bonds( n_nonh_bonds); n_current_bonds <= 6; ++n_current_bonds)
+          {
+            size_t n_nonh_e( selected_atom->GetAtomType()->GetNumberElectronsInBonds() - n_h + ( n_current_bonds - n_nonh_bonds));
+            PossibleAtomTypesForAtom available_atom_types
+            (
+              carbon,
+              n_nonh_e,
+              n_current_bonds,
+              /*selected_atom->GetCharge()*/0,
+              selected_atom_aromatic
+            );
 
-            // clean molecule to remove small fragments caused by atom deletion
-            FragmentComplete new_clean_mol;
-            if( m_SplitLargest)
+            if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetMostStableType()->IsGasteigerAtomType())
             {
-              FragmentEnsemble largest_component( m_Splitter( new_mol));
-              new_clean_mol = largest_component.GetMolecules().FirstElement();
-            }
-            else
-            {
-              new_clean_mol = new_mol;
-            }
+//                    // Wanted to keep the charge of the replaced atom, but PossibleAtomTypesForAtom kept replacing with a carbocation, so I manually set charge to 0 above and commented this bit out.
+//                    if( available_atom_types.GetAlternateTypeWithCharge( selected_atom->GetCharge()).IsDefined())
+//                    {
+//                      new_atom_type = available_atom_types.GetAlternateTypeWithCharge( selected_atom->GetCharge());
 
-            // finalize
+//                      // Debugging:
+//                      BCL_MessageDbg("ALT_TYPE_W_CHARGE LOOP FOR ATOM INDEX " + util::Format()( atom_index) + " aka INDEX " + util::Format()( itr_i));
+//                      BCL_MessageDbg("SELECTED ATOM CHARGE: " + util::Format()( selected_atom->GetCharge()));
+
+//                      break;
+//                    }
+
+              new_atom_type = available_atom_types.GetMostStableType();
+
+//                    // Debugging:
+//                    BCL_MessageDbg("MOST_STABLE LOOP FOR ATOM INDEX " + util::Format()( atom_index) + " aka INDEX " + util::Format()( itr_i));
+//                    BCL_MessageDbg("SELECTED ATOM CHARGE: " + util::Format()( selected_atom->GetCharge()));
+              break;
+            }
+          }
+
+            // Replace selected atom
+            AtomVector< AtomComplete> atom_vector_C_mod( atom_vector);
+            atom_vector_C_mod( atom_index).SetAtomType( new_atom_type);
+//            atom_vector_C_mod( atom_index).SetCharge( 0.0);
+            FragmentComplete new_clean_mol( atom_vector_C_mod, "");
+            util::SiPtr< const AtomConformationalInterface> debug_atom( new_clean_mol.GetAtomVector()( atom_index));
+
+            // finalize for vector of outputs
             new_clean_mol.SaturateWithH();
             m_Ensemble.PushBack( new_clean_mol);
-            float score( m_Model->SumOverObject( new_clean_mol)( 0));
-            BCL_MessageDbg( "Perturbed molecule score: " + util::Format()( score));
-            //            float score_diff( score - parent_score);
-            float score_diff( parent_score - score);
-            BCL_MessageDbg( "deltaScore: " + util::Format()( score_diff));
-            m_LocalMap[ atom_index] = score_diff;
+
+            // Debugging...
+            io::OFStream perturb_out;
+            io::File::MustOpenOFStream( perturb_out, "mol_" + util::Format()( index) + ".sdf");
+            new_clean_mol.WriteMDL( perturb_out);
+            io::File::CloseClearFStream( perturb_out);
+
+
+            linal::Vector< float> parent_score_kl( m_Model->SumOverObject( temp_parent));
+            BCL_MessageDbg( "Parent molecule score distribution: " + util::Format()( parent_score_kl));
+
+            linal::Vector< float> score_kl( m_Model->SumOverObject( new_clean_mol));
+            BCL_MessageDbg( "Perturbed molecule score distribution: " + util::Format()( score_kl));
+
+            linal::Vector< float> kl_div_comps(parent_score_kl.GetSize());
+            for( size_t itr( 0); itr < parent_score_kl.GetSize(); ++itr)
+            {
+              kl_div_comps( itr) = parent_score_kl( itr) * log( parent_score_kl( itr) / score_kl( itr));
+            }
+            BCL_MessageDbg( "kl_div_comps: " + util::Format()( kl_div_comps));
+            float score_diff_kl( kl_div_comps.Sum());
+            BCL_MessageDbg( "deltaScoreKL: " + util::Format()( score_diff_kl));
+            m_LocalMap[ atom_index] = score_diff_kl;
           }
-        }
-      };
-    }
+
+//          ////////// POWER SET ATOM REPLACE //////////
+//          // Given an element type to remove, say N, this method replaces all subsets of N from a molecule (e.g., if 3 Ns present, 8 molecules generated: 000, 001, 010, ..., 111),
+//          // rescores each power-set molecule, then calculates each atom's average KL Divergence across all molecules from which that atom was removed (KL_avg) or
+//          // that atom's max KL Divergence across all molecules from which that atom was removed (KL_max)
+//
+//          // Get the parent distribution from the model.
+//          linal::Vector< float> parent_score_kl( m_Model->SumOverObject( temp_parent));
+//          BCL_MessageDbg( "Parent molecule score distribution: " + util::Format()( parent_score_kl));
+//
+//          int pow_set_size( pow( m_PerturbAtoms.GetSize(), 2));
+//          storage::Vector< float> KL_powset;                                // stores KL Divergence of model localPPV output of each power-set member from that of the parent
+//          AtomVector< AtomComplete> atom_vector_C_mod( atom_vector);
+//          AtomType new_atom_type;
+//          for( int itr_j = 0; itr_j < pow_set_size; ++itr_j)
+//          {
+//            // Replace relevant atoms for power set element j. E.g. 1101 --> replace elements 1, 2, and 4 from m_PerturbAtoms
+//            for( int itr_i = 0, itr_i_max = m_PerturbAtoms.GetSize(); itr_i < itr_i_max; ++itr_i)
+//            {
+//              if
+//              (
+//                  itr_j & ( 1 << itr_i)
+//              )
+//              {
+//                size_t atom_index( m_PerturbAtoms( itr_i));
+//
+//                // select ith atom from m_PerturbAtoms list
+//                util::SiPtr< const AtomConformationalInterface> selected_atom( temp_parent.GetAtomVector()( atom_index));    //this was changed from atom_index to itr_i. May need to fool around here.
+//                new_atom_type = selected_atom->GetAtomType();
+//
+//                // Get properties for replacement atom type
+//                const ElementType carbon( GetElementTypes().e_Carbon);
+//                bool selected_atom_aromatic( selected_atom->CountNonValenceBondsWithProperty(ConfigurationalBondTypeData::e_IsAromatic, 1));
+//                size_t n_h( selected_atom->GetNumberCovalentlyBoundHydrogens());
+//                size_t n_nonh_bonds( selected_atom->GetAtomType()->GetNumberBonds() - n_h);
+//                for( size_t n_current_bonds( n_nonh_bonds); n_current_bonds <= 6; ++n_current_bonds)
+//                {
+//                  size_t n_nonh_e( selected_atom->GetAtomType()->GetNumberElectronsInBonds() - n_h + ( n_current_bonds - n_nonh_bonds));
+//                  PossibleAtomTypesForAtom available_atom_types
+//                  (
+//                    carbon,
+//                    n_nonh_e,
+//                    n_current_bonds,
+//                    /*selected_atom->GetCharge()*/0,
+//                    selected_atom_aromatic
+//                  );
+//
+//                  if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetMostStableType()->IsGasteigerAtomType())
+//                  {
+////                    // Wanted to keep the charge of the replaced atom, but PossibleAtomTypesForAtom kept replacing with a carbocation, so I manually set charge to 0 above and commented this bit out.
+////                    if( available_atom_types.GetAlternateTypeWithCharge( selected_atom->GetCharge()).IsDefined())
+////                    {
+////                      new_atom_type = available_atom_types.GetAlternateTypeWithCharge( selected_atom->GetCharge());
+//
+////                      // Debugging:
+////                      BCL_MessageDbg("ALT_TYPE_W_CHARGE LOOP FOR ATOM INDEX " + util::Format()( atom_index) + " aka INDEX " + util::Format()( itr_i));
+////                      BCL_MessageDbg("SELECTED ATOM CHARGE: " + util::Format()( selected_atom->GetCharge()));
+//
+////                      break;
+////                    }
+//
+//                    new_atom_type = available_atom_types.GetMostStableType();
+//
+////                    // Debugging:
+////                    BCL_MessageDbg("MOST_STABLE LOOP FOR ATOM INDEX " + util::Format()( atom_index) + " aka INDEX " + util::Format()( itr_i));
+////                    BCL_MessageDbg("SELECTED ATOM CHARGE: " + util::Format()( selected_atom->GetCharge()));
+//                    break;
+//                  }
+//                }
+//
+//                // Replace selected atom
+//                BCL_MessageDbg("Setting new atom type to... " + util::Format()( new_atom_type));
+//                atom_vector_C_mod( atom_index).SetAtomType( new_atom_type);
+////                atom_vector_C_mod( atom_index).SetCharge( 0.0);
+//              } // if ith bit in j ==1, find and replace
+//            } // for loop over i's... new_mol_mod_j ready for scoring after this loop finishes
+//
+//            // Score edited molecule: Create FragmentComplete, score over that.
+//            FragmentComplete new_mol_mod_j( atom_vector_C_mod, "");
+//            new_mol_mod_j.SaturateWithH();
+//
+//            // Debugging...
+//            io::OFStream perturb_out;
+//            io::File::MustOpenOFStream( perturb_out, "mol_mod_" + util::Format()( itr_j) + ".sdf");
+//            new_mol_mod_j.WriteMDL( perturb_out);
+//            io::File::CloseClearFStream( perturb_out);
+//
+//            linal::Vector< float> score_kl( m_Model->SumOverObject( new_mol_mod_j));
+//            BCL_MessageDbg( "Perturbed molecule " + util::Format()( itr_j) + " score distribution: " + util::Format()( score_kl));
+//            linal::Vector< float> kl_div_comps(parent_score_kl.GetSize());
+//            for( size_t itr( 0); itr < parent_score_kl.GetSize(); ++itr)
+//            {
+//              kl_div_comps( itr) = parent_score_kl( itr) * log( parent_score_kl( itr) / score_kl( itr));
+//            }
+//            BCL_MessageDbg( "Perturbed molecule " + util::Format()( itr_j) + " kl_div_comps: " + util::Format()( kl_div_comps));
+//            float score_diff_kl( kl_div_comps.Sum());
+//            BCL_MessageDbg( "Perturbed molecule " + util::Format()( itr_j) + "deltaScoreKL: " + util::Format()( score_diff_kl));
+//            KL_powset.PushBack(score_diff_kl);
+//            atom_vector_C_mod = atom_vector;
+//          }
+//          BCL_MessageDbg("KL_powerset: " + util::Format()( KL_powset));
+//
+//          // per-atom SCORING: turn molecule-level KL Divergence into Atom_i score by considering KLs of molecules in which Atom_i was replaced
+//          // KL_max and KL_avg as defined above.
+//          // KL_max seems to work better, especially for large molecules.
+//          for( int itr_i = 0, itr_i_max = m_PerturbAtoms.GetSize(); itr_i < itr_i_max; ++itr_i)
+//          {
+//            storage::Vector< float> temp_vector;
+//            for (int itr_j = 0; itr_j < pow_set_size; ++itr_j)
+//            {
+//              if
+//              (
+//                  itr_j & (1 << itr_i)
+//              )
+//              {
+//                 temp_vector.PushBack( KL_powset( itr_j));
+//              }
+//            }
+//            BCL_MessageDbg("Perturbed Atom " + util::Format()( itr_i) + " KL_set: " + util::Format()( temp_vector));
+//            float temp_sum( 0);
+//            float temp_max( 0);
+//            for( size_t itr( 0), itr_max( temp_vector.GetSize()); itr < itr_max; ++itr)
+//            {
+//              temp_sum = temp_sum + temp_vector( itr);
+//              if( temp_max < temp_vector( itr))
+//              {
+//                temp_max = temp_vector( itr);
+//              }
+//            }
+//            float temp_avg( temp_sum / temp_vector.GetSize());
+//            BCL_MessageDbg("Perturbed Atom " + util::Format()( itr_i) + " KL_avg: " + util::Format()( temp_avg));
+//            BCL_MessageDbg("Perturbed Atom " + util::Format()( itr_i) + " KL_max: " + util::Format()( temp_max));
+//            size_t atom_index( m_PerturbAtoms( itr_i));
+//            m_LocalMap[ atom_index] = temp_avg; // temp_max or temp_avg
+//          }
+        } // RunThread
+      }; // Worker struct
+    } // namespace containing the FeatureMapInfo and Worker structs
 
     //! @return a vector containing score changes when translating (first) and removing (second) atoms in each molecule
     std::vector< std::map< size_t, float> > MoleculeFeatureMapper::Perturb
@@ -183,14 +411,32 @@ namespace bcl
       const FragmentComplete &MOLECULE,
       const bool &IGNORE_H,
       const bool &SPLIT_LARGEST,
-      storage::Vector< size_t> ATOM_INDICES
+      storage::Vector< size_t> ATOM_INDICES,
+      storage::Vector< ElementType> ELEMENTS
     ) const
     {
       BCL_Assert( m_Descriptor.IsDefined(), "MoleculeFeatureMapper::Perturb called before descriptor was set");
       const size_t &orig_n_atoms( MOLECULE.GetNumberAtoms());
 
-      // if the indices vector is empty, operate on all atoms
-      if( ATOM_INDICES.IsEmpty())
+      // for element atom index specification
+      if( ELEMENTS.GetSize())
+      {
+        for ( size_t atom_index( 0); atom_index < orig_n_atoms; ++atom_index)
+        {
+          // get the element type of the current atom
+          ElementType element_type( MOLECULE.GetAtomVector()( atom_index).GetElementType());
+
+          // check if that element type is in our allowed elements vector
+          size_t ele_index( ELEMENTS.Find( element_type));
+          if( ele_index < ELEMENTS.GetSize())
+          {
+            ATOM_INDICES.PushBack( atom_index);
+          }
+        }
+      }
+
+      // if the user has no specifications, use all atoms
+      else if( ATOM_INDICES.IsEmpty() && ELEMENTS.IsEmpty())
       {
         ATOM_INDICES.AllocateMemory( orig_n_atoms);
         for( size_t i( 0); i < orig_n_atoms; ++i)
@@ -198,6 +444,8 @@ namespace bcl
           ATOM_INDICES.PushBack( i);
         }
       }
+
+      // else we just use the input ATOM_INDICES
 
       // set up threads
       size_t n_threads( sched::GetNumberCPUs());

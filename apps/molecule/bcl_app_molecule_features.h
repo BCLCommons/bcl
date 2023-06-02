@@ -61,6 +61,9 @@ namespace bcl
       //! flag that takes the models to use for scoring
       util::ShPtr< command::FlagInterface> m_ScorerFlag;
 
+      //! flag that allows the user to specify element types to perturb
+      util::ShPtr< command::FlagInterface> m_ElementPerturberFlag;
+
       //! flag that specifies the output filename
       util::ShPtr< command::FlagInterface> m_OutputFilenameFlag;
 
