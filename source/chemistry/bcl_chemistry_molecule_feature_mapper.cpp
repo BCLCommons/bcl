@@ -17,6 +17,7 @@
 BCL_StaticInitializationFiascoFinder
 
 // includes from bcl - sorted alphabetically
+#include "chemistry/bcl_chemistry_atoms_complete_standardizer.h"
 #include "chemistry/bcl_chemistry_atom_conformational_interface.h"
 #include "chemistry/bcl_chemistry_bond_isometry_handler.h"
 #include "chemistry/bcl_chemistry_configuration_set.h"
@@ -31,6 +32,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_fragment_split_rings.h"
 #include "chemistry/bcl_chemistry_molecule_feature_mapper.h"
 #include "chemistry/bcl_chemistry_possible_atom_types_for_atom.h"
+#include "chemistry/bcl_chemistry_stereocenters_handler.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "graph/bcl_graph_connectivity.h"
 #include "graph/bcl_graph_subgraph.h"
@@ -191,45 +193,88 @@ namespace bcl
 
           util::SiPtr< const AtomConformationalInterface> selected_atom( temp_parent.GetAtomVector()( atom_index));
           AtomType new_atom_type( selected_atom->GetAtomType());
+          const double &selected_atom_charge( new_atom_type->GetFormalCharge());
 
           // Get properties for replacement atom type
           const ElementType carbon( GetElementTypes().e_Carbon);
-          bool selected_atom_aromatic( selected_atom->CountNonValenceBondsWithProperty(ConfigurationalBondTypeData::e_IsAromatic, 1));
+          bool selected_atom_aromatic( selected_atom->CountNonValenceBondsWithProperty( ConfigurationalBondTypeData::e_IsAromatic, 1));
           size_t n_h( selected_atom->GetNumberCovalentlyBoundHydrogens());
           size_t n_nonh_bonds( selected_atom->GetAtomType()->GetNumberBonds() - n_h);
           for( size_t n_current_bonds( n_nonh_bonds); n_current_bonds <= 6; ++n_current_bonds)
           {
             size_t n_nonh_e( selected_atom->GetAtomType()->GetNumberElectronsInBonds() - n_h + ( n_current_bonds - n_nonh_bonds));
+
+            // prefer no formal charge
             PossibleAtomTypesForAtom available_atom_types
             (
               carbon,
               n_nonh_e,
               n_current_bonds,
-              /*selected_atom->GetCharge()*/0,
+              0,
               selected_atom_aromatic
             );
 
             if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetMostStableType()->IsGasteigerAtomType())
             {
-//                    // Wanted to keep the charge of the replaced atom, but PossibleAtomTypesForAtom kept replacing with a carbocation, so I manually set charge to 0 above and commented this bit out.
-//                    if( available_atom_types.GetAlternateTypeWithCharge( selected_atom->GetCharge()).IsDefined())
-//                    {
-//                      new_atom_type = available_atom_types.GetAlternateTypeWithCharge( selected_atom->GetCharge());
-
-//                      // Debugging:
-//                      BCL_MessageDbg("ALT_TYPE_W_CHARGE LOOP FOR ATOM INDEX " + util::Format()( atom_index) + " aka INDEX " + util::Format()( itr_i));
-//                      BCL_MessageDbg("SELECTED ATOM CHARGE: " + util::Format()( selected_atom->GetCharge()));
-
-//                      break;
-//                    }
-
               new_atom_type = available_atom_types.GetMostStableType();
-
-//                    // Debugging:
-//                    BCL_MessageDbg("MOST_STABLE LOOP FOR ATOM INDEX " + util::Format()( atom_index) + " aka INDEX " + util::Format()( itr_i));
-//                    BCL_MessageDbg("SELECTED ATOM CHARGE: " + util::Format()( selected_atom->GetCharge()));
               break;
             }
+
+            /// ben
+//            if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetAlternateTypeWithCharge( 0).IsDefined())
+//            {
+//                new_atom_type = available_atom_types.GetAlternateTypeWithCharge( 0);
+//                break;
+//            }
+
+            // otherwise try the original atom formal charge
+//            else
+//            {
+//              available_atom_types = PossibleAtomTypesForAtom
+//              (
+//                carbon,
+//                n_nonh_e,
+//                n_current_bonds,
+//                selected_atom_charge,
+//                selected_atom_aromatic
+//              );
+//
+//              if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetAlternateTypeWithCharge( selected_atom_charge).IsDefined())
+//              {
+//                new_atom_type = available_atom_types.GetAlternateTypeWithCharge( selected_atom_charge);
+//                break;
+//              }
+//
+//              // worst-case scenario just find a stable atom type
+//              new_atom_type = available_atom_types.GetMostStableType(); // Assert statement below in favor of a conditional here
+//              break;
+//            }
+
+            // consider replacing with some other logic later; for now, just kill
+            BCL_Assert( new_atom_type.IsDefined(), "Unable to find a valid atom type!");
+
+
+//            if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetMostStableType()->IsGasteigerAtomType())
+//            {
+////                    // Wanted to keep the charge of the replaced atom, but PossibleAtomTypesForAtom kept replacing with a carbocation, so I manually set charge to 0 above and commented this bit out.
+////                    if( available_atom_types.GetAlternateTypeWithCharge( selected_atom->GetCharge()).IsDefined())
+////                    {
+////                      new_atom_type = available_atom_types.GetAlternateTypeWithCharge( selected_atom->GetCharge());
+//
+////                      // Debugging:
+////                      BCL_MessageDbg("ALT_TYPE_W_CHARGE LOOP FOR ATOM INDEX " + util::Format()( atom_index) + " aka INDEX " + util::Format()( itr_i));
+////                      BCL_MessageDbg("SELECTED ATOM CHARGE: " + util::Format()( selected_atom->GetCharge()));
+//
+////                      break;
+////                    }
+//
+//              new_atom_type = available_atom_types.GetMostStableType();
+//
+////                    // Debugging:
+////                    BCL_MessageDbg("MOST_STABLE LOOP FOR ATOM INDEX " + util::Format()( atom_index) + " aka INDEX " + util::Format()( itr_i));
+////                    BCL_MessageDbg("SELECTED ATOM CHARGE: " + util::Format()( selected_atom->GetCharge()));
+//              break;
+//            }
           }
 
             // Replace selected atom
@@ -239,7 +284,13 @@ namespace bcl
             FragmentComplete new_clean_mol( atom_vector_C_mod, "");
             util::SiPtr< const AtomConformationalInterface> debug_atom( new_clean_mol.GetAtomVector()( atom_index));
 
+            // standardize perturbed molecule
+            AtomVector< AtomComplete> new_mol_vec( new_clean_mol.GetAtomVector());
+            AtomsCompleteStandardizer standardizer( new_mol_vec, "", true);
+            StereocentersHandler::CalculateFromConformation( atom_vector_C_mod( atom_index));
+
             // finalize for vector of outputs
+            new_clean_mol = FragmentComplete( new_mol_vec, "");
             new_clean_mol.SaturateWithH();
             m_Ensemble.PushBack( new_clean_mol);
 
