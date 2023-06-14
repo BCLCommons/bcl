@@ -38,12 +38,12 @@ namespace bcl
 
     //! @brief Create the map from atom environment string to possible atom types
     //! @param IN_AROMATIC_RING whether to only include types that could be in an aromatic ring
-    //! @param HARD_NEUTRAL true iff when set to 0 the expected charge must be interpreted literally as a neutral atom;
+    //! @param EXPLICIT_CHARGE true iff when set to 0 the expected charge must be interpreted literally as a neutral atom;
     //! default is false, which preserves backwards compatibility with old behavior where 0 allows searching of all atom types
     storage::Map< std::string, PossibleAtomTypesForAtom> PossibleAtomTypesForAtom::CreateAtomicEnvironmentToTypesMap
     (
       const bool IN_AROMATIC_RING,
-      const bool HARD_NEUTRAL
+      const bool EXPLICIT_CHARGE
     )
     {
       storage::Map< std::string, PossibleAtomTypesForAtom> atomic_environment_to_possible_types;
@@ -63,7 +63,22 @@ namespace bcl
 
         AtomType type( *itr);
 
-        if( !IN_AROMATIC_RING)
+        if( !IN_AROMATIC_RING && EXPLICIT_CHARGE)
+        {
+          const std::string search_str
+          (
+            type->GetElementType()->GetChemicalSymbol()
+            + util::Format()( type->GetNumberElectronsInBonds())
+            + util::Format()( type->GetNumberBonds())
+            + util::Format()( type->GetFormalCharge())
+          );
+
+          BCL_Debug( search_str);
+
+          // add the type to the map, ignoring charge, since it is redundant with the # bonds and e- in bonds
+          atomic_environment_to_possible_types[ search_str].AddAtomType( type);
+        }
+        else if( !IN_AROMATIC_RING)
         {
           const std::string search_str
           (
@@ -71,6 +86,8 @@ namespace bcl
             + util::Format()( type->GetNumberElectronsInBonds())
             + util::Format()( type->GetNumberBonds())
           );
+
+          BCL_Debug( search_str);
 
           // add the type to the map, ignoring charge, since it is redundant with the # bonds and e- in bonds
           atomic_environment_to_possible_types[ search_str].AddAtomType( type);
@@ -105,8 +122,8 @@ namespace bcl
             }
 
             // since charges are often omitted, all atom types are considered if a neutral atom type was requested
-            // in a ring with declared aromatic bonds, unless HARD_NEUTRAL is true
-            if( type->GetFormalCharge() == 0 && HARD_NEUTRAL)
+            // in a ring with declared aromatic bonds, unless EXPLICIT_CHARGE is true
+            if( type->GetFormalCharge() == 0)
             {
               atomic_environment_to_possible_types[ search_str + util::Format()( min_double_bonds) + "O"].AddAromaticAtomType( type, short( 0));
             }
@@ -239,7 +256,7 @@ namespace bcl
     //! @param NUMBER_BONDS number of bonds for the atom
     //! @param SUSPECTED_CHARGE; expected charge, ignored if no atom type matching the other criteria if found
     //! @param IN_AROMATIC_RING true iff the atom has bonds of the aromatic unspecified type
-    //! @param HARD_NEUTRAL true iff when set to 0 the SUSPECTED_CHARGE must be interpreted literally as a neutral atom;
+    //! @param EXPLICIT_CHARGE true iff when set to 0 the SUSPECTED_CHARGE must be interpreted literally as a neutral atom;
     //! default is false, which preserves backwards compatibility with old behavior where 0 allows searching of all atom types
     PossibleAtomTypesForAtom::PossibleAtomTypesForAtom
     (
@@ -248,7 +265,7 @@ namespace bcl
       const size_t NUMBER_BONDS,
       const short SUSPECTED_CHARGE,
       const bool IN_AROMATIC_RING,
-      const bool HARD_NEUTRAL
+      const bool EXPLICIT_CHARGE
     ) :
       m_NumberAtomTypesWithHybridization( GetHybridOrbitalTypes().GetEnumCount(), size_t( 0)),
       m_AtomTypesByDecreasingStability(),
@@ -257,9 +274,9 @@ namespace bcl
     {
       // create maps from atomic environment to possible types
       static const storage::Map< std::string, PossibleAtomTypesForAtom>
-        s_atomic_env_outside_arom_ring_to_types_map( CreateAtomicEnvironmentToTypesMap( false, HARD_NEUTRAL));
+        s_atomic_env_outside_arom_ring_to_types_map( CreateAtomicEnvironmentToTypesMap( false, EXPLICIT_CHARGE));
       static const storage::Map< std::string, PossibleAtomTypesForAtom>
-        s_element_bonds_in_arom_ring_to_types_map( CreateAtomicEnvironmentToTypesMap( true, HARD_NEUTRAL));
+        s_element_bonds_in_arom_ring_to_types_map( CreateAtomicEnvironmentToTypesMap( true, EXPLICIT_CHARGE));
 
       storage::Map< std::string, PossibleAtomTypesForAtom>::const_iterator itr;
 
@@ -284,11 +301,17 @@ namespace bcl
         return;
       }
 
+
       const std::string primary_search_string
       (
+        EXPLICIT_CHARGE ?
+        ELEMENT->GetChemicalSymbol()
+        + util::Format()( NUMBER_ELECTRONS_IN_BONDS)
+        + util::Format()( NUMBER_BONDS) :
         ELEMENT->GetChemicalSymbol()
         + util::Format()( NUMBER_ELECTRONS_IN_BONDS)
         + util::Format()( NUMBER_BONDS)
+//        + util::Format()( SUSPECTED_CHARGE)
       );
       // look for the type in the type-outside-ring map
       itr = s_atomic_env_outside_arom_ring_to_types_map.Find( primary_search_string);

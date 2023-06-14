@@ -65,12 +65,12 @@ namespace bcl
 
       //! @brief Create the map from atom environment string to possible atom types
       //! @param IN_AROMATIC_RING whether to only include types that could be in an aromatic ring
-      //! @param HARD_NEUTRAL true iff when set to 0 the expected charge must be interpreted literally as a neutral atom;
+      //! @param EXPLICIT_CHARGE true iff when set to 0 the expected charge must be interpreted literally as a neutral atom;
       //! default is false, which preserves backwards compatibility with old behavior where 0 allows searching of all atom types
       static storage::Map< std::string, PossibleAtomTypesForAtom> CreateAtomicEnvironmentToTypesMap
       (
         const bool IN_AROMATIC_RING,
-        const bool HARD_NEUTRAL
+        const bool EXPLICIT_CHARGE = false
       );
 
     public:
@@ -99,7 +99,7 @@ namespace bcl
       //! @param NUMBER_BONDS number of bonds for the atom
       //! @param SUSPECTED_CHARGE; expected charge, ignored if no atom type matching the other criteria if found
       //! @param IN_AROMATIC_RING true iff the atom has bonds of the aromatic unspecified type
-      //! @param HARD_NEUTRAL true iff when set to 0 the SUSPECTED_CHARGE must be interpreted literally as a neutral atom;
+      //! @param EXPLICIT_CHARGE true iff when set to 0 the SUSPECTED_CHARGE must be interpreted literally as a neutral atom;
       //! default is false, which preserves backwards compatibility with old behavior where 0 allows searching of all atom types
       PossibleAtomTypesForAtom
       (
@@ -108,7 +108,7 @@ namespace bcl
         const size_t NUMBER_BONDS,
         const short SUSPECTED_CHARGE,
         const bool IN_AROMATIC_RING,
-        const bool HARD_NEUTRAL = false
+        const bool EXPLICIT_CHARGE = false
       );
 
       //! @brief Clone function

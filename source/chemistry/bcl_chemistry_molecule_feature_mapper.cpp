@@ -115,6 +115,8 @@ namespace bcl
         {
         }
 
+        /// TODO the new code that Joe is working on absolutely CANNOT replace the old code in RunThread();
+        /// it needs to be in a separate function and the old function must be put back
         void RunThread()
         {
           // If the molecule or stride hasn't been specified then do nothing
@@ -183,104 +185,162 @@ namespace bcl
 //            ////////// SINGLE ATOM REPLACE //////////
           for( size_t index( m_StartIndex), max_index( m_PerturbAtoms.GetSize()); index < max_index; index += m_Stride)
           {
-
-            // useful if you do not care about contribution of hydrogen atoms to model score
             size_t atom_index( m_PerturbAtoms( index));
-            if( m_IgnoreH && atom_vector( atom_index).GetAtomType()->GetElementType() == GetElementTypes().e_Hydrogen)
+            if
+            (
+                ( m_IgnoreH && atom_vector( atom_index).GetAtomType()->GetElementType() == GetElementTypes().e_Hydrogen ) || // ignore H contributions
+                atom_vector( atom_index).GetAtomType()->GetElementType() == GetElementTypes().e_Carbon //
+
+            )
             {
               continue;
             }
 
-          util::SiPtr< const AtomConformationalInterface> selected_atom( temp_parent.GetAtomVector()( atom_index));
-          AtomType new_atom_type( selected_atom->GetAtomType());
-          const double &selected_atom_charge( new_atom_type->GetFormalCharge());
+            util::SiPtr< const AtomConformationalInterface> selected_atom( temp_parent.GetAtomVector()( atom_index));
+            AtomType new_atom_type( selected_atom->GetAtomType());
+            const double &selected_atom_charge( new_atom_type->GetFormalCharge());
 
-          // Get properties for replacement atom type
-          const ElementType carbon( GetElementTypes().e_Carbon);
-          bool selected_atom_aromatic( selected_atom->CountNonValenceBondsWithProperty( ConfigurationalBondTypeData::e_IsAromatic, 1));
-          size_t n_h( selected_atom->GetNumberCovalentlyBoundHydrogens());
-          size_t n_nonh_bonds( selected_atom->GetAtomType()->GetNumberBonds() - n_h);
-          for( size_t n_current_bonds( n_nonh_bonds); n_current_bonds <= 6; ++n_current_bonds)
-          {
-            size_t n_nonh_e( selected_atom->GetAtomType()->GetNumberElectronsInBonds() - n_h + ( n_current_bonds - n_nonh_bonds));
+            // Get properties for replacement atom type
+            const ElementType carbon( GetElementTypes().e_Carbon);
+            bool selected_atom_aromatic( selected_atom->CountNonValenceBondsWithProperty( ConfigurationalBondTypeData::e_IsAromatic, 1));
+            size_t n_h( selected_atom->GetNumberCovalentlyBoundHydrogens());
+            size_t n_nonh_bonds( selected_atom->GetAtomType()->GetNumberBonds() - n_h);
 
-            // prefer no formal charge
-            PossibleAtomTypesForAtom available_atom_types
-            (
-              carbon,
-              n_nonh_e,
-              n_current_bonds,
-              0,
-              selected_atom_aromatic
-            );
 
-            if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetMostStableType()->IsGasteigerAtomType())
+            // TODO this laundry list of options should be refactored into an array of PossibleAtomTypesForAtom options and we just loop over it;
+            // cut down on text and make more readable
+
+            /// first time we try this, let's look at neutral charge
+            for( size_t n_current_bonds( 1); n_current_bonds <= 6; ++n_current_bonds)
             {
-              new_atom_type = available_atom_types.GetMostStableType();
-              break;
+              size_t n_nonh_e( selected_atom->GetAtomType()->GetNumberElectronsInBonds() - n_h + ( n_current_bonds - n_nonh_bonds));
+
+              // prefer no formal charge
+              PossibleAtomTypesForAtom available_atom_types
+              (
+                carbon,
+                n_nonh_e,
+                n_current_bonds,
+                0,
+                selected_atom_aromatic,
+                true
+              );
+
+              if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetAlternateTypeWithCharge( 0).IsDefined())
+              {
+                new_atom_type = available_atom_types.GetAlternateTypeWithCharge( 0);
+                break;
+              }
             }
 
-            /// ben
-//            if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetAlternateTypeWithCharge( 0).IsDefined())
-//            {
-//                new_atom_type = available_atom_types.GetAlternateTypeWithCharge( 0);
-//                break;
-//            }
+            /// second time try using original atom charge
+            if( !new_atom_type.IsDefined() || new_atom_type->GetElementType() == temp_parent.GetAtomVector()( atom_index).GetElementType())
+            {
+              for( size_t n_current_bonds( 1); n_current_bonds <= 6; ++n_current_bonds)
+              {
+                size_t n_nonh_e( selected_atom->GetAtomType()->GetNumberElectronsInBonds() - n_h + ( n_current_bonds - n_nonh_bonds));
 
-            // otherwise try the original atom formal charge
-//            else
-//            {
-//              available_atom_types = PossibleAtomTypesForAtom
-//              (
-//                carbon,
-//                n_nonh_e,
-//                n_current_bonds,
-//                selected_atom_charge,
-//                selected_atom_aromatic
-//              );
-//
-//              if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetAlternateTypeWithCharge( selected_atom_charge).IsDefined())
-//              {
-//                new_atom_type = available_atom_types.GetAlternateTypeWithCharge( selected_atom_charge);
-//                break;
-//              }
-//
-//              // worst-case scenario just find a stable atom type
-//              new_atom_type = available_atom_types.GetMostStableType(); // Assert statement below in favor of a conditional here
-//              break;
-//            }
+                // prefer no formal charge
+                PossibleAtomTypesForAtom available_atom_types
+                (
+                  carbon,
+                  n_nonh_e,
+                  n_current_bonds,
+                  selected_atom_charge,
+                  selected_atom_aromatic,
+                  true
+                );
+
+                if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetAlternateTypeWithCharge( selected_atom_charge).IsDefined())
+                {
+                  new_atom_type = available_atom_types.GetAlternateTypeWithCharge( selected_atom_charge);
+                  break;
+                }
+              }
+            }
+
+            /// maybe try using original atom charge with inverted aromaticity
+            if( !new_atom_type.IsDefined() || new_atom_type->GetElementType() == temp_parent.GetAtomVector()( atom_index).GetElementType())
+            {
+              for( size_t n_current_bonds( 1); n_current_bonds <= 6; ++n_current_bonds)
+              {
+                size_t n_nonh_e( selected_atom->GetAtomType()->GetNumberElectronsInBonds() - n_h + ( n_current_bonds - n_nonh_bonds));
+
+                // prefer no formal charge
+                PossibleAtomTypesForAtom available_atom_types
+                (
+                  carbon,
+                  n_nonh_e,
+                  n_current_bonds,
+                  selected_atom_charge,
+                  !selected_atom_aromatic,
+                  true
+                );
+
+                if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetAlternateTypeWithCharge( selected_atom_charge).IsDefined())
+                {
+                  new_atom_type = available_atom_types.GetAlternateTypeWithCharge( selected_atom_charge);
+                  break;
+                }
+              }
+            }
+
+            /// third time just get the most stable of the possible atom types with any allowed charge
+            if( !new_atom_type.IsDefined() || new_atom_type->GetElementType() == temp_parent.GetAtomVector()( atom_index).GetElementType())
+            {
+              for( size_t n_current_bonds( 1); n_current_bonds <= 6; ++n_current_bonds)
+              {
+                size_t n_nonh_e( selected_atom->GetAtomType()->GetNumberElectronsInBonds() - n_h + ( n_current_bonds - n_nonh_bonds));
+
+                // prefer no formal charge
+                PossibleAtomTypesForAtom available_atom_types
+                (
+                  carbon,
+                  n_nonh_e,
+                  n_current_bonds,
+                  0,
+                  selected_atom_aromatic,
+                  false
+                );
+                new_atom_type = available_atom_types.GetMostStableType();
+                if( new_atom_type.IsDefined() && new_atom_type->GetElementType() != temp_parent.GetAtomVector()( atom_index).GetElementType())
+                {
+                  break;
+                }
+              }
+            }
+
+            /// fourth time just get the most stable of the possible atom types with any allowed charge and opposite aromaticity
+            if( !new_atom_type.IsDefined() || new_atom_type->GetElementType() == temp_parent.GetAtomVector()( atom_index).GetElementType())
+            {
+              for( size_t n_current_bonds( 1); n_current_bonds <= 6; ++n_current_bonds)
+              {
+                size_t n_nonh_e( selected_atom->GetAtomType()->GetNumberElectronsInBonds() - n_h + ( n_current_bonds - n_nonh_bonds));
+
+                // prefer no formal charge
+                PossibleAtomTypesForAtom available_atom_types
+                (
+                  carbon,
+                  n_nonh_e,
+                  n_current_bonds,
+                  0,
+                  !selected_atom_aromatic,
+                  false
+                );
+                new_atom_type = available_atom_types.GetMostStableType();
+                if( new_atom_type.IsDefined() && new_atom_type->GetElementType() != temp_parent.GetAtomVector()( atom_index).GetElementType())
+                {
+                  break;
+                }
+              }
+            }
 
             // consider replacing with some other logic later; for now, just kill
             BCL_Assert( new_atom_type.IsDefined(), "Unable to find a valid atom type!");
 
-
-//            if( available_atom_types.GetNumberPossibleTypes() && available_atom_types.GetMostStableType()->IsGasteigerAtomType())
-//            {
-////                    // Wanted to keep the charge of the replaced atom, but PossibleAtomTypesForAtom kept replacing with a carbocation, so I manually set charge to 0 above and commented this bit out.
-////                    if( available_atom_types.GetAlternateTypeWithCharge( selected_atom->GetCharge()).IsDefined())
-////                    {
-////                      new_atom_type = available_atom_types.GetAlternateTypeWithCharge( selected_atom->GetCharge());
-//
-////                      // Debugging:
-////                      BCL_MessageDbg("ALT_TYPE_W_CHARGE LOOP FOR ATOM INDEX " + util::Format()( atom_index) + " aka INDEX " + util::Format()( itr_i));
-////                      BCL_MessageDbg("SELECTED ATOM CHARGE: " + util::Format()( selected_atom->GetCharge()));
-//
-////                      break;
-////                    }
-//
-//              new_atom_type = available_atom_types.GetMostStableType();
-//
-////                    // Debugging:
-////                    BCL_MessageDbg("MOST_STABLE LOOP FOR ATOM INDEX " + util::Format()( atom_index) + " aka INDEX " + util::Format()( itr_i));
-////                    BCL_MessageDbg("SELECTED ATOM CHARGE: " + util::Format()( selected_atom->GetCharge()));
-//              break;
-//            }
-          }
-
             // Replace selected atom
             AtomVector< AtomComplete> atom_vector_C_mod( atom_vector);
             atom_vector_C_mod( atom_index).SetAtomType( new_atom_type);
-//            atom_vector_C_mod( atom_index).SetCharge( 0.0);
             FragmentComplete new_clean_mol( atom_vector_C_mod, "");
             util::SiPtr< const AtomConformationalInterface> debug_atom( new_clean_mol.GetAtomVector()( atom_index));
 
