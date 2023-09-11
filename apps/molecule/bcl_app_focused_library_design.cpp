@@ -27,6 +27,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_fragment_grow.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_add_med_chem.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_alchemy.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_combine.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_cyclize.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_extend_with_linker.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_fluorinate.h"
@@ -34,6 +35,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_fragment_mutate_mcm.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_remove_atom.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_remove_bond.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_remove_fragment.h"
 #include "chemistry/bcl_chemistry_fragment_mutate_ring_swap.h"
 #include "chemistry/bcl_chemistry_fragment_split_interface.h"
 #include "chemistry/bcl_chemistry_fragment_track_mutable_atoms.h"
@@ -53,6 +55,7 @@ BCL_StaticInitializationFiascoFinder
 #include "command/bcl_command_parameter_check_serializable.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 #include "descriptor/bcl_descriptor_combine.h"
+#include "descriptor/bcl_descriptor_molecule_total_bond_energy.h"
 #include "io/bcl_io_file.h"
 #include "math/bcl_math_const_function.h"
 #include "math/bcl_math_mutate_combine.h"
@@ -144,8 +147,10 @@ namespace bcl
           const float                                             m_CyclizeProb;
           const float                                             m_AlchemyProb;
           const float                                             m_RemoveAtomProb;
+          const float                                             m_RemoveFragmentProb;
           const float                                             m_RemoveBondProb;
           const float                                             m_AddMedChemProb;
+          const float                                             m_CombineProb;
           const float                                             m_FluorinateProb;
           const float                                             m_HalogenateProb;
           const float                                             m_ExtendWithLinkerProb;
@@ -164,10 +169,10 @@ namespace bcl
           {
             // Rotamer library to use - read in at Main()
             util::ShPtr< chemistry::FragmentComplete>                                                m_StartFragment; // Base fragment to use
-//            util::ShPtr< chemistry::FragmentComplete>                                                m_MutableFragment; // mutable fragment in base fragment
             chemistry::FragmentEnsemble                                                              m_MutableFragment; // mutable fragment in base fragment
             storage::Vector< size_t>                                                                 m_MutableAtomIndices; // mutable atoms in base fragment
             descriptor::CheminfoProperty                                                             m_PropertyScorer; // Set objective function with property instead of model
+            descriptor::MoleculeTotalBondEnergy                                                      m_TotalBondEnergy; // The statistical bond energy
             size_t                                                                                   m_NumberMCIterations; // Number of MC iterations
             size_t                                                                                   m_NumberMCUnimproved; // Number of allowed consecutive unimproved MC iterations
             size_t                                                                                   m_NumberMCSkipped; // Number of allowed consecutive unimproved MC iterations
@@ -179,6 +184,22 @@ namespace bcl
             util::ShPtr< math::MutateInterface< chemistry::FragmentComplete> >                       m_Mutate; // Grow molecules from scaffold
             bool                                                                                     m_Corina; // enables corina conformers during cleaning
             util::SiPtr< ThreadManager>                                                              m_ThreadManager; // Pointer to the thread manager, needed so Worker can be updated
+
+            void MCM( mc::Approximator< chemistry::FragmentComplete, double> &APPROXIMATOR)
+            {
+              // init
+              APPROXIMATOR.GetTracker().SetPhase( opti::e_Start);
+
+              // conduct approximation as long as the given termination criteria are not met
+              APPROXIMATOR.GetTracker().SetPhase( opti::e_Iteration);
+              while( APPROXIMATOR.CanContinue() && APPROXIMATOR.ShouldContinue())
+              {
+                APPROXIMATOR.Next();
+              }
+
+              // end
+              APPROXIMATOR.GetTracker().SetPhase( opti::e_End);
+            }
 
            // Builds and score the molecule
             void RunThread()
@@ -215,57 +236,83 @@ namespace bcl
                   metropolis,
                   criterion_combine,
                   *m_StartFragment,
-                  m_OptiGoal
+                  m_OptiGoal,
+//                  0.0,          // on rejection, do not revert to best step with any probability
+//                  false         // compare to most recently accepted for Metropolis delta, not the best so far
+                  1.0,          // on rejection, do not revert to best step with any probability
+                  true         // compare to most recently accepted for Metropolis delta, not the best so far
                 );
+//                approximator.Approximate();
+                approximator.GetTracker().SetPhase( opti::e_Start);
 
                 // assume we start with druglike molecule
-                static descriptor::CheminfoProperty bonde( "MoleculeTotalDruglikeBondEnergy");
-                double druglike_mol_activity( ( *m_Score)( approximator.GetTracker().GetCurrent()->First()));
+                const auto current( approximator.GetTracker().GetCurrent()->First());
+                double druglike_mol_activity( ( *m_Score)( current));
 
                 // tell me about the scaffold
-                BCL_MessageStd("Scaffold properties");
-                BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "# of HBondAcceptors + HBondDonors: " +
-                  util::Format()( descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)
-                      + descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( bonde->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 3)));
-                BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "# of Cl: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "# of Br: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsBr->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "# of I: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsI->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
-                BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( approximator.GetTracker().GetCurrent()->First())( 0)));
+                BCL_MessageStd( "------------------------------------------------------------------------");
+                BCL_MessageStd( "PROPERTIES - STARTING MOLECULE");
+                BCL_MessageStd( "------------------------------------------------------------------------");
+                BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of HBondAcceptors : " + util::Format()( descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of HBondDonors: " + util::Format()( descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( current)( 0)));
+                BCL_MessageStd( "TPSA: " + util::Format()( descriptor::GetCheminfoProperties().calc_TopologicalPolarSurfaceArea->SumOverObject( current)( 0)));
+                BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( current)( 0)));
+                BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( m_TotalBondEnergy( current)( 3)));
+                BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of Cl: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of Br: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsBr->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of I: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsI->SumOverObject( current)( 0)));
+                BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( current)( 0)));
+                BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( current)( 0)));
                 BCL_MessageStd( "FLD_Score: " + util::Format()( druglike_mol_activity));
+                BCL_MessageStd( "------------------------------------------------------------------------");
+                BCL_MessageStd( "------------------------------------------------------------------------");
 
                 // run the approximator
                 BCL_MessageStd( "MCM BEGIN");
+                approximator.GetTracker().SetPhase( opti::e_Iteration);
                 while( approximator.CanContinue() && approximator.ShouldContinue() && m_ThreadManager->GetNumberMoleculesBuilt() + 1 <= m_ThreadManager->GetNumberMoleculesToBuild())
                 {
                   // do next step in approximation and get new molecule
                   approximator.Next();
+
+                  // if the molecule is undefined then skip it
                   const util::ShPtr< storage::Pair< chemistry::FragmentComplete, double> > &current_mol( approximator.GetTracker().GetCurrent());
 
-                  // Check for undruglike properties of the current molecule
-                  if( approximator.GetTracker().GetStatusOfLastStep() == opti::e_Accepted || approximator.GetTracker().GetStatusOfLastStep() == opti::e_Improved)
+                  // Update last accepted and print properties
+                  if
+                  (
+                      approximator.GetTracker().GetStatusOfLastStep() == opti::e_Accepted ||
+                      approximator.GetTracker().GetStatusOfLastStep() == opti::e_Improved
+                  )
                   {
+                    // output to log
+                    if( approximator.GetTracker().GetStatusOfLastStep() == opti::e_Accepted)
+                    {
+                      BCL_MessageStd( "MCM Accepted");
+                    }
+                    else if( approximator.GetTracker().GetStatusOfLastStep() == opti::e_Improved)
+                    {
+                      BCL_MessageStd( "MCM Improved");
+                    }
+
                     // save the new molecule
                     last_accepted = current_mol;
 
                     // tell me about the new mol
+                    BCL_MessageStd( "------------------------------------------------------------------------");
+                    BCL_MessageStd( "PROPERTIES - CURRENT ACCEPTED/IMPROVED MOLECULE");
+                    BCL_MessageStd( "------------------------------------------------------------------------");
                     BCL_MessageStd( "Molecule tracker updated at iteration: " + util::Format()( approximator.GetTracker().GetIteration()));
                     BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( last_accepted->First())( 0)));
-                    BCL_MessageStd(
-                      "# of HBondAcceptors + HBondDonors: " +
-                      util::Format()(
-                        descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( last_accepted->First())( 0)
-                        + descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( last_accepted->First())( 0)
-                      )
-                    );
+                    BCL_MessageStd( "# of HBondAcceptors : " + util::Format()( descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( last_accepted->First())( 0)));
+                    BCL_MessageStd( "# of HBondDonors: " + util::Format()( descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( last_accepted->First())( 0)));
+                    BCL_MessageStd( "TPSA: " + util::Format()( descriptor::GetCheminfoProperties().calc_TopologicalPolarSurfaceArea->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( last_accepted->First())( 0)));
-                    BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( bonde->SumOverObject( last_accepted->First())( 3)));
+                    BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( m_TotalBondEnergy( last_accepted->First())( 3)));
                     BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "# of Cl: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "# of Br: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsBr->SumOverObject( last_accepted->First())( 0)));
@@ -273,38 +320,63 @@ namespace bcl
                     BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( last_accepted->First())( 0)));
                     BCL_MessageStd( "FLD_Score: " + util::Format()( last_accepted->Second()));
+                    BCL_MessageStd( "------------------------------------------------------------------------");
+                    BCL_MessageStd( "------------------------------------------------------------------------");
+
+                    // save every accepted/improved step of MCM
+                    // hack - add this to approximator at some point
+//                    if( m_SaveAllAcceptedImproved)
+//                    {
+//                      m_ThreadManager->m_Mutex.Lock();
+//                      if( m_ThreadManager->GetNumberMoleculesBuilt() + 1 <= m_ThreadManager->GetNumberMoleculesToBuild())
+//                      {
+//                        // get best molecule and best score
+//                        chemistry::FragmentComplete best_mol( last_accepted->First());
+//                        linal::Vector< double> best_score( 1, last_accepted->Second());
+//                        best_mol.StoreProperty( "FLD_Score", best_score);
+//
+//                        // save the final MCM molecule
+////                        if( m_ThreadManager->CheckUniqueConfiguration( best_mol))
+////                        {
+//                          m_ThreadManager->AddMolecule( best_mol);
+////                          m_ThreadManager->IncreaseMoleculeBuiltCount(); // TODO add a flag so that we can control if these count toward build count
+////                        }
+//                      }
+//                      m_ThreadManager->m_Mutex.Unlock();
+//                    }
                   }
                   else
                   {
                     BCL_MessageStd( "FLD_Score: " + util::Format()( current_mol->Second()));
                     BCL_MessageStd( "MCM Rejected");
                   }
-                  // save every accepted/improved step of MCM
-                  // hack - add this to approximator at some point
-                  if( last_accepted.IsDefined() && m_SaveAllAcceptedImproved)
+                  // save trajectory
+                  if( /* m_SaveTrajectory */ true)
                   {
                     m_ThreadManager->m_Mutex.Lock();
-                    if( m_ThreadManager->GetNumberMoleculesBuilt() + 1 <= m_ThreadManager->GetNumberMoleculesToBuild())
-                    {
-                      // get best molecule and best score
-                      chemistry::FragmentComplete best_mol( last_accepted->First());
-                      linal::Vector< double> best_score( 1, last_accepted->Second());
-                      best_mol.StoreProperty( "FLD_Score", best_score);
-
-                      // save the final MCM molecule
-                      if( m_ThreadManager->CheckUniqueConfiguration( best_mol))
-                      {
-                        m_ThreadManager->AddMolecule( best_mol);
-                        m_ThreadManager->IncreaseMoleculeBuiltCount();
-                      }
-                    }
+                    chemistry::FragmentComplete best_mol( last_accepted->First());
+                    best_mol.StoreProperty( "MolWeight", descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "HBondAcceptors", descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "HBondDonors", descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "NRotBonds", descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "TPSA", descriptor::GetCheminfoProperties().calc_TopologicalPolarSurfaceArea->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "LogP", descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "MaxBondPropensityScore", linal::Vector< double>( 1, m_TotalBondEnergy( best_mol)( 3)));
+                    best_mol.StoreProperty( "F", descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "Cl", descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "Br", descriptor::GetCheminfoProperties().calc_IsBr->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "I", descriptor::GetCheminfoProperties().calc_IsI->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "Halogens", descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "MolComplexity", descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "FLD_Score", linal::Vector< double>( 1, last_accepted->Second()));
+                    m_ThreadManager->AddMolecule( best_mol);
                     m_ThreadManager->m_Mutex.Unlock();
                   }
                 }
                 BCL_MessageStd( "MCM END");
-
+                approximator.GetTracker().SetPhase( opti::e_End);
                 // save molecules to output, lock it down with a mutex
-                if( last_accepted.IsDefined())
+                if( /* last_accepted.IsDefined() */ approximator.GetTracker().GetBest().IsDefined())
                 {
                   m_ThreadManager->m_Mutex.Lock();
                   if( m_ThreadManager->GetNumberMoleculesBuilt() + 1 <= m_ThreadManager->GetNumberMoleculesToBuild())
@@ -316,14 +388,16 @@ namespace bcl
                     // I can get rid of this hack
                     BCL_MessageStd( "MC Minimization ended");
                     const storage::Vector< size_t> &counts( approximator.GetTracker().GetCounts());
-                    const size_t &tot_nr_steps( approximator.GetTracker().GetIteration());
-                    const size_t &nr_improved( counts( opti::e_Improved));
-                    const size_t &nr_accepted( counts( opti::e_Accepted));
-                    const size_t &nr_rejected( counts( opti::e_Rejected));
-                    const size_t &nr_skipped( counts( opti::e_Skipped));
+                    const size_t tot_nr_steps( approximator.GetTracker().GetIteration());
+                    const size_t nr_improved( counts( opti::e_Improved));
+                    const size_t nr_accepted( counts( opti::e_Accepted));
+                    const size_t nr_rejected( counts( opti::e_Rejected));
+                    const size_t nr_skipped( counts( opti::e_Skipped));
                     util::Format format_a, format_b;
                     format_a.W( 5);
                     format_b.W( 5).FFP( 2);
+                    BCL_MessageStd("------------------------------------------------------------------------");
+                    BCL_MessageStd("------------------------------------------------------------------------");
                     BCL_MessageStd( "#MC steps: " + util::Format()( tot_nr_steps));
                     BCL_MessageStd
                     (
@@ -341,11 +415,45 @@ namespace bcl
                     (
                       "#MC steps skipped:\t" + format_a( nr_skipped) + "\t%" + format_b( 100.0 * nr_skipped / tot_nr_steps)
                     );
+                    BCL_MessageStd("------------------------------------------------------------------------");
+                    BCL_MessageStd("------------------------------------------------------------------------");
 
                     // get best molecule and best score
-                    chemistry::FragmentComplete best_mol( last_accepted->First());
-                    linal::Vector< double> best_score( 1, last_accepted->Second());
-                    best_mol.StoreProperty( "FLD_Score", best_score);
+                    chemistry::FragmentComplete best_mol( approximator.GetTracker().GetBest()->First()); // used to be last_accepted
+                    best_mol.StoreProperty( "MolWeight", descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "HBondAcceptors", descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "HBondDonors", descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "NRotBonds", descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "TPSA", descriptor::GetCheminfoProperties().calc_TopologicalPolarSurfaceArea->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "LogP", descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "MaxBondPropensityScore", linal::Vector< double>( 1, m_TotalBondEnergy( best_mol)( 3)));
+                    best_mol.StoreProperty( "F", descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "Cl", descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "Br", descriptor::GetCheminfoProperties().calc_IsBr->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "I", descriptor::GetCheminfoProperties().calc_IsI->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "Halogens", descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "MolComplexity", descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( best_mol));
+                    best_mol.StoreProperty( "FLD_Score", linal::Vector< double>( 1, approximator.GetTracker().GetBest()->Second()));
+
+                    BCL_MessageStd( "------------------------------------------------------------------------");
+                    BCL_MessageStd( "PROPERTIES - BEST MOLECULE (FINAL OUTPUT)");
+                    BCL_MessageStd( "------------------------------------------------------------------------");
+                    BCL_MessageStd( "MolWeight: " + util::Format()( descriptor::GetCheminfoProperties().calc_MolWeight->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "# of HBondAcceptors : " + util::Format()( descriptor::GetCheminfoProperties().calc_HbondAcceptor->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "# of HBondDonors: " + util::Format()( descriptor::GetCheminfoProperties().calc_HbondDonor->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "# of NRotBonds: " + util::Format()( descriptor::GetCheminfoProperties().calc_NRotBond->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "LogP: " + util::Format()( descriptor::GetCheminfoProperties().calc_XLogP->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "TPSA: " + util::Format()( descriptor::GetCheminfoProperties().calc_TopologicalPolarSurfaceArea->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "Bond energy and atom propensity score: " + util::Format()( m_TotalBondEnergy( best_mol)( 3)));
+                    BCL_MessageStd( "# of F: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsF->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "# of Cl: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsCl->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "# of Br: " + util::Format()(descriptor::GetCheminfoProperties().calc_IsBr->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "# of I: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsI->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "# of Halogens: " + util::Format()( descriptor::GetCheminfoProperties().calc_IsHalogen->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "Complexity : " + util::Format()( descriptor::GetCheminfoProperties().calc_MolComplexity->SumOverObject( best_mol)( 0)));
+                    BCL_MessageStd( "FLD_Score: " + util::Format()( approximator.GetTracker().GetBest()->Second()));
+                    BCL_MessageStd( "------------------------------------------------------------------------");
+                    BCL_MessageStd( "------------------------------------------------------------------------");
 
                     // save the final MCM molecule
                     if( m_ThreadManager->CheckUniqueConfiguration( best_mol))
@@ -382,10 +490,10 @@ namespace bcl
           //! param
           ThreadManager(
             util::ShPtr< chemistry::FragmentComplete>              START_FRAGMENT, // Base fragment to use
-//            util::ShPtr< chemistry::FragmentComplete>              MUTABLE_FRAGMENT, // mutable fragment in base fragment
             chemistry::FragmentEnsemble                            MUTABLE_FRAGMENT, // mutable fragment in base fragment
             storage::Vector< size_t>                               MUTABLE_ATOM_INDICES, // mutable atom indices in base fragment
             util::ShPtr< chemistry::FragmentEnsemble>              FRAGMENT_POOL, // Fragments to add to base fragment
+            util::ShPtr< chemistry::FragmentEnsemble>              COMBINE_POOL, // Fragments to combine with base fragment
             descriptor::CheminfoProperty                           PROPERTY_SCORER, // alternative scorer
             bool                                                   INTERNAL_MCM_OPTI,
             opti::Tracker< chemistry::FragmentComplete, double>    MCM_OPTI_GOAL,
@@ -405,8 +513,10 @@ namespace bcl
             const float                                            &CYCLIZE_PROB,
             const float                                            &ALCHEMY_PROB,
             const float                                            &REMOVE_ATOM_PROB,
+            const float                                            &REMOVE_FRAGMENT_PROB,
             const float                                            &REMOVE_BOND_PROB,
             const float                                            &ADD_MEDCHEM_PROB,
+            const float                                            &COMBINE_PROB,
             const float                                            &FLUORINATE_PROB,
             const float                                            &HALOGENATE_PROB,
             const float                                            &EXTEND_WITH_LINKER_PROB,
@@ -429,14 +539,19 @@ namespace bcl
             m_CyclizeProb( CYCLIZE_PROB),
             m_AlchemyProb( ALCHEMY_PROB),
             m_RemoveAtomProb( REMOVE_ATOM_PROB),
+            m_RemoveFragmentProb( REMOVE_FRAGMENT_PROB),
             m_RemoveBondProb( REMOVE_BOND_PROB),
             m_AddMedChemProb( ADD_MEDCHEM_PROB),
+            m_CombineProb( COMBINE_PROB),
             m_FluorinateProb( FLUORINATE_PROB),
             m_HalogenateProb( HALOGENATE_PROB),
             m_ExtendWithLinkerProb( EXTEND_WITH_LINKER_PROB),
             m_PoseDependentMDLProperty( POSE_DEPENDENT_MDL_PROPERTY),
             m_PoseDependentResolveClashes( POSE_DEPENDENT_RESOLVE_CLASHES)
           {
+            // read the druglike bond energy filter
+            descriptor::MoleculeTotalBondEnergy total_bonde;
+
             // prepare output filestream
             io::File::MustOpenOFStream( m_OutputStream, OUTPUT_FILENAME);
 
@@ -455,24 +570,6 @@ namespace bcl
               new math::MutateDecisionNode< chemistry::FragmentComplete>()
             );
 
-            // get the starting molecule minus the mutable region for local mutations
-             util::ShPtr< chemistry::FragmentComplete> scaffold_fragment( new chemistry::FragmentComplete());
-             if( MUTABLE_FRAGMENT.GetMolecules().FirstElement().GetSize() || MUTABLE_ATOM_INDICES.GetSize())
-             {
-               static chemistry::FragmentTrackMutableAtoms atom_tracker;
-               scaffold_fragment =
-                   util::ShPtr< chemistry::FragmentComplete>( new chemistry::FragmentComplete
-                     (
-                       atom_tracker.GetBaseFragment
-                       (
-                         *START_FRAGMENT,
-                         MUTABLE_FRAGMENT.GetMolecules().FirstElement(),
-                         MUTABLE_ATOM_INDICES
-                       )
-                     ));
-               BCL_Assert( scaffold_fragment->GetSize(), "Exiting because of incompatible mutable options");
-             }
-
             // if the internal MCM local optimization option is selected
             if( INTERNAL_MCM_OPTI)
             {
@@ -482,9 +579,7 @@ namespace bcl
                 BCL_MessageStd( "Pose-dependent scoring enabled");
                 // set clash resolver
                 bool clash_resolver;
-                POSE_DEPENDENT_RESOLVE_CLASHES == "true" ?
-                    clash_resolver = true:
-                    clash_resolver = false;
+                POSE_DEPENDENT_RESOLVE_CLASHES == "true" ? clash_resolver = true: clash_resolver = false;
                 mutater->AddMutate
                 (
                   chemistry::FragmentMutateMCM
@@ -495,7 +590,7 @@ namespace bcl
                     FRAGMENT_POOL,
                     m_DrugLikenessType,
                     *START_FRAGMENT,
-                    chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, *START_FRAGMENT)),
+                    MUTABLE_FRAGMENT,
                     MUTABLE_ATOM_INDICES,
                     POSE_DEPENDENT_MDL_PROPERTY,
                     PROPERTY_SCORER,
@@ -509,6 +604,7 @@ namespace bcl
                     m_RemoveAtomProb,
                     m_RemoveBondProb,
                     m_AddMedChemProb,
+//                    m_CombineProb,
                     m_FluorinateProb,
                     m_HalogenateProb,
                     m_ExtendWithLinkerProb
@@ -529,7 +625,7 @@ namespace bcl
                     FRAGMENT_POOL,
                     m_DrugLikenessType,
                     *START_FRAGMENT,
-                    chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, *START_FRAGMENT)),
+                    MUTABLE_FRAGMENT,
                     MUTABLE_ATOM_INDICES,
                     PROPERTY_SCORER,
                     CORINA_CONFS,
@@ -540,6 +636,7 @@ namespace bcl
                     m_RemoveAtomProb,
                     m_RemoveBondProb,
                     m_AddMedChemProb,
+//                    m_CombineProb,
                     m_FluorinateProb,
                     m_HalogenateProb,
                     m_ExtendWithLinkerProb
@@ -552,38 +649,48 @@ namespace bcl
             else
             {
               // POSE-DEPENDENT CONSTRUCTION OF MUTATES //
-              chemistry::FragmentEnsemble scaffold_ens( storage::List< chemistry::FragmentComplete>( 1, *scaffold_fragment));
               if( !POSE_DEPENDENT_MDL_PROPERTY.empty())
               {
                 BCL_MessageStd( "Pose-dependent scoring enabled");
                 // set clash resolver
                 bool clash_resolver;
-                POSE_DEPENDENT_RESOLVE_CLASHES == "true" ?
-                    clash_resolver = true:
-                    clash_resolver = false;
-                mutater->AddMutate( chemistry::FragmentMutateRingSwap( tree_search, m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS, true, false, 0.1, true, true), m_RingSwapProb);
-                mutater->AddMutate( chemistry::FragmentMutateCyclize( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_CyclizeProb);
-                mutater->AddMutate( chemistry::FragmentMutateAlchemy( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_AlchemyProb);
-                mutater->AddMutate( chemistry::FragmentMutateRemoveAtom( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveAtomProb);
-                mutater->AddMutate( chemistry::FragmentMutateRemoveBond( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveBondProb);
-                mutater->AddMutate( chemistry::FragmentMutateExtendWithLinker( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_ExtendWithLinkerProb);
-                mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_AddMedChemProb);
-                mutater->AddMutate( chemistry::FragmentMutateFluorinate( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_FluorinateProb);
-                mutater->AddMutate( chemistry::FragmentMutateHalogenate( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_HalogenateProb);
+                POSE_DEPENDENT_RESOLVE_CLASHES == "true" ? clash_resolver = true: clash_resolver = false;
+                mutater->AddMutate( chemistry::FragmentMutateRingSwap( tree_search, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS, true, false, 0.1, true, true), m_RingSwapProb);
+                mutater->AddMutate( chemistry::FragmentMutateCyclize( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_CyclizeProb);
+                mutater->AddMutate( chemistry::FragmentMutateAlchemy( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_AlchemyProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveAtom( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveAtomProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveFragment( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveFragmentProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveBond( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_RemoveBondProb);
+                mutater->AddMutate( chemistry::FragmentMutateExtendWithLinker( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_ExtendWithLinkerProb);
+                mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_AddMedChemProb);
+                mutater->AddMutate( chemistry::FragmentMutateFluorinate( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_FluorinateProb);
+                mutater->AddMutate( chemistry::FragmentMutateHalogenate( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, POSE_DEPENDENT_MDL_PROPERTY, PROPERTY_SCORER, clash_resolver, storage::Vector< float>(), CORINA_CONFS), m_HalogenateProb);
               }
               // POSE-INDEPENDENT CONSTRUCTION OF MUTATES //
               else
               {
                 BCL_MessageStd( "Pose-independent scoring enabled");
-                mutater->AddMutate( chemistry::FragmentMutateRingSwap( tree_search, m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS, true, false, 0.1, true, true), m_RingSwapProb);
-                mutater->AddMutate( chemistry::FragmentMutateCyclize( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_CyclizeProb);
-                mutater->AddMutate( chemistry::FragmentMutateAlchemy( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AlchemyProb);
-                mutater->AddMutate( chemistry::FragmentMutateRemoveAtom( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveAtomProb);
-                mutater->AddMutate( chemistry::FragmentMutateRemoveBond( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveBondProb);
-                mutater->AddMutate( chemistry::FragmentMutateExtendWithLinker( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_ExtendWithLinkerProb);
-                mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AddMedChemProb);
-                mutater->AddMutate( chemistry::FragmentMutateFluorinate( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_FluorinateProb);
-                mutater->AddMutate( chemistry::FragmentMutateHalogenate( m_DrugLikenessType, *START_FRAGMENT, scaffold_ens, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_HalogenateProb);
+                chemistry::FragmentMutateRingSwap rs( tree_search, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS, true, false, 0.0, true, false);
+                mutater->AddMutate( rs, m_RingSwapProb);
+                mutater->AddMutate( chemistry::FragmentMutateCyclize( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_CyclizeProb);
+                mutater->AddMutate( chemistry::FragmentMutateAlchemy( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AlchemyProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveAtom( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveAtomProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveFragment( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveFragmentProb);
+                mutater->AddMutate( chemistry::FragmentMutateRemoveBond( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_RemoveBondProb);
+                chemistry::FragmentMutateExtendWithLinker ewl( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS);
+                ewl.SetExtendWithinProb( 0.0);
+                ewl.SetRingLinkProb( 200000000);
+                ewl.SetAmideLinkProb( 500000000);
+                ewl.SetEsterLinkProb( 50000000);
+                ewl.SetDirectLinkProb( 100000000);
+                ewl.SetSingleElementLinkProb( 100000000);
+                ewl.SetNProb( 100000000);
+                ewl.SetOProb( 10000000);
+                mutater->AddMutate( ewl, m_ExtendWithLinkerProb);
+                mutater->AddMutate( chemistry::FragmentMutateAddMedChem( FRAGMENT_POOL, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_AddMedChemProb);
+                mutater->AddMutate( chemistry::FragmentMutateCombine( COMBINE_POOL, m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS), m_CombineProb);
+                mutater->AddMutate( chemistry::FragmentMutateFluorinate( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS, true), m_FluorinateProb);
+                mutater->AddMutate( chemistry::FragmentMutateHalogenate( m_DrugLikenessType, *START_FRAGMENT, MUTABLE_FRAGMENT, MUTABLE_ATOM_INDICES, CORINA_CONFS, true), m_HalogenateProb);
               }
             }
 
@@ -600,10 +707,11 @@ namespace bcl
 
             // Set up workers
             std::vector< Worker> workers( m_Threads);
+            size_t itr_i( 0);
             for(
                 std::vector< Worker>::iterator itr( workers.begin()), end( workers.end());
                 itr != end;
-                ++itr
+                ++itr, ++itr_i
             )
             {
               Worker &worker_ref( *itr);
@@ -620,6 +728,7 @@ namespace bcl
               worker_ref.m_Corina                       = CORINA_CONFS;
               worker_ref.m_ThreadManager                = this;
               worker_ref.m_PropertyScorer               = PROPERTY_SCORER.HardCopy();
+              worker_ref.m_TotalBondEnergy              = total_bonde;
               worker_ref.m_Score                        = util::ShPtr< math::FunctionInterfaceSerializable< chemistry::FragmentComplete, double> >
               (
                 new chemistry::ScoreFunctionGeneric( worker_ref.m_PropertyScorer)
@@ -789,8 +898,11 @@ namespace bcl
       //! flag for defining output filename,
       util::ShPtr< command::FlagInterface> m_OutputFilenameFlag;
 
-      //! flag for defining input fragments
+      //! flag for defining input grow fragments
       util::ShPtr< command::FlagInterface> m_GrowFragmentsFlag;
+
+      //! flag for defining input combine fragments
+      util::ShPtr< command::FlagInterface> m_CombineFragmentsFlag;
 
       //! flag for an alternative score function to just the trained model
       util::ShPtr< command::FlagInterface> m_PropertyScoringFunctionFlag;
@@ -827,8 +939,10 @@ namespace bcl
       util::ShPtr< command::FlagInterface> m_CyclizeProbFlag;
       util::ShPtr< command::FlagInterface> m_AlchemyProbFlag;
       util::ShPtr< command::FlagInterface> m_RemoveAtomProbFlag;
+      util::ShPtr< command::FlagInterface> m_RemoveFragmentProbFlag;
       util::ShPtr< command::FlagInterface> m_RemoveBondProbFlag;
       util::ShPtr< command::FlagInterface> m_AddMedChemProbFlag;
+      util::ShPtr< command::FlagInterface> m_CombineProbFlag;
       util::ShPtr< command::FlagInterface> m_FluorinateProbFlag;
       util::ShPtr< command::FlagInterface> m_HalogenateProbFlag;
       util::ShPtr< command::FlagInterface> m_ExtendWithLinkerProbFlag;
@@ -917,6 +1031,7 @@ namespace bcl
         sp_cmd->AddFlag( m_MutableAtomsFlag);
         sp_cmd->AddFlag( m_OutputFilenameFlag);
         sp_cmd->AddFlag( m_GrowFragmentsFlag);
+        sp_cmd->AddFlag( m_CombineFragmentsFlag);
         sp_cmd->AddFlag( m_PropertyScoringFunctionFlag);
         sp_cmd->AddFlag( m_DrugLikenessTypeFlag);
         sp_cmd->AddFlag( m_SplitImplementationFlag);
@@ -931,8 +1046,10 @@ namespace bcl
         sp_cmd->AddFlag( m_CyclizeProbFlag);
         sp_cmd->AddFlag( m_AlchemyProbFlag);
         sp_cmd->AddFlag( m_RemoveAtomProbFlag);
+        sp_cmd->AddFlag( m_RemoveFragmentProbFlag);
         sp_cmd->AddFlag( m_RemoveBondProbFlag);
         sp_cmd->AddFlag( m_AddMedChemProbFlag);
+        sp_cmd->AddFlag( m_CombineProbFlag);
         sp_cmd->AddFlag( m_FluorinateProbFlag);
         sp_cmd->AddFlag( m_HalogenateProbFlag);
         sp_cmd->AddFlag( m_ExtendWithLinkerProbFlag);
@@ -965,18 +1082,14 @@ namespace bcl
         io::File::CloseClearFStream( input);
 
         // setup the mutable fragment
-        util::ShPtr< chemistry::FragmentComplete> sp_mutablefragment( new chemistry::FragmentComplete());
         chemistry::FragmentEnsemble mutable_fragments;
         if( m_MutableFragmentFlag->GetFlag())
         {
           io::File::MustOpenIFStream( input, m_MutableFragmentFlag->GetFirstParameter()->GetValue());
-
-          // Needs to be wrapped in a ShPtr so it can be passed to ThreadManager
           chemistry::FragmentComplete frag( sdf::FragmentFactory::MakeFragment( input, sdf::e_Maintain));
-          sp_mutablefragment = util::ShPtr< chemistry::FragmentComplete>( new chemistry::FragmentComplete( frag));
-          mutable_fragments = chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, *sp_mutablefragment));
-          // message indicating using mutable fragment
-          BCL_MessageStd(
+          mutable_fragments = chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, frag)); // TODO multiple fragments
+          BCL_MessageStd
+          (
             "Mutating substructure atoms specified in the file '" +
             util::Format()( m_MutableFragmentFlag->GetFirstParameter()->GetValue()) + "'"
           );
@@ -1082,10 +1195,7 @@ namespace bcl
 
         // get all filename for grow fragments
         const storage::Vector< std::string> filenames( m_GrowFragmentsFlag->GetStringList());
-
-        // creating ShPtr of growfragments
         util::ShPtr< chemistry::FragmentEnsemble> sp_fragment_pool( new chemistry::FragmentEnsemble);
-
         for
         (
           storage::Vector< std::string>::const_iterator
@@ -1097,6 +1207,23 @@ namespace bcl
           // read in grow fragments ensemble
           io::File::MustOpenIFStream( input, *itr);
           sp_fragment_pool->ReadMoreFromMdl( input, sdf::e_Maintain);
+          io::File::CloseClearFStream( input);
+        }
+
+        // get all filename for combine fragments
+        const storage::Vector< std::string> combine_filenames( m_CombineFragmentsFlag->GetStringList());
+        util::ShPtr< chemistry::FragmentEnsemble> sp_combine_pool( new chemistry::FragmentEnsemble);
+        for
+        (
+          storage::Vector< std::string>::const_iterator
+            itr( combine_filenames.Begin()), itr_end( combine_filenames.End());
+          itr != itr_end;
+          ++itr
+        )
+        {
+          // read in grow fragments ensemble
+          io::File::MustOpenIFStream( input, *itr);
+          sp_combine_pool->ReadMoreFromMdl( input, sdf::e_Maintain);
           io::File::CloseClearFStream( input);
         }
 
@@ -1114,10 +1241,10 @@ namespace bcl
           ThreadManager thread_manager
           (
             sp_startfragment,
-//            sp_mutablefragment,
             mutable_fragments,
             mutable_atom_indices,
             sp_fragment_pool,
+            sp_combine_pool,
             property_scorer,
             internal_mcm_opti,
             mcm_opti_goal,
@@ -1137,8 +1264,10 @@ namespace bcl
             m_CyclizeProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_AlchemyProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_RemoveAtomProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
+            m_RemoveFragmentProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_RemoveBondProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_AddMedChemProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
+            m_CombineProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_FluorinateProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_HalogenateProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_ExtendWithLinkerProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
@@ -1152,10 +1281,10 @@ namespace bcl
           ThreadManager thread_manager
           (
             sp_startfragment,
-//            sp_mutablefragment,
             mutable_fragments,
             mutable_atom_indices,
             sp_fragment_pool,
+            sp_combine_pool,
             property_scorer,
             internal_mcm_opti,
             mcm_opti_goal,
@@ -1175,8 +1304,10 @@ namespace bcl
             m_CyclizeProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_AlchemyProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_RemoveAtomProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
+            m_RemoveFragmentProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_RemoveBondProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_AddMedChemProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
+            m_CombineProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_FluorinateProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_HalogenateProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
             m_ExtendWithLinkerProbFlag->GetFirstParameter()->GetNumericalValue< float>(),
@@ -1284,7 +1415,7 @@ namespace bcl
           command::Parameter
           (
             "temperature", "temperature for MCM evaluation",
-            command::ParameterCheckRanged< float>( 1.0, std::numeric_limits< float>::max()), "1.0"
+            command::ParameterCheckRanged< float>( 0.0, std::numeric_limits< float>::max()), "1.0"
           )
         )
       ),
@@ -1378,6 +1509,20 @@ namespace bcl
           )
         )
       ),
+      m_RemoveFragmentProbFlag
+      (
+        new command::FlagStatic
+        (
+          "mutate_remove_fragment_prob", "flag for the relative probability of performing a fragment removal mutation during molecule optimization; "
+              "automatically rescaled between 0 and 1 with any other mutates",
+          command::Parameter
+          (
+            "mutate_remove_fragment", "remove a fragment from the molecule; if the "
+                "molecule is split into multiple fragments, keep only the largest fragment",
+            command::ParameterCheckRanged< float>( 0.0, std::numeric_limits< float>::max()), "0.1"
+          )
+        )
+      ),
       m_RemoveBondProbFlag
       (
         new command::FlagStatic
@@ -1401,6 +1546,19 @@ namespace bcl
           command::Parameter
           (
             "mutate_add_medchem", "append medchem-like functional groups to the molecule from an internal library",
+            command::ParameterCheckRanged< float>( 0.0, std::numeric_limits< float>::max()), "0.1"
+          )
+        )
+      ),
+      m_CombineProbFlag
+      (
+        new command::FlagStatic
+        (
+          "mutate_combine_prob", "flag for the relative probability of performing an combine groups mutation during molecule optimization; "
+              "automatically rescaled between 0 and 1 with any other mutates",
+          command::Parameter
+          (
+            "mutate_combine", "combine chemical functional groups to the molecule from an internal library",
             command::ParameterCheckRanged< float>( 0.0, std::numeric_limits< float>::max()), "0.1"
           )
         )
@@ -1514,6 +1672,21 @@ namespace bcl
           )
         )
       ),
+      m_CombineFragmentsFlag
+      (
+        new command::FlagStatic
+        (
+          "combine_fragments",
+          "files containing fragments to combine with the molecule",
+          command::Parameter
+          (
+            "combine fragments filename",
+            "name of file containing combine fragments",
+            command::ParameterCheckFileExistence()
+            /* chemistry::RotamerLibraryFile::GetRotamerFinder().FindFile( "") + ( "bcl_buildfrag_0.sdf.gz") */
+          )
+        )
+      ),
       m_PropertyScoringFunctionFlag
       (
         new command::FlagDynamic
@@ -1526,7 +1699,7 @@ namespace bcl
             "the scoring function implementation to use",
             command::ParameterCheckSerializable
             (
-              chemistry::ScoreFunctionGeneric()
+              descriptor::CheminfoProperty()
             )
           )
         )
@@ -1539,18 +1712,13 @@ namespace bcl
           "the type of druglikeness filter to use to determine when a molecule is skipped by the Monte Carlo algorithm",
           command::Parameter
           (
-            "type",
-            "the type of druglikeness to use",
-            command::ParameterCheckAllowed
+            "property",
+            "the cheminfo property used for druglikeness filtering",
+            command::ParameterCheckSerializable
             (
-              storage::Vector< std::string>::Create
-              (
-                "IsConstitutionDruglike",
-                "IsConstitutionDruglikeAndHitlike",
-                "None"
-              )
+              descriptor::CheminfoProperty()
             ),
-            "IsConstitutionDruglike"
+            "IsConstitutionDruglikeAndHitlike(enforce_druglike_fragments=1)"
           )
         )
       ),

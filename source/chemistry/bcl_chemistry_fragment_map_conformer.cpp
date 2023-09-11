@@ -542,13 +542,18 @@ namespace bcl
         // return final molecule
         return gen_mol_3d_sp;
       }
+      else if( !gen_mol_3d_sp.IsDefined())
+      {
+        BCL_MessageStd("Molecule cleaning failed to generate a valid 3D conformer!")
+        BCL_MessageStd("Defined: " + util::Format()( gen_mol_3d_sp.IsDefined() ? "true" : "false"));
+      }
       else
       {
-        BCL_MessageStd( "Molecule cleaning failed to generate a valid 3D conformer!")
-        BCL_MessageStd( "Defined: " + util::Format()( gen_mol_3d_sp.IsDefined() ? "true" : "false"));
-        BCL_MessageStd( "Has good geometry: " + util::Format()( gen_mol_3d_sp->HasBadGeometry() ? "false" : "true" ));
-        BCL_MessageStd( "Final molecule size: " + util::Format()( gen_mol_3d_sp->GetSize()));
-        BCL_MessageStd( "Returning null...")
+        BCL_MessageStd("Molecule cleaning failed to generate a valid 3D conformer!")
+        BCL_MessageStd("Defined: " + util::Format()( gen_mol_3d_sp.IsDefined() ? "true" : "false"));
+        BCL_MessageStd("Has good geometry: " + util::Format()( gen_mol_3d_sp->HasBadGeometry() ? "false" : "true" ));
+        BCL_MessageStd("Final molecule size: " + util::Format()( gen_mol_3d_sp->GetSize()));
+        BCL_MessageStd("Returning null...")
       }
       return util::ShPtr< FragmentComplete>();
     }

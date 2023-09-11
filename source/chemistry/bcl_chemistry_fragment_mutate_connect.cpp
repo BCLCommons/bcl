@@ -266,6 +266,7 @@ namespace bcl
         // bail
         if( failures > m_NumberMaxAttempts)
         {
+          BCL_MessageStd("Failed to identify a non-hydrogen mutable atom in the input molecule!");
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
 
@@ -294,6 +295,7 @@ namespace bcl
         // bail
         if( failures > m_NumberMaxAttempts)
         {
+          BCL_MessageStd("Failed to identify a non-hydrogen mutable atom in the terminal fragment molecule!");
           return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
         }
 
@@ -346,7 +348,7 @@ namespace bcl
         // set second atom index
         second_atom_index = size_t( m_TerminalFragment.GetAtomVector().GetAtomIndex( *second_atom));
 
-      } while( second_atom->GetElementType() == GetElementTypes().e_Hydrogen || second_atom_index == first_atom_index);
+      } while( second_atom->GetElementType() == GetElementTypes().e_Hydrogen /*|| second_atom_index == first_atom_index */ ); // commented out region was bug
 
       // catch my fuckups from this stupid couple of do-while loops
       if( !util::IsDefined( first_atom_index) || !util::IsDefined( second_atom_index))

@@ -705,14 +705,17 @@ namespace bcl
         m_ExtendAdjacentAtoms
       );
 
-      // clean the molecule
-      util::ShPtr< FragmentComplete> frag( util::ShPtr< FragmentComplete>( new FragmentComplete( atoms, "")));
+      // clean and return the molecule
       HydrogensHandler::Remove( atoms);
-      m_ScaffoldFragment.GetSize()
-          ? frag = cleaner.Clean( atoms, m_ScaffoldFragment, m_DrugLikenessType)
-          : frag = cleaner.Clean( atoms, FRAGMENT, m_DrugLikenessType);
-      // return the new constitution
-      return math::MutateResult< FragmentComplete>( frag, *this);
+      if( m_ScaffoldFragment.GetSize())
+      {
+        return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, m_ScaffoldFragment, m_DrugLikenessType), *this);
+      }
+      else
+      {
+        return math::MutateResult< FragmentComplete>( cleaner.Clean( atoms, FRAGMENT, m_DrugLikenessType), *this);
+      }
+      return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
     }
 
   ////////////////

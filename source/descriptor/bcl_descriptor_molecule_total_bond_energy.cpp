@@ -40,24 +40,14 @@ namespace bcl
     MoleculeTotalBondEnergy::MoleculeTotalBondEnergy() :
       m_BondEnergiesFilename( "chembl_bdb_constitution.clean.expanded_bond_types.STATS.element_bond_counts.energies.txt.gz")
     {
+      this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
     }
 
     //! @brief specify bond energies file constructor
     MoleculeTotalBondEnergy::MoleculeTotalBondEnergy( const std::string &BOND_ENERGIES_FILENAME) :
       m_BondEnergiesFilename( BOND_ENERGIES_FILENAME)
     {
-//      // Read in the atom environments file directly
-//      io::IFStream( file);
-//      io::File::MustOpenIFStream
-//      (
-//        file,
-//        m_BondEnergiesFilename
-//      );
-//      io::Serialize::Read( m_BondEnergies, file);
-//      io::File::CloseClearFStream( file);
-//
-//      // Make sure the bond propensities file is not empty
-//      BCL_Assert( !m_BondEnergies.IsEmpty(), "Statistical bond energies file is empty!");
+      this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
     }
 
     //! @brief virtual copy constructor
@@ -84,6 +74,21 @@ namespace bcl
     {
       static const std::string s_name( "MoleculeTotalBondEnergy");
       return s_name;
+    }
+
+    //! @brief return the filename for the file used to load the bond energies
+    //! @return filename string
+    const std::string &MoleculeTotalBondEnergy::GetBondEnergiesFilename() const
+    {
+      return m_BondEnergiesFilename;
+    }
+
+    //! @brief return the bond energies
+    //! @return bond energies map
+    storage::Map< storage::Triplet< chemistry::ElementType, chemistry::ElementType, chemistry::ConfigurationalBondType>, float>
+    MoleculeTotalBondEnergy::GetBondEnergies() const
+    {
+      return m_BondEnergies;
     }
 
   ////////////////

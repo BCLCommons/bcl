@@ -94,11 +94,11 @@ namespace bcl
       const FragmentComplete &SCAFFOLD_FRAGMENT,
       const FragmentEnsemble &MUTABLE_FRAGMENTS,
       const storage::Vector< size_t> &MUTABLE_ATOM_INDICES,
-      const bool &CORINA_CONFS
+      const bool CORINA_CONFS,
+      const bool REVERSIBLE
     ) :
       m_AllowedHalogens( storage::Vector< AtomType>()),
       m_AllowedHalogensString( "F Cl Br I"),
-      m_Reversible( false),
       m_RestrictReversibility( false),
       m_DisableAromaticRingReq( false)
     {
@@ -107,6 +107,7 @@ namespace bcl
       m_MutableFragments = MUTABLE_FRAGMENTS;
       m_MutableAtomIndices = MUTABLE_ATOM_INDICES;
       m_Corina = CORINA_CONFS;
+      m_Reversible = REVERSIBLE;
 
       this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
     }
@@ -443,8 +444,7 @@ namespace bcl
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
       (
-        "Extends a molecule either by breaking a bond and inserting a motif before reconnecting, "
-        "or by linking to a new ring system"
+        "Add or remove halogen atoms from molecules."
       );
 
       parameters.AddInitializer

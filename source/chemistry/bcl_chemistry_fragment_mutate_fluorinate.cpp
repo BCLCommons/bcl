@@ -83,16 +83,16 @@ namespace bcl
       const FragmentComplete &SCAFFOLD_FRAGMENT,
       const FragmentEnsemble &MUTABLE_FRAGMENTS,
       const storage::Vector< size_t> &MUTABLE_ATOM_INDICES,
-      const bool &CORINA_CONFS
-    ) :
-      m_Reversible( false)
+      const bool CORINA_CONFS,
+      const bool REVERSIBLE
+    )
     {
       m_DrugLikenessType = DRUG_LIKENESS_TYPE;
       m_ScaffoldFragment = SCAFFOLD_FRAGMENT;
       m_MutableFragments = MUTABLE_FRAGMENTS;
       m_MutableAtomIndices = MUTABLE_ATOM_INDICES;
       m_Corina = CORINA_CONFS;
-
+      m_Reversible = REVERSIBLE;
       this->ReadInitializerSuccessHook( util::ObjectDataLabel(), util::GetLogger());
     }
 
@@ -257,7 +257,6 @@ namespace bcl
           }
 
           size_t picked_atom_index( FRAGMENT.GetAtomVector().GetAtomIndex( *picked_atom));
-
           // TODO: consider making a flag for this
           // make sure not aromatic to avoid double-counting with Halogenate
 //          if( picked_atom->GetElementType() == GetElementTypes().e_Hydrogen)
@@ -406,10 +405,8 @@ namespace bcl
       io::Serializer parameters( FragmentMutateInterface::GetSerializer());
       parameters.SetClassDescription
       (
-        "Add fluorine atoms to molecules; distinct from "
-        "halogenate because patterns of fluorine placement "
-        "in organic molecules tend to differ from patterns "
-        "of bulkier halogens"
+        "Add or remove fluorine atoms to molecules. This mutate is distinct from 'halogenate' because it is intended to "
+        "cover some fluorine-specific chemical perturbations that go beyond the scope of 'halogenate'."
       );
 
       parameters.AddInitializer
