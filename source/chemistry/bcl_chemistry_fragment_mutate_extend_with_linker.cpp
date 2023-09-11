@@ -65,7 +65,7 @@ namespace bcl
     //! @brief default constructor
     FragmentMutateExtendWithLinker::FragmentMutateExtendWithLinker() :
         m_Rings( util::ShPtr< FragmentEnsemble>()),
-        m_RingsFilename( std::string()),
+        m_RingsFilename( RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ring_libraries/drug_ring_database.simple.aro.sdf.gz"),
         m_ExtendWithinProb( 0.50),
         m_FragmentMinSize( 0),
         m_AllowFragmentDuplication( false),
@@ -108,7 +108,7 @@ namespace bcl
       const bool &CORINA_CONFS
     ) :
       m_Rings( util::ShPtr< FragmentEnsemble>()),
-      m_RingsFilename( std::string()),
+      m_RingsFilename( RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ring_libraries/drug_ring_database.simple.aro.sdf.gz"),
       m_ExtendWithinProb( 0.50),
       m_FragmentMinSize( 0),
       m_AllowFragmentDuplication( false),
@@ -165,7 +165,7 @@ namespace bcl
       const bool &CORINA_CONFS
     ) :
       m_Rings( util::ShPtr< FragmentEnsemble>()),
-      m_RingsFilename( std::string()),
+      m_RingsFilename( RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ring_libraries/drug_ring_database.simple.aro.sdf.gz"),
       m_ExtendWithinProb( 0.50),
       m_FragmentMinSize( 0),
       m_AllowFragmentDuplication( false),
@@ -225,7 +225,7 @@ namespace bcl
       const bool &CORINA_CONFS
     ) :
       m_Rings( util::ShPtr< FragmentEnsemble>()),
-      m_RingsFilename( std::string()),
+      m_RingsFilename( RotamerLibraryFile::GetRotamerFinder().FindFile( "") + "ring_libraries/drug_ring_database.simple.aro.sdf.gz"),
       m_ExtendWithinProb( 0.50),
       m_FragmentMinSize( 0),
       m_AllowFragmentDuplication( false),
@@ -672,21 +672,16 @@ namespace bcl
       AtomVector< AtomComplete> not_empty( new_mol.GetAtomVector());
       HydrogensHandler::Remove( not_empty);
 
-      // Check for valid atom types
-      util::ShPtr< FragmentComplete> new_mol_ptr
-      (
-        m_ScaffoldFragment.GetSize()
-        ? cleaner.Clean( not_empty, m_ScaffoldFragment, m_DrugLikenessType)
-            : cleaner.Clean( not_empty, FRAGMENT, m_DrugLikenessType)
-      );
-
-      if( !new_mol_ptr.IsDefined() || new_mol_ptr->HasNonGasteigerAtomTypes())
+      // clean and return
+      if( m_ScaffoldFragment.GetSize())
       {
-        return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
+        return math::MutateResult< FragmentComplete>( cleaner.Clean( not_empty, m_ScaffoldFragment, m_DrugLikenessType), *this);
       }
-
-      // return the new molecule
-      return math::MutateResult< FragmentComplete>( new_mol_ptr, *this);
+      else
+      {
+        return math::MutateResult< FragmentComplete>( cleaner.Clean( not_empty, FRAGMENT, m_DrugLikenessType), *this);
+      }
+      return math::MutateResult< FragmentComplete>( util::ShPtr< FragmentComplete>(), *this);
     }
 
   ////////////////

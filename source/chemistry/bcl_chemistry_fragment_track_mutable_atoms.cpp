@@ -80,7 +80,8 @@ namespace bcl
   // operators //
   ///////////////
 
-    //! @brief a function that returns the non-mutable base fragment provided a mutable fragment/atoms
+    // TODO: legacy; will be deprecated at some point in favor of GetAtomFromMutable and related functions
+    //! @brief a function that returns the subgraph isomorphism (or complement) atoms between a fragment and mutable atoms/fragment
     //! @param FRAGMENT the small molecule of interest
     //! @param MUTABLE_FRAGMENT sub-fragment of small molecule that can be mutated
     //! @param MUTABLE_ATOMS the atoms within the sub-fragment that can be mutated

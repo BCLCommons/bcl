@@ -10,6 +10,7 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_evolutionary_generator.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_extract_mcs.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_focused_library_design.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_generate_partial_charges_file.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_generate_rosetta_ncaa_instructions.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_make_fld_scaffold.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_make_grow_fragments.cpp

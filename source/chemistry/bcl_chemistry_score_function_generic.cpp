@@ -238,6 +238,13 @@ namespace bcl
   // operators //
   ///////////////
 
+
+    //! @brief set the descriptor to be used as the scorer
+    void ScoreFunctionGeneric::SetDescriptor( const descriptor::CheminfoProperty &SCORER)
+    {
+      m_Descriptor = SCORER;
+    }
+
     //! @brief evaluate clashes for given atom pair
     //! @param MOLECULE molecule that needs to scored
     //! @return score of MOLECULE
