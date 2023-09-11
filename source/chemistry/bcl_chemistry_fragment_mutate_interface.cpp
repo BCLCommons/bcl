@@ -1056,7 +1056,8 @@ namespace bcl
         );
 
         // stupid check to add only the correct elements
-        // TODO: this should be directly serializable from element types to make concise
+        // TODO: this should be directly serializable from element types to make concise;
+        // this format only made sense when we wanted to severely restrict allowed element types
         m_MutableElements.Reset();
         for( size_t e_i( 0), e_sz( mutable_elements.GetSize()); e_i < e_sz; ++e_i)
         {

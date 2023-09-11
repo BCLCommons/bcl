@@ -1618,6 +1618,12 @@ namespace bcl
        return best_confs;
      }
 
+     //! @brief do stuff
+     void LinkFragments::DoStuff() const
+     {
+       ::RDKit::ROMol my_mol;
+     }
+
   //////////////////////
   // input and output //
   //////////////////////

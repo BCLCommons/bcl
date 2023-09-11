@@ -78,7 +78,7 @@ namespace bcl
         e_BondOrderOrAromaticWithRingness,             //!< same as e_BondOrderOrAromatic, except +3 if the bond is in a ring
         e_BondOrderAmideOrAromaticWithRingness,        //!< same as e_BondOrderAmideOrAromatic, except +3 if the bond is in a ring
         e_FuzzyBondOrderOrAromaticWithRingness,        //!< same as e_BondOrderOrAromaticWithRingness, except double bonds in chains are equiv to single bonds in chains to allow comparison of resonance structures
-        e_FuzzyBondOrderAmideOrAromaticWithRingness, //!< same as e_BondOrderOrAromaticWithRingnessAmide, except double bonds in chains are equiv to single bonds in chains to allow comparison of resonance structures
+        e_FuzzyBondOrderAmideOrAromaticWithRingness,   //!< same as e_BondOrderOrAromaticWithRingnessAmide, except double bonds in chains are equiv to single bonds in chains to allow comparison of resonance structures
         e_ConstitutionalBondType,                      //!< index of this bond type in the constitutional bond types
         e_BondOrderWithIsometry,                       //!< Nominal bond order = 1, 2, or 3, 4 for E isometry, 5 for Z isometry
         e_Isometry,                                    //!< Isometry, size_t of the isometry value of the bond (Undef,0,1,2)

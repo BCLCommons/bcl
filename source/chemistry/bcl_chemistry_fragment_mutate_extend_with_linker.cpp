@@ -1218,6 +1218,7 @@ namespace bcl
        // just do a single element link
        if( REPEATS < 2)
        {
+         // TODO: run SingleElementLink instead of returning null
          return FragmentComplete();
        }
 

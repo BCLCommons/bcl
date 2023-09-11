@@ -298,6 +298,16 @@ namespace bcl
       //! @return output stream which was written to
       std::ostream &WriteMDL( std::ostream &OSTREAM) const;
 
+      //! @brief write to std::ostream
+      //! @param OSTREAM output stream to write to
+      //! @return output stream which was written to
+      std::ostream &WriteSMILES( std::ostream &OSTREAM) const;
+
+      //! @brief write to std::ostream
+      //! @param OSTREAM output stream to write to
+      //! @return output stream which was written to
+      std::ostream &WriteSMARTS( std::ostream &OSTREAM) const;
+
     private:
 
     //////////////////////

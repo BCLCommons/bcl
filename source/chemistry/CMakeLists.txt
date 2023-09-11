@@ -112,6 +112,7 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_remove_bond.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_remove_fragment.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_ring_swap.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_mutate_smiles_react.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_probability_score.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_react.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_fragment_split_common_substructure.cpp
@@ -164,6 +165,7 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_pick_fragment_random.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_possible_atom_types_for_atom.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_priority_dihedral_angles.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_rdkit_mol_utils.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_reaction_complete.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_reaction_ensemble.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_chemistry_reaction_search.cpp

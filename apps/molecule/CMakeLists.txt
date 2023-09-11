@@ -23,6 +23,7 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_molecule_features.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_molecule_filter.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_molecule_fit.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_molecule_minimize.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_molecule_multialign.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_molecule_properties.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_molecule_reorder.cpp
