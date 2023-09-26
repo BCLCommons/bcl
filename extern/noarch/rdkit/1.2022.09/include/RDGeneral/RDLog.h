@@ -16,9 +16,11 @@
 #include "BoostStartInclude.h"
 #include <boost/iostreams/tee.hpp>
 #include <boost/iostreams/stream.hpp>
+#include <boost/noncopyable.hpp>	/// BPB added 09-25-2023
 #include "BoostEndInclude.h"
 #include <iostream>
 #include <vector>
+#include <cstdint>	/// BPB added 09-25-2023
 
 #include <vector>
 namespace boost {
