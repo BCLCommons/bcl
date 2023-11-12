@@ -12,6 +12,8 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
+// (c)   The BCL copyright and license yields to non-BCL copyrights and licenses where indicated by code comments.
+// (c) (for academic users) or bcl-support-commercial@meilerlab.org (for commercial users)
 #ifndef BCL_DESCRIPTOR_CHEMINFO_PROPERTIES_H
 #define BCL_DESCRIPTOR_CHEMINFO_PROPERTIES_H
 
@@ -177,6 +179,7 @@ namespace bcl
       CheminfoProperty calc_MolLipinskiViolations;         //!< Requires explicit hydrogens
       CheminfoProperty calc_MolLipinskiDruglike;           //!< Requires explicit hydrogens
       CheminfoProperty calc_MolLipinskiViolationsVeber;    //!< Requires explicit hydrogens
+      CheminfoProperty calc_MoleculeTotalToxicFragments;   //!< Counts the number of toxic chemical moeities in the fragment
       CheminfoProperty calc_MolAromaticRingHalogensTotal;  //!< Count the total number of aromatic ring halogen atoms
       CheminfoProperty calc_MolAromaticRingHalogensMax;    //!< Count the max number of aromatic ring halogen atoms on a fragment
       CheminfoProperty calc_MolEntropyQHA;                 //!< Conformational entropy of molecule

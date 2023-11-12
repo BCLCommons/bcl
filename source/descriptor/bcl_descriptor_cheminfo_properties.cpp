@@ -12,11 +12,9 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
+// (c)   The BCL copyright and license yields to non-BCL copyrights and licenses where indicated by code comments.
+// (c) (for academic users) or bcl-support-commercial@meilerlab.org (for commercial users)
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
-#include "descriptor/bcl_descriptor_atom_is_sp3.h"
-#include "descriptor/bcl_descriptor_atom_relative_property_score.h"
-#include "descriptor/bcl_descriptor_molecule_similarity.h"
-#include "descriptor/bcl_descriptor_pair_convolution_correlation_dnn.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
@@ -24,6 +22,18 @@ BCL_StaticInitializationFiascoFinder
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
 
 // includes from bcl - sorted alphabetically
+// TODO: clean this mess up
+#include "descriptor/bcl_descriptor_atom_is_sp3.h"
+#include "descriptor/bcl_descriptor_atom_relative_property_score.h"
+#include "descriptor/bcl_descriptor_molecule_similarity.h"
+#include "descriptor/bcl_descriptor_pair_convolution_correlation_dnn.h"
+#include "descriptor/bcl_descriptor_atom_is_sp3.h"
+#include "descriptor/bcl_descriptor_atom_relative_property_score.h"
+#include "descriptor/bcl_descriptor_molecule_similarity.h"
+#include "descriptor/bcl_descriptor_molecule_total_toxic_fragments.h"
+#include "descriptor/bcl_descriptor_pair_convolution_correlation_dnn.h"
+
+
 #include "descriptor/bcl_descriptor_atom_aromaticity_axes.h"
 #include "descriptor/bcl_descriptor_atom_effective_polarizability.h"
 #include "descriptor/bcl_descriptor_atom_estimated_surface_area.h"
@@ -754,6 +764,7 @@ namespace bcl
         )
       ),
       calc_MolLipinskiViolationsVeber( AddEnum( new MoleculeLipinskiViolations( MoleculeLipinskiViolations::e_Veber))),
+      calc_MoleculeTotalToxicFragments( AddEnum( new MoleculeTotalToxicFragments)),
       calc_MolAromaticRingHalogensTotal( AddEnum( new MoleculeHalogenatedAromaticRings( MoleculeHalogenatedAromaticRings::e_Total))),
       calc_MolAromaticRingHalogensMax( AddEnum( new MoleculeHalogenatedAromaticRings( MoleculeHalogenatedAromaticRings::e_Max))),
       calc_MolEntropyQHA( AddEnum( new MoleculeEntropyQHA)),
