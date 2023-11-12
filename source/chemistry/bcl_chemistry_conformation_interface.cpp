@@ -1440,10 +1440,9 @@ namespace bcl
     //! @return a vector of triplets where the vector is indexed by the amide bond and the triplet contains
     //! atom indices corresponding to the lower and higher amide bond atom indices, respectively, and
     //! the magnitude of the deviation
-    storage::Vector< storage::Triplet< size_t, size_t, double>> ConformationInterface::GetAmideBondNonPlanarity() const
+    storage::Vector< storage::Triplet< size_t, size_t, double> > ConformationInterface::GetAmideBondNonPlanarity() const
         {
-
-          storage::Vector< storage::Triplet< size_t, size_t, double>> deviations;
+          storage::Vector< storage::Triplet< size_t, size_t, double> > deviations;
       const AtomTypes &types( GetAtomTypes());
       for
       (
@@ -1557,17 +1556,17 @@ namespace bcl
     //! @return the per-amide bond penalty
     storage::Vector< double> ConformationInterface::GetPerAmideBondNonPlanarityPenalty
     (
-      storage::Vector< storage::Triplet< size_t, size_t, double>> &AMIDE_DEVIATIONS,
-          storage::Vector< double> &TOLERANCES,
-          storage::Vector< double> &PENALTIES
-        ) const
-        {
-          // require same sizes of tolerances and penalties
-          BCL_Assert
-          (
-            TOLERANCES.GetSize() == PENALTIES.GetSize(),
-            "Amide bond planarity tolerances and associated penalties are different sized vectors!"
-          );
+      storage::Vector< storage::Triplet< size_t, size_t, double> > &AMIDE_DEVIATIONS,
+      storage::Vector< double> &TOLERANCES,
+      storage::Vector< double> &PENALTIES
+    ) const
+    {
+      // require same sizes of tolerances and penalties
+      BCL_Assert
+      (
+        TOLERANCES.GetSize() == PENALTIES.GetSize(),
+        "Amide bond planarity tolerances and associated penalties are different sized vectors!"
+        );
 
       // get the individual deviations from planarity
       storage::Vector< double> amide_penalties( AMIDE_DEVIATIONS.GetSize(), double( 0.0));

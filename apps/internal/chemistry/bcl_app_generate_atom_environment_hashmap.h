@@ -18,7 +18,7 @@
 // include the interface for all apps
 #include "app/bcl_app_apps.h"
 #include "chemistry/bcl_chemistry_fragment_ensemble.h"
-#include <storage/bcl_storage_hash_map.h>
+#include "storage/bcl_storage_hash_map.h"
 
 // include other forward headers - sorted alphabetically
 #include "chemistry/bcl_chemistry.fwd.hh"

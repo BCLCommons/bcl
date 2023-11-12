@@ -518,7 +518,8 @@ namespace bcl
       (
         descriptor::GetCheminfoProperties().calc_PiCharge->CollectValuesOnEachElementOfObject
         (
-          MOLECULE)( MOLECULE.GetAtomVector().GetAtomIndex( *ATOM))
+          MOLECULE
+        )( MOLECULE.GetAtomVector().GetAtomIndex( *ATOM))
       );
 
       // check if the pi-charge is negative on the picked atom

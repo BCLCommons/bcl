@@ -69,21 +69,7 @@ namespace bcl
     class AlchemicalTransformationMapper :
       public Interface
     {
-
-    public:
-
-    ////////////////////////////
-    // Helper Classes         //
-    ////////////////////////////
-
-      class ComparePairs
-      {
-      public:
-        bool operator()( const storage::Pair< size_t, double> &FIRST, const storage::Pair< size_t, double> &SECOND) const
-        {
-          return FIRST.Second() > SECOND.Second();
-        }
-      };
+    private:
 
     //////////
     // data //
@@ -137,6 +123,8 @@ namespace bcl
     //////////////////////////////////
     // Construction and destruction //
     //////////////////////////////////
+
+    public:
 
       //! @brief default constructor
       AlchemicalTransformationMapper();
@@ -221,7 +209,13 @@ namespace bcl
         }
 
         // sort the possible edges for each vertex
-        static ComparePairs pair_comparer;
+        static struct ComparePairs
+        {
+          bool operator()( const storage::Pair< size_t, double> &FIRST, const storage::Pair< size_t, double> &SECOND) const
+          {
+            return FIRST.Second() > SECOND.Second();
+          }
+        } pair_comparer;
         for( size_t row_index( 0); row_index < per_vertex_possible_edges.GetSize(); ++row_index)
         {
           // sort

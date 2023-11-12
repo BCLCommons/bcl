@@ -14,13 +14,16 @@
 
 // include example header
 #include "example.h"
+
 // include the header of the class which this example is for
+#include "molecule/bcl_app_molecule_split.h"
+
+// other bcl headers - sorted alphabetically
 #include "example_application_example_helper.h"
 #include "chemistry/bcl_chemistry.h"
 #include "io/bcl_io_file.h"
 
 // external includes - sorted alphabetically
-#include "molecule/bcl_app_molecule_split.h"
 #include <stdio.h>
 
 namespace bcl

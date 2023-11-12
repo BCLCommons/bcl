@@ -512,10 +512,10 @@ namespace bcl
           // enumerate reactions for this molecule
           storage::Pair
           <
-            storage::Vector< storage::Pair< util::SiPtr< const chemistry::ReactionComplete>, chemistry::FragmentEnsemble>>,
-                storage::Vector< storage::Vector< std::string>>
-          >
-                  rxn_exh;
+            storage::Vector< storage::Pair< util::SiPtr< const chemistry::ReactionComplete>, chemistry::FragmentEnsemble> >,
+            storage::Vector< storage::Vector< std::string> >
+          > rxn_exh;
+
           if( m_LimitOneRxnPerRoundFlag->GetFlag())
           {
             // perform reaction

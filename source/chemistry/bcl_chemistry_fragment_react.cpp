@@ -177,7 +177,7 @@ namespace bcl
       // so looping over it is equivalent to looping over the positions of reactants in the reaction
       storage::Pair< util::SiPtr< const ReactionComplete>, util::SiPtrVector< const FragmentComplete> >
         random_rxn_rxts( m_ReactionSearch.ChooseRandomRxnAndReactants( MOL));
-      storage::Vector< util::SiPtrVector< const FragmentComplete>> rxn_search( m_ReactionSearch.GetAvailableReactants( random_rxn_rxts.First()));
+      storage::Vector< util::SiPtrVector< const FragmentComplete> > rxn_search( m_ReactionSearch.GetAvailableReactants( random_rxn_rxts.First()));
 
       if( !random_rxn_rxts.First().IsDefined())
       {
@@ -232,8 +232,8 @@ namespace bcl
     //! @brief react a molecule at all reactive centers with all reagents for a single specified reaction
     storage::Pair
     <
-      storage::Vector< storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble>>,
-          storage::Vector< storage::Vector< std::string>>
+      storage::Vector< storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble> >,
+      storage::Vector< storage::Vector< std::string> >
     >
     FragmentReact::ReactExhaustiveOneReaction
     (
@@ -241,8 +241,8 @@ namespace bcl
       const ReactionComplete &RXN
     ) const
     {
-              storage::Vector< storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble>> res_v;
-      storage::Vector< storage::Vector< std::string>> rxn_info_v;
+      storage::Vector< storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble> > res_v;
+      storage::Vector< storage::Vector< std::string> > rxn_info_v;
 
       // for each available reaction, find the available reactants
       //      m_ReactionSearch.Initialize();
@@ -305,16 +305,16 @@ namespace bcl
     //! @brief react a molecule at all reactive centers with all reagents
     storage::Pair
     <
-      storage::Vector< storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble>>,
-          storage::Vector< storage::Vector< std::string>>
+      storage::Vector< storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble> >,
+      storage::Vector< storage::Vector< std::string> >
     >
     FragmentReact::ReactExhaustive
     (
       const FragmentComplete &MOL
     ) const
     {
-              storage::Vector< storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble>> res_v;
-      storage::Vector< storage::Vector< std::string>> rxn_info_v;
+      storage::Vector< storage::Pair< util::SiPtr< const ReactionComplete>, FragmentEnsemble> > res_v;
+      storage::Vector< storage::Vector< std::string> > rxn_info_v;
 
       // find available reactions
       util::SiPtrVector< const ReactionComplete> avail_reactions( m_ReactionSearch.FindReactions( MOL));

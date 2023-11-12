@@ -538,15 +538,15 @@ namespace bcl
       return output;
     }
 
-    storage::Pair< storage::Vector< size_t>, storage::Vector< size_t>> ConformationComparisonPropertyFieldCorrelation::GetAlignedAtoms
-        (
-          const FragmentComplete &MOLECULE_A,
-          const FragmentComplete &MOLECULE_B,
-          const storage::Vector< size_t> &KEEP_INDICES_A,
-          const storage::Vector< size_t> &KEEP_INDICES_B
-        )
-        {
-          storage::Vector< size_t> atom_indices_aligned_a, atom_indices_aligned_b;
+    storage::Pair< storage::Vector< size_t>, storage::Vector< size_t> > ConformationComparisonPropertyFieldCorrelation::GetAlignedAtoms
+    (
+      const FragmentComplete &MOLECULE_A,
+      const FragmentComplete &MOLECULE_B,
+      const storage::Vector< size_t> &KEEP_INDICES_A,
+      const storage::Vector< size_t> &KEEP_INDICES_B
+    )
+    {
+      storage::Vector< size_t> atom_indices_aligned_a, atom_indices_aligned_b;
       const size_t n_atoms_a( MOLECULE_A.GetNumberAtoms());
       const size_t n_atoms_b( MOLECULE_B.GetNumberAtoms());
 

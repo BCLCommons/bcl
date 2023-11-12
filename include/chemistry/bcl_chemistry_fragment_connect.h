@@ -317,15 +317,15 @@ namespace bcl
       //! @return an ensemble of conformers for the first half of the extended linker (for odd numbers, half+1),
       //! the index of the link point to the next half of the molecule (in hydrogenated numbering), and
       //! the samplebyparts indices
-      storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t>> ExtendHalfLinkerForward
-          (
-            const FragmentComplete FRAGMENT_A,
-            const storage::Vector< std::string> &LINKER_COMPOSITION,
-            const storage::Vector< storage::Triplet< FragmentComplete, size_t, size_t> > &RINGS,
-            const size_t LINK_AINDEX_A,
-            const FragmentMapConformer &CLEANER,
-            SampleConformations &CONFORMATOR
-          ) const;
+      storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t> > ExtendHalfLinkerForward
+      (
+        const FragmentComplete FRAGMENT_A,
+        const storage::Vector< std::string> &LINKER_COMPOSITION,
+        const storage::Vector< storage::Triplet< FragmentComplete, size_t, size_t> > &RINGS,
+        const size_t LINK_AINDEX_A,
+        const FragmentMapConformer &CLEANER,
+        SampleConformations &CONFORMATOR
+      ) const;
 
       //! @brief return an ensemble of conformers for the terminal fragment extended with half the linker
       //! @param FRAGMENT_B terminal fragment from which extension will start
@@ -334,15 +334,15 @@ namespace bcl
       //! @return an ensemble of conformers for the terminal half of the extended linker (for odd numbers, half-1)
       //! the index of the link point to the other half of the molecule (in hydrogenated numbering),
       //! and the samplebyparts indices
-      storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t>> ExtendHalfLinkerReverse
-          (
-            const FragmentComplete &FRAGMENT_B,
-            const storage::Vector< std::string> &LINKER_COMPOSITION,
-            const storage::Vector< storage::Triplet< FragmentComplete, size_t, size_t> > &RINGS,
-            const size_t LINK_AINDEX_B,
-            const FragmentMapConformer &CLEANER,
-            SampleConformations &CONFORMATOR
-          ) const;
+      storage::Triplet< FragmentEnsemble, size_t, storage::Vector< size_t> > ExtendHalfLinkerReverse
+      (
+        const FragmentComplete &FRAGMENT_B,
+        const storage::Vector< std::string> &LINKER_COMPOSITION,
+        const storage::Vector< storage::Triplet< FragmentComplete, size_t, size_t> > &RINGS,
+        const size_t LINK_AINDEX_B,
+        const FragmentMapConformer &CLEANER,
+        SampleConformations &CONFORMATOR
+      ) const;
 
       //! @brief propose solutions for the fully linked molecule given two extended halves
       //! @param FWD_ENS fragment that was extended with half of the linker in the forward direction
@@ -352,16 +352,16 @@ namespace bcl
       //! @param REV_LINK_ATOM the atom at which this fragment will be joined
       //! @param REV_SBP_INDICES the atoms that compose conformationally flexible dihedrals
       //! @return a conformational ensemble of the fully linked molecule and the final linker indices
-      storage::Pair< FragmentEnsemble, storage::Vector< size_t>> JoinHalfExtendedFragments
-          (
-            const FragmentEnsemble &FWD_ENS,
-            const size_t FWD_LINK_ATOM,
-            const storage::Vector< size_t> &FWD_SBP_INDICES,
-            const FragmentEnsemble &REV_ENS,
-            const size_t REV_LINK_ATOM,
-            const storage::Vector< size_t> &REV_SBP_INDICES,
-            const RotamerLibraryFile &ROTLIB
-          ) const;
+      storage::Pair< FragmentEnsemble, storage::Vector< size_t> > JoinHalfExtendedFragments
+      (
+        const FragmentEnsemble &FWD_ENS,
+        const size_t FWD_LINK_ATOM,
+        const storage::Vector< size_t> &FWD_SBP_INDICES,
+        const FragmentEnsemble &REV_ENS,
+        const size_t REV_LINK_ATOM,
+        const storage::Vector< size_t> &REV_SBP_INDICES,
+        const RotamerLibraryFile &ROTLIB
+      ) const;
 
       //! @brief select rings from the library and identify attachment atoms
       //! @params LINKER_COMPONENTS the components to check for rings

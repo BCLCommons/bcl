@@ -36,6 +36,7 @@ BCL_StaticInitializationFiascoFinder
 #include "command/bcl_command_parameter_check_ranged.h"
 #include "command/bcl_command_parameter_check_serializable.h"
 #include "descriptor/bcl_descriptor_cheminfo_properties.h"
+#include "descriptor/bcl_descriptor_molecule_druglike.h"
 #include "io/bcl_io_directory_entry.h"
 #include "io/bcl_io_file.h"
 #include "math/bcl_math_running_average.h"
@@ -46,9 +47,9 @@ BCL_StaticInitializationFiascoFinder
 #include "util/bcl_util_stopwatch.h"
 
 // External includes - sorted alphabetically
-#include "descriptor/bcl_descriptor_molecule_druglike.h"
 #include <cstdio>
 #include <iomanip>
+
 namespace bcl
 {
   namespace app

@@ -147,13 +147,13 @@ namespace bcl
       //! @param COMPARER the metric to be used to compare alignments
       //! @return true if alignment occurs, false if the isomorphism size
       //! is below the minimum size allowed or the ensemble is empty
-      storage::Vector< storage::Pair< bool, float>> AlignEnsembleToScaffold
-          (
-            FragmentEnsemble &TARGET_ENS,
-            const FragmentComplete &SCAFFOLD_MOL,
-            const util::Implementation< ConformationComparisonInterface> &COMPARER
-              = util::Implementation< ConformationComparisonInterface>( "PropertyFieldDistance")
-          ) const;
+      storage::Vector< storage::Pair< bool, float> > AlignEnsembleToScaffold
+      (
+        FragmentEnsemble &TARGET_ENS,
+        const FragmentComplete &SCAFFOLD_MOL,
+        const util::Implementation< ConformationComparisonInterface> &COMPARER
+          = util::Implementation< ConformationComparisonInterface>( "PropertyFieldDistance")
+      ) const;
 
     //////////////////////
     // helper functions //

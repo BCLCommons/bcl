@@ -13,13 +13,13 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include "chemistry/bcl_chemistry_configurational_bond_type_data.h"
+#include "chemistry/bcl_chemistry_conformation_graph_converter.h"
+#include "chemistry/bcl_chemistry_fragment_split_interface.h"
+#include "command/bcl_command_parameter_check_allowed.h"
+#include "command/bcl_command_parameter_check_ranged.h"
+#include "util/bcl_util_implementation.h"
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
-#include <chemistry/bcl_chemistry_configurational_bond_type_data.h>
-#include <chemistry/bcl_chemistry_conformation_graph_converter.h>
-#include <chemistry/bcl_chemistry_fragment_split_interface.h>
-#include <command/bcl_command_parameter_check_allowed.h>
-#include <command/bcl_command_parameter_check_ranged.h>
-#include <util/bcl_util_implementation.h>
 BCL_StaticInitializationFiascoFinder
 
 // App header
