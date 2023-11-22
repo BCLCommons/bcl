@@ -56,8 +56,7 @@ namespace bcl
       public math::MutateInterface< assemble::ProteinModel>
     {
 
-    private:
-
+	public:
       //! @
       enum BridgeType
       {
@@ -164,6 +163,7 @@ namespace bcl
 
       }; // class BridgePartner
 
+    private:
     //////////
     // data //
     //////////

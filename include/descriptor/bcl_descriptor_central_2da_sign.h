@@ -25,6 +25,7 @@
 // includes from bcl - sorted alphabetically
 #include "bcl_descriptor_base_element.h"
 #include "chemistry/bcl_chemistry_atom_conformational_interface.h"
+#include "bcl_descriptor_molecule_2da_smooth_sign_code.h"
 
 // external includes - sorted alphabetically
 

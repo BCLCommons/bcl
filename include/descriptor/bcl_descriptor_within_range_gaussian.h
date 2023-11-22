@@ -148,9 +148,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeGaussian< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeGaussian< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeGaussian< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeGaussian< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeGaussian< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeGaussian< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeGaussian< char>;
 
   } // namespace descriptor

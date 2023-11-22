@@ -69,8 +69,7 @@ namespace bcl
         e_Data         //!< See enum comment
       };
 
-    private:
-
+	public:
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       //!
       //! @class MemberInfo
@@ -183,6 +182,7 @@ namespace bcl
         FixedLineWidthWriter &WriteHelp( FixedLineWidthWriter &OSTREAM) const;
 
       };
+    private:
 
       std::string                         m_CmdLineIdentifier; //!< Class id when used in polymorphic context
       std::string                         m_ClassDescription;  //!< Class description, used for help

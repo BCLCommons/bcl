@@ -99,8 +99,7 @@ namespace bcl
       //! @return true if the statistic returns a value for every value in the statistic descriptor
       static bool GetIsStatisticOfDescriptor( const Statistic &STATISTIC);
 
-    private:
-
+	public:
       //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       //!
       //! @class VectorLessThanRespectUndefined
@@ -127,6 +126,7 @@ namespace bcl
         //! @return A == B, respective of undefined values
         static bool Equal( const linal::Vector< float> &A, const linal::Vector< float> &B);
       };
+    private:
 
     //////////
     // data //

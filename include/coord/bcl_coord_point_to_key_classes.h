@@ -101,7 +101,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< coord::PointToKeyInterface>, coord::PointToKeyClasses>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::coord::PointToKeyInterface>, bcl::coord::PointToKeyClasses>;
 
   } // namespace util
 } // namespace bcl

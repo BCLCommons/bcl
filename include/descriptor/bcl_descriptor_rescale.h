@@ -250,9 +250,9 @@ namespace bcl
     }; // class Rescale
 
     BCL_EXPIMP_TEMPLATE template class BCL_API Rescale< char>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Rescale< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Rescale< biol::Mutation>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Rescale< chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Rescale< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Rescale< bcl::biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Rescale< bcl::chemistry::AtomConformationalInterface>;
 
   } // namespace descriptor
 } // namespace bcl

@@ -189,7 +189,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API PowerSpectrum< biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API PowerSpectrum< bcl::biol::AABase>;
     BCL_EXPIMP_TEMPLATE template class BCL_API PowerSpectrum< char>;
 
   } // namespace descriptor

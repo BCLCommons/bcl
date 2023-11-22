@@ -140,10 +140,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< chemistry::ConfigurationalBondTypeData, chemistry::ConfigurationalBondTypes>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::chemistry::ConfigurationalBondTypeData, bcl::chemistry::ConfigurationalBondTypes>;
 
   } // namespace util
 } // namespace bcl
 
 #endif //BCL_CHEMISTRY_CONFIGURATIONAL_BOND_TYPES_H_
-

@@ -109,7 +109,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< assemble::SSEFactoryInterface>, assemble::SSEFactories>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::assemble::SSEFactoryInterface>, bcl::assemble::SSEFactories>;
 
   } // namespace util
 } // namespace bcl

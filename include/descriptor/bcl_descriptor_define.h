@@ -232,12 +232,12 @@ namespace bcl
     }; // class Define
 
     BCL_EXPIMP_TEMPLATE template class BCL_API Define< char, float>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Define< biol::AABase, float>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Define< biol::Mutation, float>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Define< chemistry::AtomConformationalInterface, float>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Define< biol::AABase, char>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Define< biol::Mutation, char>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Define< chemistry::AtomConformationalInterface, char>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Define< bcl::biol::AABase, float>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Define< bcl::biol::Mutation, float>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Define< bcl::chemistry::AtomConformationalInterface, float>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Define< bcl::biol::AABase, char>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Define< bcl::biol::Mutation, char>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Define< bcl::chemistry::AtomConformationalInterface, char>;
 
   } // namespace descriptor
 } // namespace bcl

@@ -105,7 +105,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< assemble::SSEGeometryPackerInterface< assemble::SSEGeometryPacking> >, assemble::SSEGeometryPackingPickers>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::assemble::SSEGeometryPackerInterface< bcl::assemble::SSEGeometryPacking> >, bcl::assemble::SSEGeometryPackingPickers>;
 
   } // namespace util
 } // namespace bcl

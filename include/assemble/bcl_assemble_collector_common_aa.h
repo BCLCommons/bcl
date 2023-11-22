@@ -29,6 +29,10 @@
 
 // external includes - sorted alphabetically
 
+#ifdef PYBCL
+#include "bcl_assemble_protein_model.h"
+#endif
+
 namespace bcl
 {
   namespace assemble

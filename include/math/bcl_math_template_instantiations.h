@@ -48,35 +48,35 @@ namespace bcl
   namespace math
   {
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API FunctionInterfaceSerializable< linal::Vector< double>, double>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API FunctionInterfaceSerializable< bcl::linal::Vector< double>, double>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API FunctionInterfaceSerializable< assemble::ProteinModel, double>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API FunctionInterfaceSerializable< bcl::assemble::ProteinModel, double>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API BinaryFunctionInterface< assemble::SSEGeometryInterface, assemble::SSE, double>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API BinaryFunctionInterface< bcl::assemble::SSEGeometryInterface, bcl::assemble::SSE, double>;
 
     BCL_EXPIMP_TEMPLATE template class BCL_API FunctionInterfaceSerializable< double, double>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API FunctionInterfaceSerializable< storage::VectorND< 2, linal::Vector< double> >, storage::VectorND< 2, linal::Vector< double> > >;
+    BCL_EXPIMP_TEMPLATE template class BCL_API FunctionInterfaceSerializable< bcl::storage::VectorND< 2, bcl::linal::Vector< double> >, bcl::storage::VectorND< 2, bcl::linal::Vector< double> > >;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API MutateCombine< assemble::SSEPool>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API MutateCombine< bcl::assemble::SSEPool>;
 
-    // BCL_EXPIMP_TEMPLATE template class BCL_API MutateDecisionNode< assemble::ProteinModel>; 
+    // BCL_EXPIMP_TEMPLATE template class BCL_API MutateDecisionNode< bcl::assemble::ProteinModel>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API MutateDecisionNode< assemble::SSEPool>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API MutateDecisionNode< bcl::assemble::SSEPool>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API MutateInterface< assemble::Domain>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API MutateInterface< bcl::assemble::Domain>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API MutateInterface< assemble::ProteinModel>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API MutateInterface< bcl::assemble::ProteinModel>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API MutateInterface< TransformationMatrix3D>;
+	BCL_EXPIMP_TEMPLATE template class BCL_API MutateInterface< bcl::math::TransformationMatrix3D>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API SumFunctionMixin< score::ProteinModel>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API SumFunctionMixin< bcl::score::ProteinModel>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API BinarySumFunction< assemble::SSEPool, biol::Membrane, double, double>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API BinarySumFunction< bcl::assemble::SSEPool, bcl::biol::Membrane, double, double>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API MutateMoveWrapper< assemble::SSE>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API MutateMoveWrapper< bcl::assemble::SSE>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API MutatePerturbation< assemble::ProteinModel>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API MutatePerturbation< bcl::assemble::ProteinModel>;
 
   } // namespace math
 } // namespace bcl

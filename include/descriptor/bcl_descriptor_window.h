@@ -197,8 +197,8 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Window< biol::AABase, char>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Window< biol::AABase, float>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Window< bcl::biol::AABase, char>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Window< bcl::biol::AABase, float>;
     BCL_EXPIMP_TEMPLATE template class BCL_API Window< char, char>;
     BCL_EXPIMP_TEMPLATE template class BCL_API Window< char, float>;
 

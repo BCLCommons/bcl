@@ -125,9 +125,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API UniformRandom< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API UniformRandom< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API UniformRandom< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API UniformRandom< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API UniformRandom< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API UniformRandom< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API UniformRandom< char>;
 
   } // namespace descriptor

@@ -110,7 +110,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< sched::SchedulerInterface>, sched::Schedulers>;
+	BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::sched::SchedulerInterface>, bcl::sched::Schedulers>;
 
   } // namespace util
 } // namespace bcl

@@ -105,6 +105,8 @@ namespace bcl
 
     namespace
     {
+      #ifndef BCL_StringToStorage_defined
+      #define BCL_StringToStorage_defined
       //! @brief read a string into a linal vector of chars
       //! @param STRING the string to read
       //! @param STORAGE the vector of characters
@@ -123,6 +125,7 @@ namespace bcl
         // copy into the linal vector
         STORAGE = linal::Vector< float>( values_storage.Begin(), values_storage.End());
       }
+	  #endif //BCL_StringToStorage_defined
 
       //! @brief read a string into a linal vector of chars
       //! @param STRING the string to read

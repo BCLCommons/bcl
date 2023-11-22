@@ -40,25 +40,25 @@ namespace bcl
   namespace find
   {
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API PickCriteriaInterface< util::SiPtr< const assemble::SSE>, util::SiPtrList< const assemble::SSE>, assemble::ProteinModel>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API PickCriteriaInterface< bcl::util::SiPtr< const bcl::assemble::SSE>, bcl::util::SiPtrList< const bcl::assemble::SSE>, bcl::assemble::ProteinModel>;
 
-    BCL_EXPIMP_TEMPLATE template class PickCriteriaWrapper< util::SiPtr< const assemble::SSE>, util::SiPtrList< const assemble::SSE>, assemble::DomainInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API PickCriteriaWrapper< bcl::util::SiPtr< const bcl::assemble::SSE>, util::SiPtrList< const bcl::assemble::SSE>, bcl::assemble::DomainInterface>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API PickCriteriaInterface< util::SiPtr< const assemble::SSE>, util::SiPtrList< const assemble::SSE>, linal::Vector3D>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API PickCriteriaInterface< bcl::util::SiPtr< const bcl::assemble::SSE>, bcl::util::SiPtrList< const bcl::assemble::SSE>, bcl::linal::Vector3D>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API LocatorCriteria< util::SiPtr< const assemble::SSE>, util::SiPtrList< const assemble::SSE>, assemble::SSE, util::SiPtrList< const assemble::SSE> >;
+    BCL_EXPIMP_TEMPLATE template class BCL_API LocatorCriteria< bcl::util::SiPtr< const bcl::assemble::SSE>, bcl::util::SiPtrList< const bcl::assemble::SSE>, bcl::assemble::SSE, bcl::util::SiPtrList< const bcl::assemble::SSE> >;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API CollectorCriteriaCombined< assemble::SSE>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API CollectorCriteriaCombined< bcl::assemble::SSE>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API CollectorCriteriaWrapper< util::SiPtrList< const assemble::SSE>, assemble::DomainInterface, assemble::DomainInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API CollectorCriteriaWrapper< bcl::util::SiPtrList< const bcl::assemble::SSE>, bcl::assemble::DomainInterface, bcl::assemble::DomainInterface>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API PickCriteriaWrapper< util::SiPtr< const assemble::SSE>, util::SiPtrList< const assemble::SSE>, assemble::SSE>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API PickCriteriaWrapper< bcl::util::SiPtr< const bcl::assemble::SSE>, bcl::util::SiPtrList< const bcl::assemble::SSE>, bcl::assemble::SSE>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Locator< util::SiPtr< const assemble::SSE>, assemble::DomainInterface, util::SiPtrList< const assemble::SSE> >;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Locator< bcl::util::SiPtr< const bcl::assemble::SSE>, bcl::assemble::DomainInterface, bcl::util::SiPtrList< const bcl::assemble::SSE> >;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API LocatorCriteriaWrapper< util::SiPtr< const assemble::SSE>, assemble::DomainInterface, assemble::SSE>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API LocatorCriteriaWrapper< bcl::util::SiPtr< const bcl::assemble::SSE>, bcl::assemble::DomainInterface, bcl::assemble::SSE>;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API LocatorCriteriaWrapper< util::SiPtr< const assemble::SSE>, assemble::DomainInterface, assemble::DomainInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API LocatorCriteriaWrapper< bcl::util::SiPtr< const bcl::assemble::SSE>, bcl::assemble::DomainInterface, bcl::assemble::DomainInterface>;
 
   } // namespace find
 } // namespace bcl

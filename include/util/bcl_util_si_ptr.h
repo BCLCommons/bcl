@@ -112,7 +112,7 @@ namespace bcl
 
       //! construct from PtrInterface< t_DataType>
       SiPtr( const PtrInterface< t_DataType> &POINTER) :
-        m_Pointer( CheckValidPointerConversion( POINTER.GetPointer()))
+        m_Pointer( PtrInterface< t_DataType>::CheckValidPointerConversion( POINTER.GetPointer()))
       {
       }
 

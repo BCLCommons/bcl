@@ -34,9 +34,8 @@ namespace bcl
   namespace util
   {
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API FunctionInterface< storage::VectorND< 2, SiPtr< const coord::GeometryInterface> >, bool>;
-
-    BCL_EXPIMP_TEMPLATE template class BCL_API FunctionInterface< storage::VectorND< 2, linal::Vector< double> >, storage::VectorND< 2, linal::Vector< double> > >;
+    BCL_EXPIMP_TEMPLATE template class BCL_API FunctionInterface< bcl::storage::VectorND< 2, SiPtr< const bcl::coord::GeometryInterface> >, bool>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API FunctionInterface< bcl::storage::VectorND< 2, bcl::linal::Vector< double> >, bcl::storage::VectorND< 2, bcl::linal::Vector< double> > >;
 
   } // namespace util
 } // namespace bcl

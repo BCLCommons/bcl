@@ -144,7 +144,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< function::BinaryInterface< const biol::AABase, const biol::AABase, double> >, score::AAAssignments>;
+	BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::function::BinaryInterface< const bcl::biol::AABase, const bcl::biol::AABase, double> >, bcl::score::AAAssignments>;
 
   } // namespace util
 } // namespace bcl
