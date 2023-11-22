@@ -5,7 +5,7 @@ update_bcl.py - Alter the Rosetta distribution for an updated BCL
 
 Run this program in the main/source/external/bcl directory
 
-Author: Jeffrey Mendenhall (jeffreymendenhall@gmail.com), 
+Author: Jeffrey Mendenhall (jeffreymendenhall@gmail.com),
 Benjamin P. Brown (benjamin.p.brown17@gmail.com)
 """
 
@@ -17,10 +17,10 @@ Details:
 Run through BCL header and source files to prepare them for compilation with
 Rosetta via scons. Specifically, we need to prepare a bcl.external.settings file.
 However, there are too many independent source files and the argument list to scons
-is too large for a single compilation. Instead of doing the compilation in stages, 
+is too large for a single compilation. Instead of doing the compilation in stages,
 this script will just concatenate a number of .cpp files from each namespace together.
 This is a bit of a hacky solution and will likely need to be updated in the future as the
-BCL continues to grow. So in the end, we will write out a bcl.external.settings 
+BCL continues to grow. So in the end, we will write out a bcl.external.settings
 file from the sources list, such that it can be compiled by the Rosetta scons compiler.
 """
 
@@ -46,7 +46,7 @@ def get_sources(directory):
             os.system('cat ' +dirpath + '/*.cpp > '+dirpath+'/../'+p)
             if dirpath.rsplit('/',1)[0] not in sources:
                 sources[dirpath.rsplit('/',1)[0]]=[]
-                
+
             sources[dirpath.rsplit('/',1)[0]].append( p)
     return sources
 
@@ -77,7 +77,7 @@ def parse_files(directory):
 def clean():
     # Remove unnecessary files and directories
     os.system('rm -rf .svn/ example/ example_check_log/')
-    
+
     # Change any bz2 files to gz compression
     os.system('for i in `find ./ -name "*.bz2"`; do tag=`echo $i | sed "s:.bz2::g"`; rm -f $tag ${tag}.gz ; bunzip2 $i ; gzip $tag ; done')
 
@@ -106,7 +106,7 @@ sources = {
             for name in sorted(sources[key]):
                 f.write('\t\t"' +name+ '",\n')
             f.write('\t],\n')
-    
+
         f.write(
 '''
 }
@@ -122,12 +122,22 @@ subprojects = ['z','pthread']
 only_with_extras = ['bcl']
 ''')
 
+def configure_files():
+    # Run the abbreviated CMake configuraton script to fill in the versioning information
+    os.system( "cd scripts/rosetta_integration; cmake .", shell=True)
+    # Cleanup
+    shutil.rmtree("scripts/rosetta_integration/CMakeFiles/")
+    os.remove("scripts/rosetta_integration/CMakeCache.txt")
+    os.remove("scripts/rosetta_integration/cmake_install.cmake")
+
+
 ######## end of make_scons_file() function
 
 def main():
     directory = "bcl"
     cw=os.getcwd()
     os.chdir(cw[:cw.find('/bcl/')-2])
+    configure_files()
     headers, sources = parse_files(directory)
     #headers, sources = add_extras(headers, sources, directory)
     #link_subdirs( headers, sources, directory )
