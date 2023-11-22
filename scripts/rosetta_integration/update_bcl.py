@@ -122,13 +122,14 @@ subprojects = ['z','pthread']
 only_with_extras = ['bcl']
 ''')
 
-def configure_files():
+def configure_files(directory):
     # Run the abbreviated CMake configuraton script to fill in the versioning information
-    os.system( "cd scripts/rosetta_integration; cmake .", shell=True)
+    os.system( "cd "+directory+"/scripts/rosetta_integration; cmake .")
     # Cleanup
-    shutil.rmtree("scripts/rosetta_integration/CMakeFiles/")
-    os.remove("scripts/rosetta_integration/CMakeCache.txt")
-    os.remove("scripts/rosetta_integration/cmake_install.cmake")
+    shutil.rmtree(directory+"/scripts/rosetta_integration/CMakeFiles/")
+    os.remove(directory+"/scripts/rosetta_integration/CMakeCache.txt")
+    os.remove(directory+"/scripts/rosetta_integration/cmake_install.cmake")
+    os.remove(directory+"/scripts/rosetta_integration/Makefile")
 
 
 ######## end of make_scons_file() function
@@ -137,7 +138,7 @@ def main():
     directory = "bcl"
     cw=os.getcwd()
     os.chdir(cw[:cw.find('/bcl/')-2])
-    configure_files()
+    configure_files(directory)
     headers, sources = parse_files(directory)
     #headers, sources = add_extras(headers, sources, directory)
     #link_subdirs( headers, sources, directory )
