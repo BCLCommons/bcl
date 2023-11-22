@@ -4,10 +4,10 @@
 
 # Minimal config to get things started.
 
-INCLUDE( "../../bcl_version.cmake")
-INCLUDE( "../../cmake/modules/BCLVersion.cmake" )
 OPTION( BCL_LICENSE "compile executables with license information, e.g. an expiration time added to bclcommons published binaries" OFF)
 OPTION( BCL_RELEASE "compile executables for release to " OFF)
 SET( BCL_INSTALL_PREFIX "./")
+INCLUDE( "../../bcl_version.cmake")
+INCLUDE( "../../cmake/modules/BCLVersion.cmake" )
 
 CONFIGURE_FILE( ${CMAKE_CURRENT_SOURCE_DIR}/../../source/bcl_version.cpp.in ${CMAKE_CURRENT_SOURCE_DIR}/../../source/bcl_version.cpp)
