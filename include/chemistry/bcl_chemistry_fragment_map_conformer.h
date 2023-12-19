@@ -191,13 +191,13 @@ namespace bcl
       //! @param FRAGMENT small molecule of interest
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @return AtomVector< AtomComplete> of a new set of clean atoms following the mutation
-      AtomVector< AtomComplete> CleanAtoms
+      static AtomVector< AtomComplete> CleanAtoms
       (
         const AtomVector< AtomComplete> &ATOM_VEC,
         const std::string &DRUG_LIKENESS_TYPE = "None",
         const bool &SKIP_NEUT = true,
         const bool &SKIP_SATURATE_H = false
-      ) const;
+      );
 
       //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
       //! @param FRAGMENT small molecule of interest

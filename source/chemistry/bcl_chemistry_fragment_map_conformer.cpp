@@ -472,7 +472,7 @@ namespace bcl
       const std::string &DRUG_LIKENESS_TYPE,
       const bool &SKIP_NEUT,
       const bool &SKIP_SATURATE_H
-    ) const
+    )
     {
       // make sure we have atoms
       if( !ATOM_VEC.GetSize())
