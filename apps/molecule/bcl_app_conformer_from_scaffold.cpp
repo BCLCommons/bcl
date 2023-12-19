@@ -215,6 +215,7 @@ namespace bcl
           m_InputFileFlag( PARENT.m_InputFileFlag),
           m_ScaffoldFileFlag( PARENT.m_ScaffoldFileFlag),
           m_OutputFileFlag( PARENT.m_OutputFileFlag),
+          m_OutputFailureFileFlag( PARENT.m_OutputFailureFileFlag),
           m_ModeFlag( PARENT.m_ModeFlag),
           m_AtomTypeFlag( PARENT.m_AtomTypeFlag),
           m_BondTypeFlag( PARENT.m_BondTypeFlag),
