@@ -146,6 +146,7 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_molecule_similarity.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_molecule_storage_id.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_molecule_total_bond_energy.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_molecule_total_toxic_fragments.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_molecule_triangulator_code.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_molecule_vdw_score.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_descriptor_molecule_xlog_p.cpp

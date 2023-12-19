@@ -89,10 +89,23 @@ namespace bcl
           new command::FlagStatic
           (
             "output_filename",
-            "new conformers of the input molecules will be written to this file; if unsuccessful, original input molecule can be written.",
+            "new conformers of the input molecules will be written to this file; if unsuccessful, original input molecule can be written",
             command::Parameter
             (
               "output molecules",
+              "SDF format"
+            )
+          )
+        ),
+        m_OutputFailureFileFlag
+        (
+          new command::FlagStatic
+          (
+            "output_failures_filename",
+            "failed molecules; occurs due to invalid conformer generation or insufficient similarity to a scaffold",
+            command::Parameter
+            (
+              "output failure molecules",
               "SDF format"
             )
           )
@@ -178,6 +191,21 @@ namespace bcl
               "Connected"
             )
           )
+        ),
+        m_SimilarityThresholdFlag
+        (
+          new command::FlagStatic
+          (
+            "similarity_threshold",
+            "minimum similarity to a scaffold required to perform conformer generation",
+            command::Parameter
+            (
+              "",
+              "",
+              command::ParameterCheckRanged< size_t>(0.0, 1.0),
+              "0.0"
+            )
+          )
         )
     {
     }
@@ -191,7 +219,8 @@ namespace bcl
           m_AtomTypeFlag( PARENT.m_AtomTypeFlag),
           m_BondTypeFlag( PARENT.m_BondTypeFlag),
           m_MinSizeFlag( PARENT.m_MinSizeFlag),
-          m_SolutionTypeFlag( PARENT.m_SolutionTypeFlag)
+          m_SolutionTypeFlag( PARENT.m_SolutionTypeFlag),
+          m_SimilarityThresholdFlag( PARENT.m_SimilarityThresholdFlag)
     {
     }
 
@@ -223,11 +252,13 @@ namespace bcl
       sp_cmd->AddFlag( m_InputFileFlag);
       sp_cmd->AddFlag( m_ScaffoldFileFlag);
       sp_cmd->AddFlag( m_OutputFileFlag);
+      sp_cmd->AddFlag( m_OutputFailureFileFlag);
       sp_cmd->AddFlag( m_ModeFlag);
       sp_cmd->AddFlag( m_AtomTypeFlag);
       sp_cmd->AddFlag( m_BondTypeFlag);
       sp_cmd->AddFlag( m_MinSizeFlag);
       sp_cmd->AddFlag( m_SolutionTypeFlag);
+      sp_cmd->AddFlag( m_SimilarityThresholdFlag);
 
       // add default bcl parameters
       command::GetAppDefaultFlags().AddDefaultCommandlineFlags( *sp_cmd);
@@ -259,8 +290,9 @@ namespace bcl
       BCL_Assert( scaffold_ensemble_size, "Must have at least one molecule in the scaffold ensemble. Exiting...\n");
 
       // initialize output so that we can write as we go
-      io::OFStream output;
+      io::OFStream output, output_failures;
       io::File::MustOpenOFStream( output, m_OutputFileFlag->GetFirstParameter()->GetValue());
+      io::File::MustOpenOFStream( output_failures, m_OutputFailureFileFlag->GetFirstParameter()->GetValue());
 
       // Get the atom and bond type resolution for substructure comparisons
       BCL_MessageStd("Initializing scaffold alignment object...");
@@ -292,6 +324,12 @@ namespace bcl
           ++mol_itr, ++mol_index
       )
       {
+        // status update
+        if(  mol_index % ensemble_size == 0)
+        {
+          BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
+        }
+
         // TODO: allow users to pass pre-computed similarity matrix to avoid computing similarity at this step
         // compute the largest common substructure tanimoto similarity of current molecule to each scaffold
         float best_similarity( 0.0);
@@ -315,33 +353,49 @@ namespace bcl
             }
           }
         }
-        BCL_MessageStd( "Best similarity for molecule " + std::to_string( mol_index) + " is against scaffold " + std::to_string( best_similarity_index) + ": " + std::to_string( best_similarity));
+
+        BCL_MessageVrb( "Best similarity for molecule " + std::to_string( mol_index) + " is against scaffold " + std::to_string( best_similarity_index) + ": " + std::to_string( best_similarity ) );
+        if( best_similarity < m_SimilarityThresholdFlag->GetFirstParameter()->GetNumericalValue< size_t>() )
+        {
+          if( m_OutputFailureFileFlag->GetFlag())
+          {
+            mol_itr->WriteMDL( output_failures);
+          }
+
+          BCL_MessageVrb
+          (
+            "Molecule " + std::to_string( mol_index) + " failed similarity threshold requirement! "
+            "Maximum Tanimoto similarity to scaffold " + std::to_string( best_similarity_index)  +
+            " with a value of " + std::to_string( best_similarity)
+          );
+          continue;
+        }
+
         // generate the new conformer based on the most similar scaffold
-        // TODO add flag for sub-indices? not sure how useful here, but allowable as arguments to this function
         bool success( ats.GenerateConformerBasedOnScaffold( *mol_itr, scaffold_molecules( best_similarity_index) ) );
         if( !success)
         {
-          mol_itr->WriteMDL( output);
-          BCL_MessageStd
+          if( m_OutputFailureFileFlag->GetFlag())
+          {
+            mol_itr->WriteMDL( output_failures);
+          }
+
+          BCL_MessageVrb
           (
             "Failed to generate conformer for molecule " + std::to_string( mol_index) +
             " using scaffold " + std::to_string( best_similarity_index) +
-            " with a Tanimoto similarity of " + std::to_string( best_similarity) );
+            " with a Tanimoto similarity of " + std::to_string( best_similarity)
+          );
         }
         else
         {
           mol_itr->WriteMDL( output);
         }
-
-        // status update
-        if(  mol_index % ensemble_size == 0 && mol_index)
-        {
-          BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
-        }
-
       }
+
       // close the file stream
       io::File::CloseClearFStream( output);
+      io::File::CloseClearFStream( output_failures);
       BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
       BCL_MessageStd("Done!");
       return 0;

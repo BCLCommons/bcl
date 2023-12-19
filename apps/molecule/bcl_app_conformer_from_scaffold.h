@@ -71,6 +71,9 @@ namespace bcl
       //! output filename
       util::ShPtr< command::FlagInterface> m_OutputFileFlag;
 
+      //! output filename for failed cases
+      util::ShPtr< command::FlagInterface> m_OutputFailureFileFlag;
+
       //! mode for selecting which molecule(s) will be used to determine the base substructure
       //! (1) all
       //! (2) similarity
@@ -87,6 +90,9 @@ namespace bcl
 
       // solution type for the isomorphism search
       util::ShPtr< command::FlagInterface> m_SolutionTypeFlag;
+
+      // minimum similarity required or else molecule is a failure
+      util::ShPtr< command::FlagInterface> m_SimilarityThresholdFlag;
 
     ///////////////////////////////////
     // construction and destruction //
