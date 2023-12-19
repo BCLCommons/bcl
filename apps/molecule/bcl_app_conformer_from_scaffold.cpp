@@ -327,7 +327,7 @@ namespace bcl
       )
       {
         // status update
-        if(  mol_index % ensemble_size == 0)
+        if(  mol_index % ensemble_size == 1)
         {
           BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
         }
