@@ -349,9 +349,6 @@ namespace bcl
         csi_substructure.GetIsomorphism().GetKeysAsVector()
       );
 
-      // get inverted subgraph of the new mol
-      graph::Subgraph< size_t, size_t> target_subgraph_complement( target_subgraph.GetComplement( ) );
-
       // alignment fails if there is no acceptable isomorphism
       if( isomorphism.GetSize() < m_MinIsoSize)
       {
@@ -366,36 +363,63 @@ namespace bcl
         target_atoms( iso_itr->first).SetCoordinates( scaffold_atoms( iso_itr->second).GetCoordinates());
       }
 
-      // generate a new 3D conformer without sampling the coordinates of the subgraph isomorphism
-      storage::Vector< size_t> moveable_atoms( target_subgraph_complement.GetVertexIndices());
-      storage::Set< size_t> moveable_atoms_set( moveable_atoms.Begin(), moveable_atoms.End());
-      FragmentMapConformer cleaner( "None", false, moveable_atoms);
-
-      // add all the adjacent edges to our unique subgraph vertices
-      storage::Set< size_t> all_adjacent_indices( cleaner.MapSubgraphAdjacentAtoms( target_subgraph_complement, 1) );
-      moveable_atoms_set.InsertElements( all_adjacent_indices.Begin(), all_adjacent_indices.End());
-      moveable_atoms = storage::Vector< size_t>( moveable_atoms_set.Begin(), moveable_atoms_set.End());
-      cleaner.SetMoveableAtomIndices( moveable_atoms);
-
-      // create cleaned molecule
-      util::ShPtr< FragmentComplete> new_molecule
-      (
-        cleaner.Clean
-        (
-          AtomVector< AtomComplete>( target_atoms, TARGET_MOL.GetBondInfo() ),
-          FragmentComplete(),  // or maybe do scaffold_mol
-          "None",
-          false
-        )
-      );
-      if( new_molecule.IsDefined())
+      // get inverted subgraph of the new mol
+      graph::Subgraph< size_t, size_t> target_subgraph_complement( target_subgraph.GetComplement( ) );
+      if( target_subgraph_complement.GetSize())
       {
-        // add back the original properties to the re-aligned structure
-        new_molecule->SetName( TARGET_MOL.GetName());
-        new_molecule->StoreProperties( TARGET_MOL);
-        new_molecule->GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", moveable_atoms);
-        TARGET_MOL = *new_molecule;
-        return true;
+        // generate a new 3D conformer without sampling the coordinates of the subgraph isomorphism
+        storage::Vector< size_t> moveable_atoms( target_subgraph_complement.GetVertexIndices());
+        storage::Set< size_t> moveable_atoms_set( moveable_atoms.Begin(), moveable_atoms.End());
+        FragmentMapConformer cleaner( "None", false, moveable_atoms);
+
+        // add all the adjacent edges to our unique subgraph vertices
+        storage::Set< size_t> all_adjacent_indices( cleaner.MapSubgraphAdjacentAtoms( target_subgraph_complement, 1) );
+        moveable_atoms_set.InsertElements( all_adjacent_indices.Begin(), all_adjacent_indices.End());
+        moveable_atoms = storage::Vector< size_t>( moveable_atoms_set.Begin(), moveable_atoms_set.End());
+        cleaner.SetMoveableAtomIndices( moveable_atoms);
+
+        // create cleaned molecule
+        util::ShPtr< FragmentComplete> new_molecule
+        (
+          cleaner.Clean
+          (
+            AtomVector< AtomComplete>( target_atoms, TARGET_MOL.GetBondInfo() ),
+            FragmentComplete(),
+            "None",
+            true
+          )
+        );
+        if( new_molecule.IsDefined())
+        {
+          // add back the original properties to the re-aligned structure
+          new_molecule->SetName( TARGET_MOL.GetName());
+          new_molecule->StoreProperties( TARGET_MOL);
+          new_molecule->GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", moveable_atoms);
+          TARGET_MOL = *new_molecule;
+          return true;
+        }
+      }
+
+      // it is possible for the entire substructure to be contained within the scaffold such that there are no complement subgraph atoms
+      else
+      {
+        // clean atoms
+        AtomVector< AtomComplete> clean_atoms(
+          FragmentMapConformer::CleanAtoms
+          (
+            AtomVector< AtomComplete>( target_atoms, TARGET_MOL.GetBondInfo() ),
+            "None",
+            true
+          )
+        );
+        if( clean_atoms.GetSize())
+        {
+          FragmentComplete new_molecule( clean_atoms, TARGET_MOL.GetName());
+          new_molecule.StoreProperties( TARGET_MOL);
+          new_molecule.GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", storage::Vector< size_t>() );
+          TARGET_MOL = new_molecule;
+          return true;
+        }
       }
       return false;
     }

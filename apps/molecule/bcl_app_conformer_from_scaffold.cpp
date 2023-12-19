@@ -25,7 +25,6 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_conformation_graph_converter.h"
 #include "chemistry/bcl_chemistry_fragment_align_to_scaffold.h"
 #include "chemistry/bcl_chemistry_fragment_ensemble.h"
-#include "chemistry/bcl_chemistry_fragment_map_conformer.h"
 #include "command/bcl_command_app_default_flags.h"
 #include "command/bcl_command_command.h"
 #include "command/bcl_command_flag_dynamic.h"
@@ -287,31 +286,15 @@ namespace bcl
       BCL_MessageStd("Reading scaffold molecules...");
       io::File::MustOpenIFStream( input, m_ScaffoldFileFlag->GetFirstParameter()->GetValue());
       const chemistry::FragmentEnsemble scaffold_ensemble( input, sdf::e_Remove);
-//      storage::Vector< chemistry::FragmentComplete> scaffold_molecules( scaffold_ensemble.Begin(), scaffold_ensemble.End());
+      const storage::Vector< chemistry::FragmentComplete> scaffold_molecules( scaffold_ensemble.Begin(), scaffold_ensemble.End());
       io::File::CloseClearFStream( input);
-      const size_t scaffold_ensemble_size( scaffold_ensemble.GetSize());
+      const size_t scaffold_ensemble_size( scaffold_molecules.GetSize());
       BCL_Assert( scaffold_ensemble_size, "Must have at least one molecule in the scaffold ensemble. Exiting...\n");
 
       // initialize output so that we can write as we go
       io::OFStream output, output_failures;
       io::File::MustOpenOFStream( output, m_OutputFileFlag->GetFirstParameter()->GetValue());
       io::File::MustOpenOFStream( output_failures, m_OutputFailureFileFlag->GetFirstParameter()->GetValue());
-
-      // cleaning the scaffold molecules prior to comparison and conformer generation
-      storage::Vector< chemistry::FragmentComplete> scaffold_molecules;
-      for
-      (
-          auto scaffold_itr( scaffold_ensemble.Begin()), scaffold_itr_end( scaffold_ensemble.End());
-          scaffold_itr != scaffold_itr_end;
-          ++scaffold_itr
-      )
-      {
-        chemistry::AtomVector< chemistry::AtomComplete> scaffold_atom_vector( scaffold_itr->GetAtomVector());
-        scaffold_atom_vector = chemistry::FragmentMapConformer::CleanAtoms( scaffold_atom_vector, "None", true, true);
-        chemistry::FragmentComplete clean_scaffold( scaffold_atom_vector, scaffold_itr->GetName());
-        clean_scaffold.StoreProperties( *scaffold_itr);
-        scaffold_molecules.PushBack( clean_scaffold);
-      }
 
       // Get the atom and bond type resolution for substructure comparisons
       BCL_MessageStd("Initializing scaffold alignment object...");
@@ -335,7 +318,7 @@ namespace bcl
       // generate conformers for each input file based on template substructure
       const util::Implementation< chemistry::ConformationComparisonInterface> similarity_metric("LargestCommonSubstructureTanimoto");
       BCL_MessageStd("Generating new conformer ensemble for input molecules...");
-      size_t mol_index( 0);
+      size_t mol_index( 0), success_count( 0);
       BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
       for
       (
@@ -345,18 +328,11 @@ namespace bcl
       )
       {
         // status update
-        if( mol_index % 10)
+        if( mol_index % 10 == 0)
         {
           BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
 //          util::GetLogger().LogStatus( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
         }
-
-        // clean molecule before comparison
-        chemistry::AtomVector< chemistry::AtomComplete> mol_atom_vector( mol_itr->GetAtomVector());
-        mol_atom_vector = chemistry::FragmentMapConformer::CleanAtoms( mol_atom_vector, "None", true, true);
-        chemistry::FragmentComplete clean_mol( mol_atom_vector, mol_itr->GetName());
-        clean_mol.StoreProperties( *mol_itr);
-        *mol_itr = clean_mol;
 
         // TODO: allow users to pass pre-computed similarity matrix to avoid computing similarity at this step
         // compute the largest common substructure tanimoto similarity of current molecule to each scaffold
@@ -418,14 +394,16 @@ namespace bcl
         else
         {
           mol_itr->WriteMDL( output);
+          ++success_count;
         }
       }
 
       // close the file stream
       io::File::CloseClearFStream( output);
       io::File::CloseClearFStream( output_failures);
-      BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
       BCL_MessageStd("Done!");
+      BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
+      BCL_MessageStd( "A total of " + std::to_string( success_count) + "/" + std::to_string( ensemble_size) + " molecules were successful.");
       return 0;
     }
 
