@@ -27,6 +27,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_fragment_ensemble.h"
 #include "command/bcl_command_app_default_flags.h"
 #include "command/bcl_command_command.h"
+#include "command/bcl_command_flag_dynamic.h"
 #include "command/bcl_command_flag_static.h"
 #include "command/bcl_command_parameter_check_allowed.h"
 #include "command/bcl_command_parameter_check_file_existence.h"
@@ -99,7 +100,7 @@ namespace bcl
         ),
         m_OutputFailureFileFlag
         (
-          new command::FlagStatic
+          new command::FlagDynamic
           (
             "output_failures_filename",
             "failed molecules; occurs due to invalid conformer generation or insufficient similarity to a scaffold",
@@ -202,7 +203,7 @@ namespace bcl
             (
               "",
               "",
-              command::ParameterCheckRanged< size_t>(0.0, 1.0),
+              command::ParameterCheckRanged< float>(0.0, 1.0),
               "0.0"
             )
           )
@@ -356,7 +357,7 @@ namespace bcl
         }
 
         BCL_MessageVrb( "Best similarity for molecule " + std::to_string( mol_index) + " is against scaffold " + std::to_string( best_similarity_index) + ": " + std::to_string( best_similarity ) );
-        if( best_similarity < m_SimilarityThresholdFlag->GetFirstParameter()->GetNumericalValue< size_t>() )
+        if( best_similarity < m_SimilarityThresholdFlag->GetFirstParameter()->GetNumericalValue< float>() )
         {
           if( m_OutputFailureFileFlag->GetFlag())
           {
