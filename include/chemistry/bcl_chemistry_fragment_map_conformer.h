@@ -118,6 +118,9 @@ namespace bcl
       //! single instance of that class
       static const util::SiPtr< const util::ObjectInterface> s_Instance;
 
+      //! set the moveable atom indices
+      void SetMoveableAtomIndices( const storage::Vector< size_t> &ATOMS) { m_MoveableIndices = ATOMS;}
+
     //////////////////////////////////
     // construction and destruction //
     //////////////////////////////////

@@ -368,7 +368,7 @@ namespace bcl
             return util::ShPtr< FragmentComplete>();
           }
 
-          if( conf_ens->GetSize())
+          if( conf_ens->GetSize() && REFERENCE_MOL.GetSize())
           {
             storage::Vector< storage::Pair< bool, float> > aets
             (
@@ -439,11 +439,14 @@ namespace bcl
         }
 
         // perform substructure-based alignment
-        m_Aligner.AlignToScaffold
-        (
-          *gen_mol_3d_sp,
-          REFERENCE_MOL
-        );
+        if( REFERENCE_MOL.GetSize())
+        {
+          m_Aligner.AlignToScaffold
+          (
+            *gen_mol_3d_sp,
+            REFERENCE_MOL
+          );
+        }
 
         // return final molecule
         return gen_mol_3d_sp;
