@@ -387,51 +387,63 @@ namespace bcl
           )
         );
 
-
-
-
-
-        // Store the coordinates of the fragments for alignment
-        util::SiPtrVector< const linal::Vector3D> mol_a_coords( new_molecule->GetHeavyAtomCoordinates( )) , mol_b_coords( scaffold_mol.GetHeavyAtomCoordinates( ) );
-
-        // Generate transformation matrix based on common isomorphism between scaffold and current small molecule
-        math::TransformationMatrix3D transform
-        (
-          quality::RMSD::SuperimposeCoordinates( mol_b_coords, mol_a_coords)
-        );
-
-        //Store the atom information of the small molecule
-        storage::Vector< sdf::AtomInfo> atom_vector( new_molecule->GetAtomInfo());
-
-        //Transform the coordinates of the small molecule atoms based on the transformation matrix
-        for
-        (
-          storage::Vector< sdf::AtomInfo>::iterator itr( atom_vector.Begin()), itr_end( atom_vector.End());
-          itr != itr_end;
-          ++itr
-        )
-        {
-          linal::Vector3D temp( itr->GetCoordinates());
-          itr->SetCoordinates( temp.Transform( transform));
-        }
-
-        // Store transformed coordinates and atom information in a new molecule and add it to output ensemble
-        new_molecule = util::ShPtr< FragmentComplete>
-        (
-          new FragmentComplete
-          (
-            AtomVector< AtomComplete>( atom_vector, TARGET_MOL.GetBondInfo()),
-            TARGET_MOL.GetName()
-          )
-        );
-
-
-
-
-
-
         if( new_molecule.IsDefined())
         {
+
+
+
+
+
+
+
+
+
+          // Store the coordinates of the fragments for alignment
+          util::SiPtrVector< const linal::Vector3D> mol_a_coords( new_molecule->GetHeavyAtomCoordinates( )) , mol_b_coords( scaffold_mol.GetHeavyAtomCoordinates( ) );
+
+          // Generate transformation matrix based on common isomorphism between scaffold and current small molecule
+          math::TransformationMatrix3D transform
+          (
+            quality::RMSD::SuperimposeCoordinates( mol_b_coords, mol_a_coords)
+          );
+
+          //Store the atom information of the small molecule
+          storage::Vector< sdf::AtomInfo> atom_vector( new_molecule->GetAtomInfo());
+
+          //Transform the coordinates of the small molecule atoms based on the transformation matrix
+          for
+          (
+            storage::Vector< sdf::AtomInfo>::iterator itr( atom_vector.Begin()), itr_end( atom_vector.End());
+            itr != itr_end;
+            ++itr
+          )
+          {
+            linal::Vector3D temp( itr->GetCoordinates());
+            itr->SetCoordinates( temp.Transform( transform));
+          }
+
+          // Store transformed coordinates and atom information in a new molecule and add it to output ensemble
+          new_molecule = util::ShPtr< FragmentComplete>
+          (
+            new FragmentComplete
+            (
+              AtomVector< AtomComplete>( atom_vector, TARGET_MOL.GetBondInfo()),
+              TARGET_MOL.GetName()
+            )
+          );
+
+
+
+
+
+
+
+
+
+
+
+
+
           // add back the original properties to the re-aligned structure
           new_molecule->SetName( TARGET_MOL.GetName());
           new_molecule->StoreProperties( TARGET_MOL);
