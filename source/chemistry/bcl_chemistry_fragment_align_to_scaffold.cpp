@@ -362,7 +362,7 @@ namespace bcl
 
       // DEBUG
       io::OFStream debug_out;
-      io::File::MustOpenOFStream(debug_out, "DEBUG.sdf");
+      io::File::MustOpenOFStream(debug_out, "DEBUG.sdf", std::ios::app);
       FragmentComplete debug_mol( AtomVector< AtomComplete>( target_atoms, TARGET_MOL.GetBondInfo() ), "DEBUG");
       io::File::CloseClearFStream( debug_out);
 
