@@ -361,11 +361,11 @@ namespace bcl
       }
 
       // DEBUG
-      io::OFStream debug_out;
-      io::File::MustOpenOFStream(debug_out, "DEBUG.sdf", std::ios::app);
-      FragmentComplete debug_mol( AtomVector< AtomComplete>( target_atoms, TARGET_MOL.GetBondInfo() ), "DEBUG");
-      debug_mol.WriteMDL(debug_out);
-      io::File::CloseClearFStream( debug_out);
+//      io::OFStream debug_out;
+//      io::File::MustOpenOFStream(debug_out, "DEBUG.sdf", std::ios::app);
+//      FragmentComplete debug_mol( AtomVector< AtomComplete>( target_atoms, TARGET_MOL.GetBondInfo() ), "DEBUG");
+//      debug_mol.WriteMDL(debug_out);
+//      io::File::CloseClearFStream( debug_out);
 
       // get inverted subgraph of the new mol
       graph::Subgraph< size_t, size_t> target_subgraph_complement( target_subgraph.GetComplement( ) );
@@ -396,10 +396,39 @@ namespace bcl
 
         if( new_molecule.IsDefined())
         {
+          // TODO
+          // re-align the subgraph isomorphism to the desired coordinates; if the subgraph is not the largest substructure then
+          // it will not be re-positioned in real-space by default
+          util::SiPtrVector< const linal::Vector3D> target_subraph_coords, scaffold_subgraph_coords;
+          for( auto iso_itr( isomorphism.Begin()), iso_itr_end( isomorphism.End()); iso_itr != iso_itr_end; ++iso_itr)
+          {
+            const storage::Vector< sdf::AtomInfo> &new_molecule_atoms( new_molecule->GetAtomInfo());
+            target_subraph_coords.PushBack( new_molecule_atoms( iso_itr->first).GetCoordinates());
+            scaffold_subgraph_coords.PushBack( scaffold_atoms( iso_itr->second).GetCoordinates());
+          }
+          math::TransformationMatrix3D transform
+          (
+            quality::RMSD::SuperimposeCoordinates( scaffold_subgraph_coords, target_subraph_coords)
+          );
+
+          storage::Vector< sdf::AtomInfo> new_molecule_atom_vector( new_molecule->GetAtomInfo());
+          for
+          (
+            storage::Vector< sdf::AtomInfo>::iterator itr( new_molecule_atom_vector.Begin()),
+            itr_end( new_molecule_atom_vector.End());
+            itr != itr_end;
+            ++itr
+          )
+          {
+            linal::Vector3D coords( itr->GetCoordinates());
+            itr->SetCoordinates( coords.Transform( transform));
+          }
+
           // add back the original properties to the re-aligned structure
-          new_molecule->SetName( TARGET_MOL.GetName());
-          new_molecule->StoreProperties( TARGET_MOL);
-          new_molecule->GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", moveable_atoms);
+          AtomVector< AtomComplete> atoms_transformed( new_molecule_atom_vector, new_molecule->GetBondInfo());
+          FragmentComplete new_molecule_transformed( atoms_transformed, TARGET_MOL.GetName());
+          new_molecule_transformed.StoreProperties( TARGET_MOL);
+          new_molecule_transformed.GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", moveable_atoms);
           TARGET_MOL = *new_molecule;
           return true;
         }
