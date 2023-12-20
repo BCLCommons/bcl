@@ -77,7 +77,7 @@ namespace bcl
       //! mode for selecting which molecule(s) will be used to determine the base substructure
       //! (1) all
       //! (2) similarity
-      util::ShPtr< command::FlagInterface> m_ModeFlag;
+//      util::ShPtr< command::FlagInterface> m_ModeFlag;
 
       // atom comparison type
       util::ShPtr< command::FlagInterface> m_AtomTypeFlag;

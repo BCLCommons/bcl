@@ -111,21 +111,21 @@ namespace bcl
             )
           )
         ),
-        m_ModeFlag
-        (
-          new command::FlagStatic
-          (
-            "mode",
-            "mode to determine how input molecules will be compared to output",
-            command::Parameter
-            (
-              "mode",
-              "",
-              command::ParameterCheckAllowed( storage::Vector< std::string>::Create( "all", "similarity" ) ),
-              "all"
-            )
-          )
-        ),
+//        m_ModeFlag
+//        (
+//          new command::FlagStatic
+//          (
+//            "mode",
+//            "mode to determine how input molecules will be compared to output",
+//            command::Parameter
+//            (
+//              "mode",
+//              "",
+//              command::ParameterCheckAllowed( storage::Vector< std::string>::Create( "all", "similarity" ) ),
+//              "similarity"
+//            )
+//          )
+//        ),
         m_AtomTypeFlag
         (
           new command::FlagStatic
@@ -217,7 +217,7 @@ namespace bcl
           m_ScaffoldFileFlag( PARENT.m_ScaffoldFileFlag),
           m_OutputFileFlag( PARENT.m_OutputFileFlag),
           m_OutputFailureFileFlag( PARENT.m_OutputFailureFileFlag),
-          m_ModeFlag( PARENT.m_ModeFlag),
+//          m_ModeFlag( PARENT.m_ModeFlag),
           m_AtomTypeFlag( PARENT.m_AtomTypeFlag),
           m_BondTypeFlag( PARENT.m_BondTypeFlag),
           m_MinSizeFlag( PARENT.m_MinSizeFlag),
@@ -255,7 +255,7 @@ namespace bcl
       sp_cmd->AddFlag( m_ScaffoldFileFlag);
       sp_cmd->AddFlag( m_OutputFileFlag);
       sp_cmd->AddFlag( m_OutputFailureFileFlag);
-      sp_cmd->AddFlag( m_ModeFlag);
+//      sp_cmd->AddFlag( m_ModeFlag);
       sp_cmd->AddFlag( m_AtomTypeFlag);
       sp_cmd->AddFlag( m_BondTypeFlag);
       sp_cmd->AddFlag( m_MinSizeFlag);
