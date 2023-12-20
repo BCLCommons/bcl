@@ -364,6 +364,7 @@ namespace bcl
       io::OFStream debug_out;
       io::File::MustOpenOFStream(debug_out, "DEBUG.sdf", std::ios::app);
       FragmentComplete debug_mol( AtomVector< AtomComplete>( target_atoms, TARGET_MOL.GetBondInfo() ), "DEBUG");
+      debug_mol.WriteMDL(debug_out);
       io::File::CloseClearFStream( debug_out);
 
       // get inverted subgraph of the new mol
