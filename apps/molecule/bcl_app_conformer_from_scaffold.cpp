@@ -393,7 +393,7 @@ namespace bcl
         }
         else
         {
-          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_filename", m_OutputFileFlag->GetFirstParameter()->GetValue() );
+          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_filename", m_ScaffoldFileFlag->GetFirstParameter()->GetValue() );
           mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_molecule_index", linal::Vector<float>(1, best_similarity_index) );
           mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_similarity_to_scaffold_molecule", linal::Vector< float>(1, best_similarity) );
           mol_itr->WriteMDL( output);

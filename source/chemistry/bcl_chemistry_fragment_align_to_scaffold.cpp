@@ -384,7 +384,7 @@ namespace bcl
           cleaner.Clean
           (
             AtomVector< AtomComplete>( target_atoms, TARGET_MOL.GetBondInfo() ),
-            FragmentComplete(),
+            scaffold_mol, //FragmentComplete(),
             "None",
             true
           )
