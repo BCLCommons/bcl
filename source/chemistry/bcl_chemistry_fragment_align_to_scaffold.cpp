@@ -360,13 +360,6 @@ namespace bcl
         target_atoms( iso_itr->first).SetCoordinates( scaffold_atoms( iso_itr->second).GetCoordinates());
       }
 
-      // DEBUG
-//      io::OFStream debug_out;
-//      io::File::MustOpenOFStream(debug_out, "DEBUG.sdf", std::ios::app);
-//      FragmentComplete debug_mol( AtomVector< AtomComplete>( target_atoms, TARGET_MOL.GetBondInfo() ), "DEBUG");
-//      debug_mol.WriteMDL(debug_out);
-//      io::File::CloseClearFStream( debug_out);
-
       // get inverted subgraph of the new mol
       graph::Subgraph< size_t, size_t> target_subgraph_complement( target_subgraph.GetComplement( ) );
       if( target_subgraph_complement.GetSize())
@@ -388,7 +381,7 @@ namespace bcl
           cleaner.Clean
           (
             AtomVector< AtomComplete>( target_atoms, TARGET_MOL.GetBondInfo() ),
-            FragmentComplete(),  // or maybe do scaffold_mol
+            FragmentComplete(),
             "None",
             true
           )
@@ -396,16 +389,12 @@ namespace bcl
 
         if( new_molecule.IsDefined())
         {
-          // TODO
           // re-align the subgraph isomorphism to the desired coordinates; if the subgraph is not the largest substructure then
           // it will not be re-positioned in real-space by default
-          util::SiPtrVector< const linal::Vector3D> target_subraph_coords, scaffold_subgraph_coords;
-          for( auto iso_itr( isomorphism.Begin()), iso_itr_end( isomorphism.End()); iso_itr != iso_itr_end; ++iso_itr)
-          {
-            const storage::Vector< sdf::AtomInfo> &new_molecule_atoms( new_molecule->GetAtomInfo());
-            target_subraph_coords.PushBack( new_molecule_atoms( iso_itr->first).GetCoordinates());
-            scaffold_subgraph_coords.PushBack( scaffold_atoms( iso_itr->second).GetCoordinates());
-          }
+          util::SiPtrVector< const linal::Vector3D> scaffold_subgraph_coords( scaffold_mol.GetHeavyAtomCoordinates()), target_subraph_coords( new_molecule->GetHeavyAtomCoordinates());
+          target_subraph_coords.Reorder( isomorphism.GetKeysAsVector());
+          scaffold_subgraph_coords.Reorder( isomorphism.GetMappedValues());
+
           math::TransformationMatrix3D transform
           (
             quality::RMSD::SuperimposeCoordinates( scaffold_subgraph_coords, target_subraph_coords)
@@ -429,7 +418,7 @@ namespace bcl
           FragmentComplete new_molecule_transformed( atoms_transformed, TARGET_MOL.GetName());
           new_molecule_transformed.StoreProperties( TARGET_MOL);
           new_molecule_transformed.GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", moveable_atoms);
-          TARGET_MOL = *new_molecule;
+          TARGET_MOL = new_molecule_transformed;
           return true;
         }
       }
