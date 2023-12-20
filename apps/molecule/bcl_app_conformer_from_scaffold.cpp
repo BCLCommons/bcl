@@ -299,13 +299,16 @@ namespace bcl
       // Get the atom and bond type resolution for substructure comparisons
       BCL_MessageStd("Initializing scaffold alignment object...");
       graph::CommonSubgraphIsomorphismBase::SolutionType solution_type( graph::CommonSubgraphIsomorphismBase::SolutionType::e_Connected);
+      util::Implementation< chemistry::ConformationComparisonInterface> similarity_metric("LargestCommonSubstructureTanimoto");
       if( m_SolutionTypeFlag->GetFirstParameter()->GetValue() == "Unconnected")
       {
         solution_type = graph::CommonSubgraphIsomorphismBase::SolutionType::e_Unconnected;
+        similarity_metric = util::Implementation< chemistry::ConformationComparisonInterface>("LargestCommonDisconnectedSubstructureTanimoto");
       }
       else if( m_SolutionTypeFlag->GetFirstParameter()->GetValue() == "GreedyUnconnected")
       {
         solution_type = graph::CommonSubgraphIsomorphismBase::SolutionType::e_GreedyUnconnected;
+        similarity_metric = util::Implementation< chemistry::ConformationComparisonInterface>("LargestCommonDisconnectedSubstructureTanimoto");
       }
       chemistry::FragmentAlignToScaffold ats
       (
@@ -316,10 +319,8 @@ namespace bcl
       );
 
       // generate conformers for each input file based on template substructure
-      const util::Implementation< chemistry::ConformationComparisonInterface> similarity_metric("LargestCommonSubstructureTanimoto");
       BCL_MessageStd("Generating new conformer ensemble for input molecules...");
       size_t mol_index( 0), success_count( 0);
-      BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
       for
       (
           auto mol_itr( input_ensemble.Begin()), mol_itr_end( input_ensemble.End());
@@ -331,7 +332,6 @@ namespace bcl
         if( mol_index % 10 == 0)
         {
           BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
-//          util::GetLogger().LogStatus( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
         }
 
         // TODO: allow users to pass pre-computed similarity matrix to avoid computing similarity at this step
@@ -393,6 +393,9 @@ namespace bcl
         }
         else
         {
+          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_filename", m_OutputFileFlag->GetFirstParameter()->GetValue() );
+          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_molecule_index", best_similarity_index );
+          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_similarity_to_scaffold_molecule", best_similarity );
           mol_itr->WriteMDL( output);
           ++success_count;
         }
