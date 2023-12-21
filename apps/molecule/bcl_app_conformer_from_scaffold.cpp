@@ -331,7 +331,8 @@ namespace bcl
         // status update
         if( mol_index % 10 == 0)
         {
-          BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
+          util::GetLogger().LogStatus( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules...");
+//          BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
         }
 
         // TODO: allow users to pass pre-computed similarity matrix to avoid computing similarity at this step
@@ -405,7 +406,6 @@ namespace bcl
       io::File::CloseClearFStream( output);
       io::File::CloseClearFStream( output_failures);
       BCL_MessageStd("Done!");
-      BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
       BCL_MessageStd( "A total of " + std::to_string( success_count) + "/" + std::to_string( ensemble_size) + " molecules were successful.");
       return 0;
     }
