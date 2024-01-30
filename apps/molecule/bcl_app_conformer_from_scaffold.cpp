@@ -65,8 +65,8 @@ namespace bcl
             "molecules for which to generate new conformers",
             command::Parameter
             (
-              "input molecules",
-              "SDF format",
+              "filename",
+              "SDF filename for where to write out molecules",
               command::ParameterCheckFileExistence()
             )
           )
@@ -79,8 +79,8 @@ namespace bcl
             "molecules against which input molecules will be compared for conformer generation",
             command::Parameter
             (
-              "scaffold molecules",
-              "SDF format",
+              "filename",
+              "SDF filename for where to write out molecules",
               command::ParameterCheckFileExistence()
             )
           )
@@ -93,21 +93,37 @@ namespace bcl
             "new conformers of the input molecules will be written to this file; if unsuccessful, original input molecule can be written",
             command::Parameter
             (
-              "output molecules",
-              "SDF format"
+              "filename",
+              "SDF filename for where to write out molecules",
+              ""
             )
           )
         ),
-        m_OutputFailureFileFlag
+        m_OutputSimilarityFailureFileFlag
         (
-          new command::FlagDynamic
+          new command::FlagStatic
           (
-            "output_failures_filename",
-            "failed molecules; occurs due to invalid conformer generation or insufficient similarity to a scaffold",
+            "output_similarity_failures_filename",
+            "failed molecules; occurs due to insufficient similarity to a scaffold",
             command::Parameter
             (
-              "output failure molecules",
-              "SDF format"
+              "filename",
+              "SDF filename for where to write out molecules",
+              ""
+            )
+          )
+        ),
+        m_OutputConfGenFailureFileFlag
+        (
+          new command::FlagStatic
+          (
+            "output_confgen_failures_filename",
+            "failed molecules; occurs due to invalid conformer generation",
+            command::Parameter
+            (
+              "filename",
+              "SDF filename for where to write out molecules",
+              ""
             )
           )
         ),
@@ -193,18 +209,49 @@ namespace bcl
             )
           )
         ),
+//        m_SimilarityThresholdFlag
+//        (
+//          new command::FlagStatic
+//          (
+//            "similarity_threshold",
+//            "minimum similarity to a scaffold required to perform conformer generation",
+//            command::Parameter
+//            (
+//              "",
+//              "",
+//              command::ParameterCheckRanged< float>(0.0, 1.0),
+//              "0.0"
+//            )
+//          )
+//        ),
         m_SimilarityThresholdFlag
         (
           new command::FlagStatic
           (
             "similarity_threshold",
             "minimum similarity to a scaffold required to perform conformer generation",
-            command::Parameter
+            util::ShPtrVector< command::ParameterInterface>::Create
             (
-              "",
-              "",
-              command::ParameterCheckRanged< float>(0.0, 1.0),
-              "0.0"
+              util::ShPtr< command::ParameterInterface>
+              (
+                new command::Parameter
+                (
+                  "minimum",
+                  "the lowest allowable similarity that a molecule is allowed to have with a scaffold in order to be a candidate for conformer generation",
+                  command::ParameterCheckRanged< float>(0.0, 1.0),
+                  "0.0"
+                )
+              ),
+              util::ShPtr< command::ParameterInterface>
+              (
+                new command::Parameter
+                (
+                  "maximum",
+                  "the highest allowable similarity that a molecule is allowed to have with a scaffold in order to be a candidate for conformer generation",
+                  command::ParameterCheckRanged< float>(0.0, 1.0),
+                  "1.0"
+                )
+              )
             )
           )
         )
@@ -216,7 +263,8 @@ namespace bcl
           m_InputFileFlag( PARENT.m_InputFileFlag),
           m_ScaffoldFileFlag( PARENT.m_ScaffoldFileFlag),
           m_OutputFileFlag( PARENT.m_OutputFileFlag),
-          m_OutputFailureFileFlag( PARENT.m_OutputFailureFileFlag),
+          m_OutputSimilarityFailureFileFlag( PARENT.m_OutputSimilarityFailureFileFlag),
+          m_OutputConfGenFailureFileFlag( PARENT.m_OutputConfGenFailureFileFlag),
 //          m_ModeFlag( PARENT.m_ModeFlag),
           m_AtomTypeFlag( PARENT.m_AtomTypeFlag),
           m_BondTypeFlag( PARENT.m_BondTypeFlag),
@@ -254,7 +302,8 @@ namespace bcl
       sp_cmd->AddFlag( m_InputFileFlag);
       sp_cmd->AddFlag( m_ScaffoldFileFlag);
       sp_cmd->AddFlag( m_OutputFileFlag);
-      sp_cmd->AddFlag( m_OutputFailureFileFlag);
+      sp_cmd->AddFlag( m_OutputSimilarityFailureFileFlag);
+      sp_cmd->AddFlag( m_OutputConfGenFailureFileFlag);
 //      sp_cmd->AddFlag( m_ModeFlag);
       sp_cmd->AddFlag( m_AtomTypeFlag);
       sp_cmd->AddFlag( m_BondTypeFlag);
@@ -292,9 +341,19 @@ namespace bcl
       BCL_Assert( scaffold_ensemble_size, "Must have at least one molecule in the scaffold ensemble. Exiting...\n");
 
       // initialize output so that we can write as we go
-      io::OFStream output, output_failures;
-      io::File::MustOpenOFStream( output, m_OutputFileFlag->GetFirstParameter()->GetValue());
-      io::File::MustOpenOFStream( output_failures, m_OutputFailureFileFlag->GetFirstParameter()->GetValue());
+      io::OFStream output, output_similarity_failures, output_confgen_failures;
+      if( m_OutputFileFlag->GetFlag())
+      {
+        io::File::MustOpenOFStream( output, m_OutputFileFlag->GetFirstParameter()->GetValue());
+      }
+      if( m_OutputSimilarityFailureFileFlag->GetFlag())
+      {
+        io::File::MustOpenOFStream( output_similarity_failures, m_OutputSimilarityFailureFileFlag->GetFirstParameter()->GetValue());
+      }
+      if( m_OutputConfGenFailureFileFlag->GetFlag())
+      {
+        io::File::MustOpenOFStream( output_confgen_failures, m_OutputConfGenFailureFileFlag->GetFirstParameter()->GetValue());
+      }
 
       // Get the atom and bond type resolution for substructure comparisons
       BCL_MessageStd("Initializing scaffold alignment object...");
@@ -320,7 +379,7 @@ namespace bcl
 
       // generate conformers for each input file based on template substructure
       BCL_MessageStd("Generating new conformer ensemble for input molecules...");
-      size_t mol_index( 0), success_count( 0);
+      size_t mol_index( 0), success_count( 0), similarity_failure_count( 0), confgen_failure_count( 0);
       for
       (
           auto mol_itr( input_ensemble.Begin()), mol_itr_end( input_ensemble.End());
@@ -329,10 +388,9 @@ namespace bcl
       )
       {
         // status update
-        if( mol_index % 10 == 0)
+        if( mol_index % 100 == 0)
         {
           util::GetLogger().LogStatus( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules...");
-//          BCL_MessageStd( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules.");
         }
 
         // TODO: allow users to pass pre-computed similarity matrix to avoid computing similarity at this step
@@ -360,11 +418,15 @@ namespace bcl
         }
 
         BCL_MessageVrb( "Best similarity for molecule " + std::to_string( mol_index) + " is against scaffold " + std::to_string( best_similarity_index) + ": " + std::to_string( best_similarity ) );
-        if( best_similarity < m_SimilarityThresholdFlag->GetFirstParameter()->GetNumericalValue< float>() )
+        if
+        (
+            best_similarity < m_SimilarityThresholdFlag->GetFirstParameter()->GetNumericalValue< float>() ||
+            best_similarity > m_SimilarityThresholdFlag->GetParameterList().LastElement()->GetNumericalValue< float>()
+        )
         {
-          if( m_OutputFailureFileFlag->GetFlag())
+          if( m_OutputSimilarityFailureFileFlag->GetFlag())
           {
-            mol_itr->WriteMDL( output_failures);
+            mol_itr->WriteMDL( output_similarity_failures);
           }
 
           BCL_MessageVrb
@@ -373,6 +435,7 @@ namespace bcl
             "Maximum Tanimoto similarity to scaffold " + std::to_string( best_similarity_index)  +
             " with a value of " + std::to_string( best_similarity)
           );
+          ++similarity_failure_count;
           continue;
         }
 
@@ -380,9 +443,9 @@ namespace bcl
         bool success( ats.GenerateConformerBasedOnScaffold( *mol_itr, scaffold_molecules( best_similarity_index) ) );
         if( !success)
         {
-          if( m_OutputFailureFileFlag->GetFlag())
+          if( m_OutputConfGenFailureFileFlag->GetFlag())
           {
-            mol_itr->WriteMDL( output_failures);
+            mol_itr->WriteMDL( output_confgen_failures);
           }
 
           BCL_MessageVrb
@@ -391,6 +454,7 @@ namespace bcl
             " using scaffold " + std::to_string( best_similarity_index) +
             " with a Tanimoto similarity of " + std::to_string( best_similarity)
           );
+          ++confgen_failure_count;
         }
         else
         {
@@ -404,9 +468,12 @@ namespace bcl
 
       // close the file stream
       io::File::CloseClearFStream( output);
-      io::File::CloseClearFStream( output_failures);
-      BCL_MessageStd("Done!");
-      BCL_MessageStd( "A total of " + std::to_string( success_count) + "/" + std::to_string( ensemble_size) + " molecules were successful.");
+      io::File::CloseClearFStream( output_similarity_failures);
+      io::File::CloseClearFStream( output_confgen_failures);
+      BCL_MessageStd( "Summary report: ");
+      BCL_MessageStd( std::to_string( similarity_failure_count) + "/" + std::to_string( ensemble_size) + " molecules failed due to out of range similarity scores.");
+      BCL_MessageStd( std::to_string( confgen_failure_count) + "/" + std::to_string( ensemble_size) + " molecules failed during conformer generation.");
+      BCL_MessageStd( std::to_string( success_count) + "/" + std::to_string( ensemble_size) + " molecules were successful.");
       return 0;
     }
 

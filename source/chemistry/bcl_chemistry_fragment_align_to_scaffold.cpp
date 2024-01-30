@@ -13,6 +13,7 @@
 // (c)
 
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
+#include <chemistry/bcl_chemistry_fragment_split_rings.h>
 #include "util/bcl_util_static_initialization_fiasco_finder.h"
 BCL_StaticInitializationFiascoFinder
 
@@ -306,6 +307,7 @@ namespace bcl
       )
       {
         // align and score
+        // TODO: if this is a conformer ensemble of the same molecule then graph comparison only needs to be done once
         scores( score_index).First() = ( AlignToScaffold( *conf_itr, SCAFFOLD_MOL));
         scores( score_index).Second() = COMPARER->operator ()( *conf_itr, SCAFFOLD_MOL);
         conf_itr->StoreProperty( COMPARER->GetAlias(), linal::Vector< double>( 1, scores( score_index).Second()));
@@ -370,8 +372,33 @@ namespace bcl
         FragmentMapConformer cleaner( "None", false, moveable_atoms);
 
         // add all the adjacent edges to our unique subgraph vertices
-        storage::Set< size_t> all_adjacent_indices( cleaner.MapSubgraphAdjacentAtoms( target_subgraph_complement, 1) );
+        storage::Set< size_t> all_adjacent_indices( cleaner.MapSubgraphAdjacentAtoms( target_subgraph_complement, 2) );
         moveable_atoms_set.InsertElements( all_adjacent_indices.Begin(), all_adjacent_indices.End());
+
+        // add bad geometry atoms
+        AtomVector< AtomComplete> temp_vec( target_atoms, TARGET_MOL.GetBondInfo());
+        FragmentComplete temp_mol( temp_vec, TARGET_MOL.GetName());
+        storage::Vector< size_t> bad_geo_atoms( temp_mol.GetAtomsWithBadGeometry());
+        moveable_atoms_set.InsertElements( bad_geo_atoms.Begin(), bad_geo_atoms.End());
+
+        ConformationGraphConverter::t_AtomGraph molecule_graph( ConformationGraphConverter::CreateGraphWithAtoms( temp_mol));
+        FragmentSplitRings splitter( true, size_t( 3));
+        storage::List< storage::Vector< size_t> > ring_components( splitter.GetComponentVertices( temp_mol, molecule_graph));
+        storage::Vector< storage::Vector< size_t>> ring_components_vec( ring_components.Begin(), ring_components.End());
+        for( size_t ring_i( 0), n_rings( ring_components_vec.GetSize()); ring_i < n_rings; ++ring_i) {
+          storage::Set< size_t> ring_atoms( ring_components_vec( ring_i).Begin(), ring_components_vec( ring_i).End());
+          for( auto bad_geo_atoms_itr( bad_geo_atoms.Begin()), bad_geo_atoms_itr_end( bad_geo_atoms.End()); bad_geo_atoms_itr != bad_geo_atoms_itr_end; ++bad_geo_atoms_itr)
+          {
+            if (ring_atoms.Find( *bad_geo_atoms_itr) != ring_atoms.End())
+            {
+              // if found, then this ring contains bad geometry atoms and we need to add the whole ring to the moveable atoms set
+              moveable_atoms_set.InsertElements( ring_atoms.Begin(), ring_atoms.End());
+              break;
+            }
+          }
+        }
+
+        // collect unique atoms to be mobile
         moveable_atoms = storage::Vector< size_t>( moveable_atoms_set.Begin(), moveable_atoms_set.End());
         cleaner.SetMoveableAtomIndices( moveable_atoms);
 

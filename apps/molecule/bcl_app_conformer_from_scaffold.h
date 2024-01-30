@@ -72,7 +72,8 @@ namespace bcl
       util::ShPtr< command::FlagInterface> m_OutputFileFlag;
 
       //! output filename for failed cases
-      util::ShPtr< command::FlagInterface> m_OutputFailureFileFlag;
+      util::ShPtr< command::FlagInterface> m_OutputSimilarityFailureFileFlag;
+      util::ShPtr< command::FlagInterface> m_OutputConfGenFailureFileFlag;
 
       //! mode for selecting which molecule(s) will be used to determine the base substructure
       //! (1) all

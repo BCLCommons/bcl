@@ -110,6 +110,10 @@ namespace bcl
 
       util::ShPtr< command::FlagInterface>                                        m_MaxClashToleranceFlag;
 
+      util::ShPtr< command::FlagInterface>                                        m_RequireSampleByPartsFlag;
+
+      util::ShPtr< command::FlagInterface>                                        m_AlignByNonMobileFlag;
+
       //! obtains a dissimilarity
       mutable util::Implementation< chemistry::ConformationComparisonInterface>   m_Comparer;
 
@@ -249,6 +253,17 @@ namespace bcl
         const size_t &MOLECULE_INDEX,
         const chemistry::FragmentEnsemble &ENSEMBLE,
         const chemistry::FragmentEnsemble &FRAGMENT_ENSEMBLE
+      ) const;
+
+      //! @brief function that realigns an ensemble by non-mobile atoms if SampleByParts is present
+      //! @param ENSEMBLE ensemble to be realigned
+      //! @param MOLECULE molecule from which ensemble was generated
+      //! @param ATOMS atom indices given by SampleByParts property
+      void AlignByNonMobile
+      (
+        chemistry::FragmentEnsemble &ENSEMBLE,
+        const chemistry::FragmentComplete &MOLECULE,
+        const storage::Set< size_t> &ATOMS
       ) const;
 
       //! @brief controls output from the app of interest
