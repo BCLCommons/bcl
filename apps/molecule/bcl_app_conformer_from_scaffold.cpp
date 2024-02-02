@@ -33,6 +33,7 @@ BCL_StaticInitializationFiascoFinder
 #include "command/bcl_command_parameter_check_file_existence.h"
 #include "command/bcl_command_parameter_check_ranged.h"
 #include "command/bcl_command_parameter_check_serializable.h"
+#include "descriptor/bcl_descriptor_molecule_similarity.h"
 #include "graph/bcl_graph_csi_substructure.h"
 #include "io/bcl_io_file.h"
 #include "sched/bcl_sched_scheduler_interface.h"
@@ -390,7 +391,7 @@ namespace bcl
         // status update
         if( mol_index % 100 == 0)
         {
-          util::GetLogger().LogStatus( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules...");
+          util::GetLogger().LogStatus( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules...\n");
         }
 
         // TODO: allow users to pass pre-computed similarity matrix to avoid computing similarity at this step
@@ -439,8 +440,40 @@ namespace bcl
           continue;
         }
 
+        // add an alignment scorer
+        descriptor::MoleculeSimilarity alignment_scorer
+        (
+          "PropertyFieldDistance",
+          chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, scaffold_molecules( best_similarity_index ) )
+          )
+        );
+
         // generate the new conformer based on the most similar scaffold
-        bool success( ats.GenerateConformerBasedOnScaffold( *mol_itr, scaffold_molecules( best_similarity_index) ) );
+//        bool success(
+//          ats.ConformerFromScaffoldMCS
+//          (
+//            *mol_itr,
+//            scaffold_molecules( best_similarity_index),
+//            storage::Vector< size_t>(),
+//            storage::Vector< size_t>(),
+//            alignment_scorer
+//          )
+//        );
+        chemistry::FragmentEnsemble confs
+        (
+//          ats.ConformersFromScaffoldCS
+          ats.ConformersFromScaffoldIterative
+          (
+            *mol_itr,
+            scaffold_molecules( best_similarity_index) ,
+            storage::Vector< size_t>(),
+            storage::Vector< size_t>(),
+            alignment_scorer
+          )
+        );
+        BCL_Debug( confs.GetSize());
+        bool success( confs.GetSize());
+
         if( !success)
         {
           if( m_OutputConfGenFailureFileFlag->GetFlag())
@@ -458,10 +491,17 @@ namespace bcl
         }
         else
         {
-          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_filename", m_ScaffoldFileFlag->GetFirstParameter()->GetValue() );
-          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_molecule_index", linal::Vector<float>(1, best_similarity_index) );
-          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_similarity_to_scaffold_molecule", linal::Vector< float>(1, best_similarity) );
-          mol_itr->WriteMDL( output);
+//          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_filename", m_ScaffoldFileFlag->GetFirstParameter()->GetValue() );
+//          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_molecule_index", linal::Vector<float>(1, best_similarity_index) );
+//          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_similarity_to_scaffold_molecule", linal::Vector< float>(1, best_similarity) );
+//          mol_itr->WriteMDL( output);
+          for( auto conf_itr( confs.Begin()), conf_itr_end( confs.End()); conf_itr != conf_itr_end; ++conf_itr)
+          {
+            conf_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_filename", m_ScaffoldFileFlag->GetFirstParameter()->GetValue() );
+            conf_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_molecule_index", linal::Vector<float>(1, best_similarity_index) );
+            conf_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_similarity_to_scaffold_molecule", linal::Vector< float>(1, best_similarity) );
+            conf_itr->WriteMDL( output);
+          }
           ++success_count;
         }
       }
