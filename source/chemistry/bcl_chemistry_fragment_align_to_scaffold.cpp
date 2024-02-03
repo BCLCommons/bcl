@@ -350,7 +350,9 @@ namespace bcl
     {
       // extract the fragment for which the MCS search will be performed
       FragmentComplete target_mol( ExtractFragmentByIndices( TARGET_MOL, TARGET_MOL_INDICES));
+      target_mol.StoreProperties( TARGET_MOL);
       FragmentComplete scaffold_mol( ExtractFragmentByIndices( SCAFFOLD_MOL, SCAFFOLD_MOL_INDICES));
+      scaffold_mol.StoreProperties( SCAFFOLD_MOL);
 
       // get the isomorphism between the target and scaffold
       m_CommonSubgraphIsomorphism = graph::CommonSubgraphIsomorphism< size_t, size_t>( FindCommonSubgraphIsomorphism( target_mol, scaffold_mol ) );
@@ -402,7 +404,8 @@ namespace bcl
         FragmentSplitRings splitter( true, size_t( 3));
         storage::List< storage::Vector< size_t> > ring_components( splitter.GetComponentVertices( temp_mol, molecule_graph));
         storage::Vector< storage::Vector< size_t>> ring_components_vec( ring_components.Begin(), ring_components.End());
-        for( size_t ring_i( 0), n_rings( ring_components_vec.GetSize()); ring_i < n_rings; ++ring_i) {
+        for( size_t ring_i( 0), n_rings( ring_components_vec.GetSize()); ring_i < n_rings; ++ring_i)
+        {
           storage::Set< size_t> ring_atoms( ring_components_vec( ring_i).Begin(), ring_components_vec( ring_i).End());
           for( auto bad_geo_atoms_itr( bad_geo_atoms.Begin()), bad_geo_atoms_itr_end( bad_geo_atoms.End()); bad_geo_atoms_itr != bad_geo_atoms_itr_end; ++bad_geo_atoms_itr)
           {
@@ -463,6 +466,7 @@ namespace bcl
           AtomVector< AtomComplete> atoms_transformed( new_molecule_atom_vector, new_molecule->GetBondInfo());
           FragmentComplete new_molecule_transformed( atoms_transformed, TARGET_MOL.GetName());
           new_molecule_transformed.StoreProperties( TARGET_MOL);
+          new_molecule_transformed.StoreProperties( *new_molecule);
           new_molecule_transformed.GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", moveable_atoms);
           TARGET_MOL = new_molecule_transformed;
           return true;
@@ -485,6 +489,8 @@ namespace bcl
         {
           FragmentComplete new_molecule( clean_atoms, TARGET_MOL.GetName());
           new_molecule.StoreProperties( TARGET_MOL);
+          linal::Vector<float> alignment_score( COMPARER->SumOverObject( new_molecule) );
+          new_molecule.GetStoredPropertiesNonConst().SetMDLProperty( COMPARER->GetAlias(), alignment_score);
           new_molecule.GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", storage::Vector< size_t>() );
           TARGET_MOL = new_molecule;
           return true;
@@ -520,7 +526,9 @@ namespace bcl
 
       // extract the fragment for which the MCS search will be performed
       FragmentComplete target_mol( ExtractFragmentByIndices( TARGET_MOL, TARGET_MOL_INDICES));
+      target_mol.StoreProperties( TARGET_MOL);
       FragmentComplete scaffold_mol( ExtractFragmentByIndices( SCAFFOLD_MOL, SCAFFOLD_MOL_INDICES));
+      scaffold_mol.StoreProperties( SCAFFOLD_MOL);
 
       // get the isomorphism between the target and scaffold
       m_SubgraphIsomorphism = graph::SubgraphIsomorphism< size_t, size_t>( FindSubgraphIsomorphism( target_mol, scaffold_mol ) );
@@ -643,8 +651,9 @@ namespace bcl
             AtomVector< AtomComplete> atoms_transformed( new_molecule_atom_vector, new_molecule->GetBondInfo());
             FragmentComplete new_molecule_transformed( atoms_transformed, TARGET_MOL.GetName());
             new_molecule_transformed.StoreProperties( TARGET_MOL);
+            new_molecule_transformed.StoreProperties( *new_molecule);
             new_molecule_transformed.GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", moveable_atoms);
-            final_ensemble.PushBack(new_molecule_transformed);
+            final_ensemble.PushBack( new_molecule_transformed);
           }
         }
 
@@ -664,8 +673,10 @@ namespace bcl
           {
             FragmentComplete new_molecule( clean_atoms, TARGET_MOL.GetName());
             new_molecule.StoreProperties( TARGET_MOL);
+            linal::Vector<float> alignment_score( COMPARER->SumOverObject( new_molecule) );
+            new_molecule.GetStoredPropertiesNonConst().SetMDLProperty( COMPARER->GetAlias(), alignment_score);
             new_molecule.GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", storage::Vector< size_t>() );
-            final_ensemble.PushBack(new_molecule);
+            final_ensemble.PushBack( new_molecule);
           }
         }
       }

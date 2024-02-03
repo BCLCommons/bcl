@@ -400,10 +400,10 @@ namespace bcl
             for( auto conf_itr( conf_ens->Begin()), conf_itr_end( conf_ens->End()); conf_itr != conf_itr_end; ++conf_itr)
             {
               linal::Vector<float> alignment_score( m_PropertyScorer->SumOverObject( *conf_itr));
-              conf_itr->GetStoredPropertiesNonConst().SetMDLProperty("PropertyFieldDistance", alignment_score);
+              conf_itr->GetStoredPropertiesNonConst().SetMDLProperty( m_PropertyScorer->GetAlias(), alignment_score);
             }
             // output best by MolAlign score
-            conf_ens->Sort( "PropertyFieldDistance");
+            conf_ens->Sort( m_PropertyScorer->GetAlias());
             gen_mol_3d_sp = util::CloneToShPtr( conf_ens->GetMolecules().FirstElement());
           }
         }
@@ -548,7 +548,7 @@ namespace bcl
       }
       else
       {
-        BCL_MessageStd( "Skipping drug-likeness filter!");
+        BCL_MessageVrb( "Skipping drug-likeness filter!");
       }
       return new_mol.GetAtomVector();
     }

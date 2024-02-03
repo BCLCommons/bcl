@@ -62,6 +62,8 @@ namespace bcl
     // data //
     //////////
 
+      ////// Command line flags ///////
+
       //! file containing the molecules for which new 3D conformers will be generated
       util::ShPtr< command::FlagInterface> m_InputFileFlag;
 
@@ -95,6 +97,27 @@ namespace bcl
       // minimum similarity required or else molecule is a failure
       util::ShPtr< command::FlagInterface> m_SimilarityThresholdFlag;
 
+      // if true, then follow the largest common substructure search with
+      // a search for all subgraph isomorphisms between the common substructures;
+      // this allows alternative poses to be discovered for symmetric molecules
+      util::ShPtr< command::FlagInterface> m_FindAllFlag;
+
+      // filter metric; only applicable if 'find_all' is enabled
+      util::ShPtr< command::FlagInterface> m_FilterMetricFlag;
+
+      // keep the ensemble of unique generated conformers; only applicable if 'find_all' is enabled; occurs after application of 'filter_metric'
+      util::ShPtr< command::FlagInterface> m_SaveEnsembleFlag;
+
+      ////// Convenience data for the app ///////
+
+      mutable io::OFStream m_Output;
+      mutable io::OFStream m_OutputSimilarityFailures;
+      mutable io::OFStream m_OutputConfgenFailures;
+      mutable size_t m_MoleculeIndex = 0;
+      mutable size_t m_SuccessCount = 0;
+      mutable size_t m_SimilarityFailureCount = 0;
+      mutable size_t m_ConfgenFailureCount = 0;
+
     ///////////////////////////////////
     // construction and destruction //
     ///////////////////////////////////
@@ -127,6 +150,30 @@ namespace bcl
       int Main() const;
 
     private:
+
+      void InitializeOutputFiles() const;
+
+      util::Implementation< chemistry::ConformationComparisonInterface> InitializeSimilarityMetric() const;
+
+      graph::CommonSubgraphIsomorphismBase::SolutionType InitializeSolutionType() const;
+
+      chemistry::FragmentAlignToScaffold InitializeAlignmentObject( const graph::CommonSubgraphIsomorphismBase::SolutionType &SOLUTION_TYPE) const;
+
+      storage::Pair< size_t, float> FindBestScaffoldBySimilarity
+      (
+        const chemistry::FragmentComplete &MOLECULE,
+        const storage::Vector< chemistry::FragmentComplete> &SCAFFOLD_MOLECULES,
+        const util::Implementation< chemistry::ConformationComparisonInterface> &SIMILARITY_METRIC
+      ) const;
+
+      chemistry::FragmentEnsemble Run
+      (
+        const chemistry::FragmentComplete &TARGET_MOLECULE,
+        const chemistry::FragmentComplete &SCAFFOLD_MOLECULE,
+        const chemistry::FragmentAlignToScaffold &ALIGNMENT_OBJECT,
+        const descriptor::MoleculeSimilarity &ALIGNMENT_SCORER,
+        const bool FIND_ALL = false
+      ) const;
 
     //////////////////////
     // input and output //
