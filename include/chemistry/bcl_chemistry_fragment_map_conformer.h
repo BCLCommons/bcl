@@ -52,7 +52,7 @@ namespace bcl
     //! @brief Used to map the 3D coordinates of a derived structure to its parent
     //!
     //! @see @link example_chemistry_fragment_map_conformer.cpp @endlink
-    //! @author brownbp1, mendenjl
+    //! @author brownbp1
     //! @date Dec 13, 2019
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -120,6 +120,12 @@ namespace bcl
 
       //! set the moveable atom indices
       void SetMoveableAtomIndices( const storage::Vector< size_t> &ATOMS) { m_MoveableIndices = ATOMS;}
+
+      //! set the property scorer
+      void SetPropertyScorer( const descriptor::CheminfoProperty &PROPERTY) { m_PropertyScorer = PROPERTY;}
+
+      //! set whether to choose the best aligned conformer by the property scorer
+      void SetChooseBestAlignedConformer( const bool CHOICE) { m_ChooseBestAlignedConf = CHOICE;}
 
     //////////////////////////////////
     // construction and destruction //

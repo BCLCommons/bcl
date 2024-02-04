@@ -33,6 +33,7 @@ BCL_StaticInitializationFiascoFinder
 #include "command/bcl_command_parameter_check_file_existence.h"
 #include "command/bcl_command_parameter_check_ranged.h"
 #include "command/bcl_command_parameter_check_serializable.h"
+#include "descriptor/bcl_descriptor_molecule_similarity.h"
 #include "graph/bcl_graph_csi_substructure.h"
 #include "io/bcl_io_file.h"
 #include "sched/bcl_sched_scheduler_interface.h"
@@ -254,6 +255,59 @@ namespace bcl
               )
             )
           )
+        ),
+        m_FindAllFlag
+        (
+          new command::FlagStatic
+          (
+            "find_all",
+            "if this flag is provided, then follow the largest common substructure search "
+            "with a search for all subgraph isomorphisms between the common substructures; "
+            "this allows alternative poses to be discovered for symmetric molecules"
+          )
+        ),
+        m_UniqueFlag
+        (
+          new command::FlagStatic
+          (
+            "unique",
+            "distance between conformers required for a molecule to be unique; only applicable if 'find_all' is enabled",
+            util::ShPtrVector< command::ParameterInterface>::Create
+            (
+              util::ShPtr< command::ParameterInterface>
+              (
+                new command::Parameter
+                (
+                  "rmsd_type",
+                  "method to use to find rmsd between conformers/poses",
+                  command::ParameterCheckSerializable( util::Implementation< chemistry::ConformationComparisonInterface>()),
+                  "SymmetryRealSpaceRMSD"
+                )
+              ),
+              util::ShPtr< command::ParameterInterface>
+              (
+                new command::Parameter
+                (
+                  "tolerance",
+                  "all conformers/poses must be at least this rmsd from the previously accepted pose; "
+                  "prior to evaluation, all alignment poses are scored with the MolAlign score; "
+                  "if you want additional local conformational heterogeneity, then run ConformerGenerator on the output of this app.",
+                  command::ParameterCheckRanged< float>( 0.0, std::numeric_limits< float>::max()),
+                  "1.0"
+                )
+              )
+            )
+          )
+        ),
+        m_SaveEnsembleFlag
+        (
+          new command::FlagStatic
+          (
+            "save_ensemble",
+            "keep the ensemble of unique generated conformers; "
+            "only applicable if 'find_all' is enabled; "
+            "occurs after application of 'unique'"
+          )
         )
     {
     }
@@ -270,7 +324,10 @@ namespace bcl
           m_BondTypeFlag( PARENT.m_BondTypeFlag),
           m_MinSizeFlag( PARENT.m_MinSizeFlag),
           m_SolutionTypeFlag( PARENT.m_SolutionTypeFlag),
-          m_SimilarityThresholdFlag( PARENT.m_SimilarityThresholdFlag)
+          m_SimilarityThresholdFlag( PARENT.m_SimilarityThresholdFlag),
+          m_FindAllFlag( PARENT.m_FindAllFlag),
+          m_UniqueFlag( PARENT.m_UniqueFlag),
+          m_SaveEnsembleFlag( PARENT.m_SaveEnsembleFlag)
     {
     }
 
@@ -310,6 +367,9 @@ namespace bcl
       sp_cmd->AddFlag( m_MinSizeFlag);
       sp_cmd->AddFlag( m_SolutionTypeFlag);
       sp_cmd->AddFlag( m_SimilarityThresholdFlag);
+      sp_cmd->AddFlag( m_FindAllFlag);
+      sp_cmd->AddFlag( m_UniqueFlag);
+      sp_cmd->AddFlag( m_SaveEnsembleFlag);
 
       // add default bcl parameters
       command::GetAppDefaultFlags().AddDefaultCommandlineFlags( *sp_cmd);
@@ -322,17 +382,18 @@ namespace bcl
     //! @return error code - 0 for success
     int ConformerFromScaffold::Main() const
     {
+      BCL_MessageStd("Reading molecules...");
+
       // read in ensemble without hydrogen atoms to speedup substructure search
       io::IFStream input;
-      BCL_MessageStd("Reading input molecules...");
       io::File::MustOpenIFStream( input, m_InputFileFlag->GetFirstParameter()->GetValue());
       chemistry::FragmentEnsemble input_ensemble( input, sdf::e_Remove);
+      const storage::Vector< chemistry::FragmentComplete> input_molecules( input_ensemble.Begin(), input_ensemble.End());
       io::File::CloseClearFStream( input);
       const size_t ensemble_size( input_ensemble.GetSize());
       BCL_Assert( ensemble_size, "Must have at least one molecule in the input ensemble. Exiting...\n");
 
       // read in the scaffold ensemble without hydrogen atoms to speedup substructure search
-      BCL_MessageStd("Reading scaffold molecules...");
       io::File::MustOpenIFStream( input, m_ScaffoldFileFlag->GetFirstParameter()->GetValue());
       const chemistry::FragmentEnsemble scaffold_ensemble( input, sdf::e_Remove);
       const storage::Vector< chemistry::FragmentComplete> scaffold_molecules( scaffold_ensemble.Begin(), scaffold_ensemble.End());
@@ -341,140 +402,338 @@ namespace bcl
       BCL_Assert( scaffold_ensemble_size, "Must have at least one molecule in the scaffold ensemble. Exiting...\n");
 
       // initialize output so that we can write as we go
-      io::OFStream output, output_similarity_failures, output_confgen_failures;
-      if( m_OutputFileFlag->GetFlag())
-      {
-        io::File::MustOpenOFStream( output, m_OutputFileFlag->GetFirstParameter()->GetValue());
-      }
-      if( m_OutputSimilarityFailureFileFlag->GetFlag())
-      {
-        io::File::MustOpenOFStream( output_similarity_failures, m_OutputSimilarityFailureFileFlag->GetFirstParameter()->GetValue());
-      }
-      if( m_OutputConfGenFailureFileFlag->GetFlag())
-      {
-        io::File::MustOpenOFStream( output_confgen_failures, m_OutputConfGenFailureFileFlag->GetFirstParameter()->GetValue());
-      }
+      InitializeOutputFiles();
 
       // Get the atom and bond type resolution for substructure comparisons
-      BCL_MessageStd("Initializing scaffold alignment object...");
-      graph::CommonSubgraphIsomorphismBase::SolutionType solution_type( graph::CommonSubgraphIsomorphismBase::SolutionType::e_Connected);
-      util::Implementation< chemistry::ConformationComparisonInterface> similarity_metric("LargestCommonSubstructureTanimoto");
-      if( m_SolutionTypeFlag->GetFirstParameter()->GetValue() == "Unconnected")
-      {
-        solution_type = graph::CommonSubgraphIsomorphismBase::SolutionType::e_Unconnected;
-        similarity_metric = util::Implementation< chemistry::ConformationComparisonInterface>("LargestCommonDisconnectedSubstructureTanimoto");
-      }
-      else if( m_SolutionTypeFlag->GetFirstParameter()->GetValue() == "GreedyUnconnected")
-      {
-        solution_type = graph::CommonSubgraphIsomorphismBase::SolutionType::e_GreedyUnconnected;
-        similarity_metric = util::Implementation< chemistry::ConformationComparisonInterface>("LargestCommonDisconnectedSubstructureTanimoto");
-      }
-      chemistry::FragmentAlignToScaffold ats
-      (
-        chemistry::ConformationGraphConverter::AtomComparisonTypeEnum( m_AtomTypeFlag->GetFirstParameter()->GetValue()),
-        chemistry::ConfigurationalBondTypeData::DataEnum( m_BondTypeFlag->GetFirstParameter()->GetValue()),
-        m_MinSizeFlag->GetFirstParameter()->GetNumericalValue< size_t>(),
-        solution_type
-      );
+      util::Implementation< chemistry::ConformationComparisonInterface> similarity_metric( InitializeSimilarityMetric());
+      graph::CommonSubgraphIsomorphismBase::SolutionType solution_type( InitializeSolutionType());
+      chemistry::FragmentAlignToScaffold ats( InitializeAlignmentObject( solution_type));
 
       // generate conformers for each input file based on template substructure
+      size_t total_confs( 0);
       BCL_MessageStd("Generating new conformer ensemble for input molecules...");
-      size_t mol_index( 0), success_count( 0), similarity_failure_count( 0), confgen_failure_count( 0);
       for
       (
           auto mol_itr( input_ensemble.Begin()), mol_itr_end( input_ensemble.End());
           mol_itr != mol_itr_end;
-          ++mol_itr, ++mol_index
+          ++mol_itr, ++m_MoleculeIndex
       )
       {
         // status update
-        if( mol_index % 100 == 0)
+        if( m_MoleculeIndex % 100 == 0)
         {
-          util::GetLogger().LogStatus( "Completed " + std::to_string( mol_index) + "/" + std::to_string( ensemble_size) + " molecules...");
+          util::GetLogger().LogStatus( "Completed " + std::to_string( m_MoleculeIndex) + "/" + std::to_string( ensemble_size) + " molecules...\n");
         }
 
-        // TODO: allow users to pass pre-computed similarity matrix to avoid computing similarity at this step
-        // compute the largest common substructure tanimoto similarity of current molecule to each scaffold
-        float best_similarity( 0.0);
-        size_t best_similarity_index( 0), scaffold_index( 0);
-        for
-        (
-            auto scaffold_itr( scaffold_molecules.Begin() ), scaffold_itr_end( scaffold_molecules.End());
-            scaffold_itr != scaffold_itr_end;
-            ++scaffold_itr, ++scaffold_index
-        )
+        // find the most similar molecule
+        storage::Pair< size_t, float> similarity_result( FindBestScaffoldBySimilarity( *mol_itr, scaffold_molecules, similarity_metric ) );
+        if( !util::IsDefined( similarity_result.First()))
         {
-          float current_similarity( ( *similarity_metric)( *mol_itr, *scaffold_itr ) );
-          BCL_MessageVrb( "Current similarity for molecule " + std::to_string( mol_index) + " against scaffold " + std::to_string( scaffold_index) + ": " + std::to_string( current_similarity));
-          if( current_similarity > best_similarity)
-          {
-            best_similarity = current_similarity;
-            best_similarity_index = scaffold_index;
-            if( best_similarity == 1.0)
-            {
-              break;
-            }
-          }
-        }
-
-        BCL_MessageVrb( "Best similarity for molecule " + std::to_string( mol_index) + " is against scaffold " + std::to_string( best_similarity_index) + ": " + std::to_string( best_similarity ) );
-        if
-        (
-            best_similarity < m_SimilarityThresholdFlag->GetFirstParameter()->GetNumericalValue< float>() ||
-            best_similarity > m_SimilarityThresholdFlag->GetParameterList().LastElement()->GetNumericalValue< float>()
-        )
-        {
-          if( m_OutputSimilarityFailureFileFlag->GetFlag())
-          {
-            mol_itr->WriteMDL( output_similarity_failures);
-          }
-
-          BCL_MessageVrb
-          (
-            "Molecule " + std::to_string( mol_index) + " failed similarity threshold requirement! "
-            "Maximum Tanimoto similarity to scaffold " + std::to_string( best_similarity_index)  +
-            " with a value of " + std::to_string( best_similarity)
-          );
-          ++similarity_failure_count;
           continue;
         }
 
-        // generate the new conformer based on the most similar scaffold
-        bool success( ats.GenerateConformerBasedOnScaffold( *mol_itr, scaffold_molecules( best_similarity_index) ) );
+        // add an alignment scorer
+        descriptor::MoleculeSimilarity alignment_scorer
+        (
+          "PropertyFieldDistance",
+          chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, scaffold_molecules( similarity_result.First())) )
+        );
+
+        // build candidate conformers based on substructure comparisons to the most similar molecule in scaffolds list
+        chemistry::FragmentEnsemble confs( Run( *mol_itr, scaffold_molecules( similarity_result.First()), ats, alignment_scorer, m_FindAllFlag->GetFlag() ) );
+        bool success( confs.GetSize());
         if( !success)
         {
           if( m_OutputConfGenFailureFileFlag->GetFlag())
           {
-            mol_itr->WriteMDL( output_confgen_failures);
+            mol_itr->StoreProperties( input_molecules( m_MoleculeIndex));
+            mol_itr->WriteMDL( m_OutputConfgenFailures);
           }
 
           BCL_MessageVrb
           (
-            "Failed to generate conformer for molecule " + std::to_string( mol_index) +
-            " using scaffold " + std::to_string( best_similarity_index) +
-            " with a Tanimoto similarity of " + std::to_string( best_similarity)
+            "Failed to generate conformer for molecule " + std::to_string( m_MoleculeIndex) +
+            " using scaffold " + std::to_string( similarity_result.First()) +
+            " with a Tanimoto similarity of " + std::to_string( similarity_result.Second())
           );
-          ++confgen_failure_count;
+          ++m_ConfgenFailureCount;
         }
         else
         {
-          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_filename", m_ScaffoldFileFlag->GetFirstParameter()->GetValue() );
-          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_molecule_index", linal::Vector<float>(1, best_similarity_index) );
-          mol_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_similarity_to_scaffold_molecule", linal::Vector< float>(1, best_similarity) );
-          mol_itr->WriteMDL( output);
-          ++success_count;
+          // assign perfect alignment score if it is an identical molecule
+//          for( auto conf_itr( confs.Begin()), conf_itr_end( confs.End()); conf_itr != conf_itr_end; ++conf_itr)
+//          {
+//            if( similarity_result.Second() == 1.0)
+//            {
+//              conf_itr->GetStoredPropertiesNonConst().SetMDLProperty("alignment_scorer.GetAlias()", linal::Vector< float>(1, 0.0));
+//            }
+//          }
+
+          // lowest alignment score first
+          confs.Sort( alignment_scorer.GetAlias());
+
+          // filter to get unique poses
+          if ( m_UniqueFlag->GetFlag() && confs.GetSize() > 1)
+          {
+            util::Implementation<chemistry::ConformationComparisonInterface> unique( m_UniqueFlag->GetFirstParameter()->GetValue());
+            chemistry::FragmentEnsemble uniq_confs;
+
+            // add the first conformer
+            auto conf_itr_i( confs.Begin());
+            uniq_confs.PushBack( *conf_itr_i);
+            for( ++conf_itr_i; conf_itr_i != confs.End(); ++conf_itr_i) {
+              float min_rmsd( std::numeric_limits<float>::max());
+              for( auto conf_itr_j( uniq_confs.Begin()); conf_itr_j != uniq_confs.End(); ++conf_itr_j)
+              {
+                float rmsd( (*unique)(*conf_itr_i, *conf_itr_j) );
+                min_rmsd = std::min(min_rmsd, rmsd);
+              }
+              // Check if min_rmsd is >= the threshold with respect to all previously observed conformers
+              bool meets_threshold( min_rmsd >= m_UniqueFlag->GetParameterList().LastElement()->GetNumericalValue<float>() );
+              if( meets_threshold)
+              {
+                uniq_confs.PushBack(*conf_itr_i);
+              }
+            }
+            confs = uniq_confs;
+          }
+
+          // save all remaining
+          auto confs_itr( confs.Begin());
+          if( m_SaveEnsembleFlag->GetFlag())
+          {
+            for( auto conf_itr_end( confs.End()); confs_itr != conf_itr_end; ++confs_itr)
+            {
+              // set all of the properties from the original molecule as long as they have not been re-cached on the new conformer
+              const chemistry::SmallMoleculeMiscProperties &original_properties( input_molecules( m_MoleculeIndex).GetStoredProperties() );
+              for
+              (
+                  auto prop_itr( original_properties.Begin()), prop_itr_end( original_properties.End());
+                  prop_itr != prop_itr_end;
+                  ++prop_itr
+              )
+              {
+                if( confs_itr->GetMDLProperty( prop_itr->first).empty())
+                {
+                  confs_itr->GetStoredPropertiesNonConst().SetMDLProperty(prop_itr->first, prop_itr->second);
+                }
+              }
+              confs_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_filename", m_ScaffoldFileFlag->GetFirstParameter()->GetValue() );
+              confs_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_molecule_index", linal::Vector<float>(1, similarity_result.First()) );
+              confs_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_similarity_to_scaffold_molecule", linal::Vector< float>(1, similarity_result.Second()) );
+              confs_itr->WriteMDL( m_Output);
+              ++total_confs;
+            }
+          }
+          else
+          {
+            const chemistry::SmallMoleculeMiscProperties &original_properties( input_molecules( m_MoleculeIndex).GetStoredProperties() );
+            for
+            (
+                auto prop_itr( original_properties.Begin()), prop_itr_end( original_properties.End());
+                prop_itr != prop_itr_end;
+                ++prop_itr
+            )
+            {
+              if( confs_itr->GetMDLProperty( prop_itr->first).empty())
+              {
+                confs_itr->GetStoredPropertiesNonConst().SetMDLProperty(prop_itr->first, prop_itr->second);
+              }
+            }
+            confs_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_filename", m_ScaffoldFileFlag->GetFirstParameter()->GetValue() );
+            confs_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_molecule_index", linal::Vector<float>(1, similarity_result.First()) );
+            confs_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_similarity_to_scaffold_molecule", linal::Vector< float>(1, similarity_result.Second()) );
+            confs_itr->WriteMDL( m_Output);
+            ++total_confs;
+          }
+          ++m_SuccessCount;
         }
       }
 
       // close the file stream
-      io::File::CloseClearFStream( output);
-      io::File::CloseClearFStream( output_similarity_failures);
-      io::File::CloseClearFStream( output_confgen_failures);
+      io::File::CloseClearFStream( m_Output);
+      io::File::CloseClearFStream( m_OutputSimilarityFailures);
+      io::File::CloseClearFStream( m_OutputConfgenFailures);
       BCL_MessageStd( "Summary report: ");
-      BCL_MessageStd( std::to_string( similarity_failure_count) + "/" + std::to_string( ensemble_size) + " molecules failed due to out of range similarity scores.");
-      BCL_MessageStd( std::to_string( confgen_failure_count) + "/" + std::to_string( ensemble_size) + " molecules failed during conformer generation.");
-      BCL_MessageStd( std::to_string( success_count) + "/" + std::to_string( ensemble_size) + " molecules were successful.");
+      BCL_MessageStd( std::to_string( m_SuccessCount) + "/" + std::to_string( ensemble_size) + " molecules were successful.");
+      BCL_MessageStd( std::to_string( m_SimilarityFailureCount) + "/" + std::to_string( ensemble_size) + " molecules failed due to out of range similarity scores.");
+      BCL_MessageStd( std::to_string( m_ConfgenFailureCount) + "/" + std::to_string( ensemble_size) + " molecules failed during conformer generation.");
+      BCL_MessageStd( std::to_string( total_confs) + " total conformers were saved.");
       return 0;
+    }
+
+    void ConformerFromScaffold::InitializeOutputFiles() const
+    {
+      BCL_MessageStd("Initializing output files...");
+      if( m_OutputFileFlag->GetFlag())
+      {
+        BCL_MessageStd("Conformers will be written to "
+          + util::Format()( m_OutputFileFlag->GetFirstParameter()->GetValue()));
+        io::File::MustOpenOFStream( m_Output, m_OutputFileFlag->GetFirstParameter()->GetValue());
+      }
+      if( m_OutputSimilarityFailureFileFlag->GetFlag())
+      {
+        BCL_MessageStd("Molecules with insufficient similarity to scaffold(s) will be written to "
+          + util::Format()( m_OutputSimilarityFailureFileFlag->GetFirstParameter()->GetValue()));
+        io::File::MustOpenOFStream( m_OutputSimilarityFailures, m_OutputSimilarityFailureFileFlag->GetFirstParameter()->GetValue());
+      }
+      if( m_OutputConfGenFailureFileFlag->GetFlag())
+      {
+        BCL_MessageStd("Molecules that fail during conformer generation will be written to "
+          + util::Format()( m_OutputConfGenFailureFileFlag->GetFirstParameter()->GetValue()));
+        io::File::MustOpenOFStream( m_OutputConfgenFailures, m_OutputConfGenFailureFileFlag->GetFirstParameter()->GetValue());
+      }
+    }
+
+    util::Implementation< chemistry::ConformationComparisonInterface> ConformerFromScaffold::InitializeSimilarityMetric() const
+    {
+      util::Implementation< chemistry::ConformationComparisonInterface> similarity_metric("LargestCommonSubstructureTanimoto");
+      if( m_SolutionTypeFlag->GetFirstParameter()->GetValue() == "Unconnected")
+      {
+        similarity_metric = util::Implementation< chemistry::ConformationComparisonInterface>("LargestCommonDisconnectedSubstructureTanimoto");
+      }
+      else if( m_SolutionTypeFlag->GetFirstParameter()->GetValue() == "GreedyUnconnected")
+      {
+        similarity_metric = util::Implementation< chemistry::ConformationComparisonInterface>("LargestCommonDisconnectedSubstructureTanimoto");
+      }
+      return similarity_metric;
+    }
+
+    graph::CommonSubgraphIsomorphismBase::SolutionType ConformerFromScaffold::InitializeSolutionType() const
+    {
+      graph::CommonSubgraphIsomorphismBase::SolutionType solution_type( graph::CommonSubgraphIsomorphismBase::SolutionType::e_Connected);
+      if( m_SolutionTypeFlag->GetFirstParameter()->GetValue() == "Unconnected")
+      {
+        solution_type = graph::CommonSubgraphIsomorphismBase::SolutionType::e_Unconnected;
+      }
+      else if( m_SolutionTypeFlag->GetFirstParameter()->GetValue() == "GreedyUnconnected")
+      {
+        solution_type = graph::CommonSubgraphIsomorphismBase::SolutionType::e_GreedyUnconnected;
+      }
+      return solution_type;
+    }
+
+    chemistry::FragmentAlignToScaffold ConformerFromScaffold::InitializeAlignmentObject
+    (
+      const graph::CommonSubgraphIsomorphismBase::SolutionType &SOLUTION_TYPE
+    ) const
+    {
+      return chemistry::FragmentAlignToScaffold
+      (
+        chemistry::ConformationGraphConverter::AtomComparisonTypeEnum( m_AtomTypeFlag->GetFirstParameter()->GetValue()),
+        chemistry::ConfigurationalBondTypeData::DataEnum( m_BondTypeFlag->GetFirstParameter()->GetValue()),
+        m_MinSizeFlag->GetFirstParameter()->GetNumericalValue< size_t>(),
+        SOLUTION_TYPE
+      );
+    }
+
+    storage::Pair< size_t, float> ConformerFromScaffold::FindBestScaffoldBySimilarity
+    (
+      const chemistry::FragmentComplete &MOLECULE,
+      const storage::Vector< chemistry::FragmentComplete> &SCAFFOLD_MOLECULES,
+      const util::Implementation< chemistry::ConformationComparisonInterface> &SIMILARITY_METRIC
+    ) const
+    {
+      // TODO: allow users to pass pre-computed similarity matrix to avoid computing similarity at this step
+      // compute the largest common substructure tanimoto similarity of current molecule to each scaffold
+      float best_similarity( 0.0);
+      size_t best_similarity_index( 0), scaffold_index( 0);
+      for
+      (
+          auto scaffold_itr( SCAFFOLD_MOLECULES.Begin() ), scaffold_itr_end( SCAFFOLD_MOLECULES.End());
+          scaffold_itr != scaffold_itr_end;
+          ++scaffold_itr, ++scaffold_index
+      )
+      {
+        float current_similarity( ( *SIMILARITY_METRIC)( MOLECULE, *scaffold_itr ) );
+        BCL_MessageVrb( "Current similarity for molecule "
+          + std::to_string( m_MoleculeIndex) + " against scaffold "
+          + std::to_string( scaffold_index) + ": "
+          + std::to_string( current_similarity)
+        );
+        if( current_similarity > best_similarity)
+        {
+          best_similarity = current_similarity;
+          best_similarity_index = scaffold_index;
+          if( best_similarity == 1.0)
+          {
+            break;
+          }
+        }
+      }
+      BCL_MessageVrb
+      (
+        "Best similarity for molecule " + std::to_string( m_MoleculeIndex)
+        + " is against scaffold " + std::to_string( best_similarity_index)
+        + ": " + std::to_string( best_similarity )
+      );
+      if
+      (
+          best_similarity < m_SimilarityThresholdFlag->GetFirstParameter()->GetNumericalValue< float>() ||
+          best_similarity > m_SimilarityThresholdFlag->GetParameterList().LastElement()->GetNumericalValue< float>()
+      )
+      {
+        if( m_OutputSimilarityFailureFileFlag->GetFlag())
+        {
+          MOLECULE.WriteMDL( m_OutputSimilarityFailures);
+        }
+
+        BCL_MessageVrb
+        (
+          "Molecule " + std::to_string( m_MoleculeIndex) + " failed similarity threshold requirement! "
+          "Maximum Tanimoto similarity to scaffold " + std::to_string( best_similarity_index)  +
+          " with a value of " + std::to_string( best_similarity)
+        );
+        ++m_SimilarityFailureCount;
+        return storage::Pair< size_t, float>( util::GetUndefinedSize_t(), util::GetUndefined< float>());
+      }
+      return storage::Pair< size_t, float>( best_similarity_index, best_similarity);
+    }
+
+    chemistry::FragmentEnsemble ConformerFromScaffold::Run
+    (
+      const chemistry::FragmentComplete &TARGET_MOLECULE,
+      const chemistry::FragmentComplete &SCAFFOLD_MOLECULE,
+      const chemistry::FragmentAlignToScaffold &ALIGNMENT_OBJECT,
+      const descriptor::MoleculeSimilarity &ALIGNMENT_SCORER,
+      const bool FIND_ALL
+    ) const
+    {
+      chemistry::FragmentEnsemble confs;
+      if( FIND_ALL)
+      {
+        confs = chemistry::FragmentEnsemble
+        (
+          ALIGNMENT_OBJECT.ConformersFromScaffoldIterative
+          (
+            TARGET_MOLECULE,
+            SCAFFOLD_MOLECULE,
+            storage::Vector< size_t>(),
+            storage::Vector< size_t>(),
+            ALIGNMENT_SCORER
+          )
+        );
+      }
+      else
+      {
+        // generate the new conformer based on the most similar scaffold
+        chemistry::FragmentComplete target_mol( TARGET_MOLECULE);
+        bool success(
+          ALIGNMENT_OBJECT.ConformerFromScaffoldMCS
+          (
+            target_mol,
+            SCAFFOLD_MOLECULE,
+            storage::Vector< size_t>(),
+            storage::Vector< size_t>(),
+            ALIGNMENT_SCORER
+          )
+        );
+        if( success)
+        {
+          confs = chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>(1, target_mol));
+        }
+      }
+      return confs;
     }
 
   //////////////////////

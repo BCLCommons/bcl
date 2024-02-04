@@ -74,8 +74,10 @@ namespace bcl
         //! This is used to prevent combinatorial explosion when doing graph isomorphism searches with all hydrogens
         e_AtomTypeAndNumberHydrogensOnRingsAndDistinguishHydrogens,
         e_AtomTypeAndDistinguishHydrogens,
+        e_AtomTypeIsInRing,
         e_CIPPriorityHighToLow,            //!< Priority of the atoms
         e_CouldHaveSubstituents,           //!< Atoms that can be substituted
+        e_IsInRing,
         s_NumberAtomComparisonTypes
       };
 

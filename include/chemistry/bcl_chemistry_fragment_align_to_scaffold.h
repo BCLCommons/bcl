@@ -32,6 +32,7 @@
 #include "bcl_chemistry_fragment_ensemble.h"
 #include "find/bcl_find_pick_interface.h"
 #include "graph/bcl_graph_common_subgraph_isomorphism_base.h"
+#include "graph/bcl_graph_subgraph_isomorphism.h"
 #include "math/bcl_math_mutate_interface.h"
 #include "math/bcl_math_mutate_result.h"
 #include "storage/bcl_storage_vector.h"
@@ -78,6 +79,12 @@ namespace bcl
 
       // solution type for the isomorphism search
       graph::CommonSubgraphIsomorphismBase::SolutionType m_SolutionType;
+
+      // common subgraph isomorphism
+      mutable graph::CommonSubgraphIsomorphism< size_t, size_t> m_CommonSubgraphIsomorphism;
+
+      // subgraph isomorphism
+      mutable graph::SubgraphIsomorphism< size_t, size_t> m_SubgraphIsomorphism;
 
     public:
 
@@ -130,6 +137,12 @@ namespace bcl
 
       //! @brief return the solution type used for comparison
       const graph::CommonSubgraphIsomorphismBase::SolutionType &GetSolutionType() const;
+
+      //! @brief return the common subgraph isomorphism object
+      const graph::CommonSubgraphIsomorphism< size_t, size_t> GetCommonSubgraphIsomorphism() const;
+
+      //! @brief return the subgraph isomorphism object
+      const graph::SubgraphIsomorphism< size_t, size_t> GetSubgraphIsomorphism() const;
 
       //! @brief set the atom type used for comparison
       void SetAtomType( const ConformationGraphConverter::AtomComparisonType &ATOM_TYPE);
@@ -195,13 +208,60 @@ namespace bcl
       //! @param SCAFFOLD_MOL the molecule whose MCS with TARGET_MOL will be the core of the new conformation for TARGET_MOL
       //! @param TARGET_MOL_INDICES atoms in TARGET_MOL that will be searched for a common substructure
       //! @param SCAFFOLD_MOL_INDICES atoms in SCAFFOLD_MOL that will be searched for a common substructure
+      //! @param COMPARER if provided, a conformer will be selected that has the minimum value of the specified property
+      //! @param UPPER_BOUND upper bound on isomorphism search; if 0 then use EstimateUpperBounds; lower bound is default 1
       //! @return true if the conformer is generated successfully, false otherwise
-      bool GenerateConformerBasedOnScaffold
+      bool ConformerFromScaffoldMCS
       (
         FragmentComplete &TARGET_MOL,
         const FragmentComplete &SCAFFOLD_MOL,
         const storage::Vector< size_t> &TARGET_MOL_INDICES = storage::Vector< size_t>(),
-        const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES = storage::Vector< size_t>()
+        const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES = storage::Vector< size_t>(),
+        const descriptor::CheminfoProperty &COMPARER = descriptor::CheminfoProperty(),
+        const size_t UPPER_BOUND = 0
+      ) const;
+
+      //! @brief build an ensemble of conformers of the target molecule starting from the conformation of a shared substructure with a scaffold molecule
+      //! @details this function will generate one 3D conformer for each subgraph isomorphism up to a specified limit. Each conformer will be saved
+      //! with the corresponding SampleByParts atom indices as an MDL property so that additional conformers can be generated from this starting point
+      //! while keeping the common subgraph more-or-less fixed in space (barring any potential lever-arm effects). substructures are chosen in descending
+      //! order based on size.
+      //! @param TARGET_MOL the molecule for which a new conformer will be generated
+      //! @param SCAFFOLD_MOL the molecule whose MCS with TARGET_MOL will be the core of the new conformation for TARGET_MOL
+      //! @param TARGET_MOL_INDICES atoms in TARGET_MOL that will be searched for a common substructure
+      //! @param SCAFFOLD_MOL_INDICES atoms in SCAFFOLD_MOL that will be searched for a common substructure
+      //! @param COMPARER if provided, a conformer will be selected that has the minimum value of the specified property
+      //! @param N_MAX_SOLUTIONS maximum number of largest subgraphs to consider when generating conformers
+      //! @return an ensemble of conformers
+      FragmentEnsemble ConformersFromScaffoldCS
+      (
+        const FragmentComplete &TARGET_MOL,
+        const FragmentComplete &SCAFFOLD_MOL,
+        const storage::Vector< size_t> &TARGET_MOL_INDICES = storage::Vector< size_t>(),
+        const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES = storage::Vector< size_t>(),
+        const descriptor::CheminfoProperty &COMPARER = descriptor::CheminfoProperty(),
+        const size_t N_MAX_SOLUTIONS = 100
+      ) const;
+
+      //! @brief build an ensemble of conformers of the target molecule starting from the conformation of a shared substructure with a scaffold molecule;
+      //! iterates between ConformersFromScaffoldCS and ConformerFromScaffoldMCS reducing the size of the largest allowed subgraph progressively
+      //! @param TARGET_MOL the molecule for which a new conformer will be generated
+      //! @param SCAFFOLD_MOL the molecule whose MCS with TARGET_MOL will be the core of the new conformation for TARGET_MOL
+      //! @param TARGET_MOL_INDICES atoms in TARGET_MOL that will be searched for a common substructure
+      //! @param SCAFFOLD_MOL_INDICES atoms in SCAFFOLD_MOL that will be searched for a common substructure
+      //! @param COMPARER if provided, a conformer will be selected that has the minimum value of the specified property
+      //! @param N_MAX_SOLUTIONS maximum number of largest subgraphs to consider when generating conformers with ConformersFromScaffoldCS
+      //! @param N_ITERATIONS the number of iterations
+      //! @return an ensemble of conformers
+      FragmentEnsemble ConformersFromScaffoldIterative
+      (
+        const FragmentComplete &TARGET_MOL,
+        const FragmentComplete &SCAFFOLD_MOL,
+        const storage::Vector< size_t> &TARGET_MOL_INDICES = storage::Vector< size_t>(),
+        const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES = storage::Vector< size_t>(),
+        const descriptor::CheminfoProperty &COMPARER = descriptor::CheminfoProperty(),
+        const size_t N_MAX_SOLUTIONS = 100,
+        const size_t N_ITERATIONS = 1
       ) const;
 
       //////////////////////
@@ -211,11 +271,22 @@ namespace bcl
       //! @brief extract a fragment from a molecule based on its indices
       static FragmentComplete ExtractFragmentByIndices( const FragmentComplete &MOLECULE, const storage::Vector< size_t> &INDICES);
 
-      //! @brief get the maximum common substructure between two molecules
-      graph::CommonSubgraphIsomorphism< size_t, size_t> FindMaximumCommonSubstructure( const FragmentComplete &MOL_A, const FragmentComplete &MOL_B) const;
+      //! @brief superimpose the coordinates of two molecules
+      //! @param TARGET_MOL the molecule to be aligned
+      //! @param SCAFFOLD_MOL the molecule to which TARGET_MOL will be aligned
+      static void Superimpose
+      (
+        FragmentComplete &TARGET_MOL,
+        const FragmentComplete &SCAFFOLD_MOL,
+        const storage::Vector< size_t> &TARGET_MOL_INDICES = storage::Vector< size_t>(),
+        const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES = storage::Vector< size_t>()
+      );
 
-      //! @brief get the common substructures between two molecules
-      storage::Vector< storage::Map< size_t, size_t> > FindAllCommonSubstructures( const FragmentComplete &MOL_A, const FragmentComplete &MOL_B) const;
+      //! @brief get the maximum common substructure between two molecules
+      graph::CommonSubgraphIsomorphism< size_t, size_t> FindCommonSubgraphIsomorphism( const FragmentComplete &MOL_A, const FragmentComplete &MOL_B) const;
+
+      //! @brief get the common subgraphs between two molecules
+      graph::SubgraphIsomorphism< size_t, size_t> FindSubgraphIsomorphism( const FragmentComplete &MOL_A, const FragmentComplete &MOL_B) const;
 
       //! @brief get a mutex
       static sched::Mutex &GetMutex();

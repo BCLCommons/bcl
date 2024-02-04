@@ -140,6 +140,18 @@ namespace bcl
       return m_SolutionType;
     }
 
+    //! @brief return the common subgraph isomorphism object
+    const graph::CommonSubgraphIsomorphism< size_t, size_t> FragmentAlignToScaffold::GetCommonSubgraphIsomorphism() const
+    {
+      return m_CommonSubgraphIsomorphism;
+    }
+
+    //! @brief return the subgraph isomorphism object
+    const graph::SubgraphIsomorphism< size_t, size_t> FragmentAlignToScaffold::GetSubgraphIsomorphism() const
+    {
+      return m_SubgraphIsomorphism;
+    }
+
     //! @brief set the atom type used for comparison
     void FragmentAlignToScaffold::SetAtomType( const ConformationGraphConverter::AtomComparisonType &ATOM_TYPE)
     {
@@ -184,7 +196,6 @@ namespace bcl
       const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES
     ) const
     {
-
       // extract the fragment for which the MCS search will be performed
       FragmentComplete target_mol( ExtractFragmentByIndices( TARGET_MOL, TARGET_MOL_INDICES));
       FragmentComplete scaffold_mol( ExtractFragmentByIndices( SCAFFOLD_MOL, SCAFFOLD_MOL_INDICES));
@@ -193,7 +204,7 @@ namespace bcl
       util::SiPtrVector< const linal::Vector3D> mol_b_coords( scaffold_mol.GetHeavyAtomCoordinates()), mol_a_coords( target_mol.GetHeavyAtomCoordinates());
 
       // get the isomorphism between the target and scaffold
-      graph::CommonSubgraphIsomorphism< size_t, size_t> csi_substructure( FindMaximumCommonSubstructure( target_mol, scaffold_mol ) );
+      graph::CommonSubgraphIsomorphism< size_t, size_t> csi_substructure( FindCommonSubgraphIsomorphism( target_mol, scaffold_mol ) );
       csi_substructure.FindIsomorphism( csi_substructure.EstimateUpperBounds());
       storage::Map< size_t, size_t> isomorphism( csi_substructure.GetIsomorphism());
 
@@ -323,29 +334,35 @@ namespace bcl
     //! @param SCAFFOLD_MOL the molecule whose MCS with TARGET_MOL will be the core of the new conformation for TARGET_MOL
     //! @param TARGET_MOL_INDICES atoms in TARGET_MOL that will be searched for a common substructure
     //! @param SCAFFOLD_MOL_INDICES atoms in SCAFFOLD_MOL that will be searched for a common substructure
+    //! @param COMPARER if provided, a conformer will be selected that has the minimum value of the specified property
+    //! @param UPPER_BOUND upper bound on isomorphism search; if 0 then use EstimateUpperBounds; lower bound is default 1
     //! @return true if the conformer is generated successfully, false otherwise
-    bool FragmentAlignToScaffold::GenerateConformerBasedOnScaffold
+    bool FragmentAlignToScaffold::ConformerFromScaffoldMCS
     (
       FragmentComplete &TARGET_MOL,
       const FragmentComplete &SCAFFOLD_MOL,
       const storage::Vector< size_t> &TARGET_MOL_INDICES,
-      const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES
+      const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES,
+      const descriptor::CheminfoProperty &COMPARER,
+      const size_t UPPER_BOUND
     ) const
     {
       // extract the fragment for which the MCS search will be performed
       FragmentComplete target_mol( ExtractFragmentByIndices( TARGET_MOL, TARGET_MOL_INDICES));
+      target_mol.StoreProperties( TARGET_MOL);
       FragmentComplete scaffold_mol( ExtractFragmentByIndices( SCAFFOLD_MOL, SCAFFOLD_MOL_INDICES));
+      scaffold_mol.StoreProperties( SCAFFOLD_MOL);
 
       // get the isomorphism between the target and scaffold
-      graph::CommonSubgraphIsomorphism< size_t, size_t> csi_substructure( FindMaximumCommonSubstructure( target_mol, scaffold_mol ) );
-      csi_substructure.FindIsomorphism( csi_substructure.EstimateUpperBounds());
-      storage::Map< size_t, size_t> isomorphism( csi_substructure.GetIsomorphism( ) );
+      m_CommonSubgraphIsomorphism = graph::CommonSubgraphIsomorphism< size_t, size_t>( FindCommonSubgraphIsomorphism( target_mol, scaffold_mol ) );
+      m_CommonSubgraphIsomorphism.FindIsomorphism( UPPER_BOUND == 0 ? m_CommonSubgraphIsomorphism.EstimateUpperBounds( ) : UPPER_BOUND );
+      storage::Map< size_t, size_t> isomorphism( m_CommonSubgraphIsomorphism.GetIsomorphism( ) );
 
       // get the subgraph isomorphism for the target molecule
       graph::Subgraph< size_t, size_t> target_subgraph
       (
-        util::OwnPtr< const graph::ConstGraph< size_t, size_t> >( &csi_substructure.GetGraphA(), false),
-        csi_substructure.GetIsomorphism().GetKeysAsVector()
+        util::OwnPtr< const graph::ConstGraph< size_t, size_t> >( &m_CommonSubgraphIsomorphism.GetGraphA(), false),
+        m_CommonSubgraphIsomorphism.GetIsomorphism().GetKeysAsVector()
       );
 
       // alignment fails if there is no acceptable isomorphism
@@ -378,6 +395,7 @@ namespace bcl
         // add bad geometry atoms
         AtomVector< AtomComplete> temp_vec( target_atoms, TARGET_MOL.GetBondInfo());
         FragmentComplete temp_mol( temp_vec, TARGET_MOL.GetName());
+
         storage::Vector< size_t> bad_geo_atoms( temp_mol.GetAtomsWithBadGeometry());
         moveable_atoms_set.InsertElements( bad_geo_atoms.Begin(), bad_geo_atoms.End());
 
@@ -385,7 +403,8 @@ namespace bcl
         FragmentSplitRings splitter( true, size_t( 3));
         storage::List< storage::Vector< size_t> > ring_components( splitter.GetComponentVertices( temp_mol, molecule_graph));
         storage::Vector< storage::Vector< size_t>> ring_components_vec( ring_components.Begin(), ring_components.End());
-        for( size_t ring_i( 0), n_rings( ring_components_vec.GetSize()); ring_i < n_rings; ++ring_i) {
+        for( size_t ring_i( 0), n_rings( ring_components_vec.GetSize()); ring_i < n_rings; ++ring_i)
+        {
           storage::Set< size_t> ring_atoms( ring_components_vec( ring_i).Begin(), ring_components_vec( ring_i).End());
           for( auto bad_geo_atoms_itr( bad_geo_atoms.Begin()), bad_geo_atoms_itr_end( bad_geo_atoms.End()); bad_geo_atoms_itr != bad_geo_atoms_itr_end; ++bad_geo_atoms_itr)
           {
@@ -401,6 +420,8 @@ namespace bcl
         // collect unique atoms to be mobile
         moveable_atoms = storage::Vector< size_t>( moveable_atoms_set.Begin(), moveable_atoms_set.End());
         cleaner.SetMoveableAtomIndices( moveable_atoms);
+        cleaner.SetPropertyScorer( COMPARER);
+        cleaner.SetChooseBestAlignedConformer( true);
 
         // create cleaned molecule
         util::ShPtr< FragmentComplete> new_molecule
@@ -444,6 +465,7 @@ namespace bcl
           AtomVector< AtomComplete> atoms_transformed( new_molecule_atom_vector, new_molecule->GetBondInfo());
           FragmentComplete new_molecule_transformed( atoms_transformed, TARGET_MOL.GetName());
           new_molecule_transformed.StoreProperties( TARGET_MOL);
+          new_molecule_transformed.StoreProperties( *new_molecule);
           new_molecule_transformed.GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", moveable_atoms);
           TARGET_MOL = new_molecule_transformed;
           return true;
@@ -466,12 +488,273 @@ namespace bcl
         {
           FragmentComplete new_molecule( clean_atoms, TARGET_MOL.GetName());
           new_molecule.StoreProperties( TARGET_MOL);
+          linal::Vector<float> alignment_score( COMPARER->SumOverObject( new_molecule) );
+          new_molecule.GetStoredPropertiesNonConst().SetMDLProperty( COMPARER->GetAlias(), alignment_score);
           new_molecule.GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", storage::Vector< size_t>() );
           TARGET_MOL = new_molecule;
           return true;
         }
       }
       return false;
+    }
+
+    //! @brief build an ensemble of conformers of the target molecule starting from the conformation of a shared substructure with a scaffold molecule
+    //! @details this function will generate one 3D conformer for each subgraph isomorphism up to a specified limit. Each conformer will be saved
+    //! with the corresponding SampleByParts atom indices as an MDL property so that additional conformers can be generated from this starting point
+    //! while keeping the common subgraph more-or-less fixed in space (barring any potential lever-arm effects). substructures are chosen in descending
+    //! order based on size.
+    //! @param TARGET_MOL the molecule for which a new conformer will be generated
+    //! @param SCAFFOLD_MOL the molecule whose MCS with TARGET_MOL will be the core of the new conformation for TARGET_MOL
+    //! @param TARGET_MOL_INDICES atoms in TARGET_MOL that will be searched for a common substructure
+    //! @param SCAFFOLD_MOL_INDICES atoms in SCAFFOLD_MOL that will be searched for a common substructure
+    //! @param COMPARER if provided, a conformer will be selected that has the minimum value of the specified property
+    //! @param N_MAX_SOLUTIONS maximum number of largest subgraphs to consider when generating conformers
+    //! @return an ensemble of conformers
+    FragmentEnsemble FragmentAlignToScaffold::ConformersFromScaffoldCS
+    (
+      const FragmentComplete &TARGET_MOL,
+      const FragmentComplete &SCAFFOLD_MOL,
+      const storage::Vector< size_t> &TARGET_MOL_INDICES,
+      const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES,
+      const descriptor::CheminfoProperty &COMPARER,
+      const size_t N_MAX_SOLUTIONS
+    ) const
+    {
+      // initialize output
+      FragmentEnsemble final_ensemble;
+
+      // extract the fragment for which the MCS search will be performed
+      FragmentComplete target_mol( ExtractFragmentByIndices( TARGET_MOL, TARGET_MOL_INDICES));
+      target_mol.StoreProperties( TARGET_MOL);
+      FragmentComplete scaffold_mol( ExtractFragmentByIndices( SCAFFOLD_MOL, SCAFFOLD_MOL_INDICES));
+      scaffold_mol.StoreProperties( SCAFFOLD_MOL);
+
+      // get the isomorphism between the target and scaffold
+      m_SubgraphIsomorphism = graph::SubgraphIsomorphism< size_t, size_t>( FindSubgraphIsomorphism( target_mol, scaffold_mol ) );
+      m_SubgraphIsomorphism.FindAllIsomorphisms( );
+      storage::Vector< storage::Vector< size_t> > isomorphisms( m_SubgraphIsomorphism.GetIsomorphisms( ) );
+
+      // evaluate each isomorphism starting with the largest until we hit the limit
+      for( size_t iso_i( 0), n_iso( std::min( isomorphisms.GetSize(), N_MAX_SOLUTIONS)); iso_i < n_iso; ++iso_i)
+      {
+        const storage::Vector< size_t> &isomorphism( isomorphisms( iso_i));
+        if( isomorphism.GetSize() < m_MinIsoSize)
+        {
+          continue;
+        }
+
+        // get the subgraph isomorphism for the target molecule
+        storage::Vector< size_t> keys;
+        for( size_t a_i( 0), a_sz( isomorphism.GetSize()); a_i < a_sz; ++a_i)
+        {
+          keys.PushBack(a_i);
+        }
+        graph::Subgraph< size_t, size_t> target_subgraph
+        (
+          util::OwnPtr< const graph::ConstGraph< size_t, size_t> >( &m_SubgraphIsomorphism.GetSubgraph(), false),
+          keys
+        );
+
+        // for each atom in the isomorphism, set the target molecule atom coordinates to be those of the scaffold molecule
+        storage::Vector< sdf::AtomInfo> target_atoms( TARGET_MOL.GetAtomInfo( ) );
+        const storage::Vector< sdf::AtomInfo> &scaffold_atoms( SCAFFOLD_MOL.GetAtomInfo());
+        size_t a_i( 0);
+        for( auto iso_itr( isomorphism.Begin()), iso_itr_end( isomorphism.End()); iso_itr != iso_itr_end; ++iso_itr, ++a_i)
+        {
+          target_atoms( a_i).SetCoordinates( scaffold_atoms( *iso_itr).GetCoordinates());
+        }
+
+        // get inverted subgraph of the new mol
+        graph::Subgraph< size_t, size_t> target_subgraph_complement( target_subgraph.GetComplement( ) );
+        if( target_subgraph_complement.GetSize())
+        {
+          // generate a new 3D conformer without sampling the coordinates of the subgraph isomorphism
+          storage::Vector< size_t> moveable_atoms( target_subgraph_complement.GetVertexIndices());
+          storage::Set< size_t> moveable_atoms_set( moveable_atoms.Begin(), moveable_atoms.End());
+          FragmentMapConformer cleaner( "None", false, moveable_atoms);
+
+          // add all the adjacent edges to our unique subgraph vertices
+          storage::Set< size_t> all_adjacent_indices( cleaner.MapSubgraphAdjacentAtoms( target_subgraph_complement, 2) );
+          moveable_atoms_set.InsertElements( all_adjacent_indices.Begin(), all_adjacent_indices.End());
+
+          // add bad geometry atoms
+          AtomVector< AtomComplete> temp_vec( target_atoms, TARGET_MOL.GetBondInfo());
+          FragmentComplete temp_mol( temp_vec, TARGET_MOL.GetName());
+
+          storage::Vector< size_t> bad_geo_atoms( temp_mol.GetAtomsWithBadGeometry());
+          moveable_atoms_set.InsertElements( bad_geo_atoms.Begin(), bad_geo_atoms.End());
+
+          ConformationGraphConverter::t_AtomGraph molecule_graph( ConformationGraphConverter::CreateGraphWithAtoms( temp_mol));
+          FragmentSplitRings splitter( true, size_t( 3));
+          storage::List< storage::Vector< size_t> > ring_components( splitter.GetComponentVertices( temp_mol, molecule_graph));
+          storage::Vector< storage::Vector< size_t>> ring_components_vec( ring_components.Begin(), ring_components.End());
+          for( size_t ring_i( 0), n_rings( ring_components_vec.GetSize()); ring_i < n_rings; ++ring_i) {
+            storage::Set< size_t> ring_atoms( ring_components_vec( ring_i).Begin(), ring_components_vec( ring_i).End());
+            for( auto bad_geo_atoms_itr( bad_geo_atoms.Begin()), bad_geo_atoms_itr_end( bad_geo_atoms.End()); bad_geo_atoms_itr != bad_geo_atoms_itr_end; ++bad_geo_atoms_itr)
+            {
+              if (ring_atoms.Find( *bad_geo_atoms_itr) != ring_atoms.End())
+              {
+                // if found, then this ring contains bad geometry atoms and we need to add the whole ring to the moveable atoms set
+                moveable_atoms_set.InsertElements( ring_atoms.Begin(), ring_atoms.End());
+                break;
+              }
+            }
+          }
+
+          // collect unique atoms to be mobile
+          moveable_atoms = storage::Vector< size_t>( moveable_atoms_set.Begin(), moveable_atoms_set.End());
+          cleaner.SetMoveableAtomIndices( moveable_atoms);
+          cleaner.SetMoveableAtomIndices( moveable_atoms);
+          cleaner.SetPropertyScorer( COMPARER);
+          cleaner.SetChooseBestAlignedConformer( true);
+
+          // create cleaned molecule
+          util::ShPtr< FragmentComplete> new_molecule
+          (
+            cleaner.Clean
+            (
+              AtomVector< AtomComplete>( target_atoms, TARGET_MOL.GetBondInfo() ),
+              FragmentComplete(),
+              "None",
+              true
+            )
+          );
+
+          if( new_molecule.IsDefined())
+          {
+            // re-align the subgraph isomorphism to the desired coordinates; if the subgraph is not the largest substructure then
+            // it will not be re-positioned in real-space by default
+            util::SiPtrVector< const linal::Vector3D> scaffold_subgraph_coords( scaffold_mol.GetHeavyAtomCoordinates()), target_subraph_coords( new_molecule->GetHeavyAtomCoordinates());
+            target_subraph_coords.Reorder( keys);
+            scaffold_subgraph_coords.Reorder( isomorphism);
+
+            math::TransformationMatrix3D transform
+            (
+              quality::RMSD::SuperimposeCoordinates( scaffold_subgraph_coords, target_subraph_coords)
+            );
+
+            storage::Vector< sdf::AtomInfo> new_molecule_atom_vector( new_molecule->GetAtomInfo());
+            for
+            (
+                storage::Vector< sdf::AtomInfo>::iterator itr( new_molecule_atom_vector.Begin()),
+                itr_end( new_molecule_atom_vector.End());
+                itr != itr_end;
+                ++itr
+            )
+            {
+              linal::Vector3D coords( itr->GetCoordinates());
+              itr->SetCoordinates( coords.Transform( transform));
+            }
+
+            // add back the original properties to the re-aligned structure
+            AtomVector< AtomComplete> atoms_transformed( new_molecule_atom_vector, new_molecule->GetBondInfo());
+            FragmentComplete new_molecule_transformed( atoms_transformed, TARGET_MOL.GetName());
+            new_molecule_transformed.StoreProperties( TARGET_MOL);
+            new_molecule_transformed.StoreProperties( *new_molecule);
+            new_molecule_transformed.GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", moveable_atoms);
+            final_ensemble.PushBack( new_molecule_transformed);
+          }
+        }
+
+        // it is possible for the entire substructure to be contained within the scaffold such that there are no complement subgraph atoms
+        else
+        {
+          // clean atoms
+          AtomVector< AtomComplete> clean_atoms(
+            FragmentMapConformer::CleanAtoms
+            (
+              AtomVector< AtomComplete>( target_atoms, TARGET_MOL.GetBondInfo() ),
+              "None",
+              true
+            )
+          );
+          if( clean_atoms.GetSize())
+          {
+            FragmentComplete new_molecule( clean_atoms, TARGET_MOL.GetName());
+            new_molecule.StoreProperties( TARGET_MOL);
+            linal::Vector<float> alignment_score( COMPARER->SumOverObject( new_molecule) );
+            new_molecule.GetStoredPropertiesNonConst().SetMDLProperty( COMPARER->GetAlias(), alignment_score);
+            new_molecule.GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", storage::Vector< size_t>() );
+            final_ensemble.PushBack( new_molecule);
+          }
+        }
+      }
+      return final_ensemble;
+    }
+
+    //! @brief build an ensemble of conformers of the target molecule starting from the conformation of a shared substructure with a scaffold molecule;
+    //! iterates between ConformersFromScaffoldCS and ConformerFromScaffoldMCS reducing the size of the largest allowed subgraph progressively
+    //! @param TARGET_MOL the molecule for which a new conformer will be generated
+    //! @param SCAFFOLD_MOL the molecule whose MCS with TARGET_MOL will be the core of the new conformation for TARGET_MOL
+    //! @param TARGET_MOL_INDICES atoms in TARGET_MOL that will be searched for a common substructure
+    //! @param SCAFFOLD_MOL_INDICES atoms in SCAFFOLD_MOL that will be searched for a common substructure
+    //! @param COMPARER if provided, a conformer will be selected that has the minimum value of the specified property
+    //! @param N_MAX_SOLUTIONS maximum number of largest subgraphs to consider when generating conformers with ConformersFromScaffoldCS
+    //! @param N_ITERATIONS the number of iterations
+    //! @return an ensemble of conformers
+    FragmentEnsemble FragmentAlignToScaffold::ConformersFromScaffoldIterative
+    (
+      const FragmentComplete &TARGET_MOL,
+      const FragmentComplete &SCAFFOLD_MOL,
+      const storage::Vector< size_t> &TARGET_MOL_INDICES,
+      const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES,
+      const descriptor::CheminfoProperty &COMPARER,
+      const size_t N_MAX_SOLUTIONS,
+      const size_t N_ITERATIONS
+    ) const
+    {
+      // initialize output
+      FragmentEnsemble final_ensemble;
+
+      // if target_mol is a subgraph of scaffold_mol, then generate mapped conformers
+      FragmentEnsemble subgraph_iso_ens;
+
+      size_t upper_bound( 0), increment( 1);
+      for( size_t iteration( 0); iteration < N_ITERATIONS; ++iteration, ++increment)
+      {
+        FragmentComplete target_mol( TARGET_MOL); // always do the MCS search from starting target molecule
+        AtomVector< AtomComplete> target_mol_atoms( TARGET_MOL.GetAtomVector()), scaffold_mol_atoms( SCAFFOLD_MOL.GetAtomVector());
+
+        // try to generate a mapped conformer of the common subgraph between the target_mol and the scaffold_mol
+        bool common_subgraph_success
+        (
+          ConformerFromScaffoldMCS( target_mol, SCAFFOLD_MOL, TARGET_MOL_INDICES, SCAFFOLD_MOL_INDICES, COMPARER) //, upper_bound)
+        );
+        if( common_subgraph_success)
+        {
+          final_ensemble.PushBack(target_mol);
+        }
+
+        // get a molecule composed only of the common subgraph atoms from target_mol
+        storage::Vector< size_t> csi_iso_a( m_CommonSubgraphIsomorphism.GetIsomorphism().GetKeysAsVector() );
+        storage::Vector< size_t> csi_iso_b( m_CommonSubgraphIsomorphism.GetIsomorphism().GetMappedValues() );
+        target_mol_atoms.Reorder(csi_iso_a );
+        scaffold_mol_atoms.Reorder(csi_iso_b);
+        FragmentComplete target_mol_prime( target_mol_atoms, ""), scaffold_mol_prime( scaffold_mol_atoms, "");
+        graph::CommonSubgraphIsomorphism< size_t, size_t> csi_prime_target( FindCommonSubgraphIsomorphism( target_mol_prime, target_mol));
+        graph::CommonSubgraphIsomorphism< size_t, size_t> csi_prime_scaffold( FindCommonSubgraphIsomorphism( scaffold_mol_prime, SCAFFOLD_MOL));
+
+        // look for all subgraph isomorphisms of target csi mol against the original scaffold
+        subgraph_iso_ens = ConformersFromScaffoldCS( target_mol_prime, scaffold_mol_prime, storage::Vector< size_t>(), storage::Vector< size_t>(), COMPARER, N_MAX_SOLUTIONS);
+        if( subgraph_iso_ens.GetSize())
+        {
+
+          // rebuild target molecule using each aligned subgraph isomorphism as a scaffold
+          for( auto mol_itr( subgraph_iso_ens.Begin()), mol_itr_end( subgraph_iso_ens.End()); mol_itr != mol_itr_end; ++mol_itr)
+          {
+            FragmentComplete temp_target_mol( TARGET_MOL);
+            bool success
+            (
+              ConformerFromScaffoldMCS( temp_target_mol, *mol_itr, TARGET_MOL_INDICES, storage::Vector< size_t>(), COMPARER)
+            );
+            if( success)
+            {
+              final_ensemble.PushBack( temp_target_mol);
+            }
+          }
+        }
+      }
+      return final_ensemble;
     }
 
     //////////////////////
@@ -490,8 +773,59 @@ namespace bcl
       return molecule;
     }
 
+    //! @brief superimpose the coordinates of two molecules
+    //! @param TARGET_MOL the molecule to be aligned
+    //! @param SCAFFOLD_MOL the molecule to which TARGET_MOL will be aligned
+    void FragmentAlignToScaffold::Superimpose
+    (
+      FragmentComplete &TARGET_MOL,
+      const FragmentComplete &SCAFFOLD_MOL,
+      const storage::Vector< size_t> &TARGET_MOL_INDICES,
+      const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES
+    )
+    {
+      // extract the fragment for which the MCS search will be performed
+      FragmentComplete target_mol( ExtractFragmentByIndices( TARGET_MOL, TARGET_MOL_INDICES));
+      FragmentComplete scaffold_mol( ExtractFragmentByIndices( SCAFFOLD_MOL, SCAFFOLD_MOL_INDICES));
+
+      // Store the coordinates of the fragments for alignment
+      util::SiPtrVector< const linal::Vector3D> mol_b_coords( scaffold_mol.GetHeavyAtomCoordinates()), mol_a_coords( target_mol.GetHeavyAtomCoordinates());
+
+      // Generate transformation matrix based on common isomorphism between scaffold and current small molecule
+      math::TransformationMatrix3D transform
+      (
+        quality::RMSD::SuperimposeCoordinates( mol_b_coords, mol_a_coords)
+      );
+
+      //Store the atom information of the small molecule
+      storage::Vector< sdf::AtomInfo> atom_vector( TARGET_MOL.GetAtomInfo());
+
+      //Transform the coordinates of the small molecule atoms based on the transformation matrix
+      for
+      (
+        storage::Vector< sdf::AtomInfo>::iterator itr( atom_vector.Begin()), itr_end( atom_vector.End());
+        itr != itr_end;
+        ++itr
+      )
+      {
+        linal::Vector3D temp( itr->GetCoordinates());
+        itr->SetCoordinates( temp.Transform( transform));
+      }
+
+      // Store transformed coordinates and atom information in a new molecule and add it to output ensemble
+      FragmentComplete new_molecule
+      (
+        AtomVector< AtomComplete>( atom_vector, TARGET_MOL.GetBondInfo()),
+        TARGET_MOL.GetName()
+      );
+
+      // add back the original properties to the re-aligned structure
+      new_molecule.StoreProperties( TARGET_MOL);
+      TARGET_MOL = new_molecule;
+    }
+
     //! @brief get the maximum common substructure between two molecules
-    graph::CommonSubgraphIsomorphism< size_t, size_t> FragmentAlignToScaffold::FindMaximumCommonSubstructure( const FragmentComplete &MOL_A, const FragmentComplete &MOL_B) const
+    graph::CommonSubgraphIsomorphism< size_t, size_t> FragmentAlignToScaffold::FindCommonSubgraphIsomorphism( const FragmentComplete &MOL_A, const FragmentComplete &MOL_B) const
     {
       const ConformationGraphConverter arbitrary_graph_converter( m_AtomType, m_BondType, true );
       graph::ConstGraph< size_t, size_t>
@@ -503,20 +837,18 @@ namespace bcl
       return csi_substructure;
     }
 
-    //! @brief get the common substructures between two molecules
-//    storage::Vector< storage::Map< size_t, size_t> > FragmentAlignToScaffold::FindAllCommonSubstructures( const FragmentComplete &MOL_A, const FragmentComplete &MOL_B) const
-//    {
-//      const ConformationGraphConverter arbitrary_graph_converter( m_AtomType, m_BondType, true);
-//      graph::ConstGraph< size_t, size_t>
-//          mol_a_graph( arbitrary_graph_converter( MOL_A)),
-//          mol_b_graph( arbitrary_graph_converter( MOL_B));
-//
-//      graph::SubgraphIsomorphism< size_t, size_t> csi_substructure;
-//      csi_substructure.SetGraphs( mol_a_graph, mol_b_graph);
-//      csi_substructure.FindAllIsomorphisms();  // TODO add options for these
-//      storage::Vector< storage::Map< size_t, size_t> >isomorphisms( csi_substructure.GetIsomorphisms( ) );
-//      return isomorphisms;
-//    }
+    //! @brief get the common subgraphs between two molecules
+    graph::SubgraphIsomorphism< size_t, size_t> FragmentAlignToScaffold::FindSubgraphIsomorphism( const FragmentComplete &MOL_A, const FragmentComplete &MOL_B) const
+    {
+      const ConformationGraphConverter arbitrary_graph_converter( m_AtomType, m_BondType, true );
+      graph::ConstGraph< size_t, size_t>
+          mol_a_graph( arbitrary_graph_converter( MOL_A)),
+          mol_b_graph( arbitrary_graph_converter( MOL_B));
+
+      graph::SubgraphIsomorphism< size_t, size_t> csi_substructure;
+      csi_substructure.SetGraphs( mol_a_graph, mol_b_graph);
+      return csi_substructure;
+    }
 
     // initialize static
     sched::Mutex &FragmentAlignToScaffold::GetMutex()

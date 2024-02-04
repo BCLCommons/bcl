@@ -458,15 +458,6 @@ namespace bcl
         conf_comparer = util::Implementation< ConformationComparisonInterface>( ConformationComparisonByRmsd());
       }
 
-      // to do this as expected we really need to align the conformers fully or by
-      // the atoms being compared
-      FragmentAlignToScaffold ats
-      (
-        ConformationGraphConverter::AtomComparisonType::e_ElementType,
-        ConfigurationalBondTypeData::e_BondOrderAmideOrAromaticWithRingness,
-        size_t( 2)
-      );
-
       // If we are only comparing a subset of atoms then remove undesired atoms from atom vectors
       if( ATOMS_TO_COMPARE.GetSize())
       {
@@ -490,7 +481,6 @@ namespace bcl
       }
 
       // compare each conformer to reference
-      FragmentEnsemble filtered_ensemble;
       storage::Vector< FragmentComplete> ens( ENSEMBLE.Begin(), ENSEMBLE.End());
       size_t conf_index( 0);
       for
@@ -500,18 +490,43 @@ namespace bcl
           ++conf_itr, ++conf_index
       )
       {
-        // align all atoms
-        ats.AlignToScaffold( *conf_itr, starting_mol);
-
+        // align all atoms and score
+        FragmentAlignToScaffold::Superimpose( *conf_itr, starting_mol);
         float comparison_value( ( *conf_comparer)( *conf_itr, starting_mol));
-        if( ( **COMPARISON)( comparison_value, TOLERANCE))
+
+        // now align the whole molecule
+        // NOTE - alternatively this could be aligned to *conf_itr to effectively have the alignment of the full molecule based on the reduced structure
+        FragmentAlignToScaffold::Superimpose( ens( conf_index), starting_mol);
+        ens( conf_index).GetStoredPropertiesNonConst().SetMDLProperty( "FilterEnsembleConformerComparer", conf_comparer.GetAlias());
+        ens( conf_index).GetStoredPropertiesNonConst().SetMDLProperty( "FilterEnsembleComparerType", COMPARISON.GetName());
+        ens( conf_index).GetStoredPropertiesNonConst().SetMDLProperty( "FilterEnsembleComparerValue", linal::Vector< float>( 1, comparison_value ) );
+      }
+
+      // save conformers based on comparison metric and tolerance
+      FragmentEnsemble filtered_ensemble;
+      if( TOLERANCE)
+      {
+        for( size_t ens_i( 0), ens_sz( ens.GetSize()); ens_i < ens_sz; ++ens_i)
         {
-          // true
-          ats.AlignToScaffold( ens( conf_index), starting_mol);
-          ens( conf_index).GetStoredPropertiesNonConst().SetMDLProperty( "FilterEnsembleConformerComparer", conf_comparer.GetAlias());
-          ens( conf_index).GetStoredPropertiesNonConst().SetMDLProperty( "FilterEnsembleComparerType", COMPARISON.GetName());
-          ens( conf_index).GetStoredPropertiesNonConst().SetMDLProperty( "FilterEnsembleComparerValue", util::Format()( comparison_value));
-          filtered_ensemble.PushBack( ens( conf_index));
+          if( ( **COMPARISON)( ens( ens_i).GetStoredProperties().GetMDLPropertyAsVector("FilterEnsembleComparerValue")( 0), TOLERANCE ) )
+          {
+            // true
+            filtered_ensemble.PushBack( ens( ens_i));
+          }
+        }
+      }
+      // save just the best if tolerance is 0
+      else
+      {
+        FragmentEnsemble ens_list( storage::List< FragmentComplete>( ens.Begin(), ens.End() ) );
+        ens_list.Sort( "FilterEnsembleComparerValue");
+        if( COMPARISON->GetName() == "less" || COMPARISON->GetName() == "less_equal" || COMPARISON->GetName() == "equal")
+        {
+          filtered_ensemble.PushBack( ens_list.GetMolecules().FirstElement());
+        }
+        else if( COMPARISON->GetName() == "greater" || COMPARISON->GetName() == "greater_equal" || COMPARISON->GetName() == "not_equal")
+        {
+          filtered_ensemble.PushBack( ens_list.GetMolecules().LastElement());
         }
       }
       return filtered_ensemble;

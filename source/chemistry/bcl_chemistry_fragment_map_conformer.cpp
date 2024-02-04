@@ -255,7 +255,7 @@ namespace bcl
       util::ShPtr< FragmentComplete> gen_mol_3d_sp;
 
       // conformer-dependent score-based refinement
-      if( m_PropertyScorer.IsDefined())
+      if( m_PropertyScorer.IsDefined() && !m_ChooseBestAlignedConf)
       {
         // make conformers
         static FragmentMakeConformers make_confs
@@ -344,12 +344,13 @@ namespace bcl
           static FragmentMakeConformers make_confs
           (
             rotamer_library,
-            "SymmetryRMSD",
-            0.25,
+            "",
+            0.25,  // was 0.25
             true,
-            2000,
+            2000,   // was 2000
             0.1,
-            true,
+            false,  // was true
+            false,
             false
           );
           if( m_MoveableIndices.IsEmpty())
@@ -361,8 +362,8 @@ namespace bcl
             conf_ens = make_confs.MakeConformers( new_mol); // make a single new conformer
           }
 
-          // bail if no conformers could be generated
-          if( !conf_ens.IsDefined())
+          // bail if no conformers could be generated and if input conformer is undefined
+          if( !conf_ens.IsDefined() && !gen_mol_3d_sp.IsDefined())
           {
             BCL_MessageStd( "Could not generate a valid conformer ensemble, returning null");
             return util::ShPtr< FragmentComplete>();
@@ -392,6 +393,18 @@ namespace bcl
             {
               gen_mol_3d_sp = util::CloneToShPtr( new_mol);
             }
+          }
+          // score the ensemble without re-alignment and choose best by score
+          else if( conf_ens->GetSize() && m_PropertyScorer.IsDefined())
+          {
+            for( auto conf_itr( conf_ens->Begin()), conf_itr_end( conf_ens->End()); conf_itr != conf_itr_end; ++conf_itr)
+            {
+              linal::Vector<float> alignment_score( m_PropertyScorer->SumOverObject( *conf_itr));
+              conf_itr->GetStoredPropertiesNonConst().SetMDLProperty( m_PropertyScorer->GetAlias(), alignment_score);
+            }
+            // output best by MolAlign score
+            conf_ens->Sort( m_PropertyScorer->GetAlias());
+            gen_mol_3d_sp = util::CloneToShPtr( conf_ens->GetMolecules().FirstElement());
           }
         }
         // just make a single conformer and choose by conf score
@@ -535,7 +548,7 @@ namespace bcl
       }
       else
       {
-        BCL_MessageStd( "Skipping drug-likeness filter!");
+        BCL_MessageVrb( "Skipping drug-likeness filter!");
       }
       return new_mol.GetAtomVector();
     }
