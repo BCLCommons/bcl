@@ -116,7 +116,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< cluster::LinkageInterface< std::string, float> >, cluster::LinkageClasses< std::string, float> >;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::cluster::LinkageInterface< std::string, float> >, bcl::cluster::LinkageClasses< std::string, float> >;
 
   } // namespace util
 } // namespace bcl

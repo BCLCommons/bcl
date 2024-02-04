@@ -148,7 +148,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< biol::SSTypeData, biol::SSTypes>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::biol::SSTypeData, bcl::biol::SSTypes>;
 
   } // namespace util
 } // namespace bcl

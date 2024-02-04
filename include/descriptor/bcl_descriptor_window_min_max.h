@@ -149,7 +149,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API WindowMinMax< biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API WindowMinMax< bcl::biol::AABase>;
     BCL_EXPIMP_TEMPLATE template class BCL_API WindowMinMax< char>;
 
   } // namespace descriptor

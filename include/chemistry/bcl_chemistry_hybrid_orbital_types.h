@@ -86,7 +86,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< chemistry::HybridOrbitalTypeData, chemistry::HybridOrbitalTypes>;
+	BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::chemistry::HybridOrbitalTypeData, bcl::chemistry::HybridOrbitalTypes>;
 
   } // namespace util
 } // namespace bcl

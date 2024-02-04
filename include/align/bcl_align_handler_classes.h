@@ -179,7 +179,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< align::HandlerInterface< biol::AABase> >, align::HandlerClasses< biol::AABase> >;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::align::HandlerInterface< bcl::biol::AABase> >, bcl::align::HandlerClasses< bcl::biol::AABase> >;
 
   } // namespace util
 } // namespace bcl

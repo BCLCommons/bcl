@@ -177,9 +177,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeSmooth< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeSmooth< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeSmooth< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeSmooth< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeSmooth< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeSmooth< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API WithinRangeSmooth< char>;
 
   } // namespace descriptor

@@ -147,9 +147,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Sort< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Sort< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Sort< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Sort< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Sort< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Sort< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API Sort< char>;
 
   } // namespace descriptor

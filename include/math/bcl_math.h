@@ -27,6 +27,11 @@
 #include "type/bcl_type_is_sequence.h"
 #include "util/bcl_util_undefined.h"
 
+#ifdef PYBCL
+#include "bcl_math_running_average.h"
+#endif
+
+
 // external includes - sorted alphabetically
 #include <cmath>
 #include <complex>

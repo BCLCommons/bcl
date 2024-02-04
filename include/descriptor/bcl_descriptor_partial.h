@@ -153,12 +153,12 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Partial< chemistry::AtomConformationalInterface, char>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Partial< chemistry::AtomConformationalInterface, float>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Partial< biol::AABase, char>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Partial< biol::Mutation, char>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Partial< biol::AABase, float>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Partial< biol::Mutation, float>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Partial< bcl::chemistry::AtomConformationalInterface, char>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Partial< bcl::chemistry::AtomConformationalInterface, float>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Partial< bcl::biol::AABase, char>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Partial< bcl::biol::Mutation, char>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Partial< bcl::biol::AABase, float>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Partial< bcl::biol::Mutation, float>;
     BCL_EXPIMP_TEMPLATE template class BCL_API Partial< char, char>;
     BCL_EXPIMP_TEMPLATE template class BCL_API Partial< char, float>;
 

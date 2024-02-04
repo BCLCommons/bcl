@@ -151,9 +151,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceHistogram1D< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceHistogram1D< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceHistogram1D< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceHistogram1D< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceHistogram1D< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceHistogram1D< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API SequenceHistogram1D< char>;
 
   } // namespace descriptor

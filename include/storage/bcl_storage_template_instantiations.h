@@ -37,13 +37,13 @@ namespace bcl
   namespace storage
   {
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Vector< VectorND< 2, linal::Vector< double> > >;
+	BCL_EXPIMP_TEMPLATE template class BCL_API Vector< bcl::storage::VectorND< 2, bcl::linal::Vector< double> > >;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API VectorND< 2, linal::Vector< double> >;
+    BCL_EXPIMP_TEMPLATE template class BCL_API VectorND< 2, bcl::linal::Vector< double> >;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Pair< double, util::ShPtr< math::FunctionInterfaceSerializable< assemble::ProteinModel, math::MutateResult< assemble::ProteinModel> > > >;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Pair< double, bcl::util::ShPtr< bcl::math::FunctionInterfaceSerializable< bcl::assemble::ProteinModel, bcl::math::MutateResult< bcl::assemble::ProteinModel> > > >;
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Pair< double, util::ShPtr< math::FunctionInterfaceSerializable< assemble::SSEPool, math::MutateResult< assemble::SSEPool> > > >;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Pair< double, bcl::util::ShPtr< bcl::math::FunctionInterfaceSerializable< bcl::assemble::SSEPool, bcl::math::MutateResult< bcl::assemble::SSEPool> > > >;
 
   } // namespace storage
 } // namespace bcl

@@ -303,6 +303,8 @@ namespace bcl
 
     namespace
     {
+      #ifndef BCL_StringToStorage_defined
+      #define BCL_StringToStorage_defined
 
       //! @brief read a string into a linal vector of chars
       //! @param STRING the string to read
@@ -323,6 +325,7 @@ namespace bcl
         // copy into the linal vector
         STORAGE = linal::Vector< float>( values_storage.Begin(), values_storage.End());
       }
+	  #endif //BCL_StringToStorage_defined
     }
 
     //! @brief given a line, read the next key and value into passed-in objects
@@ -400,4 +403,3 @@ namespace bcl
     }
   } // namespace descriptor
 } // namespace bcl
-

@@ -25,6 +25,12 @@
 #include "chemistry/bcl_chemistry_constitutional_bond_types.h"
 #include "storage/bcl_storage_vector.h"
 
+#ifdef PYBCL
+#include "linal/bcl_linal.h"
+#include "chemistry/bcl_chemistry.h"
+#endif
+
+
 // external includes - sorted alphabetically
 
 namespace bcl
@@ -196,4 +202,3 @@ namespace bcl
 } // namespace bcl
 
 #endif //BCL_SDF_BOND_INFO_H_
-

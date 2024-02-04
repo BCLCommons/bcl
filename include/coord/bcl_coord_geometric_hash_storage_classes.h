@@ -124,7 +124,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< coord::GeometricHashStorageInterface>, coord::GeometricHashStorageClasses>;
+BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::coord::GeometricHashStorageInterface>, bcl::coord::GeometricHashStorageClasses>;
 
   } // namespace util
 } // namespace bcl

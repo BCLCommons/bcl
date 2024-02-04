@@ -32,7 +32,10 @@
 #define __STDC_CONSTANT_MACROS
 
 #if !defined(__MINGW32__) && ( defined(__WIN32__) || defined(_WIN32))
-  #define PATH_SEPARATOR '\\'
+
+  //#define PATH_SEPARATOR '\\'
+  char const PATH_SEPARATOR( '\\' );
+
   #if defined(BCL_DLL_EXPORT)
     // all BCL_API tagged symbols are exported into the import library
     #define BCL_API
@@ -57,7 +60,8 @@
   #define BCL_API
   #define BCL_API_REAL
   #define BCL_EXPIMP_TEMPLATE extern
-  #define PATH_SEPARATOR '/'
+  //#define PATH_SEPARATOR '/'
+  char const PATH_SEPARATOR( '/' );
 #endif
 
 // MSC prior to 2010 does not have stdint.h

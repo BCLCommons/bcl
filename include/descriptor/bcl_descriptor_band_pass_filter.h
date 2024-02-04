@@ -178,7 +178,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API BandPassFilter< biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API BandPassFilter< bcl::biol::AABase>;
     BCL_EXPIMP_TEMPLATE template class BCL_API BandPassFilter< char>;
 
   } // namespace descriptor

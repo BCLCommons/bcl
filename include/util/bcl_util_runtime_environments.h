@@ -111,7 +111,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< RuntimeEnvironmentInterface>, RuntimeEnvironments>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::util::RuntimeEnvironmentInterface>, bcl::util::RuntimeEnvironments>;
 
   } // namespace util
 } // namespace bcl

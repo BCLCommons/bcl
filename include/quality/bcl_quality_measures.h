@@ -124,7 +124,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< quality::MeasureInterface>, quality::Measures>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::quality::MeasureInterface>, bcl::quality::Measures>;
 
   } // namespace util
 } // namespace bcl

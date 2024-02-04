@@ -178,9 +178,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Sigmoid< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Sigmoid< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Sigmoid< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Sigmoid< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Sigmoid< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Sigmoid< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API Sigmoid< char>;
 
   } // namespace descriptor

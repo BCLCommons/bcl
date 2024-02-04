@@ -12,6 +12,10 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
+
+#ifndef BCL_DESCRIPTOR_SEQUENCE_SIZE_HPP_
+#define BCL_DESCRIPTOR_SEQUENCE_SIZE_HPP_
+
 // include header of this class
 #include "bcl_descriptor_sequence_size.h"
 // includes from bcl - sorted alphabetically
@@ -92,7 +96,7 @@ namespace bcl
     //! @brief implementation of the calculate function for floating point numbers
     //! @param STORAGE storage for the result
     //! @param SIZE actual size of the sequence
-    void CalculateImpl( linal::VectorReference< float> &STORAGE, const size_t &SIZE)
+    inline void CalculateImpl( linal::VectorReference< float> &STORAGE, const size_t &SIZE)
     {
       STORAGE( 0) = SIZE;
     }
@@ -100,7 +104,7 @@ namespace bcl
     //! @brief implementation of the calculate function for characters
     //! @param STORAGE storage for the result
     //! @param SIZE actual size of the sequence
-    void CalculateImpl( linal::VectorReference< char> &STORAGE, const size_t &SIZE)
+    inline void CalculateImpl( linal::VectorReference< char> &STORAGE, const size_t &SIZE)
     {
       const std::string size_str( util::Format()( SIZE));
 
@@ -130,3 +134,5 @@ namespace bcl
 
   } // namespace descriptor
 } // namespace bcl
+
+#endif // BCL_DESCRIPTOR_SEQUENCE_SIZE_HPP_

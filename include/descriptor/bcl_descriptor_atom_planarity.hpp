@@ -12,6 +12,10 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
+#ifndef BCL_DESCRIPTOR_ATOM_PLANARITY_HPP_
+#define BCL_DESCRIPTOR_ATOM_PLANARITY_HPP_
+
+
 // include header of this class
 #include "bcl_descriptor_atom_planarity.h"
 // includes from bcl - sorted alphabetically
@@ -212,3 +216,5 @@ namespace bcl
 
   } // namespace descriptor
 } // namespace bcl
+
+#endif // BCL_DESCRIPTOR_ATOM_PLANARITY_HPP_

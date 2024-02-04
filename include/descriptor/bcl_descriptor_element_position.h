@@ -123,8 +123,8 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API ElementPosition< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API ElementPosition< biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API ElementPosition< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API ElementPosition< bcl::biol::AABase>;
 
   } // namespace descriptor
 } // namespace bcl

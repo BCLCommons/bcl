@@ -114,7 +114,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< LoggerInterface>, Loggers>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::util::LoggerInterface>, bcl::util::Loggers>;
 
   } // namespace util
 } // namespace bcl
