@@ -177,6 +177,9 @@ namespace bcl
     // operators //
     ///////////////
 
+      //! @brief set the descriptor to be used as the scorer
+      void SetDescriptor( const descriptor::CheminfoProperty &SCORER);
+
       //! @brief evaluate clashes for given atom pair
       //! @param MOLECULE molecule that needs to scored
       //! @return propensity score for observing rotamers that exist in conformation

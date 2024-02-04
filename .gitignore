@@ -1,7 +1,8 @@
 **/.DS_Store
 source/bcl_version.cpp
 build/
+build_selected_files/
 **/*.pyc
 *.pyc
 *.swp
-
+.cproject

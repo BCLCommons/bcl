@@ -24,6 +24,10 @@
 #include "command/bcl_command_flag_dynamic.h"
 #include "command/bcl_command_parameter_check_file_existence.h"
 
+// external includes
+#include "GraphMol/GraphMol.h"
+#include "GraphMol/ROMol.h"
+
 namespace bcl
 {
   namespace app
@@ -334,6 +338,9 @@ namespace bcl
         const chemistry::FragmentEnsemble &ENSEMBLE,
         const descriptor::CheminfoProperty &SCORER
       ) const;
+
+      //! @brief do stuff
+      void DoStuff() const;
 
     //////////////////////
     // input and output //

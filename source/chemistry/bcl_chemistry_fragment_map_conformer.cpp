@@ -45,6 +45,7 @@ BCL_StaticInitializationFiascoFinder
 #include "descriptor/bcl_descriptor_molecule_druglike.h"
 #include "find/bcl_find_collector_interface.h"
 #include "math/bcl_math_rotation_matrix_3d.h"
+#include "mm/bcl_mm_rdkit_energy_minimize_mmff94.h"
 #include "pdb/bcl_pdb_factory.h"
 #include "quality/bcl_quality_rmsd.h"
 #include "random/bcl_random_distribution_interface.h"
@@ -87,7 +88,9 @@ namespace bcl
       m_ChooseBestAlignedConf( false),
       m_FixGeometry( true),
       m_AdjacentNeighbors( size_t( 1)),
-      m_MapSubgraphRingAtoms( true)
+      m_MapSubgraphRingAtoms( true),
+      m_SkipConfGen( false),
+      m_GeoOpt( false)
     {
     }
 
@@ -107,7 +110,9 @@ namespace bcl
       m_ChooseBestAlignedConf( false),
       m_FixGeometry( true),
       m_AdjacentNeighbors( size_t( 1)),
-      m_MapSubgraphRingAtoms( true)
+      m_MapSubgraphRingAtoms( true),
+      m_SkipConfGen( false),
+      m_GeoOpt( false)
     {
     }
 
@@ -131,7 +136,9 @@ namespace bcl
       const bool CHOOSE_BEST_ALIGNED_CONF,
       const bool FIX_GEOMETRY,
       const size_t ADJACENT_NBRS,
-      const bool MAP_SUBGRAPH_RINGS
+      const bool MAP_SUBGRAPH_RINGS,
+      const bool SKIP_CONFGEN,
+      const bool GEO_OPT
     ) :
       m_DrugLikenessType( DRUG_LIKENESS_TYPE),
       m_MDL( MDL),
@@ -145,7 +152,9 @@ namespace bcl
       m_ChooseBestAlignedConf( CHOOSE_BEST_ALIGNED_CONF),
       m_FixGeometry( FIX_GEOMETRY),
       m_AdjacentNeighbors( ADJACENT_NBRS),
-      m_MapSubgraphRingAtoms( MAP_SUBGRAPH_RINGS)
+      m_MapSubgraphRingAtoms( MAP_SUBGRAPH_RINGS),
+      m_SkipConfGen( SKIP_CONFGEN),
+      m_GeoOpt( GEO_OPT)
     {
     }
 
@@ -187,9 +196,33 @@ namespace bcl
       return m_BFactors;
     }
 
+    //! @brief return whether to skip conformer generation
+    bool FragmentMapConformer::GetSkipConfGen() const
+    {
+      return m_SkipConfGen;
+    }
+
+    //! @brief return whether to run MMFF94s minimization
+    bool FragmentMapConformer::GetGeoOpt() const
+    {
+      return m_GeoOpt;
+    }
+
   ////////////////
   // operations //
   ////////////////
+
+    //! @brief set skip conformer generation
+    void FragmentMapConformer::SetSkipConfGen( const bool SKIP)
+    {
+      m_SkipConfGen = SKIP;
+    }
+
+    //! @brief set geometry optimization
+    void FragmentMapConformer::SetGeoOpt( const bool OPT)
+    {
+      m_GeoOpt = OPT;
+    }
 
     //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
     //! @param FRAGMENT small molecule of interest
@@ -231,31 +264,42 @@ namespace bcl
       {
         // obtain moveable indices from substructure comparison to reference
         BCL_MessageStd( "Getting atom indices for conformer sampling...");
-        storage::Set< size_t> moveable_indices( MapAtoms( ref_mol_noh, new_mol_noh));
+        storage::Pair< storage::Set< size_t>, storage::Set< size_t>> moveable_indices( MapAtoms( ref_mol_noh, new_mol_noh));
 
         //convert unique atoms in set to vector
-        m_MoveableIndices = storage::Vector< size_t>( moveable_indices.Begin(), moveable_indices.End());
+        m_MoveableIndices = storage::Vector< size_t>( moveable_indices.First().Begin(), moveable_indices.First().End());
+        m_RestrainedIndices = storage::Vector< size_t>( moveable_indices.Second().Begin(), moveable_indices.Second().End());
       }
       // We should have moveable indices now either from MapAtoms or from input;
       // If we do not, then our molecule must not have been mutated
       if( m_MoveableIndices.GetSize())
       {
+        // TODO this only works reliably if hydrogen atoms are all indexed higher than heavy atoms;
+        // bake that into the protocol by force removing hydrogen atoms from molecules in CleanAtoms, maybe?
+        // hmm... think about this.
         new_mol.GetStoredPropertiesNonConst().SetMDLProperty( "SampleByParts", m_MoveableIndices);
         BCL_MessageStd( "SampleByParts with the following atom indices: " + util::Format()( new_mol.GetMDLProperty( "SampleByParts")));
       }
       // no moveable indices, just return existing conformer, after fixing any issues with bond lengths or H
       if( m_MoveableIndices.IsEmpty())
       {
+        BCL_MessageStd( "FragmentMapConformer::Clean no mobile atom indices");
         new_mol.StandardizeBondLengths();
         new_mol.UpdateH();
       }
 
       // if we have moveable indices, then consider optimizing the conformer
+      // TODO refactor - require that FragmentMapConformer functions that need to generate conformers
+      // are given a SampleConformations object as an argument. Then for the drug design framework make
+      // the rotamer library and sample confs objects static member data in the FragmentMutateInterface
+      // base class. Then options can be controlled at the derived class level through setters.
+      // TODO 2: double check that the above-described refactor will actually work if this is run in parallel,
+      // or if I should just stick with this hard-coded confgen stuff
       static RotamerLibraryFile rotamer_library;
       util::ShPtr< FragmentComplete> gen_mol_3d_sp;
 
       // conformer-dependent score-based refinement
-      if( m_PropertyScorer.IsDefined() && !m_ChooseBestAlignedConf)
+      if( m_PropertyScorer.IsDefined() && !m_ChooseBestAlignedConf && !m_SkipConfGen)
       {
         // make conformers
         static FragmentMakeConformers make_confs
@@ -336,7 +380,7 @@ namespace bcl
         }
       }
       // no optimization, just get a conformer
-      else
+      else if( !m_SkipConfGen)
       {
         if( m_ChooseBestAlignedConf)
         {
@@ -420,12 +464,57 @@ namespace bcl
             m_Corina
           );
 
-          // i hate everything about this class
+          // I hate everything about this class, but I wrote it and continue to grow its filth, so it's my fault - BPB
+          // Until this gets refactored, it'll be used as a teaching tool. This is what happens when a hack grows too large.
           GetMutex().Lock();
           m_MoveableIndices.IsEmpty() ?
               gen_mol_3d_sp = util::CloneToShPtr( new_mol) : // use input conformer
               gen_mol_3d_sp = make_one_conf.MakeConformer( new_mol); // make a single new conformer
           GetMutex().Unlock();
+        }
+      }
+      else
+      {
+        gen_mol_3d_sp = util::CloneToShPtr( new_mol);
+        BCL_MessageStd( "FragmentMapConformer::Clean skipping conformer generation");
+      }
+
+      // Stick MMFF94s geometry optimization HERE (because why the fuck not? it all needs refactoring anyway D: )
+      if( m_GeoOpt)
+      {
+        // DEBUG
+        const FragmentComplete &mol( *gen_mol_3d_sp);
+        io::OFStream debug_out;
+        io::File::MustOpenOFStream( debug_out, "pre_opt.sdf");
+        mol.WriteMDL( debug_out);
+        io::File::CloseClearFStream( debug_out);
+
+        // setup our restraint terms in the minimizer
+        static mm::RdkitEnergyMinimizeMmff94 minimizer;
+        minimizer.SetPositionalRestraintAtoms( m_RestrainedIndices);
+        storage::Vector< double> restraint_forces( m_RestrainedIndices.GetSize(), 1000.0);
+        minimizer.SetRestraintForce( restraint_forces);
+        storage::Vector< double> max_displacement( m_RestrainedIndices.GetSize(), 0.0);
+        minimizer.SetMaxUnrestrainedDisplacement( max_displacement);
+
+        // run minimization
+        storage::Triplet< FragmentComplete, int, double> opt_result( minimizer.OptimizeGeometry( mol));
+        io::File::MustOpenOFStream( debug_out, "post_opt.sdf");
+        opt_result.First().WriteMDL( debug_out);
+        io::File::CloseClearFStream( debug_out);
+        if( opt_result.Second() == 0)
+        {
+          BCL_MessageStd( "Minimization was successful! Conformer potential energy = " + util::Format()( opt_result.Third()) + " kcal/mol");
+          gen_mol_3d_sp = util::CloneToShPtr( opt_result.First());
+        }
+        else if( opt_result.Second() == 1)
+        {
+          BCL_MessageStd( "Minimization proceeded but did not converge! Conformer potential energy = " + util::Format()( opt_result.Third()) + " kcal/mol");
+          gen_mol_3d_sp = util::CloneToShPtr( opt_result.First());
+        }
+        else if( opt_result.Second() == -1)
+        {
+          BCL_MessageStd( "Minimization failed due to missing parameters!");
         }
       }
 
@@ -434,13 +523,13 @@ namespace bcl
       {
         bool good_conf( true);
         // filter molecules with strained 3D conformers
-        GetMutex().Lock();
-        (
-            descriptor::GetCheminfoProperties().calc_MoleculeVdwScore->SumOverObject( *gen_mol_3d_sp)( 0) < m_VDWClashCutoff ?
-                true :
-                false
-        );
-        GetMutex().Unlock();
+//        GetMutex().Lock();
+//        (
+//            descriptor::GetCheminfoProperties().calc_MoleculeVdwScore->SumOverObject( *gen_mol_3d_sp)( 0) < m_VDWClashCutoff ?
+//                true :
+//                false
+//        ); // TODO this is not doing anything
+//        GetMutex().Unlock();
         if( !good_conf)
         {
           return util::ShPtr< FragmentComplete>();
@@ -454,20 +543,30 @@ namespace bcl
         // perform substructure-based alignment
         if( REFERENCE_MOL.GetSize())
         {
+        bool success_aln
+        (
           m_Aligner.AlignToScaffold
-          (
+           (
             *gen_mol_3d_sp,
-            REFERENCE_MOL
+            REFERENCE_MOL,
+            m_RestrainedIndices
+           )
           );
+          BCL_MessageStd( "Final realignment of scaffold successful? " + util::Format()( success_aln ? "Yes" : "No"));
         }
 
         // return final molecule
         return gen_mol_3d_sp;
       }
+      else if( !gen_mol_3d_sp.IsDefined())
+      {
+        BCL_MessageStd("Molecule cleaning failed to generate a valid 3D conformer!")
+        BCL_MessageStd("Defined: " + util::Format()( gen_mol_3d_sp.IsDefined() ? "true" : "false"));
+      }
       else
       {
-        BCL_MessageStd( "Molecule cleaning failed to generate a valid 3D conformer!")
-        BCL_MessageStd( "Defined: " + util::Format()( gen_mol_3d_sp.IsDefined() ? "true" : "false"));
+        BCL_MessageStd("Molecule cleaning failed to generate a valid 3D conformer!")
+        BCL_MessageStd("Defined: " + util::Format()( gen_mol_3d_sp.IsDefined() ? "true" : "false"));
         BCL_MessageStd("Has good geometry: " + util::Format()( gen_mol_3d_sp->HasBadGeometry() ? "false" : "true" ));
         BCL_MessageStd("Final molecule size: " + util::Format()( gen_mol_3d_sp->GetSize()));
         BCL_MessageStd("Returning null...")
@@ -560,23 +659,23 @@ namespace bcl
     //! @param BOND_COMPARISON the bond comaprison type to use for subgraph isomorphism
     //! @param COMPLEMENT if true, the mapped atom indices returned are the subgraph complement,
     //! if false then the returned indices are of the common subgraph
-    //! @return the NEW_MOL indices mapped to STARTING_MOL
-    storage::Set< size_t> FragmentMapConformer::MapAtoms
-    (
-      const FragmentComplete &STARTING_MOL,
-      const FragmentComplete &NEW_MOL,
-      const ConformationGraphConverter::AtomComparisonType &ATOM_COMPARISON,
-      const ConfigurationalBondTypeData::Data &BOND_COMPARISON,
-      const bool &COMPLEMENT
-    ) const
-    {
-      // prepare dehydrogenated copy
-      ConformationGraphConverter graph_maker
-      (
-        ATOM_COMPARISON,
-        BOND_COMPARISON,
-        false
-      );
+    //! @return the NEW_MOL indices mapped to STARTING_MOL (first) and the unmapped indices (second)
+    storage::Pair< storage::Set< size_t>, storage::Set< size_t>> FragmentMapConformer::MapAtoms
+        (
+          const FragmentComplete &STARTING_MOL,
+          const FragmentComplete &NEW_MOL,
+          const ConformationGraphConverter::AtomComparisonType &ATOM_COMPARISON,
+          const ConfigurationalBondTypeData::Data &BOND_COMPARISON,
+          const bool &COMPLEMENT
+        ) const
+        {
+          // prepare dehydrogenated copy
+          ConformationGraphConverter graph_maker
+          (
+            ATOM_COMPARISON,
+            BOND_COMPARISON,
+            false
+          );
 
       // set up the isomorphisms with pointers to the graphs
       graph::CommonSubgraphIsomorphism< size_t, size_t> isomorphism( graph::CommonSubgraphIsomorphismBase::SolutionType::e_GreedyUnconnected);
@@ -605,10 +704,15 @@ namespace bcl
       }
 
       // these will be our moveable indices
-      storage::Set< size_t> subgraph_b_vertices;
+      storage::Set< size_t> subgraph_b_vertices, remaining_vertices;
+      for( size_t a_i( 0), a_sz( NEW_MOL.GetAtomVector().GetSize()); a_i < a_sz; ++a_i)
+      {
+        remaining_vertices.Insert( a_i);
+      }
 
       // allow conformational sampling of the atoms in the new mol that are not in the original mol
       subgraph_b_vertices.InsertElements( complement_subgraph_b.GetVertexIndices().Begin(), complement_subgraph_b.GetVertexIndices().End());
+      remaining_vertices.EraseKeys( complement_subgraph_b.GetVertexIndices().Begin(), complement_subgraph_b.GetVertexIndices().End());
 
       // get ring components
       if( m_MapSubgraphRingAtoms)
@@ -624,6 +728,7 @@ namespace bcl
         // add the atoms from the important rings to the moveable indices;
         // allows re-sampling perturbed rings, very important
         subgraph_b_vertices.InsertElements( important_ring_atoms.Begin(), important_ring_atoms.End());
+        remaining_vertices.EraseKeys( important_ring_atoms.Begin(), important_ring_atoms.End());
       }
 
       // allow conformational sampling of atoms involved in bad geometry
@@ -631,6 +736,7 @@ namespace bcl
       {
         storage::Vector< size_t> bad_geo_atoms( NEW_MOL.GetAtomsWithBadGeometry());
         subgraph_b_vertices.InsertElements( bad_geo_atoms.Begin(), bad_geo_atoms.End());
+        remaining_vertices.EraseKeys( bad_geo_atoms.Begin(), bad_geo_atoms.End());
       }
 
       // include atoms adjacent to the new mol edges; MUST do this last since we modify the complement subgraph
@@ -639,10 +745,11 @@ namespace bcl
         // add all the adjacent edges to our unique subgraph vertices
         storage::Set< size_t> all_adjacent_indices( MapSubgraphAdjacentAtoms( complement_subgraph_b, m_AdjacentNeighbors));
         subgraph_b_vertices.InsertElements( all_adjacent_indices.Begin(), all_adjacent_indices.End());
+        remaining_vertices.EraseKeys( all_adjacent_indices.Begin(), all_adjacent_indices.End());
       }
 
       // end
-      return subgraph_b_vertices;
+      return storage::Pair< storage::Set< size_t>, storage::Set< size_t>>( subgraph_b_vertices, remaining_vertices);
     }
 
     //! @brief preserve conformational information from starting molecule in new molecule

@@ -46,6 +46,7 @@ SET(
 	linal
 	math
 	mc
+	mm
 	model
 	nmr
 	opencl
@@ -61,6 +62,7 @@ SET(
 	scorestat
 	sdf
 	signal
+	smiles
 	sspred
 	storage
 	type

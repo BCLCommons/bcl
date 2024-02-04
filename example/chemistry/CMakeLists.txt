@@ -58,7 +58,6 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_element_structure_factor.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_element_type_data.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_element_types.cpp
-  ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_fragment_alchemy.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_fragment_complete.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_fragment_configuration_shared.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_fragment_conformation_shared.cpp
@@ -100,6 +99,7 @@ SET(
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_pick_atom_random.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_possible_atom_types_for_atom.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_priority_dihedral_angles.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_rdkit_mol_utils.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_reaction_complete.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_reaction_ensemble.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/example_chemistry_reaction_search.cpp

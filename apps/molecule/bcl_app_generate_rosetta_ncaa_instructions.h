@@ -17,7 +17,7 @@
 // initialize the static initialization fiasco finder, if macro ENABLE_FIASCO_FINDER is defined
 #include "app/bcl_app.h"
 #include "app/bcl_app_interface.h"
-#include "chemistry/bcl_chemistry_fragment_add_med_chem.h"
+#include "chemistry/bcl_chemistry_fragment_mutate_add_med_chem.h"
 #include "command/bcl_command_command.h"
 #include "command/bcl_command_flag_interface.h"
 #include "linal/bcl_linal_vector.h"
@@ -52,7 +52,7 @@ namespace bcl
     //////////
 
       //! to append functional groups to backbones
-      chemistry::FragmentAddMedChem m_AddMedChem;
+      mutable chemistry::FragmentMutateAddMedChem m_AddMedChem;
 
       //! flag that specifies the output filename
       util::ShPtr< command::FlagInterface> m_OutputPrefixFlag;
@@ -72,8 +72,23 @@ namespace bcl
       //! flag to specify output partial charge files
       util::ShPtr< command::FlagInterface> m_GeneratePartialChargeFileFlag;
 
+      //! flag to specify the partial charge types
+      util::ShPtr< command::FlagInterface> m_PartialChargeTypeFlag;
+
       //! flag to specify indices of CA and Chi 1 atoms
       util::ShPtr< command::FlagInterface> m_CaAndChi1IndicesFlag;
+
+      //! charge types for atomic charge assignment
+      enum PartialChargeType
+      {
+        e_SigmaCharge = 0,        //!< Gasteiger partial charges
+        e_PiCharge = 1,           //!< Pi charges
+        e_TotalCharge = 2,        //!< Sum of sigma and pi charges
+        e_VCharge = 3,            //!< VeraChem partial charges
+        e_VCharge2 = 4,           //!< VeraChem partial charges with correction
+        s_NumberPartialChargeTypes
+      };
+      mutable PartialChargeType m_PartialChargeType = e_TotalCharge; // default to TotalCharge for backwards-compatibility
 
     ///////////////////////////////////
     // construction and destruction //
@@ -156,7 +171,7 @@ namespace bcl
         const size_t &CHI1_INDEX
       ) const;
 
-      //! brief write the final Rosetta instructions file
+      //! @brief write the final Rosetta instructions file
       const std::string WriteRosettaInstructions
       (
         const size_t &NTER_INDEX,
@@ -171,8 +186,7 @@ namespace bcl
         const std::string &PROPERTIES
       ) const;
 
-      //! brief output the final property list for the SIDECHAIN of NCAA
-      //! brief output the final property list for the SIDECHAIN of NCAA
+      //! @brief output the final property list for the SIDECHAIN of NCAA
       const std::string GetSidechainPropertiesList
       (
         const float &FORMAL_CHARGE,
@@ -182,7 +196,12 @@ namespace bcl
         const storage::Vector< std::string> &EXTRAS
       ) const;
 
-      //! brief write the file that contains partial charge and element type for each atom in NCAA
+      //! @brief Compute partial charges of MOL
+      //! @param MOL the molecule for which atomic partial charges will be computed
+      //! @return atomic partial charges of MOL
+      const linal::Vector< float> ComputeAtomicPartialCharges( const chemistry::FragmentComplete &MOL) const;
+
+      //! @brief write the file that contains partial charge and element type for each atom in NCAA
       //! @parameter MOL_INDEX: index of the NCAA in the
       //! @parameter PARTIAL_CHARGES: current index of the C backbone atom
       //! @parameter ATOMS: current index of the N backbone atom

@@ -27,7 +27,6 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_configurational_bond_types.h"
 #include "chemistry/bcl_chemistry_conformation_comparison_psi_field.h"
 #include "chemistry/bcl_chemistry_conformation_graph_converter.h"
-#include "chemistry/bcl_chemistry_fragment_add_med_chem.h"
 #include "chemistry/bcl_chemistry_fragment_ensemble.h"
 #include "chemistry/bcl_chemistry_fragment_feed.h"
 #include "chemistry/bcl_chemistry_fragment_make_conformers.h"
@@ -77,22 +76,20 @@ namespace bcl
       // add AtomMdlLine to molecule
       sdf::MdlHandler::AddAtomMdlLineFlag( *sp_cmd);
 
-      // flags for input/output
-      sp_cmd->AddFlag( m_OutputPrefixFlag);
-      sp_cmd->AddFlag( m_Generate3DFlag);
-      sp_cmd->AddFlag( m_SideChainSampleBypartsFlag);
-      sp_cmd->AddFlag( m_ExtraPropertiesFlag);
-      sp_cmd->AddFlag( m_ChiralityFlag);
-      // Flag for output the partial charge file, which can be used to
-      // assign partial charges to Rosetta params file
-      sp_cmd->AddFlag( m_GeneratePartialChargeFileFlag);
-      sp_cmd->AddFlag( m_CaAndChi1IndicesFlag);
-
       // default flags
       command::GetAppDefaultFlags().AddDefaultCommandlineFlags( *sp_cmd);
 
-      // return assembled Command object
+      // unique flags
+      sp_cmd->AddFlag( m_OutputPrefixFlag);
+      sp_cmd->AddFlag( m_Generate3DFlag);
+      sp_cmd->AddFlag( m_SideChainSampleBypartsFlag);
+      sp_cmd->AddFlag( m_GeneratePartialChargeFileFlag);
+      sp_cmd->AddFlag( m_PartialChargeTypeFlag);
+      sp_cmd->AddFlag( m_ChiralityFlag);
+      sp_cmd->AddFlag( m_CaAndChi1IndicesFlag);
+      sp_cmd->AddFlag( m_ExtraPropertiesFlag);
       return sp_cmd;
+
     } // InitializeCommand
 
     //! @brief the Main function
@@ -105,6 +102,14 @@ namespace bcl
 
       // Input CA chirality
       std::string input_ca_chirality( m_ChiralityFlag->GetFirstParameter()->GetValue());
+
+      // Set partial charge type
+      if( m_GeneratePartialChargeFileFlag->GetFlag())
+      {
+        m_PartialChargeType = PartialChargeType( m_PartialChargeTypeFlag->GetFirstParameter()->GetNumericalValue< size_t>());
+      }
+      BCL_MessageVrb( "Partial charge type: " + util::Format()( m_PartialChargeType));
+
       // meh, may as well align by MCS
       static chemistry::ConformationComparisonPsiField ats;
 
@@ -382,8 +387,7 @@ namespace bcl
         chemistry::FragmentComplete ncaa_sc( ncaa_sc_v, "");
 
         // connect sidechain to backbone via AddMedChem
-        chemistry::FragmentAddMedChem add_med_chem;
-        add_med_chem.SetMutableAtomIndices( storage::Vector< size_t>( 1, new_mol_ca_index));
+        m_AddMedChem.SetMutableAtomIndices( storage::Vector< size_t>( 1, new_mol_ca_index));
         storage::Triplet< bool, size_t, chemistry::FragmentComplete> glycine_dipeptide
         (
           ReadDipeptideBackbone( "ALPHA_AA")
@@ -402,7 +406,7 @@ namespace bcl
           // open the 0-index hydrogen atom valence
           glycine_ov = storage::Triplet< chemistry::FragmentComplete, size_t, size_t>
           (
-            add_med_chem.OpenValence
+            m_AddMedChem.OpenValence
             (
               glycine_dipeptide.Third(),
               glycine_dipeptide.Second(),
@@ -416,7 +420,7 @@ namespace bcl
           // open the 1-index hydrogen atom valence
           glycine_ov = storage::Triplet< chemistry::FragmentComplete, size_t, size_t>
           (
-            add_med_chem.OpenValence
+            m_AddMedChem.OpenValence
             (
               glycine_dipeptide.Third(),
               glycine_dipeptide.Second(),
@@ -494,7 +498,7 @@ namespace bcl
         static chemistry::FragmentMakeConformers make_one_conf
         (
           rotamer_library,
-          2000,
+          4000,
           0.01,
           m_Generate3DFlag->GetFlag(),
           false
@@ -608,10 +612,7 @@ namespace bcl
         if( m_GeneratePartialChargeFileFlag->GetFlag())
         {
           // compute the total of sigma and pi charge per atom of the NCAA
-          const linal::Vector< float> partial_charges
-          (
-            descriptor::GetCheminfoProperties().calc_TotalCharge->CollectValuesOnEachElementOfObject( *gen_mol_3d_sp)
-          );
+          const linal::Vector< float> partial_charges( ComputeAtomicPartialCharges( *gen_mol_3d_sp));
           if( partial_charges.GetSize() == gen_mol_3d_sp->GetSize())
           {
             // Output those partial charges with the element
@@ -1032,7 +1033,44 @@ namespace bcl
       return ncaa_properties;
     }
 
-    //! brief write the file that contains partial charge and element type for each atom in NCAA
+    //! @brief Compute partial charges of MOL
+    //! @param MOL the molecule for which atomic partial charges will be computed
+    //! @return atomic partial charges of MOL
+    const linal::Vector< float>
+    GenerateRosettaNCAAInstructions::ComputeAtomicPartialCharges
+    (
+      const chemistry::FragmentComplete &MOL
+    ) const
+    {
+      linal::Vector< float> partial_charges;
+      if( m_PartialChargeType == e_SigmaCharge)
+      {
+        partial_charges = descriptor::GetCheminfoProperties().calc_SigmaCharge->CollectValuesOnEachElementOfObject( MOL);
+      }
+      else if( m_PartialChargeType == e_PiCharge)
+      {
+        partial_charges = descriptor::GetCheminfoProperties().calc_PiCharge->CollectValuesOnEachElementOfObject( MOL);
+      }
+      else if( m_PartialChargeType == e_TotalCharge)
+      {
+        partial_charges = descriptor::GetCheminfoProperties().calc_TotalCharge->CollectValuesOnEachElementOfObject( MOL);
+      }
+      else if( m_PartialChargeType == e_VCharge)
+      {
+        partial_charges = descriptor::GetCheminfoProperties().calc_VCharge->CollectValuesOnEachElementOfObject( MOL);
+      }
+      else if( m_PartialChargeType == e_VCharge2)
+      {
+        partial_charges = descriptor::GetCheminfoProperties().calc_VChargeV2->CollectValuesOnEachElementOfObject( MOL);
+      }
+      else // default TotalCharge
+      {
+        partial_charges = descriptor::GetCheminfoProperties().calc_TotalCharge->CollectValuesOnEachElementOfObject( MOL);
+      }
+      return partial_charges;
+    }
+
+    //! @brief write the file that contains partial charge and element type for each atom in NCAA
     //! @parameter MOL_INDEX: index of the NCAA in the
     //! @parameter PARTIAL_CHARGES: current index of the C backbone atom
     //! @parameter ATOMS: current index of the N backbone atom
@@ -1085,8 +1123,12 @@ namespace bcl
     const std::string &GenerateRosettaNCAAInstructions::GetReadMe() const
     {
       static std::string s_read_me =
-        "GenerateRosettaNCAAInstructions is a helper application to remove manual design of residue "
-        "instruction files for generating non-canonical amino acids";
+        "GenerateRosettaNCAAInstructions is a helper application that automatically "
+        "prepares molecule, instructions, and partial charge files for generating "
+        "non-canonical amino acids (NCAA) in Rosetta. Currently, this application is "
+        "preliminary and limited to mono-substituted alpha-NCAAs. Benchmarks comparing "
+        "rotamer generation and partial charge assignment methods are underway. Until "
+        "these are peer-reviewed and published, use this application at your own risk.";
       return s_read_me;
     }
 
@@ -1146,7 +1188,7 @@ namespace bcl
           "specify whether the new amino acid should be 'L_AA' or 'D_AA' for alpha NCAAs",
           command::Parameter
           (
-            "Sidechain chirality",
+            "sidechain_chirality",
             "auto if the user want to determine the CA chirality automatically from input backbone or L_AA or D_AA.",
             command::ParameterCheckAllowed
             (
@@ -1163,6 +1205,25 @@ namespace bcl
           "generate_partial_charge_file",
           "Generate a file that includes the atomic partial charges; "
           "The partial charge is the total of sigma and pi charges for each atom in the dipeptide form of the NCAA"
+        )
+      ),
+      m_PartialChargeTypeFlag
+      (
+        new command::FlagStatic
+        (
+          "partial_charge_type",
+          "specify the type of partial charges to assign if 'generate_partial_charge_file' is set.",
+          command::Parameter
+          (
+            "partial_charge_type",
+            "0 - SigmaCharge \n"
+            "1 - PiCharge \n"
+            "2 - TotalCharge \n"
+            "3 - VCharge \n"
+            "4 - VCharge2 \n",
+            command::ParameterCheckRanged< size_t>( 0, 4),
+            "2"
+          )
         )
       ),
       m_CaAndChi1IndicesFlag

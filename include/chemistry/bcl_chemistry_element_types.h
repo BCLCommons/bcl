@@ -196,7 +196,8 @@ namespace bcl
 
       //! obtain ElementTypes from symbol
       //! @param SYMBOL the atomic symbol; may also contain isotopic information
-      ElementType ElementTypeLookup( const std::string &SYMBOL) const;
+      //! @param QUIET reduce the volume of message output from CRT to VRB
+      ElementType ElementTypeLookup( const std::string &SYMBOL, const bool QUIET = false) const;
 
     }; // class ElementTypes
 

@@ -96,6 +96,14 @@ namespace bcl
       return GetStaticClassName( *this);
     }
 
+    //! @brief get a short name for this class
+    //! @return a short name for this class
+    const std::string &FragmentReact::GetAlias() const
+    {
+      static const std::string s_name( "React");
+      return s_name;
+    }
+
     //! @brief returns the reaction search object
     ReactionSearch &FragmentReact::GetReactionSearch() const
     {
