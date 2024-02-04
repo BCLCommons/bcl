@@ -881,10 +881,6 @@ namespace bcl
         }
       }
 
-      // add all the adjacent edges to our unique subgraph vertices
-//      storage::Set< size_t> all_adjacent_indices( cleaner.MapSubgraphAdjacentAtoms( target_subgraph_complement, 2) );
-//      moveable_atoms_set.InsertElements( all_adjacent_indices.Begin(), all_adjacent_indices.End());
-
       // collect unique atoms to be mobile
       MOLECULE.GetStoredPropertiesNonConst().SetMDLProperty("SampleByParts", linal::Vector< float>( moveable_atoms_set.Begin(), moveable_atoms_set.End()));
       return true;

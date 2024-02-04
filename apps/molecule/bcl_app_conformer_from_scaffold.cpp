@@ -388,6 +388,7 @@ namespace bcl
       io::IFStream input;
       io::File::MustOpenIFStream( input, m_InputFileFlag->GetFirstParameter()->GetValue());
       chemistry::FragmentEnsemble input_ensemble( input, sdf::e_Remove);
+      const storage::Vector< chemistry::FragmentComplete> input_molecules( input_ensemble.Begin(), input_ensemble.End());
       io::File::CloseClearFStream( input);
       const size_t ensemble_size( input_ensemble.GetSize());
       BCL_Assert( ensemble_size, "Must have at least one molecule in the input ensemble. Exiting...\n");
@@ -445,6 +446,7 @@ namespace bcl
         {
           if( m_OutputConfGenFailureFileFlag->GetFlag())
           {
+            mol_itr->StoreProperties( input_molecules( m_MoleculeIndex));
             mol_itr->WriteMDL( m_OutputConfgenFailures);
           }
 
@@ -502,6 +504,20 @@ namespace bcl
           {
             for( auto conf_itr_end( confs.End()); confs_itr != conf_itr_end; ++confs_itr)
             {
+              // set all of the properties from the original molecule as long as they have not been re-cached on the new conformer
+              const chemistry::SmallMoleculeMiscProperties &original_properties( input_molecules( m_MoleculeIndex).GetStoredProperties() );
+              for
+              (
+                  auto prop_itr( original_properties.Begin()), prop_itr_end( original_properties.End());
+                  prop_itr != prop_itr_end;
+                  ++prop_itr
+              )
+              {
+                if( confs_itr->GetMDLProperty( prop_itr->first).empty())
+                {
+                  confs_itr->GetStoredPropertiesNonConst().SetMDLProperty(prop_itr->first, prop_itr->second);
+                }
+              }
               confs_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_filename", m_ScaffoldFileFlag->GetFirstParameter()->GetValue() );
               confs_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_molecule_index", linal::Vector<float>(1, similarity_result.First()) );
               confs_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_similarity_to_scaffold_molecule", linal::Vector< float>(1, similarity_result.Second()) );
@@ -511,6 +527,19 @@ namespace bcl
           }
           else
           {
+            const chemistry::SmallMoleculeMiscProperties &original_properties( input_molecules( m_MoleculeIndex).GetStoredProperties() );
+            for
+            (
+                auto prop_itr( original_properties.Begin()), prop_itr_end( original_properties.End());
+                prop_itr != prop_itr_end;
+                ++prop_itr
+            )
+            {
+              if( confs_itr->GetMDLProperty( prop_itr->first).empty())
+              {
+                confs_itr->GetStoredPropertiesNonConst().SetMDLProperty(prop_itr->first, prop_itr->second);
+              }
+            }
             confs_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_filename", m_ScaffoldFileFlag->GetFirstParameter()->GetValue() );
             confs_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_scaffold_molecule_index", linal::Vector<float>(1, similarity_result.First()) );
             confs_itr->GetStoredPropertiesNonConst().SetMDLProperty( "ConformerFromScaffold_similarity_to_scaffold_molecule", linal::Vector< float>(1, similarity_result.Second()) );
