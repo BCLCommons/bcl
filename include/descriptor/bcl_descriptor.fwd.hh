@@ -147,6 +147,7 @@ namespace bcl
     class MoleculeSimilarity;
     class MoleculeStorageId;
     class MoleculeTotalBondEnergy;
+    class MoleculeTotalToxicFragments;
     class MoleculeTriangulatorCode;
     class MoleculeVdwScore;
     class MoleculeXLogP;

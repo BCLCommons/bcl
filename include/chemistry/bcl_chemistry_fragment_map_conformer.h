@@ -129,6 +129,15 @@ namespace bcl
       //! single instance of that class
       static const util::SiPtr< const util::ObjectInterface> s_Instance;
 
+      //! set the moveable atom indices
+      void SetMoveableAtomIndices( const storage::Vector< size_t> &ATOMS) { m_MoveableIndices = ATOMS;}
+
+      //! set the property scorer
+      void SetPropertyScorer( const descriptor::CheminfoProperty &PROPERTY) { m_PropertyScorer = PROPERTY;}
+
+      //! set whether to choose the best aligned conformer by the property scorer
+      void SetChooseBestAlignedConformer( const bool CHOICE) { m_ChooseBestAlignedConf = CHOICE;}
+
     //////////////////////////////////
     // construction and destruction //
     //////////////////////////////////
@@ -213,13 +222,13 @@ namespace bcl
       //! @param FRAGMENT small molecule of interest
       //! @param DRUG_LIKENESS_TYPE type of druglikeness filter to apply during clean
       //! @return AtomVector< AtomComplete> of a new set of clean atoms following the mutation
-      AtomVector< AtomComplete> CleanAtoms
+      static AtomVector< AtomComplete> CleanAtoms
       (
         const AtomVector< AtomComplete> &ATOM_VEC,
         const std::string &DRUG_LIKENESS_TYPE = "None",
         const bool &SKIP_NEUT = true,
         const bool &SKIP_SATURATE_H = false
-      ) const;
+      );
 
       //! @brief virtual operator taking an fragment and generating a new fragment by growing on a valence
       //! @param FRAGMENT small molecule of interest

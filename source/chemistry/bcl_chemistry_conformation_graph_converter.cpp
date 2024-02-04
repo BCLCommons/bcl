@@ -56,8 +56,10 @@ namespace bcl
         "AtomTypeAndNumberHydrogensOnRingAtoms",
         "AtomTypeAndNumberHydrogensOnRingsAndDistinguishHydrogens",
         "AtomTypeAndDistinguishHydrogens",
+        "AtomTypeIsInRing",
         "CIPPriorityHighToLow",
         "CouldHaveSubstituents",
+        "IsInRing",
         GetStaticClassName< AtomComparisonType>()
       };
       return s_Names[ DATA];
@@ -540,10 +542,14 @@ namespace bcl
                  );
         case e_AtomTypeAndDistinguishHydrogens:
           return 9 * ATOM.GetAtomType().GetIndex();
+        case e_AtomTypeIsInRing:
+          return 9 * ATOM.GetAtomType().GetIndex() + ( ATOM.CountNonValenceBondsWithProperty( ConfigurationalBondTypeData::e_IsInRing, size_t( 1)) >= size_t( 1));
         case e_CIPPriorityHighToLow:
           return 0;
         case e_CouldHaveSubstituents:
           return ( ATOM.GetElementType()->GetMainGroup() != 6 && ATOM.GetElementType()->GetMainGroup() != 2);
+        case e_IsInRing:
+          return ATOM.CountNonValenceBondsWithProperty( ConfigurationalBondTypeData::e_IsInRing, size_t( 1)) >= size_t( 1);
         case s_NumberAtomComparisonTypes:
         default:
           return util::GetUndefined< size_t>();

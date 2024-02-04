@@ -66,7 +66,7 @@ choose any  Molecule / Atom Numeric descriptor :
 
   Customizable Implementations
     * 3DInterHBondCode : Represents hydrogen bond interactions in relative distance and angle correlation bins
-      Default label : 3DInterHBondCode(step size=0.5,angle size=7214877045470555745,steps=14,misc property
+      Default label : 3DInterHBondCode(step size=0.5,angle size=94637393323400,steps=14,misc property
       id="",reference_conformer="",mol_a_atom_indices_filename="",mol_b_atom_indices_filename="")
       Parameters:
       <step size> size of each step in angstroms, default: "0.50", Any decimal (floating-point) value >= 0.01 <= 100
@@ -138,7 +138,7 @@ choose any  Molecule / Atom Numeric descriptor :
     estimates in J*K^-1*mol^-1, while the latter 4 indices are the PCA eigenvalue sums.
       Default label : EntropyQHA(sampler=SampleConformations(rotamer_library=bcl::chemistry::RotamerLibraryInterface,conformation_comparer=SymmetryRMSD(consider
       H=0,atom comparison=ElementType,bond comparison=FuzzyBondOrderAmideOrAromaticWithRingness,isomorphism
-      limit=1000),generate_3D=1,tolerance=0.25,max_cr_iterations=2,max_avg_clash=0.1,max_iterations=200,change_chirality=0,max_conformations=200,cluster=0,relative_random_dihedral_change_weight=0.01),local_ensemble="",global_ensemble="")
+      limit=1000),generate_3D=1,tolerance=0.25,max_cr_iterations=2,max_avg_clash=0.1,max_iterations=200,change_chirality=0,max_conformations=200,cluster=0,relative_random_dihedral_change_weight=0.01,sample_by_parts_mdl=SampleByParts,sample_by_parts_indices="",sample_by_parts_fragments=""),local_ensemble="",global_ensemble="")
       Parameters:
       <sampler> sample configurational space across dihedral bins, 
       default: "(conformation_comparer=bcl::chemistry::ConformationComparisonInterface,tolerance=0.0,generate_3D=0,relative_random_dihedral_change_weight=0.0,cluster=false,max_iterations=10000,max_conformations=1000)", sample conformations of molecules.
@@ -152,7 +152,7 @@ choose any  Molecule / Atom Numeric descriptor :
       SampleConformations(rotamer_library=bcl::chemistry::RotamerLibraryInterface,conformation_comparer=SymmetryRMSD(consider
           H=0,atom comparison=ElementType,bond comparison=FuzzyBondOrderAmideOrAromaticWithRingness,isomorphism
          
-      limit=1000),generate_3D=1,tolerance=0.25,max_cr_iterations=2,max_avg_clash=0.1,max_iterations=200,change_chirality=0,max_conformations=200,cluster=0,relative_random_dihedral_change_weight=0.01)
+      limit=1000),generate_3D=1,tolerance=0.25,max_cr_iterations=2,max_avg_clash=0.1,max_iterations=200,change_chirality=0,max_conformations=200,cluster=0,relative_random_dihedral_change_weight=0.01,sample_by_parts_mdl=SampleByParts,sample_by_parts_indices="",sample_by_parts_fragments="")
         Parameters:
         <rotamer_library> flag for rotamer library to use. Crystallographic open database is used by default, 
           default: "File",         choose any implementation of bcl::chemistry::RotamerLibraryInterface:
@@ -179,7 +179,7 @@ choose any  Molecule / Atom Numeric descriptor :
             AtomTypeAndComplexRingChirality, AtomTypeAndSymmetry, AtomTypeAndHasSymmetry,
             AtomTypeAndNumberHydrogens, AtomTypeAndNumberHydrogensOnRingAtoms,
             AtomTypeAndNumberHydrogensOnRingsAndDistinguishHydrogens, AtomTypeAndDistinguishHydrogens,
-            CIPPriorityHighToLow, CouldHaveSubstituents}
+            AtomTypeIsInRing, CIPPriorityHighToLow, CouldHaveSubstituents, IsInRing}
           <bond comparison> Used to decide whether bonds are similar enough to consider equivalent, 
             default: "FuzzyBondOrderAmideOrAromaticWithRingness", 
             Allowed values: {Identity, BondOrder, NumberOfElectrons, Conjugation, IsConjugated, IsAromatic,
@@ -211,11 +211,17 @@ choose any  Molecule / Atom Numeric descriptor :
           Any non-negative integer
         <cluster> Set to true to select up to max_conformations so as to maximize coverage of conformational space by
           performing greedy clustering on all returned conformations. This option should only be turned off when
-          generating boltzmann ensembles of conformers typically. Otherwise, better speed and rmsd recovery will result
-          just by decreasing # of iterations, default: "True", Any non-negative integer
+          generating boltzmann-like ensembles of conformers typically. Otherwise, better speed and rmsd recovery will
+          result just by decreasing # of iterations, default: "True", Any non-negative integer
         <relative_random_dihedral_change_weight> Weight for random dihededral changes relative to fragment based
           changes. This is desireable for exhaustive sampling or when parts of a fragment are very poorly represented
           in the fragment library, default: "0.0", Any decimal (floating-point) value
+        <sample_by_parts_mdl> MDL property from which to extract sample by parts atom indices from an SDF, 
+          default: "SampleByParts", any string
+        <sample_by_parts_indices> sample dihedral angles containing these atom indices (0-indexed) during conformer
+          generation, default: "", any string
+        <sample_by_parts_fragments> allow atoms that match these fragments in substructure comparisons to be sampled, 
+          default: "", any string
       <local_ensemble> input a pre-generated local ensemble, default: "", any string
       <global_ensemble> input a pre-generated global ensemble, default: "", any string
     * IsConstitutionDruglike : Returns 1 if the molecule is druglike and 0 otherwise
@@ -310,7 +316,7 @@ choose any  Molecule / Atom Numeric descriptor :
       distance=1,properties="",alignment
       options=PsiFlexField(properties="",property_weights(1),max_atom_distance_criterion=1,optimizing_weights=0,anchor_weight=0.01,linear_mismatch_penalty=0.01,heavy_mismatch_penalty_fraction=0.6,heavy_mismatch_penalty=2,weight_file_path="",data_file_name="",iterations=400,max_unimproved_steps=160,number_rigid_trajectories=5,number_outputs=1,align_to_scaffold=0,initial_rand_rotation=0,exclusion_indices_a="",exclusion_indices_b="",pose_tolerance=0.125,pose_score_threshold=2,flip_prob=0.06,big_rot_prob=0.06,bond_swap_prob=0.06,bond_align_prob=0.3,bond_align3_prob=0.2,bond_align_inf_prob=0.1,small_rot_prob=0.12,small_trans_prob=0.12,conf_swap_prob=0.06,potential_map_filename="",rigid_mol_b=1,conformer_pairs=100,top_pairs=3,filter_iterations=600,filter_limit=240,refinement_iterations=200,refinement_limit=80,number_flexible_trajectories=5,fraction_filtered_initially=0.25,fraction_filtered_iteratively=0.5,sample_conformers=SampleConformations(rotamer_library=bcl::chemistry::RotamerLibraryInterface,conformation_comparer=SymmetryRMSD(consider
       H=0,atom comparison=ElementType,bond comparison=FuzzyBondOrderAmideOrAromaticWithRingness,isomorphism
-      limit=1000),generate_3D=1,tolerance=0.25,max_cr_iterations=2,max_avg_clash=0.1,max_iterations=200,change_chirality=0,max_conformations=200,cluster=0,relative_random_dihedral_change_weight=0.01),conf_properties=""),property
+      limit=1000),generate_3D=1,tolerance=0.25,max_cr_iterations=2,max_avg_clash=0.1,max_iterations=200,change_chirality=0,max_conformations=200,cluster=0,relative_random_dihedral_change_weight=0.01,sample_by_parts_mdl=SampleByParts,sample_by_parts_indices="",sample_by_parts_fragments=""),conf_properties=""),property
       weights="")
       Parameters:
       <scaffold> the molecule to which the inputs are aligned, any existent file
@@ -329,7 +335,7 @@ choose any  Molecule / Atom Numeric descriptor :
       PsiFlexField(properties="",property_weights(1),max_atom_distance_criterion=1,optimizing_weights=0,anchor_weight=0.01,linear_mismatch_penalty=0.01,heavy_mismatch_penalty_fraction=0.6,heavy_mismatch_penalty=2,weight_file_path="",data_file_name="",iterations=400,max_unimproved_steps=160,number_rigid_trajectories=5,number_outputs=1,align_to_scaffold=0,initial_rand_rotation=0,exclusion_indices_a="",exclusion_indices_b="",pose_tolerance=0.125,pose_score_threshold=2,flip_prob=0.06,big_rot_prob=0.06,bond_swap_prob=0.06,bond_align_prob=0.3,bond_align3_prob=0.2,bond_align_inf_prob=0.1,small_rot_prob=0.12,small_trans_prob=0.12,conf_swap_prob=0.06,potential_map_filename="",rigid_mol_b=1,conformer_pairs=100,top_pairs=3,filter_iterations=600,filter_limit=240,refinement_iterations=200,refinement_limit=80,number_flexible_trajectories=5,fraction_filtered_initially=0.25,fraction_filtered_iteratively=0.5,sample_conformers=SampleConformations(rotamer_library=bcl::chemistry::RotamerLibraryInterface,conformation_comparer=SymmetryRMSD(consider
           H=0,atom comparison=ElementType,bond comparison=FuzzyBondOrderAmideOrAromaticWithRingness,isomorphism
          
-      limit=1000),generate_3D=1,tolerance=0.25,max_cr_iterations=2,max_avg_clash=0.1,max_iterations=200,change_chirality=0,max_conformations=200,cluster=0,relative_random_dihedral_change_weight=0.01),conf_properties="")
+      limit=1000),generate_3D=1,tolerance=0.25,max_cr_iterations=2,max_avg_clash=0.1,max_iterations=200,change_chirality=0,max_conformations=200,cluster=0,relative_random_dihedral_change_weight=0.01,sample_by_parts_mdl=SampleByParts,sample_by_parts_indices="",sample_by_parts_fragments=""),conf_properties="")
         Parameters:
         <properties> atom properties to consider, use multiply(Constant(X),property y) for weighting, 
           default:
@@ -432,7 +438,7 @@ choose any  Molecule / Atom Numeric descriptor :
             H=0,atom comparison=ElementType,bond comparison=FuzzyBondOrderAmideOrAromaticWithRingness,isomorphism
            
          
-      limit=1000),generate_3D=1,tolerance=0.25,max_cr_iterations=2,max_avg_clash=0.1,max_iterations=200,change_chirality=0,max_conformations=200,cluster=0,relative_random_dihedral_change_weight=0.01)
+      limit=1000),generate_3D=1,tolerance=0.25,max_cr_iterations=2,max_avg_clash=0.1,max_iterations=200,change_chirality=0,max_conformations=200,cluster=0,relative_random_dihedral_change_weight=0.01,sample_by_parts_mdl=SampleByParts,sample_by_parts_indices="",sample_by_parts_fragments="")
           Parameters:
           <rotamer_library> flag for rotamer library to use. Crystallographic open database is used by default, 
             default: "File",           choose any implementation of bcl::chemistry::RotamerLibraryInterface (already
@@ -453,7 +459,7 @@ choose any  Molecule / Atom Numeric descriptor :
               AtomTypeAndComplexRingChirality, AtomTypeAndSymmetry, AtomTypeAndHasSymmetry,
               AtomTypeAndNumberHydrogens, AtomTypeAndNumberHydrogensOnRingAtoms,
               AtomTypeAndNumberHydrogensOnRingsAndDistinguishHydrogens, AtomTypeAndDistinguishHydrogens,
-              CIPPriorityHighToLow, CouldHaveSubstituents}
+              AtomTypeIsInRing, CIPPriorityHighToLow, CouldHaveSubstituents, IsInRing}
             <bond comparison> Used to decide whether bonds are similar enough to consider equivalent, 
               default: "FuzzyBondOrderAmideOrAromaticWithRingness", 
               Allowed values: {Identity, BondOrder, NumberOfElectrons, Conjugation, IsConjugated, IsAromatic,
@@ -485,11 +491,17 @@ choose any  Molecule / Atom Numeric descriptor :
             Any non-negative integer
           <cluster> Set to true to select up to max_conformations so as to maximize coverage of conformational space by
             performing greedy clustering on all returned conformations. This option should only be turned off when
-            generating boltzmann ensembles of conformers typically. Otherwise, better speed and rmsd recovery will
+            generating boltzmann-like ensembles of conformers typically. Otherwise, better speed and rmsd recovery will
             result just by decreasing # of iterations, default: "True", Any non-negative integer
           <relative_random_dihedral_change_weight> Weight for random dihededral changes relative to fragment based
             changes. This is desireable for exhaustive sampling or when parts of a fragment are very poorly represented
             in the fragment library, default: "0.0", Any decimal (floating-point) value
+          <sample_by_parts_mdl> MDL property from which to extract sample by parts atom indices from an SDF, 
+            default: "SampleByParts", any string
+          <sample_by_parts_indices> sample dihedral angles containing these atom indices (0-indexed) during conformer
+            generation, default: "", any string
+          <sample_by_parts_fragments> allow atoms that match these fragments in substructure comparisons to be sampled,
+            default: "", any string
         <conf_properties> atom properties to consider, use multiply(Constant(X),property y) for weighting, 
           default: "(1)", Array of descriptors
           (anonymous) parameter: descriptors to concatenate, 
@@ -580,6 +592,10 @@ choose any  Molecule / Atom Numeric descriptor :
           * SymmetryRealSpaceRMSD : Calculates the root-mean-squared-deviation between two molecules that are
             identical onthe constitutional level, and whose atoms have already been aligned;
       "SymmetryRealSpaceRMSD(help)" shows internal options
+    * MoleculeTotalToxicFragments : Returns true if the molecule contains a predicted mutagenic substructure; false
+    otherwise
+      Parameter: <stabilizing_fragments> path to the SDF containing stabilizing fragments to consider, 
+      default: "rotamer_library/stabilizing_groups/stabilizing_groups.sdf.gz", any string
     * NAromaticRingHalogensMaxFragment : Determines the sum of the number of halogen substituents on aromatic rings in
     a molecule. Alternatively, identifies the aromatic ring with the most number of halogens and returns that count.
       Parameter: <allowed_halogens> halogen types that will be counted, default: "F Cl Br I", any string
@@ -611,8 +627,8 @@ choose any  Molecule / Atom Numeric descriptor :
       <atom comparison> atom data that is compared to determine whether atoms are equivalent, default: "AtomType", 
         Allowed values: {Identity, ElementType, AtomType, AtomTypeAndChirality, AtomTypeAndComplexRingChirality,
       AtomTypeAndSymmetry, AtomTypeAndHasSymmetry, AtomTypeAndNumberHydrogens, AtomTypeAndNumberHydrogensOnRingAtoms,
-      AtomTypeAndNumberHydrogensOnRingsAndDistinguishHydrogens, AtomTypeAndDistinguishHydrogens, CIPPriorityHighToLow,
-      CouldHaveSubstituents}
+      AtomTypeAndNumberHydrogensOnRingsAndDistinguishHydrogens, AtomTypeAndDistinguishHydrogens, AtomTypeIsInRing,
+      CIPPriorityHighToLow, CouldHaveSubstituents, IsInRing}
       <bond comparison> bond data that is compared, default: "BondOrderAmideOrAromaticWithRingness", 
         Allowed values: {Identity, BondOrder, NumberOfElectrons, Conjugation, IsConjugated, IsAromatic, IsAmide,
       IsInRing, BondOrderInRingOrAromatic, BondOrderOrAromatic, BondOrderAmideOrAromatic,
@@ -630,8 +646,8 @@ choose any  Molecule / Atom Numeric descriptor :
       <atom comparison> atom data that is compared to determine whether atoms are equivalent, default: "AtomType", 
         Allowed values: {Identity, ElementType, AtomType, AtomTypeAndChirality, AtomTypeAndComplexRingChirality,
       AtomTypeAndSymmetry, AtomTypeAndHasSymmetry, AtomTypeAndNumberHydrogens, AtomTypeAndNumberHydrogensOnRingAtoms,
-      AtomTypeAndNumberHydrogensOnRingsAndDistinguishHydrogens, AtomTypeAndDistinguishHydrogens, CIPPriorityHighToLow,
-      CouldHaveSubstituents}
+      AtomTypeAndNumberHydrogensOnRingsAndDistinguishHydrogens, AtomTypeAndDistinguishHydrogens, AtomTypeIsInRing,
+      CIPPriorityHighToLow, CouldHaveSubstituents, IsInRing}
       <bond comparison> bond data that is compared, default: "BondOrderAmideOrAromaticWithRingness", 
         Allowed values: {Identity, BondOrder, NumberOfElectrons, Conjugation, IsConjugated, IsAromatic, IsAmide,
       IsInRing, BondOrderInRingOrAromatic, BondOrderOrAromatic, BondOrderAmideOrAromatic,
@@ -895,7 +911,7 @@ choose any  Molecule / Atom Numeric descriptor :
     * 3DAPairRealSpaceConvolution : Relates the autocorrelations of two independent molecules
       Default label : 3DAPairRealSpaceConvolution(property=Molecule/Atom Numeric Descriptor,steps=20,step
       size=0.5,window size=4,weighting=bcl::descriptor::WindowWeightingInterface,misc property
-      id="",reference_conformer="",cutoff=1.09012e+27)
+      id="",reference_conformer="",cutoff=4.57986e-41)
       Parameters:
       <property> property over which to calculate the function, 
               choose any implementation of Molecule/Atom Numeric Descriptor (already listed)
@@ -915,7 +931,7 @@ choose any  Molecule / Atom Numeric descriptor :
       Default label : 3DAPairRealSpaceConvolutionAsymmetry(property_a=Molecule/Atom Numeric
       Descriptor,property_b=Molecule/Atom Numeric Descriptor,step size=0.5,window
       size=4,steps=20,weighting=bcl::descriptor::WindowWeightingInterface,misc property
-      id="",reference_conformer="",cutoff=0)
+      id="",reference_conformer="",cutoff=1.68514e+22)
       Parameters:
       <property_a> ligand property over which to calculate the function, 
               choose any implementation of Molecule/Atom Numeric Descriptor (already listed)

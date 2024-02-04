@@ -24,6 +24,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_conformation_comparison_by_rmsd.h"
 #include "chemistry/bcl_chemistry_conformation_comparison_by_symmetry_rmsd.h"
 #include "chemistry/bcl_chemistry_fragment_feed.h"
+#include "chemistry/bcl_chemistry_fragment_split_rings.h"
 #include "chemistry/bcl_chemistry_ligand_design_helper.h"
 #include "chemistry/bcl_chemistry_rotamer_library_file.h"
 #include "chemistry/bcl_chemistry_sample_conformations.h"
@@ -36,6 +37,7 @@ BCL_StaticInitializationFiascoFinder
 #include "math/bcl_math_statistics.h"
 #include "mc/bcl_mc_temperature_default.h"
 #include "opti/bcl_opti_criterion_combine.h"
+#include "quality/bcl_quality_rmsd.h"
 #include "storage/bcl_storage_template_instantiations.h"
 #include "util/bcl_util_implementation.h"
 #include "util/bcl_util_template_instantiations.h"
@@ -353,6 +355,83 @@ namespace bcl
             "0.1"
           )
         )
+      ),
+      m_RequireSampleByPartsFlag
+      (
+        new command::FlagStatic
+        (
+          "require_sample_by_parts",
+          "run conformation sampler only if the molecule contains the MDL property 'SampleByParts' with at least one atom index; "
+          "otherwise return input conformer."
+        )
+      ),
+      m_AlignByNonMobileFlag
+      (
+        new command::FlagStatic
+        (
+          "align_by_non_mobile",
+          "if SampleByParts atoms are specified, then after conformer generation re-align the ensemble to the non-mobile (i.e., "
+          "non-SampleByParts) atoms."
+        )
+      ),
+      m_FixGeometryFlag
+      (
+        new command::FlagStatic
+        (
+          "fix_geometry",
+          "correct the geometry of a starting conformer through conformer sampling",
+          command::Parameter
+          (
+            "overwrite_sbp",
+            "if true, ignore existing SampleByParts and make a new list of just the atoms detected to contribute to bad geometry; "
+            "if false, append bad geometry atoms to existing list",
+            command::ParameterCheckRanged< bool>( 0, 1),
+            "true"
+          )
+        )
+      ),
+      m_FilterMetricFlag
+      (
+        new command::FlagStatic
+        (
+          "filter_metric",
+          "filter conformer ensemble based on distance to the starting conformer; useful for refinement",
+          util::ShPtrVector< command::ParameterInterface>::Create
+          (
+            util::ShPtr< command::ParameterInterface>
+            (
+              new command::Parameter
+              (
+                "rmsd_type",
+                "method to use to calculate rmsd between the starting conformer and each conformer in the ensemble",
+                command::ParameterCheckSerializable( util::Implementation< chemistry::ConformationComparisonInterface>()),
+                "SymmetryRMSD"
+              )
+            ),
+            util::ShPtr< command::ParameterInterface>
+            (
+              new command::Parameter
+              (
+                "comparison",
+                "should the conformers be less, greater, etc. than 'tolerance' according to 'rmsd_type' to starting conformer",
+                command::ParameterCheckSerializable( math::Comparisons< float>::Comparison() ),
+                "less_equal"
+              )
+            ),
+            util::ShPtr< command::ParameterInterface>
+            (
+              new command::Parameter
+              (
+                "tolerance",
+                "ensemble conformers that are above/below (based on comparison) this tolerance relative to the "
+                "starting conformer will be saved for output; if set to 0.0, then only the best conformer will be "
+                "output.",
+                command::ParameterCheckRanged< float>( 0.0, std::numeric_limits< float>::max()),
+                "0.0"
+              )
+            )
+          )
+        )
       )
     {
     }
@@ -379,7 +458,11 @@ namespace bcl
         m_SkipBondAnglesFlag( APP.m_SkipBondAnglesFlag),
         m_SkipRingSamplingFlag( APP.m_SkipRingSamplingFlag),
         m_MaxClashResolutionIterationsFlag( APP.m_MaxClashResolutionIterationsFlag),
-        m_MaxClashToleranceFlag( APP.m_MaxClashToleranceFlag)
+        m_MaxClashToleranceFlag( APP.m_MaxClashToleranceFlag),
+        m_RequireSampleByPartsFlag( APP.m_RequireSampleByPartsFlag),
+        m_AlignByNonMobileFlag( APP.m_AlignByNonMobileFlag),
+        m_FixGeometryFlag( APP.m_FixGeometryFlag),
+        m_FilterMetricFlag( APP.m_FilterMetricFlag)
       {
       }
 
@@ -530,7 +613,11 @@ namespace bcl
       sp_cmd->AddFlag( m_SkipRingSamplingFlag);
       sp_cmd->AddFlag( m_MaxClashResolutionIterationsFlag);
       sp_cmd->AddFlag( m_MaxClashToleranceFlag);
+      sp_cmd->AddFlag( m_RequireSampleByPartsFlag);
+      sp_cmd->AddFlag( m_AlignByNonMobileFlag);
+      sp_cmd->AddFlag( m_FixGeometryFlag);
       sp_cmd->AddFlag( m_RotamerLibraryFlag);
+      sp_cmd->AddFlag( m_FilterMetricFlag);
 
       // add default bcl parameters
       command::GetAppDefaultFlags().AddDefaultCommandlineFlags( *sp_cmd);
@@ -673,6 +760,132 @@ namespace bcl
 
     }
 
+    //! @brief function that realigns an ensemble by non-mobile atoms if SampleByParts is present
+    //! @param ENSEMBLE ensemble to be realigned
+    //! @param MOLECULE molecule from which ensemble was generated
+    //! @param ATOMS atom indices given by SampleByParts property
+    void ConformerGenerator::AlignByNonMobile
+    (
+      chemistry::FragmentEnsemble &ENSEMBLE,
+      const chemistry::FragmentComplete &MOLECULE,
+      const storage::Set< size_t> &ATOMS
+    ) const
+    {
+      // obtain the non-mobile atoms of initial molecule based on SampleByParts atom indices
+      storage::Vector< size_t> sbp_complement;
+      for( size_t mol_atom( 0), mol_sz( MOLECULE.GetSize()); mol_atom < mol_sz; ++mol_atom)
+      {
+        // check that the mol_atom is a heavy atom not present in sbp atoms
+        if( ATOMS.Find( mol_atom) == ATOMS.End() && MOLECULE.GetAtomVector()( mol_atom).GetElementType() != chemistry::GetElementTypes().e_Hydrogen)
+        {
+          sbp_complement.PushBack( mol_atom);
+        }
+      }
+      util::SiPtrVector< const linal::Vector3D> scaffold_coords( MOLECULE.GetHeavyAtomCoordinates());
+      scaffold_coords.Reorder( sbp_complement);
+
+      // transform each conformer back to the original atom coordinates
+      for
+      (
+          chemistry::FragmentEnsemble::iterator conf_itr( ENSEMBLE.Begin()), conf_itr_end( ENSEMBLE.End());
+          conf_itr != conf_itr_end;
+          ++conf_itr
+      )
+      {
+        util::SiPtrVector< const linal::Vector3D> conf_coords( conf_itr->GetHeavyAtomCoordinates());
+        conf_coords.Reorder( sbp_complement);
+        math::TransformationMatrix3D transform
+        (
+          quality::RMSD::SuperimposeCoordinates( scaffold_coords, conf_coords)
+        );
+
+        storage::Vector< sdf::AtomInfo> new_molecule_atom_vector( conf_itr->GetAtomInfo());
+        for
+        (
+            storage::Vector< sdf::AtomInfo>::iterator itr( new_molecule_atom_vector.Begin()), itr_end( new_molecule_atom_vector.End());
+            itr != itr_end;
+            ++itr
+        )
+        {
+          linal::Vector3D coords( itr->GetCoordinates());
+          itr->SetCoordinates( coords.Transform( transform));
+        }
+
+        // add back the original properties to the re-aligned structure
+        chemistry::AtomVector< chemistry::AtomComplete> atoms_transformed( new_molecule_atom_vector, conf_itr->GetBondInfo());
+        chemistry::FragmentComplete new_molecule_transformed( atoms_transformed, conf_itr->GetName());
+        new_molecule_transformed.StoreProperties( *conf_itr);
+        *conf_itr = new_molecule_transformed;
+      }
+    }
+
+    //! @brief function that identifies bad geometry atoms and adds them to the SampleByParts list
+    //! @param MOLECULE the molecule of interest whose conformations have to be sampled
+    //! @param MOLECULE_INDEX index of the molecule in the ensemble
+    //! @param OVERWRITE_SBP if true, ignore existing SampleByParts and make a new list of just the
+    //! atoms detected to contribute to bad geometry; if false, append bad geometry atoms to existing list
+    //! @return true if bad geometry atoms detected and added to SampleByParts list; false otherwise
+    bool ConformerGenerator::DetectBadGeometry
+    (
+      chemistry::FragmentComplete &MOLECULE,
+      const size_t &MOLECULE_INDEX,
+      const bool OVERWRITE_SBP
+    ) const
+    {
+      if( !MOLECULE.GetAtomsWithBadGeometry().GetSize())
+      {
+        BCL_MessageStd("-fix_geometry specified for molecule # " + util::Format()( MOLECULE_INDEX) + " but no bad geometry atoms detected. Returning input conformer.");
+        return false;
+      }
+
+      // initialize
+      storage::Set< size_t> moveable_atoms_set;
+      if( OVERWRITE_SBP)
+      {
+        MOLECULE.RemoveProperty("SampleByParts");
+      }
+      else
+      {
+        linal::Vector< float> original_sbp( MOLECULE.GetStoredProperties().GetMDLPropertyAsVector("SampleByParts"));
+        for( auto itr( original_sbp.Begin()), itr_end( original_sbp.End()); itr != itr_end; ++itr)
+        {
+          moveable_atoms_set.InsertElement( static_cast<size_t>( *itr));
+        }
+      }
+
+      // add bad geometry atoms
+      storage::Vector< size_t> bad_geo_atoms( MOLECULE.GetAtomsWithBadGeometry());
+      moveable_atoms_set.InsertElements( bad_geo_atoms.Begin(), bad_geo_atoms.End());
+
+      // add bad geometry rings
+      chemistry::ConformationGraphConverter::t_AtomGraph molecule_graph( chemistry::ConformationGraphConverter::CreateGraphWithAtoms( MOLECULE));
+      chemistry::FragmentSplitRings splitter( true, size_t( 3));
+      storage::List< storage::Vector< size_t> > ring_components( splitter.GetComponentVertices( MOLECULE, molecule_graph));
+      storage::Vector< storage::Vector< size_t>> ring_components_vec( ring_components.Begin(), ring_components.End());
+      for( size_t ring_i( 0), n_rings( ring_components_vec.GetSize()); ring_i < n_rings; ++ring_i)
+      {
+        storage::Set< size_t> ring_atoms( ring_components_vec( ring_i).Begin(), ring_components_vec( ring_i).End());
+        for
+        (
+            auto bad_geo_atoms_itr( bad_geo_atoms.Begin()), bad_geo_atoms_itr_end( bad_geo_atoms.End());
+            bad_geo_atoms_itr != bad_geo_atoms_itr_end;
+            ++bad_geo_atoms_itr
+        )
+        {
+          if (ring_atoms.Find( *bad_geo_atoms_itr) != ring_atoms.End())
+          {
+            // if found, then this ring contains bad geometry atoms and we need to add the whole ring to the moveable atoms set
+            moveable_atoms_set.InsertElements( ring_atoms.Begin(), ring_atoms.End());
+            break;
+          }
+        }
+      }
+
+      // collect unique atoms to be mobile
+      MOLECULE.GetStoredPropertiesNonConst().SetMDLProperty("SampleByParts", linal::Vector< float>( moveable_atoms_set.Begin(), moveable_atoms_set.End()));
+      return true;
+    }
+
     //! @brief controls output from the app of interest
     //! @param MOLECULES the molecule of interest whose conformations have to be sampled
     //! @param ENSEMBLE ensemble of conformations that were sampled for the molecule of interest
@@ -775,10 +988,93 @@ namespace bcl
         new_directory.Make();
         m_SampleConformations->SetOutputScoreFilename( new_directory.GetPath() + "/scored_fragments.sdf");
       }
-      storage::Pair< chemistry::FragmentEnsemble, chemistry::FragmentEnsemble> conformation_result( m_SampleConformations->operator ()( MOLECULE));
 
+      // check if SampleByParts restrictions are required
+      auto sbp_prop_itr( MOLECULE.GetStoredProperties().GetMDLProperties().Find( "SampleByParts"));
+      bool valid_sbp( sbp_prop_itr != MOLECULE.GetStoredProperties().GetMDLProperties().End() && sbp_prop_itr->second.size());
+
+      if( m_RequireSampleByPartsFlag->GetFlag())
+      {
+        if( !valid_sbp)
+        {
+          BCL_Message( util::Message::e_Standard,
+            " warning: SampleByParts required but not present, returning input conformer for molecule # " + util::Format()( MOLECULE_INDEX)
+          );
+
+          // if SBP is required but not present, write input conformer and go to next molecule in feed
+          if( m_ConformersSeparateFile->GetFlag())
+          {
+            std::string file_prefix( m_ConformersSeparateFile->GetFirstParameter()->GetValue());
+
+            // open the output file for writing out conformations of the molecule
+            io::OFStream output;
+            io::File::MustOpenOFStream( output, file_prefix + "_" + util::Format()( MOLECULE_INDEX) + ".sdf.gz");
+            MOLECULE.WriteMDL( output);
+            io::File::CloseClearFStream( output);
+          }
+          else if( m_ConformersSingleFile->GetFlag())
+          {
+            Output( MOLECULE, chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, MOLECULE)), 1, MOLECULE_INDEX);
+          }
+
+          return;
+        }
+      }
+
+      // optional fix geometry
+      storage::Pair< chemistry::FragmentEnsemble, chemistry::FragmentEnsemble> conformation_result;
+      if( m_FixGeometryFlag->GetFlag())
+      {
+        chemistry::FragmentComplete molecule( MOLECULE);
+        bool bad_geometry_detected( DetectBadGeometry( molecule, m_FixGeometryFlag->GetFirstParameter()->GetNumericalValue< bool>()));
+        if( bad_geometry_detected)
+        {
+          // generate conformers
+          conformation_result = storage::Pair< chemistry::FragmentEnsemble, chemistry::FragmentEnsemble>( m_SampleConformations->operator ()( molecule));
+        }
+        else
+        {
+          // return input
+          conformation_result = storage::Pair< chemistry::FragmentEnsemble, chemistry::FragmentEnsemble>
+          (
+            chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, MOLECULE) ),
+            chemistry::FragmentEnsemble()
+          );
+        }
+      }
+      else
+      {
+        // generate conformers
+        conformation_result = storage::Pair< chemistry::FragmentEnsemble, chemistry::FragmentEnsemble>( m_SampleConformations->operator ()( MOLECULE));
+      }
       chemistry::FragmentEnsemble &ensemble( conformation_result.First());
       chemistry::FragmentEnsemble &fragment_ensemble( conformation_result.Second());
+
+      // optional filtering
+      if( m_FilterMetricFlag->GetFlag())
+      {
+        ensemble = m_SampleConformations->FilterConformerEnsemble
+        (
+          ensemble,
+          MOLECULE,
+          m_FilterMetricFlag->GetParameterList()( 0)->GetValue(),
+          math::Comparisons< float>::Comparison( m_FilterMetricFlag->GetParameterList()( 1)->GetValue()),
+          m_FilterMetricFlag->GetParameterList()( 2)->GetNumericalValue< float>(),
+          storage::Vector< size_t>() // consider making these the heavy atoms
+        );
+      }
+
+      // optional re-alignment
+      if( ( m_AlignByNonMobileFlag->GetFlag() && valid_sbp ) || ( m_FixGeometryFlag->GetFlag() && MOLECULE.GetAtomsWithBadGeometry().GetSize() ) )
+      {
+        storage::Set< size_t> atoms;
+        linal::Vector< float> sbp_propval( MOLECULE.GetStoredProperties().GetMDLPropertyAsVector( "SampleByParts"));
+        for( size_t sbp_i( 0), sbp_sz( sbp_propval.GetSize()); sbp_i < sbp_sz; ++sbp_i)
+        {
+          atoms.InsertElement( static_cast<size_t>(sbp_propval( sbp_i)));
+        }
+        AlignByNonMobile( ensemble, MOLECULE, atoms);
+      }
 
       if( ( !m_RmsdScorePrefix->GetFlag() && m_TopModels->GetFlag()) || m_FixedNumberConformers->GetFlag() || m_ConformersSingleFile->GetFlag())
       {

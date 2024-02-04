@@ -110,6 +110,14 @@ namespace bcl
 
       util::ShPtr< command::FlagInterface>                                        m_MaxClashToleranceFlag;
 
+      util::ShPtr< command::FlagInterface>                                        m_RequireSampleByPartsFlag;
+
+      util::ShPtr< command::FlagInterface>                                        m_AlignByNonMobileFlag;
+
+      util::ShPtr< command::FlagInterface>                                        m_FixGeometryFlag;
+
+      util::ShPtr< command::FlagInterface>                                        m_FilterMetricFlag;
+
       //! obtains a dissimilarity
       mutable util::Implementation< chemistry::ConformationComparisonInterface>   m_Comparer;
 
@@ -249,6 +257,30 @@ namespace bcl
         const size_t &MOLECULE_INDEX,
         const chemistry::FragmentEnsemble &ENSEMBLE,
         const chemistry::FragmentEnsemble &FRAGMENT_ENSEMBLE
+      ) const;
+
+      //! @brief function that realigns an ensemble by non-mobile atoms if SampleByParts is present
+      //! @param ENSEMBLE ensemble to be realigned
+      //! @param MOLECULE molecule from which ensemble was generated
+      //! @param ATOMS atom indices given by SampleByParts property
+      void AlignByNonMobile
+      (
+        chemistry::FragmentEnsemble &ENSEMBLE,
+        const chemistry::FragmentComplete &MOLECULE,
+        const storage::Set< size_t> &ATOMS
+      ) const;
+
+      //! @brief function that identifies bad geometry atoms and adds them to the SampleByParts list
+      //! @param MOLECULE the molecule of interest whose conformations have to be sampled
+      //! @param MOLECULE_INDEX index of the molecule in the ensemble
+      //! @param OVERWRITE_SBP if true, ignore existing SampleByParts and make a new list of just the
+      //! atoms detected to contribute to bad geometry; if false, append bad geometry atoms to existing list
+      //! @return true if bad geometry atoms detected and added to SampleByParts list; false otherwise
+      bool DetectBadGeometry
+      (
+        chemistry::FragmentComplete &MOLECULE,
+        const size_t &MOLECULE_INDEX,
+        const bool OVERWRITE_SBP = true
       ) const;
 
       //! @brief controls output from the app of interest
