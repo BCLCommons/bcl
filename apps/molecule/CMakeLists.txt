@@ -7,6 +7,7 @@ PROJECT( lib${LIBRARY_NAME})
 SET(
   LIBRARY_SOURCES
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_align_to_scaffold.cpp
+  ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_conformer_from_scaffold.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_evolutionary_generator.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_extract_mcs.cpp
   ${CMAKE_CURRENT_SOURCE_DIR}/bcl_app_focused_library_design.cpp

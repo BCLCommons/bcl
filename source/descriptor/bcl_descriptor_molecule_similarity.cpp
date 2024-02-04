@@ -64,6 +64,7 @@ namespace bcl
       m_Molecules( MOLECULES),
       m_Filename( std::string())
     {
+      m_ComparerName = m_Comparer->GetAlias();
     }
 
     //! @brief virtual copy constructor
@@ -87,8 +88,22 @@ namespace bcl
     //! @return name of the property as string
     const std::string &MoleculeSimilarity::GetAlias() const
     {
-      static const std::string s_name( "MoleculeSimilarity");
+      static const std::string s_name( GetComparerName().empty() ? "MoleculeSimilarity" : GetComparerName());
       return s_name;
+    }
+
+    //! @brief return comparison implementation
+    //! @return the const comparison implementation
+    const util::Implementation< chemistry::ConformationComparisonInterface> MoleculeSimilarity::GetComparer() const
+    {
+      return m_Comparer;
+    }
+
+    //! @brief return comparison implementation name
+    //! @return the const comparison implementation name
+    const std::string MoleculeSimilarity::GetComparerName() const
+    {
+      return m_ComparerName;
     }
 
   ////////////////

@@ -56,6 +56,9 @@ namespace bcl
       //! how to compare molecules
       util::Implementation< chemistry::ConformationComparisonInterface> m_Comparer;
 
+      //! name of the comparison object
+      std::string m_ComparerName;
+
       //! the molecules to compare to
       chemistry::FragmentEnsemble m_Molecules;
 
@@ -102,6 +105,14 @@ namespace bcl
       {
         return m_Molecules.GetSize();
       }
+
+      //! @brief return comparison implementation
+      //! @return the const comparison implementation
+      const util::Implementation< chemistry::ConformationComparisonInterface> GetComparer() const;
+
+      //! @brief return comparison implementation name
+      //! @return the const comparison implementation name
+      const std::string GetComparerName() const;
 
     ////////////////
     // operations //
