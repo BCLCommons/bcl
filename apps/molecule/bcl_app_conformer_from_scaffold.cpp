@@ -266,11 +266,11 @@ namespace bcl
             "this allows alternative poses to be discovered for symmetric molecules"
           )
         ),
-        m_FilterMetricFlag
+        m_UniqueFlag
         (
           new command::FlagStatic
           (
-            "filter_metric",
+            "unique",
             "distance between conformers required for a molecule to be unique; only applicable if 'find_all' is enabled",
             util::ShPtrVector< command::ParameterInterface>::Create
             (
@@ -306,7 +306,7 @@ namespace bcl
             "save_ensemble",
             "keep the ensemble of unique generated conformers; "
             "only applicable if 'find_all' is enabled; "
-            "occurs after application of 'filter_metric'"
+            "occurs after application of 'unique'"
           )
         )
     {
@@ -326,7 +326,7 @@ namespace bcl
           m_SolutionTypeFlag( PARENT.m_SolutionTypeFlag),
           m_SimilarityThresholdFlag( PARENT.m_SimilarityThresholdFlag),
           m_FindAllFlag( PARENT.m_FindAllFlag),
-          m_FilterMetricFlag( PARENT.m_FilterMetricFlag),
+          m_UniqueFlag( PARENT.m_UniqueFlag),
           m_SaveEnsembleFlag( PARENT.m_SaveEnsembleFlag)
     {
     }
@@ -368,7 +368,7 @@ namespace bcl
       sp_cmd->AddFlag( m_SolutionTypeFlag);
       sp_cmd->AddFlag( m_SimilarityThresholdFlag);
       sp_cmd->AddFlag( m_FindAllFlag);
-      sp_cmd->AddFlag( m_FilterMetricFlag);
+      sp_cmd->AddFlag( m_UniqueFlag);
       sp_cmd->AddFlag( m_SaveEnsembleFlag);
 
       // add default bcl parameters
@@ -471,23 +471,23 @@ namespace bcl
           confs.Sort( alignment_scorer.GetAlias());
 
           // filter to get unique poses
-          if ( m_FilterMetricFlag->GetFlag() && confs.GetSize() > 1)
+          if ( m_UniqueFlag->GetFlag() && confs.GetSize() > 1)
           {
-            util::Implementation<chemistry::ConformationComparisonInterface> filter_metric( m_FilterMetricFlag->GetFirstParameter()->GetValue());
+            util::Implementation<chemistry::ConformationComparisonInterface> unique( m_UniqueFlag->GetFirstParameter()->GetValue());
             chemistry::FragmentEnsemble uniq_confs;
 
             // add the first conformer
             auto conf_itr_i( confs.Begin());
             uniq_confs.PushBack( *conf_itr_i);
             for( ++conf_itr_i; conf_itr_i != confs.End(); ++conf_itr_i) {
-              float min_rmsd(std::numeric_limits<float>::max());
+              float min_rmsd( std::numeric_limits<float>::max());
               for( auto conf_itr_j( uniq_confs.Begin()); conf_itr_j != uniq_confs.End(); ++conf_itr_j)
               {
-                float rmsd( (*filter_metric)(*conf_itr_i, *conf_itr_j) );
+                float rmsd( (*unique)(*conf_itr_i, *conf_itr_j) );
                 min_rmsd = std::min(min_rmsd, rmsd);
               }
               // Check if min_rmsd is >= the threshold with respect to all previously observed conformers
-              bool meets_threshold( min_rmsd >= m_FilterMetricFlag->GetParameterList().LastElement()->GetNumericalValue<float>() );
+              bool meets_threshold( min_rmsd >= m_UniqueFlag->GetParameterList().LastElement()->GetNumericalValue<float>() );
               if( meets_threshold)
               {
                 uniq_confs.PushBack(*conf_itr_i);

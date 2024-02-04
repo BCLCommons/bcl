@@ -196,7 +196,6 @@ namespace bcl
       const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES
     ) const
     {
-
       // extract the fragment for which the MCS search will be performed
       FragmentComplete target_mol( ExtractFragmentByIndices( TARGET_MOL, TARGET_MOL_INDICES));
       FragmentComplete scaffold_mol( ExtractFragmentByIndices( SCAFFOLD_MOL, SCAFFOLD_MOL_INDICES));
@@ -772,6 +771,57 @@ namespace bcl
       }
       FragmentComplete molecule( atoms, MOLECULE.GetName());
       return molecule;
+    }
+
+    //! @brief superimpose the coordinates of two molecules
+    //! @param TARGET_MOL the molecule to be aligned
+    //! @param SCAFFOLD_MOL the molecule to which TARGET_MOL will be aligned
+    void FragmentAlignToScaffold::Superimpose
+    (
+      FragmentComplete &TARGET_MOL,
+      const FragmentComplete &SCAFFOLD_MOL,
+      const storage::Vector< size_t> &TARGET_MOL_INDICES,
+      const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES
+    )
+    {
+      // extract the fragment for which the MCS search will be performed
+      FragmentComplete target_mol( ExtractFragmentByIndices( TARGET_MOL, TARGET_MOL_INDICES));
+      FragmentComplete scaffold_mol( ExtractFragmentByIndices( SCAFFOLD_MOL, SCAFFOLD_MOL_INDICES));
+
+      // Store the coordinates of the fragments for alignment
+      util::SiPtrVector< const linal::Vector3D> mol_b_coords( scaffold_mol.GetHeavyAtomCoordinates()), mol_a_coords( target_mol.GetHeavyAtomCoordinates());
+
+      // Generate transformation matrix based on common isomorphism between scaffold and current small molecule
+      math::TransformationMatrix3D transform
+      (
+        quality::RMSD::SuperimposeCoordinates( mol_b_coords, mol_a_coords)
+      );
+
+      //Store the atom information of the small molecule
+      storage::Vector< sdf::AtomInfo> atom_vector( TARGET_MOL.GetAtomInfo());
+
+      //Transform the coordinates of the small molecule atoms based on the transformation matrix
+      for
+      (
+        storage::Vector< sdf::AtomInfo>::iterator itr( atom_vector.Begin()), itr_end( atom_vector.End());
+        itr != itr_end;
+        ++itr
+      )
+      {
+        linal::Vector3D temp( itr->GetCoordinates());
+        itr->SetCoordinates( temp.Transform( transform));
+      }
+
+      // Store transformed coordinates and atom information in a new molecule and add it to output ensemble
+      FragmentComplete new_molecule
+      (
+        AtomVector< AtomComplete>( atom_vector, TARGET_MOL.GetBondInfo()),
+        TARGET_MOL.GetName()
+      );
+
+      // add back the original properties to the re-aligned structure
+      new_molecule.StoreProperties( TARGET_MOL);
+      TARGET_MOL = new_molecule;
     }
 
     //! @brief get the maximum common substructure between two molecules

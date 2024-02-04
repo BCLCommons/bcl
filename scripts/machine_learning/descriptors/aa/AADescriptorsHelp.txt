@@ -396,8 +396,6 @@ choose any  Sequence / Amino Acid Numeric descriptor :
           * Atom_Identity : 1, for any atom or molecule. The Atom_ prefix is purely for
             backwards-compatibility. In new descriptor files, the use of Constant(1) is preferred. Alias for :
             Constant(1)
-          * BondGirth : User-defined. Alias for :
-            DescriptorSum(2DAMax(steps=96,property=Atom_Identity,substitution_value=nan))
           * CovalentSurfaceArea : covalent surface area. Alias for : MoleculeSum(Atom_CovalentSurfaceArea)
           * CovalentVolume : covalent volume. Alias for : MoleculeSum(Atom_CovalentVolume)
           * EstCovSurfaceArea : Estimated covalent surface area (conformation independent). Alias for :
@@ -495,6 +493,8 @@ choose any  Sequence / Amino Acid Numeric descriptor :
             database; "MoleculeAtomEnvironmentMap(help)" shows internal options
           * MoleculeSimilarity : Searches for specified substructures within the query molecule. Returns 1 if
             a structure exists in the query molecule; "MoleculeSimilarity(help)" shows internal options
+          * MoleculeTotalToxicFragments : Returns true if the molecule contains a predicted mutagenic
+            substructure; false otherwise; "MoleculeTotalToxicFragments(help)" shows internal options
           * NAromaticRingHalogensMaxFragment : Determines the sum of the number of halogen substituents on
             aromatic rings in a molecule. Alternatively, identifies the aromatic ring with the most number of
             halogens and returns that count.; "NAromaticRingHalogensMaxFragment(help)" shows internal options
@@ -636,17 +636,9 @@ choose any  Sequence / Amino Acid Numeric descriptor :
             radii
           * Atom_FormalCharge : the formal charge of each atom
           * Atom_GyromagneticRatio : Retrieves the elemental GyromagneticRatio for each atom
-          * Atom_HSigmaChargeL : User-defined. Alias for : Multiply(Atom_SigmaChargeL,IsH)
-          * Atom_HVchargeL : User-defined. Alias for : Multiply(Atom_VchargeL,IsH)
           * Atom_HbondAcceptors : 1 for hydrogen bond acceptors (N and O), 0 for other elements
           * Atom_HbondDonors : 1 for hydrogen bond donors (NH and OH), 0 for others
-          * Atom_InAromaticRingIntersection : User-defined. Alias for :
-            GreaterEqual(lhs=BondTypeCount(property=IsAromatic,value=1),rhs=3)
-          * Atom_InRingIntersection : User-defined. Alias for :
-            GreaterEqual(lhs=BondTypeCount(property=IsInRing,value=1),rhs=3)
           * Atom_IonizationPotential : Retrieves the elemental IonizationPotential for each atom
-          * Atom_IsInAromaticRing : User-defined. Alias for :
-            GreaterEqual(lhs=BondTypeCount(property=IsAromatic,value=1),rhs=2)
           * Atom_IsSP : 1 for sp, -1 for non-sp non-terminal atoms, 0 for everything else
           * Atom_IsSP2 : 1 for sp2, -1 for non-sp2 non-terminal atoms, 0 for everything else
           * Atom_IsSP3 : 1 for sp3, -1 for non-sp3 non-terminal atoms, 0 for everything else
@@ -682,8 +674,6 @@ choose any  Sequence / Amino Acid Numeric descriptor :
           * Atom_SigmaValenceStateIonizationPotential : Retrieves the SigmaValenceStateIonizationPotential of
             desired atom
           * Atom_Stereocenters : 1 for R, -1 for S, 0 for achiral atoms, 2 for undefined chirality
-          * Atom_TernaryHBond : User-defined. Alias for :
-            Subtract(lhs=Atom_HbondAcceptors,rhs=Multiply(Constant(2),Atom_HbondDonors))
           * Atom_TopologicalPolarSurfaceArea : see Ertl, et. al. J. Med. Chem. 2000, 43, 3715
           * Atom_TotalCharge : Returns the total charge on an atom. Alias for :
             Add(Atom_SigmaCharge,Atom_PiCharge)
@@ -715,7 +705,6 @@ choose any  Sequence / Amino Acid Numeric descriptor :
           * IsF : Returns 1 for fluorine atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(9))
           * IsH : Returns 1 for hydrogen atoms, 0 for heavy atoms. Alias for :
             Less(lhs=AtomicNumbers,rhs=Constant(1.5))
-          * IsHTernary : User-defined. Alias for : Add(Constant(-1),Multiply(IsH,Constant(2)))
           * IsHalogen : Returns 1 for atoms in main group 7 (F,Cl,Br,I,At,Uus). Alias for :
             Equal(Atom_MainGroup,Constant(7))
           * IsI : Returns 1 for iodine atoms, 0 for others. Alias for : Equal(AtomicNumbers,Constant(53))
@@ -796,8 +785,6 @@ choose any  Sequence / Amino Acid Numeric descriptor :
         Basic Implementations
           * Atom_Hydrophobic : User-defined. Alias for :
             Not(DescriptorSum(Abs(Partial(2DASign(property=PolarTernary,steps=3),indices(1,2,5,8)))))
-          * Atom_SigmaChargeL : User-defined. Alias for : Limit(Atom_SigmaCharge,max=0.25,min=-0.25)
-          * Atom_VchargeL : User-defined. Alias for : Limit(Atom_Vcharge,max=0.5,min=-0.5)
           
         Customizable Implementations
           * ForEach : Allows creation of a set of descriptors by substituting a user-specified set of values

@@ -116,6 +116,8 @@ namespace bcl
 
       util::ShPtr< command::FlagInterface>                                        m_FixGeometryFlag;
 
+      util::ShPtr< command::FlagInterface>                                        m_FilterMetricFlag;
+
       //! obtains a dissimilarity
       mutable util::Implementation< chemistry::ConformationComparisonInterface>   m_Comparer;
 

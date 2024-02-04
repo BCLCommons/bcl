@@ -389,6 +389,49 @@ namespace bcl
             "true"
           )
         )
+      ),
+      m_FilterMetricFlag
+      (
+        new command::FlagStatic
+        (
+          "filter_metric",
+          "filter conformer ensemble based on distance to the starting conformer; useful for refinement",
+          util::ShPtrVector< command::ParameterInterface>::Create
+          (
+            util::ShPtr< command::ParameterInterface>
+            (
+              new command::Parameter
+              (
+                "rmsd_type",
+                "method to use to calculate rmsd between the starting conformer and each conformer in the ensemble",
+                command::ParameterCheckSerializable( util::Implementation< chemistry::ConformationComparisonInterface>()),
+                "SymmetryRMSD"
+              )
+            ),
+            util::ShPtr< command::ParameterInterface>
+            (
+              new command::Parameter
+              (
+                "comparison",
+                "should the conformers be less, greater, etc. than 'tolerance' according to 'rmsd_type' to starting conformer",
+                command::ParameterCheckSerializable( math::Comparisons< float>::Comparison() ),
+                "less_equal"
+              )
+            ),
+            util::ShPtr< command::ParameterInterface>
+            (
+              new command::Parameter
+              (
+                "tolerance",
+                "ensemble conformers that are above/below (based on comparison) this tolerance relative to the "
+                "starting conformer will be saved for output; if set to 0.0, then only the best conformer will be "
+                "output.",
+                command::ParameterCheckRanged< float>( 0.0, std::numeric_limits< float>::max()),
+                "0.0"
+              )
+            )
+          )
+        )
       )
     {
     }
@@ -418,7 +461,8 @@ namespace bcl
         m_MaxClashToleranceFlag( APP.m_MaxClashToleranceFlag),
         m_RequireSampleByPartsFlag( APP.m_RequireSampleByPartsFlag),
         m_AlignByNonMobileFlag( APP.m_AlignByNonMobileFlag),
-        m_FixGeometryFlag( APP.m_FixGeometryFlag)
+        m_FixGeometryFlag( APP.m_FixGeometryFlag),
+        m_FilterMetricFlag( APP.m_FilterMetricFlag)
       {
       }
 
@@ -573,6 +617,7 @@ namespace bcl
       sp_cmd->AddFlag( m_AlignByNonMobileFlag);
       sp_cmd->AddFlag( m_FixGeometryFlag);
       sp_cmd->AddFlag( m_RotamerLibraryFlag);
+      sp_cmd->AddFlag( m_FilterMetricFlag);
 
       // add default bcl parameters
       command::GetAppDefaultFlags().AddDefaultCommandlineFlags( *sp_cmd);
@@ -842,6 +887,7 @@ namespace bcl
 
       // collect unique atoms to be mobile
       MOLECULE.GetStoredPropertiesNonConst().SetMDLProperty("SampleByParts", linal::Vector< float>( moveable_atoms_set.Begin(), moveable_atoms_set.End()));
+      return true;
     }
 
     //! @brief controls output from the app of interest
@@ -979,6 +1025,7 @@ namespace bcl
         }
       }
 
+      // optional fix geometry
       storage::Pair< chemistry::FragmentEnsemble, chemistry::FragmentEnsemble> conformation_result;
       if( m_FixGeometryFlag->GetFlag())
       {
@@ -986,10 +1033,12 @@ namespace bcl
         bool bad_geometry_detected( DetectBadGeometry( molecule, m_FixGeometryFlag->GetFirstParameter()->GetNumericalValue< bool>()));
         if( bad_geometry_detected)
         {
+          // generate conformers
           conformation_result = storage::Pair< chemistry::FragmentEnsemble, chemistry::FragmentEnsemble>( m_SampleConformations->operator ()( molecule));
         }
         else
         {
+          // return input
           conformation_result = storage::Pair< chemistry::FragmentEnsemble, chemistry::FragmentEnsemble>
           (
             chemistry::FragmentEnsemble( storage::List< chemistry::FragmentComplete>( 1, MOLECULE) ),
@@ -999,12 +1048,25 @@ namespace bcl
       }
       else
       {
+        // generate conformers
         conformation_result = storage::Pair< chemistry::FragmentEnsemble, chemistry::FragmentEnsemble>( m_SampleConformations->operator ()( MOLECULE));
       }
-
-      // generate conformers
       chemistry::FragmentEnsemble &ensemble( conformation_result.First());
       chemistry::FragmentEnsemble &fragment_ensemble( conformation_result.Second());
+
+      // optional filtering
+      if( m_FilterMetricFlag->GetFlag())
+      {
+        ensemble = m_SampleConformations->FilterConformerEnsemble
+        (
+          ensemble,
+          MOLECULE,
+          m_FilterMetricFlag->GetParameterList()( 0)->GetValue(),
+          math::Comparisons< float>::Comparison( m_FilterMetricFlag->GetParameterList()( 1)->GetValue()),
+          m_FilterMetricFlag->GetParameterList()( 2)->GetNumericalValue< float>(),
+          storage::Vector< size_t>() // consider making these the heavy atoms
+        );
+      }
 
       // optional re-alignment
       if( ( m_AlignByNonMobileFlag->GetFlag() && valid_sbp ) || ( m_FixGeometryFlag->GetFlag() && MOLECULE.GetAtomsWithBadGeometry().GetSize() ) )

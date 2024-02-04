@@ -271,6 +271,17 @@ namespace bcl
       //! @brief extract a fragment from a molecule based on its indices
       static FragmentComplete ExtractFragmentByIndices( const FragmentComplete &MOLECULE, const storage::Vector< size_t> &INDICES);
 
+      //! @brief superimpose the coordinates of two molecules
+      //! @param TARGET_MOL the molecule to be aligned
+      //! @param SCAFFOLD_MOL the molecule to which TARGET_MOL will be aligned
+      static void Superimpose
+      (
+        FragmentComplete &TARGET_MOL,
+        const FragmentComplete &SCAFFOLD_MOL,
+        const storage::Vector< size_t> &TARGET_MOL_INDICES = storage::Vector< size_t>(),
+        const storage::Vector< size_t> &SCAFFOLD_MOL_INDICES = storage::Vector< size_t>()
+      );
+
       //! @brief get the maximum common substructure between two molecules
       graph::CommonSubgraphIsomorphism< size_t, size_t> FindCommonSubgraphIsomorphism( const FragmentComplete &MOL_A, const FragmentComplete &MOL_B) const;
 

@@ -102,8 +102,8 @@ namespace bcl
       // this allows alternative poses to be discovered for symmetric molecules
       util::ShPtr< command::FlagInterface> m_FindAllFlag;
 
-      // filter metric; only applicable if 'find_all' is enabled
-      util::ShPtr< command::FlagInterface> m_FilterMetricFlag;
+      // save only unique conformers from the final ensemble; only applicable if 'find_all' is enabled
+      util::ShPtr< command::FlagInterface> m_UniqueFlag;
 
       // keep the ensemble of unique generated conformers; only applicable if 'find_all' is enabled; occurs after application of 'filter_metric'
       util::ShPtr< command::FlagInterface> m_SaveEnsembleFlag;
