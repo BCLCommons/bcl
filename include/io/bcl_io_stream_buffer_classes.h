@@ -118,7 +118,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< io::StreamBufferInterface>, io::StreamBufferClasses>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::io::StreamBufferInterface>, bcl::io::StreamBufferClasses>;
 
   } // namespace util
 } // namespace bcl

@@ -654,9 +654,10 @@ namespace bcl
       //////////////////////////////////
 
         //! @brief default constructor ( optional in this case)
-        IntermediateSolution()
-        {
-        }
+        // commented since current implementation could not be compiled because member variables requiring explicit instantiation is no instantiated
+        // IntermediateSolution()
+        // {
+        // }
 
         //! @brief the primary constructor.  Sets up the intermediate solution on graph_a and graph_b
         //! @param MAX_SIZE_OF_ISOMORPHISM should be the maximum size that the isomorphism might become,
@@ -1327,5 +1328,8 @@ namespace bcl
   } // namespace graph
 } // namespace bcl
 
-#endif // BCL_GRAPH_COMMON_SUBGRAPH_ISOMORPHISM_H_
+#ifdef PYBCL
+template class bcl::graph::CommonSubgraphIsomorphism<size_t,size_t>;
+#endif
 
+#endif // BCL_GRAPH_COMMON_SUBGRAPH_ISOMORPHISM_H_

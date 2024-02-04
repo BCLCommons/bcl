@@ -150,7 +150,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Offset< biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Offset< bcl::biol::AABase>;
     BCL_EXPIMP_TEMPLATE template class BCL_API Offset< char>;
 
   } // namespace descriptor

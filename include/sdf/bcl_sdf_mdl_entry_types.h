@@ -129,7 +129,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< sdf::MdlEntryTypeData, sdf::MdlEntryTypes>;
+	BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::sdf::MdlEntryTypeData, bcl::sdf::MdlEntryTypes>;
 
   } // namespace util
 } // namespace bcl

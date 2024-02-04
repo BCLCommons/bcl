@@ -205,7 +205,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Periodogram< biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Periodogram< bcl::biol::AABase>;
     BCL_EXPIMP_TEMPLATE template class BCL_API Periodogram< char>;
 
   } // namespace descriptor

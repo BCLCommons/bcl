@@ -124,7 +124,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< sspred::MethodInterface>, sspred::Methods>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::sspred::MethodInterface>, bcl::sspred::Methods>;
 
   } // namespace util
 } // namespace bcl

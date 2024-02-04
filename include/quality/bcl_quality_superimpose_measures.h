@@ -104,7 +104,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< quality::SuperimposeInterface>, quality::SuperimposeMeasures>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::quality::SuperimposeInterface>, bcl::quality::SuperimposeMeasures>;
 
   } // namespace util
 } // namespace bcl

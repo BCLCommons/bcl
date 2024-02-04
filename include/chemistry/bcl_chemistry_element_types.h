@@ -213,7 +213,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< chemistry::ElementTypeData, chemistry::ElementTypes>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::chemistry::ElementTypeData, bcl::chemistry::ElementTypes>;
 
   } // namespace util
 } // namespace bcl

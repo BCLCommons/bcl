@@ -53,7 +53,7 @@ namespace bcl
       public MetaDataStorageInterface
     {
 
-    private:
+    public:
 
     //////////
     // data //
@@ -69,6 +69,7 @@ namespace bcl
         s_MaxExtensionType //!< max number of extension types
       };
 
+    private:
       //! @brief ExtensionType as string
       //! @param INIT_TYPE the ExtensionType
       //! @return the string for the INIT_TYPE

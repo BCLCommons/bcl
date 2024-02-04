@@ -108,10 +108,9 @@ namespace bcl
   /////////////////////////////
 
     BCL_EXPIMP_TEMPLATE template class BCL_API SerializationWithCheck< std::string>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API SerializationWithCheck< util::ObjectDataLabel>;
+	BCL_EXPIMP_TEMPLATE template class BCL_API SerializationWithCheck< bcl::util::ObjectDataLabel>;
 
   } // namespace io
 } // namespace bcl
 
 #endif // BCL_IO_SERIALIZATION_WITH_CHECK_H_
-

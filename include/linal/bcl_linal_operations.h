@@ -119,8 +119,8 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< linal::OperationsInterface<  float> >, linal::Operations<  float> >;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< linal::OperationsInterface< double> >, linal::Operations< double> >;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::linal::OperationsInterface<  float> >, bcl::linal::Operations<  float> >;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::linal::OperationsInterface< double> >, bcl::linal::Operations< double> >;
 
   } // namespace util
 } // namespace bcl

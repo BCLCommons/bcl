@@ -232,9 +232,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API KohonenMapInfo< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API KohonenMapInfo< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API KohonenMapInfo< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API KohonenMapInfo< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API KohonenMapInfo< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API KohonenMapInfo< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API KohonenMapInfo< char>;
 
   } // namespace descriptor

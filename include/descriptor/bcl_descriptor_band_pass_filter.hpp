@@ -12,6 +12,9 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
+#ifndef BCL_DESCRIPTOR_BAND_PASS_FILTER_HPP_
+#define BCL_DESCRIPTOR_BAND_PASS_FILTER_HPP_
+
 // include header of this class
 #include "bcl_descriptor_band_pass_filter.h"
 // includes from bcl - sorted alphabetically
@@ -329,3 +332,5 @@ namespace bcl
 
   } // namespace descriptor
 } // namespace bcl
+
+#endif // BCL_DESCRIPTOR_BAND_PASS_FILTER_HPP_

@@ -238,9 +238,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Prediction< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Prediction< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Prediction< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Prediction< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Prediction< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Prediction< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API Prediction< char>;
 
   } // namespace descriptor

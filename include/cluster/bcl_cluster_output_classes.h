@@ -117,8 +117,8 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< cluster::OutputInterface< std::string, float> >, cluster::OutputClasses< std::string, float> >;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< cluster::OutputInterface< linal::Vector< float>, float> >, cluster::OutputClasses< linal::Vector< float>, float> >;
+	BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::cluster::OutputInterface< std::string, float> >, bcl::cluster::OutputClasses< std::string, float> >;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::cluster::OutputInterface< bcl::linal::Vector< float>, float> >, bcl::cluster::OutputClasses< bcl::linal::Vector< float>, float> >;
 
   } // namespace util
 } // namespace bcl

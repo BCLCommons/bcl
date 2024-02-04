@@ -49,6 +49,7 @@ namespace bcl
       public util::ObjectInterface
     {
 
+	  public:
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       //! @class SinglePerturbation
       //! @brief a single perturbation in the mutate

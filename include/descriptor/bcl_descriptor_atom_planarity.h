@@ -153,8 +153,8 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API AtomPlanarity< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API AtomPlanarity< biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API AtomPlanarity< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API AtomPlanarity< bcl::biol::AABase>;
 
   } // namespace descriptor
 } // namespace bcl

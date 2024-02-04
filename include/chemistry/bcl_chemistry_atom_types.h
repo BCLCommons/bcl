@@ -299,10 +299,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< chemistry::AtomTypeData, chemistry::AtomTypes>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::chemistry::AtomTypeData, bcl::chemistry::AtomTypes>;
 
   } // namespace util
 } // namespace bcl
 
 #endif // BCL_CHEMISTRY_ATOM_TYPES_H_
-

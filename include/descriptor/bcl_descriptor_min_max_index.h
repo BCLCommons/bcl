@@ -141,9 +141,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API MinMaxIndex< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API MinMaxIndex< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API MinMaxIndex< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API MinMaxIndex< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API MinMaxIndex< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API MinMaxIndex< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API MinMaxIndex< char>;
 
   } // namespace descriptor

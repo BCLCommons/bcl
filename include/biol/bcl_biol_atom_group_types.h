@@ -120,7 +120,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< biol::AtomGroupTypeData, biol::AtomGroupTypes>;
+	BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::biol::AtomGroupTypeData, bcl::biol::AtomGroupTypes>;
 
   } // namespace util
 } // namespace bcl

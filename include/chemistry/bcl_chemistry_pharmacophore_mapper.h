@@ -53,6 +53,7 @@ namespace bcl
       public util::ObjectInterface
     {
 
+	  public:
       ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
       //!
       //! @class PharmMapMolData
@@ -73,6 +74,7 @@ namespace bcl
         float m_Score;
       };
 
+    private:
     //////////
     // data //
     //////////

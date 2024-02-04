@@ -26,6 +26,7 @@
 #include "bcl_chemistry_constitutional_bond_type_data.h"
 #include "util/bcl_util_enumerate.h"
 #include "util/bcl_util_wrapper_enum.h"
+#include "bcl_chemistry_configurational_bond_types.h"
 
 // external includes - sorted alphabetically
 
@@ -268,4 +269,3 @@ namespace bcl
 } // namespace bcl
 
 #endif //BCL_CHEMISTRY_CONFIGURATIONAL_BOND_TYPE_DATA_H_
-

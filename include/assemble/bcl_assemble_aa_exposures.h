@@ -92,7 +92,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< ShPtr< assemble::AAExposureInterface>, assemble::AAExposures>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::util::ShPtr< bcl::assemble::AAExposureInterface>, bcl::assemble::AAExposures>;
 
   } // namespace util
 } // namespace bcl

@@ -267,9 +267,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Iterator< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Iterator< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API Iterator< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Iterator< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Iterator< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Iterator< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API Iterator< char>;
 
   } // namespace descriptor

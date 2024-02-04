@@ -147,9 +147,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API UnaryOperation< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API UnaryOperation< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API UnaryOperation< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API UnaryOperation< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API UnaryOperation< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API UnaryOperation< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API UnaryOperation< char>;
 
   } // namespace descriptor

@@ -107,19 +107,29 @@ namespace bcl
 
     }; // class SequenceSize
 
+  } // namespace descriptor
+} // namespace bcl
+
+#ifdef PYBCL
+#include "bcl_descriptor_sequence_size.hpp"
+#endif
+
+namespace bcl
+{
+  namespace descriptor
+  {
   /////////////////////////////
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< chemistry::AtomConformationalInterface, char>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< chemistry::AtomConformationalInterface, float>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< biol::AABase, char>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< biol::Mutation, char>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< biol::AABase, float>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< biol::Mutation, float>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< bcl::chemistry::AtomConformationalInterface, char>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< bcl::chemistry::AtomConformationalInterface, float>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< bcl::biol::AABase, char>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< bcl::biol::Mutation, char>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< bcl::biol::AABase, float>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< bcl::biol::Mutation, float>;
     BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< char, char>;
     BCL_EXPIMP_TEMPLATE template class BCL_API SequenceSize< char, float>;
-
   } // namespace descriptor
 } // namespace bcl
 
