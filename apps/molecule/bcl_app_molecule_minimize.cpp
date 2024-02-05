@@ -44,7 +44,7 @@ namespace bcl
 
     //! @brief standard constructor
     MoleculeMinimize::MoleculeMinimize() :
-      m_OutputFilenameBase
+      m_Output
       (
         new command::FlagStatic
         (
@@ -83,14 +83,13 @@ namespace bcl
     // common options //
     ////////////////////
 
-      // add flags for input
       chemistry::FragmentFeed::AddFlags( *sp_cmd);
 
-      // Output filename base
-      sp_cmd->AddFlag( m_OutputFilenameBase);
+      sp_cmd->AddFlag( m_Output);
 
-      // molecule reading prefs
-      sdf::AddMoleculeIOPrefFlags( *sp_cmd);
+      sp_cmd->AddFlag( sdf::GetAddHydrogensFlag());
+      sp_cmd->AddFlag( sdf::GetNeutralizeChargesFlag());
+      sp_cmd->AddFlag( sdf::GetExplicitAromaticityFlag());
 
     ///////////////////
     // default flags //
@@ -128,7 +127,7 @@ namespace bcl
     int MoleculeMinimize::Main() const
     {
       // clear output file if it exists
-      const std::string output_filename( m_OutputFilenameBase->GetFirstParameter()->GetValue() + util::Format()( ".sdf"));
+      const std::string output_filename( m_Output->GetFirstParameter()->GetValue());
       io::DirectoryEntry entry( output_filename);
       if( entry.DoesExist())
       {

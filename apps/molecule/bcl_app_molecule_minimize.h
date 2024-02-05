@@ -60,7 +60,7 @@ namespace bcl
     //////////
 
       //! Output filename base
-      util::ShPtr< command::FlagInterface> m_OutputFilenameBase;
+      util::ShPtr< command::FlagInterface> m_Output;
 
     ///////////////////////////////////
     // construction and destruction //
