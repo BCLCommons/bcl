@@ -60,7 +60,48 @@ namespace bcl
     //////////
 
       //! Output filename base
-      util::ShPtr< command::FlagInterface> m_Output;
+      util::ShPtr< command::FlagInterface> m_OutputFlag;
+
+      //! Force field to use
+      util::ShPtr< command::FlagInterface> m_ForceFieldFlag;
+
+      //! The threshold to be used in adding non-bonded terms to the force field.
+      //! Any non-bonded contact whose current distance is greater than nonBondedThresh * the minimum value for that contact
+      //! will not be included.
+      util::ShPtr< command::FlagInterface> m_NonbondedThresholdFlag;
+
+      //!  If true, nonbonded terms will not be added between fragments
+      util::ShPtr< command::FlagInterface> m_IgnoreInterFragmentInteractionsFlag;
+
+      //! @brief Maximum number of iterations to perform for geometry optimization
+      util::ShPtr< command::FlagInterface> m_MaxIterationsFlag;
+
+      //! @brief The convergence criterion for forces
+      util::ShPtr< command::FlagInterface> m_ForceToleranceFlag;
+
+      //! @brief The convergence criterion for energies
+      util::ShPtr< command::FlagInterface> m_EnergyToleranceFlag;
+
+      //! Position restraint flag
+      util::ShPtr< command::FlagInterface> m_PositionalRestraintsFlag;
+
+      //! MDL property that specifies which atoms are to be restrained
+      util::ShPtr< command::FlagInterface> m_PositionalRestraintsMDLFlag;
+
+      //! @brief MDL property that specifies the maximum allowed displacement per-atom (per-atom vector)
+      util::ShPtr< command::FlagInterface> m_MaxUnrestrainedDisplacementMDLFlag;
+
+      //! @brief The maximum allowed displacement per-atom (scalar applied to all atoms)
+      util::ShPtr< command::FlagInterface> m_MaxUnrestrainedDisplacementDefaultFlag;
+
+      //! @brief MDL property that specifies the per-atom restraint force (per-atom vector)
+      util::ShPtr< command::FlagInterface> m_RestraintForceMDLFlag;
+
+      //! @brief The per-atom restraint force (scalar applied to all atoms)
+      util::ShPtr< command::FlagInterface> m_RestraintForceDefaultFlag;
+
+      //! Output stream
+      mutable io::OFStream m_Output;
 
     ///////////////////////////////////
     // construction and destruction //
@@ -68,6 +109,9 @@ namespace bcl
 
       //! default constructor
       MoleculeMinimize();
+
+      //! copy constructor, only copy the flags
+      MoleculeMinimize( const MoleculeMinimize &PARENT);
 
     public:
 
@@ -97,12 +141,36 @@ namespace bcl
       //! @return a brief (no more than 3 line) description for the application
       std::string GetDescription() const;
 
+    ////////////////
+    //    main    //
+    ////////////////
+
       //! @brief the Main function
       //! @return error code - 0 for success
       int Main() const;
 
-//      //! @brief minimize with constraints
-//      void MinimizeWithConstraints( std::shared_ptr< ::RDKit::RWMol> &MOL) const;
+    //////////////////////
+    // helper functions //
+    /////////////////////
+
+      //! @brief prepare output streams
+      void InitializeOutputFiles() const;
+
+      //! @brief identify atoms to which positional restraints need be applied
+      //! @param MOLECULE the molecule being geometry optimized
+      //! @return the atom indices in MOLECULE requiring restraints
+      const storage::Vector< size_t> GetPositionalRestraintAtoms( const chemistry::FragmentComplete &MOLECULE) const;
+
+      //! @brief get the displacement allowed by each atom before the restraint force is applied
+      //! @param MOLECULE the molecule being geometry optimized
+      //! @return the per-atom allowed unrestrained displacement
+      const storage::Vector< double> GetMaxUnrestrainedDisplacement( const chemistry::FragmentComplete &MOLECULE) const;
+
+      //! @brief get the restraint force felt by each atom
+      //! @param MOLECULE the molecule being geometry optimized
+      //! @return the per-atom restraint force
+      const storage::Vector< double> GetRestraintForce( const chemistry::FragmentComplete &MOLECULE) const;
+
 
     //////////////////////
     // input and output //
