@@ -210,9 +210,6 @@ namespace bcl
   ////////////////////////////
 
     // Create 3D bounding box
-    // for ben: type<blah> foo::bar(const ArgumentType &INPUT) const
-    // the const near the argument input says that I will not modify the argument object
-    // the const at the end of the declaration means I promise not to modfify any member variables in the class bar belongs to (foo)
     linal::Vector< double> ConformationComparisonMultiAlign::GetAxisAlignedBoundingBox( FragmentComplete &TARGET) const
     {
       math::RunningMinMax< double> x, y, z;

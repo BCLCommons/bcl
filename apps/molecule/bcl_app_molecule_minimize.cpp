@@ -24,7 +24,7 @@ BCL_StaticInitializationFiascoFinder
 #include "chemistry/bcl_chemistry_rdkit_mol_utils.h"
 #include "io/bcl_io_directory_entry.h"
 #include "math/bcl_math_limits.h"
-#include "mm/bcl_mm_rdkit_energy_minimize_mmff94.h"
+#include "mm/bcl_mm_rdkit_energy_minimize.h"
 
 // external includes - sorted alphabetically
 
@@ -144,7 +144,7 @@ namespace bcl
       for( chemistry::FragmentFeed feed; feed.NotAtEnd(); ++feed, ++feed_index)
       {
         chemistry::FragmentComplete mol( *feed);
-        mm::RdkitEnergyMinimizeMmff94::OptimizeGeometry( mol, "MMFF94s", 100.0, true, 1000, 1.0e-4, 1.0e-4);
+        mm::RdkitEnergyMinimize::OptimizeGeometry( mol, "MMFF94s", 100.0, true, 1000, 1.0e-4, 1.0e-4);
         mol.WriteMDL( output);
       }
       io::File::CloseClearFStream( output);
