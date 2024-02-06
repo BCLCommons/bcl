@@ -189,11 +189,19 @@ namespace bcl
           )
         )
       ),
+      m_PositionalRestraintsMDLComplementFlag
+      (
+        new command::FlagStatic
+        (
+          "position_restraints_mdl_complement",
+          "if enabled, use the complement atom indices of those specified by the MDL property specified by 'position_restraints_mdl'"
+        )
+      ),
       m_MaxUnrestrainedDisplacementMDLFlag
       (
         new command::FlagStatic
         (
-          "max_unrestraiend_displacement_mdl",
+          "max_unrestrained_displacement_mdl",
           "the MDL property that specifies the maximum allowed unrestrained displacement per-atom; "
           "if enabled, must be provided for all atoms in the molecule or else the default value "
           "will be applied to all atoms",
@@ -209,7 +217,7 @@ namespace bcl
       (
         new command::FlagStatic
         (
-          "max_unrestraiend_displacement",
+          "max_unrestrained_displacement",
           "scalar value specifying the maximum allowed unrestrained displacement in Angstroms for each atom during minimization; "
           "functions as the default value if 'max_unrestraiend_displacement_mdl' is not provided or is invalid",
           command::Parameter
@@ -267,6 +275,7 @@ namespace bcl
         m_EnergyToleranceFlag( PARENT.m_EnergyToleranceFlag),
         m_PositionalRestraintsFlag( PARENT.m_PositionalRestraintsFlag),
         m_PositionalRestraintsMDLFlag( PARENT.m_PositionalRestraintsMDLFlag),
+        m_PositionalRestraintsMDLComplementFlag( PARENT.m_PositionalRestraintsMDLComplementFlag),
         m_MaxUnrestrainedDisplacementMDLFlag( PARENT.m_MaxUnrestrainedDisplacementMDLFlag),
         m_MaxUnrestrainedDisplacementDefaultFlag( PARENT.m_MaxUnrestrainedDisplacementDefaultFlag),
         m_RestraintForceMDLFlag( PARENT.m_RestraintForceMDLFlag),
@@ -308,6 +317,7 @@ namespace bcl
       sp_cmd->AddFlag( m_EnergyToleranceFlag);
       sp_cmd->AddFlag( m_PositionalRestraintsFlag);
       sp_cmd->AddFlag( m_PositionalRestraintsMDLFlag);
+      sp_cmd->AddFlag( m_PositionalRestraintsMDLComplementFlag);
       sp_cmd->AddFlag( m_MaxUnrestrainedDisplacementMDLFlag);
       sp_cmd->AddFlag( m_MaxUnrestrainedDisplacementDefaultFlag);
       sp_cmd->AddFlag( m_RestraintForceMDLFlag);
@@ -354,8 +364,8 @@ namespace bcl
 
         // add any restraints
         const storage::Vector< size_t> restraint_atoms( GetPositionalRestraintAtoms( mol));
-        const storage::Vector< double> max_unrestrained_displacement( GetMaxUnrestrainedDisplacement( mol));
-        const storage::Vector< double> restraint_force( GetRestraintForce( mol));
+        const storage::Vector< double> max_unrestrained_displacement( GetMaxUnrestrainedDisplacement( mol, restraint_atoms));
+        const storage::Vector< double> restraint_force( GetRestraintForce( mol, restraint_atoms));
 
         // minimize
         if( m_MaxIterationsFlag->GetFirstParameter()->GetNumericalValue< size_t>() )
@@ -378,6 +388,7 @@ namespace bcl
           );
 
           // handle properties relevant to minimization
+          mol.StoreProperties( *feed);
           mol.GetStoredPropertiesNonConst().SetMDLProperty("MoleculeMinimize_Mode", util::Format()( "Minimize"));
           mol.GetStoredPropertiesNonConst().SetMDLProperty("MoleculeMinimize_FF", m_ForceFieldFlag->GetFirstParameter()->GetValue());
           mol.GetStoredPropertiesNonConst().SetMDLProperty("MoleculeMinimize_Success", minimization_result.First() == int( 0) ? util::Format()( "1") : util::Format()( "0"));
@@ -448,9 +459,23 @@ namespace bcl
         return storage::Vector< size_t>();
       }
 
-      else if( m_PositionalRestraintsMDLFlag->GetFlag())
+      else if( m_PositionalRestraintsMDLFlag->GetFlag() && !MOLECULE.GetStoredProperties().GetMDLProperty( m_PositionalRestraintsMDLFlag->GetFirstParameter()->GetValue() ).empty())
       {
-        std::string restraint_atoms_str( m_PositionalRestraintsMDLFlag->GetFirstParameter()->GetValue());
+        std::string restraint_atoms_str( MOLECULE.GetStoredProperties().GetMDLProperty( m_PositionalRestraintsMDLFlag->GetFirstParameter()->GetValue() ));
+        if( m_PositionalRestraintsMDLComplementFlag->GetFlag())
+        {
+          storage::Vector< size_t> restraint_atoms( util::SplitStringToNumerical< size_t>( restraint_atoms_str) );
+          storage::Set< size_t> restraint_atoms_set( restraint_atoms.Begin(), restraint_atoms.End());
+          restraint_atoms.Reset();
+          for( size_t mol_atom( 0), mol_sz( MOLECULE.GetSize()); mol_atom <  mol_sz; ++mol_atom)
+          {
+            if( restraint_atoms_set.Find(mol_atom) == restraint_atoms_set.End())
+            {
+              restraint_atoms.PushBack(mol_atom);
+            }
+          }
+          return restraint_atoms;
+        }
         return storage::Vector< size_t>( util::SplitStringToNumerical< size_t>( restraint_atoms_str) );
       }
 
@@ -476,7 +501,8 @@ namespace bcl
     //! @return the per-atom allowed unrestrained displacement
     const storage::Vector< double> MoleculeMinimize::GetMaxUnrestrainedDisplacement
     (
-      const chemistry::FragmentComplete &MOLECULE
+      const chemistry::FragmentComplete &MOLECULE,
+      const storage::Vector< size_t> &RESTRAINT_ATOMS
     ) const
     {
       // no restraints
@@ -489,12 +515,11 @@ namespace bcl
       (
           !m_MaxUnrestrainedDisplacementMDLFlag->GetFlag() ||
           MOLECULE.GetStoredProperties().GetMDLProperty( m_MaxUnrestrainedDisplacementMDLFlag->GetFirstParameter()->GetValue() ).empty() ||
-          MOLECULE.GetStoredProperties().GetMDLPropertyAsVector( m_MaxUnrestrainedDisplacementMDLFlag->GetFirstParameter()->GetValue() ).GetSize() != MOLECULE.GetSize()
-          // TODO this needs to be modified so that if an MDL property for atom indices to be restrained is specified that it checks against that length
+          MOLECULE.GetStoredProperties().GetMDLPropertyAsVector( m_MaxUnrestrainedDisplacementMDLFlag->GetFirstParameter()->GetValue() ).GetSize() != RESTRAINT_ATOMS.GetSize()
       )
       {
         // use the default value
-        return storage::Vector< double>( MOLECULE.GetSize(), m_MaxUnrestrainedDisplacementDefaultFlag->GetFirstParameter()->GetNumericalValue< double>() );
+        return storage::Vector< double>( RESTRAINT_ATOMS.GetSize(), m_MaxUnrestrainedDisplacementDefaultFlag->GetFirstParameter()->GetNumericalValue< double>() );
       }
       // restraints enabled, valid MDL
       else
@@ -513,7 +538,8 @@ namespace bcl
     //! @return the per-atom restraint force
     const storage::Vector< double> MoleculeMinimize::GetRestraintForce
     (
-      const chemistry::FragmentComplete &MOLECULE
+      const chemistry::FragmentComplete &MOLECULE,
+      const storage::Vector< size_t> &RESTRAINT_ATOMS
     ) const
     {
       // no restraints
@@ -526,12 +552,11 @@ namespace bcl
       (
           !m_RestraintForceMDLFlag->GetFlag() ||
           MOLECULE.GetStoredProperties().GetMDLProperty( m_RestraintForceMDLFlag->GetFirstParameter()->GetValue() ).empty() ||
-          MOLECULE.GetStoredProperties().GetMDLPropertyAsVector( m_RestraintForceMDLFlag->GetFirstParameter()->GetValue() ).GetSize() != MOLECULE.GetSize()
-          // TODO this needs to be modified so that if an MDL property for atom indices to be restrained is specified that it checks against that length
+          MOLECULE.GetStoredProperties().GetMDLPropertyAsVector( m_RestraintForceMDLFlag->GetFirstParameter()->GetValue() ).GetSize() != RESTRAINT_ATOMS.GetSize()
       )
       {
         // use the default value
-        return storage::Vector< double>( MOLECULE.GetSize(), m_RestraintForceDefaultFlag->GetFirstParameter()->GetNumericalValue< double>() );
+        return storage::Vector< double>( RESTRAINT_ATOMS.GetSize(), m_RestraintForceDefaultFlag->GetFirstParameter()->GetNumericalValue< double>() );
       }
       // restraints enabled, valid MDL
       else

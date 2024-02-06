@@ -59,18 +59,18 @@ namespace bcl
     // data //
     //////////
 
-      //! Output filename base
+      //! @brief Output filename base
       util::ShPtr< command::FlagInterface> m_OutputFlag;
 
-      //! Force field to use
+      //! @brief Force field to use
       util::ShPtr< command::FlagInterface> m_ForceFieldFlag;
 
-      //! The threshold to be used in adding non-bonded terms to the force field.
+      //! @brief The threshold to be used in adding non-bonded terms to the force field.
       //! Any non-bonded contact whose current distance is greater than nonBondedThresh * the minimum value for that contact
       //! will not be included.
       util::ShPtr< command::FlagInterface> m_NonbondedThresholdFlag;
 
-      //!  If true, nonbonded terms will not be added between fragments
+      //! @brief If true, nonbonded terms will not be added between fragments
       util::ShPtr< command::FlagInterface> m_IgnoreInterFragmentInteractionsFlag;
 
       //! @brief Maximum number of iterations to perform for geometry optimization
@@ -82,11 +82,14 @@ namespace bcl
       //! @brief The convergence criterion for energies
       util::ShPtr< command::FlagInterface> m_EnergyToleranceFlag;
 
-      //! Position restraint flag
+      //! @brief The position restraint flag
       util::ShPtr< command::FlagInterface> m_PositionalRestraintsFlag;
 
-      //! MDL property that specifies which atoms are to be restrained
+      //! @brief The MDL property that specifies which atoms are to be restrained
       util::ShPtr< command::FlagInterface> m_PositionalRestraintsMDLFlag;
+
+      //! @brief If enabled, take the complement atom indices of those specified in the MDL property
+      util::ShPtr< command::FlagInterface> m_PositionalRestraintsMDLComplementFlag;
 
       //! @brief MDL property that specifies the maximum allowed displacement per-atom (per-atom vector)
       util::ShPtr< command::FlagInterface> m_MaxUnrestrainedDisplacementMDLFlag;
@@ -100,7 +103,7 @@ namespace bcl
       //! @brief The per-atom restraint force (scalar applied to all atoms)
       util::ShPtr< command::FlagInterface> m_RestraintForceDefaultFlag;
 
-      //! Output stream
+      //! @brief Output stream
       mutable io::OFStream m_Output;
 
     ///////////////////////////////////
@@ -164,12 +167,20 @@ namespace bcl
       //! @brief get the displacement allowed by each atom before the restraint force is applied
       //! @param MOLECULE the molecule being geometry optimized
       //! @return the per-atom allowed unrestrained displacement
-      const storage::Vector< double> GetMaxUnrestrainedDisplacement( const chemistry::FragmentComplete &MOLECULE) const;
+      const storage::Vector< double> GetMaxUnrestrainedDisplacement
+      (
+        const chemistry::FragmentComplete &MOLECULE,
+        const storage::Vector< size_t> &RESTRAINT_ATOMS
+      ) const;
 
       //! @brief get the restraint force felt by each atom
       //! @param MOLECULE the molecule being geometry optimized
       //! @return the per-atom restraint force
-      const storage::Vector< double> GetRestraintForce( const chemistry::FragmentComplete &MOLECULE) const;
+      const storage::Vector< double> GetRestraintForce
+      (
+        const chemistry::FragmentComplete &MOLECULE,
+        const storage::Vector< size_t> &RESTRAINT_ATOMS
+      ) const;
 
 
     //////////////////////
