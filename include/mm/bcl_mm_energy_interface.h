@@ -35,7 +35,7 @@ namespace bcl
     //! @brief This class is an interface class for classes that compute energies with molecular mechanics force fields
     //!
     //! @see @link example_mm_energy_interface.cpp @endlink
-    //! @author ben
+    //! @author brownbp1
     //! @date Oct 22, 2022
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

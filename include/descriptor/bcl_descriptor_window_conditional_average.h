@@ -165,7 +165,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API WindowConditionalAverage< biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API WindowConditionalAverage< bcl::biol::AABase>;
     BCL_EXPIMP_TEMPLATE template class BCL_API WindowConditionalAverage< char>;
 
   } // namespace descriptor

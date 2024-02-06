@@ -160,9 +160,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API OuterProduct< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API OuterProduct< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API OuterProduct< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API OuterProduct< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API OuterProduct< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API OuterProduct< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API OuterProduct< char>;
 
   } // namespace descriptor

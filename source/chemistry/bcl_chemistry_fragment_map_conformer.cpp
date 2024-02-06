@@ -45,7 +45,7 @@ BCL_StaticInitializationFiascoFinder
 #include "descriptor/bcl_descriptor_molecule_druglike.h"
 #include "find/bcl_find_collector_interface.h"
 #include "math/bcl_math_rotation_matrix_3d.h"
-#include "mm/bcl_mm_rdkit_energy_minimize_mmff94.h"
+#include "mm/bcl_mm_rdkit_energy_minimize.h"
 #include "pdb/bcl_pdb_factory.h"
 #include "quality/bcl_quality_rmsd.h"
 #include "random/bcl_random_distribution_interface.h"
@@ -490,7 +490,7 @@ namespace bcl
         io::File::CloseClearFStream( debug_out);
 
         // setup our restraint terms in the minimizer
-        static mm::RdkitEnergyMinimizeMmff94 minimizer;
+        static mm::RdkitEnergyMinimize minimizer;
         minimizer.SetPositionalRestraintAtoms( m_RestrainedIndices);
         storage::Vector< double> restraint_forces( m_RestrainedIndices.GetSize(), 1000.0);
         minimizer.SetRestraintForce( restraint_forces);

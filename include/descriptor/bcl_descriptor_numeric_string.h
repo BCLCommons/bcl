@@ -163,9 +163,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API NumericString< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API NumericString< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API NumericString< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API NumericString< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API NumericString< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API NumericString< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API NumericString< char>;
   } // namespace descriptor
 } // namespace bcl

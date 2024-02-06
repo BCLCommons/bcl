@@ -12,11 +12,12 @@
 // (c) This file is part of the BCL software suite and is made available under the MIT license.
 // (c)
 
-#ifndef BCL_MM_RDKIT_ENERGY_UFF_H_
-#define BCL_MM_RDKIT_ENERGY_UFF_H_
+#ifndef BCL_MM_RDKIT_ENERGY_H_
+#define BCL_MM_RDKIT_ENERGY_H_
 
 // include the namespace header
 #include "bcl_mm.h"
+#include "mm/bcl_mm_rdkit_force_fields.h"
 
 // include other forward headers - sorted alphabetically
 #include "bcl_mm_energy_interface.h"
@@ -35,24 +36,30 @@ namespace bcl
 
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //!
-    //! @class RDKitEnergyUFF
-    //! @brief This class computes molecular mechanics energies using the Universal Force Field (UFF) implemented in
-    //! RDKit. Working energy unit is kcal/mol. Any energy conversion is done after the calculation.
+    //! @class RDKitEnergy
+    //! @brief This class computes molecular mechanics energies using the UFF, MMFF94, or MMFF94s force fields
+    //! as implemented in RDKit. Working energy unit is kcal/mol. Any energy conversion is done after the calculation.
     //!
-    //! @see @link example_mm_rdkit_energy_uff.cpp @endlink
+    //! @see @link example_mm_rdkit_energy.cpp @endlink
     //! @author brownbp1
-    //! @date Dec 20, 2022
+    //! @date Feb 04, 2024
     //!
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-    class BCL_API RDKitEnergyUFF :
+    class BCL_API RDKitEnergy :
       public EnergyInterface
     {
     //////////
     // data //
     //////////
 
+    public:
+
     protected:
+
+      //! The MMFF variant that we are using
+      RdkitForceFieldsEnum m_ForceFieldEnum;
+      std::string m_ForceFieldString;
 
       //! The threshold to be used in adding non-bonded terms to the force field.
       //! Any non-bonded contact whose current distance is greater than nonBondedThresh * the minimum value for that contact
@@ -69,17 +76,18 @@ namespace bcl
     //////////////////////////////////
 
       //! default constructor
-      RDKitEnergyUFF();
+      RDKitEnergy();
 
       //! full constructor
-      RDKitEnergyUFF
+      RDKitEnergy
       (
+        const RdkitForceFieldsEnum &VARIANT,
         const double NON_BONDED_THRESHOLD,
         const bool IGNORE_INTER_FRAG_INTERACTIONS
       );
 
       //! virtual copy constructor
-      RDKitEnergyUFF *Clone() const;
+      RDKitEnergy *Clone() const;
 
     /////////////////
     // data access //
@@ -93,6 +101,12 @@ namespace bcl
       //! @return the class name
       const std::string &GetClassIdentifier() const;
 
+      //! @brief returns the force field variant
+      RdkitForceFieldsEnum GetForceFieldEnum() const;
+
+      //! @brief returns the force field variant as a string
+      std::string GetForceFieldString() const;
+
       //! @brief returns the non-bonded threshold
       double GetNonbondedThreshold() const;
 
@@ -103,26 +117,36 @@ namespace bcl
     //   operations  //
     ///////////////////
 
+      //! @brief sets the force field variant
+      void SetForceFieldFromEnum( const RdkitForceFieldsEnum &VARIANT);
+
+      //! @brief sets the force field variant from a string
+      void SetForceFieldFromString( const std::string &VARIANT);
+
+      //! @brief sets the force field string
+      void SetForceFieldString( const std::string &VARIANT);
+
       //! @brief sets the non-bonded threshold
       void SetNonbondedThreshold( const double THRESHOLD);
 
       //! @brief sets whether to ignore fragment interactions
       void SetIgnoreInterFragmentInteractions( const bool IGNORE_INTER_FRAGMENT_INTERACTIONS);
 
-      //! @brief Computes the MMFF94 potential energy of a molecule
+      //! @brief Computes the force field potential energy of a molecule
       //! @param MOLECULE the molecule for which the energy will be computed
       //! @return the energy of MOLECULE
       double CalculateEnergy( const chemistry::FragmentComplete &MOLECULE) const;
 
-      //! @brief Computes the MMFF94 potential energy of a molecule
+      //! @brief Computes the force field potential energy of a molecule
       //! @param MOLECULE the molecule for which the energy will be computed
-      //! @param MMFF_VARIANT whether to use MMFF94 or MMFF94s
+      //! @param VARIANT whether to use UFF, MMFF94, or MMFF94s
       //! @param NON_BONDED_THRESHOLD the threshold to be used in adding non-bonded terms to the force field.
       //! @param IGNORE_INTER_FRAG_INTERACTIONS If true, nonbonded terms will not be added between fragments
       //! @return the energy of MOLECULE
       static double CalculateEnergy
       (
         const chemistry::FragmentComplete &MOLECULE,
+        const std::string &VARIANT,
         const double NON_BONDED_THRESHOLD,
         const bool IGNORE_INTER_FRAG_INTERACTIONS
       );
@@ -140,4 +164,4 @@ namespace bcl
   } // namespace mm
 } // namespace bcl
 
-#endif // BCL_MM_RDKIT_ENERGY_UFF_H_
+#endif // BCL_MM_RDKIT_ENERGY_H_

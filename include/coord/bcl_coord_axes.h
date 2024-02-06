@@ -109,7 +109,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< linal::Vector3D, coord::Axes>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::linal::Vector3D, bcl::coord::Axes>;
 
   } // namespace util
 } // namespace bcl

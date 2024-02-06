@@ -31,10 +31,9 @@ namespace bcl
   /////////////////////
 
     class EnergyInterface;
-    class RDKitEnergyMMFF94;
-    class RDKitEnergyUFF;
-    class RdkitEnergyMinimizeMmff94;
-    class RdkitEnergyMinimizeUff;
+    class RDKitEnergy;
+    class RdkitEnergyMinimize;
+    class RdkitForceFieldUtils;
 
   //////////////////////
   // template classes //

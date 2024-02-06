@@ -186,7 +186,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API WindowSegmentStatistics< biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API WindowSegmentStatistics< bcl::biol::AABase>;
     BCL_EXPIMP_TEMPLATE template class BCL_API WindowSegmentStatistics< char>;
 
   } // namespace descriptor

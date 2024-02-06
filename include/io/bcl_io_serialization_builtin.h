@@ -110,10 +110,9 @@ namespace bcl
     BCL_EXPIMP_TEMPLATE template class BCL_API SerializationBuiltin< signed char>;
     BCL_EXPIMP_TEMPLATE template class BCL_API SerializationBuiltin< unsigned char>;
     BCL_EXPIMP_TEMPLATE template class BCL_API SerializationBuiltin< std::string>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API SerializationBuiltin< util::ObjectDataLabel>;
+	BCL_EXPIMP_TEMPLATE template class BCL_API SerializationBuiltin< bcl::util::ObjectDataLabel>;
 
   } // namespace io
 } // namespace bcl
 
 #endif // BCL_IO_SERIALIZATION_BUILTIN_H_
-

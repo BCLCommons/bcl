@@ -200,9 +200,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API DatasetBuilder< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API DatasetBuilder< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API DatasetBuilder< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API DatasetBuilder< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API DatasetBuilder< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API DatasetBuilder< bcl::biol::Mutation>;
 
   } // namespace descriptor
 } // namespace bcl

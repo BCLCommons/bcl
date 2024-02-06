@@ -116,7 +116,7 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< biol::EnvironmentTypeData, biol::EnvironmentTypes>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API Enumerate< bcl::biol::EnvironmentTypeData, bcl::biol::EnvironmentTypes>;
 
   } // namespace util
 } // namespace bcl

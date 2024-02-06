@@ -348,9 +348,9 @@ namespace bcl
     }; // class ReplaceUndefinedValues
 
     BCL_EXPIMP_TEMPLATE template class BCL_API ReplaceUndefinedValues< char>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API ReplaceUndefinedValues< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API ReplaceUndefinedValues< biol::Mutation>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API ReplaceUndefinedValues< chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API ReplaceUndefinedValues< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API ReplaceUndefinedValues< bcl::biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API ReplaceUndefinedValues< bcl::chemistry::AtomConformationalInterface>;
 
   } // namespace descriptor
 } // namespace bcl

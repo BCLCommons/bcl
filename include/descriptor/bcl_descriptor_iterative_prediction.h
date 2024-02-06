@@ -161,9 +161,9 @@ namespace bcl
   // explicit instantiations //
   /////////////////////////////
 
-    BCL_EXPIMP_TEMPLATE template class BCL_API IterativePrediction< chemistry::AtomConformationalInterface>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API IterativePrediction< biol::AABase>;
-    BCL_EXPIMP_TEMPLATE template class BCL_API IterativePrediction< biol::Mutation>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API IterativePrediction< bcl::chemistry::AtomConformationalInterface>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API IterativePrediction< bcl::biol::AABase>;
+    BCL_EXPIMP_TEMPLATE template class BCL_API IterativePrediction< bcl::biol::Mutation>;
     BCL_EXPIMP_TEMPLATE template class BCL_API IterativePrediction< char>;
 
   } // namespace descriptor
