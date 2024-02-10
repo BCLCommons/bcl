@@ -66,14 +66,18 @@ namespace bcl
 
       //! file containing the molecules for which new 3D conformers will be generated
       util::ShPtr< command::FlagInterface> m_InputFileFlag;
+      util::ShPtr< command::FlagInterface> m_InputRangeMinFlag;
+      util::ShPtr< command::FlagInterface> m_InputRangeEndFlag;
 
       //! file containing molecules against which substructure comparisons will be performed
       util::ShPtr< command::FlagInterface> m_ScaffoldFileFlag;
+      util::ShPtr< command::FlagInterface> m_ScaffoldRangeMinFlag;
+      util::ShPtr< command::FlagInterface> m_ScaffoldRangeEndFlag;
 
       //! output filename
       util::ShPtr< command::FlagInterface> m_OutputFileFlag;
 
-      //! output filename for failed cases
+      //! output filenames for failed cases
       util::ShPtr< command::FlagInterface> m_OutputSimilarityFailureFileFlag;
       util::ShPtr< command::FlagInterface> m_OutputConfGenFailureFileFlag;
 

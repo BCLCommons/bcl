@@ -72,6 +72,36 @@ namespace bcl
             )
           )
         ),
+        m_InputRangeMinFlag
+        (
+          new command::FlagStatic
+          (
+            "input_range_min",
+            "Operate on a subset of input molecules beginning with this molecule index",
+            command::Parameter
+            (
+              "index",
+              "",
+              command::ParameterCheckRanged< size_t>( 0, std::numeric_limits< size_t>::max()),
+              "0"
+            )
+          )
+        ),
+        m_InputRangeEndFlag
+        (
+          new command::FlagStatic
+          (
+            "input_range_max",
+            "Operate on a subset of input molecules ending with this molecule index",
+            command::Parameter
+            (
+              "index",
+              "",
+              command::ParameterCheckRanged< size_t>( 0, std::numeric_limits< size_t>::max()),
+              util::Format()( std::numeric_limits< size_t>::max())
+            )
+          )
+        ),
         m_ScaffoldFileFlag
         (
           new command::FlagStatic
@@ -83,6 +113,36 @@ namespace bcl
               "filename",
               "SDF filename for where to write out molecules",
               command::ParameterCheckFileExistence()
+            )
+          )
+        ),
+        m_ScaffoldRangeMinFlag
+        (
+          new command::FlagStatic
+          (
+            "scaffold_range_min",
+            "Operate on a subset of scaffold molecules beginning with this molecule index",
+            command::Parameter
+            (
+              "index",
+              "",
+              command::ParameterCheckRanged< size_t>( 0, std::numeric_limits< size_t>::max()),
+              "0"
+            )
+          )
+        ),
+        m_ScaffoldRangeEndFlag
+        (
+          new command::FlagStatic
+          (
+            "scaffold_range_max",
+            "Operate on a subset of scaffold molecules ending with this molecule index",
+            command::Parameter
+            (
+              "index",
+              "",
+              command::ParameterCheckRanged< size_t>( 0, std::numeric_limits< size_t>::max()),
+              util::Format()( std::numeric_limits< size_t>::max())
             )
           )
         ),
@@ -286,7 +346,11 @@ namespace bcl
     //! copy constructor, only copy the flags
     ConformerFromScaffold::ConformerFromScaffold( const ConformerFromScaffold &PARENT) :
           m_InputFileFlag( PARENT.m_InputFileFlag),
+          m_InputRangeMinFlag( PARENT.m_InputRangeMinFlag),
+          m_InputRangeEndFlag( PARENT.m_InputRangeEndFlag),
           m_ScaffoldFileFlag( PARENT.m_ScaffoldFileFlag),
+          m_ScaffoldRangeMinFlag( PARENT.m_ScaffoldRangeMinFlag),
+          m_ScaffoldRangeEndFlag( PARENT.m_ScaffoldRangeEndFlag),
           m_OutputFileFlag( PARENT.m_OutputFileFlag),
           m_OutputSimilarityFailureFileFlag( PARENT.m_OutputSimilarityFailureFileFlag),
           m_OutputConfGenFailureFileFlag( PARENT.m_OutputConfGenFailureFileFlag),
@@ -325,12 +389,16 @@ namespace bcl
       // initialize command to be returned
       util::ShPtr< command::Command> sp_cmd( new command::Command());
 
-      // insert all the flags and params
+      // Input flags
       sp_cmd->AddFlag( m_InputFileFlag);
+      sp_cmd->AddFlag( m_InputRangeMinFlag);
+      sp_cmd->AddFlag( m_InputRangeEndFlag);
       sp_cmd->AddFlag( m_ScaffoldFileFlag);
-      sp_cmd->AddFlag( m_OutputFileFlag);
-      sp_cmd->AddFlag( m_OutputSimilarityFailureFileFlag);
-      sp_cmd->AddFlag( m_OutputConfGenFailureFileFlag);
+      sp_cmd->AddFlag( m_ScaffoldRangeMinFlag);
+      sp_cmd->AddFlag( m_ScaffoldRangeEndFlag);
+      sp_cmd->AddFlag( sdf::GetNeutralizeChargesFlag());
+
+      // Run flags
       sp_cmd->AddFlag( m_AtomTypeFlag);
       sp_cmd->AddFlag( m_BondTypeFlag);
       sp_cmd->AddFlag( m_MinSizeFlag);
@@ -338,10 +406,16 @@ namespace bcl
       sp_cmd->AddFlag( m_SimilarityThresholdFlag);
       sp_cmd->AddFlag( m_FindAllFlag);
       sp_cmd->AddFlag( m_UniqueFlag);
+
+      // Output flags
+      sp_cmd->AddFlag( m_OutputFileFlag);
+      sp_cmd->AddFlag( m_OutputSimilarityFailureFileFlag);
+      sp_cmd->AddFlag( m_OutputConfGenFailureFileFlag);
       sp_cmd->AddFlag( m_SaveEnsembleFlag);
+      sp_cmd->AddFlag( sdf::GetExplicitAromaticityFlag());
 
       // add default bcl parameters
-      command::GetAppDefaultFlags().AddDefaultCommandlineFlags( *sp_cmd);
+      command::GetAppDefaultFlags().AddDefaultCommandlineFlags( *sp_cmd, storage::Set< command::FlagTypeEnum>( command::e_AppGeneric));
 
       // return assembled Command object
       return sp_cmd;
@@ -360,7 +434,13 @@ namespace bcl
       // read in ensemble without hydrogen atoms to speedup substructure search
       io::IFStream input;
       io::File::MustOpenIFStream( input, m_InputFileFlag->GetFirstParameter()->GetValue());
-      chemistry::FragmentEnsemble input_ensemble( input, sdf::e_Remove);
+      chemistry::FragmentEnsemble input_ensemble
+      (
+        input,
+        sdf::e_Remove,
+        math::Range< size_t>( m_InputRangeMinFlag->GetFirstParameter()->GetNumericalValue< size_t>(), m_InputRangeEndFlag->GetFirstParameter()->GetNumericalValue< size_t>()),
+        sdf::e_CmdLine
+      );
       const storage::Vector< chemistry::FragmentComplete> input_molecules( input_ensemble.Begin(), input_ensemble.End());
       io::File::CloseClearFStream( input);
       const size_t ensemble_size( input_ensemble.GetSize());
@@ -368,7 +448,13 @@ namespace bcl
 
       // read in the scaffold ensemble without hydrogen atoms to speedup substructure search
       io::File::MustOpenIFStream( input, m_ScaffoldFileFlag->GetFirstParameter()->GetValue());
-      const chemistry::FragmentEnsemble scaffold_ensemble( input, sdf::e_Remove);
+      const chemistry::FragmentEnsemble scaffold_ensemble
+      (
+        input,
+        sdf::e_Remove,
+        math::Range< size_t>( m_ScaffoldRangeMinFlag->GetFirstParameter()->GetNumericalValue< size_t>(), m_ScaffoldRangeEndFlag->GetFirstParameter()->GetNumericalValue< size_t>()),
+        sdf::e_CmdLine
+      );
       const storage::Vector< chemistry::FragmentComplete> scaffold_molecules( scaffold_ensemble.Begin(), scaffold_ensemble.End());
       io::File::CloseClearFStream( input);
       const size_t scaffold_ensemble_size( scaffold_molecules.GetSize());
