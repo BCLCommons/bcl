@@ -128,21 +128,6 @@ namespace bcl
             )
           )
         ),
-//        m_ModeFlag
-//        (
-//          new command::FlagStatic
-//          (
-//            "mode",
-//            "mode to determine how input molecules will be compared to output",
-//            command::Parameter
-//            (
-//              "mode",
-//              "",
-//              command::ParameterCheckAllowed( storage::Vector< std::string>::Create( "all", "similarity" ) ),
-//              "similarity"
-//            )
-//          )
-//        ),
         m_AtomTypeFlag
         (
           new command::FlagStatic
@@ -198,7 +183,8 @@ namespace bcl
             (
               "",
               "",
-              command::ParameterCheckAllowed(
+              command::ParameterCheckAllowed
+              (
                 storage::Vector< std::string>::Create
                 (
                   "Connected",
@@ -210,21 +196,6 @@ namespace bcl
             )
           )
         ),
-//        m_SimilarityThresholdFlag
-//        (
-//          new command::FlagStatic
-//          (
-//            "similarity_threshold",
-//            "minimum similarity to a scaffold required to perform conformer generation",
-//            command::Parameter
-//            (
-//              "",
-//              "",
-//              command::ParameterCheckRanged< float>(0.0, 1.0),
-//              "0.0"
-//            )
-//          )
-//        ),
         m_SimilarityThresholdFlag
         (
           new command::FlagStatic
@@ -319,7 +290,6 @@ namespace bcl
           m_OutputFileFlag( PARENT.m_OutputFileFlag),
           m_OutputSimilarityFailureFileFlag( PARENT.m_OutputSimilarityFailureFileFlag),
           m_OutputConfGenFailureFileFlag( PARENT.m_OutputConfGenFailureFileFlag),
-//          m_ModeFlag( PARENT.m_ModeFlag),
           m_AtomTypeFlag( PARENT.m_AtomTypeFlag),
           m_BondTypeFlag( PARENT.m_BondTypeFlag),
           m_MinSizeFlag( PARENT.m_MinSizeFlag),
@@ -361,7 +331,6 @@ namespace bcl
       sp_cmd->AddFlag( m_OutputFileFlag);
       sp_cmd->AddFlag( m_OutputSimilarityFailureFileFlag);
       sp_cmd->AddFlag( m_OutputConfGenFailureFileFlag);
-//      sp_cmd->AddFlag( m_ModeFlag);
       sp_cmd->AddFlag( m_AtomTypeFlag);
       sp_cmd->AddFlag( m_BondTypeFlag);
       sp_cmd->AddFlag( m_MinSizeFlag);
@@ -377,6 +346,10 @@ namespace bcl
       // return assembled Command object
       return sp_cmd;
     }
+
+  ////////////////
+  //    main    //
+  ////////////////
 
     //! @brief the Main function
     //! @return error code - 0 for success
@@ -561,6 +534,10 @@ namespace bcl
       BCL_MessageStd( std::to_string( total_confs) + " total conformers were saved.");
       return 0;
     }
+
+  //////////////////////
+  // helper functions //
+  /////////////////////
 
     void ConformerFromScaffold::InitializeOutputFiles() const
     {
