@@ -143,6 +143,7 @@ Notes:
 - In step 6, you may change static to shared if shared objects are desired.
 - Win32 -- change TOOLCHAIN_ALIAS to win32, TOOLCHAIN to i686-w64-mingw32
 - Mac OS X -- change TOOLCHAIN_ALIAS to apple64, TOOLCHAIN to x86_64-apple-darwin-10
+- Linking against the RDKit external library -- we have had the most success with this by using RDKit 1.2022.09, GCC 9.4.0, and Boost 1.71.0.
 
 Disclaimer for Windows users:
 The above toolchain has only been tested on Linux and (to a lesser extent) Mac OS X.  Minor tweaks may be necessary
