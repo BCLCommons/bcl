@@ -41,6 +41,8 @@ BCL_StaticInitializationFiascoFinder
 #include "storage/bcl_storage_template_instantiations.h"
 #include "util/bcl_util_implementation.h"
 
+#include <regex>
+
 namespace bcl
 {
   namespace app
@@ -156,7 +158,7 @@ namespace bcl
             (
               "filename",
               "SDF filename for where to write out molecules",
-              ""
+              command::ParameterCheckFileExistence()
             )
           )
         ),
@@ -287,6 +289,26 @@ namespace bcl
             )
           )
         ),
+        m_SimilarityFileFlag
+        (
+          new command::FlagStatic
+          (
+            "similarity_file",
+            "pre-computed similarities between molecules and scaffolds organized such that each "
+            "row corresponds to a molecule from 'input_molecules' and each column corresponds to a "
+            "molecule from 'scaffold_molecules'; "
+            "note that if the molecule ranges are modified by the range_min and range_max flags for "
+            "either input molecules or scaffolds then this input file will similarly be modified; "
+            "this file must be of equivalent dimensions as the corresponding molecule files or else "
+            "the app will default to computing similarities on-the-fly.",
+            command::Parameter
+            (
+              "filename",
+              "",
+              ""
+            )
+          )
+        ),
         m_FindAllFlag
         (
           new command::FlagStatic
@@ -359,6 +381,7 @@ namespace bcl
           m_MinSizeFlag( PARENT.m_MinSizeFlag),
           m_SolutionTypeFlag( PARENT.m_SolutionTypeFlag),
           m_SimilarityThresholdFlag( PARENT.m_SimilarityThresholdFlag),
+          m_SimilarityFileFlag( PARENT.m_SimilarityFileFlag),
           m_FindAllFlag( PARENT.m_FindAllFlag),
           m_UniqueFlag( PARENT.m_UniqueFlag),
           m_SaveEnsembleFlag( PARENT.m_SaveEnsembleFlag)
@@ -404,6 +427,7 @@ namespace bcl
       sp_cmd->AddFlag( m_MinSizeFlag);
       sp_cmd->AddFlag( m_SolutionTypeFlag);
       sp_cmd->AddFlag( m_SimilarityThresholdFlag);
+      sp_cmd->AddFlag( m_SimilarityFileFlag);
       sp_cmd->AddFlag( m_FindAllFlag);
       sp_cmd->AddFlag( m_UniqueFlag);
 
@@ -460,6 +484,28 @@ namespace bcl
       const size_t scaffold_ensemble_size( scaffold_molecules.GetSize());
       BCL_Assert( scaffold_ensemble_size, "Must have at least one molecule in the scaffold ensemble. Exiting...\n");
 
+      // parse pre-computed similarity matrix
+      storage::Vector< storage::Pair<size_t, float> > precomputed_similarities;
+      bool valid_precomputed_similarities( false);
+      if( m_SimilarityFileFlag->GetFlag())
+      {
+        precomputed_similarities = ReadSimilarityFile
+        (
+          m_InputRangeMinFlag->GetFirstParameter()->GetNumericalValue< size_t>(),
+          m_InputRangeEndFlag->GetFirstParameter()->GetNumericalValue< size_t>(),
+          m_ScaffoldRangeMinFlag->GetFirstParameter()->GetNumericalValue< size_t>(),
+          m_ScaffoldRangeEndFlag->GetFirstParameter()->GetNumericalValue< size_t>()
+        );
+        if( precomputed_similarities.GetSize() == ensemble_size)
+        {
+          valid_precomputed_similarities = true;
+        }
+        else
+        {
+          BCL_MessageStd("Similarity file provided, but number of rows does not equal the number of input molecules. Ignoring file, computing similarities on-the-fly.");
+        }
+      }
+
       // initialize output so that we can write as we go
       InitializeOutputFiles();
 
@@ -485,7 +531,21 @@ namespace bcl
         }
 
         // find the most similar molecule
-        storage::Pair< size_t, float> similarity_result( FindBestScaffoldBySimilarity( *mol_itr, scaffold_molecules, similarity_metric ) );
+        storage::Pair< size_t, float> similarity_result;
+        if( valid_precomputed_similarities)
+        {
+          similarity_result = precomputed_similarities( m_MoleculeIndex);
+          if( !util::IsDefined( similarity_result.First()) && m_OutputSimilarityFailureFileFlag->GetFlag())
+          {
+            mol_itr->WriteMDL( m_OutputSimilarityFailures);
+          }
+        }
+        else
+        {
+          similarity_result = FindBestScaffoldBySimilarity( *mol_itr, scaffold_molecules, similarity_metric );
+        }
+
+        // skip similarity threshold failures
         if( !util::IsDefined( similarity_result.First()))
         {
           continue;
@@ -751,6 +811,99 @@ namespace bcl
         return storage::Pair< size_t, float>( util::GetUndefinedSize_t(), util::GetUndefined< float>());
       }
       return storage::Pair< size_t, float>( best_similarity_index, best_similarity);
+    }
+
+    bool ConformerFromScaffold::IsNumeric( const std::string &STR ) const
+    {
+        static std::regex pattern("^[0-9.,]*$");
+        return std::regex_match(STR, pattern);
+    }
+
+    storage::Vector< storage::Pair<size_t, float> > ConformerFromScaffold::ReadSimilarityFile
+    (
+      const size_t MOLECULE_RANGE_MIN,
+      const size_t MOLECULE_RANGE_MAX,
+      const size_t SCAFFOLD_RANGE_MIN,
+      const size_t SCAFFOLD_RANGE_MAX
+    ) const
+    {
+      // Define vectors to store the data
+      storage::Vector< storage::Vector< float>> data;
+
+      // Read the CSV file and populate the data vector within specified ranges
+      io::IFStream fstream;
+      io::File::MustOpenIFStream( fstream, m_SimilarityFileFlag->GetFirstParameter()->GetValue());
+
+      std::string line;
+      size_t current_row( 0);
+      while( std::getline( fstream, line ) && !fstream.eof() )
+      {
+        if( !IsNumeric( line) || line.empty())
+        {
+          BCL_MessageStd
+          (
+            "In ConformerFromScaffold::ReadSimilarityFile, failed to parse line # " + util::Format()( current_row) +
+            ", will not continue. Similarities will be computed on-the-fly."
+          );
+          return storage::Vector< storage::Pair<size_t, float> >();
+        }
+        if( current_row >= MOLECULE_RANGE_MIN && current_row <= MOLECULE_RANGE_MAX)
+        {
+          storage::Vector< float> row;
+          std::istringstream ss( line);
+          std::string value;
+
+          size_t current_col( 0);
+          while ( std::getline( ss, value, ',' ) )
+          {
+            if( current_col >= SCAFFOLD_RANGE_MIN && current_col <= SCAFFOLD_RANGE_MAX)
+            {
+              row.PushBack(stof(value));
+            }
+            ++current_col;
+          }
+          data.PushBack(row);
+        }
+        ++current_row;
+      }
+
+      // Process the data to find the index and value of the maximum column value for each row within specified ranges
+      storage::Vector< storage::Pair<size_t, float> > results;
+
+      for( size_t i( 0); i < data.GetSize(); ++i )
+      {
+        float max_value( 0.0); // assumes minimum similarity is 0
+        size_t max_index( 0);   // initialize with first index as most similar
+
+        for( size_t j( 0); j < data( i).GetSize(); ++j )
+        {
+          if (data( i)( j) > max_value)
+          {
+            max_value = data( i)( j);
+            max_index = j;
+          }
+        }
+
+        // For each input molecule, store the index and value of the maximum similarity scaffold molecule
+        if
+        (
+            max_value < m_SimilarityThresholdFlag->GetFirstParameter()->GetNumericalValue< float>() ||
+            max_value > m_SimilarityThresholdFlag->GetParameterList().LastElement()->GetNumericalValue< float>()
+        )
+        {
+          BCL_MessageVrb
+          (
+            "Molecule " + std::to_string( i) + " failed similarity threshold requirement! "
+            "Maximum Tanimoto similarity to scaffold " + std::to_string( max_index)  +
+            " with a value of " + std::to_string( max_value)
+          );
+          ++m_SimilarityFailureCount;
+          results.PushBack( storage::Pair< size_t, float>( util::GetUndefinedSize_t(), util::GetUndefined< float>() ));
+          continue;
+        }
+        results.PushBack( storage::Pair< size_t, float>( max_index, max_value ) );
+      }
+      return results;
     }
 
     chemistry::FragmentEnsemble ConformerFromScaffold::Run
