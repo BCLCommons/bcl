@@ -33,6 +33,10 @@
 #include "sched/bcl_sched_thunk_job.h"
 #include "storage/bcl_storage_template_instantiations.h"
 
+// c++ includes
+#include <iostream>
+#include <string>
+
 namespace bcl
 {
   namespace app
@@ -66,14 +70,18 @@ namespace bcl
 
       //! file containing the molecules for which new 3D conformers will be generated
       util::ShPtr< command::FlagInterface> m_InputFileFlag;
+      util::ShPtr< command::FlagInterface> m_InputRangeMinFlag;
+      util::ShPtr< command::FlagInterface> m_InputRangeEndFlag;
 
       //! file containing molecules against which substructure comparisons will be performed
       util::ShPtr< command::FlagInterface> m_ScaffoldFileFlag;
+      util::ShPtr< command::FlagInterface> m_ScaffoldRangeMinFlag;
+      util::ShPtr< command::FlagInterface> m_ScaffoldRangeEndFlag;
 
       //! output filename
       util::ShPtr< command::FlagInterface> m_OutputFileFlag;
 
-      //! output filename for failed cases
+      //! output filenames for failed cases
       util::ShPtr< command::FlagInterface> m_OutputSimilarityFailureFileFlag;
       util::ShPtr< command::FlagInterface> m_OutputConfGenFailureFileFlag;
 
@@ -91,6 +99,9 @@ namespace bcl
 
       // minimum similarity required or else molecule is a failure
       util::ShPtr< command::FlagInterface> m_SimilarityThresholdFlag;
+
+      // file containing precomputed similarities; rows are input_molecules, columns are scaffold_molecules
+      util::ShPtr< command::FlagInterface> m_SimilarityFileFlag;
 
       // if true, then follow the largest common substructure search with
       // a search for all subgraph isomorphisms between the common substructures;
@@ -167,6 +178,16 @@ namespace bcl
         const chemistry::FragmentComplete &MOLECULE,
         const storage::Vector< chemistry::FragmentComplete> &SCAFFOLD_MOLECULES,
         const util::Implementation< chemistry::ConformationComparisonInterface> &SIMILARITY_METRIC
+      ) const;
+
+      bool IsNumeric( const std::string &STR ) const;
+
+      storage::Vector< storage::Pair<size_t, float> > ReadSimilarityFile
+      (
+        const size_t MOLECULE_RANGE_MIN,
+        const size_t MOLECULE_RANGE_MAX,
+        const size_t SCAFFOLD_RANGE_MIN,
+        const size_t SCAFFOLD_RANGE_MAX
       ) const;
 
       chemistry::FragmentEnsemble Run
