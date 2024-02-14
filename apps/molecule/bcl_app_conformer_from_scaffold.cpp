@@ -158,7 +158,7 @@ namespace bcl
             (
               "filename",
               "SDF filename for where to write out molecules",
-              command::ParameterCheckFileExistence()
+              ""
             )
           )
         ),
