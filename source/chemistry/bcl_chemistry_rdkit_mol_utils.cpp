@@ -316,6 +316,7 @@ namespace bcl
 
         // RDKit requires that this is a raw pointer (non-owning for memory safety)
         ::RDKit::Atom *rdkit_atom_p( new ::RDKit::Atom( element_type->GetAtomicNumber()));
+        rdkit_atom_p->setFormalCharge( itr_atoms->GetAtomType()->GetFormalCharge());
         rdkit_mol->addAtom
         (
           rdkit_atom_p, // raw pointer to atom
