@@ -1,23 +1,26 @@
-#!/usr/bin/python2
+#!/usr/bin/python
 '''
 Created on Dec 5, 2012
 
 Functions:
 Creates .fwd.hh files for all namesapces in the bcl
-For forward headers with typedefs that require external namespaces, 
+For forward headers with typedefs that require external namespaces,
 also creates a .depends.fwd.hh file with the required classes
 
 @author: mendenjl
 '''
+from __future__ import print_function
 
 import os
 import sys
 import os.path
 import datetime
 from CodeFileUtils import *
-import cStringIO
 from curses.ascii import isspace, ispunct
-from macpath import getmtime
+try:
+    from io import StringIO
+except:
+    from StringIO import StringIO
 
 copyright_block = []
 
@@ -49,15 +52,15 @@ def align_trailing_words(lines, n_words, indent):
   longest_word_len = [ 0 ] * (n_words + 1)
   lines_split = [ line.rstrip().rsplit(' ', n_words) for line in lines]
   already_indented = []
-  for i in xrange(len(lines_split)):
+  for i in range(len(lines_split)):
     lines_split[i][0] = lines_split[i][0].rstrip(' ')
     if lines_split[i][0][-1] == '\n':
       lines_split[i][0] += ' ' * indent
       already_indented.append(True)
     else:
       already_indented.append(False)
-  for line_number in xrange(len(lines)):
-    for i in xrange(len(lines_split[line_number])):
+  for line_number in range(len(lines)):
+    for i in range(len(lines_split[line_number])):
       actual_line_len = len(lines_split[line_number][i])
       if i == 0:
         nl_pos = lines_split[line_number][0].rfind('\n')
@@ -69,7 +72,7 @@ def align_trailing_words(lines, n_words, indent):
   line_number = 0
   for line_split in lines_split:
     new_line = ""
-    for i in xrange(len(line_split) - 1):
+    for i in range(len(line_split) - 1):
       actual_line_len = len(line_split[i])
       if i == 0:
         if already_indented[line_number]:
@@ -87,7 +90,7 @@ def align_trailing_words(lines, n_words, indent):
 def remove_extra_spaces(line):
   nline = ""
   last_was_space = True
-  for i in xrange(len(line)):
+  for i in range(len(line)):
     if isspace(line[i]):
       if not last_was_space:
         nline += ' '
@@ -139,14 +142,14 @@ def getClassesFromOtherNamespacesDict(lines):
   return namespace_to_classes
 
 def dictExtend(x, y):
-  for ky, val in y.iteritems():
+  for ky, val in y.items():
     if ky in x:
       x[ky].update(val)
     else:
       x[ky] = val
 
 def dictListExtend(x, y):
-  for ky, val in y.iteritems():
+  for ky, val in y.items():
     if ky in x:
       x[ky].extend(val)
     else:
@@ -180,7 +183,7 @@ class BclForwardHeader:
     last_statement = ""
     past_namespace = False
     statement_type_is_typedef = False
-    for line in file.xreadlines():
+    for line in file.readlines():
       stripped_line = line.strip()
       if len(stripped_line) == 0:
         continue
@@ -205,11 +208,11 @@ class BclForwardHeader:
         if stripped_line[ 0] == '}':
           past_namespace = True
           continue
-        print "Illegal statement after close of namespace: " + line
+        print("Illegal statement after close of namespace: " + line)
 
       if not in_statement and stripped_line.startswith('namespace '):
         if len(self.classes) or len(self.typedefs):
-          print "Illegal classes or typedefs before innermost namespace in forward header"
+          print("Illegal classes or typedefs before innermost namespace in forward header")
         namespace = stripped_line.split(' ')[ 1]
         self.namespaces.append(namespace)
         continue
@@ -255,7 +258,7 @@ class BclForwardHeader:
   # class BCL_API haha
   # */
   # will be registered as a class even though it is not really
-  # However, c-style, multiline comments are not supposed to be in bcl code anyway, (the fix obvious bcl guidelines 
+  # However, c-style, multiline comments are not supposed to be in bcl code anyway, (the fix obvious bcl guidelines
   # script should give a suitable warning), and parsing them makes this code many times slower, rendering it less useful
   # for its intended purpose
   def extractFromNormalHeader(self, filenm):
@@ -312,7 +315,7 @@ class BclForwardHeader:
           if len(split_line) == 2:
             self.namespaces.append(split_line[1])
           elif len(split_line) > 2:
-            print "This makes no sense: " + line
+            print("This makes no sense: " + line)
             sys.exit(1)
         continue
 
@@ -339,28 +342,28 @@ class BclForwardHeader:
           statement_type_is_class = False
           template_scope_depth = 0
           in_statement = True
-          #print "templ start"
+          #print("templ start")
         elif line.startswith('typedef'):
           statement_type_is_typedef = True
           statement_type_is_template = False
           statement_type_is_class = False
           in_statement = True
-          #print "typedef start"
+          #print("typedef start")
         elif line.startswith('class ') or line.startswith('struct '):
           statement_type_is_typedef = False
           statement_type_is_template = False
           statement_type_is_class = True
           in_statement = True
-          #print "class start"
+          #print("class start")
         if in_statement and past_namespace:
-          print "Illegal statement after close of namespace: " + line + ' in ' + filenm
+          print("Illegal statement after close of namespace: " + line + ' in ' + filenm)
           sys.exit(1)
       else:
         in_statement_start = False
       if not in_statement:
         continue
-      #print "Start? " + str(in_statement_start)
-      #print "Statement: " + line
+      #print("Start? " + str(in_statement_start))
+      #print("Statement: " + line)
 
       end_pos_start_looking = 0
 
@@ -393,7 +396,7 @@ class BclForwardHeader:
               end_pos_start_looking = endes
               statement_type_is_class = True
             elif len(next_word):
-              #print "templated function: " + str(end_pos_start_looking) + ' ' + str(endes) + ' ' + (last_statement + ' ' + line).strip().replace('\n', ' ')
+              #print("templated function: " + str(end_pos_start_looking) + ' ' + str(endes) + ' ' + (last_statement + ' ' + line).strip().replace('\n', ' '))
               in_statement = False
               continue
       expected_indent = 2 * (len(self.namespaces) + template_scope_depth)
@@ -420,7 +423,7 @@ class BclForwardHeader:
       elif statement_type_is_class:
         if line.find('<', end_pos_start_looking) >= 0 or line.find('(', end_pos_start_looking) >= 0:
           # partial specialization, no need to insert
-          #print "Partial specialization or function: " + last_statement.replace('\n', ' ') + line
+          #print("Partial specialization or function: " + last_statement.replace('\n', ' ') + line)
           in_statement = False
           continue
 
@@ -442,7 +445,7 @@ class BclForwardHeader:
           else:
             end_pos_start_looking = semi_colon_pos
       last_statement += line[:end_pos_start_looking]
-      #print "Here 3: " + last_statement.replace('\n', ' ') + " " + str(statement_type_is_class)
+      #print("Here 3: " + last_statement.replace('\n', ' ') + " " + str(statement_type_is_class))
       in_statement = False
       last_statement = last_statement.rstrip('\n ;:{') + ';'
       if len(last_statement) <= 1:
@@ -452,12 +455,12 @@ class BclForwardHeader:
       if len(last_statement) <= 1:
         continue
       if statement_type_is_template:
-        if last_statement.find('BCL_API') >= 0: 
-          print "Unnecessary to have BCL_API on line " + last_statement + " in " + filenm
+        if last_statement.find('BCL_API') >= 0:
+          print("Unnecessary to have BCL_API on line " + last_statement + " in " + filenm)
       elif statement_type_is_class and last_statement.find('BCL_API') < 0:
-        print "Missing BCL_API on line " + last_statement + " in " + filenm
+        print("Missing BCL_API on line " + last_statement + " in " + filenm)
       last_statement = last_statement.replace('BCL_API ', '')
-      #print "LS: " + last_statement.replace('\n', ' ')
+      #print("LS: " + last_statement.replace('\n', ' '))
       name = last_statement.split(' ')[-1][:-1]
       full_statement = remove_extra_spaces(last_statement)
 
@@ -474,18 +477,18 @@ class BclForwardHeader:
   def combine(self, other):
     if self.namespaces != other.namespaces:
       if len(other.templates) or len(other.classes):
-        print "cannot combine forward headers with different namespaces: "
-        print "should have: " + str(self.namespaces) + " but received: " + str(other.namespaces) + " from file: " + other.filename
+        print("cannot combine forward headers with different namespaces: ")
+        print("should have: " + str(self.namespaces) + " but received: " + str(other.namespaces) + " from file: " + other.filename)
         sys.exit(1)
     else:
       self.bcl_includes = self.bcl_includes.union(other.bcl_includes)
       self.std_includes = self.std_includes.union(other.std_includes)
 
-      for name, val in other.templates.iteritems():
+      for name, val in other.templates.items():
         if name not in self.templates:
           self.templates[ name] = val
         elif val.find('=') >= 0:
-          print "WARNING: You will need to manually remove the default template parameter from file " + other.filename
+          print("WARNING: You will need to manually remove the default template parameter from file " + other.filename)
           self.templates[ name] = val
         elif self.templates[ name].find('=') >= 0:
           pass
@@ -495,7 +498,7 @@ class BclForwardHeader:
       old_leng = len(self.typedefs)
       self.typedefs.update(other.typedefs)
       if old_leng < len(self.typedefs):
-        print "WARNING: You should remove all namespace-level typedefs from " + other.filename
+        print("WARNING: You should remove all namespace-level typedefs from " + other.filename)
 
   def write(self, strm):
     term_filename = self.filename.split('/')[-1]
@@ -533,7 +536,7 @@ class BclForwardHeader:
     strm.write(' ' * (indent - 2) + '/////////////////////\n')
     strm.write('\n')
 
-    for line in align_trailing_words([ y[1] for y in sorted(self.classes.iteritems())], 1, indent):
+    for line in align_trailing_words([ y[1] for y in sorted(self.classes.items())], 1, indent):
       strm.write(' ' * indent + line + '\n')
 
     if len(self.classes):
@@ -544,7 +547,7 @@ class BclForwardHeader:
     strm.write(' ' * (indent - 2) + '//////////////////////\n')
     strm.write('\n')
 
-    for line in [ y[1] for y in sorted(self.templates.iteritems())]:
+    for line in [ y[1] for y in sorted(self.templates.items())]:
       strm.write(' ' * indent + line + '\n\n')
 
     strm.write(' ' * (indent - 2) + '//////////////\n')
@@ -552,13 +555,13 @@ class BclForwardHeader:
     strm.write(' ' * (indent - 2) + '//////////////\n')
     strm.write('\n')
 
-    for line in align_trailing_words([ y[1] for y in sorted(self.typedefs.iteritems())], 1, indent):
+    for line in align_trailing_words([ y[1] for y in sorted(self.typedefs.items())], 1, indent):
       strm.write(' ' * indent + line + '\n')
 
     if len(self.typedefs):
       strm.write('\n')
 
-    for x in xrange(len(self.namespaces) - 1, -1, -1):
+    for x in range(len(self.namespaces) - 1, -1, -1):
       indent -= 2
       strm.write(' ' * indent + '} // namespace ' + self.namespaces[x] + '\n')
     strm.write('\n')
@@ -569,16 +572,16 @@ class BclForwardHeader:
     if len(self.typedefs) == 0 and len(self.templates) == 0:
       return
 
-    self.external_dependencies = getClassesFromOtherNamespacesDict(self.templates.itervalues())
+    self.external_dependencies = getClassesFromOtherNamespacesDict(self.templates.values())
 
-    for typedef, val in self.typedefs.iteritems():
+    for typedef, val in self.typedefs.items():
       new_dependencies = getClassesFromOtherNamespacesDict([val])
       if len(new_dependencies):
         self.typedef_to_external_dependencies[typedef] = new_dependencies
         dictExtend(self.external_dependencies, new_dependencies)
 
   def deconvolute(self, otherFwds):
-    for typedef in self.typedefs.iterkeys():
+    for typedef in self.typedefs.keys():
       self.deconvoluteTypedef(typedef, otherFwds)
     self.std_includes = set()
     if 'std' in self.external_dependencies:
@@ -588,7 +591,7 @@ class BclForwardHeader:
 
     # remove things from the external dependency list that turned out not to be legitimate namespaces
     non_namespaces = []
-    for namespace, classes in self.external_dependencies.iteritems():
+    for namespace, classes in self.external_dependencies.items():
       if namespace not in otherFwds:
         non_namespaces.append(namespace)
     for namespace in non_namespaces:
@@ -598,7 +601,7 @@ class BclForwardHeader:
     symbols_to_check_dict = self.external_dependencies
     while len(symbols_to_check_dict):
       new_symbols_to_check_dict = {}
-      for namespace, classes in symbols_to_check_dict.iteritems():
+      for namespace, classes in symbols_to_check_dict.items():
         if namespace not in otherFwds:
           continue
         fwd_header = otherFwds[namespace]
@@ -611,7 +614,7 @@ class BclForwardHeader:
             else:
               self.external_typedef_dependencies[namespace].add(name)
       symbols_to_check_dict = new_symbols_to_check_dict
-    for namespace, classes in self.external_typedef_dependencies.iteritems():
+    for namespace, classes in self.external_typedef_dependencies.items():
       self.external_dependencies[namespace] = self.external_dependencies[namespace].difference(classes)
 
   def get(self, strn):
@@ -631,10 +634,10 @@ class BclForwardHeader:
     return strm
 
   def writeDependencies(self, strm, otherFwds):
-    #print "typedefs: " + str(self.typedefs) + " typedefs to extern: " + str(self.typedef_to_external_dependencies)
-    #print "external dependencies before: " + str(self.external_dependencies)
+    #print("typedefs: " + str(self.typedefs) + " typedefs to extern: " + str(self.typedef_to_external_dependencies))
+    #print("external dependencies before: " + str(self.external_dependencies))
     self.updateDependenciesFinal(otherFwds)
-    #print "external dependencies after: " + str(self.external_dependencies)
+    #print("external dependencies after: " + str(self.external_dependencies))
     if len(self.external_dependencies) == 0:
       return False
 
@@ -655,7 +658,7 @@ class BclForwardHeader:
     strm.write('\n////////////////////////////////')
     strm.write('\n// class forward declarations //')
     strm.write('\n////////////////////////////////\n')
-    for namespace, classes in iter(sorted(self.external_dependencies.iteritems())):
+    for namespace, classes in iter(sorted(self.external_dependencies.items())):
       if len(classes) == 0:
         continue
       strm.write('\n  namespace ' + namespace + '\n  {')
@@ -668,7 +671,7 @@ class BclForwardHeader:
     strm.write('\n///////////////////////')
     strm.write('\n// external typedefs //')
     strm.write('\n////////////////////////\n')
-    for namespace, classes in iter(sorted(self.external_typedef_dependencies.iteritems())):
+    for namespace, classes in iter(sorted(self.external_typedef_dependencies.items())):
       if len(classes) == 0:
         continue
       strm.write('\n  namespace ' + namespace + '\n  {')
@@ -690,7 +693,7 @@ class BclForwardHeader:
     symbols_to_check_dict = self.typedef_to_external_dependencies[strn]
     while len(symbols_to_check_dict):
       new_symbols_to_check_dict = {}
-      for namespace, class_names in symbols_to_check_dict.iteritems():
+      for namespace, class_names in symbols_to_check_dict.items():
         if namespace == 'std':
           continue
         fwd_header = all_fwd_hdrs[namespace]
@@ -714,7 +717,7 @@ class BclForwardHeader:
                 self.typedef_to_external_dependencies[strn][namespace].add(name)
               dictExtend(new_symbols_to_check_dict, fwd_header.typedef_to_external_dependencies[ name])
       symbols_to_check_dict = new_symbols_to_check_dict
-    #print strn + " " + str(self.typedef_to_external_dependencies[ strn])
+    #print(strn + " " + str(self.typedef_to_external_dependencies[ strn]))
     self.deconvoluted_typedefs.add(strn)
 
 
@@ -735,13 +738,13 @@ class BclForwardHeader:
       self.ExtractFromFile(fname, read_all)
 
 def usage():
-  print "\n" + \
+  print("\n" + \
         "usage: CreateNamespaceForwardHeaders.py bcl-path [options]\n" + \
         "options:\n" + \
         "-h/--help print this dialogue\n" + \
         "-o/--output overwrite existing forward headers if necessary (default is to print them to screen)\n" + \
         "-f/--force forces regeneration of all forward headers (e.g. ignore timestamps)\n" + \
-        "-e/--existing augments the list of symbols with existing .fwd.hh files\n"
+        "-e/--existing augments the list of symbols with existing .fwd.hh files\n")
   sys.exit(1)
 
 def main():
@@ -758,7 +761,7 @@ def main():
   force = False
   consider_old_fwd_headers = False
 
-  for i in xrange(1, len(arguments)):
+  for i in range(1, len(arguments)):
     if arguments[i] == '-h' or arguments[i] == '--help':
       usage()
     elif arguments[i] == '-o' or arguments[i] == '--output':
@@ -768,18 +771,18 @@ def main():
     elif arguments[i] == '-e' or arguments[i] == '--existing':
       consider_old_fwd_headers = True
     else:
-      print arguments[i] + " is not a valid option"
+      print(arguments[i] + " is not a valid option")
       usage()
   if not bcl_path.endswith('/'):
     bcl_path += '/'
   os.chdir(bcl_path)
-  
+
   # read the copyright block
   global copyright_block
   copyright_block_file = os.path.abspath(bcl_path + "../../documentation/bcl_copyright.txt") if os.path.exists(bcl_path + "../../documentation/bcl_copyright.txt") \
                          else   os.path.abspath(bcl_path + "documentation/bcl_copyright.txt")
   if not os.path.exists(copyright_block_file):
-    print "Cannot locate bcl copyright file at " + copyright_block_file + "! Exiting"
+    print("Cannot locate bcl copyright file at " + copyright_block_file + "! Exiting")
     sys.exit(-1)
   else:
     fl = open(copyright_block_file,'r')
@@ -790,11 +793,11 @@ def main():
       copyright_block.append('\n') # append an extra new line to separate the copyright block from other code
     copyright_block = ''.join(copyright_block)
     fl.close()
-    
+
   if not os.path.exists('./build'):
     os.mkdir('./build')
 
-  # look for an existing file that denotes the last update times 
+  # look for an existing file that denotes the last update times
   timestamp_file = 'build/.forward_header_update_time.txt'
   last_update_time = 0
   if os.path.exists(timestamp_file):
@@ -807,7 +810,7 @@ def main():
 
   # flatten all headers out, so that the forward headers are inserted into the proper place
   all_headers = {}
-  for folder, files in all_headers_full.iteritems():
+  for folder, files in all_headers_full.items():
     namespace_folder_depth = 0
     if folder.startswith('include/'):
       namespace_folder_depth += 1
@@ -824,7 +827,7 @@ def main():
     else:
       all_headers[folder].extend(files)
   should_write_fwd_hdr = set()
-  for folder, files in all_headers.iteritems():
+  for folder, files in all_headers.items():
     namespace_folder_depth = 0
     if folder != 'include':
       namespace_folder_depth = 1
@@ -834,7 +837,7 @@ def main():
       if x.count('_') <= namespace_folder_depth:
         namespace_files.append(x)
     if len(namespace_files) != 1:
-      print "Unclear which file is the namespace header for " + folder + " among: " + str(namespace_files)
+      print("Unclear which file is the namespace header for " + folder + " among: " + str(namespace_files))
       sys.exit(1)
     namespace_file = namespace_files[0][:-2]
     namespace = namespace_file.split('_')[-1]
@@ -887,16 +890,16 @@ def main():
     fwd_hdr.updateDependencies()
     generated_fwd_headers[ namespace] = fwd_hdr
 
-  for hdr in generated_fwd_headers.itervalues():
+  for hdr in generated_fwd_headers.values():
     hdr.deconvolute(generated_fwd_headers)
 
-  for namespace, namespace_fwd in generated_fwd_headers.iteritems():
+  for namespace, namespace_fwd in generated_fwd_headers.items():
     if namespace not in should_write_fwd_hdr:
       continue;
     direct = os.path.dirname(namespace_fwd.filename)
-    writer = cStringIO.StringIO()
+    writer = StringIO()
     namespace_fwd.write(writer)
-    writerd = cStringIO.StringIO()
+    writerd = StringIO()
     should_writed = namespace_fwd.writeDependencies(writerd, generated_fwd_headers)
     dfilename = namespace_fwd.filename[:-7] + '.depends.fwd.hh'
     if output:
@@ -909,7 +912,7 @@ def main():
         if lines == st:
           should_write = False
       if should_write:
-        print "Updating " + namespace_fwd.filename
+        print("Updating " + namespace_fwd.filename)
         ofile = open(namespace_fwd.filename, 'w')
         ofile.write(st)
         ofile.close()
@@ -923,17 +926,17 @@ def main():
           if st == lines:
             should_write = False
         if should_write:
-          print "Updating " + dfilename
+          print("Updating " + dfilename)
           ofile = open(dfilename, 'w')
           ofile.write(writerd.getvalue())
           ofile.close()
       elif os.path.exists(dfilename):
-        print "Removing unnecessary dependency file: " + dfilename
+        print("Removing unnecessary dependency file: " + dfilename)
         os.remove(dfilename)
     else:
-      print namespace_fwd.filename + '\n' + writer.getvalue()
+      print(namespace_fwd.filename + '\n' + writer.getvalue())
       if should_writed:
-        print dfilename + '\n' + writerd.getvalue()
+        print(dfilename + '\n' + writerd.getvalue())
 
   if output:
     ofile = open(timestamp_file, 'w')

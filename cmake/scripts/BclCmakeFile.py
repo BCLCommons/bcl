@@ -1,8 +1,14 @@
+
+from __future__ import print_function
+
 import string
 import os
 import sys
 import os.path
-import cStringIO
+try:
+    from io import StringIO
+except:
+    from StringIO import StringIO
 
 # class represents a single SET(...) command from a CMakeLists file, optionally lower case
 class CmakeListSetCommand:
@@ -27,7 +33,7 @@ class CmakeListSetCommand:
     start_scope_pos = lines[line_number_start].find('(')
     self.line_number_end, end_scope_paren_pos = self.EndOfScope(lines, line_number_start, start_scope_pos)
     if end_scope_paren_pos < 0 or self.line_number_end < 0:
-      print "Unclosed parenthesis!"
+      print("Unclosed parenthesis!")
       return (-1)
     if self.line_number_end >= len(lines):
       self.line_number_end = len(lines) - 1
@@ -43,48 +49,48 @@ class CmakeListSetCommand:
     if set_command_clean.find('.cpp') < 0 and (set_command_clean.find("SOURCES") < 0 or set_command_clean.find('${') > 0):
       # set command with no sources, not interesting
       return (-1)
-    
+
     if end_scope_paren_pos != len(set_command_lines_clean[-1].rstrip()) - 1:
-      print str(line_number_start) + " " + str(start_scope_pos) \
+      print(str(line_number_start) + " " + str(start_scope_pos) \
             + " " + str(self.line_number_end) + " " + str(end_scope_paren_pos) \
-            + " " + str(len(lines)) + " " + str(len(set_command_lines_clean[-1].rstrip()) - 1)
-      print "multiple commands on a single line not allowed, line: " + set_command_clean
+            + " " + str(len(lines)) + " " + str(len(set_command_lines_clean[-1].rstrip()) - 1))
+      print("multiple commands on a single line not allowed, line: " + set_command_clean)
       return (-1)
 
     if set_command_clean != set_command:
-      print "could not parse set command: " + ''.join(set_command_lines_clean) + "\nbecause it contained comments or quotes"
+      print("could not parse set command: " + ''.join(set_command_lines_clean) + "\nbecause it contained comments or quotes")
       return (-1)
 
     # now we can finally parse the lines
     set_command_internal = set_command.strip()[start_scope_pos + 1:-1].replace('\n', ' ').replace('\t', ' ')
 
-    #print "set command, internal component: " + set_command_internal
+    #print("set command, internal component: " + set_command_internal)
 
     # make sure there were no comments or quotes in the set command
     if set_command.find('#') > 0 or set_command.find('"') > 0 or set_command.find("'") > 0:
-      print "Could not parse cmake set command with internal comments or quotes"
+      print("Could not parse cmake set command with internal comments or quotes")
       return (-1)
 
     set_command_tokens = set_command_internal.split(' ')
     set_command_tokens = [ token for token in set_command_tokens if len(token) > 0]
 
     self.variable = set_command_tokens[ 0]
-    for token_index in xrange(1, len(set_command_tokens)):
+    for token_index in range(1, len(set_command_tokens)):
       if set_command_tokens[token_index].endswith('.cpp'):
-        #print "adding source: " + set_command_tokens[token_index]
+        #print("adding source: " + set_command_tokens[token_index])
         self.sources.add(set_command_tokens[token_index].replace('${CMAKE_CURRENT_SOURCE_DIR}/', ''))
       elif len(self.sources) == 0:
-        #print "other variables: " + set_command_tokens[token_index] + " in " + set_command_internal
+        #print("other variables: " + set_command_tokens[token_index] + " in " + set_command_internal)
         self.other_variables.append(set_command_tokens[token_index])
       else:
-        #print "flag: " + set_command_tokens[token_index] + " in " + set_command_internal
+        #print("flag: " + set_command_tokens[token_index] + " in " + set_command_internal)
         self.flag_lines.append(set_command_tokens[token_index])
 
     if len(self.sources) == 0 and (len(self.other_variables) or len(self.flag_lines)):
-      print "no sources in " + set_command_internal
+      print("no sources in " + set_command_internal)
       return (-1)
 
-    #print "sources: " + ','.join(self.sources)
+    #print("sources: " + ','.join(self.sources))
     return self.line_number_end
 
   def Write(self, x):
@@ -246,19 +252,19 @@ def CheckCmakeLists(directory, sources_dict, can_update):
 
   # warn the user and return if the sources could not be added
   if largest_set_command_index == -1:
-    print "Error: " + filename + ": Could not add sources because this file lacks a parseable set command that includes sources"
+    print ("Error: " + filename + ": Could not add sources because this file lacks a parseable set command that includes sources")
     return
 
   # warn the user if there is an ambiguous assignment of sources to a set command
   if len(all_set_command_blocks) > 1 and len(added_sources) > 0:
-    print "Warning: ambiguous assignment of new sources in " + filename + " to largest block of sources"
+    print("Warning: ambiguous assignment of new sources in " + filename + " to largest block of sources")
 
   if can_update:
-    # write the modified file to a cstringio object, then write that to a file
+    # write the modified file to a stringio object, then write that to a file
     # this is several times faster than writing directly to the file
-    out_file = cStringIO.StringIO()
+    out_file = StringIO()
     prev_line_start = 0
-    for cmake_set_number in xrange(len(all_set_command_blocks)):
+    for cmake_set_number in range(len(all_set_command_blocks)):
       if(prev_line_start != all_set_command_blocks[cmake_set_number].line_number_start):
         out_file.write(''.join(lines[prev_line_start:all_set_command_blocks[cmake_set_number].line_number_start]))
       all_set_command_blocks[cmake_set_number].Write(out_file)
@@ -274,12 +280,12 @@ def CheckCmakeLists(directory, sources_dict, can_update):
 
     # let the user know what was done
     if len(removed_sources):
-      print "Removing " + ','.join(removed_sources) + " from " + filename
+      print("Removing " + ','.join(removed_sources) + " from " + filename)
     if len(added_sources):
-      print "Adding " + ','.join(added_sources) + " to " + filename
+      print("Adding " + ','.join(added_sources) + " to " + filename)
   else:
     # will not update; just inform the user as to what would be added/removed
     if len(removed_sources):
-      print "Running in fix mode would remove " + ','.join(removed_sources) + " from " + filename
+      print("Running in fix mode would remove " + ','.join(removed_sources) + " from " + filename)
     if len(added_sources):
-      print "Running in fix mode would add " + ','.join(added_sources) + " to " + filename
+      print("Running in fix mode would add " + ','.join(added_sources) + " to " + filename)

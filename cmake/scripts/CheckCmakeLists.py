@@ -3,20 +3,22 @@
 Created on Feb 19, 2011
 
 This script checks CmakeLists for the bcl project, optionally updating CMakeLists.txt with new source files and removing
-non-existent files.  
+non-existent files.
 
 @author: mendenjl
 '''
+from __future__ import print_function
+
 
 import os
 import sys
 import os.path
 from BclCmakeFile import *
 
-# print usage info 
+# print usage info
 def usage():
-  print "\nusage: CheckCmakeLists.py bcl-path [-o]\n"
-  print "-o if given, update the CMakeLists"
+  print("\nusage: CheckCmakeLists.py bcl-path [-o]\n")
+  print("-o if given, update the CMakeLists")
 
 def main():
 
@@ -57,7 +59,7 @@ def main():
     # does the cmake list file even exist yet?
     if source_directory not in cmake_list_paths.keys():
       if len(directory_sources) > 0:
-        print source_directory + " needs a CMakeLists.txt file containing:\n" + '\n'.join(directory_sources) + '\n'
+        print(source_directory + " needs a CMakeLists.txt file containing:\n" + '\n'.join(directory_sources) + '\n')
     else:
       # open the cmake lists file
       CheckCmakeLists(source_directory, source_files_and_directories, should_update)

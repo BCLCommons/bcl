@@ -3,12 +3,15 @@ Created on Apr 14, 2010
 @brief Functions used in parsing code-files, some of which are bcl-specific
 @author: mendenjl
 '''
+from __future__ import print_function
 
 import sys
 import os
-import cStringIO
 from curses.ascii import isspace, isalpha, isdigit
-from string import lower
+try:
+    from io import StringIO
+except:
+    from StringIO import StringIO
 
 # write a string with a certain precision
 def strWithPrecision(number, precision):
@@ -26,13 +29,13 @@ def Contains(listy, stringy):
   return i
 
 def findIndexStringStartingWith(listy, stringy, startPos = 0):
-  for i in xrange(max(startPos, 0), len(listy) , 1):
+  for i in range(max(startPos, 0), len(listy) , 1):
     if listy[i].startswith(stringy):
       return i
   return (-1)
 
-def rfindIndexStringStartingWith(listy, stringy, startPos = sys.maxint):
-  for i in xrange(min(len(listy), startPos), 0, -1):
+def rfindIndexStringStartingWith(listy, stringy, startPos = sys.maxsize):
+  for i in range(min(len(listy), startPos), 0, -1):
     if listy[i].startswith(stringy):
       return i
   return (-1)
@@ -400,7 +403,7 @@ def findAllNonArrayVariablesAndIndices(line):
       i += 1
   return tokens, listOIndices
 
-# find all things that look like variables  
+# find all things that look like variables
 def findAllNonArrayVariables(line):
   return findAllNonArrayVariablesAndIndices(line)
 
@@ -426,7 +429,7 @@ def findEndOfUncommentedCPPFunction(ourLines, startLine):
       break
     startLine += 1
   if startLine == len(ourLines):
-    print "Unbalanced brackets in " + '\n'.join(ourLines) + "terminating "
+    print("Unbalanced brackets in " + '\n'.join(ourLines) + "terminating ")
     sys.exit(1)
   return startLine
 
@@ -474,13 +477,13 @@ def walkToEndOfNumber(strn, startPos):
           i = last
   return i
 
-ishex = [ isdigit(chr(x)) or (chr(x) >= 'a' and chr(x) <= 'f') or (chr(x) >= 'A' and chr(x) <= 'F') for x in xrange(256)]
+ishex = [ isdigit(chr(x)) or (chr(x) >= 'a' and chr(x) <= 'f') or (chr(x) >= 'A' and chr(x) <= 'F') for x in range(256)]
 
 def walkToEndOfCPPNumber(strn, startPos):
   en = walkToEndOfNumber(strn, startPos)
   if en == startPos or en == len(strn) or not isalpha(strn[en]):
     return en
-  low = lower(strn[en])
+  low = strn[en].lower()
 
   # handle floating point suffices
   if low == 'f' or low == 'd':
@@ -493,17 +496,17 @@ def walkToEndOfCPPNumber(strn, startPos):
       en += 1
     if en == len(strn) or not isalpha(strn[en]):
       return en
-    low = lower(strn[en])
+    low = strn[en].lower()
 
   # handle integral suffices
   if low == 'u':
     en += 1
     if en == len(strn):
       return en
-    low = lower(strn[en])
+    low = strn[en].lower()
   if low == 'l':
     en += 1
-    if en < len(strn) and lower(strn[en]) == 'l':
+    if en < len(strn) and strn[en].lower() == 'l':
       return en + 1
   return en
 
@@ -595,7 +598,7 @@ def walkToEndOfNextScope(strn, startPos):# assumes no comments or spaces
           parenDepth -= 1
         endPos += 1
   else:
-    print "no valid scope!: " + strn
+    print("no valid scope!: " + strn)
     sys.exit(1)
   return endPos
 
@@ -678,7 +681,7 @@ def stripComments(ourLines):
       if(len(strings)):
         buffer += strings + '\n'
   walker = 0
-  placer = cStringIO.StringIO()
+  placer = StringIO()
   inEscape = 0
   if len(buffer):
     while walker + 1 < len(buffer):
@@ -750,8 +753,8 @@ def stripComments(ourLines):
     placer.write(buffer[walker])
   buffer = placer.getvalue()
   ourLines = buffer.split('\n')
-  ourLines = [ourLines[i].strip() for i in xrange(len(ourLines)) if ourLines[i] != None]
-  ourLines = [ourLines[i] for i in xrange(len(ourLines)) if len(ourLines[i]) > 0]
+  ourLines = [ourLines[i].strip() for i in range(len(ourLines)) if ourLines[i] != None]
+  ourLines = [ourLines[i] for i in range(len(ourLines)) if len(ourLines[i]) > 0]
   return(ourLines)
 
 def stripCommentsAndQuotes(ourLines):
@@ -762,7 +765,7 @@ def stripCommentsAndQuotes(ourLines):
       if(len(strings)):
         buffer += strings + '\n'
   walker = 0
-  placer = cStringIO.StringIO()
+  placer = StringIO()
   inEscape = 0
   if len(buffer):
     while walker + 1 < len(buffer):
@@ -830,8 +833,8 @@ def stripCommentsAndQuotes(ourLines):
     placer.write(buffer[walker])
   buffer = placer.getvalue()
   ourLines = buffer.split('\n')
-  ourLines = [ourLines[i].strip() for i in xrange(len(ourLines)) if ourLines[i] != None]
-  ourLines = [ourLines[i] for i in xrange(len(ourLines)) if len(ourLines[i]) > 0]
+  ourLines = [ourLines[i].strip() for i in range(len(ourLines)) if ourLines[i] != None]
+  ourLines = [ourLines[i] for i in range(len(ourLines)) if len(ourLines[i]) > 0]
   return(ourLines)
 
 
@@ -843,7 +846,7 @@ def stripMultilineComments(ourLines):
       if(len(strings)):
         buffer += strings + '\n'
   walker = 0
-  placer = cStringIO.StringIO()
+  placer = StringIO()
   inEscape = 0
   if len(buffer):
     while walker + 1 < len(buffer):
@@ -917,8 +920,8 @@ def stripMultilineComments(ourLines):
     placer.write(buffer[walker])
   buffer = placer.getvalue()
   ourLines = buffer.split('\n')
-  ourLines = [ourLines[i].strip() for i in xrange(len(ourLines)) if ourLines[i] != None]
-  ourLines = [ourLines[i] for i in xrange(len(ourLines)) if len(ourLines[i]) > 0]
+  ourLines = [ourLines[i].strip() for i in range(len(ourLines)) if ourLines[i] != None]
+  ourLines = [ourLines[i] for i in range(len(ourLines)) if len(ourLines[i]) > 0]
   return(ourLines)
 
 def isCommentBlockDelimitingLine(line):
@@ -1007,7 +1010,7 @@ def getDoxyBlocksContainingTag(ourLines, tag):
 def getClassesAndStructs(ourLines):
   lines = stripComments(ourLines)
   lines = [ line.strip() for line in lines if (line.strip().startswith('struct ') or line.strip().startswith('class ')) and not line.strip().endswith(';')]
-  for i in xrange(len(lines)):
+  for i in range(len(lines)):
     if lines[i].startswith('class '):
       lines[i] = lines[i][6:]
     else:
@@ -1024,7 +1027,7 @@ def getClassesAndStructs(ourLines):
 
 def extractStrings(ourLines, prep):
   ourStrings = []
-  for i in xrange(len(ourLines)):
+  for i in range(len(ourLines)):
     if '\'' in ourLines[i] or '"' in ourLines[i]:
       walker = 0
       lastStrEnd = 0
@@ -1099,12 +1102,12 @@ def getFilesFromDirectory(directory, suffix):
 def writeTwoLists(afile, prefix, vars, joiner, RHSs, suffix):
   if len(vars):
     endStr = suffix + prefix
-    afile.write(prefix + endStr.join([(str(vars[i]) + joiner + str(RHSs[i])) for i in xrange(len(vars))]) + suffix)
+    afile.write(prefix + endStr.join([(str(vars[i]) + joiner + str(RHSs[i])) for i in range(len(vars))]) + suffix)
 
 def writeOneList(afile, prefix, vars, suffix):
   if len(vars):
     endStr = suffix + prefix
-    afile.write(prefix + endStr.join([str(vars[i]) for i in xrange(len(vars))]) + suffix)
+    afile.write(prefix + endStr.join([str(vars[i]) for i in range(len(vars))]) + suffix)
 
 def writeOneSet(afile, prefix, vars, suffix):
   if len(vars):

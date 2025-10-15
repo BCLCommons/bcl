@@ -7,9 +7,9 @@ BCL_DIRECTORY=`pwd`
 export TOOLCHAIN_ALIAS TOOLCHAIN BUILD_TYPE_ALIAS BCL_DIRECTORY
 mkdir -p build/${TOOLCHAIN_ALIAS}_${BUILD_TYPE_ALIAS}
 
-python2 ./cmake/scripts/CheckCmakeLists.py ./ -o  
+python ./cmake/scripts/CheckCmakeLists.py ./ -o  
 
-python2 ./scripts/code/CreateNamespaceForwardHeaders.py ./ -o
+python ./scripts/code/CreateNamespaceForwardHeaders.py ./ -o
 
 if [ -z "${SHARED+x}" ] ; then
   tcsh ./scripts/build/check_pump_make.csh -k static 
